@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="464.76422mm"
+   height="154.27638mm"
+   viewBox="0 0 464.76422 154.27638"
+   version="1.1"
+   id="svg3323"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="schema-hardware-modules.svg"
+   inkscape:export-filename="/home/hanappe/documents/ROMI/Scenario/img/basic-design.png"
+   inkscape:export-xdpi="100"
+   inkscape:export-ydpi="100">
+  <defs
+     id="defs3317">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1289"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleInL">
+      <path
+         transform="scale(-0.8)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1287"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker1051"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL">
+      <path
+         transform="scale(0.8)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1049"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4667"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4665"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4487"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL">
+      <path
+         transform="scale(0.8)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4485"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath146">
+      <path
+         d="M 0,720 H 1280 V 0 H 0 Z"
+         id="path144"
+         inkscape:connector-curvature="0" />
+    </clipPath>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker29561"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.8)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path29559"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleInL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="TriangleInL"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1550"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(-0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker1123"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1121"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2093"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleInL">
+      <path
+         inkscape:connector-curvature="0"
+         transform="scale(-0.8)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2091" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2139"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL">
+      <path
+         transform="scale(0.8)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path2137"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker2787"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path2785"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker3508"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.8)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path3506"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker3660"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL">
+      <path
+         transform="scale(0.8)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path3658"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4060"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4058"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4198"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="TriangleOutL"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.8)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path4196"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4558"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4556"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker7324"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7322"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+    <marker
+       inkscape:stockid="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8236"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8234"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003pt;stroke-opacity:1"
+         transform="scale(0.8)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="880.63437"
+     inkscape:cy="254.38965"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1025"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     fit-margin-top="3"
+     fit-margin-left="3"
+     fit-margin-right="3"
+     fit-margin-bottom="3" />
+  <metadata
+     id="metadata3320">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(107.74059,-97.081878)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:22.93055534px;line-height:1.25;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="-114.54632"
+       y="65.630417"
+       id="text961"><tspan
+         sodipodi:role="line"
+         id="tspan959"
+         x="-114.54632"
+         y="85.49292"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:22.93055534px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';stroke-width:0.26458332" /></text>
+    <g
+       id="g3058"
+       transform="matrix(0.35277777,0,0,-0.35277777,-111.92973,347.38762)">
+      <rect
+         transform="scale(1,-1)"
+         y="-561.14917"
+         x="586.9519"
+         height="74.329895"
+         width="315.29419"
+         id="rect1419"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#35a864;stroke-width:3.75;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         transform="scale(1,-1)"
+         id="text1425"
+         y="-515.05884"
+         x="745.17029"
+         style="font-style:normal;font-weight:normal;font-size:30px;line-height:24px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.75"
+         xml:space="preserve"><tspan
+           id="tspan1427"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:24px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:center;text-anchor:middle;stroke-width:0.75"
+           y="-515.05884"
+           x="745.17029"
+           sodipodi:role="line">Onboard PC</tspan></text>
+    </g>
+    <rect
+       y="149.35634"
+       x="236.37247"
+       height="26.362741"
+       width="81.915497"
+       id="rect900"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text906"
+       y="166.26834"
+       x="276.89145"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         id="tspan904"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         y="166.26834"
+         x="276.89145"
+         sodipodi:role="line">CNC controller</tspan></text>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect908"
+       width="81.915497"
+       height="26.362741"
+       x="236.37247"
+       y="186.39801" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="276.89145"
+       y="203.27296"
+       id="text914"><tspan
+         sodipodi:role="line"
+         x="276.89145"
+         y="203.27296"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan912">Motor driver</tspan></text>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect924"
+       width="81.915497"
+       height="26.362741"
+       x="-16.782637"
+       y="149.35634" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="23.736338"
+       y="166.23129"
+       id="text930"><tspan
+         sodipodi:role="line"
+         x="23.736338"
+         y="166.23129"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan928">Motor controller</tspan></text>
+    <text
+       id="text938"
+       y="203.27299"
+       x="23.949778"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan936"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="203.27299"
+         x="23.949778"
+         sodipodi:role="line">Motor driver</tspan></text>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect940"
+       width="55.081005"
+       height="17.827215"
+       x="-36.469185"
+       y="223.43967" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       x="-8.3293829"
+       y="235.45164"
+       id="text946"><tspan
+         sodipodi:role="line"
+         id="tspan942"
+         x="-8.3293839"
+         y="235.45164"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1">Encoders</tspan><tspan
+         sodipodi:role="line"
+         x="-8.3293829"
+         y="243.9183"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.76111078px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         id="tspan944" /></text>
+    <rect
+       y="223.43967"
+       x="29.676645"
+       height="17.827215"
+       width="55.081005"
+       id="rect948"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text954"
+       y="235.45164"
+       x="57.816444"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="235.45164"
+         x="57.816444"
+         id="tspan950"
+         sodipodi:role="line">Motors (2)</tspan><tspan
+         id="tspan952"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.76111078px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="243.9183"
+         x="57.816444"
+         sodipodi:role="line" /></text>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect956"
+       width="55.17345"
+       height="17.827209"
+       x="217.99345"
+       y="223.43967" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="245.96609"
+       y="235.45164"
+       id="text962"><tspan
+         sodipodi:role="line"
+         id="tspan958"
+         x="245.96609"
+         y="235.45164"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332">Motors (4)</tspan><tspan
+         sodipodi:role="line"
+         x="245.96609"
+         y="243.9183"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.76111078px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan960" /></text>
+    <text
+       id="text970"
+       y="161.36833"
+       x="-79.766876"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         y="161.36833"
+         x="-78.433624"
+         id="tspan966"
+         sodipodi:role="line">Remote </tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         y="169.83499"
+         x="-79.766876"
+         sodipodi:role="line"
+         id="tspan972">control</tspan><tspan
+         id="tspan968"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.76111078px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         y="178.30167"
+         x="-79.766876"
+         sodipodi:role="line" /></text>
+    <rect
+       y="149.35634"
+       x="-104.14947"
+       height="26.362741"
+       width="48.192837"
+       id="rect974"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="150.85085"
+       y="117.58501"
+       id="text1002"><tspan
+         id="tspan998"
+         sodipodi:role="line"
+         x="150.85085"
+         y="117.58501"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332">Control panel</tspan><tspan
+         sodipodi:role="line"
+         x="150.85085"
+         y="126.05167"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.76111078px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan1000" /></text>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1004"
+       width="82.769226"
+       height="26.362753"
+       x="109.39011"
+       y="100.673" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker29561)"
+       d="M -56.009889,162.12649 H -18.44542"
+       id="path1027"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path1119"
+       d="M 67.4416,162.12649 H 92.83523"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#TriangleInL);marker-end:url(#marker1123)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:url(#marker2093);marker-end:url(#marker2139)"
+       d="m 208.4582,162.12649 h 25.39362"
+       id="path2089"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path2783"
+       d="m 277.33019,176.29596 v 7.96981"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2787)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker3508)"
+       d="m 245.58018,213.33762 v 7.96981"
+       id="path3504"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker3660)"
+       d="m 23.33021,176.29596 v 7.96981"
+       id="path3654"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path3656"
+       d="m 57.217148,213.33762 v 7.96981"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4060)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4198)"
+       d="m 28.83868,232.35327 h -7.9698"
+       id="path4194"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <path
+       sodipodi:nodetypes="cccc"
+       inkscape:connector-curvature="0"
+       id="path4554"
+       d="m -37.050464,232.35327 h -3.752151 v -64.1386 h 21.894085"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4558)" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path7320"
+       d="m 150.92849,129.10835 0,18.1738"
+       style="fill:none;stroke:#000000;stroke-width:0.26499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#marker1289);marker-end:url(#marker7324)" />
+    <path
+       style="opacity:0.41499999;fill:none;fill-opacity:1;stroke:#35a864;stroke-width:1.32291663;stroke-miterlimit:4;stroke-dasharray:2.64583333, 5.29166667;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -48.899471,101.36097 H 88.778693 V 247.6968 H -48.899471 Z"
+       id="rect8706"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       id="text8763"
+       y="114.15252"
+       x="24.136698"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="114.15252"
+         x="24.136698"
+         id="tspan8759"
+         sodipodi:role="line">Navigation</tspan><tspan
+         id="tspan8761"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.76111078px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="122.61919"
+         x="24.136698"
+         sodipodi:role="line" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       x="284.08475"
+       y="114.15252"
+       id="text8769"><tspan
+         sodipodi:role="line"
+         id="tspan8765"
+         x="284.08475"
+         y="114.15252"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1">Tool positioning</tspan><tspan
+         sodipodi:role="line"
+         x="284.08475"
+         y="122.61919"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.76111078px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         id="tspan8767" /></text>
+    <rect
+       y="186.39804"
+       x="-16.782637"
+       height="26.362741"
+       width="81.915497"
+       id="rect4334"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       y="223.43967"
+       x="282.61823"
+       height="17.827215"
+       width="55.081005"
+       id="rect4475"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text4481"
+       y="235.45164"
+       x="310.75797"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="235.45164"
+         x="310.75797"
+         id="tspan4477"
+         sodipodi:role="line">Encoders</tspan><tspan
+         id="tspan4479"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.76111078px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="243.9183"
+         x="310.75797"
+         sodipodi:role="line" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4487)"
+       d="m 338.54374,232.35327 h 3.75216 v -64.1386 h -21.8941"
+       id="path4483"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc" />
+    <path
+       sodipodi:nodetypes="cc"
+       inkscape:connector-curvature="0"
+       id="path4663"
+       d="m 272.83647,232.35327 h 7.96981"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4667)" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path5391"
+       d="m 214.09644,101.36097 h 139.26574 v 145.2775 H 214.09644 Z"
+       style="opacity:0.41499999;fill:none;fill-opacity:1;stroke:#35a864;stroke-width:1.32291663;stroke-miterlimit:4;stroke-dasharray:2.64583333, 5.29166667;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1043"
+       y="214.9518"
+       x="150.85085"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         y="214.9518"
+         x="150.85085"
+         sodipodi:role="line"
+         id="tspan1039">Camera</tspan><tspan
+         id="tspan1041"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:7.76111078px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         y="223.41846"
+         x="150.85085"
+         sodipodi:role="line" /></text>
+    <rect
+       y="198.03984"
+       x="109.39011"
+       height="26.362753"
+       width="82.769226"
+       id="rect1045"
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#353764;stroke-width:1.18223667;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker1051)"
+       d="m 150.92849,176.18807 v 19.77742"
+       id="path1047"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       x="80.455154"
+       y="160.64359"
+       id="text2181"><tspan
+         sodipodi:role="line"
+         id="tspan2177"
+         x="80.455154"
+         y="160.64359"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:4.23333311px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1">Serial/USB</tspan><tspan
+         sodipodi:role="line"
+         x="80.455154"
+         y="170.64189"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:4.23333311px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         id="tspan2179" /></text>
+    <text
+       id="text2187"
+       y="139.5293"
+       x="162.5069"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:4.23333311px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="139.5293"
+         x="162.5069"
+         id="tspan2183"
+         sodipodi:role="line">Serial/USB</tspan><tspan
+         id="tspan2185"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:4.23333311px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="149.5276"
+         x="162.5069"
+         sodipodi:role="line" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       x="221.3062"
+       y="159.84178"
+       id="text2193"><tspan
+         sodipodi:role="line"
+         id="tspan2189"
+         x="221.3062"
+         y="159.84178"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:4.23333311px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1">Serial/USB</tspan><tspan
+         sodipodi:role="line"
+         x="221.3062"
+         y="169.84009"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:4.23333311px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         id="tspan2191" /></text>
+    <text
+       id="text2199"
+       y="187.63782"
+       x="157.16151"
+       style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:10.58333302px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:4.23333311px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="187.63782"
+         x="157.16151"
+         id="tspan2195"
+         sodipodi:role="line">USB</tspan><tspan
+         id="tspan2197"
+         style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:4.23333311px;line-height:8.46666622px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans Light';text-align:center;text-anchor:middle;stroke:none;stroke-width:0.26458332;stroke-opacity:1"
+         y="197.63612"
+         x="157.16151"
+         sodipodi:role="line" /></text>
+  </g>
+</svg>
