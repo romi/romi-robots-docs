@@ -1,6 +1,5 @@
----
-title: Software Installation
----
+Software Installation
+=====================
 
 ## Overview
 
@@ -18,7 +17,7 @@ Debian (includin Raspian) and Ubuntu.
 The software is mostly writen in C and depends on the following
 libraries:
 
-![](images/software-dependencies.svg)
+![](/assets/images/software-dependencies.svg)
 
 - **libr**: Common code for the rcom and the libromi libraries. It
   provides some OS abstraction (for example for threads, memory

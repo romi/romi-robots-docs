@@ -1,7 +1,2 @@
----
-title: Developer Documentation
----
-
-
-
-Dev
+Developer Documentation
+=======================
