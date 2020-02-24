@@ -26,8 +26,8 @@ extra:
   project: 'The ROMI project has received funding from the European Community’s H2020 Programme under Grant Agreement No. 773875.'
   footer_logo: '/assets/images/eu-flag.png'
   license: 'CC Attribution-NonCommercial-ShareAlike 4.0 International'
-  repo_name: smartcitizen-docs
-  repo_url: https://github.com/fablabbcn/smartcitizen-docs
+  repo_name: romi-robots-docs
+  repo_url: https://github.com/romi/romi-robots-docs
 
 markdown_extensions:
   - admonition
