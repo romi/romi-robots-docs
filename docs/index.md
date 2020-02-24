@@ -4,7 +4,7 @@ In this document you will find information on how to use and build the ROMI robo
 ROMI is an H2020 European project: [Official Website](https://romi-project.eu/).
 
 ## GitHub sources
-For now these [sources](https://github.com/romi) are privates.
+For now these [sources](https://github.com/romi) are private.
 
 ## Project funding
 
