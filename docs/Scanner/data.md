@@ -258,9 +258,6 @@ mydb/
 │   │   └── sparse.ply
 │   ├── CurveSkeleton_out__TriangleMesh_6a92751c20
 │   │   └── CurveSkeleton.json
-│   ├── db.db
-│   ├── db.db-shm
-│   ├── db.db-wal
 │   ├── files.json
 │   ├── images
 │   │   ├── pict20190201_110110_0.jpg
