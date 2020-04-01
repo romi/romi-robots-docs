@@ -1,4 +1,4 @@
-Scanner
+How to use the ROMI scanner software?
 =======
 
 This is a document centralizing all documentation for the 3D scanner.
@@ -6,6 +6,7 @@ The 3D scanner software is composed of several python libraries organized in dif
 
 * `romidata`: the data processing module
 * `lettucethink`: the hardware interface
+* `romiscanner`: the scanner interface and the virtual scanner
 * `romiscan`: the computer vision algorithms
 * `romiseg`: the segmentation models
 
@@ -14,143 +15,84 @@ Additionally, some [CGAL](https://www.cgal.org/) bindings are implemented in a s
 A separate repository is dedicated to the virtual scanner, which is available as a blender python (bpy) script.
 
 
-# Getting started
-
-## Installation
+## Getting started
 
 There are some requirements to use the different algorithms in the pipeline.
 Most of them are installed automatically from the requirements file when using pip.
 The most important part is [Colmap](https://colmap.github.io/) (v3.6).
 
-Preferably, create a virtual environment for python 3.7 or python 3.8 using `virtualenv` or a conda environment specific to the 3D Scanner. **Beware**: if using python 3.8, Open3D binaries are not yet available on pip, therefore you have to build Open3D from sources!
+The two requirements that are not shipped with pip are:
+
+* [Colmap](https://colmap.github.io/) (v3.6) for the structure from motion algorithms
+* [Blender](https://www.blender.org/) (>= 2.81) for the virtual scanner
+
+Preferably, create a virtual environment for python 3.7 or python 3.8 using `virtualenv` or a conda environment specific to the 3D Scanner.
+
+!!! warning
+    If using python 3.8, Open3D binaries are not yet available on pip, therefore you have to build Open3D from sources!
+
+
+## How to - Install ROMI packages
+Choose between a Python `venv` or a `conda` environment (A or B).
 
 ### A - Create a virtual environment
+To create a `venv` named `scan3d` with Python 3.7:
 ```bash
-virtualenv -p /usr/bin/python3.7 scan3d && source scan3d/bin/activate
+virtualenv -p /usr/bin/python3.7 scan3d
+```
+
+!!! note
+    This should probably be replaced by:
+    ```bash
+    python3.7 -m venv scan3d
+    ```
+
+Then activate it with:
+```bash
+source scan3d/activate
+```
+Now you can now easily install Python packages, for example `NumPy`, as follow:
+```bash
+pip install numpy
 ```
 
 ### B - Create a conda environment:
+To create a conda environment named `scan3d` with Python 3.7:
 ```bash
-conda create -n scan3d
+conda create -n scan3d python==3.7
 ```
-
-
-### Install `colmap`:
-Follow the procedure from the official documentation [here](https://colmap.github.io/install.html#).
-Make sure to use version 3.6.
-
-TODO: use COLMAP python build [script](https://colmap.github.io/install.html#build-script) to make conda package?
-
-Note: If you are using a conda environment, you can install `ceres-solver` dependency for COLMAP from the conda-forge channel:
+Then activate it:
 ```bash
-conda install ceres-solver -c conda-forge
+conda activate scan3d
 ```
-
-
-### Optional - Use NVIDIA for OpenCL
-If you want to use NVIDIA for OpenCL in the processing pipeline, install `pyopencl` from source, and configure it to use OpenCL 1.2 (NVIDIA does not
-support the default OpenCL 2.0).
-
-First, make sure you have python headers installed, on ubuntu:
+Now you can now easily install Python packages, for example `NumPy`, as follow:
 ```bash
-apt install python3.7-dev
+conda install numpy
 ```
 
-Then install `pyopencl` from source, and configure it to use OpenCL 1.2:
-```bash
-git clone https://github.com/inducer/pyopencl
-cd pyopencl
-git submodule update --init
-pip install pybind11 mako
-./configure.py --cl-pretend-version=1.2 # NVIDIA has bad OpenCL support and only provides OpenCL 1.2
-python setup.py install
-cd ..
-```
 
-### Install `romidata`, `lettucethink` & `cgal_bindings_skeletonization` with `pip`:
-To install directly using `pip`, you need `ssh` access to the ROMI repository on GitHub!
-
-#### Install `romidata`:
-```bash
-pip install git+https://github.com/romi/data-storage.git@dev
-```
-
-#### Install `lettucethink`:
-```bash
-pip install git+https://github.com/romi/lettucethink-python@dev
-```
-
-#### Install `cgal_bindings_skeletonization`:
-```bash
-pip install git+https://github.com/romi/cgal_bindings_skeletonization
-```
-Note: this takes some time since it has to download dependencies and compile
-
-#### Install `Scan3D`:
-
-##### A - From sources:
-Clone the Scan3D repository and install requirements
-```bash
-git clone https://github.com/romi/Scan3D
-cd Scan3D
-git checkout dev
-pip install .
-```
-
-##### B - From `pip`:
-```bash
-pip install git+https://github.com/romi/Scan3D@dev
-```
-
-The `Scan3D` package is now installed. 
-
-
-#### Optional - Install `romiseg`:
-To install the additional segmentation module:
-```bash
-pip install git+ssh://git@github.com/romi/Segmentation@dev
-```
-(TODO: make `romiseg` public)
-
-**Beware:** If not using CUDA 10.0, you have to install the matching pytorch distribution: for example,
-for CUDA 9.2, use
-```
-pip install torch==1.4.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
-```
-
-## Initializing a Database
-
+## How to - Initialize a database
 The `FSDB` class from the `romidata` module is used for data storage.
 A database is any folder which contains a file named `romidb`.
 To create an empty database, just create a new folder and an empty file named `romidb` in it.
 
-# Processing pipelines
+For example:
+```bash
+mkdir /path/to/my/db
+cd /path/to/my/db
+touch romidb
+```
 
-## Testing on a test db
-
-Get the test DB from :
-```bash
- wget https://db.romi-project.eu/models/test_db.tar.gz
-```
-Extract it:
-```bash
-tar -xvf test_db.tar.gz
-```
-Test the virtual plant pipeline on a virtual scan:
-```bash
-run-task --config Scan3D/default/segmentation2d_arabidopsis.toml PointCloud integration_tests/arabidopsis_26 --log-level DEBUG --local-scheduler
-```
-This should process all dependencies to obtain a segmented "PointCloud.ply" !
 
 ## Basic usage
 
-Every task on the scanner is launched through the `run-task` command provided in
+Every task on the scanner is launched through the `romi_run_task` command provided in
 the `romiscan` module. It is a wrapper for `luigi`, with preloaded tasks from
 the `romiscan` module.
 
 The general usage is as follows:
 ```bash
-run-task [-h] [--config CONFIG] [--luigicmd LUIGICMD] [--module MODULE]
+romi_run_task [-h] [--config CONFIG] [--luigicmd LUIGICMD] [--module MODULE]
 [--local-scheduler] [--log-level LOG_LEVEL] task scan
 ```
 
@@ -181,78 +123,8 @@ parameter1 = value1
 parameter2 = value2
 ```
 
-## Running scans
-
-`Scan` is the basic task for running a task with the scanner. A sample
-configuration file for the (real) scanner is as follows:
-
-To see available parameters for scanner, camera, CNC, check the `lettucethink` module.
-
-Create a file named `scanner.toml` with the following text, adjusting parameters as needed for the actual configuration of the scanner.
-Check the `lettucethink` documentation for additional information.
-
-```toml
-[Scan.scanner]
-camera_firmware = "sony_wifi"
-cnc_firmware = "grbl-v1.1"
-gimbal_firmware = "blgimbal"
-
-[Scan.scanner.scanner_args] # These are the kwargs passed to the scanner constructor
-inverted = false
-
-[Scan.scanner.camera_args] # These are the kwargs passed to the camera constructor
-postview = true
-device_ip = "10.0.2.66"
-api_port = "10000"
-
-[Scan.scanner.cnc_args] # These are kwargs passed to the CNC constructor
-homing = true
-port = "/dev/ttyUSB0"
-
-[Scan.scanner.gimbal_args]
-port = "/dev/ttyACM1"
-has_tilt = false
-zero_pan = 145
-
-[Scan.scanner.camera_model] # This is a precalibrated camera model
-width = 1616
-height = 1080
-id = 1
-model = "OPENCV"
-params = [ 1120.72122223961, 1120.72122223961, 808.0, 540.0, 0.0007513494532588769, 0.0007513494532588769, 0.0, 0.0,]
-
-[Scan.scanner.workspace] # A volume containing the target scanned object
-x = [ 200, 600,]
-y = [ 200, 600,]
-z = [ -100, 300,]
-
-[Scan.path] # Example circular scan with 72 points:
-type = "circular"
-
-[Scan.path.args]
-num_points = 3
-radius = 350
-tilt = 0.45 # rad
-xc = 400
-yc = 400
-z = 0
-
-[Scan.metadata]
-key = value # Any metadata you want to add to the scan
-```
-
-Then, run a scan using
-```bash
-run-task --config scanner.json Scan /path/to/db/scan_id/ --local-scheduler
-```
-`/path/to/db` must be an existing FSDB database and `scan_id` must not already exist in the database.
-This will create the corresponding folder and fill it with images from the scan.
-
-
 ## Pipelines
-
-This is a sample configuration for the full pipeline:
-
+This is a sample configuration for the _full reconstruction pipeline_:
 ```toml
 [Colmap]
 matcher = "exhaustive"
@@ -289,20 +161,20 @@ pcd_source = "vox2pcd"
 mesh_source = "delaunay"
 ```
 
-To run the pipeline use `run-task`
+To run the _full reconstruction pipeline_ use this configuration file with `romi_run_task`:
 ```bash
-run-task --config scanner.json AnglesAndInternodes /path/to/db/scan_id/ --local-scheduler
+romi_run_task --config scanner.json AnglesAndInternodes /path/to/db/scan_id/ --local-scheduler
 ```
 
 This will process all tasks up to the `AnglesAndInternodes` task.
 Every task produces a `Fileset`, a subdirectory in the scan directory whose name starts the same as the task name.
 The characters following are a hash of the configuration of the task, so that the outputs of the same task with different parameters can coexist in the same scan.
-Any change in the parameters will make the needed task to be recomputed with subsequent calls of `run-task`.
+Any change in the parameters will make the needed task to be recomputed with subsequent calls of `romi_run_task`.
 Already computed tasks will be left untouched.
 
-To recompute a task, just delete the corresponding folder in the scan directory and rerun `run-task`.
+To recompute a task, just delete the corresponding folder in the scan directory and rerun `romi_run_task`.
 
-# Default task reference
+## Default task reference
 default_modules = {
     "Scan": "romiscan.tasks.scan",
     "Clean": "romiscan.tasks.scan",
@@ -319,6 +191,10 @@ default_modules = {
     "AnglesAndInternodes": "romiscan.tasks.arabidopsis",
     "Visualization": "romiscan.tasks.visualization"
 }
+
+!!! warning
+    This is for reference only, please update the changes in the code.**
+    This will be later replaced by a reference doc generated from the code!
 
 ```
 Class name: Scan
@@ -448,142 +324,6 @@ Upstream task format: json
 Output task format: json (TODO: precise)
 ```
 
-# Visualizer
-
-## Running a development server for the visualizer
-
-Clone the visualizer git repository :
-```bash
-git clone git@github.com:romi/sony_visualiseur-plantes-3d.git
-cd sony_visualiseur-plantes-3d
-```
-
-Install node packages and build the pages:
-```bash
-npm install
-```
-
-Set the DB location using the `DB_LOCATION` environment variable:
-```bash
-export DB_LOCATION=/path/to/the/db
-```
-
-Launch the flask development server:
-```bash
-scanner-rest-api
-```
-
-Finally, start the frontend development server:
-```bash
-npm start
-```
-
-You can now access the visualizer on [http://localhost:3000](http://localhost:3000).
-
-## Ready to run docker image
-
-See: [*visualizer*](/dev/docker/#visualizer) docker image.
-
-
-## Visualizer API reference
-
-# Virtual scanner
-
-## Basic usage
-
-The virtual scanner works like an HTTP server using Blender.
-First, make sure you have `blender` (>= 2.80) installed on your machine.
-
-Then, clone the directory and access it:
-```bash
-git clone git@github.com:romi/blender_virtual_scanner.git
-cd blender_virtual_scanner
-```
-
-You can obtain sample data for the scanner here, and put it in the data
-folder.
-```bash
-wget https://db.romi-project.eu/models/arabidopsis_data.zip
-unzip arabidopsis_data.zip -d data
-```
-
-To use custom data, it must consist in `.obj` file, in which each type of organ corresponds to a distinct mesh.
-This mesh must have a single material whose name is the name of the organ.
-The data dir must contain the `obj` and `mtl` files.
-
-Additionally, background HDRI files can be downloaded from (hdri haven)[https://hdrihaven.com/].
-Download `.hdr` files and put them in the `hdri` folder.
-
-To start the virtual scanner, run the following script in blender:
-```bash
-blender [scene/texture.blend] -b -P scan.py
-```
-
-It will start an HTTP server on port `5000`.
-
-## Preparing data
-If you have 3D models with a single mesh
-
-## Running a scan (with `romiscan` and `lettucethink`)
-
-The virtual scanner is integrated in lettucethink-python, so that it can be used directly with the `Scan` task in `run-task`.
-
-Here is a sample configuration for the virtual scanner creating 640x480 images with ground truth segmentation of organs.
-The server mentioned above must be running before running `run-task`.
-
-```toml
-[Scan.scanner]
-camera_firmware = "virtual"
-cnc_firmware = "virtual"
-gimbal_firmware = "virtual"
-id = "virtual"
-
-[Scan.path]
-id = "virtual"
-type = "circular"
-
-[Scan.scanner.scanner_args]
-inverted = false
-
-[Scan.scanner.camera_args]
-width = 640
-height = 480
-focal = 25
-render_ground_truth = true
-load_object = "arabidopsis_0.obj?dx=10&dy=10&dz=-5"
-load_background = "quarry_03_8k.hdr"
-
-[Scan.scanner.cnc_args]
-
-[Scan.scanner.gimbal_args]
-
-[Scan.scanner.workspace]
-x = [ 200, 600,]
-y = [ 200, 600,]
-z = [ -100, 300,]
-
-[Scan.path.args]
-num_points = 10
-radius = 100
-tilt = 0.45
-xc = 0
-yc = 0
-z = 50
-```
-
-## Running the pipeline with ground-truth poses (without Colmap)
-
-To run the pipeline without `colmap` and use the virtual scanner poses as a ground
-truth, one must use set the following parameters:
-
-```toml
-[Voxels]
-use_colmap_poses = false
-[Masks]
-upstream_task = Scan
-```
-
-Then the pipeline can be run as usual and `colmap` will not be run.
 
 ## Scanner API reference
 

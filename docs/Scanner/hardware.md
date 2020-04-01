@@ -1,6 +1,13 @@
 Hardware setup and instructions
 ===============================
 
+## Network overview
+
+We start by introducing the general network design of the ROMI Plant Phenotyper:
+
+<img src="/assets/images/scanner_network.png" alt="Plant Phenotyper - Network overview" width="800" />
+
+
 ## Hardware configuration files
 
 To gather configuration information of the hardware we use `toml` files to define variables.

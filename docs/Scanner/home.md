@@ -10,4 +10,4 @@ User story:
 3. The user **defines a pipeline** to reconstruct and quantify plants architecture by choosing among a set of predefined methods and algorithms. These instructions may be run by a distant server.
 4. Finally the user can access the acquisitions, reconstructions & quantitative data by connecting to a visualization server using his/her computer
 
-<img src="/images/intract_plan.png" alt="Plant scanner overview" width="800" />
+<img src="/assets/images/intract_plan.png" alt="Plant scanner overview" width="800" />
