@@ -1,10 +1,9 @@
-## Processing pipelines
 
-!!! warning
-TODO: Input(s), output(s) and Tasks (with description).
-!!!
+!!! warning 
+    Input(s), output(s) and Tasks (with description).
 
-### Generation of virtual plant datasets
+
+## Generation of virtual plant datasets
 
 {% dot virtual_plant_pipeline.svg
 digraph dfd2{
@@ -27,7 +26,7 @@ digraph dfd2{
 }
 %}
 
-### Plant Reconstruction from RGB images
+## Plant Reconstruction from RGB images
 First level are tasks names, then the module names and a description.
 Folder shaped boxes indicate files input/output.
 
@@ -52,7 +51,7 @@ digraph dfd2{
         voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Space carving?\n}" shape=Mrecord];
         voxel_task_out [label="Binary Voxel (NPZ)" shape=folder];
 
-        pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> Space carving?\n}" shape=Mrecord];
+        pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> PointCloud from a set of Masks.\n}" shape=Mrecord];
         pointcloud_task_out [label="Plant pointcloud (PLY)" shape=folder];
 
         triangle_mesh_task [label="{<f0> TriangleMesh|<f1> romiscan.tasks.proc3d|<f2> Generate a Mesh from a PointCloud.\n}" shape=Mrecord];
@@ -110,7 +109,7 @@ clutered_mesh_task -> clutered_mesh_task_out
 }
 %}
 
-### 3D Plant Phenotyping
+## 3D Plant Phenotyping
 
 {% dot plant_pheno_pipeline.svg
 digraph dfd2{
