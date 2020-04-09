@@ -31,10 +31,10 @@ digraph dfd2{
         scan_out2 [label="Approximate camera poses from CNC (JSON)" shape=folder];
         scan_out3 [label="Metadata (JSON)" shape=folder];
     }
-    input -> scan_task
-    scan_task -> scan_out1
-    scan_task -> scan_out2
-    scan_task -> scan_out3
+    input -> scan_task;
+    scan_task -> scan_out1;
+    scan_task -> scan_out2;
+    scan_task -> scan_out3;
 }
 %}
 
@@ -45,7 +45,9 @@ digraph dfd2{
 digraph dfd2{
     node[shape=record width=3]
     subgraph level0{
-        input [label="LPY parameters (TOML)" shape=note];
+        lpy_input [label="LPY parameters (TOML)" shape=note];
+        vs_input [label="VirtualScan parameters (TOML)" shape=note];
+        {rank=same; lpy_input, vs_input}
     }
     subgraph cluster_level1{
         label ="Virtual plant generator";
@@ -56,12 +58,13 @@ digraph dfd2{
         virtualscan_out1 [label="Multiple RGB images (PNG|JPEG)" shape=folder];
         virtualscan_out2 [label="Camera poses (JSON)" shape=folder];
     }
-    input -> virtualplant_task
-    virtualplant_task -> virtualplant_out1
-    virtualplant_task -> virtualplant_out2
-    virtualplant_out1 -> virtualscan_task
-    virtualscan_task -> virtualscan_out1
-    virtualscan_task -> virtualscan_out2
+    lpy_input -> virtualplant_task;
+    vs_input -> virtualscan_task;
+    virtualplant_task -> virtualplant_out1;
+    virtualplant_task -> virtualplant_out2;
+    virtualplant_out1 -> virtualscan_task;
+    virtualscan_task -> virtualscan_out1;
+    virtualscan_task -> virtualscan_out2;
 }
 %}
 
@@ -72,68 +75,77 @@ digraph dfd2{
     node[shape=record width=3]
     subgraph level0{
         input [label="Multiple RGB images (PNG|JPEG)" shape=folder];
-        colmap_task [label="{<f0> Colmap|<f1> romiscan.tasks.colmap|<f2> Camera poses estimation.\n}" shape=Mrecord];
-        colmap_out_1 [label="Camera poses (JSON)" shape=folder];
-        colmap_out_2 [label="PointCloud (PLY)" shape=folder];
-        {rank=same; colmap_out_1, colmap_out_2}
     }
+    subgraph level0{
+        undistorted_task [label="{<f0> Undistorted|<f1> romiscan.tasks.proc2d|<f2> Undistorts images using computed\n intrinsic camera parameters.\n}" shape=Mrecord];
+        undistorted_out [label="Undistorted images (PNG)" shape=folder];
+    }
+    input -> undistorted_task;
+    subgraph level0{
+        colmap_task [label="{<f0> Colmap|<f1> romiscan.tasks.colmap|<f2> Camera poses estimation.\n}" shape=Mrecord];
+        colmap_out_img_md [label="Images metadata (JSON)\n images.json" shape=folder];
+        colmap_out_cam [label="Camera poses (JSON)\n cameras.json" shape=folder];
+        colmap_out_pts [label="Points in 3D (JSON)\n points3D.json" shape=folder];
+        colmap_out_ply [label="PointCloud (PLY)\n sparse.ply (, dense.ply)" shape=folder];
+    }
+    input -> colmap_task;
+    colmap_task -> colmap_out_cam;
+    colmap_task -> {colmap_out_img_md colmap_out_pts colmap_out_ply} [constraint=false];
+    undistorted_out -> mask_task;
+    #
     # algorithmic pipeline
-    subgraph cluster_level1{
+    subgraph cluster_level0{
         label="Algorithmic Pipeline";
         mask_task [label="{<f0> Mask|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection.\n}" shape=Mrecord];
-        mask_out [label="Binary masks (PNG)" shape=folder];
-        voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Space carving?\n}" shape=Mrecord];
+        mask_out [label="Grayscale or Binary masks (PNG)" shape=folder];
+        voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Computes a volume from backprojection\n of 2D segmented images.\n}" shape=Mrecord];
         voxel_out [label="Binary Voxel (NPZ)" shape=folder];
-        pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> PointCloud from a set of Voxels.\n}" shape=Mrecord];
+        pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> Computes a point cloud from\n volumetric voxel data.\n}" shape=Mrecord];
         pointcloud_out [label="Plant pointcloud (PLY)" shape=folder];
-        triangle_mesh_task [label="{<f0> TriangleMesh|<f1> romiscan.tasks.proc3d|<f2> Generate a Mesh from a PointCloud.\n}" shape=Mrecord];
+        triangle_mesh_task [label="{<f0> TriangleMesh|<f1> romiscan.tasks.proc3d|<f2> Triangulates input point cloud.\n}" shape=Mrecord];
         triangle_mesh_out [label="Mesh (PLY)" shape=folder];
         skeleton_task [label="{<f0> Skeletonization|<f1> romiscan.tasks.proc3d|<f2> Mesh skeletonization.\n}" shape=Mrecord];
         skeleton_out [label=" ? (JSON)" shape=folder];
         tree_graph_task [label="{<f0> TreeGraph|<f1> romiscan.tasks.arabidopsis|<f2> Plant skeleton to TreeGraph structure.\n}" shape=Mrecord];
         tree_graph_out [label=" TreeGraph (JSON)" shape=folder];
     }
-    input -> mask_task
-    colmap_out_1 -> voxel_task
-    mask_out -> voxel_task
-    voxel_out -> pointcloud_task
-    pointcloud_out -> triangle_mesh_task
-    triangle_mesh_out -> skeleton_task
-    skeleton_out -> tree_graph_task
+    input -> mask_task;
+    colmap_out_cam -> voxel_task;
+    mask_out -> voxel_task;
+    voxel_out -> pointcloud_task;
+    pointcloud_out -> triangle_mesh_task;
+    triangle_mesh_out -> skeleton_task;
+    skeleton_out -> tree_graph_task;
+    mask_task -> mask_out;
+    voxel_task -> voxel_out;
+    pointcloud_task -> pointcloud_out;
+    triangle_mesh_task -> triangle_mesh_out;
+    skeleton_task -> skeleton_out;
+    tree_graph_task -> tree_graph_out;
     #
     # Machine Learning Pipeline
-    subgraph cluster_level2{
+    subgraph cluster_level1{
         label="Machine Learning Pipeline";
-        segmentation_task [label="{<f0> Segmentation2D|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection with labels.\n}" shape=Mrecord];
+        segmentation_task [label="{<f0> Segmentation2D|<f1> romiscan.tasks.proc2d|<f2> Compute masks using\n trained deep learning models.\n}" shape=Mrecord];
         segmentation_out [label="Masks (PNG)" shape=folder];
-        mvoxel_task [label="{<f0> Voxels|<f1> romiscan.tasks.cl|<f2> Space carving?\n}" shape=Mrecord];
+        mvoxel_task [label="{<f0> Voxels|<f1> romiscan.tasks.cl|<f2> Computes a volume from backprojection\n of 2D segmented images.\n}" shape=Mrecord];
         mvoxel_out [label="Binary Voxel (NPZ)" shape=folder];
-        lpointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> Space carving?\n}" shape=Mrecord];
+        lpointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> Computes a point cloud from\n volumetric voxel data.\n}" shape=Mrecord];
         lpointcloud_out [label="Plant pointcloud (PLY)" shape=folder];
-        clutered_mesh_task [label="{<f0> ClusteredMesh|<f1> romiscan.tasks.proc3d|<f2> Generate a Mesh from a PointCloud.\n}" shape=Mrecord];
+        clutered_mesh_task [label="{<f0> ClusteredMesh|<f1> romiscan.tasks.proc3d|<f2> Triangulates input point cloud.\n}" shape=Mrecord];
         clutered_mesh_out [label="Mesh (PLY)" shape=folder];
     }
-    input -> colmap_task
     # ML pipeline:
-    input -> segmentation_task
-    colmap_out_1 -> segmentation_task
-    segmentation_out -> mvoxel_task
-    mvoxel_out -> lpointcloud_task
-    lpointcloud_out -> clutered_mesh_task
-colmap_task -> colmap_out_1
-colmap_task -> colmap_out_2
-# algorithmic pipeline
-mask_task -> mask_out
-voxel_task -> voxel_out
-pointcloud_task -> pointcloud_out
-triangle_mesh_task -> triangle_mesh_out
-skeleton_task -> skeleton_out
-tree_graph_task -> tree_graph_out
-# ML pipeline:
-segmentation_task -> segmentation_out
-mvoxel_task -> mvoxel_out
-lpointcloud_task -> lpointcloud_out
-clutered_mesh_task -> clutered_mesh_out
+    undistorted_task -> undistorted_out;
+    undistorted_out -> segmentation_task;
+    colmap_out_cam -> segmentation_task;
+    segmentation_out -> mvoxel_task;
+    mvoxel_out -> lpointcloud_task;
+    lpointcloud_out -> clutered_mesh_task;
+    segmentation_task -> segmentation_out;
+    mvoxel_task -> mvoxel_out;
+    lpointcloud_task -> lpointcloud_out;
+    clutered_mesh_task -> clutered_mesh_out;
 }
 %}
 
@@ -152,10 +164,10 @@ digraph dfd2{
         angles_and_internodes_task [label="{<f0> AnglesAndInternodes|<f1> romiscan.tasks.arabidopsis|<f2> Compute organs angles and internodes.\n}" shape=Mrecord];
         angles_and_internodes_out [label="Measures (JSON)" shape=folder];
     }
-config_input -> angles_and_internodes_task
-algo_input -> angles_and_internodes_task
-ml_input -> angles_and_internodes_task
-angles_and_internodes_task -> angles_and_internodes_out
+config_input -> angles_and_internodes_task;
+algo_input -> angles_and_internodes_task;
+ml_input -> angles_and_internodes_task;
+angles_and_internodes_task -> angles_and_internodes_out;
 }
 %}
 
@@ -182,26 +194,26 @@ digraph dfd2{
         virtualscan_out2 [label="Camera poses (JSON)" shape=folder];
         virtualscan_out3 [label="Ground truth segmentation (JSON)" shape=folder style="dashed"];
     }
-    lpy_input -> virtualplant_task
-    virtualplant_task -> {virtualplant_out1 virtualplant_out2}
-    virtualplant_out1 -> virtualscan_task
-    virtualscan_task -> {virtualscan_out1 virtualscan_out2 virtualscan_out3}
+    lpy_input -> virtualplant_task;
+    virtualplant_task -> {virtualplant_out1 virtualplant_out2};
+    virtualplant_out1 -> virtualscan_task;
+    virtualscan_task -> {virtualscan_out1 virtualscan_out2 virtualscan_out3};
     subgraph cluster_level2{
         label="Algorithmic Pipeline";
         mask_task [label="{<f0> Mask|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection.\n}" shape=Mrecord];
         mask_out [label="Binary masks (PNG)" shape=folder];
     }
-    config_input -> mask_task
-    mask_task -> mask_out
+    config_input -> mask_task;
+    mask_task -> mask_out;
     subgraph cluster_level3{
         label="Evaluation";
         #style=filled; fillcolor=aquamarine;
         seg2deval_task [label="{<f0> Segmentation2DEvaluation|<f1> romiscan.tasks.evaluation|<f2> Get ground truth voxel from virtual plant.\n}" shape=Mrecord];
         seg2deval_out [label="Evaluate masks detection (JSON)" shape=folder];
     }
-    mask_out -> seg2deval_task
-    virtualscan_out3 -> seg2deval_task
-    seg2deval_task -> seg2deval_out
+    mask_out -> seg2deval_task;
+    virtualscan_out3 -> seg2deval_task;
+    seg2deval_task -> seg2deval_out;
 }
 %}
 
@@ -223,21 +235,21 @@ digraph dfd2{
         virtualplant_out1 [label="3D Plant (OBJ)" shape=folder];
         virtualplant_out2 [label="Angles & internodes (JSON)" shape=folder];
     }
-    lpy_input -> virtualplant_task
-    virtualplant_task -> {virtualplant_out1 virtualplant_out2}
+    lpy_input -> virtualplant_task;
+    virtualplant_task -> {virtualplant_out1 virtualplant_out2};
     #
     # Algorithmic Pipeline
     subgraph cluster_level2{
         label="Algorithmic Pipeline";
         mask_task [label="{<f0> Mask|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection.\n}" shape=Mrecord];
         mask_out [label="Binary masks (PNG)" shape=folder];
-        voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Space carving?\n}" shape=Mrecord];
+        voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Computes a volume from backprojection\n of 2D segmented images.\n}" shape=Mrecord];
         voxel_out [label="Binary Voxel (NPZ)" shape=folder];
     }
-    config_input -> mask_task
-    mask_task -> mask_out
-    mask_out -> voxel_task
-    voxel_task -> voxel_out
+    config_input -> mask_task;
+    mask_task -> mask_out;
+    mask_out -> voxel_task;
+    voxel_task -> voxel_out;
     #
     # Evaluation
     subgraph cluster_level3{
@@ -247,11 +259,11 @@ digraph dfd2{
         voxeleval_task [label="{<f0> VoxelsEvaluation|<f1> romiscan.tasks.evaluation|<f2> Evaluate voxel detection based on ground truth.\n}" shape=Mrecord];
         voxeleval_out [label="Voxel evaluation (JSON)" shape=folder];
     }
-    virtualplant_out1 -> voxelgroundtruth_task
-    voxelgroundtruth_task -> voxelgroundtruth_out
-    voxelgroundtruth_out -> voxeleval_task
-    voxel_out -> voxeleval_task
-    voxeleval_task -> voxeleval_out
+    virtualplant_out1 -> voxelgroundtruth_task;
+    voxelgroundtruth_task -> voxelgroundtruth_out;
+    voxelgroundtruth_out -> voxeleval_task;
+    voxel_out -> voxeleval_task;
+    voxeleval_task -> voxeleval_out;
 }
 %}
 
@@ -280,17 +292,17 @@ digraph dfd2{
         label="Algorithmic Pipeline";
         mask_task [label="{<f0> Mask|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection.\n}" shape=Mrecord];
         mask_out [label="Binary masks (PNG)" shape=folder];
-        voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Space carving?\n}" shape=Mrecord];
+        voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Computes a volume from backprojection\n of 2D segmented images.\n}" shape=Mrecord];
         voxel_out [label="Binary Voxel (NPZ)" shape=folder];
-        pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> PointCloud from a set of Voxels.\n}" shape=Mrecord];
+        pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> Computes a point cloud from\n volumetric voxel data.\n}" shape=Mrecord];
         pointcloud_out [label="Plant pointcloud (PLY)" shape=folder];
     }
-    config_input -> mask_task
-    mask_task -> mask_out
-    mask_out -> voxel_task
-    voxel_task -> voxel_out
-    voxel_out -> pointcloud_task
-    pointcloud_task -> pointcloud_out
+    config_input -> mask_task;
+    mask_task -> mask_out;
+    mask_out -> voxel_task;
+    voxel_task -> voxel_out;
+    voxel_out -> pointcloud_task;
+    pointcloud_task -> pointcloud_out;
     #
     # Evaluation
     subgraph cluster_level3{
@@ -300,10 +312,10 @@ digraph dfd2{
         pointcloudeval_task [label="{<f0> PointCloudEvaluation|<f1> romiscan.tasks.evaluation|<f2> Evaluate point cloud detection based on ground truth.\n}" shape=Mrecord];
         pointcloudeval_out [label="PointCloud evaluation (JSON)" shape=folder];
     }
-    virtualplant_out1 -> pointcloudgroundtruth_task
-    pointcloudgroundtruth_task -> pointcloudgroundtruth_out
-    pointcloudgroundtruth_out -> pointcloudeval_task
-    pointcloud_out -> pointcloudeval_task
-    pointcloudeval_task ->pointcloudeval_out
+    virtualplant_out1 -> pointcloudgroundtruth_task;
+    pointcloudgroundtruth_task -> pointcloudgroundtruth_out;
+    pointcloudgroundtruth_out -> pointcloudeval_task;
+    pointcloud_out -> pointcloudeval_task;
+    pointcloudeval_task ->pointcloudeval_out;
 }
 %}
