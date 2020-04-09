@@ -160,7 +160,7 @@ angles_and_internodes_task -> angles_and_internodes_out
 
 ## Evaluation
 
-### Voxel task evaluation
+### Mask task evaluation
 
 {% dot voxel_eval.svg
 digraph dfd2{
@@ -171,10 +171,60 @@ digraph dfd2{
     }
     subgraph cluster_level1{
         label ="Virtual plant generator";
+        #style=filled; fillcolor=cornflowerblue;
+        virtualplant_task [label="{<f0> VirtualPlant|<f1> romiscanner.lpy|<f2> LPY 3D plant generator.\n}" shape=Mrecord];
+        virtualplant_out1 [label="3D Plant (OBJ)" shape=folder];
+        virtualplant_out2 [label="Angles & internodes (JSON)" shape=folder];
+        virtualscan_task [label="{<f0> VirtualScan|<f1> romiscanner.scan|<f2> Generate photorealistic images of a virtual plant.\n}" shape=Mrecord];
+        virtualscan_out1 [label="Multiple RGB images (PNG|JPEG)" shape=folder];
+        virtualscan_out2 [label="Camera poses (JSON)" shape=folder];
+        virtualscan_out3 [label="Ground truth segmentation (JSON)" shape=folder style="dashed"];
+    }
+    lpy_input -> virtualplant_task
+    virtualplant_task -> {virtualplant_out1 virtualplant_out2}
+    virtualplant_out1 -> virtualscan_task
+    virtualscan_task -> {virtualscan_out1 virtualscan_out2 virtualscan_out3}
+    subgraph cluster_level2{
+        label="Algorithmic Pipeline";
+        mask_task [label="{<f0> Mask|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection.\n}" shape=Mrecord];
+        mask_out [label="Binary masks (PNG)" shape=folder];
+    }
+    config_input -> mask_task
+    mask_task -> mask_out
+    subgraph cluster_level3{
+        label="Evaluation";
+        #style=filled; fillcolor=aquamarine;
+        seg2deval_task [label="{<f0> Segmentation2DEvaluation|<f1> romiscan.tasks.evaluation|<f2> Get ground truth voxel from virtual plant.\n}" shape=Mrecord];
+        seg2deval_out [label="Evaluate masks detection (JSON)" shape=folder];
+    }
+    mask_out -> seg2deval_task
+    virtualscan_out3 -> seg2deval_task
+    seg2deval_task -> seg2deval_out
+}
+%}
+
+### Voxel task evaluation
+
+{% dot voxel_eval.svg
+digraph dfd2{
+    node[shape=record width=3]
+    subgraph level0{
+        config_input [label="Parameters (TOML)" shape=note];
+        lpy_input [label="LPY parameters (TOML)" shape=note];
+    }
+    #
+    # Virtual plant generator
+    subgraph cluster_level1{
+        label ="Virtual plant generator";
+        #style=filled; fillcolor=cornflowerblue;
         virtualplant_task [label="{<f0> VirtualPlant|<f1> romiscanner.lpy|<f2> LPY 3D plant generator.\n}" shape=Mrecord];
         virtualplant_out1 [label="3D Plant (OBJ)" shape=folder];
         virtualplant_out2 [label="Angles & internodes (JSON)" shape=folder];
     }
+    lpy_input -> virtualplant_task
+    virtualplant_task -> {virtualplant_out1 virtualplant_out2}
+    #
+    # Algorithmic Pipeline
     subgraph cluster_level2{
         label="Algorithmic Pipeline";
         mask_task [label="{<f0> Mask|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection.\n}" shape=Mrecord];
@@ -182,6 +232,12 @@ digraph dfd2{
         voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Space carving?\n}" shape=Mrecord];
         voxel_out [label="Binary Voxel (NPZ)" shape=folder];
     }
+    config_input -> mask_task
+    mask_task -> mask_out
+    mask_out -> voxel_task
+    voxel_task -> voxel_out
+    #
+    # Evaluation
     subgraph cluster_level3{
         label="Evaluation";
         voxelgroundtruth_task [label="{<f0> VoxelGroundTruth|<f1> romiscan.tasks.evaluation|<f2> Get ground truth voxel from virtual plant.\n}" shape=Mrecord];
@@ -189,13 +245,6 @@ digraph dfd2{
         voxeleval_task [label="{<f0> VoxelsEvaluation|<f1> romiscan.tasks.evaluation|<f2> Evaluate voxel detection based on ground truth.\n}" shape=Mrecord];
         voxeleval_out [label="Voxel evaluation (JSON)" shape=folder];
     }
-    lpy_input -> virtualplant_task
-    config_input -> mask_task
-    virtualplant_task -> virtualplant_out1
-    virtualplant_task -> virtualplant_out2
-    mask_task -> mask_out
-    mask_out -> voxel_task
-    voxel_task -> voxel_out
     virtualplant_out1 -> voxelgroundtruth_task
     voxelgroundtruth_task -> voxelgroundtruth_out
     voxelgroundtruth_out -> voxeleval_task
@@ -213,12 +262,18 @@ digraph dfd2{
         config_input [label="Parameters (TOML)" shape=note];
         lpy_input [label="LPY parameters (TOML)" shape=note];
     }
+    #
+    # Virtual plant generator
     subgraph cluster_level1{
         label ="Virtual plant generator";
         virtualplant_task [label="{<f0> VirtualPlant|<f1> romiscanner.lpy|<f2> LPY 3D plant generator.\n}" shape=Mrecord];
         virtualplant_out1 [label="3D Plant (OBJ)" shape=folder];
         virtualplant_out2 [label="Angles & internodes (JSON)" shape=folder];
     }
+    lpy_input -> virtualplant_task
+    virtualplant_task -> {virtualplant_out1 virtualplant_out2}
+    #
+    # Algorithmic Pipeline
     subgraph cluster_level2{
         label="Algorithmic Pipeline";
         mask_task [label="{<f0> Mask|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection.\n}" shape=Mrecord];
@@ -228,6 +283,14 @@ digraph dfd2{
         pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> PointCloud from a set of Masks.\n}" shape=Mrecord];
         pointcloud_out [label="Plant pointcloud (PLY)" shape=folder];
     }
+    config_input -> mask_task
+    mask_task -> mask_out
+    mask_out -> voxel_task
+    voxel_task -> voxel_out
+    voxel_out -> pointcloud_task
+    pointcloud_task -> pointcloud_out
+    #
+    # Evaluation
     subgraph cluster_level3{
         label="Evaluation";
         pointcloudgroundtruth_task [label="{<f0> PointCloudGroundTruth|<f1> romiscan.tasks.evaluation|<f2> Get ground truth point cloud from virtual plant.\n}" shape=Mrecord];
@@ -235,15 +298,6 @@ digraph dfd2{
         pointcloudeval_task [label="{<f0> PointCloudEvaluation|<f1> romiscan.tasks.evaluation|<f2> Evaluate point cloud detection based on ground truth.\n}" shape=Mrecord];
         pointcloudeval_out [label="PointCloud evaluation (JSON)" shape=folder];
     }
-    lpy_input -> virtualplant_task
-    config_input -> mask_task
-    virtualplant_task -> virtualplant_out1
-    virtualplant_task -> virtualplant_out2
-    mask_task -> mask_out
-    mask_out -> voxel_task
-    voxel_task -> voxel_out
-    voxel_out -> pointcloud_task
-    pointcloud_task -> pointcloud_out
     virtualplant_out1 -> pointcloudgroundtruth_task
     pointcloudgroundtruth_task -> pointcloudgroundtruth_out
     pointcloudgroundtruth_out -> pointcloudeval_task
