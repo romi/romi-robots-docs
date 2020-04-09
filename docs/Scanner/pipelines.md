@@ -2,7 +2,7 @@
 !!! warning 
     This is a work in progress... the original author has no idea what he is doing!
 
-## Legend:
+## Legend
 
 {% dot legend.svg
 digraph dfd2{
@@ -77,13 +77,14 @@ digraph dfd2{
         colmap_out_2 [label="PointCloud (PLY)" shape=folder];
         {rank=same; colmap_out_1, colmap_out_2}
     }
+    # algorithmic pipeline
     subgraph cluster_level1{
         label="Algorithmic Pipeline";
         mask_task [label="{<f0> Mask|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection.\n}" shape=Mrecord];
         mask_out [label="Binary masks (PNG)" shape=folder];
         voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Space carving?\n}" shape=Mrecord];
         voxel_out [label="Binary Voxel (NPZ)" shape=folder];
-        pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> PointCloud from a set of Masks.\n}" shape=Mrecord];
+        pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> PointCloud from a set of Voxels.\n}" shape=Mrecord];
         pointcloud_out [label="Plant pointcloud (PLY)" shape=folder];
         triangle_mesh_task [label="{<f0> TriangleMesh|<f1> romiscan.tasks.proc3d|<f2> Generate a Mesh from a PointCloud.\n}" shape=Mrecord];
         triangle_mesh_out [label="Mesh (PLY)" shape=folder];
@@ -92,6 +93,15 @@ digraph dfd2{
         tree_graph_task [label="{<f0> TreeGraph|<f1> romiscan.tasks.arabidopsis|<f2> Plant skeleton to TreeGraph structure.\n}" shape=Mrecord];
         tree_graph_out [label=" TreeGraph (JSON)" shape=folder];
     }
+    input -> mask_task
+    colmap_out_1 -> voxel_task
+    mask_out -> voxel_task
+    voxel_out -> pointcloud_task
+    pointcloud_out -> triangle_mesh_task
+    triangle_mesh_out -> skeleton_task
+    skeleton_out -> tree_graph_task
+    #
+    # Machine Learning Pipeline
     subgraph cluster_level2{
         label="Machine Learning Pipeline";
         segmentation_task [label="{<f0> Segmentation2D|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection with labels.\n}" shape=Mrecord];
@@ -104,14 +114,6 @@ digraph dfd2{
         clutered_mesh_out [label="Mesh (PLY)" shape=folder];
     }
     input -> colmap_task
-    # algorithmic pipeline
-    input -> mask_task
-    colmap_out_1 -> voxel_task
-    mask_out -> voxel_task
-    voxel_out -> pointcloud_task
-    pointcloud_out -> triangle_mesh_task
-    triangle_mesh_out -> skeleton_task
-    skeleton_out -> tree_graph_task
     # ML pipeline:
     input -> segmentation_task
     colmap_out_1 -> segmentation_task
@@ -280,7 +282,7 @@ digraph dfd2{
         mask_out [label="Binary masks (PNG)" shape=folder];
         voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Space carving?\n}" shape=Mrecord];
         voxel_out [label="Binary Voxel (NPZ)" shape=folder];
-        pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> PointCloud from a set of Masks.\n}" shape=Mrecord];
+        pointcloud_task [label="{<f0> PointCloud|<f1> romiscan.tasks.proc3d|<f2> PointCloud from a set of Voxels.\n}" shape=Mrecord];
         pointcloud_out [label="Plant pointcloud (PLY)" shape=folder];
     }
     config_input -> mask_task
