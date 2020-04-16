@@ -136,7 +136,6 @@ upstream_task = Scan
 Then the pipeline can be run as usual and `colmap` will not be run.
 
 
-
 ### Testing the reconstruction pipeline on a _virtual scan_
 
 To test the plant reconstruction pipeline on an example _virtual scan_ (`arabidopsis_26`):

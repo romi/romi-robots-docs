@@ -55,13 +55,6 @@ Since we will need an active database to performs the reconstruction, we install
 pip install git+https://github.com/romi/data-storage.git@dev
 ```
 
-To quickly create an example DB you can use:
-```bash
-wget https://db.romi-project.eu/models/test_db.tar.gz
-tar -xf test_db.tar.gz
-```
-This will create a `integration_tests` folder with a ready to use test database. 
-
 #### Install `romiscanner` sources:
 ```bash
 pip install git+https://github.com/romi/romiscanner
@@ -91,3 +84,51 @@ pip install git+https://github.com/romi/Segmentation@dev
     ```bash
     pip install torch==1.4.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
     ```
+
+## Reconstruction pipeline
+
+### Test database:
+To quickly create an example DB you can use:
+```bash
+wget https://db.romi-project.eu/models/test_db.tar.gz
+tar -xf test_db.tar.gz
+```
+This will create a `integration_tests` folder with a ready to use test database. 
+
+
+### Geometric pipeline
+
+#### Real scan dataset
+The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on real dataset with:
+```bash
+romi_run_task --config Scan3D/config/original_pipe_0.toml AnglesAndInternodes integration_tests/2019-02-01_10-56-33 --local-scheduler
+```
+!!! note
+    This example uses a real scan dataset from the test database.
+
+#### Virtual plant dataset
+The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on a virtual dataset with:
+```bash
+romi_run_task --config Scan3D/config/original_pipe_0.toml AnglesAndInternodes integration_tests/arabidopsis_26 --local-scheduler
+```
+!!! note
+    This example uses a virtual scan dataset from the test database.
+
+
+### Machine Learning pipeline
+
+#### Real scan dataset
+The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on real dataset with:
+```bash
+romi_run_task --config Scan3D/config/original_pipe_1.toml AnglesAndInternodes integration_tests/2019-02-01_10-56-33 --local-scheduler
+```
+!!! note
+    This example uses a real scan dataset from the test database.
+
+#### Virtual plant dataset
+The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on a virtual dataset with:
+```bash
+romi_run_task --config Scan3D/config/original_pipe_1.toml AnglesAndInternodes integration_tests/arabidopsis_26 --local-scheduler
+```
+!!! note
+    This example uses a virtual scan dataset from the test database.

@@ -21,12 +21,12 @@ The following figure shows each independent module and the way they interact.
 ### Module details
 Each of the following modules should be seen as separate virtual machines or containers able to communicates.
 
-| Validated | Module Name      | Container Name   | ROMI Packages                       |
-|:---------:|------------------|------------------|-------------------------------------|
-|           | DB               | romi_db          | `data-storage`                      |
+| Validated | Module Name      | Container Name   | ROMI Packages                        |
+|:---------:|------------------|------------------|--------------------------------------|
+|           | DB               | romi_db          | `data-storage`                       |
 |           | PlantScanner     | romi_scan        | `lettucethink-python`, `romiscanner` |
 |           | SmartInterpreter | romi_interpreter | `Scan3D`, `romiseg`                  |
-|           | Visualizer       | romi_viz         | `3d-plantviewer`                    |
+|           | Visualizer       | romi_viz         | `3d-plantviewer`                     |
 |           | VirtualScanner   | romi_virtual     | `VirtualPlants`, `romiscanner`       |
 
 !!! info
@@ -54,9 +54,9 @@ It requires a database with datasets to browse and represent.
 We hereafter defines the semantic, names and abbreviations to use in the projects documentations and communications.
 
 ### Macroscopic & non-technical
-- [ ] **ROMI Softwares**: the whole set of softwares developed by ROMI;
+- [ ] **ROMI Softwares**: the whole set of software developed by ROMI;
 - [ ] **ROMI Hardwares**: the three types of robots developed by ROMI, namely the "cable bot", the "rover" and the "scanner";
-- [ ] **ROMI Scanner Softwares** - the set of softwares developed by the "scanner group";
+- [ ] **ROMI Scanner Softwares** - the set of software developed by the "scanner group";
 - [ ] **ROMI Plant Scanner** - RPS: the hardware that enable (automatic) acquisition of a set of 2D or 3D images of the plant;
 - [ ] **(Single) Plant Reconstruction Pipeline** - (S)PRP: the set of methods (and packages?) used to performs a 3D reconstruction of a plant using data from the *ROMI Plant Scanner*;
 - [ ] **Plant Phenotyping Pipeline** - PPP or P^3^: the set of methods (and packages?) used to performs plant phenotyping (traits quantification) from the obtained 3D reconstruction;
@@ -84,7 +84,7 @@ We hereafter defines the semantic, names and abbreviations to use in the project
 - [ ] datasets/project: a set of images and the pipelines results;
 - [ ] fileset: a set of files (*eg.* a set of RGB images of a plant);
 - [ ] plant metadata: set of FAIR metadata attached to the plant (*eg.* species, age, growth conditions...);
-- [ ] acquisition metadata: set of metadata attached to the acquisition procedure & hardware configuration (*eg.* version of the CNC controler, camera settings, ...);
+- [ ] acquisition metadata: set of metadata attached to the acquisition procedure & hardware configuration (*eg.* version of the CNC controller, camera settings, ...);
 
 !!! danger
     datasets/project are called "scan" for now!
