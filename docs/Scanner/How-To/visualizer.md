@@ -5,14 +5,23 @@ How to use the ROMI Visualizer?
 
 To follows this guide you should have a `conda` or a Python `venv`, see [here](/Scanner/how-to/#how-to-install-romi-packages)
 
+### Pre-requisite
+Install `node` and `npm`, on ubuntu:
+```bash
+sudo apt install npm
+```
+The packaged version ot `npm` is probably out of date (require `npm>=5`), to update it:
+```bash
+npm install npm@latest -g
+```
+
 ### Install ROMI packages & their dependencies:
 
 Clone the visualizer git repository :
 ```bash
-git clone git@github.com:romi/sony_visualiseur-plantes-3d.git
-cd sony_visualiseur-plantes-3d
+git clone https://github.com/romi/3d-plantviewer.git
+cd 3d-plantviewer
 ```
-
 Install node packages and build the pages:
 ```bash
 npm install
@@ -20,22 +29,17 @@ npm install
 
 ## Running a development server for the visualizer
 
-Set the DB location using the `DB_LOCATION` environment variable:
+Set the DB location using the `DB_LOCATION` environment variable and launch the flask server:
 ```bash
 export DB_LOCATION=/path/to/the/db
+romi_scanner_rest_api
 ```
-
-Launch the flask development server:
-```bash
-scanner-rest-api
-```
-
-Finally, start the frontend development server:
+Finally, start the frontend visualization server (from `3d-plantviewer/` folder?):
 ```bash
 npm start
 ```
+You should now be able to access the visualizer on [http://localhost:3000](http://localhost:3000).
 
-You can now access the visualizer on [http://localhost:3000](http://localhost:3000).
 
 ## Running a production server for the visualizer
 
