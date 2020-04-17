@@ -6,25 +6,61 @@ Docker containers for ROMI
 We hereafter list the docker containers, their use and list the installed libraries:
 
 Progress:
- - [X] DB
+ - [ ] DB
  - [ ] Scanner
  - [ ] SmartInterpreter
  - [ ] VirtualScanner
  - [x] Visualizer
 
 
-## romiDB
+## romidb
 ```docker
-FROM continuumio/miniconda3
+FROM ubuntu:18.04
 ```
 
-#### Dependencies:
+!!! warning
+    This is not working YET, but almost!
 
-Internal dependencies:
- - `data-storage`
+#### Build docker image
+To build the image, clone the ROMI `docker` repository:
+```bash
+git clone https://github.com/romi/docker.git
+cd docker
+```
+Then you can build the image with:
+```bash
+docker docker build -t romidb romiDB/
+```
+To run it, you need to have a local database first, look [here](https://db.romi-project.eu/models/test_db.tar.gz) for an example.
+Assuming you extracted it in your home folder (`/home/$USER/integration_tests`), you can start the `romidb` docker image with:
+```bash
+docker run -it -p 5000:5000 -v /home/$USER/integration_tests:/home/romi/integration_tests romidb
+```
+Once it's up, you should be able to access the REST API here: http://localhost:5000/
 
-External dependencies:
- - `opencv` ??
+For example to get a list of the scans: http://localhost:5000/scans
+
+!!! note
+    `-v /home/$USER/integration_tests:/home/romi/integration_tests` performs a **bind mount** to enable access to the local database by the docker image. See the official [documentation](https://docs.docker.com/storage/bind-mounts/).
+
+Push it ot docker hub:
+```bash
+docker push jlegrand62/romi_database:latest
+```
+This require a valid account, token and existing repository (`romi_database`) on docker hub!
+
+#### Use pre-built docker image
+First you need to pull the docker image:
+```bash
+docker pull jlegrand62/romi_database
+```
+Then you can run it with:
+```bash
+docker run -it -p 3000:3000 jlegrand62/romi_database
+```
+
+!!! note
+    ROMI does not have a docker repo yet!
 
 
 ### Scanner
@@ -92,10 +128,15 @@ External dependencies:
 ### plantviewer
 The plant visualizer is a webapp that dialog with the database to display images & some quantitative traits.
 
+```docker
+FROM ubuntu:18.04
+```
+
 #### Build docker image
 To build the image, clone the ROMI `docker` repository:
 ```bash
 git clone https://github.com/romi/docker.git
+cd docker
 ```
 Then you can build the image with:
 ```bash
@@ -114,7 +155,7 @@ Push it ot docker hub:
 ```bash
 docker push jlegrand62/romi_plantviewer:latest
 ```
-This require a valid token on docker hub!
+This require a valid account, token and existing repository (`romi_plantviewer`) on docker hub!
 
 #### Use pre-built docker image
 First you need to pull the docker image:

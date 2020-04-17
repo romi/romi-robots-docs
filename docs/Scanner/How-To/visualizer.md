@@ -1,8 +1,13 @@
-How to use the ROMI Visualizer?
+How to use the ROMI plantviewer?
 ===
 
-## Getting started
+## Ready to run docker image
+To use a ready to run docker image pointing toward the `db.romi-project.eu`, look [here](/Scanner/Developer/docker/#visualizer).
 
+!!! note
+    This requires `docker-ce` to be installed on your machine.
+
+## Source install
 To follows this guide you should have a `conda` or a Python `venv`, see [here](/Scanner/how-to/#how-to-install-romi-packages)
 
 ### Pre-requisite
@@ -46,11 +51,8 @@ You should now be able to access the visualizer on [http://localhost:3000](http:
 !!! warning
     This is not tested yet!
 
-## Ready to run docker image
-
-See: [*visualizer*](/Scanner/Developer/docker/#visualizer) docker image.
-
-!!! warning
-    This is not ready yet!
 
 ## Visualizer API reference
+
+!!! warning
+    Not too many details here, I like it! 
