@@ -10,7 +10,7 @@ Progress:
  - [ ] Scanner
  - [ ] SmartInterpreter
  - [ ] VirtualScanner
- - [ ] Visualizer
+ - [x] Visualizer
 
 
 ## romiDB
@@ -89,26 +89,45 @@ External dependencies:
  - `blender`
  - `lpy`
 
-### Visualizer
-The plant visualizer.
+### plantviewer
+The plant visualizer is a webapp that dialog with the database to display images & some quantitative traits.
 
-Webapp that dialog with the database to display images & some quantitative traits.
+#### Build docker image
+To build the image, clone the ROMI `docker` repository:
+```bash
+git clone https://github.com/romi/docker.git
+```
+Then you can build the image with:
+```bash
+docker build -t visualizer Visualizer/
+```
+To run it:
+```bash
+docker run -it -p 3000:3000 visualizer
+```
+Once it's up, you should be able to access the viewer here: http://localhost:3000/
 
-```docker
-FROM alpine:3.10
+!!! important
+    Use `chrome` as `firefox` has some issues with the used JavaScript libraries!
+
+Push it ot docker hub:
+```bash
+docker push jlegrand62/romi_plantviewer:latest
+```
+This require a valid token on docker hub!
+
+#### Use pre-built docker image
+First you need to pull the docker image:
+```bash
+docker pull jlegrand62/romi_plantviewer
+```
+Then you can run it with:
+```bash
+docker run -it -p 3000:3000 jlegrand62/romi_plantviewer
 ```
 
-#### Dependencies:
-
-Internal dependencies:
- - `data-storage`, the database API, as well as classes for data processing using luigi.
-
-External dependencies:
- - `sony_visualiseur-plantes-3d`
-
-Notes:
-`scanner-rest-api` & `npm start` are two distinct process to start !
-
+!!! note
+    ROMI does not have a docker repo yet!
 
 ## DockerHub
 
