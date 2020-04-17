@@ -114,6 +114,14 @@ romi_run_task --config Scan3D/config/original_pipe_0.toml AnglesAndInternodes in
 !!! note
     This example uses a virtual scan dataset from the test database.
 
+!!! warning
+    If you get something like this during the `Voxel` tasks:
+    ```
+    Choose platform:
+    [0] <pyopencl.Platform 'NVIDIA CUDA' at 0x55d904d5af50>
+    Choice [0]:
+    ```
+    that mean you need to specify the environment variable `PYOPENCL_CTX='0'`
 
 ### Machine Learning pipeline
 
