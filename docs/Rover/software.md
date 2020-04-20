@@ -6,7 +6,7 @@ Software Installation
 This document describes how to run and compile the software for the
 ROMI Rover. If you are a developer looking for details on the source
 code then have a look at the separate [Developer
-Documentation](developer.html).
+Documentation](/Rover/developer).
 
 ## Prerequisites
 
