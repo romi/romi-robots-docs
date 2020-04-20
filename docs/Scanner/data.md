@@ -7,13 +7,15 @@ A shared example datasets is accessible [here](https://db.romi-project.eu/models
 ### Installation
 
 !!! warning
-	If you intend to contribute to the development of `data-storage` or want to be able to edit the code and test your changes, you should choose _editable mode_.
+    If you intend to contribute to the development of `data-storage` or want to be able to edit the code and test your changes, you should choose _editable mode_.
 
 #### Non-editable mode
 Install from github using `pip`:
 ```
 pip install git+ssh://git@github.com/romi/data-storage.git#dev
 ```
+!!! note
+    This uses `ssh` and thus requires to be registered as part of the project and to deploy ssh keys.
 
 #### Editable mode
 Clone from github and install using `pip`:
