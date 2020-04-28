@@ -11,6 +11,22 @@ To use a ready to run docker image pointing toward the `db.romi-project.eu`, loo
 To follows this guide you should have a `conda` or a Python `venv`, see [here](/Scanner/how-to/#how-to-install-romi-packages)
 
 ### Pre-requisite
+
+The plantviewer relies on:
+
+ - `node`
+ - `npm`
+
+To clone the git repository, you will need: 
+
+ - `git`
+ - `ca-certificates`
+
+Start with these system dependencies:
+```bash
+sudo apt git ca-certificates
+```
+
 Install `node` and `npm`, on ubuntu:
 ```bash
 sudo apt install npm
@@ -39,12 +55,17 @@ Set the DB location using the `DB_LOCATION` environment variable and launch the 
 export DB_LOCATION=/path/to/the/db
 romi_scanner_rest_api
 ```
-Finally, start the frontend visualization server (from `3d-plantviewer/` folder?):
+Finally, start the frontend visualization server (from `3d-plantviewer/` folder):
 ```bash
 npm start
 ```
 You should now be able to access the visualizer on [http://localhost:3000](http://localhost:3000).
 
+!!! note
+    You need to add a file `.env.local` at project's root to set the API URL:
+    ```REACT_APP_API_URL='{`API URL}'```
+
+    Without this, the app will use: http://localhost:5000 which is the default for `romi_scanner_rest_api`.
 
 ## Running a production server for the visualizer
 
