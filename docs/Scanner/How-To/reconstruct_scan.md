@@ -140,10 +140,16 @@ romi_run_task --config Scan3D/config/original_pipe_0.toml AnglesAndInternodes in
 
 ### Machine Learning pipeline
 
+!!! warning
+    This requires a trained PyTorch model!
+     
+!!! note
+    A trained model, to place under `<dataset>/models/models`, is accessible here: https://media.romi-project.eu/data/Resnetdataset_gl_png_896_896_epoch50.pt
+
 #### Real scan dataset
 The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on real dataset with:
 ```bash
-romi_run_task --config Scan3D/config/original_pipe_1.toml AnglesAndInternodes integration_tests/2019-02-01_10-56-33 --local-scheduler
+romi_run_task --config Scan3D/config/ml_pipe_vplants_3.toml PointCloud integration_tests/2019-02-01_10-56-33 --local-scheduler
 ```
 
 !!! note
@@ -152,7 +158,7 @@ romi_run_task --config Scan3D/config/original_pipe_1.toml AnglesAndInternodes in
 #### Virtual plant dataset
 The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on a virtual dataset with:
 ```bash
-romi_run_task --config Scan3D/config/original_pipe_1.toml AnglesAndInternodes integration_tests/arabidopsis_26 --local-scheduler
+romi_run_task --config Scan3D/config/ml_pipe_vplants_3.toml PointCloud integration_tests/arabidopsis_26 --local-scheduler
 ```
 
 !!! note
