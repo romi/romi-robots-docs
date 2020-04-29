@@ -116,6 +116,7 @@ The full *geometric pipeline*, _ie._ all the way to angles and internodes measur
 ```bash
 romi_run_task --config Scan3D/config/original_pipe_0.toml AnglesAndInternodes integration_tests/2019-02-01_10-56-33 --local-scheduler
 ```
+
 !!! note
     This example uses a real scan dataset from the test database.
 
@@ -124,6 +125,7 @@ The full *geometric pipeline*, _ie._ all the way to angles and internodes measur
 ```bash
 romi_run_task --config Scan3D/config/original_pipe_0.toml AnglesAndInternodes integration_tests/arabidopsis_26 --local-scheduler
 ```
+
 !!! note
     This example uses a virtual scan dataset from the test database.
 
@@ -143,6 +145,7 @@ The full *geometric pipeline*, _ie._ all the way to angles and internodes measur
 ```bash
 romi_run_task --config Scan3D/config/original_pipe_1.toml AnglesAndInternodes integration_tests/2019-02-01_10-56-33 --local-scheduler
 ```
+
 !!! note
     This example uses a real scan dataset from the test database.
 
@@ -151,5 +154,6 @@ The full *geometric pipeline*, _ie._ all the way to angles and internodes measur
 ```bash
 romi_run_task --config Scan3D/config/original_pipe_1.toml AnglesAndInternodes integration_tests/arabidopsis_26 --local-scheduler
 ```
+
 !!! note
     This example uses a virtual scan dataset from the test database.
