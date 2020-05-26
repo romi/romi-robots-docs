@@ -8,7 +8,7 @@ To follows this guide you should have a `conda` or a Python `venv`, see [here](/
 ### Notice for using the virtual scanner
 If you want to use the virtual scanner, the blender and python version have to match.
 To obtain the python version bundled with your distribution of blender, type:
-```
+```bash
 blender -b --python-expr "import sys; print(sys.version)"
 ```
 
@@ -21,8 +21,8 @@ ALSA lib pcm_dmix.c:1089:(snd_pcm_dmix_open) unable to open slave
 
 Blender quit
 ```
-In this case, this means python is using Python 3.8 and you should use python 3.8.
-The blender binaries found on their website bundle Python 3.8.
+In this case, this means Blender bundle Python 3.8 and you should too.
+
 In the following, we will assume that you are using conda environments.
 If not, adapt with corresponding virtualenv commands.
 
@@ -30,14 +30,10 @@ If not, adapt with corresponding virtualenv commands.
 
 #### Install LPY (for virtual scans)
 
-If you're using python 3.7 and conda, just install lpy from conda:
-```
+If you're using `python>=3.7` and `conda`, just install `lpy` from conda:
+```bash
 conda install -c conda-forge -c fredboudon openalea.lpy
 ```
-
-!!! note
-    If you're using python 3.8, you must compile [plantgl](https://github.com/fredboudon/plantgl) and [lpy](https://github.com/fredboudon/lpy) from sources.
-
 
 
 ## Basic usage
@@ -45,14 +41,15 @@ conda install -c conda-forge -c fredboudon openalea.lpy
 The virtual scanner works like an HTTP server using Blender.
 First, make sure you have `blender` (>= 2.80) installed on your machine.
 
-Then, clone the directory and access it:
-```bash
-git clone git@github.com:romi/blender_virtual_scanner.git
-cd blender_virtual_scanner
-```
+!!! warning
+    **DEPRECATED**
+    Then, clone the directory and access it:
+    ```bash
+    git clone git@github.com:romi/blender_virtual_scanner.git
+    cd blender_virtual_scanner
+    ```
 
-You can obtain sample data for the scanner here, and put it in the data
-folder.
+You can obtain sample data for the scanner here, and put it in the data folder.
 ```bash
 wget https://db.romi-project.eu/models/arabidopsis_data.zip
 unzip arabidopsis_data.zip -d data
@@ -65,19 +62,23 @@ The data dir must contain the `obj` and `mtl` files.
 Additionally, background HDRI files can be downloaded from (hdri haven)[https://hdrihaven.com/].
 Download `.hdr` files and put them in the `hdri` folder.
 
-To start the virtual scanner, run the following script in blender:
-```bash
-blender [scene/texture.blend] -b -P scan.py
-```
-
-It will start an HTTP server on port `5000`.
+!!! warning
+    **DEPRECATED**
+    To start the virtual scanner, run the following script in blender:
+    ```bash
+    blender [scene/texture.blend] -b -P scan.py
+    ```
+    It will start an HTTP server on port `5000`.
 
 ### Preparing data
 If you have 3D models with a single mesh
 
 ### Running a scan (with `romiscan` and `lettucethink`)
 
-The virtual scanner is integrated in lettucethink-python, so that it can be used directly with the `Scan` task in `romi_run_task`.
+The virtual scanner is integrated in `lettucethink-python`, so that it can be used directly with the `Scan` task in `romi_run_task`.
+
+!!! warning
+    `lettucethink-python` is **DEPRECATED**
 
 Here is a sample configuration for the virtual scanner creating 640x480 images with ground truth segmentation of organs.
 The server mentioned above must be running before running `romi_run_task`.
