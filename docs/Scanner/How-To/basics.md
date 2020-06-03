@@ -175,6 +175,7 @@ Already computed tasks will be left untouched.
 To recompute a task, just delete the corresponding folder in the scan directory and rerun `romi_run_task`.
 
 ## Default task reference
+```python
 default_modules = {
     "Scan": "romiscan.tasks.scan",
     "Clean": "romiscan.tasks.scan",
@@ -191,12 +192,13 @@ default_modules = {
     "AnglesAndInternodes": "romiscan.tasks.arabidopsis",
     "Visualization": "romiscan.tasks.visualization"
 }
+```
 
 !!! warning
-    This is for reference only, please update the changes in the code.**
+    This is for reference only, please update the changes in the code.
     This will be later replaced by a reference doc generated from the code!
 
-```
+```text
 Class name: Scan
 Module: romiscan.tasks.scan
 Description: A task for running a scan, real or virtual.
