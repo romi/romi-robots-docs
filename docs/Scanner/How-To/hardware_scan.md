@@ -10,10 +10,25 @@ To follows this guide you should have a `conda` or a Python `venv`, see [here](/
 
 ### Install ROMI packages with `pip`:
 
-#### Install `romidata`:
-Since we will need an active database to performs the reconstruction, we install it as follows:
+!!! note
+    Since this is still under development, the packages are installed in "editable mode" with the `-e` option.
+
+#### Install `romiscanner`:
+To pilot the hardware you have to install the `romiscanner`package:
 ```bash
-pip install git+https://github.com/romi/data-storage.git@dev
+pip install -e git+https://github.com/romi/romiscanner.git@dev
+```
+
+#### Install `romiscan`:
+To start "acquisition jobs", you have to install the `romiscan` package:
+```bash
+pip install -e git+https://github.com/romi/romiscan.git@dev
+```
+
+#### Install `romidata`:
+Since we will need an active database to export the acquisitions, you have to install the `romidata` package:
+```bash
+pip install -e git+https://github.com/romi/romidata.git@dev
 ```
 
 To quickly create an example DB you can use:
@@ -23,10 +38,6 @@ tar -xf test_db.tar.gz
 ```
 This will create a `integration_tests` folder with a ready to use test database. 
 
-#### Install `lettucethink`:
-```bash
-pip install git+https://github.com/romi/lettucethink-python@dev
-```
 
 ## Running scans
 `Scan` is the basic task for running a task with the scanner.
