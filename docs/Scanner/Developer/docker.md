@@ -128,49 +128,52 @@ External dependencies:
 ### plantviewer
 The plant visualizer is a webapp that dialog with the database to display images & some quantitative traits.
 
-```docker
-FROM ubuntu:18.04
-```
+It is based on Ubuntu 18.04.
+
+Note that we tag the different versions, the default is to use the latest, but you can also specify a specific version by changing the value of the environment variable `$VTAG`, *e.g.* `export VTAG="2.1"`.
+Look here for a list of available tags: https://hub.docker.com/repository/docker/roboticsmicrofarms/plantviewer
 
 #### Build docker image
-To build the image, clone the ROMI `docker` repository:
+To build the image, from the `3d-plantviewer` root directory, run:
 ```bash
-git clone https://github.com/romi/docker.git
-cd docker
+export VTAG="latest"
+docker build -t roboticsmicrofarms/plantviewer:$VTAG .
 ```
-Then you can build the image with:
+To start the container using the built image:
 ```bash
-docker build -t visualizer Visualizer/
+docker run -p 3000:3000 roboticsmicrofarms/plantviewer:$VTAG
 ```
-To run it:
-```bash
-docker run -it -p 3000:3000 visualizer
-```
-Once it's up, you should be able to access the viewer here: http://localhost:3000/
+Once it's up and running, you should be able to access the viewer using a browser here: http://localhost:3000/
+
+!!! note
+    If you omit the `-p 3000:3000` you can still access the interface using the docker ip, something like http://172.17.0.2:3000/
 
 !!! important
     Use `chrome` as `firefox` has some issues with the used JavaScript libraries!
 
-Push it ot docker hub:
+To push it on the `roboticsmicrofarms` docker hub:
 ```bash
-docker push jlegrand62/romi_plantviewer:latest
+docker push roboticsmicrofarms/plantviewer:$VTAG
 ```
-This require a valid account, token and existing repository (`romi_plantviewer`) on docker hub!
+This require a valid account and token on docker hub!
 
 #### Use pre-built docker image
 First you need to pull the docker image:
 ```bash
-docker pull jlegrand62/romi_plantviewer
+docker pull roboticsmicrofarms/plantviewer:$VTAG
 ```
 Then you can run it with:
 ```bash
-docker run -it -p 3000:3000 jlegrand62/romi_plantviewer
+docker run -p 3000:3000 roboticsmicrofarms/plantviewer:$VTAG
 ```
 
 !!! note
-    ROMI does not have a docker repo yet!
+    You can execute the "run command" without pulling the image first, it will do it before running the container!
 
 ## DockerHub
+
+### roboticsmicrofarms
+The Docker hub repository for the ROMI project is here: https://hub.docker.com/orgs/roboticsmicrofarms
 
 ### Colmap
 
