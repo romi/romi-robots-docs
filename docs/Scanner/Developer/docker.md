@@ -13,25 +13,25 @@ Progress:
  - [x] Visualizer
 
 
-## romidb
-```docker
-FROM ubuntu:18.04
-```
-
+## Database
 !!! warning
     This is not working YET, but almost!
 
-#### Build docker image
-To build the image, clone the ROMI `docker` repository:
+### Aim & design
+This container does not contain any data or database, only the installed libraries required to run it.
+
+An **existing local database** is required, it will be mounted at container startup.
+
+
+### Build docker image
+To build the image, from the `3d-plantviewer` root directory, run:
 ```bash
-git clone https://github.com/romi/docker.git
-cd docker
+export VTAG="latest"
+docker build -t roboticsmicrofarms/plantviewer:$VTAG .
 ```
-Then you can build the image with:
-```bash
-docker docker build -t romidb romiDB/
-```
+
 To run it, you need to have a local database first, look [here](https://db.romi-project.eu/models/test_db.tar.gz) for an example.
+
 Assuming you extracted it in your home folder (`/home/$USER/integration_tests`), you can start the `romidb` docker image with:
 ```bash
 docker run -it -p 5000:5000 -v /home/$USER/integration_tests:/home/romi/integration_tests romidb
@@ -49,7 +49,7 @@ docker push jlegrand62/romi_database:latest
 ```
 This require a valid account, token and existing repository (`romi_database`) on docker hub!
 
-#### Use pre-built docker image
+### Use pre-built docker image
 First you need to pull the docker image:
 ```bash
 docker pull jlegrand62/romi_database
@@ -63,7 +63,7 @@ docker run -it -p 3000:3000 jlegrand62/romi_database
     ROMI does not have a docker repo yet!
 
 
-### Scanner
+## Scanner
 The database container. 
 
 #### Aim
@@ -82,7 +82,7 @@ External dependencies:
  - `lettucethink-python`, python tools and controllers for the `lettucethink` robot.
 
 
-### SmartInterpreter
+## SmartInterpreter
 The reconstruction and quantification container.
 
 #### Aim
@@ -106,7 +106,7 @@ External dependencies:
  - `cgal` is used for skeletonization. TO REMOVE ?!
 
 
-### VirtualScanner
+## VirtualScanner
 The virtual scanner container.
 
 #### Aim
