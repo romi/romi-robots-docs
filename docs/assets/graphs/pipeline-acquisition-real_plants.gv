@@ -1,0 +1,17 @@
+digraph G{
+    node[shape=record width=3]
+    subgraph level0{
+        input [label="Scanner parameters (TOML)" shape=note];
+    }
+    subgraph cluster_level1{
+        label ="Real plants";
+        scan_task [label="{<f0> Scan|<f1> romiscanner.scan|<f2> Scan a plant (requires romi scanner).\n}" shape=Mrecord];
+        scan_out1 [label="Multiple RGB images (PNG|JPEG)" shape=folder];
+        scan_out2 [label="Approximate camera poses from CNC (JSON)" shape=folder];
+        scan_out3 [label="Metadata (JSON)" shape=folder];
+    }
+    input -> scan_task;
+    scan_task -> scan_out1;
+    scan_task -> scan_out2;
+    scan_task -> scan_out3;
+}

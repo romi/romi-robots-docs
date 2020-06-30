@@ -1,0 +1,45 @@
+digraph G{
+    node[shape=record width=3]
+    subgraph level0{
+        config_input [label="Parameters (TOML)" shape=note];
+        lpy_input [label="LPY parameters (TOML)" shape=note];
+    }
+    #
+    # Virtual plant generator
+    subgraph cluster_level1{
+        label ="Virtual plant generator";
+        #style=filled; fillcolor=cornflowerblue;
+        virtualplant_task [label="{<f0> VirtualPlant|<f1> romiscanner.lpy|<f2> LPY 3D plant generator.\n}" shape=Mrecord];
+        virtualplant_out1 [label="3D Plant (OBJ)" shape=folder];
+        virtualplant_out2 [label="Angles & internodes (JSON)" shape=folder];
+    }
+    lpy_input -> virtualplant_task;
+    virtualplant_task -> {virtualplant_out1 virtualplant_out2};
+    #
+    # Algorithmic Pipeline
+    subgraph cluster_level2{
+        label="Algorithmic Pipeline";
+        mask_task [label="{<f0> Mask|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection.\n}" shape=Mrecord];
+        mask_out [label="Binary masks (PNG)" shape=folder];
+        voxel_task [label="{<f0> Voxel|<f1> romiscan.tasks.cl|<f2> Computes a volume from backprojection\n of 2D segmented images.\n}" shape=Mrecord];
+        voxel_out [label="Binary Voxel (NPZ)" shape=folder];
+    }
+    config_input -> mask_task;
+    mask_task -> mask_out;
+    mask_out -> voxel_task;
+    voxel_task -> voxel_out;
+    #
+    # Evaluation
+    subgraph cluster_level3{
+        label="Evaluation";
+        voxelgroundtruth_task [label="{<f0> VoxelGroundTruth|<f1> romiscan.tasks.evaluation|<f2> Get ground truth voxel from virtual plant.\n}" shape=Mrecord];
+        voxelgroundtruth_out [label="Binary Voxel (NPZ)" shape=folder];
+        voxeleval_task [label="{<f0> VoxelsEvaluation|<f1> romiscan.tasks.evaluation|<f2> Evaluate voxel detection based on ground truth.\n}" shape=Mrecord];
+        voxeleval_out [label="Voxel evaluation (JSON)" shape=folder];
+    }
+    virtualplant_out1 -> voxelgroundtruth_task;
+    voxelgroundtruth_task -> voxelgroundtruth_out;
+    voxelgroundtruth_out -> voxeleval_task;
+    voxel_out -> voxeleval_task;
+    voxeleval_task -> voxeleval_out;
+}

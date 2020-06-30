@@ -1,0 +1,38 @@
+digraph G{
+    node[shape=record width=3]
+    subgraph level0{
+        config_input [label="Parameters (TOML)" shape=note];
+        lpy_input [label="LPY parameters (TOML)" shape=note];
+    }
+    subgraph cluster_level1{
+        label ="Virtual plant generator";
+        #style=filled; fillcolor=cornflowerblue;
+        virtualplant_task [label="{<f0> VirtualPlant|<f1> romiscanner.lpy|<f2> LPY 3D plant generator.\n}" shape=Mrecord];
+        virtualplant_out1 [label="3D Plant (OBJ)" shape=folder];
+        virtualplant_out2 [label="Angles & internodes (JSON)" shape=folder];
+        virtualscan_task [label="{<f0> VirtualScan|<f1> romiscanner.scan|<f2> Generate photorealistic images of a virtual plant.\n}" shape=Mrecord];
+        virtualscan_out1 [label="Multiple RGB images (PNG|JPEG)" shape=folder];
+        virtualscan_out2 [label="Camera poses (JSON)" shape=folder];
+        virtualscan_out3 [label="Ground truth segmentation (JSON)" shape=folder style="dashed"];
+    }
+    lpy_input -> virtualplant_task;
+    virtualplant_task -> {virtualplant_out1 virtualplant_out2};
+    virtualplant_out1 -> virtualscan_task;
+    virtualscan_task -> {virtualscan_out1 virtualscan_out2 virtualscan_out3};
+    subgraph cluster_level2{
+        label="Algorithmic Pipeline";
+        mask_task [label="{<f0> Mask|<f1> romiscan.tasks.proc2d|<f2> 'Plant pixels' detection.\n}" shape=Mrecord];
+        mask_out [label="Binary masks (PNG)" shape=folder];
+    }
+    config_input -> mask_task;
+    mask_task -> mask_out;
+    subgraph cluster_level3{
+        label="Evaluation";
+        #style=filled; fillcolor=aquamarine;
+        seg2deval_task [label="{<f0> Segmentation2DEvaluation|<f1> romiscan.tasks.evaluation|<f2> Get ground truth voxel from virtual plant.\n}" shape=Mrecord];
+        seg2deval_out [label="Evaluate masks detection (JSON)" shape=folder];
+    }
+    mask_out -> seg2deval_task;
+    virtualscan_out3 -> seg2deval_task;
+    seg2deval_task -> seg2deval_out;
+}

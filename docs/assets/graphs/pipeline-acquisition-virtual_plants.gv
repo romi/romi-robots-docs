@@ -1,0 +1,24 @@
+digraph G{
+    node[shape=record width=3]
+    subgraph level0{
+        lpy_input [label="LPY parameters (TOML)" shape=note];
+        vs_input [label="VirtualScan parameters (TOML)" shape=note];
+        {rank=same; lpy_input, vs_input}
+    }
+    subgraph cluster_level1{
+        label ="Virtual plant generator";
+        virtualplant_task [label="{<f0> VirtualPlant|<f1> romiscanner.lpy|<f2> LPY 3D plant generator.\n}" shape=Mrecord];
+        virtualplant_out1 [label="3D Plant (OBJ)" shape=folder];
+        virtualplant_out2 [label="Angles & internodes (JSON)" shape=folder];
+        virtualscan_task [label="{<f0> VirtualScan|<f1> romiscanner.scan|<f2> Generate photorealistic images of a virtual plant.\n}" shape=Mrecord];
+        virtualscan_out1 [label="Multiple RGB images (PNG|JPEG)" shape=folder];
+        virtualscan_out2 [label="Camera poses (JSON)" shape=folder];
+    }
+    lpy_input -> virtualplant_task;
+    vs_input -> virtualscan_task;
+    virtualplant_task -> virtualplant_out1;
+    virtualplant_task -> virtualplant_out2;
+    virtualplant_out1 -> virtualscan_task;
+    virtualscan_task -> virtualscan_out1;
+    virtualscan_task -> virtualscan_out2;
+}

@@ -1,0 +1,17 @@
+digraph G{
+    node[shape=record width=3]
+    subgraph level0{
+        config_input [label="Parameters (TOML)" shape=note]
+        algo_input [label="TreeGraph (JSON)" shape=folder];
+        ml_input [label="ClusteredMesh (PLY)" shape=folder];
+    }
+    subgraph cluster_level1{
+        label ="Plant Phenotyping";
+        angles_and_internodes_task [label="{<f0> AnglesAndInternodes|<f1> romiscan.tasks.arabidopsis|<f2> Compute organs angles and internodes.\n}" shape=Mrecord];
+        angles_and_internodes_out [label="Measures (JSON)" shape=folder];
+    }
+config_input -> angles_and_internodes_task;
+algo_input -> angles_and_internodes_task;
+ml_input -> angles_and_internodes_task;
+angles_and_internodes_task -> angles_and_internodes_out;
+}
