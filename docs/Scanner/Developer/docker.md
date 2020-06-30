@@ -24,17 +24,17 @@ An **existing local database** is required, it will be mounted at container star
 
 
 ### Build docker image
-To build the image, from the `3d-plantviewer` root directory, run:
+To build the image, from the `romidata` root directory, run:
 ```bash
 export VTAG="latest"
-docker build -t roboticsmicrofarms/plantviewer:$VTAG .
+docker build -t roboticsmicrofarms/romidb:$VTAG .
 ```
 
 To run it, you need to have a local database first, look [here](https://db.romi-project.eu/models/test_db.tar.gz) for an example.
 
 Assuming you extracted it in your home folder (`/home/$USER/integration_tests`), you can start the `romidb` docker image with:
 ```bash
-docker run -it -p 5000:5000 -v /home/$USER/integration_tests:/home/romi/integration_tests romidb
+docker run -it -p 5000:5000 -v /home/$USER/integration_tests:/home/romi/integration_tests romidb:$VTAG
 ```
 Once it's up, you should be able to access the REST API here: http://localhost:5000/
 
@@ -45,18 +45,18 @@ For example to get a list of the scans: http://localhost:5000/scans
 
 Push it ot docker hub:
 ```bash
-docker push jlegrand62/romi_database:latest
+docker push roboticsmicrofarms/romidb:$VTAG
 ```
-This require a valid account, token and existing repository (`romi_database`) on docker hub!
+This require a valid account & token on docker hub!
 
 ### Use pre-built docker image
 First you need to pull the docker image:
 ```bash
-docker pull jlegrand62/romi_database
+docker pull roboticsmicrofarms/romidb:$VTAG
 ```
 Then you can run it with:
 ```bash
-docker run -it -p 3000:3000 jlegrand62/romi_database
+docker run -it -p 3000:3000 roboticsmicrofarms/romidb:$VTAG
 ```
 
 !!! note
@@ -125,7 +125,7 @@ External dependencies:
  - `blender`
  - `lpy`
 
-### plantviewer
+## 3D Plantviewer
 The plant visualizer is a webapp that dialog with the database to display images & some quantitative traits.
 
 It is based on Ubuntu 18.04.
@@ -169,6 +169,39 @@ docker run -p 3000:3000 roboticsmicrofarms/plantviewer:$VTAG
 
 !!! note
     You can execute the "run command" without pulling the image first, it will do it before running the container!
+
+### Docker compose
+To use a local database, for testing or development, we provide a docker compose recipe that:
+
+1. start a database container using `roboticsmicrofarms/romidb`
+2. start a plantviewer container using `roboticsmicrofarms/plantviewer`
+
+!!!note
+    You need `docker-compose` installed, see [here](https://docs.docker.com/compose/install/).
+
+#### Use pre-built docker image
+From the directory containing the `docker-compose.yml` in a terminal:
+```bash
+export ROMI_DB=<path/to/db>
+docker-compose up -d 
+```
+!!! important
+    Do not forget to set the path to the database.
+!!! warning
+    If you have other containers running it might not work since it assumes the romidb container will have the `172.21.0.2` IP address!
+
+To stop the containers: 
+```bash
+docker-compose stop
+```
+
+#### Use local builds
+To use local builds for development or debugging purposes:
+
+1. build your image following the instructions above and use a specific tag like `debug`
+2. edit the `docker-compose.yml` file to add the previously defined tag to the name of the image to start
+
+
 
 ## DockerHub
 
