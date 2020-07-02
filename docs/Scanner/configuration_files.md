@@ -10,29 +10,12 @@ There is two types of parameters:
 1. those associated with luigi: upstream tasks, requirements & outputs
 2. those tuning the used algorithms: variables & parameters
 
-For examples look at the configurations provided in `romiscan/configs`.
+For examples look at the configurations [examples](https://github.com/romi/romiscan/tree/dev/config) provided in `romiscan/configs`.
 
 
-## Database & I/O tasks
+## I/O tasks
 These tasks refers to the inputs and outputs of each algorithmic tasks.
 They are often related to tasks defined in the `romidata` library.
-
-### Clean
-Clean a scan dataset.
-
-No luigi parameters (no upstream task).
-
-List of task variables:
-
-- `no_confirm`: boolean indicating whether a confirmation is required to clean the dataset, `False` by default, *i.e.* confirmation required.
-
-Example:
-```toml
-[Clean]
-no_confirm = true
-```
-Use this to clean without confirmation.
-
 
 ### FilesetExists
 Check that the given `Fileset` id exists (in dataset).
@@ -69,6 +52,25 @@ Example:
 scan_id = "models"
 ```
 Defines the location of he trained ML models in a dataset named `'models'`.
+
+
+## Database tasks
+
+### Clean
+Defined in `romidata.task`, it is used to clean a scan dataset from the "processing folders".
+
+No luigi parameters (no upstream task).
+
+List of task variables:
+
+- `no_confirm`: boolean indicating whether a confirmation is required to clean the dataset, `False` by default, *i.e.* confirmation required.
+
+Example:
+```toml
+[Clean]
+no_confirm = true
+```
+Use this to clean without confirmation.
 
 
 ## Algorithmic tasks
