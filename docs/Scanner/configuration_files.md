@@ -22,7 +22,7 @@ Clean a scan dataset.
 
 No luigi parameters (no upstream task).
 
-List of variables:
+List of task variables:
 
 - `no_confirm`: boolean indicating whether a confirmation is required to clean the dataset, `False` by default, *i.e.* confirmation required.
 
@@ -39,7 +39,7 @@ Check that the given `Fileset` id exists (in dataset).
 
 No luigi parameters (no upstream task).
 
-List of variables:
+List of task variables:
 
 - `fileset_id`: the id (`str`) to check for existence.
 
@@ -49,7 +49,7 @@ Check that the image file set exists.
 
 No luigi parameters (no upstream task).
 
-List of variables:
+List of task variables:
 
 - `fileset_id`: the id (`str`) to check for existence `'images'` by default.
 
@@ -59,7 +59,7 @@ Check that the trained ML models file set exists.
 
 No luigi parameters (no upstream task).
 
-List of variables:
+List of task variables:
 
 - `fileset_id`: the id (`str`) to check for existence `'models'` by default.
 
@@ -74,13 +74,15 @@ Defines the location of he trained ML models in a dataset named `'models'`.
 ## Algorithmic tasks
 
 ### Colmap task
+Defined in `romiscan.task.colmap`, it is used to match scan images and estimate camera poses. 
+It can also be used to compute a sparse and/or dense point cloud. 
 
-List of luigi parameters:
+List of luigi task parameters:
 
 - `upstream_task`: task upstream of the `Colmap` task, default is `ImagesFilesetExists`
 
 
-List of variables:
+List of task variables:
 
 - `matcher`: images mathing method, can be either "exhaustive" (default) or "sequential";
 - `compute_dense`: boolean indicating whether to run the dense colmap to obtain a dense point cloud, `False` by default;
@@ -109,7 +111,39 @@ calibration_scan_id = "calib_scan_shortpath"
 !!! todo
     Add a `compute_sparse`?
 
+
+### Undistorted task
+Defined in `romiscan.task.proc2d`, it is used to undistorts images using computed intrinsic camera parameters.
+
+
+### Masks task
+Defined in `romiscan.task.proc2d`, it is used to create binary mask of the plant location within each image. 
+
+List of luigi task parameters:
+
+- `upstream_task`: task upstream of the `Masks` task, default is `Undistorted` but can be `None`.
+
+List of task variables:
+
+- `type`: method to use to compute masks, choices are: `'linear'`, `'excess_green'`, `'vesselness'`, `'invert'`;
+- `parameters`: list of scalar parameters, depends on type hence **no default values**;
+- `dilation`: integer defining the dilation factor to apply when using a binary mask, **no default values**;
+- `binarize`: boolean indicating whether to binarize the mask, default is `True`;
+- `threshold`: float used as threshold for binarization step, default is `0.0`;
+
+
 ### Voxels task
+Defined in `romiscan.task.cl`, it is used to reconstruct the 3D structure of the plant from binary or segmented masks . 
+
+
+List of luigi task parameters:
+
+- `upstream_task`: task upstream of the `Colmap` task, default is `ImagesFilesetExists`
+
+
+List of task variables:
+
+- `type`: ;
 
 Example:
 ```toml
@@ -184,3 +218,56 @@ Example:
 [ClusteredMesh]
 upstream_task = "SegmentedPointCloud"
 ```
+
+
+### AnglesAndInternodes task
+
+Example:
+```toml
+[AnglesAndInternodes]
+upstream_task = "ClusteredMesh"
+```
+
+
+## Evaluation tasks
+
+### VoxelGroundTruth
+
+Example:
+```toml
+
+```
+
+
+### PointCloudGroundTruth
+
+Example:
+```toml
+[PointCloudGroundTruth]
+pcd_size = 10000
+```
+
+
+### ClusteredMeshGroundTruth
+
+Example:
+```toml
+
+```
+
+
+### PointCloudEvaluation task
+
+Example:
+```toml
+[PointCloudEvaluation]
+max_distance = 0.2
+```
+
+
+### PointCloudSegmentationEvaluation task
+
+
+
+### Segmentation2DEvaluation task
+
