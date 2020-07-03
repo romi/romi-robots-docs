@@ -1,11 +1,11 @@
-Configuring executed tasks by Luigi
+Tasks configuration
 ===
 
 ## Introduction
 
-Each tasks has a default configuration but to create a working pipeline, you need to set some parameters in a TOML configuration file.
+Each tasks has some default configuration but to create a working pipeline, you need to set some parameters in a TOML configuration file.
 
-There is two types of parameters:
+There are two types of parameters:
 
 1. those associated with luigi: upstream tasks, requirements & outputs
 2. those tuning the used algorithms: variables & parameters
@@ -115,7 +115,7 @@ calibration_scan_id = "calib_scan_shortpath"
 
 
 ### Undistorted task
-Defined in `romiscan.task.proc2d`, it is used to undistorts images using computed intrinsic camera parameters.
+Defined in `romiscan.task.proc2d`, it is used to reate undistorted images from pre-computed intrinsic camera parameters.
 
 
 ### Masks task
