@@ -34,7 +34,7 @@ stripped-down version of this section looks like below:
         }, {
             "path": "configuration"
         }, {
-        ...
+        //...
         }]
     }
 }
@@ -43,8 +43,9 @@ stripped-down version of this section looks like below:
 The `launch` section has two subsections, `general` and `nodes`. The
 first section groups the following settings:
 
+
 | Name          | Value  | Required | Description  |
-| ------------- | ------ | -------- |
+| ------------- | ------ | -------- | -----------  |
 | sessions-dir  | String | Optional | Where to store the session data (log files, database, dumps) |
 | user          | String | Optional | The username under which the nodes will be executed |
 
@@ -82,7 +83,7 @@ configuration file:
     },
         
     "launch": {
-        ...
+        //...
     }
 }
 ```
