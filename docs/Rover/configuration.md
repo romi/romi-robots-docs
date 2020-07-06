@@ -1,11 +1,12 @@
 
 The rover uses the following input files and directories:
 
-* Configuration file: The main configuration file
-* HTML directory: The location of the files for the web interface 
-* Script file: The list of operations and associated command sequences
+* Configuration file: The main configuration file. This file should be passed on the command line to `rclaunch`.
+* HTML directory: The location of the files for the web interface. The path should be set in the configuration file in the `webproxy` section.  
+* Script file: The list of operations and associated command sequences. The path should be set in the configuration file in the `script_engine` section.  
 
 
+The configuration and script files are discussed in detail below.
 
 
 ## Configuration file
