@@ -94,3 +94,78 @@ configuration file:
 
 
 
+## Script file
+
+The script file consists of a JSON array of script objects:
+
+```json
+[
+    {
+        "name": "script1",
+        "display_name": "The First Script",
+        "script": [
+            //...
+        ]
+    },
+    //...
+]
+```
+
+The script objects have the following fields:
+
+| Name          | Value   | Required | Description  |
+| ------------- | ------- | -------- | ------------ |
+| name          | String  | Required | The internal name of the script |
+| display-name  | String  | Required | The name to be shown to end-users |
+| script        | Array   | Required | The list of actions to be taken |
+
+The script itself is an array that lists all the actions to be taken,
+one after the other. For example:
+
+```json
+[
+    {
+        "name": "script1",
+        "display_name": "The First Script",
+        "script": [
+            {"action": "start_recording"},
+            {"action": "move", "distance": 8, "speed": 400},
+            {"action": "stop_recording"},
+            {"action": "move", "distance": -8, "speed": -400}
+        ]
+    },
+    //...
+]
+```
+
+Each action object has an `action` field. The list of available actions are:
+
+| Name            | Description  |
+| --------------- | ------------ |
+| start_recording | Start recording the images of the top camera |
+| stop_recording  | Stop recording the images of the top camera |
+| move            | Move a given distance (at a given speed) |
+| moveat          | Move at a given speed |
+| hoe             | Start weeding |
+| homing          | Go to the home position (for rovers with a limit switch only) |
+| shutdown        | Turn off the robot |
+
+
+The `move` action takes the following parameters:
+
+| Name          | Value   | Required | Description  |
+| ------------- | ------- | -------- | ------------ |
+| distance      | Number (in meters)  | Required | The distance to be travelled |
+| speed         | Number (-1000 < speed < 1000) | Optional | The speed |
+
+The `moveat` action takes a `speed` value, as in the `move` command above.
+
+The `hoe` action takes the following parameters:
+
+| Name          | Value   | Required | Description  |
+| ------------- | ------- | -------- | ------------ |
+| method        | String  | Required | See below |
+| speed         | Number (-1000 < speed < 1000) | Optional | The speed |
+
+Two methods are currenly available, `quincunx` and `boustrophedon`. Boustrophedon clean the complete surface underneath the rover. Quincunx tries to detect the [_quincunx_](https://en.wikipedia.org/wiki/Quincunx) pattern in which the vegetables are planted and clean between them.
+ 
