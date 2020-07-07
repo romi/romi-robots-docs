@@ -49,9 +49,9 @@ have to install additional libraries (see XXX).
 ## Installing a Raspberry Pi from scratch
 
 We use the _Lite_ version of Raspbian. You can download it at
-[https://www.raspberrypi.org/downloads/raspbian/](). There are several
+[https://www.raspberrypi.org/downloads/raspbian/](https://www.raspberrypi.org/downloads/raspbian/). There are several
 ways to prepare the disk image for the RPi. Check the page at
-[https://www.raspberrypi.org/documentation/installation/installing-images/]()
+[https://www.raspberrypi.org/documentation/installation/installing-images/](https://www.raspberrypi.org/documentation/installation/installing-images/)
 (there’s lots of information available on this topic online) and
 follow the instructions that suit you best.
 
