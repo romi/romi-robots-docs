@@ -1,4 +1,4 @@
-This page describe how to use the romi package `data-storage` accessible [here](https://github.com/romi/data-storage).
+This page describe how to use the romi package `romidata` accessible [here](https://github.com/romi/romidata).
 
 A shared example datasets is accessible [here](https://db.romi-project.eu/models/test_db.tar.gz).
 
@@ -7,12 +7,12 @@ A shared example datasets is accessible [here](https://db.romi-project.eu/models
 ### Installation
 
 !!! warning
-    If you intend to contribute to the development of `data-storage` or want to be able to edit the code and test your changes, you should choose _editable mode_.
+    If you intend to contribute to the development of `romidata` or want to be able to edit the code and test your changes, you should choose _editable mode_.
 
 #### Non-editable mode
 Install from github using `pip`:
 ```
-pip install git+ssh://git@github.com/romi/data-storage.git#dev
+pip install git+ssh://git@github.com/romi/romidata.git#dev
 ```
 !!! note
     This uses `ssh` and thus requires to be registered as part of the project and to deploy ssh keys.
@@ -20,17 +20,17 @@ pip install git+ssh://git@github.com/romi/data-storage.git#dev
 #### Editable mode
 Clone from github and install using `pip`:
 ```
-git clone https://github.com/romi/data-storage.git
-cd data-storage
+git clone https://github.com/romi/romidata.git
+cd romidata
 pip install -e .
 ```
 
-### Basic working example
+### Minimal working example
 
-Assume you have a list of images you want to create a database, and add some images to a scan in this database.
+Let's assume you have a list of images of a given object and that you want to add them to a ROMI database as a "scan".
 
 #### 1 - Initialize database
-First create the folder for the database and add the ``romidb`` marker to it:
+First create the directory for the database and add the ``romidb`` marker to it:
 ```python
 from os.path import join
 from tempfile import mkdtemp
@@ -38,7 +38,7 @@ mydb = mkdtemp(prefix='romidb_')
 open(join(mydb, 'romidb'), 'w').close()
 ```
 
-Npw you can initialize a ROMI `FSDB` database object:
+Now you can initialize a ROMI `FSDB` database object:
 ```python
 from romidata.fsdb import FSDB
 db = FSDB(mydb)
@@ -46,8 +46,8 @@ db.connect() # Locks the database and allows access
 ```
 
 
-#### 2 - Create a new datasets
-To create a new datasets, here named `myscan_001`, do:
+#### 2 - Create a new dataset
+To create a new dataset, here named `myscan_001`, do:
 ```python
 scan = db.create_scan("myscan_001")
 ```
@@ -57,50 +57,51 @@ scan.set_metadata({"scanner": {"harware": 'test'}})
 ```
 This will results in several changes in the local database:
 
-1. Add a `myscan_001` sub-folder in the database root folder;
-2. Add a `metadata` sub-folder in `myscan_001` and a `metadata.json` gathering the given _scan metadata_.
+1. Add a `myscan_001` sub-directory in the database root directory;
+2. Add a `metadata` sub-directory in `myscan_001` and a `metadata.json` gathering the given _scan metadata_.
 
 
 #### 3 - Add images as new fileset
 
 0. OPTIONAL - create a list of RGB images
-If you do not have a scan datasets available, either download a shared datasets [here](https://db.romi-project.eu/models/test_db.tar.gz) or generate a list of images as follows:
-```python
-import numpy as np
-# Generate random noise images
-n_images = 99
-imgs = []
-for i in range(n_images):
-    img = 256 * np.random.rand(256, 256, 3)
-    img = np.array(img, dtype=np.uint8)
-    imgs.append(img)
-```
+    If you do not have a scan datasets available, either download a shared datasets [here](https://db.romi-project.eu/models/test_db.tar.gz) or generate a list of images as follows:
+    ```python
+    import numpy as np
+    # Generate random noise images
+    n_images = 99
+    imgs = []
+    for i in range(n_images):
+        img = 256 * np.random.rand(256, 256, 3)
+        img = np.array(img, dtype=np.uint8)
+        imgs.append(img)
+    ```
 
 1. Create a new `fileset`:
-```python
-fileset = scan.create_fileset("images")
-```
+    ```python
+    fileset = scan.create_fileset("images")
+    ```
 
 2. Add the images to the fileset:
-Load the file list (or skip if you generated random images):
-```python
-from os import listdir
-imgs = listdir("</path/to/my/scan/images>")
-```
-Then loop the images list and add them to the `fileset`, optionally attach some metadata to each image:
-```python
-from romidata import io
-for i, img in enumerate(imgs):
-    file = fileset.create_file("%i"%i)
-    io.write_image(file, img)
-    file.set_metadata("key", "%i"%i)
-```
+    Load the file list (or skip if you generated random images):
+    ```python
+    from os import listdir
+    imgs = listdir("</path/to/my/scan/images>")
+    ```
+
+3. Then loop the images list and add them to the `fileset`, optionally attach some metadata to each image:
+    ```python
+    from romidata import io
+    for i, img in enumerate(imgs):
+        file = fileset.create_file("%i"%i)
+        io.write_image(file, img)
+        file.set_metadata("key", "%i"%i)
+    ```
 
 This will results in several changes in the local database:
 
 1. Reference the image by its file name by adding an entry in `files.json`;
-2. Write a `scan_img_1.jpeg` image in the `images` sub-folder of the scan `"myscan"`.
-3. Add an `images` sub-folder in the `metadata` sub-folder, and JSON files with the image `id` as name to store the _image metadata_.
+2. Write a `scan_img_1.jpeg` image in the `images` sub-directory of the scan `"myscan"`.
+3. Add an `images` sub-directory in the `metadata` sub-directory, and JSON files with the image `id` as name to store the _image metadata_.
 
 
 #### 4 - Access image files in a fileset
@@ -139,9 +140,9 @@ for i in range(n_images):
 from os import listdir
 from os.path import join
 from tempfile import mkdtemp
-# Create a temporary DB folder:
+# Create a temporary DB directory:
 mydb = mkdtemp(prefix='romidb_')
-# Create the `romidb` file in previously created temporary DB folder:
+# Create the `romidb` file in previously created temporary DB directory:
 open(join(mydb, 'romidb'), 'w').close()
 listdir(mydb)
 
@@ -176,56 +177,149 @@ db.disconnect()
 ```
 
 
-## Folders structure
+## Database structure
 
-### Database root folder
-A _root database_ folder is defined, _eg._ `mydb`.
-Inside this folder we need to defines (add) the ``romidb`` marker so it may be used by `fsdb`.
+### Overview
+Hereafter we give an overview of the database structure using the ROMI database terminology: 
+```
+romidb_root/
+├── dataset_001/
+│   ├── fileset_A/
+│   │   ├── file_A_001.ext
+│   │   ├── [...]
+│   │   └── file_A_009.ext
+│   ├── fileset_B/
+│   │   ├── file_B_001.ext
+│   │   ├── [...]
+│   │   └── file_B_009.ext
+│   ├── metadata
+│   │   ├── fileset_A.json
+│   │   ├── fileset_B.json
+│   │   └── metadata.json
+│   └── files.json
+├── dataset_002/
+│   └── [...]
+├── [...]
+├── (lock)
+└── romidb
+```
+
+### Database root directory
+A _root database_ directory is defined, _eg._ `mydb/`.
+Inside this directory we need to defines (add) the `romidb` marker so it may be used by `FSDB` class.
 We may also find the `lock` file used to limit the access to the database to only one user. 
 
-Note that this part is manual, you have to create these manually:
+Note that the database initialization part is manual. 
+To create them, in a terminal:
 ```bash
 mkdir mydb
 touch mydb/romidb
 ```
-
-Once you have created this root folder and file, you can initialize a ROMI `FSDB` database object:
+We just created the following tree structure:
+```
+mydb/
+└── romidb
+```
+Once you have created this root directory and the `romidb` marker file, you can initialize a ROMI `FSDB` database object in Python:
 ```python
 from romidata.fsdb import FSDB
 db = FSDB("mydb")
 db.connect()
 ```
 The method `FSDB.connect()` locks the database with a `lock` file at root directory and allows access.
-You may remove the `lock` file if you are sure no one else is using the database. 
+To disconnect and _free the database_ do:
+```python
+db.disconnect()
+```
+If for some reason the Python terminal unexpectedly terminate without a call to the `disconnect` method, you may have to remove the `lock` file manually.
+Check that no one else is using the database! 
 
-Within this _root database_ folder you will find other folders corresponding to _datasets_.
+Within this _root database_ directory you will find other directories corresponding to _datasets_.
 
-### Datasets folders
-At the next level, we find the _datasets_ folder(s), _eg._ named `myscan_001`.
+### Datasets directories
+At the next level, we find the _datasets_ directory(s), _eg._ named `myscan_001`.
 Their names must be uniques and you create them as follow:
 ```python
 scan = db.create_scan("myscan_001")
 ```
-If you add _scan metadata_ (_eg._ camera settings, biological metadata, hardware metadata...) with `scan.set_metadata()`, you get another folder `metadata` with a `metadata.json` file.
+If you add _scan metadata_ (_eg._ camera settings, biological metadata, hardware metadata...) with `scan.set_metadata()`, you get another directory `metadata` with a `metadata.json` file.
+```python
+scan.set_metadata({"scanner": {"hardware": 'test'}})
+```
 
 We now have the following tree structure:
 ```
 mydb/
 ├── myscan_001/
-│   ├── metadata/
-│   │   └── metadata.json
+│   └── metadata/
+│       └── metadata.json
 └── romidb
+```
+And the file `metadata.json` should look like this:
+```json
+{
+    "scanner": {
+        "harware": "test"
+    }
+}
 ```
 
 
-### Images folders
+### Images directories
 Inside `myscan_001/`, we find the datasets or _fileset_ in `romidb` terminology.
 In the case of the "plant scanner", this is a list of RGB image files acquired by a camera moving around the plant.
 To store the datasets, we thus name the created _fileset_ "images":
 ```python
 fileset = scan.create_fileset("images")
 ```
-Inside this `images/` folder will reside the images added to the database.
+This create an `images` directory and a `files.json` at the dataset root directory.
+We now have the following tree structure:
+```
+mydb/
+├── myscan_001/
+│   ├── images/
+│   ├── metadata/
+│   │   └── metadata.json
+│   └── files.json
+└── romidb
+```
+
+The JSON should look like this:
+```json
+{
+    "filesets": [
+        {
+            "files": [],
+            "id": "images"
+        }
+    ]
+}
+```
+
+We then create random RGB images to add to the dataset:
+```python
+import numpy as np
+
+# Generate random noise images
+n_images = 100
+imgs = []
+for i in range(n_images):
+    img = 256*np.random.rand(256, 256, 3)
+    img = np.array(img, dtype=np.uint8)
+    imgs.append(img)
+```
+
+And we add them with their metadata to the database:
+```python
+for i, img in enumerate(imgs):
+    fname = f"img_{str(i).zfill(2)}.png"
+    file = fileset.create_file(fname)
+    io.write_image(file, img)
+    file.set_metadata("key", fname)
+    file.set_metadata("id", i)
+```
+
+Inside this `images/` directory will reside the images added to the database.
 At the same time you added images with **REF_TO_TUTO**, you created an entry in a JSON file referencing the files.
 If you added metadata along with the files (_eg._ camera poses, jpeg metadata...) it should be referenced in `metadata/images/` _eg._ `metadata/images/<scan_img_01>.json`.
 ```
