@@ -5,6 +5,7 @@ Biological metadata are informative of the biological object and its growth cond
 ## Definitions
 
 Here is a list of biological metadata and their definition:
+
 * **species**: the species of the biological object analysed, _eg_: "Arabidopsis thaliana";
 * **seed stock**: an identifier of the seed stock used, _eg_: "Col-0", "186.AV.L1", ...;
 * **plant id**: an identifier for the plant, _eg_: "GT1";

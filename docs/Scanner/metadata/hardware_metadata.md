@@ -4,6 +4,7 @@ Hardware metadata are informative of the hardware setup like the used camera, it
 
 ## Definitions
 Here is a list of hardware metadata and their definition:
+
 * **frame**: scanner frame type and version, _eg_: "30profile v1";
 * **X_motor**: type of motor used for the X axis, _eg_: "X-Carve NEMA23";
 * **Y_motor**: type of motor used for the Y axis, _eg_: "X-Carve NEMA23";
@@ -25,10 +26,10 @@ The `sensor` metadata could be more detailed, for example as a dictionary or a r
 ## Database location
 Located in `metadata/metadata.json` and found under the `scanner` top level section, it contains information about the hardware and software used for the scan:
 
-- the used camera with `camera_args`, `camera_firmware`,  `camera_hardware` &  `camera_lens`
-- the model and version of the scanning station with `id`
-- list of hardware and software components and their versions with `cnc_args`, `cnc_firmware`, `cnc_hardware`, `frame`, `gimbal_args`, `gimbal_firmware`, `gimbal_hardware`
-- the used workspace with `workspace`
+* the used camera with `camera_args`, `camera_firmware`,  `camera_hardware` &  `camera_lens`
+* the model and version of the scanning station with `id`
+* list of hardware and software components and their versions with `cnc_args`, `cnc_firmware`, `cnc_hardware`, `frame`, `gimbal_args`, `gimbal_firmware`, `gimbal_hardware`
+* the used workspace with `workspace`
 
 
 ## JSON example
