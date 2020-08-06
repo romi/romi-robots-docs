@@ -4,6 +4,65 @@ site_author: ROMI Team
 site_url: https://docs.romi-project.eu/
 
 # https://www.mkdocs.org/user-guide/writing-your-docs/#configure-pages-and-navigation
+nav:
+  - 'Home': 'index.md'
+  - 'Cable':
+      - 'Home': 'Cable/index.md'
+  - 'Rover':
+      - 'Rover/index.md'
+      - 'Rover/configuration.md'
+      - 'Rover/hardware.md'
+      - 'Rover/manual.md'
+      - 'Rover/software.md'
+      - 'Rover/developer.md'
+  - 'Scanner':
+      - 'Home': 'Scanner/index.md'
+      - 'Build':
+          - 'Home': 'Scanner/build/index.md'
+          - 'Aluminium frame': 'Scanner/build/alu_frame.md'
+          - 'CNC frame': 'Scanner/build/cnc_frame.md'
+          - 'CNC electronics': 'Scanner/build/cnc_electronics.md'
+          - 'CNC communication': 'Scanner/build/cnc_communication.md'
+          - 'CNC calibration': 'Scanner/build/cnc_calibration.md'
+          - 'Gimball setup': 'Scanner/build/gimball_setup.md'
+          - 'Gimball communication': 'Scanner/build/gimball_communication.md'
+          - 'PiCamera setup': 'Scanner/build/picamera_setup.md'
+      - 'Install':
+          - 'Home': 'Scanner/install/index.md'
+          - 'Create python environments': 'Scanner/install/create_env.md'
+          - 'Database setup': 'Scanner/install/romidb_setup.md'
+          - 'Plant scanner software setup': 'Scanner/install/plant_scanner_setup.md'
+          - 'Plant reconstruction software setup': 'Scanner/install/plant_reconstruction_setup.md'
+          - 'Virtual plants software setup': 'Scanner/install/virtual_plant_setup.md'
+          - 'Visualizer software setup': 'Scanner/install/virtual_plant_setup.md'
+#          - '': 'Scanner/install/'
+      - 'How-to':
+          - 'Home': 'Scanner/how_to/index.md'
+          - 'Basics': 'Scanner/how_to/basics.md'
+          - 'Plant scanning': 'Scanner/how_to/hardware_scan.md'
+          - 'Scan reconstruction': 'Scanner/how_to/reconstruct_scan.md'
+          - 'Virtual scanner': 'Scanner/how_to/virtual_scan.md'
+          - 'Visualizer': 'Scanner/how_to/visualizer.md'
+      - 'Specifications':
+          - 'Home': 'Scanner/user_guide/index.md'
+          - 'Data': 'Scanner/user_guide/data.md'
+          - 'Hardware': 'Scanner/user_guide/hardware.md'
+          - 'Metadata':
+              - 'Home': 'Scanner/metadata/index.md'
+              - 'Biological metadata': 'Scanner/metadata/biological_metadata.md'
+              - 'Hardware metadata': 'Scanner/metadata/hardware_metadata.md'
+              - 'Software metadata': 'Scanner/metadata/software_metadata.md'
+              - 'Tasks metadata': 'Scanner/metadata/tasks_metadata.md'
+          - 'Pipelines': 'Scanner/user_guide/pipelines.md'
+          - 'Configuration files': 'Scanner/user_guide/configuration_files.md'
+      - 'Developer':
+          - 'Home': 'Scanner/Developer/index.md'
+          - 'User case scenarios': 'Scanner/Developer/user_case_scenarios.md'
+          - 'Conda': 'Scanner/Developer/conda.md'
+          - 'Docker': 'Scanner/Developer/docker.md'
+  - 'Visualizer':
+      - 'Home': 'Visualizer/index.md'
+      - 'Guide': 'Visualizer/guide.md'
 
 theme:
   name: 'material'
@@ -16,6 +75,7 @@ theme:
   favicon: 'assets/images/favicon.ico'
   feature:
     tabs: true
+  extra_css: extra.css
 
 extra:
   social:

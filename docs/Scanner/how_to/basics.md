@@ -32,57 +32,6 @@ Preferably, create a virtual environment for python 3.7 or python 3.8 using `vir
     If using python 3.8, Open3D binaries are not yet available on pip, therefore you have to build Open3D from sources!
 
 
-## How to - Install ROMI packages
-Choose between a Python `venv` or a `conda` environment (A or B).
-
-### A - Create a virtual environment
-To create a `venv` named `scan3d` with Python 3.7:
-```bash
-virtualenv -p /usr/bin/python3.7 scan3d
-```
-
-!!! note
-    This should probably be replaced by:
-    ```bash
-    python3.7 -m venv scan3d
-    ```
-
-Then activate it with:
-```bash
-source scan3d/activate
-```
-Now you can now easily install Python packages, for example `NumPy`, as follow:
-```bash
-pip install numpy
-```
-
-### B - Create a conda environment:
-To create a conda environment named `scan3d` with Python 3.7:
-```bash
-conda create -n scan3d python==3.7
-```
-Then activate it:
-```bash
-conda activate scan3d
-```
-Now you can now easily install Python packages, for example `NumPy`, as follow:
-```bash
-conda install numpy
-```
-
-
-## How to - Initialize a database
-The `FSDB` class from the `romidata` module is used for data storage.
-A database is any folder which contains a file named `romidb`.
-To create an empty database, just create a new folder and an empty file named `romidb` in it.
-
-For example:
-```bash
-mkdir /path/to/my/db
-cd /path/to/my/db
-touch romidb
-```
-
 
 ## Basic usage
 
@@ -96,19 +45,13 @@ romi_run_task [-h] [--config CONFIG] [--luigicmd LUIGICMD] [--module MODULE]
 [--local-scheduler] [--log-level LOG_LEVEL] task scan
 ```
 
-* `CONFIG` is either a file or a folder. If a file, it must be `json` or `toml`
-and contains the configuration of the task to run. If a folder, it will read all
-configuration files in `json` or `toml` format from the folder.
-* `LUIGICMD` is an optional parameter specifying an alternative command for
-`luigi`.
-* `MODULE` is an optional parameter for running task from external modules (see
-TODO).
-* `LOG_LEVEL` is the level of logging. Defaults to `INFO`, but can be set to
-`DEBUG` to increase verbosity.
+* `CONFIG` is either a file or a folder. If a file, it must be `json` or `toml` and contains the configuration of the task to run. If a folder, it will read all configuration files in `json` or `toml` format from the folder.
+* `LUIGICMD` is an optional parameter specifying an alternative command for `luigi`.
+* `MODULE` is an optional parameter for running task from external modules (see TODO).
+* `LOG_LEVEL` is the level of logging. Defaults to `INFO`, but can be set to `DEBUG` to increase verbosity.
 * `task` is the name of the class to run (see TODO)
-* `scan` is the location of the target `scan` on which to process the task. It
-is of the form `DB_LOCATION/SCAN_ID`, where `DB_LOCATION` is a path containing
-the `romidb` marker.
+* `scan` is the location of the target `scan` on which to process the task. It is of the form `DB_LOCATION/SCAN_ID`, where `DB_LOCATION` is a path containing the `romidb` marker.
+
 
 ## Configuration files
 
