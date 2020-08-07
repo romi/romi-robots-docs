@@ -2,7 +2,7 @@ How to use the ROMI plantviewer?
 ================================
 
 ## Ready to run docker image
-To use a ready to run docker image pointing toward the `db.romi-project.eu`, look [here](../Developer/docker.md#3d-plantviewer).
+To use a ready to run docker image pointing toward the `db.romi-project.eu`, look [here](../docker/plantviewer_docker.md).
 
 !!! note
     This requires `docker-ce` to be installed on your machine.

@@ -34,8 +34,7 @@ nav:
           - 'Plant scanner software setup': 'Scanner/install/plant_scanner_setup.md'
           - 'Plant reconstruction software setup': 'Scanner/install/plant_reconstruction_setup.md'
           - 'Virtual plants software setup': 'Scanner/install/virtual_plant_setup.md'
-          - 'Visualizer software setup': 'Scanner/install/virtual_plant_setup.md'
-#          - '': 'Scanner/install/'
+          - 'Visualizer software setup': 'Scanner/install/visualizer_setup.md'
       - 'How-to':
           - 'Home': 'Scanner/how_to/index.md'
           - 'Basics': 'Scanner/how_to/basics.md'
@@ -56,10 +55,17 @@ nav:
           - 'Pipelines': 'Scanner/user_guide/pipelines.md'
           - 'Configuration files': 'Scanner/user_guide/configuration_files.md'
       - 'Developer':
-          - 'Home': 'Scanner/Developer/index.md'
-          - 'User case scenarios': 'Scanner/Developer/user_case_scenarios.md'
-          - 'Conda': 'Scanner/Developer/conda.md'
-          - 'Docker': 'Scanner/Developer/docker.md'
+          - 'Home': 'Scanner/developer/index.md'
+          - 'User case scenarios': 'Scanner/developer/user_case_scenarios.md'
+          - 'Conda': 'Scanner/developer/conda.md'
+          - 'Docker':
+              - 'Home': 'Scanner/docker/index.md'
+              - 'Database': 'Scanner/docker/romidb_docker.md'
+              - 'Plant Scanner': 'Scanner/docker/plantscanner_docker.md'
+              - 'Plant Interpreter': 'Scanner/docker/plantinterpreter_docker.md'
+              - 'Virtual Plant Scanner': 'Scanner/docker/virtualplantscanner_docker.md'
+              - 'Plant Viewer': 'Scanner/docker/plantviewer_docker.md'
+              - 'Docker compose': 'Scanner/docker/docker_compose.md'
   - 'Visualizer':
       - 'Home': 'Visualizer/index.md'
       - 'Guide': 'Visualizer/guide.md'
@@ -104,6 +110,7 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
   - pymdownx.inlinehilite
+  - pymdownx.keys
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols

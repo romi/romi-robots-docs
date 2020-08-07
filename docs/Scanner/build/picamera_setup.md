@@ -63,7 +63,7 @@ At the bottom of the file, add:
 ```
 denyinterfaces wlan0
 ```
-Save and exit by pressing `ctrl + x` and `y` when asked.
+Save and exit by pressing ++ctrl+x++ and ++y++ when asked.
 
 Next, we need to tell the Raspberry Pi to set a static IP address for the WiFi interface.
 Open the interfaces file with the following command:
@@ -112,7 +112,7 @@ wpa_key_mgmt=WPA-PSK
 wpa_passphrase=raspberry
 rsn_pairwise=CCMP
 ```
-Save and exit by pressing `ctrl + x` and `y` when asked.
+Save and exit by pressing ++ctrl+x++ and ++y++ when asked.
 
 Unfortunately, `hostapd` does not know where to find this configuration file, so we need to provide its location to the hostapd startup script.
 
@@ -124,7 +124,7 @@ Find the line #DAEMON_CONF="" and replace it with:
 ```
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 ```
-Save and exit by pressing `ctrl + x` and `y` when asked.
+Save and exit by pressing ++ctrl+x++ and ++y++ when asked.
 
 ### Configure Dnsmasq
 Dnsmasq will help us automatically assign IP addresses as new devices connect to our network as well as work as a translation between network names and IP addresses.

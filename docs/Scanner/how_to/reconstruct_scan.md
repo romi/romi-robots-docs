@@ -24,7 +24,7 @@ This will create a `integration_tests` folder with a ready to use test database.
 If you made a mess, had a failure or just want to start fresh with your dataset, no need to save a copy on the side, you can use the `Clean` task:
 ```bash
 romi_run_task Clean integration_tests/2019-02-01_10-56-33 \
-    --config Scan3D/config/original_pipe_0.toml --local-scheduler
+    --config romiscan/config/original_pipe_0.toml --local-scheduler
 ``` 
 Here the config may use the `[Clean]` section where you can defines the `force` option:
 ```toml
@@ -40,7 +40,7 @@ If `true` the `Clean` task will run silently, else in interactive mode.
 The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on real dataset with:
 ```bash
 romi_run_task AnglesAndInternodes integration_tests/2019-02-01_10-56-33 \
-    --config Scan3D/config/original_pipe_0.toml --local-scheduler
+    --config romiscan/config/original_pipe_0.toml --local-scheduler
 ```
 
 !!! note
@@ -50,7 +50,7 @@ romi_run_task AnglesAndInternodes integration_tests/2019-02-01_10-56-33 \
 The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on a virtual dataset with:
 ```bash
 romi_run_task AnglesAndInternodes integration_tests/arabidopsis_26 \
-    --config Scan3D/config/original_pipe_0.toml --local-scheduler
+    --config romiscan/config/original_pipe_0.toml --local-scheduler
 ```
 
 !!! note
@@ -77,7 +77,7 @@ romi_run_task AnglesAndInternodes integration_tests/arabidopsis_26 \
 The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on real dataset with:
 ```bash
 romi_run_task PointCloud integration_tests/2019-02-01_10-56-33 
-    --config Scan3D/config/ml_pipe_vplants_3.toml --local-scheduler
+    --config romiscan/config/ml_pipe_vplants_3.toml --local-scheduler
 ```
 
 !!! note
@@ -87,7 +87,7 @@ romi_run_task PointCloud integration_tests/2019-02-01_10-56-33
 The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on a virtual dataset with:
 ```bash
 romi_run_task PointCloud integration_tests/arabidopsis_26 \
-    --config Scan3D/config/ml_pipe_vplants_3.toml --local-scheduler
+    --config romiscan/config/ml_pipe_vplants_3.toml --local-scheduler
 ```
 
 !!! note
@@ -135,7 +135,7 @@ docker run -it --gpus all romiscan:0.7 nvidia-smi
 ```
 
 #### Test procedure
-To start the `romiscan:0.7` docker container and run the automatic test defined in `Scan3D/tests/check_pipe.sh`:
+To start the `romiscan:0.7` docker container and run the automatic test defined in `romiscan/tests/check_pipe.sh`:
 ```bash
 docker run --runtime=nvidia --gpus all -it romiscan:0.7
 ``` 
@@ -160,11 +160,11 @@ You can now call "romi tasks" within the running docker container.
 For example, to run the full *geometric pipeline* on the "real dataset example" named `2019-02-01_10-56-33`:
 ```bash
 romi_run_task AnglesAndInternodes db/2019-02-01_10-56-33 \
-    --config Scan3D/config/original_pipe_0.toml --local-scheduler
+    --config romiscan/config/original_pipe_0.toml --local-scheduler
 ```
 
 You may want to "clean" the dataset first:
 ```bash
 romi_run_task Clean db/2019-02-01_10-56-33 \
-    --config Scan3D/config/original_pipe_0.toml --local-scheduler
+    --config romiscan/config/original_pipe_0.toml --local-scheduler
 ```

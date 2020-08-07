@@ -1,7 +1,7 @@
 Install ROMI software for virtual plants acquisition & reconstruction
 =====================================================================
 
-To follows this guide you should have a `conda` or a Python `venv`, see [here](create_conda_env.md).
+To follows this guide you should have a `conda` or a Python `venv`, see [here](create_env.md).
 
 For the sake of clarity the environment will be called `virtual_plants`.
 

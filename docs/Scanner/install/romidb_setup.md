@@ -1,12 +1,14 @@
 Create a ROMI database to host, receive & serve plant scans
 ===========================================================
 
- To follows this guide you should have a `conda` or a Python `venv`, see [here](create_conda_env.md).
-
-For the sake of clarity the environment will be called `plantscans_db`.
+To follow this guide you should have a `conda` environment, see [here](create_env.md).
+For the sake of clarity it will be called `plantscans_db`.
 
 !!! note
     Since this is still under development, the packages are installed in "editable mode" with the `-e` option.
+
+!!! note
+    If you do not want the hassle of having to create environment & install python libraries, there is a pre-built docker image, with usage instructions [here](../docker/romidb_docker.md).
 
 
 ## Install `romidata` sources
@@ -68,10 +70,10 @@ n scans = 2
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ```
 
-Open your favorite browser here:
+To access the REST API, open your favorite browser and use URLs to access:
 
-* scans: http://0.0.0.0:5000/scans
-* '2018-12-17_17-05-35' dataset: http://0.0.0.0:5000/scans/2018-12-17_17-05-35
+* the list of all scans: http://0.0.0.0:5000/scans
+* the '2018-12-17_17-05-35' dataset: http://0.0.0.0:5000/scans/2018-12-17_17-05-35
 
 You should see JSON formatted text.
 

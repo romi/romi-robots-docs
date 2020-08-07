@@ -114,6 +114,6 @@ Then the pipeline can be run as usual and `colmap` will not be run.
 
 To test the plant reconstruction pipeline on an example _virtual scan_ (`arabidopsis_26`):
 ```bash
-romi_run_task --config Scan3D/config/original_pipe_0.toml PointCloud integration_tests/arabidopsis_26 --local-scheduler
+romi_run_task --config romiscan/config/original_pipe_0.toml PointCloud integration_tests/arabidopsis_26 --local-scheduler
 ```
 This should process all dependencies to obtain a segmented "PointCloud.ply" !
