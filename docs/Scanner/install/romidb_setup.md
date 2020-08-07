@@ -42,13 +42,13 @@ touch /data/romi_db/romidb
 
 Then define its location in an environment variable `DB_LOCATION`:
 ```bash
-export DB_LOCATION=/data/ROMI/DB
+export DB_LOCATION='/data/ROMI/DB'
 ```
 
 !!!note
     To permanently set this directory as the location of the DB, add it to your `~/.bashrc` file.
     ```bash
-    echo 'export DB_LOCATION='/data/ROMI/DB'' >> ~/.bashrc 
+    echo 'export DB_LOCATION=/data/ROMI/DB' >> ~/.bashrc 
     ```
 
 
@@ -79,10 +79,10 @@ You should see JSON formatted text.
 When starting the REST API with `romi_scanner_rest_api`, if you get an error message about this executable not being found, it may be missing from the `$PATH` environement variable.
 Add it with:
 ```bash
-export PATH=$PATH:"/home/${SETUSER}/.local/bin"
+export PATH=$PATH:"/home/$USER/.local/bin"
 ```
 !!!note
     To permanently set this in your bash terminal, add it to your `~/.bashrc` file.
     ```bash
-    echo 'export PATH=$PATH:"/home/${SETUSER}/.local/bin"' >> ~/.bashrc 
+    echo 'export PATH=$PATH:/home/$USER/.local/bin' >> ~/.bashrc 
     ```

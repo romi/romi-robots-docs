@@ -1,18 +1,7 @@
 How to use the ROMI scanner software?
 =======
 
-This is a document centralizing all documentation for the 3D scanner.
-The 3D scanner software is composed of several python libraries organized in different packages:
-
-* `romidata`: the data processing module
-* `lettucethink`: the hardware interface
-* `romiscanner`: the scanner interface and the virtual scanner
-* `romiscan`: the computer vision algorithms
-* `romiseg`: the segmentation models
-
-Additionally, some [CGAL](https://www.cgal.org/) bindings are implemented in a separate python library: `cgal_bindings_skeletonization`.
-
-A separate repository is dedicated to the virtual scanner, which is available as a blender python (bpy) script.
+We here assume you have followed the "installation instructions" available [here](../install/index.md).
 
 
 ## Getting started

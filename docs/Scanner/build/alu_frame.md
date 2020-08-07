@@ -1,7 +1,6 @@
 Building the aluminium frame
 ============================
 
-<img src="/assets/images/alu_frame_wood_corners_3D.PNG" alt="Aluminium frame overview" height="350" />
 
 
 !!! important
@@ -9,6 +8,8 @@ Building the aluminium frame
 
 
 ## BOM
+<img src="/assets/images/alu_frame_wood_corners_3D.PNG" alt="Aluminium frame with wood corners overview" width="300" style="float:right">
+
 To build the aluminium frame you will need:
 
 * 4x 1800mm 3030 profiles (A)
@@ -55,6 +56,6 @@ Add wood corner brackets to rigidify the structure.
 
 <figure>
     <img src="/assets/images/alu_frame_wood_corners_3D.PNG" alt="Aluminium frame with wood corners overview" width="1200" />
-  <figcaption>Assembled aluminium frame with wood corners isometric view.</figcaption>
+  <figcaption>Isometric view of assembled aluminium frame with wood corners.</figcaption>
 </figure>
 

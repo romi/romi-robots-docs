@@ -1,26 +1,32 @@
 Docker containers for ROMI
 ==========================
 
+The official dockerhub repository for the ROMI project is:
+https://hub.docker.com/orgs/roboticsmicrofarms/repositories 
+
 ## List of docker containers
 
 We hereafter list the docker containers, their use and list the installed libraries:
 
 Progress:
- - [ ] DB
+
+ - [x] DB
  - [ ] Scanner
- - [ ] SmartInterpreter
+ - [x] SmartInterpreter
  - [ ] VirtualScanner
  - [x] Visualizer
 
 
 ## Database
-!!! warning
-    This is not working YET, but almost!
+
+!!!important
+    An **existing local database** is required, it will be mounted at container startup.
+
 
 ### Aim & design
-This container does not contain any data or database, only the installed libraries required to run it.
+This container does not contain any data or database, only the ROMI libraries required to run it:
 
-An **existing local database** is required, it will be mounted at container startup.
+* `romidata`
 
 
 ### Build docker image
