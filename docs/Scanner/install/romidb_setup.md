@@ -18,7 +18,13 @@ conda activate plantscans_db
 
 To create an active ROMI database, you have to install the `romidata` package:
 ```bash
-python3 -m pip install -e git+https://github.com/romi/romidata.git@dev
+git clone https://github.com/romi/romidata.git && \
+cd romidata && \
+git checkout dev && \
+python3.7 -m pip install setuptools setuptools-scm && \
+python3.7 -m pip install luigi pillow && \
+python3.7 -m pip install flask flask-restful flask-cors && \
+python3.7 -m pip install .
 ```
 
 
@@ -41,6 +47,9 @@ export DB_LOCATION=/data/ROMI/DB
 
 !!!note
     To permanently set this directory as the location of the DB, add it to your `~/.bashrc` file.
+    ```bash
+    echo 'export DB_LOCATION='/data/ROMI/DB'' >> ~/.bashrc 
+    ```
 
 
 ## Serve the REST API
@@ -65,3 +74,15 @@ Open your favorite browser here:
 * '2018-12-17_17-05-35' dataset: http://0.0.0.0:5000/scans/2018-12-17_17-05-35
 
 You should see JSON formatted text.
+
+**Troubleshooting**:
+When starting the REST API with `romi_scanner_rest_api`, if you get an error message about this executable not being found, it may be missing from the `$PATH` environement variable.
+Add it with:
+```bash
+export PATH=$PATH:"/home/${SETUSER}/.local/bin"
+```
+!!!note
+    To permanently set this in your bash terminal, add it to your `~/.bashrc` file.
+    ```bash
+    echo 'export PATH=$PATH:"/home/${SETUSER}/.local/bin"' >> ~/.bashrc 
+    ```
