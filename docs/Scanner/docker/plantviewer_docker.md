@@ -9,6 +9,24 @@ Note that we tag the different versions, the default is to use the latest, but y
 Look here for a list of available tags: https://hub.docker.com/repository/docker/roboticsmicrofarms/plantviewer
 
 
+## Requirements
+
+The docker image does not contain any plant scans and does not come with a working ROMI local database.
+
+To quickly create an example DB you can use:
+```bash
+wget https://db.romi-project.eu/models/test_db.tar.gz
+tar -xf test_db.tar.gz
+```
+This will create a `integration_tests` folder with a ready to use test database. 
+
+To create a local ROMI database:
+
+* python package install, look [here](../install/romidb_setup.md).
+* `romidb` docker image, look [here](romidb_docker.md).
+* docker-compose YAML recipe (start both a `romidb` & a `plantviewer` docker image connected to the db), look [here](docker_compose.md).
+
+
 ## Use pre-built docker image
 You can easily download and start the pre-built `plantviewer` docker image with:
 ```bash
