@@ -2,8 +2,8 @@ Docker container for ROMI database
 ==================================
 
 !!!important
-    An **existing local database is required**, it will be mounted at container startup.
-    To see how to create a local database, look [here](../install/romidb_setup.md#initialize-a-romi-database).
+    An **existing local database directory is required**, it will be mounted at container startup.
+    To see how to create a local database directory, look [here](../install/romidb_setup.md#initialize-a-romi-database).
 
 
 ## Use pre-built docker image
