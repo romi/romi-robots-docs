@@ -28,7 +28,10 @@ docker run -it --gpus all romiscan:0.7 nvidia-smi
 ### Run test procedure
 To start the `romiscan:0.7` docker container and run the automatic test defined in `romiscan/tests/check_pipe.sh`:
 ```bash
-docker run --runtime=nvidia --gpus all -it romiscan:0.7
+docker run --runtime=nvidia --gpus all \
+    -it romiscan_dev:0.7 \
+    --env PYOPENCL_CTX='0' \
+    bash -c 'cd romiscan/tests/ && ./check_pipe.sh'
 ``` 
 
 ### Start container in interative mode
@@ -70,6 +73,59 @@ romi_run_task Clean ~/db/2019-02-01_10-56-33 \
     --config ~/config/original_pipe_0.toml
 ```
 
+## CI docker images
+To speed-up the continuous integration tests (very long docker build) we offers two solutions:
+
+1. Use a base image with all the system requirement installed, then build the `romiscan` module & its (git) submodules (`romidata`, `romiseg`, `romiscanner` & `romicgal`)
+2. Use a base image with all the system requirement installed AND `romiseg` (longest package to install & currently not under development) & `romicgal` (currently not under development), then build the `romiscan` module & its ROMI dependencies (`romidata`, `romiscanner` )
+
+
+### Solution #1 - `romiscan_base` + `romiscan_ci`
+
+#### Build `romiscan_base`
+Assuming your `romiscan_base` image tag is `0.7`, in a terminal, from the `romiscan/docker/` directory, it should look like this:
+```bash
+docker build -t roboticsmicrofarms/romiscan_base:0.7 --build-arg USER_NAME=$USER --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) base/.
+```
+
+#### Upload `romiscan_base` to roboticsmicrofarms
+To push the built image on the roboticsmicrofarms docker hub:
+```bash
+docker push roboticsmicrofarms/romiscan_base:0.7
+```
+
+#### CI tests with `romiscan_ci` Dockerfile
+Use the previously built & uploaded image in your `Dockerfile` recipe for `romiscan_ci` image:
+```dockerfile
+FROM roboticsmicrofarms/romiscan_base:0.7
+
+...
+```
+Use this `Dockerfile` in github CI actions.
+
+
+### Solution #2 - `romiscan_base-dev` + `romiscan_ci-dev`
+
+#### Build `romiscan_base-dev`
+Assuming your `romiscan_base-dev` image tag is `0.7`, it should look like this:
+```bash
+docker build -t roboticsmicrofarms/romiscan_base-dev:0.7 --build-arg USER_NAME=$USER --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) base-dev/.
+```
+
+#### Upload `romiscan_base-dev` to roboticsmicrofarms
+To push the built image on the roboticsmicrofarms docker hub:
+```bash
+docker push roboticsmicrofarms/romiscan_base-dev:0.7
+```
+
+#### CI tests with `romiscan_ci-dev` Dockerfile
+Use the previously built & uploaded image in your `Dockerfile` recipe for `romiscan_ci-dev` image:
+```dockerfile
+FROM roboticsmicrofarms/romiscan_base-dev:0.7
+
+...
+```
+Use this `Dockerfile` in github CI actions.
 
 
 ## Colmap docker
