@@ -165,7 +165,23 @@ The `hoe` action takes the following parameters:
 | Name          | Value   | Required | Description  |
 | ------------- | ------- | -------- | ------------ |
 | method        | String  | Required | See below |
-| speed         | Number (-1000 < speed < 1000) | Optional | The speed |
 
 Two methods are currenly available, `quincunx` and `boustrophedon`. Boustrophedon clean the complete surface underneath the rover. Quincunx tries to detect the [_quincunx_](https://en.wikipedia.org/wiki/Quincunx) pattern in which the vegetables are planted and clean between them.
  
+When the method is `quincunx`, the following additional parameters are
+can be passed:
+
+| Name          | Value   | Default | Description  |
+| ------------- | ------- | -------- | ------------ |
+| distance-plants | number | 0.3m | The distance between plant on a row |
+| distance-rows | number | 0.25m | The distance between rows |
+| radius-zones | number | 0.1m | The radius of the plants |
+| diameter-tool | number | 0.05m | The diameter of the weeding tool |
+| quincunx-threshold | number | 1.0 | A threshold used in the detection of the plants. A lower value (> 0) means be more tolerant in the detection, a higher value means be more selective. |
+
+
+
+
+
+
+
