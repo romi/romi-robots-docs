@@ -23,9 +23,9 @@ Each of the following modules should be seen as separate virtual machines or con
 
 | Validated | Module Name      | Container Name   | ROMI Packages                        |
 |:---------:|------------------|------------------|--------------------------------------|
-|           | DB               | romi_db          | `data-storage`                       |
+|           | DB               | romi_db          | `romidata`                       |
 |           | PlantScanner     | romi_scan        | `lettucethink-python`, `romiscanner` |
-|           | SmartInterpreter | romi_interpreter | `Scan3D`, `romiseg`                  |
+|           | SmartInterpreter | romi_interpreter | `romiscan`, `romiseg`                  |
 |           | Visualizer       | romi_viz         | `3d-plantviewer`                     |
 |           | VirtualScanner   | romi_virtual     | `VirtualPlants`, `romiscanner`       |
 
@@ -67,8 +67,8 @@ We hereafter defines the semantic, names and abbreviations to use in the project
 
 | Validated | Repository          | Package             | Description                                                                                                |
 |:---------:|---------------------|---------------------|------------------------------------------------------------------------------------------------------------|
-|           | data-storage        | romidata            | The database API used in the ROMI project, as well as classes for data processing using luigi.             |
-|           | Scan3D              | romiscan            | This repo gathers the elements used to run 3D scan of individual plants by ROMI partners.                  |
+|           | romidata        | romidata            | The database API used in the ROMI project, as well as classes for data processing using luigi.             |
+|           | romiscan              | romiscan            | This repo gathers the elements used to run 3D scan of individual plants by ROMI partners.                  |
 |           | romiscanner         | romiscanner         | Hardware interface for the 3D Scanner, as well as virtual scanner                                          |
 |           | lettucethink-python | lettucethink-python | Python tools and controllers for the lettucethink robot                                                    |
 |           | Segmentation        | romiseg             | Virtual plant segmentation methods using 2D images generated from the virtual scanner and neural networks. |

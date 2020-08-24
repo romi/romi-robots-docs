@@ -1,107 +1,40 @@
-Metadata are stored hierarchically. We currently use the JSON format. 
+FAIR data for the ROMI plant scanner project
+============================================
+
+## FAIR data
+We aim at using FAIR data principles in the ROMI plant scanner project.
+
+Quoting the [GoFAIR](https://www.go-fair.org/fair-principles/) website:
+
+!!!quote 
+    In 2016, the "[FAIR Guiding Principles for scientific data management and stewardship](http://www.nature.com/articles/sdata201618)" were published in Scientific Data.
+    The authors intended to provide guidelines to improve the **Findability**, **Accessibility**, **Interoperability**, and **Reuse** of digital assets.
+     The principles emphasise machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention) because humans increasingly rely on computational support to deal with data as a result of the increase in volume, complexity, and creation speed of data.
+
+In our context, a biological dataset is a set of RAW images (eg: RGB images), used to reconstruct the plant 3D structure, associated with a set of metadata of different nature: biological, hardware & software.
 
 
-## ROMI scanner metadata
+## ROMI plant scanner metadata
+Metadata are stored hierarchically.
+We currently use the JSON format. 
 
 There are many JSON files containing metadata in the `metadata` directory attached to a dataset.
 
+
+### General metadata
 The first you should consider is `metadata/metadata.json`.
-Its content and meaning is explained in the [general metadata](#general-metadata) section. 
+Its top-level entries are:
 
-Then there are the JSON files attached to each task, *e.g.* `Colmap_True____feature_extrac_3bbfcb1413.json`, they contain the parameter used to run this task. 
-Their content and meaning is explained in the [task metadata](#tasks-metadata) section. 
-
-!!! todo
-    Explain what are & who produce:
-    
-    - the image JSON file `metadata/images.json`
-    - the image JSON files found under `metadata/images/*.json`
-    - the visualization JSON file `metadata/Visualization.json`
-    - the visualization JSON files found under `metadata/Visualization/*.json`
-
-
-## General metadata
-
-### Setup
-Found under the `scanner` top level section, it contains information about the hardware and software used for the scan:
-
-- the used camera with `camera_args`, `camera_firmware`,  `camera_hardware` &  `camera_lens`
-- the model and version of the scanning station with `id`
-- list of hardware and software components and their versions with `cnc_args`, `cnc_firmware`, `cnc_hardware`, `frame`, `gimbal_args`, `gimbal_firmware`, `gimbal_hardware`
-- the used workspace with `workspace`
-
-Example
-```json
-    "scanner": {
-        "camera_args": {
-            "api_url": "http://192.168.122.1:8080"
-        },
-        "camera_firmware": "sony_wifi",
-        "camera_hardware": "Sony Alpha 5100",
-        "camera_lens": "16-35 stock",
-        "cnc_args": {
-            "homing": true,
-            "port": "/dev/ttyUSB1"
-        },
-        "cnc_firmware": "grbl-v1.1",
-        "cnc_hardware": "xcarve-v2",
-        "frame": "alu 40mm",
-        "gimbal_args": {
-            "baud_rate": 57600,
-            "dev": "/dev/ttyUSB0",
-            "tilt0": 3072
-        },
-        "gimbal_firmware": "dynamixel-usb2dynamixel",
-        "gimbal_hardware": "dynamixel",
-        "id": "lyon_1",
-        "workspace": {
-            "x": [
-                200,
-                600
-            ],
-            "y": [
-                200,
-                600
-            ],
-            "z": [
-                -180,
-                260
-            ]
-        }
-    }
-```
+* "scanner", the hardware metadata (see [here](hardware_metadata.md))
+* "object", the biological metadata (see [here](biological_metadata.md))
+* "path", the parameter values used for the task `Scan` (see [here](#scanning-operation))
+* "computed",  the parameter values used for the task `Colmap` (see [here](#colmap-reconstruction))
+* "measures",  the parameter values used for the task `AnglesAndInternodes` (see [here](#measures-of-angles-and-internodes))
 
 !!! todo
-    Gather all camera parameters under a `camera` section?
-    Gather all cnc parameters under a `cnc` section?
-    Gather all gimbal parameters under a `gimbal` section?
+    Remove top-level entries "path", "computed" & "measures", they look like duplicates from their respective task metadata.
 
-
-### Biology
-Found under the `object` top level section, it contains biologically relevant information such as the studied species, its age and growth conditions.
-This information are not restricted in their format but should contain a minimal set of entries.
-
-!!! todo
-    Defines the minimal set of entries! Use the MIAPPE standard?
-
-Example:
-```json
-    "object": {
-        "age": "62d",
-        "culture": "LD",
-        "environment": "Lyon indoor",
-        "experiment_id": "living plant",
-        "object": "plant",
-        "plant_id": "Col0_26_10_2018_B",
-        "sample": "main stem",
-        "species": "Arabidopsis thaliana",
-        "stock": "186AV.L1",
-        "treatment": "none"
-    }
-```
-
-
-### Scanning operation
+#### Scanning operation
 Found under the `path` top level section, it contains:
 
 - the trajectory of the camera under `path`
@@ -124,13 +57,10 @@ Example:
 ```
 
 !!! todo
-    Where are the:
-    
-    - list of positions of camera, as given by scanning hardware
-    - list of position of camera, as computed by the software
+    Potential duplication from the `Scan` task metadata!
 
 
-### Reconstruction
+#### Colmap reconstruction
 Found under the `computed` top level section, it contains the `camera_model` used by Colmap.
 
 Example:
@@ -155,8 +85,11 @@ Example:
     }
 ```
 
+!!! todo
+    Potential duplication from the `Colmap` task metadata!
 
-### Measures and results
+
+#### Measures of angles and internodes
 Found under the `measures` top level section:
 - Measured angles are under `angles`
 - Measured internodes are under `internodes`
@@ -179,25 +112,15 @@ Example:
     }
 ```
 
-
-### Performance analysis
-
-- Duration
-
-
-### Other
-
-- Observations of the person doing the scan
-
-
-## Tasks metadata
-These JSON files contain the parameter used to run the task and are produced by each task.
-
 !!! todo
-    Explains the meaning of the weird tag associated to the task name!
+    Potential duplication from the `AnglesAndInternodes` task metadata!
 
 
-## Images metadata
+### Tasks metadata
+Then there are the JSON files attached to each task, *e.g.* `Colmap_True____feature_extrac_3bbfcb1413.json`, they contain the parameter used to run this task. 
+Their content and meaning is explained in the [task metadata](tasks_metadata.md) section. 
+
+### Images metadata
 The image JSON file `metadata/images.json` contains ??? and is produced by ???.
 
 Example:
@@ -275,7 +198,7 @@ Example:
 ```
 
 
-## Visualization metadata
+### Visualization metadata
 The visualization JSON file `metadata/Visualization.json` contains ??? and is produced by ???.
 
 !!! important
@@ -325,4 +248,15 @@ Example for `thumbnail_*.json`:
     "image_id": "rgb-000"
 }
 ```
+
+
+### Other metadata
+
+!!! todo
+    Explain what are & who produce:
+    
+    - the image JSON file `metadata/images.json`
+    - the image JSON files found under `metadata/images/*.json`
+    - the visualization JSON file `metadata/Visualization.json`
+    - the visualization JSON files found under `metadata/Visualization/*.json`
 

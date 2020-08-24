@@ -1,35 +1,17 @@
 How to use the plant scanner?
 =======
+
 !!! info
     Do this only if you want to control the hardware and scan plants with the open-source scanner!
 
 
 ## Getting started
 
-To follows this guide you should have a `conda` or a Python `venv`, see [here](/Scanner/how-to/#how-to-install-romi-packages)
+To follows this guide you should have:
 
-### Install ROMI packages with `pip`:
+* built the scanner [here](../build/index.md)
+* installed the necessary ROMI software [here](../install/plant_scanner_setup.md)
 
-!!! note
-    Since this is still under development, the packages are installed in "editable mode" with the `-e` option.
-
-#### Install `romiscanner`:
-To pilot the hardware you have to install the `romiscanner`package:
-```bash
-pip install -e git+https://github.com/romi/romiscanner.git@dev
-```
-
-#### Install `romiscan`:
-To start "acquisition jobs", you have to install the `romiscan` package:
-```bash
-pip install -e git+https://github.com/romi/romiscan.git@dev
-```
-
-#### Install `romidata`:
-Since we will need an active database to export the acquisitions, you have to install the `romidata` package:
-```bash
-pip install -e git+https://github.com/romi/romidata.git@dev
-```
 
 To quickly create an example DB you can use:
 ```bash
