@@ -34,7 +34,7 @@ docker run --runtime=nvidia --gpus all \
     bash -c 'cd romiscan/tests/ && ./check_pipe.sh'
 ``` 
 
-### Start container in interative mode
+### Start container in interactive mode
 It is also possible to use this container to performs "reconstruction tasks" as you would with a local install on your machine.
 To start the `romiscan:0.7` docker container and access a `bash` terminal as `romi` user:
 ## Starting the container
@@ -119,13 +119,59 @@ docker push roboticsmicrofarms/romiscan_base-dev:0.7
 ```
 
 #### CI tests with `romiscan_ci-dev` Dockerfile
-Use the previously built & uploaded image in your `Dockerfile` recipe for `romiscan_ci-dev` image:
+Use the previously built & uploaded image in your `Dockerfile` recipe for `romiscan_ci-dev` image in github CI actions:
 ```dockerfile
 FROM roboticsmicrofarms/romiscan_base-dev:0.7
-
-...
 ```
-Use this `Dockerfile` in github CI actions.
+
+Example `build` command from `romiscan/docker` directory:
+
+* specify a branch for `romiscan` git repository with the `ROMISCAN_BRANCH` build argument:
+    ```bash
+    docker build -t romiscan_ci-dev:debug --build-arg ROMISCAN_BRANCH=feature/faster_docker ci-dev/.
+    ```
+
+* specify a branch for `romidata` git repository with the `ROMIDATA_BRANCH` build argument:
+    ```bash
+    docker build -t romiscan_ci-dev:test --build-arg ROMIDATA_BRANCH=dev ci-dev/.
+    ```
+
+* specify a branch for `romiscanner` git repository with the `ROMISCANNER_BRANCH` build argument:
+    ```bash
+    docker build -t romiscan_ci-dev:fix --build-arg ROMISCANNER_BRANCH=fix/urlcam ci-dev/.
+    ```
+
+Note that you can use all three `--build-arg` definitions in the same `build` call!
+
+## Example use of 'ci*' docker images:
+
+### Test the installed packages with `check_pipe.sh`
+```bash
+docker run --runtime=nvidia --gpus all \
+    --env PYOPENCL_CTX='0' \
+    -it roboticsmicrofarms/romiscan_ci-dev:fix \
+    bash -c 'source .profile && cd romiscan/tests/ && ./check_pipe.sh'
+```
+
+!!!important
+    `source .profile` is important to add `.local/bin/` to the `$PATH` environment variable.
+    If you don't do this, you might not be able to access the `romi_run_task` binary from bash in the docker container.
+
+### Use it with a local database
+```bash
+docker run --runtime=nvidia --gpus all \
+    -v </host/database>:/home/<docker_user>/db \
+    --env PYOPENCL_CTX='0' \
+    -it roboticsmicrofarms/romiscan_ci-dev:fix \
+    bash -c 'source .profile && romi_run_task AnglesAndInternodes $DB_LOCATION/<my_scan>  '
+```
+
+!!!warning
+    Do not forget to change:
+    
+    * `</host/database>` to the root directory of your ROMI database (the one with the `romidb` file)
+    * `<docker_user>` to the user defined during docker image creation (using `--build-arg USER_NAME=$USER`), set to "romi" by default
+    * `<my_scan>` the dataset to reconstruct
 
 
 ## Colmap docker
