@@ -18,10 +18,9 @@
 # make
 
 sudo useradd -m -s /bin/bash -G sudo romi
-sudo echo "p2pfoodlab\np2pfoodlab" | passwd romi
+sudo echo "p2pfoodlab\np2pfoodlab" | sudo passwd romi
 sudo adduser romi dialout
 sudo adduser romi video
-sudo adduser romi sudo
 sudo echo p2pfoodlab | su - romi
 git clone --branch ci_dev --recurse-submodules https://github.com/romi/romi-rover-build-and-test.git
 cd romi-rover-build-and-test
