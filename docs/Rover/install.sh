@@ -18,7 +18,7 @@
 # make
 
 sudo useradd -m -s /bin/bash -G sudo romi
-sudo echo "p2pfoodlab\np2pfoodlab" | sudo passwd romi
+sudo echo -e "p2pfoodlab\np2pfoodlab" | sudo passwd romi
 sudo adduser romi dialout
 sudo adduser romi video
 sudo echo p2pfoodlab | su - romi
@@ -27,4 +27,4 @@ cd romi-rover-build-and-test
 mkdir -p build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=~/romi-rover .. 
-make
+make -j4
