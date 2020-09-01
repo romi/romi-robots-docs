@@ -10,12 +10,32 @@ sudo adduser romi sudo
 sudo apt install build-essential cmake git libpng-dev libjpeg9-dev
 
 echo "
-Readme.romi.txt
+
+
+
+██████╗  ██████╗ ███╗   ███╗██╗    ██████╗  ██████╗ ██╗   ██╗███████╗██████╗ 
+██╔══██╗██╔═══██╗████╗ ████║██║    ██╔══██╗██╔═══██╗██║   ██║██╔════╝██╔══██╗
+██████╔╝██║   ██║██╔████╔██║██║    ██████╔╝██║   ██║██║   ██║█████╗  ██████╔╝
+██╔══██╗██║   ██║██║╚██╔╝██║██║    ██╔══██╗██║   ██║╚██╗ ██╔╝██╔══╝  ██╔══██╗
+██║  ██║╚██████╔╝██║ ╚═╝ ██║██║    ██║  ██║╚██████╔╝ ╚████╔╝ ███████╗██║  ██║
+╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚═╝    ╚═╝  ╚═╝ ╚═════╝   ╚═══╝  ╚══════╝╚═╝  ╚═╝
+                                                                             
+                                                                             
+                                                                             
+
+README
+------
+
 To clone the romi rover build and test development project:
-git clone --branch ci_dev --recurse-submodules https://github.com/romi/romi-rover-build-and-test.git
 
-See: https://github.com/romi/romi-rover-build-and-test/ReadMe.md
-" >> /home/romi/ReadMe.romi.txt
+- Log in as user romi 
+- git clone --branch ci_dev --recurse-submodules https://github.com/romi/romi-rover-build-and-test.git
 
-chmod a+r /home/romi/ReadMe.romi.txt
+See: https://github.com/romi/romi-rover-build-and-test/ReadMe.md for instructions
+
+
+
+
+Enjoy!
+"
 
