@@ -8,6 +8,7 @@ sudo adduser romi sudo
 
 # Install the dependencies
 sudo apt install build-essential cmake git libpng-dev libjpeg9-dev
+sudo mv /etc/ld.so.preload /etc/ld.so.preload.bak
 
 echo "
 
