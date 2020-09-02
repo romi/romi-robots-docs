@@ -18,15 +18,30 @@ And should be able to access it here: http://localhost:5000/
 
 
 ## Build docker image
-To build the image, from the `romidata` root directory, run:
+
+### Provided `build.sh` script
+To build the image with the provided build script, from the `romidata/docker` directory:
+```bash
+./build.sh
+```
+You can also pass some options, use `./build.sh -h` to get more details about usage and options.
+
+
+### Manually
+To build the image, from the `romidata` root directory:
 ```bash
 export VTAG="latest"
 docker build -t roboticsmicrofarms/romidb:$VTAG .
 ```
 
+You can use the following optional arguments:
+
+* `--build-arg USER_NAME=<user>`: change the default user in container;
+* `--build-arg ROMIDATA_BRANCH=<git_branch>`: change the cloned git branch from `romidata`.
+
 
 ## Publish docker image
-Push it ot docker hub:
+Push it on docker hub:
 ```bash
 docker push roboticsmicrofarms/romidb:$VTAG
 ```
@@ -41,12 +56,23 @@ To run it, you need to have a valid local ROMI database, look [here](https://doc
 
 
 ### Starting the `romidb` docker image
+
+#### Provided `run.sh` script
+To run the container with the provided run script:
+```bash
+./run.sh
+```
+You can also pass some options, use `./run.sh -h` to get more details about usage and options.
+
+
+#### Manually
 Assuming you extracted it in your home folder (`/home/$USER/integration_tests`), you can start the `romidb` docker image with:
 ```bash
 docker run -it -p 5000:5000 -v /home/$USER/integration_tests:/home/scanner/db romidb:$VTAG
 ```
 
-You should see something like:
+
+In both cases, you should see something like:
 ```
 n scans = 2
  * Serving Flask app "romi_scanner_rest_api" (lazy loading)
@@ -57,7 +83,7 @@ n scans = 2
  * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
 ```
 
-!!tip
+!!! tip
     `-v /home/$USER/integration_tests:/home/scanner/db` performs a **bind mount** to enable access to the local database by the docker image. See the official Docker [documentation](https://docs.docker.com/storage/bind-mounts/).
 
 ### Accessing the REST API
