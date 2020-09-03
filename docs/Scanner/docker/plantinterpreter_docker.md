@@ -12,7 +12,8 @@ To enable read/write access, it is required to modify the Dockerfile to generate
 
 Then we use arguments (`SETUSER`, `USER_ID` & `GROUP_ID`) with docker image `build` command:
 ```bash
-docker build -t romiscan:<tag> --build-arg USER_NAME=$USER --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) .
+docker build -t romiscan:<tag> \
+    --build-arg USER_NAME=$USER --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) .
 ```
 
 Don't forget to change the `<tag>` to a version (*e.g.* 'v0.6') or explicit name (*e.g.* 'fix_colmap') of your choosing!
@@ -29,7 +30,7 @@ docker run -it --gpus all romiscan:0.7 nvidia-smi
 To start the `romiscan:0.7` docker container and run the automatic test defined in `romiscan/tests/check_pipe.sh`:
 ```bash
 docker run --runtime=nvidia --gpus all \
-    -it romiscan_dev:0.7 \
+    -it roboticsmicrofarms/romiscan_dev:fix \
     --env PYOPENCL_CTX='0' \
     bash -c 'cd romiscan/tests/ && ./check_pipe.sh'
 ``` 
@@ -85,7 +86,9 @@ To speed-up the continuous integration tests (very long docker build) we offers 
 #### Build `romiscan_base`
 Assuming your `romiscan_base` image tag is `0.7`, in a terminal, from the `romiscan/docker/` directory, it should look like this:
 ```bash
-docker build -t roboticsmicrofarms/romiscan_base:0.7 --build-arg USER_NAME=$USER --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) base/.
+docker build -t roboticsmicrofarms/romiscan_base:0.7 \
+    --build-arg USER_NAME=$USER --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) \
+    base/.
 ```
 
 #### Upload `romiscan_base` to roboticsmicrofarms
@@ -109,7 +112,9 @@ Use this `Dockerfile` in github CI actions.
 #### Build `romiscan_base-dev`
 Assuming your `romiscan_base-dev` image tag is `0.7`, it should look like this:
 ```bash
-docker build -t roboticsmicrofarms/romiscan_base-dev:0.7 --build-arg USER_NAME=$USER --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) base-dev/.
+docker build -t roboticsmicrofarms/romiscan_base-dev:0.7 \
+    --build-arg USER_NAME=$USER --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) \
+    base-dev/.
 ```
 
 #### Upload `romiscan_base-dev` to roboticsmicrofarms
