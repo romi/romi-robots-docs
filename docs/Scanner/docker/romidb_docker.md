@@ -9,25 +9,30 @@ Docker container for ROMI database
 ## Use pre-built docker image
 Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can easily download and start the pre-built `romidb` docker image with:
 ```bash
-docker run -it -p 5000:5000 -v /data/ROMI/DB:/home/scanner/db roboticsmicrofarms/romidb:$VTAG
+export ROMI_DB=/data/ROMI/DB
+docker run -it -p 5000:5000 \
+  -v $ROMI_DB:/home/scanner/db \
+  roboticsmicrofarms/romidb:latest
 ```
 And should be able to access it here: http://localhost:5000/
 
 !!! note
-    `-v /data/ROMI/DB:/home/scanner/db` performs a **bind mount** to enable access to the local database by the docker image. See the official [documentation](https://docs.docker.com/storage/bind-mounts/).
+    `-v $ROMI_DB:/home/scanner/db` performs a **bind mount** to enable access to the local database by the docker image. See the official [documentation](https://docs.docker.com/storage/bind-mounts/).
 
 
 ## Build docker image
+We provides a convenience bash script to ease the build of `romidb` docker image.
+You can choose to use this script OR to "manually" call the `docker build` command.
 
-### Provided `build.sh` script
+### Provided convenience `build.sh` script
 To build the image with the provided build script, from the `romidata/docker` directory:
 ```bash
 ./build.sh
 ```
-You can also pass some options, use `./build.sh -h` to get more details about usage and options.
+You can also pass some options, use `./build.sh -h` to get more details about usage, options and default values.
 
 
-### Manually
+### Manually call the `docker build` command
 To build the image, from the `romidata` root directory:
 ```bash
 export VTAG="latest"
@@ -50,15 +55,14 @@ This require a valid account & token on dockerhub!
 
 ## Usage
 
-
 ### Requirements
-To run it, you need to have a valid local ROMI database, look [here](https://docs.romi-project.eu/Scanner/install/romidb_setup/#initialize-a-romi-database) for instructions and [here](https://db.romi-project.eu/models/test_db.tar.gz) for an example database.
+To run it, you need to have a valid local ROMI database, look [here](../install/romidb_setup/#initialize-a-romi-database) for instructions and [here](https://db.romi-project.eu/models/test_db.tar.gz) for an example database.
 
 
 ### Starting the `romidb` docker image
 
 #### Provided `run.sh` script
-To run the container with the provided run script:
+To start the container with the provided run script in `romidata/docker`, use:
 ```bash
 ./run.sh
 ```
