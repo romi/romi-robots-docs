@@ -74,17 +74,24 @@ voxel_size = 0.05
 ### Start the docker container
 Use the `roboticsmicrofarms/romiscanner` docker image:
 ```bash
-docker run -v $ROMI_DB:/home/scanner/db -v $ROMI_CFG:/home/scanner/configs -it roboticsmicrofarms/romiscanner:latest bash
+export ROMI_DB=/data/ROMI/DB
+export ROMI_CFG=/data/ROMI/configs
+
+docker run --runtime=nvidia --gpus all \
+    -v $ROMI_DB:/home/scanner/db \
+    -v $ROMI_CFG:/home/scanner/configs \
+    -it roboticsmicrofarms/romiscanner:latest bash
 ```
 
 
 ### Initialize a scan dataset
 Use the `romi_import_folder` tool to import the required `data` into a new scan dataset, *e.g.* `vscan_007`:
 ```bash 
-romi_import_folder db/vscan_data/data/ db/vscan_007/ --metadata db/vscan_data/files.json
+romi_import_folder ~/db/vscan_data/data/ ~/db/vscan_007/ --metadata ~/db/vscan_data/files.json
 ```
 
 ### Start a `VirtualScan` romi task
 ```bash
-romi_run_task VirtualScan db/vscan_007 --config romiscanner/config/vscan_obj.toml
+cd romiscanner/bin
+romi_run_task VirtualScan ~/db/vscan_007 --config ~/romiscanner/config/vscan_obj.toml
 ```
