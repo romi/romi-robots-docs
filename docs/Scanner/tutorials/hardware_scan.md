@@ -1,5 +1,5 @@
-How to use the plant scanner?
-=======
+Plant phenotyping station
+===
 
 !!! info
     Do this only if you want to control the hardware and scan plants with the open-source scanner!

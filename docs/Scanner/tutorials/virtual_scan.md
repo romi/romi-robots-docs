@@ -1,4 +1,4 @@
-How to generate a virtual scan?
+Generate a virtual scan
 ===
 
 ## Getting started

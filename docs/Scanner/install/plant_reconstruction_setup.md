@@ -100,4 +100,4 @@ tar -xf test_db.tar.gz
 ```
 This will create a `integration_tests` folder with a ready to use test database. 
 
-You should now be ready to performs "plant acquisitions" following the [dedicated](../how_to/hardware_scan.md) user guide.
+You should now be ready to performs "plant acquisitions" following the [dedicated](../tutorials/hardware_scan.md) user guide.

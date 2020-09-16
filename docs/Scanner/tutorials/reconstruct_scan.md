@@ -1,5 +1,5 @@
-How to use the plant reconstruction and analysis pipeline?
-==========================================================
+Plant reconstruction and analysis pipeline
+===
 
 ## Getting started
 
