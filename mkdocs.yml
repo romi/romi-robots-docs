@@ -35,13 +35,16 @@ nav:
           - 'Plant reconstruction software setup': 'Scanner/install/plant_reconstruction_setup.md'
           - 'Virtual plants software setup': 'Scanner/install/virtual_plant_setup.md'
           - 'Visualizer software setup': 'Scanner/install/visualizer_setup.md'
+      - 'Tutorials':
+          - 'Home': 'Scanner/tutorials/index.md'
+          - 'Basics': 'Scanner/tutorials/basics.md'
+          - 'Plant scanning': 'Scanner/tutorials/hardware_scan.md'
+          - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
+          - 'Virtual scanner': 'Scanner/tutorials/virtual_scan.md'
+          - 'Visualizer': 'Scanner/tutorials/visualizer.md'
       - 'How-to':
           - 'Home': 'Scanner/how_to/index.md'
-          - 'Basics': 'Scanner/how_to/basics.md'
-          - 'Plant scanning': 'Scanner/how_to/hardware_scan.md'
-          - 'Scan reconstruction': 'Scanner/how_to/reconstruct_scan.md'
-          - 'Virtual scanner': 'Scanner/how_to/virtual_scan.md'
-          - 'Visualizer': 'Scanner/how_to/visualizer.md'
+          - 'Import external ressources': 'Scanner/how_to/import_files.md'
       - 'Specifications':
           - 'Home': 'Scanner/user_guide/index.md'
           - 'Data': 'Scanner/user_guide/data.md'
@@ -52,6 +55,14 @@ nav:
               - 'Hardware metadata': 'Scanner/metadata/hardware_metadata.md'
               - 'Software metadata': 'Scanner/metadata/software_metadata.md'
               - 'Tasks metadata': 'Scanner/metadata/tasks_metadata.md'
+          - 'Luigi': 'Scanner/user_guide/luigi.md'
+          - 'Tasks':
+              - 'Home': 'Scanner/user_guide/tasks/index.md'
+              - 'Files tasks': 'Scanner/user_guide/tasks/file_tasks.md'
+              - 'Acquisition tasks': 'Scanner/user_guide/tasks/acquisition_tasks.md'
+              - 'Reconstruction tasks': 'Scanner/user_guide/tasks/reconstruction_tasks.md'
+              - 'Defining ground truth': 'Scanner/user_guide/tasks/ground_truth_tasks.md'
+              - 'Evaluation tasks': 'Scanner/user_guide/tasks/evaluation_tasks.md'
           - 'Pipelines': 'Scanner/user_guide/pipelines.md'
           - 'Configuration files': 'Scanner/user_guide/configuration_files.md'
       - 'Developer':
