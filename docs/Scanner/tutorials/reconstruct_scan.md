@@ -11,14 +11,6 @@ To follows this guide you should have:
 
 ## Reconstruction pipeline
 
-### Test database
-To quickly create an example DB you can use:
-```bash
-wget https://db.romi-project.eu/models/test_db.tar.gz
-tar -xf test_db.tar.gz
-```
-This will create a `integration_tests` folder with a ready to use test database. 
-
 
 ### Cleaning a dataset
 If you made a mess, had a failure or just want to start fresh with your dataset, no need to save a copy on the side, you can use the `Clean` task:
@@ -68,7 +60,7 @@ romi_run_task AnglesAndInternodes integration_tests/arabidopsis_26 \
 ### Machine Learning pipeline
 
 !!! warning
-    This requires a trained PyTorch model!
+    This requires the installation of the `romiseg` libraries (see here for install [instructions](../install/plant_reconstruction_setup.md#install-romiseg-sources)) and a trained PyTorch model!
      
 !!! note
     A trained model, to place under `<dataset>/models/models`, is accessible here: https://media.romi-project.eu/data/Resnetdataset_gl_png_896_896_epoch50.pt

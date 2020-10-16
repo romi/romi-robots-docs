@@ -3,9 +3,8 @@ Creating isolated Python environments
 
 You can use `venv` or `conda` to create isolated Python environments.
 
-
 !!!warning
-    Some of the ROMI libraries have dependencies relying on specific Python versions. Make sure that the isolated environment you create match this requirement!
+    Some of the ROMI libraries have dependencies relying on specific Python versions. Make sure that the isolated environment you create match these requirements!
 
 
 ## Isolated environments with `venv`
