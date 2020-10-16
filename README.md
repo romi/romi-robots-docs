@@ -5,15 +5,14 @@ The project main documentation available at https://docs.romi-project.eu/
 ## Usage
 
 ### Setup
-
-`pip install mkdocs`
-
-`pip install mkdocs-material`
+You need to meet the following requirements:
+`pip install mkdocs mkdocs-material=4.6.3`
 
 ### Edit
-
+Modify the documentation and test them with:
 `mkdocs serve`
 
-### Deploy
+Note that this should be run from the project's root directory.
 
-`mkdocs gh-deploy`
+### Deploy
+Once you are satisfied with your modifications, push them to the github repository and wait for the automatic build, or use `mkdocs gh-deploy`.
