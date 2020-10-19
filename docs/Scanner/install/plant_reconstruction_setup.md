@@ -24,11 +24,21 @@ To do so, follows the official instructions here: https://docs.docker.com/get-do
 
 It uses the Python docker SDK `docker` available on [PyPi](https://pypi.org/project/docker/), to learn more read the [official](https://docker-py.readthedocs.io/en/stable/) documentation.
 
-If you upgrade from an older install:
+If you upgrade from an older install, you may have to install the Python docker SDK:
 ```bash
 conda activate plant_scanner
 python -m pip install docker
 ```
+
+!!!important
+    Make sure you can access the docker engine as a non-root user!
+    On Linux:
+    
+    1. Create the docker group: `$ sudo groupadd docker`
+    2. Add your user to the docker group: `$ sudo usermod -aG docker $USER`
+    3. Log out and log back in so that your group membership is re-evaluated.
+    
+    Official instructions [here](https://docs.docker.com/engine/install/linux-postinstall/)
 
 #### B - System install
 If you are a warrior or a computer expert, you can follow the procedure from the official documentation [here](https://colmap.github.io/install.html#).
