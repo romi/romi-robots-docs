@@ -5,5 +5,6 @@ ROMI Rover...
 * [Hardware Documentation](hardware)
 * [Software Installation](software)
 * [Developer Documentation](developer)
+* [Node APIs](api-nodes)
 
 
