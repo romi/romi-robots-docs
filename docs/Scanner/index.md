@@ -10,8 +10,7 @@ Plant scanner overview
 4. Finally the user can access the acquisitions, reconstructions & quantitative data by connecting to a visualization server using his/her computer
 
 ## Modular architecture
-As we don't want to always have to install every repository from the ROMI project, we need to properly organize our code to make it modular.
-For example, there is no point to install the `lettucethink-python` package on a server used to perform *plant reconstruction tasks* and that is not "attached" to the RPS.
+We aim at making our software architecture modular to make it more flexible and suitable to several application from the ROMI project when possible.
 
 ### Modular design
 The following figure shows each independent module and the way they interact.
@@ -19,31 +18,34 @@ The following figure shows each independent module and the way they interact.
 <img src="/assets/images/intract_plan.png" alt="Plant scanner overview" width="800" />
 
 ### Module details
-Each of the following modules should be seen as separate virtual machines or containers able to communicates.
+Each of the following modules could be seen as separate virtual machines or containers able to communicates.
 
-| Validated | Module Name      | Container Name   | ROMI Packages                        |
-|:---------:|------------------|------------------|--------------------------------------|
-|           | DB               | romi_db          | `romidata`                       |
-|           | PlantScanner     | romi_scan        | `lettucethink-python`, `romiscanner` |
-|           | SmartInterpreter | romi_interpreter | `romiscan`, `romiseg`                  |
-|           | Visualizer       | romi_viz         | `3d-plantviewer`                     |
-|           | VirtualScanner   | romi_virtual     | `VirtualPlants`, `romiscanner`       |
-
-!!! info
-    The previous module container or package names, are still open to discussion!
+| Module Name      |  ROMI Packages                     |  Dependencies                                                 |
+|------------------|------------------------------------|---------------------------------------------------------------|
+| DB               | `romidata`                         | `luigi`, `flask`                                              |
+| SmartInterpreter | `romiscan`, `romiseg`, `romicgal`  | `luigi`, `pytorch`, `labelme`, `tensorboard`                  |
+| Visualizer       | `3d-plantviewer`                   | `npm`                                                         |
+| PlantScanner     | `romiscanner`                      | `pyserial`                                                    |
+| VirtualScanner   | `romiscanner`                      | `openalea.plantgl`, `openalea.lpy`, `bpy` (blender), `flask`  |
 
 
 #### DB
-Should be totally independent of the rest since it could be use with other projects trough the abstract class `DB` or even the local database class `FSDB`.
+Should be totally independent of the rest since it could be uses in other parts of the ROMI project (Rover, Cable bot, ...) trough the abstract class `DB` or even the local database class `FSDB`.
 
 #### PlantScanner
-It requires a physical connection to the hardware that is should control and needs a database to export acquired datasets (plant images).
+It requires a physical connection to the hardware (`pyserial`) to control. It also needs an active ROMI database to export acquired datasets (plant images).
 
 #### SmartInterpreter
-It requires connection to a database to import datasets to process and export results.
+It requires connection to an active ROMI database to import datasets to process and export the results.
+Two plant reconstruction approaches are available in the SmartInterpreter:
+
+1. Geometry based, try to infer the plant's geometry using structure from motion algorithms and space carving to first reconstruct a point cloud. 
+2. Machine learning based, try to infer the plant's geometry using semantic (organ) segmentation of pictures and space carving to first reconstruct a labelled point cloud.
+
+Then meshing and skeletonization finally enables to extract the plant's phyllotaxis.
 
 #### VirtualScanner
-It requires a connection to a database to export generated datasets (virtual plant images). In case of machine learning methods, a database would also provides training datasets.
+It requires a connection to an active ROMI database to export generated datasets (virtual plant images). In case of machine learning methods, a database would also provides training datasets.
 
 #### Visualizer
 It requires a database with datasets to browse and represent.
@@ -65,19 +67,13 @@ We hereafter defines the semantic, names and abbreviations to use in the project
 
 ### Repository & packages
 
-| Validated | Repository          | Package             | Description                                                                                                |
-|:---------:|---------------------|---------------------|------------------------------------------------------------------------------------------------------------|
-|           | romidata        | romidata            | The database API used in the ROMI project, as well as classes for data processing using luigi.             |
-|           | romiscan              | romiscan            | This repo gathers the elements used to run 3D scan of individual plants by ROMI partners.                  |
-|           | romiscanner         | romiscanner         | Hardware interface for the 3D Scanner, as well as virtual scanner                                          |
-|           | lettucethink-python | lettucethink-python | Python tools and controllers for the lettucethink robot                                                    |
-|           | Segmentation        | romiseg             | Virtual plant segmentation methods using 2D images generated from the virtual scanner and neural networks. |
-|           | 3d-plantviewer      | ?                   | Browser application to visualize 3D scanned plants                                                         |
-|           | VirtualPlants       | ?                   | Models of various plants in LPy                                                                            |
-
-!!! info
-    The previous names, repository or package, is still open to discussion!
-
+| Repository          | Package             | Description                                                                                                |
+|---------------------|---------------------|------------------------------------------------------------------------------------------------------------|
+| romidata            | romidata            | The database API used in the ROMI project, as well as classes for data processing using luigi.             |
+| romiscan            | romiscan            | This repo gathers the elements used to run 3D scan of individual plants by ROMI partners.                  |
+| romiscanner         | romiscanner         | Hardware interface for the 3D Scanner, as well as virtual scanner.                                         |
+| romiseg             | romiseg             | Plant segmentation methods using ML approach trained with images generated by virtual scanner.             |
+| 3d-plantviewer      | ?                   | Browser application to visualize 3D scanned plants.                                                        |
 
 ### Database related
 - [ ] database: the database itself;
