@@ -6,7 +6,7 @@ The project main documentation available at https://docs.romi-project.eu/
 
 ### Setup
 You need to meet the following requirements:
-`pip install mkdocs mkdocs-material=4.6.3`
+`python -m pip install mkdocs mkdocs-material==4.6.3`
 
 ### Edit
 Modify the documentation and test them with:
