@@ -68,6 +68,7 @@ nav:
       - 'Developer':
           - 'Home': 'Scanner/developer/index.md'
           - 'User case scenarios': 'Scanner/developer/user_case_scenarios.md'
+          - 'Git Workflow': 'Scanner/developer/git_workflow.md'
           - 'Conda': 'Scanner/developer/conda.md'
           - 'Docker':
               - 'Home': 'Scanner/docker/index.md'
