@@ -1,5 +1,13 @@
 In this document you will find information on how to use and build the ROMI robots
 
+## Videos
+
+Preliminary videos to learn more about the project tools!
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4XBq29rmo5E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_5Zw77hQ8Sc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LIaqyoqhnjU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Official Website
 ROMI is an H2020 European project: [Official Website](https://romi-project.eu/).
 
