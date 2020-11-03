@@ -6,8 +6,16 @@ site_url: https://docs.romi-project.eu/
 # https://www.mkdocs.org/user-guide/writing-your-docs/#configure-pages-and-navigation
 nav:
   - 'Home': 'index.md'
-  - 'Cable':
-      - 'Home': 'Cable/index.md'
+  - 'Farmers Dashboard':
+      - 'Introduction': 'Farmers Dashboard/index.md'
+      - 'Mobile Carrier':
+          - 'Introduction': 'Farmers Dashboard/bot.md'
+          - 'Electronics': 'Farmers Dashboard/electronics.md'
+          - 'Dinamyc Tension': 'Farmers Dashboard/tension.md'
+          - 'Power': 'Farmers Dashboard/power.md'
+      - 'Charging Station (In development)': 'Farmers Dashboard/station.md'
+      - 'Camera Module': 'Farmers Dashboard/camera.md'
+      - 'Farmers Dashboard/legacy.md'
   - 'Rover':
       - 'Rover/index.md'
       - 'Rover/configuration.md'
