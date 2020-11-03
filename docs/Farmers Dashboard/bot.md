@@ -1,10 +1,10 @@
 # The mobile carrier (cablebot)
 
-![](/assets/images/cable-full.png)
+![](/assets/images/farmersDashboard/cable-full.png)
 
 The mobile carrier is an autonomous motion platform capable of travelling suspended on a single tensioned nylon cable. Its design allows it to move it from one cable to another as well to adapt to [different cable tensions dynamically](tension.md); those features are unique among other systems
 
-![](/assets/images/cablebot-valldaura.png)
+![](/assets/images/farmersDashboard/cablebot-valldaura.png)
 
 ## Structure
 The whole design uses a CNC folded aluminium-plastic sandwich panel designed to provide adequate outdoor resistance while being light-weight. The moving parts and other fixtures use custom 3D printed plastic (PLA/ABS). All the cabling and electronics integrate into the internal structure to minimize damage caused by environmental factors. The tension mechanism design allows it to move it from one cable to another as well to adapt to different cable tensions dynamically, and it uses a self-lubricated polymer to avoid maintenance. All the parts can be made on a Fab Lab or other rapid prototyping facility with no customized tooling required.

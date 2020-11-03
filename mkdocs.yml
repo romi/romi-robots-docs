@@ -15,6 +15,8 @@ nav:
           - 'Power': 'Farmers Dashboard/power.md'
       - 'Charging Station (In development)': 'Farmers Dashboard/station.md'
       - 'Camera Module': 'Farmers Dashboard/camera.md'
+      - 'Crops Insights Pipeline': 'Farmers Dashboard/pipeline.md'
+      - 'Farmers Dashboard App': 'Farmers Dashboard/app.md'
       - 'Farmers Dashboard/legacy.md'
   - 'Rover':
       - 'Rover/index.md'
@@ -138,6 +140,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - attr_list
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
   - 'https://buttons.github.io/buttons.js'
