@@ -10,6 +10,7 @@ nav:
       - 'Introduction': 'Farmers Dashboard/index.md'
       - 'Mobile Carrier':
           - 'Introduction': 'Farmers Dashboard/bot.md'
+          - 'Structure': 'Farmers Dashboard/structure.md'
           - 'Electronics': 'Farmers Dashboard/electronics.md'
           - 'Dinamyc Tension': 'Farmers Dashboard/tension.md'
           - 'Power': 'Farmers Dashboard/power.md'
