@@ -1,6 +1,14 @@
+
+![](/assets/images/farmersDashboard/electronics-map.png)
+
 The navigation control is managed by any Arduino compatible board. This board will receive direct instructions via RC control or commands through the Serial port sent by the _Raspberry pi_ in the [Camera Module.](camera.md)
 
 ![](/assets/images/farmersDashboard/cablebot-schematic.png)
+
+!!! info ""
+    General Mobile Carrier electronics schematic
+    
+For now an Arduino Nano (Atmega328) is used as the main microcontroller, the code has been kept easily portable to any Cortex M0 board like the Feather M0 basic used in the Camera module.
 
 | **INPUTS**                                      | Notes                           |
 | ---                                             | ---                             |
@@ -76,5 +84,8 @@ The [ISM330](https://www.st.com/resource/en/datasheet/ism330dhcx.pdf) Adafruit Q
 
 ![](/assets/images/farmersDashboard/endStops.gif)
 
-To detect collisions [OMRON D3V-013-1C23](https://www.components.omron.com/product-detail?partNumber=D3V) miniature switches are used as end stops on both sides of the cablebot. A 3d printed cover protects the electronic parts and triggers the switch when an obstacle is found. Cabling is routed through the structure to avoid any damage on the lines.
+To detect collisions [OMRON D3V-013-1C23](https://www.components.omron.com/product-detail?partNumber=D3V) miniature switches are used as end stops on both sides of the cablebot. A 3d printed cover protects the electronic parts and trigers the switch when an obstacle is found. Cabling is routed through the structure to avoid any damage on the lines.
 
+![](/assets/images/farmersDashboard/endstop-cable.png)
+
+ The cabling is routed trough machined channels between the aluminum sandwich sheets keeping it protected and organized.
