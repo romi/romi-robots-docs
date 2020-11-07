@@ -89,6 +89,7 @@ nav:
               - 'Virtual Plant Scanner': 'Scanner/docker/virtualplantscanner_docker.md'
               - 'Plant Viewer': 'Scanner/docker/plantviewer_docker.md'
               - 'Docker compose': 'Scanner/docker/docker_compose.md'
+              - 'Build romicscan docker for developers': 'Scanner/docker/docker_dev_build.md'
   - 'Visualizer':
       - 'Home': 'Visualizer/index.md'
       - 'Guide': 'Visualizer/guide.md'
