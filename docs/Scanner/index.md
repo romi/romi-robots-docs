@@ -1,6 +1,7 @@
 Plant scanner overview
 ======================
 
+<img src="/assets/images/colmap_arabidopsis.png" alt="Dense COLMAP reconstruction" width="800" />
 
 ## User story
 
