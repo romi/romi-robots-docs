@@ -21,11 +21,16 @@ Let's start with a description of the used symbols:
 
 
 ## Plant Reconstruction from RGB images
-![Reconstruction - AnglesAndInternodes task](/assets/images/pipeline-reconstruction.svg)
+![Reconstruction - AnglesAndInternodes task](/assets/images/lite_reconstruction_pipeline.svg)
 
 
 ## 3D Plant Phenotyping
-![Quantification - AnglesAndInternodes task](/assets/images/pipeline-quantification.svg)
+
+### Geometric approach
+![Quantification - AnglesAndInternodes task](/assets/images/lite_geometric_pipeline.svg)
+
+### Machine Learning apporach
+![Quantification - AnglesAndInternodes task](/assets/images/lite_ml_pipeline.svg)
 
 
 ## Evaluation
