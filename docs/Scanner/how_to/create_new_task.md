@@ -40,7 +40,7 @@ It provides classes and methods that simplifies and normalize the creation and u
 
 
 ### New `RomiTask` template
-
+You will create a new python file `my_task.py` in the 'task' submodule: `romiscan/romiscan/tasks/my_task.py`
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -65,7 +65,7 @@ def MyTask(RomiTask):
     Attributes
     ----------
     upstream_task : luigi.TaskParameter
-        Upstream task that will provides the data tou your algorithm, here `SegmentedPointCloud`.
+        Upstream task that will provides the data to your algorithm, here `SegmentedPointCloud`.
     param1 : luigi.FloatParameter
         An example float parameter parsed from the TOML config file.
         Set to `2.0` by default.
@@ -146,8 +146,9 @@ list_of_jsonifyable = [...]
 task_output_fs = self.output().get()
 for i, json_data in enumerate(list_of_jsonifyable):
     f = task_output_fs.create_file(f"my_json_{i}")  # no extension!
-    io.write_point_cloud(f, json_data)
-    f.set_metadata("foo", "bar")
+    io.write_json(f, json_data)
+    # Add some metadata to this `File` object
+    f.set_metadata("foo", f"bar{i}")
 ```
 
 
