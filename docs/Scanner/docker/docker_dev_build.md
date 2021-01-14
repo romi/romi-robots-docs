@@ -106,20 +106,20 @@ In this example we bind a ROMI database to the container an run the test ML pipe
 ```bash
 ./run.sh -t my_branch \
          -p /home/scanner/database_jcharlaix/scans_reconstructed/ \
-         -c 'romi_run_task --config romiscan/config/test_ml_pipe.toml \
+         -c 'romi_run_task --config romiscan/config/ml_pipe_test.toml \
                            AnglesAndInternodes db/arabido_test2_ml/'
 ```
 
 #### Example2: run the `AnglesAndInternode` task with the geometric pipeline & print tasks infos
 To invokes mutliples commands, you can either chain the tasks with `&&` in the bash command you provides:
 ```bash
-./run.sh -t my_branch -p /home/scanner/database_jcharlaix/scans_reconstructed/ -c 'romi_run_task --config romiscan/config/test_ml_pipe.toml AnglesAndInternodes db/arabido_test2_ml/ && print_task_info PointCloud db/arabido_test2_ml/ && print_task_info AnglesAndInternodes db/arabido_test2_ml/'
+./run.sh -t my_branch -p /home/scanner/database_jcharlaix/scans_reconstructed/ -c 'romi_run_task --config romiscan/config/ml_pipe_test.toml AnglesAndInternodes db/arabido_test2_ml/ && print_task_info PointCloud db/arabido_test2_ml/ && print_task_info AnglesAndInternodes db/arabido_test2_ml/'
 ```
 This wil run the three commands (there could be more) in the same container.
 
 Or makes multiples calls to the `run.sh` script:
 ```bash
-./run.sh -t my_branch -p /home/scanner/database_jcharlaix/scans_reconstructed/ -c 'romi_run_task --config romiscan/config/test_ml_pipe.toml AnglesAndInternodes db/arabido_test2_ml/'
+./run.sh -t my_branch -p /home/scanner/database_jcharlaix/scans_reconstructed/ -c 'romi_run_task --config romiscan/config/ml_pipe_test.toml AnglesAndInternodes db/arabido_test2_ml/'
 ./run.sh -t my_branch -p /home/scanner/database_jcharlaix/scans_reconstructed/ -c 'print_task_info PointCloud db/arabido_test2_ml/'
 ./run.sh -t my_branch -p /home/scanner/database_jcharlaix/scans_reconstructed/ -c 'print_task_info AnglesAndInternodes db/arabido_test2_ml/'
 ```
