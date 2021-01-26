@@ -38,6 +38,7 @@ nav:
           - 'Gimball setup': 'Scanner/build/gimball_setup.md'
           - 'Gimball communication': 'Scanner/build/gimball_communication.md'
           - 'PiCamera setup': 'Scanner/build/picamera_setup.md'
+          - 'Troubleshooting': 'Scanner/build/troubleshooting.md'
       - 'Install':
           - 'Home': 'Scanner/install/index.md'
           - 'Create python environments': 'Scanner/install/create_env.md'
