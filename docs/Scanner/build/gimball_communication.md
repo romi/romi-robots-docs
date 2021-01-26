@@ -34,3 +34,8 @@ See the command list below:
 * `C`: print results of the calibration
 * `v`: print target velocity
 * `p`: print PWM value
+
+## Troubleshooting
+
+### Serial access denied
+Look [here](troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.

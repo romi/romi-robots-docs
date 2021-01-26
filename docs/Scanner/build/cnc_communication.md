@@ -68,16 +68,5 @@ This mean you now have access to a Grbl terminal (`Grbl 1.1f`) to communicate, n
 
 ## Troubleshooting
 
-If you get an error about permission access:
-
-1. Check in what group you are with:
-    ```bash
-    groups ${USER}
-    ```
-
-2. If you are not in `dialout`:
-    ```bash
-    sudo gpasswd --add ${USER} dialout
-    ```
-
-3. Then log out and back in to see changes!
+### Serial access denied
+Look [here](troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.

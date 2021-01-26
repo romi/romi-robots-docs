@@ -108,3 +108,9 @@ EOF
 If you want this then reboot.
 That's it.
 Otherwise go on, no need to reboot at this time.
+
+
+## Troubleshooting
+
+### Serial access denied
+Look [here](troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.
