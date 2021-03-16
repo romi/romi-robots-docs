@@ -44,15 +44,15 @@ nav:
           - 'Create python environments': 'Scanner/install/create_env.md'
           - 'Database setup': 'Scanner/install/romidb_setup.md'
           - 'Plant scanner software setup': 'Scanner/install/plant_scanner_setup.md'
+          - 'Virtual plants scanner software setup': 'Scanner/install/virtual_plant_setup.md'
           - 'Plant reconstruction software setup': 'Scanner/install/plant_reconstruction_setup.md'
-          - 'Virtual plants software setup': 'Scanner/install/virtual_plant_setup.md'
           - 'Visualizer software setup': 'Scanner/install/visualizer_setup.md'
       - 'Tutorials':
           - 'Home': 'Scanner/tutorials/index.md'
           - 'Basics': 'Scanner/tutorials/basics.md'
           - 'Plant scanning': 'Scanner/tutorials/hardware_scan.md'
-          - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
           - 'Virtual scanner': 'Scanner/tutorials/virtual_scan.md'
+          - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
           - 'Visualizer': 'Scanner/tutorials/visualizer.md'
       - 'How-to':
           - 'Home': 'Scanner/how_to/index.md'
@@ -87,8 +87,8 @@ nav:
               - 'Home': 'Scanner/docker/index.md'
               - 'Database': 'Scanner/docker/romidb_docker.md'
               - 'Plant Scanner': 'Scanner/docker/plantscanner_docker.md'
-              - 'Plant Interpreter': 'Scanner/docker/plantinterpreter_docker.md'
               - 'Virtual Plant Scanner': 'Scanner/docker/virtualplantscanner_docker.md'
+              - 'Plant Interpreter': 'Scanner/docker/plantinterpreter_docker.md'
               - 'Plant Viewer': 'Scanner/docker/plantviewer_docker.md'
               - 'Docker compose': 'Scanner/docker/docker_compose.md'
               - 'Build romicscan docker for developers': 'Scanner/docker/docker_dev_build.md'
@@ -102,7 +102,7 @@ theme:
   palette:
     primary: 'green'
     #primary: 'indigo'
-    accent: 'yelllow'
+    accent: 'yellow'
   logo: 'assets/images/logo.svg'
   favicon: 'assets/images/favicon.ico'
   feature:

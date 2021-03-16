@@ -103,4 +103,4 @@ This will create the corresponding folder and fill it with images from the scan.
 ## Troubleshooting
 
 ### Serial access denied
-Look [here](troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.
+Look [here](../build/troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.

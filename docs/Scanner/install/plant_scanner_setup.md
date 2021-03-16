@@ -48,4 +48,4 @@ You should now be ready to performs "plant acquisitions" following the [dedicate
 ## Troubleshooting
 
 ### Serial access denied
-Look [here](troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.
+Look [here](../build/troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.
