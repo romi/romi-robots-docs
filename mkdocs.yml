@@ -104,9 +104,8 @@ nav:
 theme:
   name: 'material'
   palette:
-    primary: 'green'
-    #primary: 'indigo'
-    accent: 'yellow'
+    primary: green
+    accent: deep orange
   logo: 'assets/images/logo.svg'
   favicon: 'assets/images/favicon.ico'
   features:
