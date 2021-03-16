@@ -2,6 +2,8 @@ site_name: Romi Robot Docs
 site_description: Robots for Microfarms Robotic Documentation
 site_author: ROMI Team
 site_url: https://docs.romi-project.eu/
+repo_name: romi-robots-docs
+repo_url: https://github.com/romi/romi-robots-docs
 
 # https://www.mkdocs.org/user-guide/writing-your-docs/#configure-pages-and-navigation
 nav:
@@ -98,6 +100,10 @@ nav:
 
 theme:
   name: 'material'
+  features:
+    - instant
+    - navigation.expand
+    - tabs
   custom_dir: 'custom_theme'
   palette:
     primary: 'green'
@@ -107,19 +113,21 @@ theme:
   favicon: 'assets/images/favicon.ico'
   feature:
     tabs: true
-  extra_css: extra.css
+  #extra_css: extra.css
+  icon:
+    repo: fontawesome/brands/git-alt
 
 extra:
   social:
-    - type: 'twitter'
+    - icon: fontawesome/brands/twitter
       link: 'https://twitter.com/ROMI_EU_PROJECT'
-    - type: 'facebook'
+    - icon: fontawesome/brands/facebook
       link: 'https://www.facebook.com/ROMIEUProject'
+    - icon: fontawesome/brands/github
+      link: 'https://github.com/romi/romi-robots-docs'
   project: 'The ROMI project has received funding from the European Community’s H2020 Programme under Grant Agreement No. 773875.'
   footer_logo: '/assets/images/eu-flag.png'
   license: 'CC Attribution-NonCommercial-ShareAlike 4.0 International'
-  repo_name: romi-robots-docs
-  repo_url: https://github.com/romi/romi-robots-docs
 
 markdown_extensions:
   - admonition
