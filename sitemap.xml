@@ -112,6 +112,10 @@
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://docs.romi-project.eu/Scanner/build/troubleshooting/</loc>
+     <lastmod>2021-03-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://docs.romi-project.eu/Scanner/install/</loc>
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
@@ -128,11 +132,11 @@
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/install/plant_reconstruction_setup/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/install/virtual_plant_setup/</loc>
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/install/virtual_plant_setup/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/install/plant_reconstruction_setup/</loc>
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -152,11 +156,11 @@
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/tutorials/reconstruct_scan/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/tutorials/virtual_scan/</loc>
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/tutorials/virtual_scan/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/tutorials/reconstruct_scan/</loc>
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -272,11 +276,11 @@
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/docker/plantinterpreter_docker/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/docker/virtualplantscanner_docker/</loc>
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/docker/virtualplantscanner_docker/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/docker/plantinterpreter_docker/</loc>
      <lastmod>2021-03-16</lastmod>
      <changefreq>daily</changefreq>
     </url><url>

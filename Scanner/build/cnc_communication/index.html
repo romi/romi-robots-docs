@@ -55,7 +55,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="yelllow">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="yellow">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -706,6 +706,19 @@
     Troubleshooting
   </a>
   
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serial-access-denied" class="md-nav__link">
+    Serial access denied
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -759,6 +772,18 @@
   <li class="md-nav__item">
     <a href="../picamera_setup/" title="PiCamera setup" class="md-nav__link">
       PiCamera setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../troubleshooting/" title="Troubleshooting" class="md-nav__link">
+      Troubleshooting
     </a>
   </li>
 
@@ -843,8 +868,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../install/plant_reconstruction_setup/" title="Plant reconstruction software setup" class="md-nav__link">
-      Plant reconstruction software setup
+    <a href="../../install/virtual_plant_setup/" title="Virtual plants scanner software setup" class="md-nav__link">
+      Virtual plants scanner software setup
     </a>
   </li>
 
@@ -855,8 +880,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../install/virtual_plant_setup/" title="Virtual plants software setup" class="md-nav__link">
-      Virtual plants software setup
+    <a href="../../install/plant_reconstruction_setup/" title="Plant reconstruction software setup" class="md-nav__link">
+      Plant reconstruction software setup
     </a>
   </li>
 
@@ -941,8 +966,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorials/reconstruct_scan/" title="Scan reconstruction" class="md-nav__link">
-      Scan reconstruction
+    <a href="../../tutorials/virtual_scan/" title="Virtual scanner" class="md-nav__link">
+      Virtual scanner
     </a>
   </li>
 
@@ -953,8 +978,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../tutorials/virtual_scan/" title="Virtual scanner" class="md-nav__link">
-      Virtual scanner
+    <a href="../../tutorials/reconstruct_scan/" title="Scan reconstruction" class="md-nav__link">
+      Scan reconstruction
     </a>
   </li>
 
@@ -1452,8 +1477,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../docker/plantinterpreter_docker/" title="Plant Interpreter" class="md-nav__link">
-      Plant Interpreter
+    <a href="../../docker/virtualplantscanner_docker/" title="Virtual Plant Scanner" class="md-nav__link">
+      Virtual Plant Scanner
     </a>
   </li>
 
@@ -1464,8 +1489,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../docker/virtualplantscanner_docker/" title="Virtual Plant Scanner" class="md-nav__link">
-      Virtual Plant Scanner
+    <a href="../../docker/plantinterpreter_docker/" title="Plant Interpreter" class="md-nav__link">
+      Plant Interpreter
     </a>
   </li>
 
@@ -1606,6 +1631,19 @@
     Troubleshooting
   </a>
   
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#serial-access-denied" class="md-nav__link">
+    Serial access denied
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1685,22 +1723,8 @@ Grbl <span class="m">1</span>.1f <span class="o">[</span><span class="s1">&#39;$
 </code></pre></div>
 <p>This mean you now have access to a Grbl terminal (<code>Grbl 1.1f</code>) to communicate, notably send instructions, to the CNC!</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">Link</a></h2>
-<p>If you get an error about permission access:</p>
-<ol>
-<li>
-<p>Check in what group you are with:
-    <div class="highlight"><pre><span></span><code>groups <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>If you are not in <code>dialout</code>:
-    <div class="highlight"><pre><span></span><code>sudo gpasswd --add <span class="si">${</span><span class="nv">USER</span><span class="si">}</span> dialout
-</code></pre></div></p>
-</li>
-<li>
-<p>Then log out and back in to see changes!</p>
-</li>
-</ol>
+<h3 id="serial-access-denied">Serial access denied<a class="headerlink" href="#serial-access-denied" title="Permanent link">Link</a></h3>
+<p>Look <a href="../troubleshooting/#serial-access-denied">here</a> if you can not communicate with the scanner using usb.</p>
                 
               
               
