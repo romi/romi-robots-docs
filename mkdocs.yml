@@ -6,114 +6,118 @@ site_url: https://docs.romi-project.eu/
 # https://www.mkdocs.org/user-guide/writing-your-docs/#configure-pages-and-navigation
 nav:
   - 'Home': 'index.md'
-  - 'Farmers Dashboard':
-      - 'Introduction': 'Farmers Dashboard/index.md'
-      - 'Mobile Carrier':
-          - 'Introduction': 'Farmers Dashboard/bot.md'
-          - 'Structure': 'Farmers Dashboard/structure.md'
-          - 'Electronics': 'Farmers Dashboard/electronics.md'
-          - 'Dinamyc Tension': 'Farmers Dashboard/tension.md'
-          - 'Power': 'Farmers Dashboard/power.md'
-      - 'Charging Station (In development)': 'Farmers Dashboard/station.md'
-      - 'Camera Module': 'Farmers Dashboard/camera.md'
-      - 'Crops Insights Pipeline': 'Farmers Dashboard/pipeline.md'
-      - 'Farmers Dashboard App': 'Farmers Dashboard/app.md'
-      - 'Farmers Dashboard/legacy.md'
-  - 'Rover':
-      - 'Rover/index.md'
-      - 'Rover/configuration.md'
-      - 'Rover/hardware.md'
-      - 'Rover/manual.md'
-      - 'Rover/software.md'
-      - 'Rover/developer.md'
-  - 'Scanner':
-      - 'Home': 'Scanner/index.md'
-      - 'Build':
-          - 'Home': 'Scanner/build/index.md'
-          - 'Aluminium frame': 'Scanner/build/alu_frame.md'
-          - 'CNC frame': 'Scanner/build/cnc_frame.md'
-          - 'CNC electronics': 'Scanner/build/cnc_electronics.md'
-          - 'CNC communication': 'Scanner/build/cnc_communication.md'
-          - 'CNC calibration': 'Scanner/build/cnc_calibration.md'
-          - 'Gimball setup': 'Scanner/build/gimball_setup.md'
-          - 'Gimball communication': 'Scanner/build/gimball_communication.md'
-          - 'PiCamera setup': 'Scanner/build/picamera_setup.md'
-          - 'Troubleshooting': 'Scanner/build/troubleshooting.md'
-      - 'Install':
-          - 'Home': 'Scanner/install/index.md'
-          - 'Create python environments': 'Scanner/install/create_env.md'
-          - 'Database setup': 'Scanner/install/romidb_setup.md'
-          - 'Plant scanner software setup': 'Scanner/install/plant_scanner_setup.md'
-          - 'Virtual plants scanner software setup': 'Scanner/install/virtual_plant_setup.md'
-          - 'Plant reconstruction software setup': 'Scanner/install/plant_reconstruction_setup.md'
-          - 'Visualizer software setup': 'Scanner/install/visualizer_setup.md'
-      - 'Tutorials':
-          - 'Home': 'Scanner/tutorials/index.md'
-          - 'Basics': 'Scanner/tutorials/basics.md'
-          - 'Plant scanning': 'Scanner/tutorials/hardware_scan.md'
-          - 'Virtual scanner': 'Scanner/tutorials/virtual_scan.md'
-          - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
-          - 'Visualizer': 'Scanner/tutorials/visualizer.md'
-      - 'How-to':
-          - 'Home': 'Scanner/how_to/index.md'
-          - 'Import external ressources': 'Scanner/how_to/import_files.md'
-          - 'Create a new task': 'Scanner/how_to/create_new_task.md'
-      - 'Specifications':
-          - 'Home': 'Scanner/user_guide/index.md'
-          - 'Data': 'Scanner/user_guide/data.md'
-          - 'Hardware': 'Scanner/user_guide/hardware.md'
-          - 'Metadata':
-              - 'Home': 'Scanner/metadata/index.md'
-              - 'Biological metadata': 'Scanner/metadata/biological_metadata.md'
-              - 'Hardware metadata': 'Scanner/metadata/hardware_metadata.md'
-              - 'Software metadata': 'Scanner/metadata/software_metadata.md'
-              - 'Tasks metadata': 'Scanner/metadata/tasks_metadata.md'
-          - 'Luigi': 'Scanner/user_guide/luigi.md'
-          - 'Tasks':
-              - 'Home': 'Scanner/user_guide/tasks/index.md'
-              - 'Files tasks': 'Scanner/user_guide/tasks/file_tasks.md'
-              - 'Acquisition tasks': 'Scanner/user_guide/tasks/acquisition_tasks.md'
-              - 'Reconstruction tasks': 'Scanner/user_guide/tasks/reconstruction_tasks.md'
-              - 'Defining ground truth': 'Scanner/user_guide/tasks/ground_truth_tasks.md'
-              - 'Evaluation tasks': 'Scanner/user_guide/tasks/evaluation_tasks.md'
-          - 'Pipelines': 'Scanner/user_guide/pipelines.md'
-          - 'Configuration files': 'Scanner/user_guide/configuration_files.md'
-      - 'Developer':
-          - 'Home': 'Scanner/developer/index.md'
-          - 'User case scenarios': 'Scanner/developer/user_case_scenarios.md'
-          - 'Git Workflow': 'Scanner/developer/git_workflow.md'
-          - 'Conda': 'Scanner/developer/conda.md'
-          - 'Docker':
-              - 'Home': 'Scanner/docker/index.md'
-              - 'Database': 'Scanner/docker/romidb_docker.md'
-              - 'Plant Scanner': 'Scanner/docker/plantscanner_docker.md'
-              - 'Virtual Plant Scanner': 'Scanner/docker/virtualplantscanner_docker.md'
-              - 'Plant Interpreter': 'Scanner/docker/plantinterpreter_docker.md'
-              - 'Plant Viewer': 'Scanner/docker/plantviewer_docker.md'
-              - 'Docker compose': 'Scanner/docker/docker_compose.md'
-              - 'Build romicscan docker for developers': 'Scanner/docker/docker_dev_build.md'
-  - 'Visualizer':
-      - 'Home': 'Visualizer/index.md'
-      - 'Guide': 'Visualizer/guide.md'
+  - 'About': 'about.md'
+  - 'Documentation':
+    - documentation.md
+    - 'Farmers Dashboard':
+        - 'Introduction': 'Farmers Dashboard/index.md'
+        - 'Mobile Carrier':
+            - 'Introduction': 'Farmers Dashboard/bot.md'
+            - 'Structure': 'Farmers Dashboard/structure.md'
+            - 'Electronics': 'Farmers Dashboard/electronics.md'
+            - 'Dinamyc Tension': 'Farmers Dashboard/tension.md'
+            - 'Power': 'Farmers Dashboard/power.md'
+        - 'Charging Station (In development)': 'Farmers Dashboard/station.md'
+        - 'Camera Module': 'Farmers Dashboard/camera.md'
+        - 'Crops Insights Pipeline': 'Farmers Dashboard/pipeline.md'
+        - 'Farmers Dashboard App': 'Farmers Dashboard/app.md'
+        - 'Farmers Dashboard/legacy.md'
+    - 'Rover':
+        - 'Rover/index.md'
+        - 'Rover/configuration.md'
+        - 'Rover/hardware.md'
+        - 'Rover/manual.md'
+        - 'Rover/software.md'
+        - 'Rover/developer.md'
+    - 'Scanner':
+        - 'Home': 'Scanner/index.md'
+        - 'Build':
+            - 'Home': 'Scanner/build/index.md'
+            - 'Aluminium frame': 'Scanner/build/alu_frame.md'
+            - 'CNC frame': 'Scanner/build/cnc_frame.md'
+            - 'CNC electronics': 'Scanner/build/cnc_electronics.md'
+            - 'CNC communication': 'Scanner/build/cnc_communication.md'
+            - 'CNC calibration': 'Scanner/build/cnc_calibration.md'
+            - 'Gimball setup': 'Scanner/build/gimball_setup.md'
+            - 'Gimball communication': 'Scanner/build/gimball_communication.md'
+            - 'PiCamera setup': 'Scanner/build/picamera_setup.md'
+            - 'Troubleshooting': 'Scanner/build/troubleshooting.md'
+        - 'Install':
+            - 'Home': 'Scanner/install/index.md'
+            - 'Create python environments': 'Scanner/install/create_env.md'
+            - 'Database setup': 'Scanner/install/romidb_setup.md'
+            - 'Plant scanner software setup': 'Scanner/install/plant_scanner_setup.md'
+            - 'Virtual plants scanner software setup': 'Scanner/install/virtual_plant_setup.md'
+            - 'Plant reconstruction software setup': 'Scanner/install/plant_reconstruction_setup.md'
+            - 'Visualizer software setup': 'Scanner/install/visualizer_setup.md'
+        - 'Tutorials':
+            - 'Home': 'Scanner/tutorials/index.md'
+            - 'Basics': 'Scanner/tutorials/basics.md'
+            - 'Plant scanning': 'Scanner/tutorials/hardware_scan.md'
+            - 'Virtual scanner': 'Scanner/tutorials/virtual_scan.md'
+            - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
+            - 'Visualizer': 'Scanner/tutorials/visualizer.md'
+        - 'How-to':
+            - 'Home': 'Scanner/how_to/index.md'
+            - 'Import external ressources': 'Scanner/how_to/import_files.md'
+            - 'Create a new task': 'Scanner/how_to/create_new_task.md'
+        - 'Specifications':
+            - 'Home': 'Scanner/user_guide/index.md'
+            - 'Data': 'Scanner/user_guide/data.md'
+            - 'Hardware': 'Scanner/user_guide/hardware.md'
+            - 'Metadata':
+                - 'Home': 'Scanner/metadata/index.md'
+                - 'Biological metadata': 'Scanner/metadata/biological_metadata.md'
+                - 'Hardware metadata': 'Scanner/metadata/hardware_metadata.md'
+                - 'Software metadata': 'Scanner/metadata/software_metadata.md'
+                - 'Tasks metadata': 'Scanner/metadata/tasks_metadata.md'
+            - 'Luigi': 'Scanner/user_guide/luigi.md'
+            - 'Tasks':
+                - 'Home': 'Scanner/user_guide/tasks/index.md'
+                - 'Files tasks': 'Scanner/user_guide/tasks/file_tasks.md'
+                - 'Acquisition tasks': 'Scanner/user_guide/tasks/acquisition_tasks.md'
+                - 'Reconstruction tasks': 'Scanner/user_guide/tasks/reconstruction_tasks.md'
+                - 'Defining ground truth': 'Scanner/user_guide/tasks/ground_truth_tasks.md'
+                - 'Evaluation tasks': 'Scanner/user_guide/tasks/evaluation_tasks.md'
+            - 'Pipelines': 'Scanner/user_guide/pipelines.md'
+            - 'Configuration files': 'Scanner/user_guide/configuration_files.md'
+        - 'Developer':
+            - 'Home': 'Scanner/developer/index.md'
+            - 'User case scenarios': 'Scanner/developer/user_case_scenarios.md'
+            - 'Git Workflow': 'Scanner/developer/git_workflow.md'
+            - 'Conda': 'Scanner/developer/conda.md'
+            - 'Docker':
+                - 'Home': 'Scanner/docker/index.md'
+                - 'Database': 'Scanner/docker/romidb_docker.md'
+                - 'Plant Scanner': 'Scanner/docker/plantscanner_docker.md'
+                - 'Virtual Plant Scanner': 'Scanner/docker/virtualplantscanner_docker.md'
+                - 'Plant Interpreter': 'Scanner/docker/plantinterpreter_docker.md'
+                - 'Plant Viewer': 'Scanner/docker/plantviewer_docker.md'
+                - 'Docker compose': 'Scanner/docker/docker_compose.md'
+                - 'Build romicscan docker for developers': 'Scanner/docker/docker_dev_build.md'
+    - 'Visualizer':
+        - 'Home': 'Visualizer/index.md'
+        - 'Guide': 'Visualizer/guide.md'
+  - 'Research': 'research.md'
+  - 'Data': 'data.md'
 
 theme:
   name: 'material'
-  custom_dir: 'custom_theme'
   palette:
     primary: 'green'
     #primary: 'indigo'
     accent: 'yellow'
   logo: 'assets/images/logo.svg'
   favicon: 'assets/images/favicon.ico'
-  feature:
-    tabs: true
-  extra_css: extra.css
+  features:
+    - navigation.tabs
+    - toc.integrate
 
 extra:
   social:
-    - type: 'twitter'
+    - icon: fontawesome/brands/twitter
       link: 'https://twitter.com/ROMI_EU_PROJECT'
-    - type: 'facebook'
+    - icon: fontawesome/brands/facebook
       link: 'https://www.facebook.com/ROMIEUProject'
   project: 'The ROMI project has received funding from the European Community’s H2020 Programme under Grant Agreement No. 773875.'
   footer_logo: '/assets/images/eu-flag.png'
@@ -134,7 +138,8 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.magiclink
