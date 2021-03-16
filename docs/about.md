@@ -4,27 +4,28 @@
 
 This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 773875.
 
-<img src="https://romi-project.eu/wp-content/themes/romi/assets/images/eu_flag.svg" alt="EU_flag" title="European Flag" height="100" />
+<img src="https://romi-project.eu/wp-content/themes/romi/assets/images/eu_flag.svg" alt="EU_flag" title="European Flag" width="200" />
 
-<div style="overflow: auto;">
 
-<table style="background-color: #ffffff; margin-top: 40px; margin-bottom: 40px;">
+## Research teams
+<div>
+<table style="background-color: #ffffff; margin-top: 2px; margin-bottom: 5px;">
 
 <tbody>
 <tr>
-<td style="width: 210px; padding: 10px; vertical-align: bottom;"><a href="https://iaac.net/"><img src="https://romi-project.eu/wp-content/uploads/2018/12/iaac-fablabbcn-logo-black-copy.png" width="160px" /></a></td>
+<td style="width: 14%; padding: 10px; vertical-align: bottom;"><a href="https://iaac.net/"><img src="https://romi-project.eu/wp-content/uploads/2018/12/iaac-fablabbcn-logo-black-copy.png" width="160px" /></a></td>
 
-<td style="width: 210px; padding: 10px; vertical-align: bottom;"><a href="https://csl.sony.fr/projects-sustainability/"><img src="https://romi-project.eu/wp-content/uploads/2018/06/img-brand-01.png" width="160px" /></a></td>
+<td style="width: 14%; padding: 10px; vertical-align: bottom;"><a href="https://csl.sony.fr/projects-sustainability/"><img src="https://romi-project.eu/wp-content/uploads/2018/06/img-brand-01.png" width="160px" /></a></td>
 
-<td style="width: 210px; padding: 10px; vertical-align: bottom;"><a href="https://www.inria.fr/equipes/mosaic"><img src="https://romi-project.eu/wp-content/uploads/2018/06/img-brand-03.png" width="160px" /></a></td>
+<td style="width: 14%; padding: 10px; vertical-align: bottom;"><a href="https://www.inria.fr/equipes/mosaic"><img src="https://romi-project.eu/wp-content/uploads/2018/06/img-brand-03.png" width="160px" /></a></td>
 
-<td style="width: 210px; padding: 10px; vertical-align: bottom;"><a href="https://adapt.informatik.hu-berlin.de/"><img src="https://romi-project.eu/wp-content/uploads/2018/06/img-brand-04.png" width="140px" /></a></td>
+<td style="width: 14%; padding: 10px; vertical-align: bottom;"><a href="https://adapt.informatik.hu-berlin.de/"><img src="https://romi-project.eu/wp-content/uploads/2018/06/img-brand-04.png" width="140px" /></a></td>
 
-<td style="width: 210px; padding: 10px; vertical-align: bottom;"><a href="http://www.ens-lyon.fr/RDP/"><img src="https://romi-project.eu/wp-content/uploads/2018/06/img-brand-05.png" width="130px" /></a></td>
+<td style="width: 14%; padding: 10px; vertical-align: bottom;"><a href="http://www.ens-lyon.fr/RDP/"><img src="https://romi-project.eu/wp-content/uploads/2018/06/img-brand-05.png" width="130px" /></a></td>
 
-<td style="width: 210px; padding: 10px; vertical-align: bottom;"><a href="http://www.pepinieres-chatelain.com/"><img src="https://romi-project.eu/wp-content/uploads/2018/06/img-brand-06.png" width="140px" /></a></td>
+<td style="width: 14%; padding: 10px; vertical-align: bottom;"><a href="http://www.pepinieres-chatelain.com/"><img src="https://romi-project.eu/wp-content/uploads/2018/06/img-brand-06.png" width="140px" /></a></td>
 
-<td style="width: 210px; padding: 10px; vertical-align: bottom;"><a href="http://www.france-europe-innovation.fr/"><img src="https://romi-project.eu/wp-content/uploads/2018/08/Logo_FEI_nb.jpg" width="120px" /></a></td>
+<td style="width: 14%; padding: 10px; vertical-align: bottom;"><a href="http://www.france-europe-innovation.fr/"><img src="https://romi-project.eu/wp-content/uploads/2018/08/Logo_FEI_nb.jpg" width="120px" /></a></td>
 
 
 </tr>
@@ -45,12 +46,14 @@ This project has received funding from the European Union’s Horizon 2020 resea
 
 
 ## Official Website
-ROMI is an H2020 European project: [Official Website](https://romi-project.eu/).
+This is the _documentation website_ of the ROMI project, to access the _public project presentation_, follow this link: https://romi-project.eu/
+
 
 ## GitHub sources
 For now these [sources](https://github.com/romi) are private.
 
-## Videos
+
+## Presentation videos
 
 Preliminary videos to learn more about the project tools!
 
