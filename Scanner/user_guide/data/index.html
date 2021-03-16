@@ -1,0 +1,4859 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Robots for Microfarms Robotic Documentation">
+      
+      
+        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/user_guide/data/">
+      
+      
+        <meta name="author" content="ROMI Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>Data - Romi Robot Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4caf50">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="yellow">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#getting-started" tabindex="0" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Application header -->
+<header class="md-header" data-md-component="header">
+
+  <!-- Top-level navigation -->
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+
+      <!-- Link to home -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://docs.romi-project.eu/"
+            title="Romi Robot Docs"
+            class="md-header-nav__button md-logo">
+          
+            <img style="margin-top: -5px;" src="../../../assets/images/logo.svg" height="32" />
+          
+        </a>
+      </div>
+
+      <!-- Button to toggle drawer -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button"
+            for="__drawer"></label>
+      </div>
+
+      <!-- Header title -->
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title"
+            data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Romi Robot Docs
+              </span>
+              <span class="md-header-nav__topic">
+                Data
+              </span>
+            
+          
+        </div>
+      </div>
+
+      <!-- Button to open search dialogue -->
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button"
+                for="__search"></label>
+
+            <!-- Search interface -->
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+
+      <!-- Repository containing source -->
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../../.." class="md-tabs__link">
+        Home
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Farmers%20Dashboard/" class="md-tabs__link">
+          Farmers Dashboard
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Rover/" class="md-tabs__link">
+          Rover
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../" class="md-tabs__link md-tabs__link--active">
+          Scanner
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../Visualizer/" class="md-tabs__link">
+          Visualizer
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://docs.romi-project.eu/" title="Romi Robot Docs" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="../../../assets/images/logo.svg" width="48" height="48">
+      
+    </a>
+    Romi Robot Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2"
+          type="checkbox" id="nav-2" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-2">
+      Farmers Dashboard
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Farmers Dashboard
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/" title="Introduction"
+        class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2"
+          type="checkbox" id="nav-2-2" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-2-2">
+      Mobile Carrier
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Mobile Carrier
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/bot/" title="Introduction"
+        class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/structure/" title="Structure"
+        class="md-nav__link">
+      Structure
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/electronics/" title="Electronics"
+        class="md-nav__link">
+      Electronics
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/tension/" title="Dinamyc Tension"
+        class="md-nav__link">
+      Dinamyc Tension
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/power/" title="Power"
+        class="md-nav__link">
+      Power
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/station/" title="Charging Station (In development)"
+        class="md-nav__link">
+      Charging Station (In development)
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/camera/" title="Camera Module"
+        class="md-nav__link">
+      Camera Module
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/pipeline/" title="Crops Insights Pipeline"
+        class="md-nav__link">
+      Crops Insights Pipeline
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/app/" title="Farmers Dashboard App"
+        class="md-nav__link">
+      Farmers Dashboard App
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Farmers%20Dashboard/legacy/" title="Legacy"
+        class="md-nav__link">
+      Legacy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+    
+      
+      
+      <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3"
+          type="checkbox" id="nav-3" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-3">
+      Rover
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Rover
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Rover/" title="Index"
+        class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Rover/configuration/" title="Configuration"
+        class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Rover/hardware/" title="Hardware"
+        class="md-nav__link">
+      Hardware
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Rover/manual/" title="Manual"
+        class="md-nav__link">
+      Manual
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Rover/software/" title="Software"
+        class="md-nav__link">
+      Software
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Rover/developer/" title="Developer"
+        class="md-nav__link">
+      Developer
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+    
+      
+      
+      <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+  
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4"
+          type="checkbox" id="nav-4" checked />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-4">
+      Scanner
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Scanner
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2"
+          type="checkbox" id="nav-4-2" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-4-2">
+      Build
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Build
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../build/" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../build/alu_frame/" title="Aluminium frame"
+        class="md-nav__link">
+      Aluminium frame
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../build/cnc_frame/" title="CNC frame"
+        class="md-nav__link">
+      CNC frame
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../build/cnc_electronics/" title="CNC electronics"
+        class="md-nav__link">
+      CNC electronics
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../build/cnc_communication/" title="CNC communication"
+        class="md-nav__link">
+      CNC communication
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../build/cnc_calibration/" title="CNC calibration"
+        class="md-nav__link">
+      CNC calibration
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../build/gimball_setup/" title="Gimball setup"
+        class="md-nav__link">
+      Gimball setup
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../build/gimball_communication/" title="Gimball communication"
+        class="md-nav__link">
+      Gimball communication
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../build/picamera_setup/" title="PiCamera setup"
+        class="md-nav__link">
+      PiCamera setup
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../build/troubleshooting/" title="Troubleshooting"
+        class="md-nav__link">
+      Troubleshooting
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3"
+          type="checkbox" id="nav-4-3" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-4-3">
+      Install
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Install
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../install/" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../install/create_env/" title="Create python environments"
+        class="md-nav__link">
+      Create python environments
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../install/romidb_setup/" title="Database setup"
+        class="md-nav__link">
+      Database setup
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../install/plant_scanner_setup/" title="Plant scanner software setup"
+        class="md-nav__link">
+      Plant scanner software setup
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../install/virtual_plant_setup/" title="Virtual plants scanner software setup"
+        class="md-nav__link">
+      Virtual plants scanner software setup
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../install/plant_reconstruction_setup/" title="Plant reconstruction software setup"
+        class="md-nav__link">
+      Plant reconstruction software setup
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../install/visualizer_setup/" title="Visualizer software setup"
+        class="md-nav__link">
+      Visualizer software setup
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-4"
+          type="checkbox" id="nav-4-4" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-4-4">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="2">
+      <label class="md-nav__title" for="nav-4-4">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/basics/" title="Basics"
+        class="md-nav__link">
+      Basics
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/hardware_scan/" title="Plant scanning"
+        class="md-nav__link">
+      Plant scanning
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/virtual_scan/" title="Virtual scanner"
+        class="md-nav__link">
+      Virtual scanner
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/reconstruct_scan/" title="Scan reconstruction"
+        class="md-nav__link">
+      Scan reconstruction
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/visualizer/" title="Visualizer"
+        class="md-nav__link">
+      Visualizer
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-5"
+          type="checkbox" id="nav-4-5" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-4-5">
+      How-to
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="2">
+      <label class="md-nav__title" for="nav-4-5">
+        How-to
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../how_to/" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../how_to/import_files/" title="Import external ressources"
+        class="md-nav__link">
+      Import external ressources
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../how_to/create_new_task/" title="Create a new task"
+        class="md-nav__link">
+      Create a new task
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+  
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-6"
+          type="checkbox" id="nav-4-6" checked />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-4-6">
+      Specifications
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="2">
+      <label class="md-nav__title" for="nav-4-6">
+        Specifications
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+  
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--active">
+    
+
+    <!-- Active checkbox expands items contained within nested section -->
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc"
+        type="checkbox" id="__toc" />
+
+    <!-- Hack: see partials/toc.html for more information -->
+    
+
+    <!-- Render table of contents, if not empty -->
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Data
+      </label>
+    
+    <a href="./" title="Data"
+        class="md-nav__link md-nav__link--active">
+      Data
+    </a>
+
+    <!-- Show table of contents -->
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-editable-mode" class="md-nav__link">
+    Non-editable mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editable-mode" class="md-nav__link">
+    Editable mode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimal-working-example" class="md-nav__link">
+    Minimal working example
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-initialize-database" class="md-nav__link">
+    1 - Initialize database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-new-dataset" class="md-nav__link">
+    2 - Create a new dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-images-as-new-fileset" class="md-nav__link">
+    3 - Add images as new fileset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-access-image-files-in-a-fileset" class="md-nav__link">
+    4 - Access image files in a fileset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-structure" class="md-nav__link">
+    Database structure
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-root-directory" class="md-nav__link">
+    Database root directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasets-directories" class="md-nav__link">
+    Datasets directories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#images-directories" class="md-nav__link">
+    Images directories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+<!-- Main navigation item -->
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../hardware/" title="Hardware"
+        class="md-nav__link">
+      Hardware
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-6-4"
+          type="checkbox" id="nav-4-6-4" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-4-6-4">
+      Metadata
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="3">
+      <label class="md-nav__title" for="nav-4-6-4">
+        Metadata
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../metadata/" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../metadata/biological_metadata/" title="Biological metadata"
+        class="md-nav__link">
+      Biological metadata
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../metadata/hardware_metadata/" title="Hardware metadata"
+        class="md-nav__link">
+      Hardware metadata
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../metadata/software_metadata/" title="Software metadata"
+        class="md-nav__link">
+      Software metadata
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../metadata/tasks_metadata/" title="Tasks metadata"
+        class="md-nav__link">
+      Tasks metadata
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../luigi/" title="Luigi"
+        class="md-nav__link">
+      Luigi
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-6-6"
+          type="checkbox" id="nav-4-6-6" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-4-6-6">
+      Tasks
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="3">
+      <label class="md-nav__title" for="nav-4-6-6">
+        Tasks
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../tasks/" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../tasks/file_tasks/" title="Files tasks"
+        class="md-nav__link">
+      Files tasks
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../tasks/acquisition_tasks/" title="Acquisition tasks"
+        class="md-nav__link">
+      Acquisition tasks
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../tasks/reconstruction_tasks/" title="Reconstruction tasks"
+        class="md-nav__link">
+      Reconstruction tasks
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../tasks/ground_truth_tasks/" title="Defining ground truth"
+        class="md-nav__link">
+      Defining ground truth
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../tasks/evaluation_tasks/" title="Evaluation tasks"
+        class="md-nav__link">
+      Evaluation tasks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../pipelines/" title="Pipelines"
+        class="md-nav__link">
+      Pipelines
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../configuration_files/" title="Configuration files"
+        class="md-nav__link">
+      Configuration files
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-7"
+          type="checkbox" id="nav-4-7" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-4-7">
+      Developer
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="2">
+      <label class="md-nav__title" for="nav-4-7">
+        Developer
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../developer/" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../developer/user_case_scenarios/" title="User case scenarios"
+        class="md-nav__link">
+      User case scenarios
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../developer/git_workflow/" title="Git Workflow"
+        class="md-nav__link">
+      Git Workflow
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../developer/conda/" title="Conda"
+        class="md-nav__link">
+      Conda
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-7-5"
+          type="checkbox" id="nav-4-7-5" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-4-7-5">
+      Docker
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="3">
+      <label class="md-nav__title" for="nav-4-7-5">
+        Docker
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../docker/" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../docker/romidb_docker/" title="Database"
+        class="md-nav__link">
+      Database
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../docker/plantscanner_docker/" title="Plant Scanner"
+        class="md-nav__link">
+      Plant Scanner
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../docker/virtualplantscanner_docker/" title="Virtual Plant Scanner"
+        class="md-nav__link">
+      Virtual Plant Scanner
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../docker/plantinterpreter_docker/" title="Plant Interpreter"
+        class="md-nav__link">
+      Plant Interpreter
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../docker/plantviewer_docker/" title="Plant Viewer"
+        class="md-nav__link">
+      Plant Viewer
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../docker/docker_compose/" title="Docker compose"
+        class="md-nav__link">
+      Docker compose
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../docker/docker_dev_build/" title="Build romicscan docker for developers"
+        class="md-nav__link">
+      Build romicscan docker for developers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+    
+      
+      
+      <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--nested">
+
+    <!-- Active checkbox expands items contained within nested section -->
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5"
+          type="checkbox" id="nav-5" />
+    
+
+    <!-- Expand active pages -->
+    <label class="md-nav__link" for="nav-5">
+      Visualizer
+    </label>
+    <nav class="md-nav" data-md-component="collapsible"
+        data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Visualizer
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+
+        <!-- Render nested item list -->
+        
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Visualizer/" title="Home"
+        class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../../Visualizer/guide/" title="Guide"
+        class="md-nav__link">
+      Guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+<!-- Currently active page -->
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#non-editable-mode" class="md-nav__link">
+    Non-editable mode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editable-mode" class="md-nav__link">
+    Editable mode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimal-working-example" class="md-nav__link">
+    Minimal working example
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-initialize-database" class="md-nav__link">
+    1 - Initialize database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-a-new-dataset" class="md-nav__link">
+    2 - Create a new dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-add-images-as-new-fileset" class="md-nav__link">
+    3 - Add images as new fileset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-access-image-files-in-a-fileset" class="md-nav__link">
+    4 - Access image files in a fileset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-structure" class="md-nav__link">
+    Database structure
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-root-directory" class="md-nav__link">
+    Database root directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#datasets-directories" class="md-nav__link">
+    Datasets directories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#images-directories" class="md-nav__link">
+    Images directories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Data</h1>
+                
+                <p>This page describe how to use the romi package <code>romidata</code> accessible <a href="https://github.com/romi/romidata">here</a>.</p>
+<p>A shared example datasets is accessible <a href="https://db.romi-project.eu/models/test_db.tar.gz">here</a>.</p>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">Link</a></h2>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">Link</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you intend to contribute to the development of <code>romidata</code> or want to be able to edit the code and test your changes, you should choose <em>editable mode</em>.</p>
+</div>
+<h4 id="non-editable-mode">Non-editable mode<a class="headerlink" href="#non-editable-mode" title="Permanent link">Link</a></h4>
+<p>Install from github using <code>pip</code>:
+<div class="highlight"><pre><span></span><code>pip install git+ssh://git@github.com/romi/romidata.git#dev
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This uses <code>ssh</code> and thus requires to be registered as part of the project and to deploy ssh keys.</p>
+</div>
+<h4 id="editable-mode">Editable mode<a class="headerlink" href="#editable-mode" title="Permanent link">Link</a></h4>
+<p>Clone from github and install using <code>pip</code>:
+<div class="highlight"><pre><span></span><code>git clone https://github.com/romi/romidata.git
+cd romidata
+pip install -e .
+</code></pre></div></p>
+<h3 id="minimal-working-example">Minimal working example<a class="headerlink" href="#minimal-working-example" title="Permanent link">Link</a></h3>
+<p>Let's assume you have a list of images of a given object and that you want to add them to a ROMI database as a "scan".</p>
+<h4 id="1-initialize-database">1 - Initialize database<a class="headerlink" href="#1-initialize-database" title="Permanent link">Link</a></h4>
+<p>First create the directory for the database and add the <code>romidb</code> marker to it:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">mkdtemp</span>
+<span class="n">mydb</span> <span class="o">=</span> <span class="n">mkdtemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;romidb_&#39;</span><span class="p">)</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s1">&#39;romidb&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></p>
+<p>Now you can initialize a ROMI <code>FSDB</code> database object:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">romidata.fsdb</span> <span class="kn">import</span> <span class="n">FSDB</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">FSDB</span><span class="p">(</span><span class="n">mydb</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="c1"># Locks the database and allows access</span>
+</code></pre></div></p>
+<h4 id="2-create-a-new-dataset">2 - Create a new dataset<a class="headerlink" href="#2-create-a-new-dataset" title="Permanent link">Link</a></h4>
+<p>To create a new dataset, here named <code>myscan_001</code>, do:
+<div class="highlight"><pre><span></span><code><span class="n">scan</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">create_scan</span><span class="p">(</span><span class="s2">&quot;myscan_001&quot;</span><span class="p">)</span>
+</code></pre></div>
+To add <em>scan metadata</em> (<em>eg.</em> camera settings, biological metadata, hardware metadata...), do:
+<div class="highlight"><pre><span></span><code><span class="n">scan</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">({</span><span class="s2">&quot;scanner&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;harware&quot;</span><span class="p">:</span> <span class="s1">&#39;test&#39;</span><span class="p">}})</span>
+</code></pre></div>
+This will results in several changes in the local database:</p>
+<ol>
+<li>Add a <code>myscan_001</code> sub-directory in the database root directory;</li>
+<li>Add a <code>metadata</code> sub-directory in <code>myscan_001</code> and a <code>metadata.json</code> gathering the given <em>scan metadata</em>.</li>
+</ol>
+<h4 id="3-add-images-as-new-fileset">3 - Add images as new fileset<a class="headerlink" href="#3-add-images-as-new-fileset" title="Permanent link">Link</a></h4>
+<ol>
+<li>
+<p>OPTIONAL - create a list of RGB images
+    If you do not have a scan datasets available, either download a shared datasets <a href="https://db.romi-project.eu/models/test_db.tar.gz">here</a> or generate a list of images as follows:
+    <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="c1"># Generate random noise images</span>
+<span class="n">n_images</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_images</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="mi">256</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Create a new <code>fileset</code>:
+    <div class="highlight"><pre><span></span><code><span class="n">fileset</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">create_fileset</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Add the images to the fileset:
+    Load the file list (or skip if you generated random images):
+    <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="n">imgs</span> <span class="o">=</span> <span class="n">listdir</span><span class="p">(</span><span class="s2">&quot;&lt;/path/to/my/scan/images&gt;&quot;</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Then loop the images list and add them to the <code>fileset</code>, optionally attach some metadata to each image:
+    <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">romidata</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">imgs</span><span class="p">):</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">fileset</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%i</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">write_image</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%i</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+</ol>
+<p>This will results in several changes in the local database:</p>
+<ol>
+<li>Reference the image by its file name by adding an entry in <code>files.json</code>;</li>
+<li>Write a <code>scan_img_1.jpeg</code> image in the <code>images</code> sub-directory of the scan <code>"myscan"</code>.</li>
+<li>Add an <code>images</code> sub-directory in the <code>metadata</code> sub-directory, and JSON files with the image <code>id</code> as name to store the <em>image metadata</em>.</li>
+</ol>
+<h4 id="4-access-image-files-in-a-fileset">4 - Access image files in a fileset<a class="headerlink" href="#4-access-image-files-in-a-fileset" title="Permanent link">Link</a></h4>
+<p>To access the image files in a fileset (in a datasets, itself in an existing and accessible database), procced as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">romidata.fsdb</span> <span class="kn">import</span> <span class="n">FSDB</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">FSDB</span><span class="p">(</span><span class="n">mydb</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="c1"># Locks the database and allows access</span>
+
+<span class="n">scan</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_scan</span><span class="p">(</span><span class="s2">&quot;myscan&quot;</span><span class="p">)</span>
+<span class="n">fileset</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">get_fileset</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fileset</span><span class="o">.</span><span class="n">get_files</span><span class="p">():</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read_image</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># reads image data</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">))</span> <span class="c1"># i</span>
+
+
+<span class="n">db</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">Link</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">romidata.fsdb</span> <span class="kn">import</span> <span class="n">FSDB</span>
+<span class="kn">from</span> <span class="nn">romidata</span> <span class="kn">import</span> <span class="n">io</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Generate random noise images</span>
+<span class="n">n_images</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_images</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="mi">256</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">listdir</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">join</span>
+<span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">mkdtemp</span>
+<span class="c1"># Create a temporary DB directory:</span>
+<span class="n">mydb</span> <span class="o">=</span> <span class="n">mkdtemp</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;romidb_&#39;</span><span class="p">)</span>
+<span class="c1"># Create the `romidb` file in previously created temporary DB directory:</span>
+<span class="nb">open</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s1">&#39;romidb&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">listdir</span><span class="p">(</span><span class="n">mydb</span><span class="p">)</span>
+
+<span class="c1"># Connect to the DB:</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">FSDB</span><span class="p">(</span><span class="n">mydb</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span> <span class="c1"># Locks the database and allows access</span>
+
+<span class="c1"># Add a scan datasets to the DB:</span>
+<span class="n">scan</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">create_scan</span><span class="p">(</span><span class="s2">&quot;myscan_001&quot;</span><span class="p">)</span>
+<span class="n">listdir</span><span class="p">(</span><span class="n">mydb</span><span class="p">)</span>
+<span class="c1"># Add metadata to a scan datasets:</span>
+<span class="n">scan</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">({</span><span class="s2">&quot;scanner&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;harware&quot;</span><span class="p">:</span> <span class="s1">&#39;test&#39;</span><span class="p">}})</span>
+<span class="n">listdir</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s2">&quot;myscan_001&quot;</span><span class="p">))</span>
+<span class="n">listdir</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s2">&quot;myscan_001&quot;</span><span class="p">,</span> <span class="s2">&quot;metadata&quot;</span><span class="p">))</span>
+
+<span class="n">fileset</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">create_fileset</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">)</span>
+<span class="n">listdir</span><span class="p">(</span><span class="n">join</span><span class="p">(</span><span class="n">mydb</span><span class="p">,</span> <span class="s2">&quot;myscan_001&quot;</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">imgs</span><span class="p">):</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">fileset</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%i</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">write_image</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%i</span><span class="s2">&quot;</span><span class="o">%</span><span class="n">i</span><span class="p">)</span> <span class="c1"># Add some metadata</span>
+
+<span class="c1"># read files in the fileset:</span>
+<span class="n">scan</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">get_scan</span><span class="p">(</span><span class="s2">&quot;myscan&quot;</span><span class="p">)</span>
+<span class="n">fileset</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">get_fileset</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fileset</span><span class="o">.</span><span class="n">get_files</span><span class="p">():</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">read_image</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="c1"># reads image data</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">))</span> <span class="c1"># i</span>
+
+<span class="n">db</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="database-structure">Database structure<a class="headerlink" href="#database-structure" title="Permanent link">Link</a></h2>
+<h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">Link</a></h3>
+<p>Hereafter we give an overview of the database structure using the ROMI database terminology: 
+<div class="highlight"><pre><span></span><code>romidb_root/
+├── dataset_001/
+│   ├── fileset_A/
+│   │   ├── file_A_001.ext
+│   │   ├── [...]
+│   │   └── file_A_009.ext
+│   ├── fileset_B/
+│   │   ├── file_B_001.ext
+│   │   ├── [...]
+│   │   └── file_B_009.ext
+│   ├── metadata
+│   │   ├── fileset_A.json
+│   │   ├── fileset_B.json
+│   │   └── metadata.json
+│   └── files.json
+├── dataset_002/
+│   └── [...]
+├── [...]
+├── (lock)
+└── romidb
+</code></pre></div></p>
+<h3 id="database-root-directory">Database root directory<a class="headerlink" href="#database-root-directory" title="Permanent link">Link</a></h3>
+<p>A <em>root database</em> directory is defined, <em>eg.</em> <code>mydb/</code>.
+Inside this directory we need to defines (add) the <code>romidb</code> marker so it may be used by <code>FSDB</code> class.
+We may also find the <code>lock</code> file used to limit the access to the database to only one user. </p>
+<p>Note that the database initialization part is manual. 
+To create them, in a terminal:
+<div class="highlight"><pre><span></span><code>mkdir mydb
+touch mydb/romidb
+</code></pre></div>
+We just created the following tree structure:
+<div class="highlight"><pre><span></span><code>mydb/
+└── romidb
+</code></pre></div>
+Once you have created this root directory and the <code>romidb</code> marker file, you can initialize a ROMI <code>FSDB</code> database object in Python:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">romidata.fsdb</span> <span class="kn">import</span> <span class="n">FSDB</span>
+<span class="n">db</span> <span class="o">=</span> <span class="n">FSDB</span><span class="p">(</span><span class="s2">&quot;mydb&quot;</span><span class="p">)</span>
+<span class="n">db</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+</code></pre></div>
+The method <code>FSDB.connect()</code> locks the database with a <code>lock</code> file at root directory and allows access.
+To disconnect and <em>free the database</em> do:
+<div class="highlight"><pre><span></span><code><span class="n">db</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</code></pre></div>
+If for some reason the Python terminal unexpectedly terminate without a call to the <code>disconnect</code> method, you may have to remove the <code>lock</code> file manually.
+Check that no one else is using the database! </p>
+<p>Within this <em>root database</em> directory you will find other directories corresponding to <em>datasets</em>.</p>
+<h3 id="datasets-directories">Datasets directories<a class="headerlink" href="#datasets-directories" title="Permanent link">Link</a></h3>
+<p>At the next level, we find the <em>datasets</em> directory(s), <em>eg.</em> named <code>myscan_001</code>.
+Their names must be uniques and you create them as follow:
+<div class="highlight"><pre><span></span><code><span class="n">scan</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">create_scan</span><span class="p">(</span><span class="s2">&quot;myscan_001&quot;</span><span class="p">)</span>
+</code></pre></div>
+If you add <em>scan metadata</em> (<em>eg.</em> camera settings, biological metadata, hardware metadata...) with <code>scan.set_metadata()</code>, you get another directory <code>metadata</code> with a <code>metadata.json</code> file.
+<div class="highlight"><pre><span></span><code><span class="n">scan</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">({</span><span class="s2">&quot;scanner&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;hardware&quot;</span><span class="p">:</span> <span class="s1">&#39;test&#39;</span><span class="p">}})</span>
+</code></pre></div></p>
+<p>We now have the following tree structure:
+<div class="highlight"><pre><span></span><code>mydb/
+├── myscan_001/
+│   └── metadata/
+│       └── metadata.json
+└── romidb
+</code></pre></div>
+And the file <code>metadata.json</code> should look like this:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;scanner&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;harware&quot;</span><span class="p">:</span> <span class="s2">&quot;test&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<h3 id="images-directories">Images directories<a class="headerlink" href="#images-directories" title="Permanent link">Link</a></h3>
+<p>Inside <code>myscan_001/</code>, we find the datasets or <em>fileset</em> in <code>romidb</code> terminology.
+In the case of the "plant scanner", this is a list of RGB image files acquired by a camera moving around the plant.
+To store the datasets, we thus name the created <em>fileset</em> "images":
+<div class="highlight"><pre><span></span><code><span class="n">fileset</span> <span class="o">=</span> <span class="n">scan</span><span class="o">.</span><span class="n">create_fileset</span><span class="p">(</span><span class="s2">&quot;images&quot;</span><span class="p">)</span>
+</code></pre></div>
+This create an <code>images</code> directory and a <code>files.json</code> at the dataset root directory.
+We now have the following tree structure:
+<div class="highlight"><pre><span></span><code>mydb/
+├── myscan_001/
+│   ├── images/
+│   ├── metadata/
+│   │   └── metadata.json
+│   └── files.json
+└── romidb
+</code></pre></div></p>
+<p>The JSON should look like this:
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;filesets&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;files&quot;</span><span class="p">:</span> <span class="p">[],</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;images&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p>We then create random RGB images to add to the dataset:
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Generate random noise images</span>
+<span class="n">n_images</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">imgs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_images</span><span class="p">):</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="mi">256</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">imgs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+</code></pre></div></p>
+<p>And we add them with their metadata to the database:
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">img</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">imgs</span><span class="p">):</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;img_</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">.png&quot;</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">fileset</span><span class="o">.</span><span class="n">create_file</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+    <span class="n">io</span><span class="o">.</span><span class="n">write_image</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">img</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Inside this <code>images/</code> directory will reside the images added to the database.
+At the same time you added images with <strong>REF_TO_TUTO</strong>, you created an entry in a JSON file referencing the files.
+If you added metadata along with the files (<em>eg.</em> camera poses, jpeg metadata...) it should be referenced in <code>metadata/images/</code> <em>eg.</em> <code>metadata/images/&lt;scan_img_01&gt;.json</code>.
+<div class="highlight"><pre><span></span><code>mydb/
+├── myscan_001/
+│   ├── files.json
+│   ├── images/
+│   │   ├── scan_img_01.jpg
+│   │   ├── scan_img_02.jpg
+│   │   ├── [...]
+│   │   └── scan_img_99.jpg
+│   ├── metadata/
+│   │   ├── images
+│   │   │   ├── scan_img_01.json
+│   │   │   ├── scan_img_02.json
+│   │   ├── [...]
+│   │   │   └── scan_img_99.json
+│   │   └── metadata.json
+└── romidb
+</code></pre></div></p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">Link</a></h3>
+<div class="highlight"><pre><span></span><code>mydb/
+├── myscan_001/
+│   ├── AnglesAndInternodes_1_0_2_0_0_1_dd8d67653a
+│   │   └── AnglesAndInternodes.json
+│   ├── Colmap_True____feature_extrac_3bbfcb1413
+│   │   ├── cameras.json
+│   │   ├── images.json
+│   │   ├── points3d.json
+│   │   └── sparse.ply
+│   ├── CurveSkeleton_out__TriangleMesh_6a92751c20
+│   │   └── CurveSkeleton.json
+│   ├── files.json
+│   ├── images
+│   │   ├── pict20190201_110110_0.jpg
+│   │   ├── [...]
+│   │   └── pict20190201_111209_0.jpg
+│   ├── Masks_True_5_out_9adb9db801
+│   │   ├── pict20190201_110110_0.jpg
+│   │   ├── [...]
+│   │   └── pict20190201_111209_0.jpg
+│   ├── measures.csv
+│   ├── metadata
+│   │   ├── AnglesAndInternodes_1_0_2_0_0_1_dd8d67653a.json
+│   │   ├── Colmap_True____feature_extrac_3bbfcb1413.json
+│   │   ├── CurveSkeleton_out__TriangleMesh_6a92751c20.json
+│   │   ├── images
+│   │   │   ├── pict20190201_110110_0.json
+│   │   ├── [...]
+│   │   │   └── pict20190201_111209_0.json
+│   │   ├── images.json
+│   │   ├── Masks_True_5_out_9adb9db801
+│   │   │   ├── pict20190201_110110_0.json
+│   │   ├── [...]
+│   │   │   └── pict20190201_111209_0.json
+│   │   ├── Masks_True_5_out_e90d1804eb.json
+│   │   ├── metadata.json
+│   │   ├── PointCloud_1_0_1_0_False_9ab5a15d9b
+│   │   │   └── PointCloud.json
+│   │   ├── PointCloud_1_0_1_0_False_9ab5a15d9b.json
+│   │   ├── PointCloud__200_0_1_0_False_4ce2e46446.json
+│   │   ├── TreeGraph_out__CurveSkeleton_5dca9a2821.json
+│   │   ├── TriangleMesh_out__PointCloud_80dc94ac81.json
+│   │   ├── Undistorted_out_____fb3e3fa0ff
+│   │   │   ├── pict20190201_110110_0.json
+│   │   ├── [...]
+│   │   │   └── pict20190201_111209_0.json
+│   │   ├── Undistorted_out_____fb3e3fa0ff.json
+│   │   ├── Voxels_False____False_567dc7f48b
+│   │   │   └── Voxels.json
+│   │   ├── Voxels_False____False_567dc7f48b.json
+│   │   ├── Voxels_False____True_af037e876e.json
+│   │   └── Voxels_False____True_cd9a5ff06b.json
+│   ├── pipeline.toml
+│   ├── PointCloud_1_0_1_0_False_9ab5a15d9b
+│   │   └── PointCloud.ply
+│   ├── TreeGraph_out__CurveSkeleton_5dca9a2821
+│   │   └── TreeGraph.p
+│   ├── TriangleMesh_out__PointCloud_80dc94ac81
+│   │   └── TriangleMesh.ply
+│   └── Voxels_False____False_567dc7f48b
+│       └── Voxels.npz
+├── colmap_log.txt
+├── lock
+└── romidb
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Application footer -->
+<footer class="md-footer">
+
+  <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="../"
+              title="Home"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Home
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="../hardware/"
+              title="Hardware"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Hardware
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+
+  <!-- Further information -->
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+
+      <!-- Copyright and theme information -->
+      <div class="md-footer-copyright">
+            <div class="md-footer-copyright__highlight">CC Attribution-NonCommercial-ShareAlike 4.0 International</div>
+		        <img style="margin-top: 20px" alt="The ROMI project has received funding from the European Community’s H2020 Programme under Grant Agreement No. 773875." src="/assets/images/eu-flag.png">
+         		<p class="md-footer-copyright__highlight">The ROMI project has received funding from the European Community’s H2020 Programme under Grant Agreement No. 773875.</p>
+            <p>Except where otherwise noted, content on this site is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+                <a class="github-button" href="https://github.com/romi/romi-robots-docs" aria-label="Check the source code">Check the documentation source code</a>
+      </div>
+
+      <!-- Social links -->
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://twitter.com/ROMI_EU_PROJECT" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.facebook.com/ROMIEUProject" target="_blank" rel="noopener" title="facebook" class="md-footer-social__link fa fa-facebook"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
+      
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="https://buttons.github.io/buttons.js"></script>
+      
+    
+  </body>
+</html>

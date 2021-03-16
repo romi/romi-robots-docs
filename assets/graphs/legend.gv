@@ -1,0 +1,5 @@
+digraph G {
+    params [label="Input parameters" shape=note];
+    task [label="{<f0> Task name|<f1> module |<f2> description.\n}" shape=Mrecord];
+    task_output [label="Task output (EXT)" shape=folder];
+}
