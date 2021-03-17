@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://docs.romi-project.eu/about/</loc>
-     <lastmod>2021-03-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.romi-project.eu/documentation/</loc>
+     <loc>https://docs.romi-project.eu/</loc>
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -144,10 +140,6 @@
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/install/visualizer_setup/</loc>
-     <lastmod>2021-03-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://docs.romi-project.eu/Scanner/tutorials/</loc>
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
@@ -168,7 +160,7 @@
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/tutorials/visualizer/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/tutorials/plant_3d_explorer/</loc>
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -288,7 +280,7 @@
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/docker/plantviewer_docker/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/docker/plant3dexplorer_docker/</loc>
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -300,19 +292,11 @@
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Visualizer/</loc>
+     <loc>https://docs.romi-project.eu/plant_3d_explorer/</loc>
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Visualizer/guide/</loc>
-     <lastmod>2021-03-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.romi-project.eu/research/</loc>
-     <lastmod>2021-03-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.romi-project.eu/data/</loc>
+     <loc>https://docs.romi-project.eu/plant_3d_explorer/guide/</loc>
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
