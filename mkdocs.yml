@@ -53,7 +53,7 @@ nav:
           - 'Plant scanning': 'Scanner/tutorials/hardware_scan.md'
           - 'Virtual scanner': 'Scanner/tutorials/virtual_scan.md'
           - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
-          - 'Visualizer': 'Scanner/tutorials/visualizer.md'
+          - 'Plant 3d explorer': 'Scanner/tutorials/plant_3d_explorer.md'
       - 'How-to':
           - 'Home': 'Scanner/how_to/index.md'
           - 'Import external ressources': 'Scanner/how_to/import_files.md'
@@ -89,12 +89,12 @@ nav:
               - 'Plant Scanner': 'Scanner/docker/plantscanner_docker.md'
               - 'Virtual Plant Scanner': 'Scanner/docker/virtualplantscanner_docker.md'
               - 'Plant Interpreter': 'Scanner/docker/plantinterpreter_docker.md'
-              - 'Plant Viewer': 'Scanner/docker/plantviewer_docker.md'
+              - 'Plant 3d explorer': 'Scanner/docker/plant3dexplorer_docker.md'
               - 'Docker compose': 'Scanner/docker/docker_compose.md'
               - 'Build romicscan docker for developers': 'Scanner/docker/docker_dev_build.md'
-  - 'Visualizer':
-      - 'Home': 'Visualizer/index.md'
-      - 'Guide': 'Visualizer/guide.md'
+  - 'plant 3d explorer':
+      - 'Home': 'plant_3d_explorer/index.md'
+      - 'Guide': 'plant_3d_explorer/guide.md'
 
 theme:
   name: 'material'
