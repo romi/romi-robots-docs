@@ -16,25 +16,31 @@ After this tutorial, you should be able to:
 * Create and activate isolated python environment (see [here](/docs/Scanner/install/create_env.md) )
   
 ## Linked documentation
-* [Manual of the romi Plant 3d explorer](tobedone)
+* [Manual of the romi Plant 3d explorer](/docs/plant_3d_explorer/index.md)
 
 ## Step-by-step tutorial
-Principle: the `plant 3d explorer` is a web client that will display in your favorite web browser data exposed by a server (here, romi `plantdb`) on a particular url. The process consists in pointing the server to your folder of interest, start the server and start the client pointing on the served url. 
+Principle: the `plant 3d explorer` is a web client that will display in your favorite web browser data exposed by a server (here, romi `plantdb`) on a particular url. The process consists in pointing the server to your folder of interest, starting the server and starting the client that points to the served url. 
 
-!!! note: the `plant 3d explorer` has only been developed and tested on Chrome.
+!!!note
+ the `plant 3d explorer` has only been developed and tested on Chrome.
 
-!!! note: if you prefer using docker only, skip steps 1. and 2. and readthe following procedure
+!!! note
+ if you prefer using docker only (to avoid installs), skip steps 1. and 2. and read the following procedure
 [Use docker compose to run both database and 3d explorer with docker containers](../docker/docker_compose.md)
 
 ### 1. Connect your database to a local server
 
 - Open a terminal 
 - if romi commands (like `romi_scanner_rest_api`) are not accessible from your terminal, activate the appropriate python environment (e.g. using venv or conda) required for romi commands (or [read this procedure](../install/create_env.md))
-- set the DB location using the `DB_LOCATION` environment variable and launch the flask server:
+- set the DB location using the `DB_LOCATION` environment variable 
+- make sure that the 
+- launch the flask server:
 ```bash
 export DB_LOCATION=/path/to/the/db
 romi_scanner_rest_api #command that starts the server
 ```
+The terminal prints various information given by the server (e.g. number of plant phenotyping folder ). Do not 
+
 ### 2. Connect the `plant 3d explorer `to the server
 - Open a new terminal 
 - go to your local cloned directory of `3d-plantviewer/`
