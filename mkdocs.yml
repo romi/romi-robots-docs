@@ -46,7 +46,7 @@ nav:
           - 'Plant scanner software setup': 'Scanner/install/plant_scanner_setup.md'
           - 'Virtual plants scanner software setup': 'Scanner/install/virtual_plant_setup.md'
           - 'Plant reconstruction software setup': 'Scanner/install/plant_reconstruction_setup.md'
-          - 'Visualizer software setup': 'Scanner/install/visualizer_setup.md'
+          - 'Visualizer software setup': 'Scanner/install/plant3dexplorer_setup.md'
       - 'Tutorials':
           - 'Home': 'Scanner/tutorials/index.md'
           - 'Basics': 'Scanner/tutorials/basics.md'
