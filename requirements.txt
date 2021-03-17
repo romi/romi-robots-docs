@@ -1,5 +1,5 @@
 mkdocs
-mkdocs-material<5.5.12
+mkdocs-material
 mkdocs-material-extensions
 markdown-inline-graphviz-extension
 #mkdocs-with-pdf

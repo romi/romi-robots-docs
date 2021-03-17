@@ -1,21 +1,52 @@
-In this document you will find information on how to use and build the ROMI robots
+---
+hide:
+  - navigation # Hide navigation
+  - toc        # Hide table of contents
+---
 
-## Videos
+# Robotics for micro-farms
 
-Preliminary videos to learn more about the project tools!
+ROMI is a four-year Europe-funded research project committed to promote a sustainable, local, and human-scale agriculture. It is developing an affordable, multipurpose platform adapted to support organic and poly-culture market-garden farms.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4XBq29rmo5E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_5Zw77hQ8Sc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LtcDBj2Y2uM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div>
 
-## Official Website
-ROMI is an H2020 European project: [Official Website](https://romi-project.eu/).
+<table style="background-color: #ffffff; margin-top: 20px; margin-bottom: 20px; border-style: none;">
 
-## GitHub sources
-For now these [sources](https://github.com/romi) are private.
+<tbody>
 
-## Project funding
+<tr>
+    <td style="padding: 10px; vertical-align: center; text-align: center;">Plant Phenotyping</td>
+    <td style="padding: 10px; vertical-align: center; text-align: center;">Crop Monitoring</td>
+    <td style="padding: 10px; vertical-align: center; text-align: center;">Weeding</td>
+</tr>
 
-This project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 773875.
+<tr>
+<td style="width: 33%; vertical-align: center; text-align: center;">
+<a href="./Scanner/"><img src="assets/images/alu_frame_wood_corners_3D.PNG" width="300px" /></a>
+</td>
+<td style="width: 33%; vertical-align: center; text-align: center;">
+<a href="./Rover/"><img src="assets/images/Feed_Dot.jpg" width="300px" /></a>
+</td>
+<td style="width: 33%; vertical-align: center; text-align: center;">
+<a href="./Scanner/"><img src="assets/images/alu_frame_wood_corners_3D.PNG" width="300px" /></a>
+</td>
+</tr>
 
-<img src="https://romi-project.eu/wp-content/themes/romi/assets/images/eu_flag.svg" alt="EU_flag" title="European Flag" height="100" />
+<tr>
+<td style="vertical-align: top;">
+Using the <i>Plant Imager</i> hardware & the <i>Plant 3D Vision</i> reconstruction software you can reliably quantify phenotypic traits of potted single plants. This technology is currently developed on <i>Arabidopsis thaliana</i>.
+</td>
+
+<td style="vertical-align: top;">
+Awesome text to come.
+</td>
+
+<td style="vertical-align: top;">
+The project description goes here!.
+</td>
+
+</tr>
+</tbody>
+</table>
+</div>
+
