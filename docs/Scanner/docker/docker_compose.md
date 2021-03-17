@@ -16,7 +16,7 @@ To use your own local database, we provide a docker compose recipe that:
 
 
 ### Use pre-built docker image
-You can use the pre-built images `romidb` & `plantviewer`, accessible from the ROMI dockerhub, to eaasily test & use the plantviewer with your own database [^3].
+You can use the pre-built images `romidb` & `plantviewer`, accessible from the ROMI dockerhub, to easily test & use the `plant 3d explorer` with your own database [^3].
 
 [^3]: https://docs.docker.com/compose/compose-file/#image
 

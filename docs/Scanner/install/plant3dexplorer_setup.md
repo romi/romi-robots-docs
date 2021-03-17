@@ -1,8 +1,8 @@
-Install ROMI software for virtual plants acquisition & reconstruction
+Install the ROMI `Plant 3d explorer`
 =====================================================================
 
 To follow this guide you should have a `conda` environment, see [here](create_env.md).
-For the sake of clarity it will be called `plant_visualizer`.
+For the sake of clarity it will be called `Plant 3d explorer`.
 
 !!! note
     If you do not want the hassle of having to create environment & install python libraries, there is a pre-built docker image, with usage instructions [here](../docker/plantviewer_docker.md).
@@ -10,7 +10,7 @@ For the sake of clarity it will be called `plant_visualizer`.
 
 ## Pre-requisite
 
-The plantviewer relies on:
+The `Plant 3d explorer` relies on:
 
  - `node`
  - `npm`
@@ -40,17 +40,17 @@ npm install
 ```
 
 
-## Use the plantviewer
+## Use the `Plant 3d explorer`
 
 ### With the official ROMI database
-You can use the ROMI database to test the installation of the plantviewer:
+You can use the ROMI database to test the installation of the `Plant 3d explorer`:
 ```bash
 export REACT_APP_API_URL='https://db.romi-project.eu'
 npm start
 ```
 
 ### With a runnning local database
-If you have followed the install instructions of the ROMI database ([here](romidb_setup.md)), you can use it with the viewer:
+If you have followed the install instructions of the ROMI database ([here](romidb_setup.md)), you can use it with the `Plant 3d explorer`:
  ```bash
 export REACT_APP_API_URL='0.0.0.0'
 npm start

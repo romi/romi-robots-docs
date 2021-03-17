@@ -1,5 +1,4 @@
 ## The scan list page
-
 When first opening the app, you will be greeted with a home
 page displaying every available scans. 
 A scan is defined as a folder containing acquisition of plant data (e.g. 2D RGB images, manual measures) and a set of 3D reconstructions and analysis (e.g. point cloud, mesh, automated measures,...)

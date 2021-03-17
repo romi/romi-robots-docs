@@ -1,4 +1,4 @@
-Docker container for ROMI plantviewer
+Docker container for ROMI `plant 3d explorer`
 =====================================
 
 The plant visualizer is a webapp that dialog with the database to display images & some quantitative traits.
@@ -24,11 +24,11 @@ To create a local ROMI database:
 
 * python package install, look [here](../install/romidb_setup.md).
 * `romidb` docker image, look [here](romidb_docker.md).
-* docker-compose YAML recipe (start both a `romidb` & a `plantviewer` docker image connected to the db), look [here](docker_compose.md).
+* docker-compose YAML recipe (start both a `romidb` & a `plant 3d explorer` docker image connected to the db), look [here](docker_compose.md).
 
 
 ## Use pre-built docker image
-You can easily download and start the pre-built `plantviewer` docker image with:
+You can easily download and start the pre-built `plant 3d explorer` docker image with:
 ```bash
 docker run -p 3000:3000 roboticsmicrofarms/plantviewer:$VTAG
 ```
@@ -43,7 +43,7 @@ docker run --env REACT_APP_API_URL='0.0.0.0' -p 3000:3000 roboticsmicrofarms/pla
 [^1]: https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file
 
 ## Build docker image
-To build the image, from the `3d-plantviewer` root directory, run:
+To build the image, from the `plant 3d explorer` root directory, run:
 ```bash
 export VTAG="latest"
 docker build -t roboticsmicrofarms/plantviewer:$VTAG .
