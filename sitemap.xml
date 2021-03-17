@@ -140,10 +140,6 @@
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/install/visualizer_setup/</loc>
-     <lastmod>2021-03-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://docs.romi-project.eu/Scanner/tutorials/</loc>
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
@@ -161,10 +157,6 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.romi-project.eu/Scanner/tutorials/reconstruct_scan/</loc>
-     <lastmod>2021-03-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/tutorials/visualizer/</loc>
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -284,23 +276,11 @@
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/docker/plantviewer_docker/</loc>
-     <lastmod>2021-03-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://docs.romi-project.eu/Scanner/docker/docker_compose/</loc>
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.romi-project.eu/Scanner/docker/docker_dev_build/</loc>
-     <lastmod>2021-03-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.romi-project.eu/Visualizer/</loc>
-     <lastmod>2021-03-17</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.romi-project.eu/Visualizer/guide/</loc>
      <lastmod>2021-03-17</lastmod>
      <changefreq>daily</changefreq>
     </url>
