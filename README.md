@@ -6,7 +6,9 @@ The project main documentation available at https://docs.romi-project.eu/
 
 ### Setup
 You need to meet the following requirements:
+
 `python3 -m pip install --upgrade pip`
+
 `python3 -m pip install -r requirements.txt`
 
 ### Edit
