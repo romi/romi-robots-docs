@@ -5,7 +5,7 @@ To follow this guide you should have a `conda` environment, see [here](create_en
 For the sake of clarity it will be called `Plant 3d explorer`.
 
 !!! note
-    If you do not want the hassle of having to create environment & install python libraries, there is a pre-built docker image, with usage instructions [here](../docker/plantviewer_docker.md).
+    If you do not want the hassle of having to create environment & install python libraries, there is a pre-built docker image, with usage instructions [here](../docker/plant3dexplorer_docker.md).
 
 
 ## Pre-requisite
