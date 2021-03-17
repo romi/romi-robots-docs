@@ -77,7 +77,7 @@
   
     
     
-    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="yellow">
+    <body dir="ltr" data-md-color-primary="green" data-md-color-accent="yelllow">
   
     <svg class="md-svg">
       <defs>
@@ -89,7 +89,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#generate-a-virtual-scan" tabindex="0" class="md-skip">
+      <a href="#the-virtual-plant-imager" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -265,8 +265,8 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../plant_3d_explorer/" class="md-tabs__link">
-          plant 3d explorer
+        <a href="../../../Visualizer/" class="md-tabs__link">
+          Visualizer
         </a>
       
     </li>
@@ -1923,44 +1923,6 @@
 <!-- Main navigation item with nested items -->
 
   <li class="md-nav__item">
-    <a href="../../install/virtual_plant_setup/" title="Virtual plants scanner software setup"
-        class="md-nav__link">
-      Virtual plants scanner software setup
-    </a>
-  </li>
-
-        
-          
-          
-          <!--
-  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Determine class according to level -->
-
-
-
-<!-- Main navigation item with nested items -->
-
-  <li class="md-nav__item">
     <a href="../../install/plant_reconstruction_setup/" title="Plant reconstruction software setup"
         class="md-nav__link">
       Plant reconstruction software setup
@@ -1999,7 +1961,45 @@
 <!-- Main navigation item with nested items -->
 
   <li class="md-nav__item">
-    <a href="../../install/visualizer_setup.md" title="Visualizer software setup"
+    <a href="../../install/virtual_plant_setup/" title="Virtual plants software setup"
+        class="md-nav__link">
+      Virtual plants software setup
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../install/visualizer_setup/" title="Visualizer software setup"
         class="md-nav__link">
       Visualizer software setup
     </a>
@@ -2208,134 +2208,6 @@
 <!-- Determine class according to level -->
 
 
-  
-
-
-<!-- Main navigation item with nested items -->
-
-  <li class="md-nav__item md-nav__item--active">
-    
-
-    <!-- Active checkbox expands items contained within nested section -->
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc"
-        type="checkbox" id="__toc" />
-
-    <!-- Hack: see partials/toc.html for more information -->
-    
-      
-    
-
-    <!-- Render table of contents, if not empty -->
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Virtual scanner
-      </label>
-    
-    <a href="./" title="Virtual scanner"
-        class="md-nav__link md-nav__link--active">
-      Virtual scanner
-    </a>
-
-    <!-- Show table of contents -->
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    Getting started
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic usage
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#preparing-data" class="md-nav__link">
-    Preparing data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-a-scan-with-romiscan-and-lettucethink" class="md-nav__link">
-    Running a scan (with romiscan and lettucethink)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-the-pipeline-with-ground-truth-poses-without-colmap" class="md-nav__link">
-    Running the pipeline with ground-truth poses (without Colmap)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#testing-the-reconstruction-pipeline-on-a-virtual-scan" class="md-nav__link">
-    Testing the reconstruction pipeline on a virtual scan
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-<!-- Main navigation item -->
-
-        
-          
-          
-          <!--
-  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Determine class according to level -->
-
-
 
 <!-- Main navigation item with nested items -->
 
@@ -2374,13 +2246,71 @@
 <!-- Determine class according to level -->
 
 
+  
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item md-nav__item--active">
+    
+
+    <!-- Active checkbox expands items contained within nested section -->
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc"
+        type="checkbox" id="__toc" />
+
+    <!-- Hack: see partials/toc.html for more information -->
+    
+      
+    
+
+    <!-- Render table of contents, if not empty -->
+    
+    <a href="./" title="Virtual scanner"
+        class="md-nav__link md-nav__link--active">
+      Virtual scanner
+    </a>
+
+    <!-- Show table of contents -->
+    
+  </li>
+
+<!-- Main navigation item -->
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
 
 <!-- Main navigation item with nested items -->
 
   <li class="md-nav__item">
-    <a href="../plant_3d_explorer/" title="Plant 3d explorer"
+    <a href="../visualizer/" title="Visualizer"
         class="md-nav__link">
-      Plant 3d explorer
+      Visualizer
     </a>
   </li>
 
@@ -3789,44 +3719,6 @@
 <!-- Main navigation item with nested items -->
 
   <li class="md-nav__item">
-    <a href="../../docker/virtualplantscanner_docker/" title="Virtual Plant Scanner"
-        class="md-nav__link">
-      Virtual Plant Scanner
-    </a>
-  </li>
-
-        
-          
-          
-          <!--
-  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
-
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to
-  deal in the Software without restriction, including without limitation the
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-
-  The above copyright notice and this permission notice shall be included in
-  all copies or substantial portions of the Software.
-
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-  IN THE SOFTWARE.
--->
-
-<!-- Determine class according to level -->
-
-
-
-<!-- Main navigation item with nested items -->
-
-  <li class="md-nav__item">
     <a href="../../docker/plantinterpreter_docker/" title="Plant Interpreter"
         class="md-nav__link">
       Plant Interpreter
@@ -3865,9 +3757,47 @@
 <!-- Main navigation item with nested items -->
 
   <li class="md-nav__item">
-    <a href="../../docker/plant3dexplorer_docker/" title="Plant 3d explorer"
+    <a href="../../docker/virtualplantscanner_docker/" title="Virtual Plant Scanner"
         class="md-nav__link">
-      Plant 3d explorer
+      Virtual Plant Scanner
+    </a>
+  </li>
+
+        
+          
+          
+          <!--
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine class according to level -->
+
+
+
+<!-- Main navigation item with nested items -->
+
+  <li class="md-nav__item">
+    <a href="../../docker/plantviewer_docker/" title="Plant Viewer"
+        class="md-nav__link">
+      Plant Viewer
     </a>
   </li>
 
@@ -4009,12 +3939,12 @@
 
     <!-- Expand active pages -->
     <label class="md-nav__link" for="nav-5">
-      plant 3d explorer
+      Visualizer
     </label>
     <nav class="md-nav" data-md-component="collapsible"
         data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        plant 3d explorer
+        Visualizer
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
 
@@ -4052,7 +3982,7 @@
 <!-- Main navigation item with nested items -->
 
   <li class="md-nav__item">
-    <a href="../../../plant_3d_explorer/" title="Home"
+    <a href="../../../Visualizer/" title="Home"
         class="md-nav__link">
       Home
     </a>
@@ -4090,7 +4020,7 @@
 <!-- Main navigation item with nested items -->
 
   <li class="md-nav__item">
-    <a href="../../../plant_3d_explorer/guide/" title="Guide"
+    <a href="../../../Visualizer/guide/" title="Guide"
         class="md-nav__link">
       Guide
     </a>
@@ -4121,63 +4051,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    Getting started
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic usage
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#preparing-data" class="md-nav__link">
-    Preparing data
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-a-scan-with-romiscan-and-lettucethink" class="md-nav__link">
-    Running a scan (with romiscan and lettucethink)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-the-pipeline-with-ground-truth-poses-without-colmap" class="md-nav__link">
-    Running the pipeline with ground-truth poses (without Colmap)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#testing-the-reconstruction-pipeline-on-a-virtual-scan" class="md-nav__link">
-    Testing the reconstruction pipeline on a virtual scan
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -4189,24 +4062,25 @@
               
                 
                 
-                <h1 id="generate-a-virtual-scan">Generate a virtual scan<a class="headerlink" href="#generate-a-virtual-scan" title="Permanent link">Link</a></h1>
-<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">Link</a></h2>
-<p>To follows this guide you should have:</p>
+                <h1 id="the-virtual-plant-imager">The Virtual Plant Imager<a class="headerlink" href="#the-virtual-plant-imager" title="Permanent link">Link</a></h1>
+<h1 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h1>
+<p>After reading this tutorial, you will be able to generate a single virtual plant dataset and/or a multiple virtual plant dataset.</p>
+<h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">Link</a></h1>
+<p>Working with virtual plants instead of real ones makes data acquisition inexpensive and has the advantage to parametrize the type of data.
+By design, ground truth data can be easily extracted from virtual datasets for evaluation purposes and building machine learning models.
+The Virtual Plant Imager is designed two address these two issues.
+Technically, the Virtual Plant Imager relies on <a href="https://www.blender.org/">Blender v2.81a</a> to generate the images of 3d model of the plants.
+The 3d model can be provided as an input or can be also generated by <a href="https://lpy.readthedocs.io/en/latest/">lpy</a> based on biological rules.
+An Http server acts as an interface to drive Blender generation scripts.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">Link</a></h2>
+<p>We recommend using the Docker image because it is well tested by the team.</p>
 <ul>
-<li>installed the necessary ROMI software <a href="../../install/virtual_plant_setup/">here</a></li>
-<li>access to a database, or use the provided examples</li>
+<li><a href="https://github.com/romi/romiscanner">Here</a> you can find how to install the docker image and run a basic command to make sure that everything works
+as expected.</li>
+<li>You can also install the conda packages on your system by following the recipe detailed in the <a href="https://github.com/romi/romiscanner/blob/master/docker/Dockerfile">Dockerfile</a></li>
 </ul>
-<h2 id="basic-usage">Basic usage<a class="headerlink" href="#basic-usage" title="Permanent link">Link</a></h2>
-<p>The virtual scanner works like an HTTP server using Blender.
-First, make sure you have <code>blender</code> (&gt;= 2.80) installed on your machine.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>DEPRECATED</strong>
-Then, clone the directory and access it:
-<div class="highlight"><pre><span></span><code>git clone git@github.com:romi/blender_virtual_scanner.git
-<span class="nb">cd</span> blender_virtual_scanner
-</code></pre></div></p>
-</div>
+<h2 id="generate-a-virtual-plant-with-lpy">Generate a virtual plant with lpy<a class="headerlink" href="#generate-a-virtual-plant-with-lpy" title="Permanent link">Link</a></h2>
+<p>First, you have to create a working database on your host machine, let's say <code>home/host/path/database_example</code>. You can find an example of this database <a href="https://github.com/romi/romiscanner/tree/master/database_example">here</a>.</p>
 <p>You can obtain sample data for the scanner here, and put it in the data folder.
 <div class="highlight"><pre><span></span><code>wget https://db.romi-project.eu/models/arabidopsis_data.zip
 unzip arabidopsis_data.zip -d data
@@ -4214,76 +4088,40 @@ unzip arabidopsis_data.zip -d data
 <p>To use custom data, it must consist in <code>.obj</code> file, in which each type of organ corresponds to a distinct mesh.
 This mesh must have a single material whose name is the name of the organ.
 The data dir must contain the <code>obj</code> and <code>mtl</code> files.</p>
-<p>Additionally, background HDRI files can be downloaded from (hdri haven)[<a href="https://hdrihaven.com/">https://hdrihaven.com/</a>].
+<p>Additionally, background HDRI files can be downloaded from <a href="https://hdrihaven.com/">hdri haven</a>.
 Download <code>.hdr</code> files and put them in the <code>hdri</code> folder.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>DEPRECATED</strong>
-To start the virtual scanner, run the following script in blender:
-<div class="highlight"><pre><span></span><code>blender <span class="o">[</span>scene/texture.blend<span class="o">]</span> -b -P scan.py
-</code></pre></div>
-It will start an HTTP server on port <code>5000</code>.</p>
-</div>
-<h3 id="preparing-data">Preparing data<a class="headerlink" href="#preparing-data" title="Permanent link">Link</a></h3>
-<p>If you have 3D models with a single mesh</p>
-<h3 id="running-a-scan-with-romiscan-and-lettucethink">Running a scan (with <code>romiscan</code> and <code>lettucethink</code>)<a class="headerlink" href="#running-a-scan-with-romiscan-and-lettucethink" title="Permanent link">Link</a></h3>
-<p>The virtual scanner is integrated in <code>lettucethink-python</code>, so that it can be used directly with the <code>Scan</code> task in <code>romi_run_task</code>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code>lettucethink-python</code> is <strong>DEPRECATED</strong></p>
-</div>
-<p>Here is a sample configuration for the virtual scanner creating 640x480 images with ground truth segmentation of organs.
-The server mentioned above must be running before running <code>romi_run_task</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Scan.scanner]</span>
-<span class="n">camera_firmware</span> <span class="o">=</span> <span class="s">&quot;virtual&quot;</span>
-<span class="n">cnc_firmware</span> <span class="o">=</span> <span class="s">&quot;virtual&quot;</span>
-<span class="n">gimbal_firmware</span> <span class="o">=</span> <span class="s">&quot;virtual&quot;</span>
-<span class="n">id</span> <span class="o">=</span> <span class="s">&quot;virtual&quot;</span>
-
-<span class="k">[Scan.path]</span>
-<span class="n">id</span> <span class="o">=</span> <span class="s">&quot;virtual&quot;</span>
-<span class="n">type</span> <span class="o">=</span> <span class="s">&quot;circular&quot;</span>
-
-<span class="k">[Scan.scanner.scanner_args]</span>
-<span class="n">inverted</span> <span class="o">=</span> <span class="kc">false</span>
-
-<span class="k">[Scan.scanner.camera_args]</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mi">640</span>
-<span class="n">height</span> <span class="o">=</span> <span class="mi">480</span>
-<span class="n">focal</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">render_ground_truth</span> <span class="o">=</span> <span class="kc">true</span>
-<span class="n">load_object</span> <span class="o">=</span> <span class="s">&quot;arabidopsis_0.obj?dx=10&amp;dy=10&amp;dz=-5&quot;</span>
-<span class="n">load_background</span> <span class="o">=</span> <span class="s">&quot;quarry_03_8k.hdr&quot;</span>
-
-<span class="k">[Scan.scanner.cnc_args]</span>
-
-<span class="k">[Scan.scanner.gimbal_args]</span>
-
-<span class="k">[Scan.scanner.workspace]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="k">[ 200, 600,]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="k">[ 200, 600,]</span>
-<span class="n">z</span> <span class="o">=</span> <span class="k">[ -100, 300,]</span>
-
-<span class="k">[Scan.path.args]</span>
-<span class="n">num_points</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">radius</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">tilt</span> <span class="o">=</span> <span class="mf">0.45</span>
-<span class="n">xc</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">yc</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">z</span> <span class="o">=</span> <span class="mi">50</span>
-</code></pre></div>
-<h3 id="running-the-pipeline-with-ground-truth-poses-without-colmap">Running the pipeline with ground-truth poses (without Colmap)<a class="headerlink" href="#running-the-pipeline-with-ground-truth-poses-without-colmap" title="Permanent link">Link</a></h3>
-<p>To run the pipeline without <code>colmap</code> and use the virtual scanner poses as a ground
-truth, one must use set the following parameters:</p>
+<p>After preparing your working database directory. You have to run the docker container with the database mounted.
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> romiscanner/docker
+./run.sh -db /home/host/path/database_example  <span class="c1"># This will map to `db` directory located in the the docker&#39;s user home</span>
+</code></pre></div></p>
+<p>Finally, you can generate the virtual dataset by running the following command
+<div class="highlight"><pre><span></span><code><span class="o">(</span>lpyEnv<span class="o">)</span> user@5c9e389f223d  romi_run_task --config romiscanner/config/vscan_lpy_blender.toml VirtualScan db/generated_dataset <span class="c1"># Run VirtualScan by specifying the output folder generated_dataset</span>
+</code></pre></div></p>
+<p>The lpy parameters that are used in the config <a href="https://github.com/romi/romiscanner/blob/master/config/vscan_lpy_blender.toml">file</a> can be customized for your purpose.
+<div class="highlight"><pre><span></span><code><span class="k">[VirtualPlant.lpy_globals]</span>
+<span class="n">BRANCHON</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="n">MEAN_NB_DAYS</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">STDEV_NB_DAYS</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">BETA</span> <span class="o">=</span> <span class="mi">51</span>
+<span class="n">INTERNODE_LENGTH</span> <span class="o">=</span> <span class="mf">1.3</span>
+<span class="n">STEM_DIAMETER</span> <span class="o">=</span> <span class="mf">0.09</span>
+</code></pre></div></p>
+<h2 id="generate-a-large-dataset-for-machine-learning-purposes">Generate a large dataset for machine learning purposes<a class="headerlink" href="#generate-a-large-dataset-for-machine-learning-purposes" title="Permanent link">Link</a></h2>
+<p>To generate a large dataset, you have to run the script <code>generate_dataset.py</code> by passing the config file and the output folder.
+<div class="highlight"><pre><span></span><code><span class="o">(</span>lpyEnv<span class="o">)</span> user@5c9e389f223d  python generate_dataset.py romiscanner/config/vscan_lpy_blender.toml db/learning_set
+</code></pre></div></p>
+<p>After a while, and if the generation succeeded the <code>learning_set</code> folder will be populated by virtual plants.</p>
+<h2 id="running-the-reconstruction-pipeline-on-the-virtual-dataset">Running the reconstruction pipeline on the virtual dataset<a class="headerlink" href="#running-the-reconstruction-pipeline-on-the-virtual-dataset" title="Permanent link">Link</a></h2>
+<p>If not installed yet, please refer to <a href="../reconstruct_scan/">Plant-3d-Analyzer</a> documentation.</p>
+<p>With virtual data, you may want to use ground truth poses:
 <div class="highlight"><pre><span></span><code><span class="k">[Voxels]</span>
 <span class="n">use_colmap_poses</span> <span class="o">=</span> <span class="kc">false</span>
 <span class="k">[Masks]</span>
 <span class="n">upstream_task</span> <span class="o">=</span> <span class="n">Scan</span>
-</code></pre></div>
+</code></pre></div></p>
 <p>Then the pipeline can be run as usual and <code>colmap</code> will not be run.</p>
-<h3 id="testing-the-reconstruction-pipeline-on-a-virtual-scan">Testing the reconstruction pipeline on a <em>virtual scan</em><a class="headerlink" href="#testing-the-reconstruction-pipeline-on-a-virtual-scan" title="Permanent link">Link</a></h3>
-<p>To test the plant reconstruction pipeline on an example <em>virtual scan</em> (<code>arabidopsis_26</code>):
-<div class="highlight"><pre><span></span><code>romi_run_task --config romiscan/config/original_pipe_0.toml PointCloud integration_tests/arabidopsis_26 --local-scheduler
+<p>To test the plant reconstruction pipeline on an example <code>/home/host/my_virtual_plant</code>:
+<div class="highlight"><pre><span></span><code>romi_run_task --config romiscan/config/geom_pipe_virtual.toml PointCloud /home/host/my_virtual_plant
 </code></pre></div>
 This should process all dependencies to obtain a segmented "PointCloud.ply" !</p>
                 
@@ -4335,8 +4173,8 @@ This should process all dependencies to obtain a segmented "PointCloud.ply" !</p
 
         <!-- Link to previous page -->
         
-          <a href="../hardware_scan/"
-              title="Plant scanning"
+          <a href="../reconstruct_scan/"
+              title="Scan reconstruction"
               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
               rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -4349,7 +4187,7 @@ This should process all dependencies to obtain a segmented "PointCloud.ply" !</p
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Plant scanning
+                Scan reconstruction
               </span>
             </div>
           </a>
@@ -4357,8 +4195,8 @@ This should process all dependencies to obtain a segmented "PointCloud.ply" !</p
 
         <!-- Link to next page -->
         
-          <a href="../reconstruct_scan/"
-              title="Scan reconstruction"
+          <a href="../visualizer/"
+              title="Visualizer"
               class="md-flex md-footer-nav__link md-footer-nav__link--next"
               rel="next">
             <div class="md-flex__cell md-flex__cell--stretch
@@ -4367,7 +4205,7 @@ This should process all dependencies to obtain a segmented "PointCloud.ply" !</p
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Scan reconstruction
+                Visualizer
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
