@@ -1,11 +1,11 @@
-site_name: Romi Robot Docs
-site_description: Robots for Microfarms Robotic Documentation
+site_name: ROMI Documentation
+site_description: Technical documentation of the Robotics for Micro-farms project
 site_author: ROMI Team
 site_url: https://docs.romi-project.eu/
 
 # https://www.mkdocs.org/user-guide/writing-your-docs/#configure-pages-and-navigation
 nav:
-  - 'Home': 'index.md'
+  - 'Home': https://romi-project.eu/
   - 'About': 'about.md'
   - 'Documentation':
     - documentation.md
@@ -113,6 +113,7 @@ theme:
     - toc.integrate
 
 extra:
+  homepage: https://romi-project.eu/
   social:
     - icon: fontawesome/brands/twitter
       link: 'https://twitter.com/ROMI_EU_PROJECT'
