@@ -42,7 +42,7 @@
     
     
       
-        <title>Plant3dexplorer setup - Romi Robot Docs</title>
+        <title>Visualizer software setup - Romi Robot Docs</title>
       
     
     
@@ -150,7 +150,7 @@
                 Romi Robot Docs
               </span>
               <span class="md-header-nav__topic">
-                Plant3dexplorer setup
+                Visualizer software setup
               </span>
             
           
@@ -205,14 +205,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../../.." class="md-tabs__link">
         Home
       </a>
     
@@ -250,7 +252,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link md-tabs__link--active">
           Scanner
         </a>
       
@@ -1182,15 +1184,17 @@
 <!-- Determine class according to level -->
 
 
+  
+
 
 <!-- Main navigation item with nested items -->
 
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 
     <!-- Active checkbox expands items contained within nested section -->
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4"
-          type="checkbox" id="nav-4" />
+          type="checkbox" id="nav-4" checked />
     
 
     <!-- Expand active pages -->
@@ -1711,15 +1715,17 @@
 <!-- Determine class according to level -->
 
 
+  
+
 
 <!-- Main navigation item with nested items -->
 
-  <li class="md-nav__item md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 
     <!-- Active checkbox expands items contained within nested section -->
     
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3"
-          type="checkbox" id="nav-4-3" />
+          type="checkbox" id="nav-4-3" checked />
     
 
     <!-- Expand active pages -->
@@ -1991,15 +1997,98 @@
 <!-- Determine class according to level -->
 
 
+  
+
 
 <!-- Main navigation item with nested items -->
 
-  <li class="md-nav__item">
-    <a href="../visualizer_setup.md" title="Visualizer software setup"
-        class="md-nav__link">
+  <li class="md-nav__item md-nav__item--active">
+    
+
+    <!-- Active checkbox expands items contained within nested section -->
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc"
+        type="checkbox" id="__toc" />
+
+    <!-- Hack: see partials/toc.html for more information -->
+    
+      
+    
+
+    <!-- Render table of contents, if not empty -->
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Visualizer software setup
+      </label>
+    
+    <a href="./" title="Visualizer software setup"
+        class="md-nav__link md-nav__link--active">
       Visualizer software setup
     </a>
+
+    <!-- Show table of contents -->
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pre-requisite" class="md-nav__link">
+    Pre-requisite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-romi-packages-their-dependencies" class="md-nav__link">
+    Install ROMI packages &amp; their dependencies:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-the-plant-3d-explorer" class="md-nav__link">
+    Use the Plant 3d explorer
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-the-official-romi-database" class="md-nav__link">
+    With the official ROMI database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-a-runnning-local-database" class="md-nav__link">
+    With a runnning local database
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
+
+<!-- Main navigation item -->
 
         
       </ul>
@@ -4091,7 +4180,7 @@
 For the sake of clarity it will be called <code>Plant 3d explorer</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you do not want the hassle of having to create environment &amp; install python libraries, there is a pre-built docker image, with usage instructions <a href="../docker/plantviewer_docker.md">here</a>.</p>
+<p>If you do not want the hassle of having to create environment &amp; install python libraries, there is a pre-built docker image, with usage instructions <a href="../../docker/plant3dexplorer_docker/">here</a>.</p>
 </div>
 <h2 id="pre-requisite">Pre-requisite<a class="headerlink" href="#pre-requisite" title="Permanent link">Link</a></h2>
 <p>The <code>Plant 3d explorer</code> relies on:</p>
@@ -4174,6 +4263,55 @@ echo 'export REACT_APP_API_URL=0.0.0.0' &gt;&gt; ~/.bashrc</code></p>
 <footer class="md-footer">
 
   <!-- Link to previous and/or next page -->
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+
+        <!-- Link to previous page -->
+        
+          <a href="../plant_reconstruction_setup/"
+              title="Plant reconstruction software setup"
+              class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+              rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back
+                    md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Plant reconstruction software setup
+              </span>
+            </div>
+          </a>
+        
+
+        <!-- Link to next page -->
+        
+          <a href="../../tutorials/"
+              title="Home"
+              class="md-flex md-footer-nav__link md-footer-nav__link--next"
+              rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch
+                  md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Home
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward
+                    md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
 
   <!-- Further information -->

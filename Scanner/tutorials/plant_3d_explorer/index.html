@@ -1999,7 +1999,7 @@
 <!-- Main navigation item with nested items -->
 
   <li class="md-nav__item">
-    <a href="../../install/visualizer_setup.md" title="Visualizer software setup"
+    <a href="../../install/plant3dexplorer_setup/" title="Visualizer software setup"
         class="md-nav__link">
       Visualizer software setup
     </a>
@@ -2354,22 +2354,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-connect-your-database-to-a-local-server" class="md-nav__link">
-    1. Connect your database to a local server
+  <a href="#1-preparing-your-database-for-display-by-the-plant-3d-explorer" class="md-nav__link">
+    1.  Preparing your database for display by the plant 3d explorer
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-connect-the-plant-3d-explorerto-the-server" class="md-nav__link">
-    2. Connect the plant 3d explorerto the server
+  <a href="#2-connect-your-database-to-a-local-server" class="md-nav__link">
+    2. Connect your database to a local server
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-preparing-your-database" class="md-nav__link">
-    2.  Preparing your database
+  <a href="#3-connect-the-plant-3d-explorer-to-the-server" class="md-nav__link">
+    3. Connect the plant 3d explorer to the server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-explore-your-database-content-via-the-menu-page" class="md-nav__link">
+    4.  Explore your database content via the menu page
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-visualize-all-data-related-to-a-single-dataset" class="md-nav__link">
+    5.  Visualize all data related to a single dataset
   </a>
   
 </li>
@@ -4175,22 +4189,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-connect-your-database-to-a-local-server" class="md-nav__link">
-    1. Connect your database to a local server
+  <a href="#1-preparing-your-database-for-display-by-the-plant-3d-explorer" class="md-nav__link">
+    1.  Preparing your database for display by the plant 3d explorer
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-connect-the-plant-3d-explorerto-the-server" class="md-nav__link">
-    2. Connect the plant 3d explorerto the server
+  <a href="#2-connect-your-database-to-a-local-server" class="md-nav__link">
+    2. Connect your database to a local server
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-preparing-your-database" class="md-nav__link">
-    2.  Preparing your database
+  <a href="#3-connect-the-plant-3d-explorer-to-the-server" class="md-nav__link">
+    3. Connect the plant 3d explorer to the server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-explore-your-database-content-via-the-menu-page" class="md-nav__link">
+    4.  Explore your database content via the menu page
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-visualize-all-data-related-to-a-single-dataset" class="md-nav__link">
+    5.  Visualize all data related to a single dataset
   </a>
   
 </li>
@@ -4241,7 +4269,7 @@ After this tutorial, you should be able to:
 * For each plant, display, overlay and inspect in 3d every data generated during analysis</p>
 <h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
 <ul>
-<li>install romi <code>plant 3d explorer</code> (from <a href="https://github.com/romi/3d-plantviewer">source</a> or using a <a href="../docker/plantviewer_docker.md">docker image</a> ) - read <a href="../../install/plant3dexplorer_setup/">install procedure</a> </li>
+<li>install romi <code>plant 3d explorer</code> (from <a href="https://github.com/romi/3d-plantviewer">source</a> or using a <a href="../../docker/plant3dexplorer_docker/">docker image</a> ) - read <a href="../../install/plant3dexplorer_setup/">install procedure</a> </li>
 <li>install romi <code>plantdb</code> (from <a href="https://github.com/romi/romidata">source</a> or using a <a href="../../docker/romidb_docker/">docker image</a>) -- read <a href="../../install/romidb_setup/">install procedure</a></li>
 <li>install romiscan / romirunner (for the Visualisation task -&gt; to be done) </li>
 <li>Create and activate isolated python environment (see <a href="/docs/Scanner/install/create_env.md">here</a> )</li>
@@ -4261,19 +4289,41 @@ After this tutorial, you should be able to:
 </div>
 <p>if you prefer using docker only (to avoid installs), skip steps 1. and 2. and read the following procedure
 <a href="../../docker/docker_compose/">Use docker compose to run both database and 3d explorer with docker containers</a></p>
-<h3 id="1-connect-your-database-to-a-local-server">1. Connect your database to a local server<a class="headerlink" href="#1-connect-your-database-to-a-local-server" title="Permanent link">Link</a></h3>
+<h3 id="1-preparing-your-database-for-display-by-the-plant-3d-explorer">1.  Preparing your database for display by the <code>plant 3d explorer</code><a class="headerlink" href="#1-preparing-your-database-for-display-by-the-plant-3d-explorer" title="Permanent link">Link</a></h3>
+<p><strong>Starting point:</strong> your <em>database</em> is made of one or several <em>datasets</em>, which all correspond to a single plant phenotyping experiment: each dataset contains at least raw acquisition 2D images and metadata, and possibly several other data generated by subsequent 3D reconstruction, segmentation and analysis.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your database must follow the rules of romi databases: please make sure that you comply to <a href="../../install/romidb_setup/">requirements</a></p>
+</div>
+<p><em>example</em>: let's consider a database called <code>my_experiment</code> containing data for 3 datasets for three plants (named plant1, plant2, plant3).</p>
 <ul>
-<li>Open a terminal </li>
-<li>if romi commands (like <code>romi_scanner_rest_api</code>) are not accessible from your terminal, activate the appropriate python environment (e.g. using venv or conda) required for romi commands (or <a href="../../install/create_env/">read this procedure</a>)</li>
+<li>open a terminal and go to your local database directory</li>
+<li>if romi commands (like <code>romi_run_task</code>) are not accessible from your terminal, activate the appropriate python environment (e.g. using venv or conda) required for romi commands (or <a href="../../install/create_env/">read this procedure</a>)</li>
+<li>Process all data for the <code>plant 3d explorer</code> by running the following code
+<div class="highlight"><pre><span></span><code><span class="nv">dataset_list</span><span class="o">=(</span><span class="s1">&#39;plant1&#39;</span>,<span class="s1">&#39;plant2&#39;</span>,<span class="s1">&#39;plant3&#39;</span><span class="o">)</span>
+
+<span class="k">for</span> ds <span class="k">in</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">dataset_list</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">do</span> 
+    romi_run_task Visualization path_to/my_experiment/<span class="s2">&quot;</span><span class="nv">$ds</span><span class="s2">&quot;</span>/ --config ~/config/ml_pipe_real.toml
+<span class="k">done</span>
+</code></pre></div></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information about using romi_run_task command, the Visualization task and the config file, please read XXXXX.</p>
+</div>
+<p><strong>check result</strong>: a new folder called <code>Visualization</code> should have been created in each dataset of your database</p>
+<h3 id="2-connect-your-database-to-a-local-server">2. Connect your database to a local server<a class="headerlink" href="#2-connect-your-database-to-a-local-server" title="Permanent link">Link</a></h3>
+<ul>
+<li>Continue in the same shell terminal (if you open a new terminal, do not forget to activate appropriate python environment)</li>
 <li>set the DB location using the <code>DB_LOCATION</code> environment variable </li>
-<li>make sure that the </li>
 <li>launch the flask server:
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">DB_LOCATION</span><span class="o">=</span>/path/to/the/db
 romi_scanner_rest_api <span class="c1">#command that starts the server</span>
 </code></pre></div>
 The terminal prints various information given by the server (e.g. number of plant phenotyping folder ). Do not </li>
 </ul>
-<h3 id="2-connect-the-plant-3d-explorerto-the-server">2. Connect the <code>plant 3d explorer</code>to the server<a class="headerlink" href="#2-connect-the-plant-3d-explorerto-the-server" title="Permanent link">Link</a></h3>
+<h3 id="3-connect-the-plant-3d-explorer-to-the-server">3. Connect the <code>plant 3d explorer</code> to the server<a class="headerlink" href="#3-connect-the-plant-3d-explorer-to-the-server" title="Permanent link">Link</a></h3>
 <ul>
 <li>Open a new terminal </li>
 <li>go to your local cloned directory of <code>3d-plantviewer/</code></li>
@@ -4284,19 +4334,13 @@ You should now be able to access the <code>plant 3d explorer</code> on <a href="
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You need to add a file <code>.env.local</code> at project's root to set the API URL:
-<code>REACT_APP_API_URL='{`API URL}'</code></p>
-<p>Without this, the app will use: <a href="http://localhost:5000">http://localhost:5000</a> which is the default for <code>romi_scanner_rest_api</code>.</p>
+<p>You need to add a file <code>.env.local</code> at project's root to set the API URL: <code>REACT_APP_API_URL='{`API URL}'</code>.
+Without this, the app will use: <a href="http://localhost:5000">http://localhost:5000</a> which is the default for <code>romi_scanner_rest_api</code>.</p>
 </div>
-<h3 id="2-preparing-your-database">2.  Preparing your database<a class="headerlink" href="#2-preparing-your-database" title="Permanent link">Link</a></h3>
-<p>To access the data from your running DB (<code>from</code>)
-<div class="highlight"><pre><span></span><code><span class="nv">dataset_list</span><span class="o">=(</span><span class="s1">&#39;2018-12-17_17-05-35&#39;</span> <span class="s1">&#39;2018-12-18_13-14-57&#39;</span> <span class="s1">&#39;2018-12-20_13-21-24&#39;</span> <span class="s1">&#39;2019-01-29_16-56-01&#39;</span> <span class="s1">&#39;2019-02-01_10-56-34&#39;</span><span class="o">)</span>
-
-<span class="k">for</span> ds <span class="k">in</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">dataset_list</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">do</span> 
-    romi_run_task Visualization ~/db_test/<span class="s2">&quot;</span><span class="nv">$ds</span><span class="s2">&quot;</span>/ --config ~/config/ml_pipe_real_2.toml --local-scheduler
-<span class="k">done</span>
-</code></pre></div></p>
+<h3 id="4-explore-your-database-content-via-the-menu-page">4.  Explore your database content via the menu page<a class="headerlink" href="#4-explore-your-database-content-via-the-menu-page" title="Permanent link">Link</a></h3>
+<p>describe the main menu page</p>
+<h3 id="5-visualize-all-data-related-to-a-single-dataset">5.  Visualize all data related to a single dataset<a class="headerlink" href="#5-visualize-all-data-related-to-a-single-dataset" title="Permanent link">Link</a></h3>
+<p>describe how to display the main interesting data from a dataset.</p>
 <h2 id="running-a-production-server-for-the-visualizer">Running a production server for the visualizer<a class="headerlink" href="#running-a-production-server-for-the-visualizer" title="Permanent link">Link</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
