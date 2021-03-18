@@ -57,6 +57,8 @@ nav:
             - 'Virtual scanner': 'Scanner/tutorials/virtual_scan.md'
             - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
             - 'Visualizer': 'Scanner/tutorials/visualizer.md'
+        - 'Explanations':
+            - 'Segmentation of images': 'Scanner/explanations/segmentation.md'    
         - 'How-to':
             - 'Home': 'Scanner/how_to/index.md'
             - 'Import external ressources': 'Scanner/how_to/import_files.md'
