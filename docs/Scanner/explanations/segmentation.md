@@ -53,10 +53,10 @@ the weights can then be retrieved as *clf.coef_* and the threshold as *-clf.inte
 upstream_task = "ImagesFilesetExists" # other option "Undistorted"
 type = "linear"
 parameters = "[0,1,0]"
-dilation = 0
-binarize = true
 threshold = 0.5
-query = "{\"channel\":\"rgb\"}" #This is optional, useful when the *ImageFileset* contains multiple channels (typically when it is produced from a virtual scan)
+#Optional arguments
+dilation = 0
+query = "{\"channel\":\"rgb\"}" #This is optional, necessary when the *ImageFileset* contains multiple channels (typically when it is produced from a virtual scan)
 ```
 
 
@@ -88,39 +88,66 @@ type = "excess_green"
 dilation = 0
 binarize = true
 threshold = 0.2
-query = "{\"channel\":\"rgb\"}" #This is optional, useful when the *ImageFileset* contains multiple channels (typically when it is produced from a virtual scan)
+query = "{\"channel\":\"rgb\"}" #This is optional, necessary when the *ImageFileset* contains multiple channels (typically when it is produced from a virtual scan)
+```
+
+### Inversion
+
+For an index I, if you want to use $1-I$ for creating the mask, set *invert* to *True*. 
+
+
+##Multi-class segmentation
+
+The *Segmentation2D* task performs the semantic segmentation of images using a deep neural network (DNN). The command to run this task is:
+
+```bash
+romi_run_task Segmentation2D scan_id my_config.toml
+```
+This will produce a series of binary masks, one for each class on which the network was trained.
+
+<figure>
+<img src="/assets/images/segmentation/unet.png" alt="U-net architecture" width="600" />
+<figcaption>Generic encoder/decoder architecture for semantic segmentation (U-net).</figcaption>
+</figure>
+
+The architecture of the network is inspired from the U-net [ref], with a ResNet encoder [ref]. It constists in encoding and decoding pathways with skip connections between the 2.
+
+####Configuration File
+
+```toml
+[Segmentation2D]
+upstream_task = "ImageFilesetExists" #Alternatively Undistorted
+model_fileset = "ModelFileset"
+model_id = "Resnet_896_896_epoch50"  # no default value
+query = "{\"channel\":\"rgb\"}"  # default is an empty dict '{}'
+Sx = 896 
+Sy = 896
+labels = "[]"  # default is empty list to use all trained labels from model
+inverted_labels = "[\"background\"]"
+threshold = 0.01
 ```
 
 
-#### Vesselness
+### DNN model
 
-!!! danger
-	BROKEN the task calls the function vesselness with a *channel* argument which is not in the definition of the vesselness function. It should be repaired or removed
+The neural architecture weights are obtained through training on an annotated dataset (see How to train a DNN for semantic segmentation). Those weights should be stored in the database (at `<database>/models/models`) and the name of the weights file should be provided as the *model_id* parameter in the configuration. You can use our model trained on virtual arabidopsis [here](https://media.romi-project.eu/data/Resnetdataset_gl_png_896_896_epoch50.pt)
 
-The two previous methods wre based only on color. Instead, here, we consider differential information by relying on the Hessian matrix. The vesselness index is computed according to the method described in [mevislab](https://mevislabdownloads.mevis.de/docs/current/FMEstable/ReleaseMeVis/Documentation/Publish/ModuleReference/Vesselness.html). 
+## Binarization
 
-
-### Binarization
-
-If the *binarize* parameter is set to *True*, a binary mask $m$ is produced from the index *I* by applying a threshold $\theta$ on I for each pixel $(i,j)$:
+A binary mask $m$ is produced from the index or from the output of the DNN, *I*, by applying a threshold $\theta$ on I for each pixel $(i,j)$:
 
 \begin{equation}
   m_{ij} =
     \begin{cases}
-      1 & \text{if $I_{ij}>\theta$}\\
+      255 & \text{if $I_{ij}>\theta$}\\
       0   & \text{otherwise}
     \end{cases}       
 \end{equation}
 
-### Dilation
+
+## Dilation
 
 If the integer *dilation* parameter is non-zero a morphological dilation is apllied to the image using the function [*binary_dilation*](https://scikit-image.org/docs/dev/api/skimage.morphology.html#skimage.morphology.binary_dilation) from the *skimage.morphology* module. 
 
 The *dilation* parameter sets the number of times *binary_dilation* is iteratively applied. For a faithful reconstruction this parameter should be set to $0$ but in practice you may want to have a coarser point cloud. This is true when your segmentation is not perfect, dilation will fill the holes or when the reconstructed mesh is broken because the pôint cloud is too thin.
 
-### Inversion
-
-For an index I, if you want to use $1-I$, set *invert* to *True*. 
-
-
-##Multi-class segmentation
