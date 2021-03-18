@@ -16,7 +16,7 @@ To run an acquisition, you should previously have:
   (make sure you are in the conda environment or that you run properly the docker for the `plantimager` repository)
 * interfaced the machine running the ROMI software with the plant imager
   (main steps: 
-    1. check it is correctly connected to the Gimball and CNC by USB link
+    1. check it is correctly connected to the Gimbal and CNC by USB
     2. turn on camera and connect it to the device via wifi)
 * set up a [DB](../user_guide/data.md) (or do the following steps)
 
@@ -36,69 +36,88 @@ touch path/to/db/db/romidb
 
 ## Step by step tutorial
 
-
-### Running an acquisition with the `Scan` task
-
 `Scan` is the basic task for running an acquisition with the robot.
 
 A **default** configuration file for the plant imager can be found under `romiscanner/config/hardware.toml`.
 It regroups :  
 - specifications of the device setup (under the arguments linked to Scan.scanner)  
-- parameters describing the acquisition path (detailed in Scan.path)  
-- description of the object (in Scan.metadata)  
+- parameters describing the acquisition path (ScanPath)  
+- description of the object (in Scan.metadata.object)   
+- description of the hardware (in Scan.metadata.hardware) 
 ```toml
-[Scan.scanner]
-camera_firmware = "sony_wifi"
-cnc_firmware = "grbl-v1.1"
-gimbal_firmware = "blgimbal"
+[ScanPath] # Example, circular scan with 60 points:
+class_name = "Circle"
 
-[Scan.scanner.scanner_args] # These are the kwargs passed to the scanner constructor
-inverted = false
+[ScanPath.kwargs]
+center_x = 375
+center_y = 375
+z = 80
+tilt = 0
+radius = 300
+n_points = 60
 
-[Scan.scanner.camera_args] # These are the kwargs passed to the camera constructor
-postview = true
-device_ip = "10.0.2.66"
+[Scan.scanner.camera] # camera related parameters:
+module = "romiscanner.sony"
+# module = "romiscanner.gp2"
+
+#[Scan.scanner.camera.kwargs]
+#url = "http://myflashair"
+
+[Scan.scanner.camera.kwargs]
+device_ip = "192.168.122.1"
 api_port = "10000"
+postview = true
+use_flashair = false
+rotation = 270
 
-[Scan.scanner.cnc_args] # These are kwargs passed to the CNC constructor
-homing = true
-port = "/dev/ttyUSB0"
+[Scan.scanner.gimbal] # module and kwargs linked to the gimbal
+module = "romiscanner.blgimbal"
 
-[Scan.scanner.gimbal_args]
+[Scan.scanner.gimbal.kwargs]
 port = "/dev/ttyACM1"
 has_tilt = false
-zero_pan = 145
+zero_pan = 0
+invert_rotation = true
 
-[Scan.scanner.camera_model] # This is a precalibrated camera model
-width = 1616
-height = 1080
-id = 1
-model = "OPENCV"
-params = [ 1120.72122223961, 1120.72122223961, 808.0, 540.0, 0.0007513494532588769, 0.0007513494532588769, 0.0, 0.0,]
+[Scan.scanner.cnc] # module and kwargs linked to the CNC
+module = "romiscanner.grbl"
 
-[Scan.scanner.workspace] # A volume containing the target scanned object
+[Scan.scanner.cnc.kwargs]
+homing = true
+port = "/dev/ttyACM0"
+
+[Scan.metadata.workspace] # A volume containing the target scanned object
 x = [ 200, 600,]
 y = [ 200, 600,]
 z = [ -100, 300,]
 
-[Scan.path] # Example circular scan with 72 points:
-type = "circular"
+[Scan.metadata.object] # object related metadata
+species = "chenopodium album"
+seed_stock = "Col-0"
+plant_id = "3dt_chenoA"
+growth_environment = "Lyon-indoor"
+growth_conditions = "SD+LD"
+treatment = "None"
+DAG = 40
+sample = "main_stem"
+experiment_id = "3dt_26-01-2021"
+dataset_id = "3dt"
 
-[Scan.path.args]
-num_points = 3
-radius = 350
-tilt = 0.45 # rad
-xc = 400
-yc = 400
-z = 0
-
-[Scan.metadata]
-key = value # Any metadata you want to add to the scan
+[Scan.metadata.hardware] # hardware related metadata
+frame = "30profile v1"
+X_motor = "X-Carve NEMA23"
+Y_motor = "X-Carve NEMA23"
+Z_motor = "X-Carve NEMA23"
+pan_motor = "iPower Motor GM4108H-120T Brushless Gimbal Motor"
+tilt_motor = "None"
+sensor = "RX0"
 ```
 
 !!! Warning
     This is a default configuration file. You will most probably need to create one to fit your hardware setup. 
     Check the acquisition configuration documentation for the [scan settings](../metadata/hardware_metadata.md) and for the [scanned object](../metadata/biological_metadata.md)
+
+### Running an acquisition with the `Scan` task
 
 Assuming you have an active database, you can now run a scan using `romi_run_task`:
 ```bash
@@ -145,7 +164,7 @@ You can now [reconstruct your plant in 3d](reconstruct_scan.md) !
 ### Serial access denied
 * Look [here](../build/troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.
 * Make sure the device used to run the acquisition is well connected to the camera (wifi)
-* Message to Gimball still transiting :
+* Message to Gimbal still transiting :
 
 ```bash
 Traceback (most recent call last):
