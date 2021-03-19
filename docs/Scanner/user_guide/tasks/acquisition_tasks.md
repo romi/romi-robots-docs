@@ -2,8 +2,8 @@ Acquisition-related tasks
 ===
 
 ## Scan task
-This task class is used to acquire a set of RGB images from a real plant to study using the *Plant scanner* hardware.
-It produces a `Fileset` named `'images'` (designated as raw scan) that may be accompnied by a metadata dictionary if provided as parameter.
+This task class is used to acquire a set of RGB images from a real plant to study using the *Plant imager* hardware.
+It produces a `Fileset` named `'images'` (designated as raw scan) that may go with a metadata dictionary if provided as parameter.
 
 ## VirtualScan task
 This task class is used to acquire a set of RGB images from a mesh computer model (OBJ file) representing a plant using blender.

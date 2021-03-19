@@ -1,25 +1,25 @@
-Install ROMI software for the plants scanner
+Install ROMI software for the plant imager
 ============================================
 
 To follows this guide you should have a `conda` or a Python `venv`, see [here](create_env.md).
 
-For the sake of clarity the environment will be called `plant_scanner`.
+For the sake of clarity the environment will be called `plant_imager`.
 
 
 ## Install ROMI packages with `pip`:
 
-Activate your `plant_scanner` environment!
+Activate your `plant_imager` environment!
 ```bash
-conda activate plant_scanner
+conda activate plant_imager
 ```
 
 !!! note
     Since this is still under development, the packages are installed in "editable mode" with the `-e` option.
 
-### Install `romiscanner` sources:
-To pilot the hardware you have to install the `romiscanner`package:
+### Install `plant-imager` sources:
+To pilot the hardware you have to install the `plant-imager`package:
 ```bash
-python3 -m pip install -e git+https://github.com/romi/romiscanner.git@dev
+python3 -m pip install -e git+https://github.com/romi/plant-imager.git@dev
 ```
 
 ### Install `romiscan` sources:
@@ -42,7 +42,7 @@ tar -xf test_db.tar.gz
 ```
 This will create a `integration_tests` folder with a ready to use test database. 
 
-You should now be ready to performs "plant acquisitions" following the [dedicated](../tutorials/reconstruct_scan.md) user guide.
+You should now be ready to perform "plant acquisitions" following the [dedicated](../tutorials/reconstruct_scan.md) user guide.
 
 
 ## Troubleshooting
