@@ -69,6 +69,7 @@ done
 
 !!! Note
     <img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50"> *for docker users*
+
     Skip step 2 & 3 and follow instead instructions given by['docker-compose to run both database and 3d explorer with docker containers'](../docker/docker_compose.md)
 
 ### 2. Connect your database to a local server
@@ -95,17 +96,83 @@ You should now be able to access the `plant-3d-explorer` on [http://localhost:30
     Without this, the app will use: http://localhost:5000 which is the default for `romi_scanner_rest_api`.
 
 ### 4.  Explore your database content via the menu page
+
+!!! note
+    More description about the function of the menu page: read [here](/docs/plant-3d-explorer/index.md)
+
 The starting page of the `plant-3d-explorer` lists the datasets of the connected database as a table and looks like this:
+
+<kbd>
  <img src="/assets/images/plant-3d-explorer/plant3dexplorer_menupage.png" alt="plant3dexplorer_menupage" width="1000">
+ </kbd>
 
  * The top search bar allows you to find particular datasets based on keywords.
  * Data filters: in the header row, click on an icon to activate the filter (datasets that do *not* contain the data will be filtered out)
 
-<img src="/assets/images/plant-3d-explorer/plant3dexplorer_availabledata.png" alt="availdata" width="100"> 3d objects generated from the plant 2D images (respectively: mesh, point cloud, segmented point cloud, skeleton and organs)
+    * <img src="/assets/images/plant-3d-explorer/plant3dexplorer_availabledata.png" alt="availdata" width="100"> 3d objects generated from the plant 2D images (icons respectively stand for: mesh, point cloud, segmented point cloud, skeleton and organs)
 
- <img src="/assets/images/plant-3d-explorer/plant3dexplorer_phyllotaxisfilter.png" alt="phyllofilter" width="100"> or phyllotaxis data (manual or computed phyllotaxis measurements)
+    * <img src="/assets/images/plant-3d-explorer/plant3dexplorer_phyllotaxisfilter.png" alt="phyllofilter" width="100"> or phyllotaxis data (manual or computed phyllotaxis measurements)
 
  * Open a dataset with the green 'Open' button at the far right of a row <img src="/assets/images/plant-3d-explorer/plant3dexplorer_openbutton.png" alt="openbutton" width="100">
 
-### 5.  View all data related to a single dataset
-describe how to display the main interesting data from a dataset.
+
+### 5.  View a single dataset and all related data  
+
+!!! note
+    This is only a brief description to allow a quick start. More description [here](/docs/plant-3d-explorer/index.md)
+
+By default, the `plant-3d-explorer` displays in the main panel the skeleton and the organs (if available) and phyllotaxis data (as graphs) in the right panel.
+
+<kbd>
+ <img src="/assets/images/plant-3d-explorer/plant3dexplorer_dataset_initpage.png" alt="plant3dexplorer_dataset_initpage" width="1000">
+ </kbd>
+
+Mouse-over most elements provides a brief description.
+
+#### Select the 3D layers to display
+In the top left corner of the main panel, icons allows you to quickly (un)select 3D layers (if available):
+
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_3dlayers_icons.png" alt="plant3dexplorer_dataset_initpage" width="250">
+
+* White icons are active, dark grey are available but not active, light grey are not available for this dataset
+* From left to right, icons represents respectively the mesh, the pointcloud, the segmented point cloud, the skeleton and the organs.
+
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_view-icons.png" alt="plant3dexplorer_view-icons.png" width="100">
+  
+In the center of the middle panel are icons for general viewing options: 
+
+* Activate the camera icon displays the camera poses (only works if overlay with 2 images is deactivated)
+* Click the round arrow to reset the view
+
+#### Moving the view in the "free" 3D (without 2D overlay)
+Easy movements are accessible with a mouse:
+* scroll to zoom in/out
+* left click rotate
+* right click translate
+
+#### Activate overlay with 2D images
+click on any image of the bottom carousel to activate the display of 2 images in the main panel. On Mouse-over, a single picture is enlarged and proposes to open it in the main panel.
+
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-open.png" alt="plant3dexplorer_view-icons.png" width="800">
+
+Overlay with active 3D layers is automatic. In the carousel, the box around the active displayed 2D image is now permanent.
+
+To close the 2D overlay, just click the close button of the boxed picture in the carousel.
+
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-close.png" alt="plant3dexplorer_view-icons.png" width="800">
+
+#### Moving the view with 2D overlay
+Note that movement control with the mouse slightly changes compared to the "free" view without 2D overlay. Notably, the free rotation mode is not possible anymore, since it is constrained by the real movements made by the camera when it took the pictures. 
+
+* Slide right/left the active box picture in the carousel to reproduce the camera movement
+* scroll to zoom in/out
+* left click to translate
+
+#### The phyllotaxis measure plots
+
+
+#### Go back to main page
+In the top left corner of the page, click "all scans" 
+
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_allscans_backmenu.png" alt="backtomenu" width="100">
+
