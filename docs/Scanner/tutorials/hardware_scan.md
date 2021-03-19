@@ -56,7 +56,7 @@ tilt = 0
 radius = 300
 n_points = 60
 
-[Scan.scanner.camera] # camera related parameters:
+[Scan.scanner.camera] # camera related parameters
 module = "romiscanner.sony"
 # module = "romiscanner.gp2"
 
@@ -115,7 +115,7 @@ sensor = "RX0"
 
 !!! Warning
     This is a default configuration file. You will most probably need to create one to fit your hardware setup. 
-    Check the acquisition configuration documentation for the [scan settings](../metadata/hardware_metadata.md) and for the [scanned object](../metadata/biological_metadata.md)
+    Check the configuration documentation for the [hardware](../metadata/hardware_metadata.md) and the [scanned object](../metadata/biological_metadata.md)
 
 ### Running an acquisition with the `Scan` task
 
@@ -132,7 +132,7 @@ This will create the corresponding folder and fill it with images from the scan.
 
 
 
-### Creation of a "scan"
+### Creation of a scan
 
 Once the acquisition is done, the database is updated and we now have the following tree structure:
 ```
@@ -153,7 +153,7 @@ with:
 - `metadata/images` a folder filled with json files recording the poses (camera coordinates) for each taken image  
 - `metadata/images.json` containing parameters of the acquisition that will be used later in reconstruction (type of format for the images, info on the object and the workspace)
 - `files.json` detailing the files contained in the scan
-- `scan.json` a copy of the acquisition config file
+- `scan.json`, a copy of the acquisition config file
 
 
 You can now [reconstruct your plant in 3d](reconstruct_scan.md) !
