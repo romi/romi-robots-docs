@@ -82,9 +82,7 @@ $$
 [Masks]
 upstream_task = "ImagesFilesetExists" # other option "Undistorted"
 type = "excess_green"
-dilation = 0
 threshold = 0.2
-query = "{\"channel\":\"rgb\"}" #This is optional, necessary when the *ImageFileset* contains multiple channels (typically when it is produced from a virtual scan)
 ```
 
 ##Multi-class segmentation
@@ -101,7 +99,9 @@ This will produce a series of binary masks, one for each class on which the netw
 <figcaption>Generic encoder/decoder architecture for semantic segmentation (U-net).</figcaption>
 </figure>
 
-The architecture of the network is inspired from the U-net [^1], with a ResNet encoder [^2]. It constists in encoding and decoding pathways with skip connections between the 2. The network is trained for segmenting images of a size $(S_x,S_y)$ which is not necessarily the image size of the acquired images. Those parameters *Sx* and *Sy* should be provided in the configuration file. The images will be cropped to $(S_x,S_y)$ before being fed to the DNN and it is then resized to the original size as an output of the task. 
+The architecture of the network is inspired from the U-net [^1], with a ResNet encoder [^2]. It constists in encoding and decoding pathways with skip connections between the 2. Along the encoding pathways, there is a sequence of convolutions and the image signal is upsampled along the decoding pathway.
+
+The network is trained for segmenting images of a size $(S_x,S_y)$ which is not necessarily the image size of the acquired images. Those parameters *Sx* and *Sy* should be provided in the configuration file. The images will be cropped to $(S_x,S_y)$ before being fed to the DNN and it is then resized to the original size as an output of the task. 
 
 [^1]: Ronneberger, O., Fischer, P., & Brox, T. (2015, October). U-net: Convolutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention (pp. 234-241). Springer, Cham.
 
@@ -111,7 +111,7 @@ The architecture of the network is inspired from the U-net [^1], with a ResNet e
 
 ```toml
 [Segmentation2D]
-model_id = "Resnet_896_896_epoch50"  # no default value
+model_id = "Resnetdataset_gl_png_896_896_epoch50"  # no default value
 Sx = 896 
 Sy = 896
 threshold = 0.01
