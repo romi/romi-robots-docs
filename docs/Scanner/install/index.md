@@ -7,7 +7,7 @@ Installing the ROMI software
 In the following subsections we will details how to install ROMI software for a few usage cases:
 
 0. Create a database server [here](romidb_setup.md).
-0. Plant scans acquisition using the ROMI plant scanner to a database [here](plant_scanner_setup.md).
+0. Plant scans acquisition using the ROMI plant scanner to a database [here](plant_imager_setup.md).
 0. Plant reconstruction pipelines from existing plant scans in a database [here](plant_reconstruction_setup.md).
 0. Virtual plant creation (3D modelling of plant architecture with LPY), virtual scan (mimic plant scanner with blender) & reconstruction (same as 2.) [here](virtual_plant_setup.md).
 0. Create a web server hosting the plantviewer GUI [here](visualizer_setup.md).

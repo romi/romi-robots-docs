@@ -26,14 +26,14 @@ Each of the following modules could be seen as separate virtual machines or cont
 | DB               | `romidata`                         | `luigi`, `flask`                                              |
 | SmartInterpreter | `romiscan`, `romiseg`, `romicgal`  | `luigi`, `pytorch`, `labelme`, `tensorboard`                  |
 | Visualizer       | `3d-plantviewer`                   | `npm`                                                         |
-| PlantScanner     | `romiscanner`                      | `pyserial`                                                    |
+| PlantImager     | `plant-imager`                      | `pyserial`                                                    |
 | VirtualScanner   | `romiscanner`                      | `openalea.plantgl`, `openalea.lpy`, `bpy` (blender), `flask`  |
 
 
 #### DB
 Should be totally independent of the rest since it could be uses in other parts of the ROMI project (Rover, Cable bot, ...) trough the abstract class `DB` or even the local database class `FSDB`.
 
-#### PlantScanner
+#### PlantImager
 It requires a physical connection to the hardware (`pyserial`) to control. It also needs an active ROMI database to export acquired datasets (plant images).
 
 #### SmartInterpreter

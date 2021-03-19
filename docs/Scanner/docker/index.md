@@ -8,9 +8,9 @@ https://hub.docker.com/orgs/roboticsmicrofarms/repositories
 We hereafter list the docker containers, their availability and provides link to their location & usage instructions:
 
  - [x] **romidb** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/romidb) and explanations [there](romidb_docker.md)
- - [ ] **plantscanner** is not available yet and explanations [there](plantscanner_docker.md)
+ - [ ] **plantimager** is not available yet and explanations [there](plantimager_docker.md)
  - [ ] **plantinterpreter** is not available yet and explanations [there](plantinterpreter_docker.md)
- - [ ] **virtualplantscanner** is not available yet and explanations [there](virtualplantscanner_docker.md)
+ - [ ] **virtualplantscanner** is not available yet and explanations [there](virtualplantimager_docker.md)
  - [x] **plantviewer** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plantviewer) and explanations [there](plantviewer_docker.md)
 
 
