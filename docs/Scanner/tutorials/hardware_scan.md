@@ -12,7 +12,7 @@ In order to collect data in the process of plant phenotyping, the plant imager r
 To run an acquisition, you should previously have:
 
 * built the scanner following the guidelines [here](../build/index.md)
-* installed the necessary ROMI software [here](../install/plant_scanner_setup.md) 
+* installed the necessary ROMI software [here](../install/plant_imager_setup.md) 
   (make sure you are in the conda environment or that you run properly the docker for the `plantimager` repository)
 * interfaced the machine running the ROMI software with the plant imager
   (main steps: 
