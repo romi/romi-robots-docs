@@ -64,7 +64,7 @@ Activate your `plant_scanner` environment!
 
 !!!important
     You need an active ROMI database to import the images fileset to reconstruct.
-    If it's not done yet, fFollow the install instructions of a ROMI database ([here](romidb_setup.md)).
+    If it's not done yet, fFollow the install instructions of a ROMI database ([here](plantdb_setup.md)).
 
 ### Install `romiscan` sources:
 To start "reconstruction jobs", you have to install the `romiscan` package.

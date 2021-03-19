@@ -22,7 +22,7 @@ This will create a `integration_tests` folder with a ready to use test database.
 
 To create a local ROMI database:
 
-* python package install, look [here](../install/romidb_setup.md).
+* python package install, look [here](../install/plantdb_setup.md).
 * `romidb` docker image, look [here](romidb_docker.md).
 * docker-compose YAML recipe (start both a `romidb` & a `plant 3d explorer` docker image connected to the db), look [here](docker_compose.md).
 

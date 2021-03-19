@@ -2,6 +2,8 @@ site_name: ROMI Documentation
 site_description: Technical documentation of the Robotics for Micro-farms project
 site_author: ROMI Team
 site_url: https://docs.romi-project.eu/
+copyright: 'CC Attribution-NonCommercial-ShareAlike 4.0 International'
+
 
 # https://www.mkdocs.org/user-guide/writing-your-docs/#configure-pages-and-navigation
 nav:
@@ -107,9 +109,9 @@ nav:
 
 theme:
   name: 'material'
-  palette:
-    primary: green
-    accent: deep orange
+  font:
+    text: Nunito Sans
+    code: Ubuntu Mono
   logo: 'assets/images/logo.svg'
   favicon: 'assets/images/favicon.ico'
   features:
@@ -127,16 +129,14 @@ extra:
       link: 'https://github.com/romi/'
   project: 'The ROMI project has received funding from the European Community’s H2020 Programme under Grant Agreement No. 773875.'
   footer_logo: '/assets/images/eu-flag.png'
-  license: 'CC Attribution-NonCommercial-ShareAlike 4.0 International'
   repo_name: romi-robots-docs
   repo_url: https://github.com/romi/romi-robots-docs
 
 markdown_extensions:
   - admonition
+  - attr_list
   - codehilite
   - footnotes
-  - toc:
-      permalink: Link
   - pymdownx.arithmatex
   - pymdownx.betterem:
       smart_enable: all
@@ -155,7 +155,15 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-  - attr_list
+  - toc:
+      permalink: Link
+
+plugins:
+  - search
+
+extra_css:
+  - assets/css/extra.css
+
 extra_javascript:
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
   - 'https://buttons.github.io/buttons.js'
