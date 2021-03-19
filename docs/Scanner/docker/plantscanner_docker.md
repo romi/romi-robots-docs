@@ -1,3 +1,3 @@
-Docker container for ROMI plantscanner
+Docker container for ROMI plant-imager
 ======================================
 
