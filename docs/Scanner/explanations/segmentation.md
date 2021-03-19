@@ -54,8 +54,7 @@ upstream_task = "ImagesFilesetExists" # other option "Undistorted"
 type = "linear"
 parameters = "[0,1,0]"
 threshold = 0.5
-#Optional arguments
-dilation = 0
+#Optional parameters
 query = "{\"channel\":\"rgb\"}" #This is optional, necessary when the *ImageFileset* contains multiple channels (typically when it is produced from a virtual scan)
 ```
 
@@ -86,15 +85,9 @@ $$
 upstream_task = "ImagesFilesetExists" # other option "Undistorted"
 type = "excess_green"
 dilation = 0
-binarize = true
 threshold = 0.2
 query = "{\"channel\":\"rgb\"}" #This is optional, necessary when the *ImageFileset* contains multiple channels (typically when it is produced from a virtual scan)
 ```
-
-### Inversion
-
-For an index I, if you want to use $1-I$ for creating the mask, set *invert* to *True*. 
-
 
 ##Multi-class segmentation
 
@@ -110,23 +103,21 @@ This will produce a series of binary masks, one for each class on which the netw
 <figcaption>Generic encoder/decoder architecture for semantic segmentation (U-net).</figcaption>
 </figure>
 
-The architecture of the network is inspired from the U-net [ref], with a ResNet encoder [ref]. It constists in encoding and decoding pathways with skip connections between the 2.
+The architecture of the network is inspired from the U-net [^1], with a ResNet encoder [^2]. It constists in encoding and decoding pathways with skip connections between the 2. The network is trained for segmenting images of a size $(S_x,S_y)$ which is not necessarily the image size of the acquired images. Those parameters *Sx* and *Sy* should be provided in the configuration file. The images will be cropped to $(S_x,S_y)$ before being fed to the DNN and it is then resized to the original size as an output of the task. 
+
+[^1]: Ronneberger, O., Fischer, P., & Brox, T. (2015, October). U-net: Convolutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention (pp. 234-241). Springer, Cham.
+
+[^2]: Zhang, Z., Liu, Q., & Wang, Y. (2018). Road extraction by deep residual u-net. IEEE Geoscience and Remote Sensing Letters, 15(5), 749-753.
 
 ####Configuration File
 
 ```toml
 [Segmentation2D]
-upstream_task = "ImageFilesetExists" #Alternatively Undistorted
-model_fileset = "ModelFileset"
 model_id = "Resnet_896_896_epoch50"  # no default value
-query = "{\"channel\":\"rgb\"}"  # default is an empty dict '{}'
 Sx = 896 
 Sy = 896
-labels = "[]"  # default is empty list to use all trained labels from model
-inverted_labels = "[\"background\"]"
 threshold = 0.01
 ```
-
 
 ### DNN model
 
@@ -144,10 +135,22 @@ A binary mask $m$ is produced from the index or from the output of the DNN, *I*,
     \end{cases}       
 \end{equation}
 
+This threshold may be chosen empirically or it may be learnt from annotated data (see linear SVM section).
 
 ## Dilation
 
-If the integer *dilation* parameter is non-zero a morphological dilation is apllied to the image using the function [*binary_dilation*](https://scikit-image.org/docs/dev/api/skimage.morphology.html#skimage.morphology.binary_dilation) from the *skimage.morphology* module. 
+If the integer *dilation* parameter is non-zero a morphological dilation is apllied to the image using the function [*binary_dilation*](https://scikit-image.org/docs/dev/api/skimage.morphology.html#skimage.morphology.binary_dilation) from the *skimage.morphology* module.
 
 The *dilation* parameter sets the number of times *binary_dilation* is iteratively applied. For a faithful reconstruction this parameter should be set to $0$ but in practice you may want to have a coarser point cloud. This is true when your segmentation is not perfect, dilation will fill the holes or when the reconstructed mesh is broken because the pôint cloud is too thin.
 
+## Working with data from the virtual scanner
+
+When working with data generated with the virtual scanner, the *images* folder contains multiple channels corresponding to the various class for which images were generated (*stem*, *flower*, *fruit*, *leaf*, *pedicel*). You have to select the *rgb* channel using the *query* parameter.
+
+####Configuration File
+```toml
+[Masks]
+type = "excess_green"
+threshold = 0.2
+query = "{\"channel\":\"rgb\"}"
+```
