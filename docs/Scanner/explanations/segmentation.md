@@ -1,7 +1,7 @@
 Segmentation of images 
 ===
 
-The segmentation of an image consists in assigning a label to each of its pixels. For the 3d reconstruction of a plant, we need at least the segmentation of the images into 2 classes: *plant* and *backround*. For a reconstruction with semantic labeling of the point cloud, we will need a semantic segmentation of the images giving one label for each organ type (e.g. {*leaf*, *stem*,*pedicel*, *flower*, *fruit*}). Figures shows describe the binary and multi-class segmentations for a virtual plant.
+The segmentation of an image consists in assigning a label to each of its pixels. For the 3d reconstruction of a plant, we need at least the segmentation of the images into 2 classes: *plant* and *backround*. For a reconstruction with semantic labeling of the point cloud, we will need a semantic segmentation of the images giving one label for each organ type (e.g. {*leaf*, *stem*,*pedicel*, *flower*, *fruit*}). The figure below shows the binary and multi-class segmentations for a virtual plant.
 
 <figure>
 <img src="/assets/images/segmentation/segmentation_ex.png" alt="Binary and multi-class segmentation examples" width="600" />
@@ -16,9 +16,9 @@ The binary segmentation of an image into *plant* and *background* is performed w
 ```bash
 romi_run_task Masks scan_id --config myconfig.toml 
 ``` 
-with upstream task being *ImagesFilesetExists* when processing the raw RGB images or *Undistorded* when processing images corrected using the intrinsic parameters of the camera. The task takes this set of images as an input and produce either binary mask or real valued maps depending on parameters. 
+with upstream task being *ImagesFilesetExists* when processing the raw RGB images or *Undistorded* when processing images corrected using the intrinsic parameters of the camera. The task takes this set of images as an input and produce one binary mask for each image. 
 
-There are 3 methods available to compute indices for binary segmentation: Excess Green Index, Linear SVM or Vesselness. For each method, we provide an example configuration file in the *Index computation* section.
+There are 2 methods available to compute indices for binary segmentation: Excess Green Index and Linear SVM. For each method, we provide an example configuration file in the *Index computation* section.
 
 ### Index computation
 
@@ -31,11 +31,11 @@ $$
 S_{ij}=w_0 R_{ij} + w_1 G_{ij} +w_2 B_{ij} 
 $$
 
-where $w$ is the *parameter* vector specified in the configuration file. A simple vector, like $w=(0,1,0)$ may be used. 
+where $w$ is the *parameters* vector specified in the configuration file. A simple vector, like $w=(0,1,0)$ may be used for example. 
 
-Alternatively you can train an SVM to learn those weights and the threshold to be provided in the configuration file. For this, we consider you have a sample image and a ground truth binary mask. A ground may be produced using a manual annotation tool like [LabelMe](https://github.com/wkentaro/labelme). 
+Alternatively, you can train an SVM to learn those weights and the threshold to be provided in the configuration file. For this, we consider you have a sample image and a ground truth binary mask. A ground truth may be produced using a manual annotation tool like [LabelMe](https://github.com/wkentaro/labelme). 
 
-Using for example a list of 1000 randomly selected pixels as $X_{train}$ and their corresponding labels as $Y_{train}$, a linear SVM is trained using
+Using for example a list of N randomly selected pixels as $X_{train}$ (array of size [N,3]) and their corresponding labels as $Y_{train}$ (array of size N), a linear SVM is trained using
 ```python
 from sklearn import svm
 
@@ -54,8 +54,6 @@ upstream_task = "ImagesFilesetExists" # other option "Undistorted"
 type = "linear"
 parameters = "[0,1,0]"
 threshold = 0.5
-#Optional parameters
-query = "{\"channel\":\"rgb\"}" #This is optional, necessary when the *ImageFileset* contains multiple channels (typically when it is produced from a virtual scan)
 ```
 
 
