@@ -93,7 +93,7 @@ nav:
                 - 'Home': 'Scanner/docker/index.md'
                 - 'Database': 'Scanner/docker/romidb_docker.md'
                 - 'Plant Imager': 'Scanner/docker/plantimager_docker.md'
-                - 'Virtual Plant Scanner': 'Scanner/docker/virtualplantscanner_docker.md'
+                - 'Virtual Plant Imager': 'Scanner/docker/virtualplantimager_docker.md'
                 - 'Plant Interpreter': 'Scanner/docker/plantinterpreter_docker.md'
                 - 'Plant Viewer': 'Scanner/docker/plantviewer_docker.md'
                 - 'Docker compose': 'Scanner/docker/docker_compose.md'
