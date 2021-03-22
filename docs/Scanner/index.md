@@ -7,9 +7,9 @@
     To achieve this goal, the team developed a suite of tools presented hereafter.
 
 
-## Modular architecture
-We aim at making our software architecture modular to make it more flexible and suitable to several applications from the ROMI project when possible.
+We aim at making our software architecture modular to make it more flexible and suitable to most of the robotic & research applications from the ROMI project when possible.
 
+## Modules
 [PlantDB :material-database-outline:](modules/plantdb.md){ .md-button }
 [Plant 3D Explorer :material-file-tree-outline:](modules/plant_3d_explorer.md){ .md-button }
 
@@ -17,25 +17,27 @@ We aim at making our software architecture modular to make it more flexible and 
 [Virtual Plant Imager :material-camera-iris:](modules/virtual_plant_imager.md){ .md-button }
 [Plant 3D Vision :material-pine-tree-box:](modules/plant_3d_vision.md){ .md-button }
 
+## Usage
+[Tutorials :material-database-outline:](tutorials/index.md){ .md-button }
 
-### Overview of the modules interactions
+
+## Overview of the modules interactions
 The following figure shows a use case of the ROMI modules, and the way they interact, to design an efficient plant phenotyping platform used in research.
 
 ![Plant Phenotyping platform](../assets/images/interact_plan_landscape.png)
 
 
-#### PlantDB
+### PlantDB
 Should be totally independent of the rest since it could be uses in other parts of the ROMI project (Rover, Cable bot, ...) trough the abstract class `DB` or even the local database class `FSDB`.
 
-#### Plant Imager
-It requires a physical connection to the hardware (`pyserial`) to control.
-It also needs an active ROMI database to export acquired datasets (plant images).
+### Plant Imager
+It requires a physical connection to the hardware (`pyserial`) to control. It also needs an active ROMI database to export acquired datasets (plant images).
 
-#### Virtual Plant Imager
+### Virtual Plant Imager
 It requires a connection to an active ROMI database to export generated datasets (virtual plant images).
-In case of machine learning methods, a database would also provide training datasets.
+In case of machine learning methods, a database would also provides training datasets.
 
-#### Plant 3D Vision
+### Plant 3D Vision
 It requires connection to an active ROMI database to import datasets to process and export the results.
 Two plant reconstruction approaches are available in the SmartInterpreter:
 
@@ -44,43 +46,8 @@ Two plant reconstruction approaches are available in the SmartInterpreter:
 
 Then meshing and skeletonization finally enables to extract the plant's phyllotaxis.
 
-#### Plant 3D Explorer
+### Plant 3D Explorer
 It requires a database with datasets to browse and represent.
-
-
-## Glossary
-
-We hereafter defines the semantic, names and abbreviations to use in the projects documentations and communications.
-
-ROMI Software
-: the whole set of software developed by ROMI;
-
-ROMI Hardware
-: the three types of robots developed by ROMI, namely the "cable bot", the "rover" and the "plant imager";
-
-
-### Database related
-
-database
-: the database itself;
-
-scan
-: a set of images, and the pipelines results;
-
-fileset
-: a set of files (*e.g.* a set of RGB images of a plant);
-
-file
-: a file (*e.g.* an RGB image of a plant);
-
-plant metadata
-: set of FAIR metadata attached to the plant (*e.g.* species, age, growth conditions...);
-
-acquisition metadata
-: set of metadata attached to the acquisition procedure & hardware configuration (*e.g.* version of the CNC controller, camera settings, ...);
-
-!!! danger
-    "scans" could be renamed "dataset" or !
 
 
 ## Research oriented user story

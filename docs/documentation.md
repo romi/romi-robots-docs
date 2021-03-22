@@ -22,13 +22,13 @@ ROMI is a four-year Europe-funded research project committed to promote a sustai
 
 <tr>
 <td style="width: 33%; vertical-align: center; text-align: center;">
-<a href="../Scanner/"><img src="../assets/images/alu_frame_wood_corners_3D.PNG" width="300px" /></a>
+<a href="../Scanner/"><img src="../assets/images/phenotyping.png" width="300px" /></a>
 </td>
 <td style="width: 33%; vertical-align: center; text-align: center;">
-<a href="../Rover/"><img src="../assets/images/Feed_Dot.jpg" width="300px" /></a>
+<a href="../Farmers Dashboard/"><img src="../assets/images/farmers-dashboard.png" width="300px" /></a>
 </td>
 <td style="width: 33%; vertical-align: center; text-align: center;">
-<a href="../Scanner/"><img src="../assets/images/alu_frame_wood_corners_3D.PNG" width="300px" /></a>
+<a href="../Rover/"><img src="../assets/images/rover.png" width="300px" /></a>
 </td>
 </tr>
 
@@ -50,3 +50,26 @@ The project description goes here!.
 </table>
 </div>
 
+## Complete list of modules
+
+### Hardware
+[Plant Imager :material-robot-excited-outline:](https://github.com/romi/plant-imager){ .md-button }
+[Cable Bot :material-camera-wireless-outline:](https://github.com/romi/romi-cablebot){ .md-button }
+[Rover :material-robot-mower-outline:](https://github.com/romi/romi-rover){ .md-button }
+
+### Storage
+[PlantDB :material-database-outline:](https://github.com/romi/plantdb){ .md-button }
+
+### Viewers
+[Plant 3D Explorer :material-file-tree-outline:](https://github.com/romi/plant-3d-explorer){ .md-button }
+[Farmers Dashboard :material-monitor-dashboard:](https://github.com/romi/farmers-dashboard){ .md-button }
+
+### Algorithms
+[Virtual Plant Imager :material-camera-iris:](https://github.com/romi/virtual_plant_imager){ .md-button }
+[Plant 3D Vision :material-pine-tree-box:](https://github.com/romi/plant-3d-vision){ .md-button }
+[romiseg :material-graph-outline:](https://github.com/romi/romiseg){ .md-button }
+[DTW :material-chart-timeline-variant-shimmer:](https://github.com/romi){ .md-button }
+
+
+### Third-party & wrapping
+[romicgal :material-graphql:](https://github.com/romi/romicgal){ .md-button }
