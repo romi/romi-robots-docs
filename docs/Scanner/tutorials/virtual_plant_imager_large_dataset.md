@@ -8,7 +8,7 @@ The Virtual Plant Imager is designed two address these two issues.
 After reading this tutorial, you should be able to generate a single virtual plant dataset in order to evaluate the robustness of [plant-3d-vision](https://github.com/romi/plant-3d-vision).
 
 ## Prerequisite
-If it is not already done, you must be able to build and run the docker image by following the [instructions](../docker/virtualplantscanner_docker.md).
+If it is not already done, you must be able to build and run the docker image by following the [instructions](../docker/virtualplantimager_docker.md).
 
 ## Step-by-step tutorial
 Principle: Technically, the `Virtual Plant Imager` relies on [Blender v2.81a](https://www.blender.org/) to generate the images of 3d model of the plants.
