@@ -1,5 +1,32 @@
-Docker container for ROMI virtualplantscanner
+Docker container for ROMI virtual plant imager
 =============================================
+
+## Objective
+The following sections aim to show you how to build the docker image and run the corresponding container of the [Virtual Plant Imager](https://github.com/romi/plant-imager)
+
+## Prerequisites
+In addition to having docker installed in your system, you must also install the nvidia gpu drivers, nvidia-docker (v2.0) and nvidia-container-toolkit.
+
+This docker image has been tested successfully on:
+`docker --version=19.03.6 | nvidia driver version=450.102.04 | CUDA version=11.0`
+
+### Building the Docker image
+In this repository, you will find a script `build.sh` in the `docker` directory.
+
+```bash
+    git clone https://github.com/romi/plant-imager.git
+    cd plant-imager/
+    cd docker/
+    ./build.sh
+```
+This will create by default a docker image `plantimager:latest`.
+Inside the docker image, a user is created and named as the one currently used by your system.
+If you want more build options (specific branches, tags...etc), type `./build.sh --help`.
+
+### Running the docker container
+In the docker directory, you will find also a script named `run.sh`.
+
+To show more options, type `./run.sh --help`
 
 
 ## Pre-requisites
