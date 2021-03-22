@@ -1112,13 +1112,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#inversion" class="md-nav__link">
-    Inversion
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1162,6 +1155,26 @@
   <a href="#dilation" class="md-nav__link">
     Dilation
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-data-from-the-virtual-scanner" class="md-nav__link">
+    Working with data from the virtual scanner
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with data from the virtual scanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file_3" class="md-nav__link">
+    Configuration File
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1832,7 +1845,7 @@
                 
                 
                 <h1 id="segmentation-of-images">Segmentation of images<a class="headerlink" href="#segmentation-of-images" title="Permanent link">Link</a></h1>
-<p>The segmentation of an image consists in assigning a label to each of its pixels. For the 3d reconstruction of a plant, we need at least the segmentation of the images into 2 classes: <em>plant</em> and <em>backround</em>. For a reconstruction with semantic labeling of the point cloud, we will need a semantic segmentation of the images giving one label for each organ type (e.g. {<em>leaf</em>, <em>stem</em>,<em>pedicel</em>, <em>flower</em>, <em>fruit</em>}). Figures shows describe the binary and multi-class segmentations for a virtual plant.</p>
+<p>The segmentation of an image consists in assigning a label to each of its pixels. For the 3d reconstruction of a plant, we need at least the segmentation of the images into 2 classes: <em>plant</em> and <em>backround</em>. For a reconstruction with semantic labeling of the point cloud, we will need a semantic segmentation of the images giving one label for each organ type (e.g. {<em>leaf</em>, <em>stem</em>,<em>pedicel</em>, <em>flower</em>, <em>fruit</em>}). The figure below shows the binary and multi-class segmentations for a virtual plant.</p>
 <figure>
 <img src="/assets/images/segmentation/segmentation_ex.png" alt="Binary and multi-class segmentation examples" width="600" />
 <figcaption>Example image of virtual arabidopsis (left) with binary (middle) and multi-class segmentation (right).</figcaption>
@@ -1842,8 +1855,8 @@
 <p>The binary segmentation of an image into <em>plant</em> and <em>background</em> is performed with the following command:</p>
 <p><div class="highlight"><pre><span></span><code>romi_run_task Masks scan_id --config myconfig.toml 
 </code></pre></div>
-with upstream task being <em>ImagesFilesetExists</em> when processing the raw RGB images or <em>Undistorded</em> when processing images corrected using the intrinsic parameters of the camera. The task takes this set of images as an input and produce either binary mask or real valued maps depending on parameters. </p>
-<p>There are 3 methods available to compute indices for binary segmentation: Excess Green Index, Linear SVM or Vesselness. For each method, we provide an example configuration file in the <em>Index computation</em> section.</p>
+with upstream task being <em>ImagesFilesetExists</em> when processing the raw RGB images or <em>Undistorded</em> when processing images corrected using the intrinsic parameters of the camera. The task takes this set of images as an input and produce one binary mask for each image. </p>
+<p>There are 2 methods available to compute indices for binary segmentation: Excess Green Index and Linear SVM. For each method, we provide an example configuration file in the <em>Index computation</em> section.</p>
 <h3 id="index-computation">Index computation<a class="headerlink" href="#index-computation" title="Permanent link">Link</a></h3>
 <h4 id="linear-support-vector-machine-svm">Linear support vector machine (SVM)<a class="headerlink" href="#linear-support-vector-machine-svm" title="Permanent link">Link</a></h4>
 <p>A linear combination of R, G and B is used to compute the index for pixel <span><span class="MathJax_Preview">(i,j)</span><script type="math/tex">(i,j)</script></span>:</p>
@@ -1855,9 +1868,9 @@ S_{ij}=w_0 R_{ij} + w_1 G_{ij} +w_2 B_{ij}
 S_{ij}=w_0 R_{ij} + w_1 G_{ij} +w_2 B_{ij} 
 </script>
 </div>
-<p>where <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> is the <em>parameter</em> vector specified in the configuration file. A simple vector, like <span><span class="MathJax_Preview">w=(0,1,0)</span><script type="math/tex">w=(0,1,0)</script></span> may be used. </p>
-<p>Alternatively you can train an SVM to learn those weights and the threshold to be provided in the configuration file. For this, we consider you have a sample image and a ground truth binary mask. A ground may be produced using a manual annotation tool like <a href="https://github.com/wkentaro/labelme">LabelMe</a>. </p>
-<p>Using for example a list of 1000 randomly selected pixels as <span><span class="MathJax_Preview">X_{train}</span><script type="math/tex">X_{train}</script></span> and their corresponding labels as <span><span class="MathJax_Preview">Y_{train}</span><script type="math/tex">Y_{train}</script></span>, a linear SVM is trained using
+<p>where <span><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> is the <em>parameters</em> vector specified in the configuration file. A simple vector, like <span><span class="MathJax_Preview">w=(0,1,0)</span><script type="math/tex">w=(0,1,0)</script></span> may be used for example. </p>
+<p>Alternatively, you can train an SVM to learn those weights and the threshold to be provided in the configuration file. For this, we consider you have a sample image and a ground truth binary mask. A ground truth may be produced using a manual annotation tool like <a href="https://github.com/wkentaro/labelme">LabelMe</a>. </p>
+<p>Using for example a list of N randomly selected pixels as <span><span class="MathJax_Preview">X_{train}</span><script type="math/tex">X_{train}</script></span> (array of size [N,3]) and their corresponding labels as <span><span class="MathJax_Preview">Y_{train}</span><script type="math/tex">Y_{train}</script></span> (array of size N), a linear SVM is trained using
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
 
 <span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span> <span class="o">=</span> <span class="o">...</span>
@@ -1871,9 +1884,6 @@ the weights can then be retrieved as <em>clf.coef_</em> and the threshold as <em
 <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;linear&quot;</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="s">&quot;[0,1,0]&quot;</span>
 <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="c1">#Optional arguments</span>
-<span class="n">dilation</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s">&quot;{\&quot;channel\&quot;:\&quot;rgb\&quot;}&quot;</span> <span class="c1">#This is optional, necessary when the *ImageFileset* contains multiple channels (typically when it is produced from a virtual scan)</span>
 </code></pre></div>
 <h4 id="excess-green">Excess green<a class="headerlink" href="#excess-green" title="Permanent link">Link</a></h4>
 <p>This segmentation method is assuming the plant is green and the background is not. It has no parameter but it may be less robust than the linear SVM.</p>
@@ -1900,13 +1910,8 @@ x_{ij} = \frac{X_{ij}}{R_{ij}+G_{ij}+B_{ij}}
 <div class="highlight"><pre><span></span><code><span class="k">[Masks]</span>
 <span class="n">upstream_task</span> <span class="o">=</span> <span class="s">&quot;ImagesFilesetExists&quot;</span> <span class="c1"># other option &quot;Undistorted&quot;</span>
 <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;excess_green&quot;</span>
-<span class="n">dilation</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">binarize</span> <span class="o">=</span> <span class="kc">true</span>
 <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.2</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s">&quot;{\&quot;channel\&quot;:\&quot;rgb\&quot;}&quot;</span> <span class="c1">#This is optional, necessary when the *ImageFileset* contains multiple channels (typically when it is produced from a virtual scan)</span>
 </code></pre></div>
-<h3 id="inversion">Inversion<a class="headerlink" href="#inversion" title="Permanent link">Link</a></h3>
-<p>For an index I, if you want to use <span><span class="MathJax_Preview">1-I</span><script type="math/tex">1-I</script></span> for creating the mask, set <em>invert</em> to <em>True</em>. </p>
 <h2 id="multi-class-segmentation">Multi-class segmentation<a class="headerlink" href="#multi-class-segmentation" title="Permanent link">Link</a></h2>
 <p>The <em>Segmentation2D</em> task performs the semantic segmentation of images using a deep neural network (DNN). The command to run this task is:</p>
 <p><div class="highlight"><pre><span></span><code>romi_run_task Segmentation2D scan_id my_config.toml
@@ -1917,17 +1922,13 @@ This will produce a series of binary masks, one for each class on which the netw
 <figcaption>Generic encoder/decoder architecture for semantic segmentation (U-net).</figcaption>
 </figure>
 
-<p>The architecture of the network is inspired from the U-net [ref], with a ResNet encoder [ref]. It constists in encoding and decoding pathways with skip connections between the 2.</p>
+<p>The architecture of the network is inspired from the U-net <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, with a ResNet encoder <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. It constists in encoding and decoding pathways with skip connections between the 2. Along the encoding pathways, there is a sequence of convolutions and the image signal is upsampled along the decoding pathway.</p>
+<p>The network is trained for segmenting images of a size <span><span class="MathJax_Preview">(S_x,S_y)</span><script type="math/tex">(S_x,S_y)</script></span> which is not necessarily the image size of the acquired images. Those parameters <em>Sx</em> and <em>Sy</em> should be provided in the configuration file. The images will be cropped to <span><span class="MathJax_Preview">(S_x,S_y)</span><script type="math/tex">(S_x,S_y)</script></span> before being fed to the DNN and it is then resized to the original size as an output of the task. </p>
 <h4 id="configuration-file_2">Configuration File<a class="headerlink" href="#configuration-file_2" title="Permanent link">Link</a></h4>
 <div class="highlight"><pre><span></span><code><span class="k">[Segmentation2D]</span>
-<span class="n">upstream_task</span> <span class="o">=</span> <span class="s">&quot;ImageFilesetExists&quot;</span> <span class="c1">#Alternatively Undistorted</span>
-<span class="n">model_fileset</span> <span class="o">=</span> <span class="s">&quot;ModelFileset&quot;</span>
-<span class="n">model_id</span> <span class="o">=</span> <span class="s">&quot;Resnet_896_896_epoch50&quot;</span>  <span class="c1"># no default value</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s">&quot;{\&quot;channel\&quot;:\&quot;rgb\&quot;}&quot;</span>  <span class="c1"># default is an empty dict &#39;{}&#39;</span>
+<span class="n">model_id</span> <span class="o">=</span> <span class="s">&quot;Resnetdataset_gl_png_896_896_epoch50&quot;</span>  <span class="c1"># no default value</span>
 <span class="n">Sx</span> <span class="o">=</span> <span class="mi">896</span> 
 <span class="n">Sy</span> <span class="o">=</span> <span class="mi">896</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="s">&quot;[]&quot;</span>  <span class="c1"># default is empty list to use all trained labels from model</span>
-<span class="n">inverted_labels</span> <span class="o">=</span> <span class="s">&quot;[\&quot;background\&quot;]&quot;</span>
 <span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.01</span>
 </code></pre></div>
 <h3 id="dnn-model">DNN model<a class="headerlink" href="#dnn-model" title="Permanent link">Link</a></h3>
@@ -1950,9 +1951,29 @@ This will produce a series of binary masks, one for each class on which the netw
     \end{cases}       
 \end{equation}</script>
 </div>
+<p>This threshold may be chosen empirically or it may be learnt from annotated data (see linear SVM section).</p>
 <h2 id="dilation">Dilation<a class="headerlink" href="#dilation" title="Permanent link">Link</a></h2>
-<p>If the integer <em>dilation</em> parameter is non-zero a morphological dilation is apllied to the image using the function <a href="https://scikit-image.org/docs/dev/api/skimage.morphology.html#skimage.morphology.binary_dilation"><em>binary_dilation</em></a> from the <em>skimage.morphology</em> module. </p>
+<p>If the integer <em>dilation</em> parameter is non-zero a morphological dilation is apllied to the image using the function <a href="https://scikit-image.org/docs/dev/api/skimage.morphology.html#skimage.morphology.binary_dilation"><em>binary_dilation</em></a> from the <em>skimage.morphology</em> module.</p>
 <p>The <em>dilation</em> parameter sets the number of times <em>binary_dilation</em> is iteratively applied. For a faithful reconstruction this parameter should be set to <span><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> but in practice you may want to have a coarser point cloud. This is true when your segmentation is not perfect, dilation will fill the holes or when the reconstructed mesh is broken because the pôint cloud is too thin.</p>
+<h2 id="working-with-data-from-the-virtual-scanner">Working with data from the virtual scanner<a class="headerlink" href="#working-with-data-from-the-virtual-scanner" title="Permanent link">Link</a></h2>
+<p>When working with data generated with the virtual scanner, the <em>images</em> folder contains multiple channels corresponding to the various class for which images were generated (<em>stem</em>, <em>flower</em>, <em>fruit</em>, <em>leaf</em>, <em>pedicel</em>). You have to select the <em>rgb</em> channel using the <em>query</em> parameter.</p>
+<h4 id="configuration-file_3">Configuration File<a class="headerlink" href="#configuration-file_3" title="Permanent link">Link</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">[Masks]</span>
+<span class="n">type</span> <span class="o">=</span> <span class="s">&quot;excess_green&quot;</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s">&quot;{\&quot;channel\&quot;:\&quot;rgb\&quot;}&quot;</span>
+</code></pre></div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Ronneberger, O., Fischer, P., &amp; Brox, T. (2015, October). U-net: Convolutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention (pp. 234-241). Springer, Cham.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Zhang, Z., Liu, Q., &amp; Wang, Y. (2018). Road extraction by deep residual u-net. IEEE Geoscience and Remote Sensing Letters, 15(5), 749-753.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
               
               
