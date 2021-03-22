@@ -31,7 +31,7 @@ nav:
         - 'Rover/manual.md'
         - 'Rover/software.md'
         - 'Rover/developer.md'
-    - 'Scanner':
+    - 'Plant Phenotyping':
         - 'Home': 'Scanner/index.md'
         - 'Build':
             - 'Home': 'Scanner/build/index.md'
@@ -101,7 +101,7 @@ nav:
                 - 'plant-3d-explorer': 'Scanner/docker/plant3dexplorer_docker.md'
                 - 'Docker compose': 'Scanner/docker/docker_compose.md'
                 - 'Build romicscan docker for developers': 'Scanner/docker/docker_dev_build.md'
-    - 'plant-3d-explorer':
+    - 'Plant 3D Explorer':
         - 'Home': 'plant-3d-explorer/index.md'
         - 'Guide': 'plant-3d-explorer/guide.md'
   - 'Research': 'research.md'
