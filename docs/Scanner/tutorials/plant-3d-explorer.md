@@ -132,20 +132,21 @@ Mouse-over most elements provides a brief description.
 #### Select the 3D layers to display
 In the top left corner of the main panel, icons allows you to quickly (un)select 3D layers (if available):
 
-<img src="/assets/images/plant-3d-explorer/plant3dexplorer_3dlayers_icons.png" alt="plant3dexplorer_dataset_initpage" width="250">
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_3dlayers_icons.png" alt="plant3dexplorer_dataset_initpage" width="250" style="display:block; margin-left: auto; margin-right: auto;">
 
 * White icons are active, dark grey are available but not active, light grey are not available for this dataset
 * From left to right, icons represents respectively the mesh, the pointcloud, the segmented point cloud, the skeleton and the organs.
 
-<img src="/assets/images/plant-3d-explorer/plant3dexplorer_view-icons.png" alt="plant3dexplorer_view-icons.png" width="100">
   
 In the center of the middle panel are icons for general viewing options: 
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_view-icons.png" alt="plant3dexplorer_view-icons.png" width="100" style="display:block; margin-left: auto; margin-right: auto;">
 
 * Activate the camera icon displays the camera poses (only works if overlay with 2 images is deactivated)
 * Click the round arrow to reset the view
 
 #### Moving the view in the "free" 3D (without 2D overlay)
 Easy movements are accessible with a mouse:
+
 * scroll to zoom in/out
 * left click rotate
 * right click translate
@@ -166,10 +167,17 @@ Note that movement control with the mouse slightly changes compared to the "free
 
 * Slide right/left the active box picture in the carousel to reproduce the camera movement
 * scroll to zoom in/out
-* left click to translate
+* left-click to translate
 
 #### The phyllotaxis measure plots
+Plots represent the successive measures of divergence angles (left, in degrees) and internode length (right, in mm) between consecutive pairs of organs (here fruits) along the stem, from the base to the inflorescence tip. Both plots can be closed by clicking the cross at the far right the plot's title. Closed plot panels can be re-opened by clicking a green "+" sign appearing at the to right-hand corner when at least one plot is closed.
 
+Mouse-over any of the two plots highlights an interval that correspond to a measure between two consecutive organs segmented by the analysis. The interval appears synchronously on both plots if opened. This interval and the organs are numbered by their order from the base of the stem, these numbers appear on the X-axis of the plots. 
+
+When the 'organ' 3d-layer is activated in the main panel, 
+automatically select the organ pair in the main panel that correspond to the current interval pointed by the mouse in the graph (the 3d layer of other organs disappear). The two graphs (divergence angles and internodes) are synchronized.
+
+clicking an interval
 
 #### Go back to main page
 In the top left corner of the page, click "all scans" 
