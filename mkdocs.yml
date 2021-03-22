@@ -54,7 +54,7 @@ nav:
             - 'Home': 'Scanner/tutorials/index.md'
             - 'Basics': 'Scanner/tutorials/basics.md'
             - 'Plant imaging': 'Scanner/tutorials/hardware_scan.md'
-            - 'How to use the Virtual Plant Imager to generate a single virtual plant dataset': 'Scanner/tutorials/virtual_scan.md'
+            - 'How to use the Virtual Plant Imager to generate a single virtual plant dataset': 'Scanner/tutorials/virtual_plant_imager_single_dataset.md'
             - 'How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes': 'Scanner/tutorials/virtual_plant_imager_large_dataset.md'
             - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
             - 'Visualizer': 'Scanner/tutorials/visualizer.md'
