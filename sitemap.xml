@@ -144,7 +144,7 @@
      <lastmod>2021-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/install/visualizer_setup/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/install/plant3dexplorer_setup/</loc>
      <lastmod>2021-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -168,11 +168,7 @@
      <lastmod>2021-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/tutorials/visualizer/</loc>
-     <lastmod>2021-03-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/explanations/segmentation/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/tutorials/plant-3d-explorer/</loc>
      <lastmod>2021-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -292,7 +288,7 @@
      <lastmod>2021-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Scanner/docker/plantviewer_docker/</loc>
+     <loc>https://docs.romi-project.eu/Scanner/docker/plant3dexplorer_docker/</loc>
      <lastmod>2021-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -304,11 +300,11 @@
      <lastmod>2021-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Visualizer/</loc>
+     <loc>https://docs.romi-project.eu/plant-3d-explorer/</loc>
      <lastmod>2021-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.romi-project.eu/Visualizer/guide/</loc>
+     <loc>https://docs.romi-project.eu/plant-3d-explorer/guide/</loc>
      <lastmod>2021-03-22</lastmod>
      <changefreq>daily</changefreq>
     </url><url>

@@ -13,14 +13,14 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/tutorials/visualizer/">
+        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/tutorials/plant-3d-explorer/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
-        <title>Visualizer - ROMI Documentation</title>
+        <title>plant-3d-explorer: view your data - ROMI Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-use-the-romi-plantviewer" class="md-skip">
+        <a href="#how-to-see-directly-the-results-of-your-plant-phenotyping-with-the-plant-3d-explorer" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Visualizer
+              plant-3d-explorer: view your data
             
           </span>
         </div>
@@ -881,8 +881,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/visualizer_setup/" class="md-nav__link">
-        Visualizer software setup
+      <a href="../../install/plant3dexplorer_setup/" class="md-nav__link">
+        plant-3d-explorer software setup
       </a>
     </li>
   
@@ -991,12 +991,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Visualizer
+          plant-3d-explorer: view your data
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Visualizer
+        plant-3d-explorer: view your data
       </a>
       
         
@@ -1013,37 +1013,119 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ready-to-run-docker-image" class="md-nav__link">
-    Ready to run docker image
+  <a href="#objective" class="md-nav__link">
+    Objective
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-a-development-server-for-the-visualizer" class="md-nav__link">
-    Running a development server for the visualizer
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#preparing-your-database" class="md-nav__link">
-    Preparing your database
+  <a href="#linked-documentation" class="md-nav__link">
+    Linked documentation
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-a-production-server-for-the-visualizer" class="md-nav__link">
-    Running a production server for the visualizer
+  <a href="#step-by-step-tutorial" class="md-nav__link">
+    Step-by-step tutorial
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-step tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-preparing-your-database-for-display-by-the-plant-3d-explorer" class="md-nav__link">
+    1.  Preparing your database for display by the plant-3d-explorer
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#visualizer-api-reference" class="md-nav__link">
-    Visualizer API reference
+        
+          <li class="md-nav__item">
+  <a href="#2-connect-your-database-to-a-local-server" class="md-nav__link">
+    2. Connect your database to a local server
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-connect-the-plant-3d-explorer-to-the-server" class="md-nav__link">
+    3. Connect the plant-3d-explorer to the server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-explore-your-database-content-via-the-menu-page" class="md-nav__link">
+    4.  Explore your database content via the menu page
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-view-a-single-dataset-and-all-related-data" class="md-nav__link">
+    5.  View a single dataset and all related data
+  </a>
+  
+    <nav class="md-nav" aria-label="5.  View a single dataset and all related data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#select-the-3d-layers-to-display" class="md-nav__link">
+    Select the 3D layers to display
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-the-view-in-the-free-3d-without-2d-overlay" class="md-nav__link">
+    Moving the view in the "free" 3D (without 2D overlay)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activate-overlay-with-2d-images" class="md-nav__link">
+    Activate overlay with 2D images
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#moving-the-view-with-2d-overlay" class="md-nav__link">
+    Moving the view with 2D overlay
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-phyllotaxis-measure-plots" class="md-nav__link">
+    The phyllotaxis measure plots
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go-back-to-main-page" class="md-nav__link">
+    Go back to main page
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1072,50 +1154,11 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_5" type="checkbox" id="__nav_3_4_5" >
       
       <label class="md-nav__link" for="__nav_3_4_5">
-        Explanations
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Explanations" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_4_5">
-          <span class="md-nav__icon md-icon"></span>
-          Explanations
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../explanations/segmentation/" class="md-nav__link">
-        Segmentation of images
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_6" type="checkbox" id="__nav_3_4_6" >
-      
-      <label class="md-nav__link" for="__nav_3_4_6">
         How-to
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="How-to" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_4_6">
+        <label class="md-nav__title" for="__nav_3_4_5">
           <span class="md-nav__icon md-icon"></span>
           How-to
         </label>
@@ -1171,14 +1214,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7" type="checkbox" id="__nav_3_4_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_6" type="checkbox" id="__nav_3_4_6" >
       
-      <label class="md-nav__link" for="__nav_3_4_7">
+      <label class="md-nav__link" for="__nav_3_4_6">
         Specifications
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Specifications" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_4_7">
+        <label class="md-nav__title" for="__nav_3_4_6">
           <span class="md-nav__icon md-icon"></span>
           Specifications
         </label>
@@ -1228,14 +1271,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7_4" type="checkbox" id="__nav_3_4_7_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_6_4" type="checkbox" id="__nav_3_4_6_4" >
       
-      <label class="md-nav__link" for="__nav_3_4_7_4">
+      <label class="md-nav__link" for="__nav_3_4_6_4">
         Metadata
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Metadata" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_7_4">
+        <label class="md-nav__title" for="__nav_3_4_6_4">
           <span class="md-nav__icon md-icon"></span>
           Metadata
         </label>
@@ -1327,14 +1370,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7_6" type="checkbox" id="__nav_3_4_7_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_6_6" type="checkbox" id="__nav_3_4_6_6" >
       
-      <label class="md-nav__link" for="__nav_3_4_7_6">
+      <label class="md-nav__link" for="__nav_3_4_6_6">
         Tasks
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Tasks" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_7_6">
+        <label class="md-nav__title" for="__nav_3_4_6_6">
           <span class="md-nav__icon md-icon"></span>
           Tasks
         </label>
@@ -1456,14 +1499,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_8" type="checkbox" id="__nav_3_4_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7" type="checkbox" id="__nav_3_4_7" >
       
-      <label class="md-nav__link" for="__nav_3_4_8">
+      <label class="md-nav__link" for="__nav_3_4_7">
         Developer
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Developer" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_4_8">
+        <label class="md-nav__title" for="__nav_3_4_7">
           <span class="md-nav__icon md-icon"></span>
           Developer
         </label>
@@ -1525,14 +1568,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_8_5" type="checkbox" id="__nav_3_4_8_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7_5" type="checkbox" id="__nav_3_4_7_5" >
       
-      <label class="md-nav__link" for="__nav_3_4_8_5">
+      <label class="md-nav__link" for="__nav_3_4_7_5">
         Docker
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Docker" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_8_5">
+        <label class="md-nav__title" for="__nav_3_4_7_5">
           <span class="md-nav__icon md-icon"></span>
           Docker
         </label>
@@ -1603,8 +1646,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/plantviewer_docker/" class="md-nav__link">
-        Plant Viewer
+      <a href="../../docker/plant3dexplorer_docker/" class="md-nav__link">
+        plant-3d-explorer
       </a>
     </li>
   
@@ -1663,13 +1706,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
       
       <label class="md-nav__link" for="__nav_3_5">
-        Visualizer
+        plant-3d-explorer
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Visualizer" data-md-level="2">
+      <nav class="md-nav" aria-label="plant-3d-explorer" data-md-level="2">
         <label class="md-nav__title" for="__nav_3_5">
           <span class="md-nav__icon md-icon"></span>
-          Visualizer
+          plant-3d-explorer
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1678,7 +1721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Visualizer/" class="md-nav__link">
+      <a href="../../../plant-3d-explorer/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1690,7 +1733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Visualizer/guide/" class="md-nav__link">
+      <a href="../../../plant-3d-explorer/guide/" class="md-nav__link">
         Guide
       </a>
     </li>
@@ -1752,47 +1795,182 @@
               
                 
                 
-                <h1 id="how-to-use-the-romi-plantviewer">How to use the ROMI plantviewer?<a class="headerlink" href="#how-to-use-the-romi-plantviewer" title="Permanent link">Link</a></h1>
-<h2 id="ready-to-run-docker-image">Ready to run docker image<a class="headerlink" href="#ready-to-run-docker-image" title="Permanent link">Link</a></h2>
-<p>To use a ready to run docker image pointing toward the <code>db.romi-project.eu</code>, look <a href="../../docker/plantviewer_docker/">here</a>.</p>
+                <h1 id="how-to-see-directly-the-results-of-your-plant-phenotyping-with-the-plant-3d-explorer">How to see directly the results of your plant phenotyping with the <code>plant-3d-explorer</code> ?<a class="headerlink" href="#how-to-see-directly-the-results-of-your-plant-phenotyping-with-the-plant-3d-explorer" title="Permanent link">Link</a></h1>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
+<p>Throughout the whole process of plant phenotyping, viewing data is often needed.
+This tutorial explains how to use the romi <code>plant-3d-explorer</code>, a web-server tool, to explore, display and interact with most of the diverse data generated during a typical plant phenotyping experiment from 2D images (2D images, 3D objects like meshes or point cloud, quality evaluations, trait measurements).
+After this tutorial, you should be able to:
+* connect the plant-3d-explorer to a database containing the phenotyping data of one to several plants ;
+* explore the database content with the <code>plant-3d-explorer</code> menu page ;
+* For each plant, display, overlay and inspect in 3d every data generated during analysis</p>
+<h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
+<ul>
+<li>install romi <code>plant-3d-explorer</code> (from <a href="https://github.com/romi/plant-3d-explorer">source</a> or using a <a href="../../docker/plant3dexplorer_docker/">docker image</a> ) &amp; read <a href="../../install/plant3dexplorer_setup/">install procedure</a> </li>
+<li>install romi <code>plantdb</code> (from <a href="https://github.com/romi/plantdb">source</a> or using a <a href="../../docker/romidb_docker/">docker image</a>) &amp; read <a href="../../install/romidb_setup/">install procedure</a></li>
+<li>install romi <code>plant-3d-vision</code> (from <a href="https://github.com/romi/plant-3d-vision">source</a> or using a <a href="../../docker/plantinterpreter_docker/">docker image</a>) &amp; read <a href="../../install/plant_reconstruction_setup/">install procedure</a></li>
+<li>Create and activate isolated python environment (see the procedure <a href="/docs/Scanner/install/create_env.md">here</a> )</li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This requires <code>docker-ce</code> to be installed on your machine.</p>
+<p>using <strong>docker</strong>
+<img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50"></p>
+<p>You can avoid installs by using <strong>docker</strong> only. Read first the docker procedures ( <a href="../../docker/plantinterpreter_docker/">'docker for plant-3d-vision'</a> and
+<a href="../../docker/docker_compose/">'docker-compose to run both database and 3d explorer with docker containers'</a> ). In the following tutorial (steps 1, 2 and 3), follow the docker logo to adapt the procedure.</p>
 </div>
-<h2 id="running-a-development-server-for-the-visualizer">Running a development server for the visualizer<a class="headerlink" href="#running-a-development-server-for-the-visualizer" title="Permanent link">Link</a></h2>
-<p>Set the DB location using the <code>DB_LOCATION</code> environment variable and launch the flask server:
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">DB_LOCATION</span><span class="o">=</span>/path/to/the/db
-romi_scanner_rest_api
-</code></pre></div>
-Finally, start the frontend visualization server (from <code>3d-plantviewer/</code> folder):
-<div class="highlight"><pre><span></span><code>npm start
-</code></pre></div>
-You should now be able to access the visualizer on <a href="http://localhost:3000">http://localhost:3000</a>.</p>
+<h2 id="linked-documentation">Linked documentation<a class="headerlink" href="#linked-documentation" title="Permanent link">Link</a></h2>
+<ul>
+<li><a href="/docs/plant_3d_explorer/index.md">Manual of the romi plant-3d-explorer</a></li>
+</ul>
+<h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
+<p>Principle: the <code>plant-3d-explorer</code> is a web client that displays in your favorite web browser data exposed by a server (here, romi <code>plantdb</code>) on a particular url. The process consists in pointing the server to your folder of interest, starting the server and starting the client that points to the served url. </p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You need to add a file <code>.env.local</code> at project's root to set the API URL:
-<code>REACT_APP_API_URL='{`API URL}'</code></p>
-<p>Without this, the app will use: <a href="http://localhost:5000">http://localhost:5000</a> which is the default for <code>romi_scanner_rest_api</code>.</p>
+<p>the <code>plant-3d-explorer</code> has only been developed and tested on Chrome.</p>
 </div>
-<h2 id="preparing-your-database">Preparing your database<a class="headerlink" href="#preparing-your-database" title="Permanent link">Link</a></h2>
-<p>To access the data from your running DB (<code>from</code>)
-<div class="highlight"><pre><span></span><code><span class="nv">dataset_list</span><span class="o">=(</span><span class="s1">&#39;2018-12-17_17-05-35&#39;</span> <span class="s1">&#39;2018-12-18_13-14-57&#39;</span> <span class="s1">&#39;2018-12-20_13-21-24&#39;</span> <span class="s1">&#39;2019-01-29_16-56-01&#39;</span> <span class="s1">&#39;2019-02-01_10-56-34&#39;</span><span class="o">)</span>
+<h3 id="1-preparing-your-database-for-display-by-the-plant-3d-explorer">1.  Preparing your database for display by the <code>plant-3d-explorer</code><a class="headerlink" href="#1-preparing-your-database-for-display-by-the-plant-3d-explorer" title="Permanent link">Link</a></h3>
+<p><strong>Starting point:</strong> your <em>database</em> is made of one or several <em>datasets</em>, which all correspond to a single plant phenotyping experiment: each dataset contains at least 2D images (raw acquisitions) and metadata, and possibly several other data generated by subsequent 3D reconstruction, segmentation and analysis.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your database must follow the rules of romi databases: please make sure that you comply to <a href="../install/romidb_setup/#initialize-a-romi-database">requirements</a>.</p>
+<p>You can also download an example database <a href="https://db.romi-project.eu/models/test_db.tar.gz">here</a>.</p>
+</div>
+<p><em>example</em>: let's consider a database called <code>my_experiment</code> containing 3 datasets (named plant1, plant2, plant3) generated by phenotyping three plants.</p>
+<ul>
+<li>open a terminal and go to your local database directory</li>
+<li>if romi commands (like <code>romi_run_task</code>) are not accessible from your terminal, activate the appropriate python environment (e.g. using venv or conda) required for romi commands (or <a href="../../install/create_env/">read this procedure</a>)</li>
+<li>Process all datasets for display by the <code>plant-3d-explorer</code> by running the following code</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nv">dataset_list</span><span class="o">=(</span><span class="s1">&#39;plant1&#39;</span>,<span class="s1">&#39;plant2&#39;</span>,<span class="s1">&#39;plant3&#39;</span><span class="o">)</span>
 
 <span class="k">for</span> ds <span class="k">in</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">dataset_list</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">do</span> 
-    romi_run_task Visualization ~/db_test/<span class="s2">&quot;</span><span class="nv">$ds</span><span class="s2">&quot;</span>/ --config ~/config/ml_pipe_real_2.toml --local-scheduler
+    romi_run_task Visualization path_to/my_experiment/<span class="s2">&quot;</span><span class="nv">$ds</span><span class="s2">&quot;</span>/ --config ~/config/ml_pipe_real.toml
 <span class="k">done</span>
-</code></pre></div></p>
-<h2 id="running-a-production-server-for-the-visualizer">Running a production server for the visualizer<a class="headerlink" href="#running-a-production-server-for-the-visualizer" title="Permanent link">Link</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This is not tested yet!</p>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information about using romi_run_task command, the Visualization task and the config file, please read XXXXX.</p>
 </div>
-<h2 id="visualizer-api-reference">Visualizer API reference<a class="headerlink" href="#visualizer-api-reference" title="Permanent link">Link</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Not too many details here, I like it! </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50"> <em>for docker users</em></p>
+<ul>
+<li>
+<p>Start a docker container by mounting your database as a volume (<a href="../docker/plantinterpreter_docker.md/#manually">details</a>)</p>
+</li>
+<li>
+<p>In the container, run the same Visualization Task has above</p>
+</li>
+</ul>
 </div>
+<p><strong>check result</strong>: a new folder called <code>Visualization</code> should have been created in each dataset of your database</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50"> <em>for docker users</em></p>
+<p>Skip step 2 &amp; 3 and follow instead instructions given by<a href="../../docker/docker_compose/">'docker-compose to run both database and 3d explorer with docker containers'</a></p>
+</div>
+<h3 id="2-connect-your-database-to-a-local-server">2. Connect your database to a local server<a class="headerlink" href="#2-connect-your-database-to-a-local-server" title="Permanent link">Link</a></h3>
+<ul>
+<li>Continue in the same shell terminal (if you open a new terminal, do not forget to activate appropriate python environment)</li>
+<li>set the DB location using the <code>DB_LOCATION</code> environment variable </li>
+<li>Type the following commands to launch the server:
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">DB_LOCATION</span><span class="o">=</span>/path/to/your/db
+romi_scanner_rest_api <span class="c1">#command that starts the server</span>
+</code></pre></div>
+<strong>check result</strong>: the terminal prints various information given by the server (e.g. number of datasets in the database). Do not stop this terminal as this will shut down the server</li>
+</ul>
+<h3 id="3-connect-the-plant-3d-explorer-to-the-server">3. Connect the <code>plant-3d-explorer</code> to the server<a class="headerlink" href="#3-connect-the-plant-3d-explorer-to-the-server" title="Permanent link">Link</a></h3>
+<ul>
+<li>Open a new terminal </li>
+<li>go to your local cloned directory of <code>plant-3d-explorer/</code></li>
+<li>start the frontend visualization server by entering:
+<div class="highlight"><pre><span></span><code>npm start
+</code></pre></div>
+You should now be able to access the <code>plant-3d-explorer</code> on <a href="http://localhost:3000">http://localhost:3000</a>. Depending on you system preferences, your default web browser may automatically open a window displaying the server content. if not, open your web browser and enter <a href="http://localhost:3000">http://localhost:3000</a> in the url bar.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You need to add a file <code>.env.local</code> at project's root to set the API URL: <code>REACT_APP_API_URL='{`API URL}'</code>.
+Without this, the app will use: <a href="http://localhost:5000">http://localhost:5000</a> which is the default for <code>romi_scanner_rest_api</code>.</p>
+</div>
+<h3 id="4-explore-your-database-content-via-the-menu-page">4.  Explore your database content via the menu page<a class="headerlink" href="#4-explore-your-database-content-via-the-menu-page" title="Permanent link">Link</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>More description about the function of the menu page: read <a href="/docs/plant-3d-explorer/index.md">here</a></p>
+</div>
+<p>The starting page of the <code>plant-3d-explorer</code> lists the datasets of the connected database as a table and looks like this:</p>
+<p><kbd>
+ <img src="/assets/images/plant-3d-explorer/plant3dexplorer_menupage.png" alt="plant3dexplorer_menupage" width="1000">
+ </kbd></p>
+<ul>
+<li>The top search bar allows you to find particular datasets based on keywords.</li>
+<li>
+<p>Data filters: in the header row, click on an icon to activate the filter (datasets that do <em>not</em> contain the data will be filtered out)</p>
+<ul>
+<li>
+<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_availabledata.png" alt="availdata" width="100"> 3d objects generated from the plant 2D images (icons respectively stand for: mesh, point cloud, segmented point cloud, skeleton and organs)</p>
+</li>
+<li>
+<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_phyllotaxisfilter.png" alt="phyllofilter" width="100"> or phyllotaxis data (manual or computed phyllotaxis measurements)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Open a dataset with the green 'Open' button at the far right of a row <img src="/assets/images/plant-3d-explorer/plant3dexplorer_openbutton.png" alt="openbutton" width="100"></p>
+</li>
+</ul>
+<h3 id="5-view-a-single-dataset-and-all-related-data">5.  View a single dataset and all related data<a class="headerlink" href="#5-view-a-single-dataset-and-all-related-data" title="Permanent link">Link</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is only a brief description to allow a quick start. More description <a href="/docs/plant-3d-explorer/index.md">here</a></p>
+</div>
+<p>By default, the <code>plant-3d-explorer</code> displays in the main panel the skeleton and the organs (if available) and phyllotaxis data (as graphs) in the right panel.</p>
+<p><kbd>
+ <img src="/assets/images/plant-3d-explorer/plant3dexplorer_dataset_initpage.png" alt="plant3dexplorer_dataset_initpage" width="1000">
+ </kbd></p>
+<p>Mouse-over most elements provides a brief description.</p>
+<h4 id="select-the-3d-layers-to-display">Select the 3D layers to display<a class="headerlink" href="#select-the-3d-layers-to-display" title="Permanent link">Link</a></h4>
+<p>In the top left corner of the main panel, icons allows you to quickly (un)select 3D layers (if available):</p>
+<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_3dlayers_icons.png" alt="plant3dexplorer_dataset_initpage" width="250" style="display:block; margin-left: auto; margin-right: auto;"></p>
+<ul>
+<li>White icons are active, dark grey are available but not active, light grey are not available for this dataset</li>
+<li>From left to right, icons represents respectively the mesh, the pointcloud, the segmented point cloud, the skeleton and the organs.</li>
+</ul>
+<p>In the center of the middle panel are icons for general viewing options: 
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_view-icons.png" alt="plant3dexplorer_view-icons.png" width="100" style="display:block; margin-left: auto; margin-right: auto;"></p>
+<ul>
+<li>Activate the camera icon displays the camera poses (only works if overlay with 2 images is deactivated)</li>
+<li>Click the round arrow to reset the view</li>
+</ul>
+<h4 id="moving-the-view-in-the-free-3d-without-2d-overlay">Moving the view in the "free" 3D (without 2D overlay)<a class="headerlink" href="#moving-the-view-in-the-free-3d-without-2d-overlay" title="Permanent link">Link</a></h4>
+<p>Easy movements are accessible with a mouse:</p>
+<ul>
+<li>scroll to zoom in/out</li>
+<li>left click rotate</li>
+<li>right click translate</li>
+</ul>
+<h4 id="activate-overlay-with-2d-images">Activate overlay with 2D images<a class="headerlink" href="#activate-overlay-with-2d-images" title="Permanent link">Link</a></h4>
+<p>click on any image of the bottom carousel to activate the display of 2 images in the main panel. On Mouse-over, a single picture is enlarged and proposes to open it in the main panel.</p>
+<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-open.png" alt="plant3dexplorer_view-icons.png" width="800"></p>
+<p>Overlay with active 3D layers is automatic. In the carousel, the box around the active displayed 2D image is now permanent.</p>
+<p>To close the 2D overlay, just click the close button of the boxed picture in the carousel.</p>
+<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-close.png" alt="plant3dexplorer_view-icons.png" width="800"></p>
+<h4 id="moving-the-view-with-2d-overlay">Moving the view with 2D overlay<a class="headerlink" href="#moving-the-view-with-2d-overlay" title="Permanent link">Link</a></h4>
+<p>Note that movement control with the mouse slightly changes compared to the "free" view without 2D overlay. Notably, the free rotation mode is not possible anymore, since it is constrained by the real movements made by the camera when it took the pictures. </p>
+<ul>
+<li>Slide right/left the active box picture in the carousel to reproduce the camera movement</li>
+<li>scroll to zoom in/out</li>
+<li>left-click to translate</li>
+</ul>
+<h4 id="the-phyllotaxis-measure-plots">The phyllotaxis measure plots<a class="headerlink" href="#the-phyllotaxis-measure-plots" title="Permanent link">Link</a></h4>
+<p>Plots represent the successive measures of divergence angles (left, in degrees) and internode length (right, in mm) between consecutive pairs of organs (here fruits) along the stem, from the base to the inflorescence tip. Both plots can be closed by clicking the cross at the far right the plot's title. Closed plot panels can be re-opened by clicking a green "+" sign appearing at the to right-hand corner when at least one plot is closed.</p>
+<p>Mouse-over any of the two plots highlights an interval that correspond to a measure between two consecutive organs segmented by the analysis. The interval appears synchronously on both plots if opened. This interval and the organs are numbered by their order from the base of the stem, these numbers appear on the X-axis of the plots. </p>
+<p>When the 'organ' 3d-layer is activated in the main panel, 
+automatically select the organ pair in the main panel that correspond to the current interval pointed by the mouse in the graph (the 3d layer of other organs disappear). The two graphs (divergence angles and internodes) are synchronized.</p>
+<p>clicking an interval</p>
+<h4 id="go-back-to-main-page">Go back to main page<a class="headerlink" href="#go-back-to-main-page" title="Permanent link">Link</a></h4>
+<p>In the top left corner of the page, click "all scans" </p>
+<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_allscans_backmenu.png" alt="backtomenu" width="100"></p>
                 
               
               
@@ -1825,13 +2003,13 @@ You should now be able to access the visualizer on <a href="http://localhost:300
         </a>
       
       
-        <a href="../../explanations/segmentation/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../../how_to/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Segmentation of images
+              Home
             </div>
           </div>
           <div class="md-footer__button md-icon">
