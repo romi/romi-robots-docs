@@ -697,8 +697,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#plantscanner" class="md-nav__link">
-    PlantScanner
+  <a href="#plantimager" class="md-nav__link">
+    PlantImager
   </a>
   
 </li>
@@ -985,8 +985,8 @@
   
   
     <li class="md-nav__item">
-      <a href="install/plant_scanner_setup/" class="md-nav__link">
-        Plant scanner software setup
+      <a href="install/plant_imager_setup/" class="md-nav__link">
+        Plant imager software setup
       </a>
     </li>
   
@@ -1085,7 +1085,7 @@
   
     <li class="md-nav__item">
       <a href="tutorials/hardware_scan/" class="md-nav__link">
-        Plant scanning
+        Plant imaging
       </a>
     </li>
   
@@ -1639,8 +1639,8 @@
   
   
     <li class="md-nav__item">
-      <a href="docker/plantscanner_docker/" class="md-nav__link">
-        Plant Scanner
+      <a href="docker/plantimager_docker/" class="md-nav__link">
+        Plant Imager
       </a>
     </li>
   
@@ -1825,7 +1825,7 @@
                 
                 
                 <h1 id="plant-scanner-overview">Plant scanner overview<a class="headerlink" href="#plant-scanner-overview" title="Permanent link">Link</a></h1>
-<p><img src="/assets/images/colmap_arabidopsis.png" alt="Dense COLMAP reconstruction" width="800" /></p>
+<p><img alt="Dense COLMAP reconstruction" loading="lazy" src="../assets/images/colmap_arabidopsis.png" width="800" /></p>
 <h2 id="user-story">User story<a class="headerlink" href="#user-story" title="Permanent link">Link</a></h2>
 <ol>
 <li>The user put his/her plant inside the scanner and run <strong>acquisitions</strong>, which returns a set of images per plant.</li>
@@ -1865,8 +1865,8 @@
 <td><code>npm</code></td>
 </tr>
 <tr>
-<td>PlantScanner</td>
-<td><code>romiscanner</code></td>
+<td>PlantImager</td>
+<td><code>plant-imager</code></td>
 <td><code>pyserial</code></td>
 </tr>
 <tr>
@@ -1878,7 +1878,7 @@
 </table>
 <h4 id="db">DB<a class="headerlink" href="#db" title="Permanent link">Link</a></h4>
 <p>Should be totally independent of the rest since it could be uses in other parts of the ROMI project (Rover, Cable bot, ...) trough the abstract class <code>DB</code> or even the local database class <code>FSDB</code>.</p>
-<h4 id="plantscanner">PlantScanner<a class="headerlink" href="#plantscanner" title="Permanent link">Link</a></h4>
+<h4 id="plantimager">PlantImager<a class="headerlink" href="#plantimager" title="Permanent link">Link</a></h4>
 <p>It requires a physical connection to the hardware (<code>pyserial</code>) to control. It also needs an active ROMI database to export acquired datasets (plant images).</p>
 <h4 id="smartinterpreter">SmartInterpreter<a class="headerlink" href="#smartinterpreter" title="Permanent link">Link</a></h4>
 <p>It requires connection to an active ROMI database to import datasets to process and export the results.

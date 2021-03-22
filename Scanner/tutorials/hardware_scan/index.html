@@ -20,7 +20,7 @@
     
     
       
-        <title>Plant scanning - ROMI Documentation</title>
+        <title>Plant imaging - ROMI Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#plant-phenotyping-station" class="md-skip">
+        <a href="#plant-imager-bot" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Plant scanning
+              Plant imaging
             
           </span>
         </div>
@@ -845,8 +845,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/plant_scanner_setup/" class="md-nav__link">
-        Plant scanner software setup
+      <a href="../../install/plant_imager_setup/" class="md-nav__link">
+        Plant imager software setup
       </a>
     </li>
   
@@ -955,12 +955,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Plant scanning
+          Plant imaging
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Plant scanning
+        Plant imaging
       </a>
       
         
@@ -977,30 +977,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    Getting started
+  <a href="#objective" class="md-nav__link">
+    Objective
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#running-scans" class="md-nav__link">
-    Running scans
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
   </a>
   
-    <nav class="md-nav" aria-label="Running scans">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-tutorial" class="md-nav__link">
+    Step by step tutorial
+  </a>
+  
+    <nav class="md-nav" aria-label="Step by step tutorial">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-create-a-configuration-file" class="md-nav__link">
-    1. Create a configuration file
+  <a href="#running-an-acquisition-with-the-scan-task" class="md-nav__link">
+    Running an acquisition with the Scan task
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-launch-the-scan-task" class="md-nav__link">
-    2. Launch the Scan task
+  <a href="#creation-of-a-scan" class="md-nav__link">
+    Creation of a scan
   </a>
   
 </li>
@@ -1586,8 +1593,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/plantscanner_docker/" class="md-nav__link">
-        Plant Scanner
+      <a href="../../docker/plantimager_docker/" class="md-nav__link">
+        Plant Imager
       </a>
     </li>
   
@@ -1771,98 +1778,158 @@
               
                 
                 
-                <h1 id="plant-phenotyping-station">Plant phenotyping station<a class="headerlink" href="#plant-phenotyping-station" title="Permanent link">Link</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Do this only if you want to control the hardware and scan plants with the open-source scanner!</p>
-</div>
-<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">Link</a></h2>
-<p>To follows this guide you should have:</p>
+                <h1 id="plant-imager-bot">Plant Imager Bot<a class="headerlink" href="#plant-imager-bot" title="Permanent link">Link</a></h1>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
+<p>This tutorial will guide through the steps of acquiring images of a plant using the <code>plant imager</code> robot<br />
+<img alt="Dense COLMAP reconstruction" loading="lazy" src="../../../assets/images/plant_imager.jpg" width="800" /><br />
+In order to collect data in the process of plant phenotyping, the plant imager robot takes RGB images of an object following a particular path with precise camera poses.</p>
+<h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
+<p>To run an acquisition, you should previously have:</p>
 <ul>
-<li>built the scanner <a href="../../build/">here</a></li>
-<li>installed the necessary ROMI software <a href="../../install/plant_scanner_setup/">here</a></li>
+<li>built the scanner following the guidelines <a href="../../build/">here</a></li>
+<li>installed the necessary ROMI software <a href="../../install/plant_imager_setup/">here</a> 
+  (make sure you are in the conda environment or that you run properly the docker for the <code>plantimager</code> repository)</li>
+<li>interfaced the machine running the ROMI software with the plant imager
+  (main steps: <ol>
+<li>check it is correctly connected to the Gimbal and CNC by USB</li>
+<li>turn on camera and connect it to the device via wifi)</li>
+</ol>
+</li>
+<li>set up a <a href="../../user_guide/data/">DB</a> (or do the following steps)</li>
 </ul>
-<p>To quickly create an example DB you can use:
+<p>To quickly retrieve an example DB you can use:
 <div class="highlight"><pre><span></span><code>wget https://db.romi-project.eu/models/test_db.tar.gz
 tar -xf test_db.tar.gz
 </code></pre></div>
-This will create a <code>integration_tests</code> folder with a ready to use test database. </p>
-<h2 id="running-scans">Running scans<a class="headerlink" href="#running-scans" title="Permanent link">Link</a></h2>
-<p><code>Scan</code> is the basic task for running a task with the scanner.</p>
-<p>A sample configuration file for the (real) scanner is as follows:
-<div class="highlight"><pre><span></span><code><span class="k">[Scan.scanner]</span>
-<span class="n">camera_firmware</span> <span class="o">=</span> <span class="s">&quot;sony_wifi&quot;</span>
-<span class="n">cnc_firmware</span> <span class="o">=</span> <span class="s">&quot;grbl-v1.1&quot;</span>
-<span class="n">gimbal_firmware</span> <span class="o">=</span> <span class="s">&quot;blgimbal&quot;</span>
+This will create a <code>integration_tests</code> folder with a ready to use test database.  </p>
+<p>You can also generate a simple database with the following commands:
+<div class="highlight"><pre><span></span><code>mkdir path/to/db
+touch path/to/db/db/romidb
+</code></pre></div></p>
+<h2 id="step-by-step-tutorial">Step by step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
+<p><code>Scan</code> is the basic task for running an acquisition with the robot.</p>
+<p>A <strong>default</strong> configuration file for the plant imager can be found under <code>romiscanner/config/hardware.toml</code>.
+It regroups :<br />
+- specifications of the device setup (under the arguments linked to Scan.scanner)<br />
+- parameters describing the acquisition path (ScanPath)<br />
+- description of the object (in Scan.metadata.object) <br />
+- description of the hardware (in Scan.metadata.hardware) 
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">ScanPath</span><span class="p">]</span> <span class="c1"># Example, circular scan with 60 points:</span>
+<span class="n">class_name</span> <span class="o">=</span> <span class="s">&quot;Circle&quot;</span>
 
-<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">scanner</span><span class="p">.</span><span class="n">scanner_args</span><span class="p">]</span> <span class="c1"># These are the kwargs passed to the scanner constructor</span>
-<span class="n">inverted</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="k">[ScanPath.kwargs]</span>
+<span class="n">center_x</span> <span class="o">=</span> <span class="mi">375</span>
+<span class="n">center_y</span> <span class="o">=</span> <span class="mi">375</span>
+<span class="n">z</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">tilt</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">radius</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">n_points</span> <span class="o">=</span> <span class="mi">60</span>
 
-<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">scanner</span><span class="p">.</span><span class="n">camera_args</span><span class="p">]</span> <span class="c1"># These are the kwargs passed to the camera constructor</span>
-<span class="n">postview</span> <span class="o">=</span> <span class="kc">true</span>
-<span class="n">device_ip</span> <span class="o">=</span> <span class="s">&quot;10.0.2.66&quot;</span>
+<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">scanner</span><span class="p">.</span><span class="n">camera</span><span class="p">]</span> <span class="c1"># camera related parameters</span>
+<span class="n">module</span> <span class="o">=</span> <span class="s">&quot;romiscanner.sony&quot;</span>
+<span class="c1"># module = &quot;romiscanner.gp2&quot;</span>
+
+<span class="c1">#[Scan.scanner.camera.kwargs]</span>
+<span class="c1">#url = &quot;http://myflashair&quot;</span>
+
+<span class="k">[Scan.scanner.camera.kwargs]</span>
+<span class="n">device_ip</span> <span class="o">=</span> <span class="s">&quot;192.168.122.1&quot;</span>
 <span class="n">api_port</span> <span class="o">=</span> <span class="s">&quot;10000&quot;</span>
+<span class="n">postview</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">use_flashair</span> <span class="o">=</span> <span class="kc">false</span>
+<span class="n">rotation</span> <span class="o">=</span> <span class="mi">270</span>
 
-<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">scanner</span><span class="p">.</span><span class="n">cnc_args</span><span class="p">]</span> <span class="c1"># These are kwargs passed to the CNC constructor</span>
-<span class="n">homing</span> <span class="o">=</span> <span class="kc">true</span>
-<span class="n">port</span> <span class="o">=</span> <span class="s">&quot;/dev/ttyUSB0&quot;</span>
+<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">scanner</span><span class="p">.</span><span class="n">gimbal</span><span class="p">]</span> <span class="c1"># module and kwargs linked to the gimbal</span>
+<span class="n">module</span> <span class="o">=</span> <span class="s">&quot;romiscanner.blgimbal&quot;</span>
 
-<span class="k">[Scan.scanner.gimbal_args]</span>
+<span class="k">[Scan.scanner.gimbal.kwargs]</span>
 <span class="n">port</span> <span class="o">=</span> <span class="s">&quot;/dev/ttyACM1&quot;</span>
 <span class="n">has_tilt</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="n">zero_pan</span> <span class="o">=</span> <span class="mi">145</span>
+<span class="n">zero_pan</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">invert_rotation</span> <span class="o">=</span> <span class="kc">true</span>
 
-<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">scanner</span><span class="p">.</span><span class="n">camera_model</span><span class="p">]</span> <span class="c1"># This is a precalibrated camera model</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mi">1616</span>
-<span class="n">height</span> <span class="o">=</span> <span class="mi">1080</span>
-<span class="n">id</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">model</span> <span class="o">=</span> <span class="s">&quot;OPENCV&quot;</span>
-<span class="n">params</span> <span class="o">=</span> <span class="k">[ 1120.72122223961, 1120.72122223961, 808.0, 540.0, 0.0007513494532588769, 0.0007513494532588769, 0.0, 0.0,]</span>
+<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">scanner</span><span class="p">.</span><span class="n">cnc</span><span class="p">]</span> <span class="c1"># module and kwargs linked to the CNC</span>
+<span class="n">module</span> <span class="o">=</span> <span class="s">&quot;romiscanner.grbl&quot;</span>
 
-<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">scanner</span><span class="p">.</span><span class="n">workspace</span><span class="p">]</span> <span class="c1"># A volume containing the target scanned object</span>
+<span class="k">[Scan.scanner.cnc.kwargs]</span>
+<span class="n">homing</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="n">port</span> <span class="o">=</span> <span class="s">&quot;/dev/ttyACM0&quot;</span>
+
+<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">workspace</span><span class="p">]</span> <span class="c1"># A volume containing the target scanned object</span>
 <span class="n">x</span> <span class="o">=</span> <span class="k">[ 200, 600,]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="k">[ 200, 600,]</span>
 <span class="n">z</span> <span class="o">=</span> <span class="k">[ -100, 300,]</span>
 
-<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">path</span><span class="p">]</span> <span class="c1"># Example circular scan with 72 points:</span>
-<span class="n">type</span> <span class="o">=</span> <span class="s">&quot;circular&quot;</span>
+<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">object</span><span class="p">]</span> <span class="c1"># object related metadata</span>
+<span class="n">species</span> <span class="o">=</span> <span class="s">&quot;chenopodium album&quot;</span>
+<span class="n">seed_stock</span> <span class="o">=</span> <span class="s">&quot;Col-0&quot;</span>
+<span class="n">plant_id</span> <span class="o">=</span> <span class="s">&quot;3dt_chenoA&quot;</span>
+<span class="n">growth_environment</span> <span class="o">=</span> <span class="s">&quot;Lyon-indoor&quot;</span>
+<span class="n">growth_conditions</span> <span class="o">=</span> <span class="s">&quot;SD+LD&quot;</span>
+<span class="n">treatment</span> <span class="o">=</span> <span class="s">&quot;None&quot;</span>
+<span class="n">DAG</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="s">&quot;main_stem&quot;</span>
+<span class="n">experiment_id</span> <span class="o">=</span> <span class="s">&quot;3dt_26-01-2021&quot;</span>
+<span class="n">dataset_id</span> <span class="o">=</span> <span class="s">&quot;3dt&quot;</span>
 
-<span class="k">[Scan.path.args]</span>
-<span class="n">num_points</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">radius</span> <span class="o">=</span> <span class="mi">350</span>
-<span class="n">tilt</span> <span class="o">=</span> <span class="mf">0.45</span> <span class="c1"># rad</span>
-<span class="n">xc</span> <span class="o">=</span> <span class="mi">400</span>
-<span class="n">yc</span> <span class="o">=</span> <span class="mi">400</span>
-<span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">[Scan.metadata]</span>
-<span class="n">key</span> <span class="o">=</span> <span class="n">value</span> <span class="c1"># Any metadata you want to add to the scan</span>
+<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">hardware</span><span class="p">]</span> <span class="c1"># hardware related metadata</span>
+<span class="n">frame</span> <span class="o">=</span> <span class="s">&quot;30profile v1&quot;</span>
+<span class="n">X_motor</span> <span class="o">=</span> <span class="s">&quot;X-Carve NEMA23&quot;</span>
+<span class="n">Y_motor</span> <span class="o">=</span> <span class="s">&quot;X-Carve NEMA23&quot;</span>
+<span class="n">Z_motor</span> <span class="o">=</span> <span class="s">&quot;X-Carve NEMA23&quot;</span>
+<span class="n">pan_motor</span> <span class="o">=</span> <span class="s">&quot;iPower Motor GM4108H-120T Brushless Gimbal Motor&quot;</span>
+<span class="n">tilt_motor</span> <span class="o">=</span> <span class="s">&quot;None&quot;</span>
+<span class="n">sensor</span> <span class="o">=</span> <span class="s">&quot;RX0&quot;</span>
 </code></pre></div></p>
-<p>To see available parameters for scanner, camera, CNC, check the <code>romiscanner</code> module.</p>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Add a link to the <code>romiscanner</code> documentation!</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This is a default configuration file. You will most probably need to create one to fit your hardware setup. 
+Check the configuration documentation for the <a href="../../metadata/hardware_metadata/">hardware</a> and the <a href="../../metadata/biological_metadata/">scanned object</a></p>
 </div>
-<h3 id="1-create-a-configuration-file">1. Create a configuration file<a class="headerlink" href="#1-create-a-configuration-file" title="Permanent link">Link</a></h3>
-<p>Create a file named <code>scanner.toml</code> with the following text, adjusting parameters as needed for the actual configuration of the scanner.
-Check the <code>lettucethink</code> documentation for additional information.</p>
-<div class="admonition todo">
-<p class="admonition-title">Todo</p>
-<p>Add a link to the <code>lettucethink</code> documentation!</p>
-</div>
-<h3 id="2-launch-the-scan-task">2. Launch the <code>Scan</code> task<a class="headerlink" href="#2-launch-the-scan-task" title="Permanent link">Link</a></h3>
-<p>Assuming you have an active database, you can nom run a scan using <code>romi_run_task</code>:
-<div class="highlight"><pre><span></span><code>romi_run_task --config scanner.toml Scan /path/to/db/scan_id/ --local-scheduler
+<h3 id="running-an-acquisition-with-the-scan-task">Running an acquisition with the <code>Scan</code> task<a class="headerlink" href="#running-an-acquisition-with-the-scan-task" title="Permanent link">Link</a></h3>
+<p>Assuming you have an active database, you can now run a scan using <code>romi_run_task</code>:
+<div class="highlight"><pre><span></span><code>romi_run_task --config config/hardware.toml Scan /path/to/db/scan_id/
 </code></pre></div>
 where:</p>
 <ul>
 <li><code>/path/to/db</code> must be an existing FSDB database</li>
-<li><code>scan_id</code> must not already exist in the database.</li>
+<li>there is no <code>/path/to/db/scan_id</code> already existing in the database.</li>
 </ul>
 <p>This will create the corresponding folder and fill it with images from the scan.</p>
+<h3 id="creation-of-a-scan">Creation of a scan<a class="headerlink" href="#creation-of-a-scan" title="Permanent link">Link</a></h3>
+<p>Once the acquisition is done, the database is updated and we now have the following tree structure:
+<div class="highlight"><pre><span></span><code>db/
+├── scan_id/
+│   ├── images/
+│   ├── metadata/
+│   │   └── images/
+│   │   └── images.json
+│   └── files.json
+│   └── scan.json
+└── romidb
+</code></pre></div></p>
+<p>with:</p>
+<ul>
+<li><code>images</code> containing a list of RGB images acquired by the camera moving around the plant</li>
+<li><code>metadata/images</code> a folder filled with json files recording the poses (camera coordinates) for each taken image  </li>
+<li><code>metadata/images.json</code> containing parameters of the acquisition that will be used later in reconstruction (type of format for the images, info on the object and the workspace)</li>
+<li><code>files.json</code> detailing the files contained in the scan</li>
+<li><code>scan.json</code>, a copy of the acquisition config file</li>
+</ul>
+<p>You can now <a href="../reconstruct_scan/">reconstruct your plant in 3d</a> !</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">Link</a></h2>
 <h3 id="serial-access-denied">Serial access denied<a class="headerlink" href="#serial-access-denied" title="Permanent link">Link</a></h3>
-<p>Look <a href="../../build/troubleshooting/#serial-access-denied">here</a> if you can not communicate with the scanner using usb.</p>
+<ul>
+<li>Look <a href="../../build/troubleshooting/#serial-access-denied">here</a> if you can not communicate with the scanner using usb.</li>
+<li>Make sure the device used to run the acquisition is well connected to the camera (wifi)</li>
+<li>Message to Gimbal still transiting :</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+  File <span class="s2">&quot;/home/romi/miniconda3/envs/scan_0.8/lib/python3.8/site-packages/serial/serialposix.py&quot;</span>, line <span class="m">265</span>, <span class="k">in</span> open
+    self.fd <span class="o">=</span> os.open<span class="o">(</span>self.portstr, os.O_RDWR <span class="p">|</span> os.O_NOCTTY <span class="p">|</span> os.O_NONBLOCK<span class="o">)</span>
+OSError: <span class="o">[</span>Errno <span class="m">16</span><span class="o">]</span> Device or resource busy: <span class="s1">&#39;/dev/ttyACM0&#39;</span>
+</code></pre></div>
+Try deconnect and reconnect the USB link and rerun a Scan</p>
                 
               
               

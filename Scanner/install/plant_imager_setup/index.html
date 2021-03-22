@@ -13,14 +13,14 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/install/plant_scanner_setup/">
+        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/install/plant_imager_setup/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
-        <title>Plant scanner software setup - ROMI Documentation</title>
+        <title>Plant imager software setup - ROMI Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#install-romi-software-for-the-plants-scanner" class="md-skip">
+        <a href="#install-romi-software-for-the-plant-imager" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Plant scanner software setup
+              Plant imager software setup
             
           </span>
         </div>
@@ -856,12 +856,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Plant scanner software setup
+          Plant imager software setup
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Plant scanner software setup
+        Plant imager software setup
       </a>
       
         
@@ -886,8 +886,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#install-romiscanner-sources" class="md-nav__link">
-    Install romiscanner sources:
+  <a href="#install-plant-imager-sources" class="md-nav__link">
+    Install plant-imager sources:
   </a>
   
 </li>
@@ -1039,7 +1039,7 @@
   
     <li class="md-nav__item">
       <a href="../../tutorials/hardware_scan/" class="md-nav__link">
-        Plant scanning
+        Plant imaging
       </a>
     </li>
   
@@ -1593,8 +1593,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/plantscanner_docker/" class="md-nav__link">
-        Plant Scanner
+      <a href="../../docker/plantimager_docker/" class="md-nav__link">
+        Plant Imager
       </a>
     </li>
   
@@ -1778,20 +1778,20 @@
               
                 
                 
-                <h1 id="install-romi-software-for-the-plants-scanner">Install ROMI software for the plants scanner<a class="headerlink" href="#install-romi-software-for-the-plants-scanner" title="Permanent link">Link</a></h1>
+                <h1 id="install-romi-software-for-the-plant-imager">Install ROMI software for the plant imager<a class="headerlink" href="#install-romi-software-for-the-plant-imager" title="Permanent link">Link</a></h1>
 <p>To follows this guide you should have a <code>conda</code> or a Python <code>venv</code>, see <a href="../create_env/">here</a>.</p>
-<p>For the sake of clarity the environment will be called <code>plant_scanner</code>.</p>
+<p>For the sake of clarity the environment will be called <code>plant_imager</code>.</p>
 <h2 id="install-romi-packages-with-pip">Install ROMI packages with <code>pip</code>:<a class="headerlink" href="#install-romi-packages-with-pip" title="Permanent link">Link</a></h2>
-<p>Activate your <code>plant_scanner</code> environment!
-<div class="highlight"><pre><span></span><code>conda activate plant_scanner
+<p>Activate your <code>plant_imager</code> environment!
+<div class="highlight"><pre><span></span><code>conda activate plant_imager
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Since this is still under development, the packages are installed in "editable mode" with the <code>-e</code> option.</p>
 </div>
-<h3 id="install-romiscanner-sources">Install <code>romiscanner</code> sources:<a class="headerlink" href="#install-romiscanner-sources" title="Permanent link">Link</a></h3>
-<p>To pilot the hardware you have to install the <code>romiscanner</code>package:
-<div class="highlight"><pre><span></span><code>python3 -m pip install -e git+https://github.com/romi/romiscanner.git@dev
+<h3 id="install-plant-imager-sources">Install <code>plant-imager</code> sources:<a class="headerlink" href="#install-plant-imager-sources" title="Permanent link">Link</a></h3>
+<p>To pilot the hardware you have to install the <code>plant-imager</code>package:
+<div class="highlight"><pre><span></span><code>python3 -m pip install -e git+https://github.com/romi/plant-imager.git@dev
 </code></pre></div></p>
 <h3 id="install-romiscan-sources">Install <code>romiscan</code> sources:<a class="headerlink" href="#install-romiscan-sources" title="Permanent link">Link</a></h3>
 <p>To start "acquisition jobs", you have to install the <code>romiscan</code> package:
@@ -1807,7 +1807,7 @@
 tar -xf test_db.tar.gz
 </code></pre></div>
 This will create a <code>integration_tests</code> folder with a ready to use test database. </p>
-<p>You should now be ready to performs "plant acquisitions" following the <a href="../../tutorials/reconstruct_scan/">dedicated</a> user guide.</p>
+<p>You should now be ready to perform "plant acquisitions" following the <a href="../../tutorials/reconstruct_scan/">dedicated</a> user guide.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">Link</a></h2>
 <h3 id="serial-access-denied">Serial access denied<a class="headerlink" href="#serial-access-denied" title="Permanent link">Link</a></h3>
 <p>Look <a href="../../build/troubleshooting/#serial-access-denied">here</a> if you can not communicate with the scanner using usb.</p>

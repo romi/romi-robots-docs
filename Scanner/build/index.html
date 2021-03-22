@@ -899,8 +899,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../install/plant_scanner_setup/" class="md-nav__link">
-        Plant scanner software setup
+      <a href="../install/plant_imager_setup/" class="md-nav__link">
+        Plant imager software setup
       </a>
     </li>
   
@@ -999,7 +999,7 @@
   
     <li class="md-nav__item">
       <a href="../tutorials/hardware_scan/" class="md-nav__link">
-        Plant scanning
+        Plant imaging
       </a>
     </li>
   
@@ -1553,8 +1553,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker/plantscanner_docker/" class="md-nav__link">
-        Plant Scanner
+      <a href="../docker/plantimager_docker/" class="md-nav__link">
+        Plant Imager
       </a>
     </li>
   
@@ -1753,22 +1753,22 @@
 <p>If you want to modify it, please note the following important points:</p>
 <ol>
 <li>The width and depth of the aluminium frame is dependent of the CNC frame size, make sure the CNC frame fits inside the aluminium frame!</li>
-<li>The height of the aluminium frame will determines the maximum observable plant height.</li>
+<li>The height of the aluminium frame will determine the maximum observable plant height.</li>
 </ol>
 <h2 id="wiring-communication-overview">Wiring &amp; communication overview<a class="headerlink" href="#wiring-communication-overview" title="Permanent link">Link</a></h2>
-<p>The plant scanner electronics can be divided in two functional groups:</p>
+<p>The plant imager electronics can be divided in two functional groups:</p>
 <ol>
 <li>the "CNC group", responsible for moving the camera around;</li>
-<li>the "Gimball &amp; Camera group", allowing to rotate the camera around the z-axis to face the object (plant) to acquire.</li>
+<li>the "Gimbal &amp; Camera group", allowing to rotate the camera around the z-axis to face the object (plant) to acquire.</li>
 </ol>
-<p>Note that the CNC group has 3 axis movement (X, Y &amp; Z), the gimball add a forth one.</p>
+<p>Note that the CNC group has 3 axis movement (X, Y &amp; Z), the gimbal add a forth one.</p>
 <figure>
-    <img src="/assets/images/scanner_electronics-overview.png" alt="Scanner electronics overview" width="1200" />
-  <figcaption>Overview of the scanner's electronics. Note that the PiCarema act as a wifi hotspot to which the controller computer is registered. </figcaption>
+    <img src="/assets/images/scanner_electronics-overview.png" alt="Plant imager electronics overview" width="1200" />
+  <figcaption>Overview of the plant imager's electronics. Note that the PiCarema act as a wifi hotspot to which the controller computer is registered. </figcaption>
 </figure>
 
 <p>The two groups communicate with the main controller by USB.
-Note that since the gimball &amp; camera are located at the end of the arm on the z-axis, the USB cable powering &amp; controlling them are going trough the cable rails with those dedicted to the axis motors.
+Note that since the gimbal &amp; camera are located at the end of the arm on the z-axis, the USB cable powering &amp; controlling them are going trough the cable rails with those dedicated to the axis motors.
 This may create interference, so you will need a (long) properly shielded USB cable!</p>
                 
               
