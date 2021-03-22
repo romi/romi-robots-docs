@@ -6,10 +6,6 @@
     Within the ROMI project, some work packages are oriented towards the development of a plant phenotyping platform adapted to single potted plants.
     To achieve this goal, the team developed a suite of tools presented hereafter.
 
-1. The user put his/her plant inside the scanner and run **acquisitions**, which returns a set of images per plant.
-2. These images are uploaded to a **central database**.
-3. The user **defines a pipeline** to reconstruct and quantify plants architecture by choosing among a set of predefined methods and algorithms. These instructions may be run by a distant server.
-4. Finally the user can access the acquisitions, reconstructions & quantitative data by connecting to a visualization server using his/her computer
 
 ## Modular architecture
 We aim at making our software architecture modular to make it more flexible and suitable to several applications from the ROMI project when possible.
@@ -22,13 +18,8 @@ We aim at making our software architecture modular to make it more flexible and 
 [Plant 3D Vision :material-pine-tree-box:](modules/plant_3d_vision.md){ .md-button }
 
 
-| Module Name      |  ROMI Packages                     |  Dependencies                                                 |
-|------------------|------------------------------------|---------------------------------------------------------------|
-| DB               | `romidata`                         | `luigi`, `flask`                                              |
-| SmartInterpreter | `romiscan`, `romiseg`, `romicgal`  | `luigi`, `pytorch`, `labelme`, `tensorboard`                  |
-| Visualizer       | `3d-plantviewer`                   | `npm`                                                         |
-| PlantScanner     | `romiscanner`                      | `pyserial`                                                    |
-| VirtualScanner   | `romiscanner`                      | `openalea.plantgl`, `openalea.lpy`, `bpy` (blender), `flask`  |
+### Overview of the modules interactions
+The following figure shows a use case of the ROMI modules, and the way they interact, to design an efficient plant phenotyping platform used in research.
 
 ![Plant Phenotyping platform](../assets/images/interact_plan_landscape.png)
 
@@ -36,11 +27,13 @@ We aim at making our software architecture modular to make it more flexible and 
 #### PlantDB
 Should be totally independent of the rest since it could be uses in other parts of the ROMI project (Rover, Cable bot, ...) trough the abstract class `DB` or even the local database class `FSDB`.
 
-#### PlantScanner
-It requires a physical connection to the hardware (`pyserial`) to control. It also needs an active ROMI database to export acquired datasets (plant images).
+#### Plant Imager
+It requires a physical connection to the hardware (`pyserial`) to control.
+It also needs an active ROMI database to export acquired datasets (plant images).
 
 #### Virtual Plant Imager
-It requires a connection to an active ROMI database to export generated datasets (virtual plant images). In case of machine learning methods, a database would also provides training datasets.
+It requires a connection to an active ROMI database to export generated datasets (virtual plant images).
+In case of machine learning methods, a database would also provide training datasets.
 
 #### Plant 3D Vision
 It requires connection to an active ROMI database to import datasets to process and export the results.
