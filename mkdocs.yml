@@ -49,16 +49,14 @@ nav:
             - 'Plant imager software setup': 'Scanner/install/plant_imager_setup.md'
             - 'Virtual plants scanner software setup': 'Scanner/install/virtual_plant_setup.md'
             - 'Plant reconstruction software setup': 'Scanner/install/plant_reconstruction_setup.md'
-            - 'Visualizer software setup': 'Scanner/install/visualizer_setup.md'
+            - 'plant-3d-explorer software setup': 'Scanner/install/plant3dexplorer_setup.md'
         - 'Tutorials':
             - 'Home': 'Scanner/tutorials/index.md'
             - 'Basics': 'Scanner/tutorials/basics.md'
             - 'Plant imaging': 'Scanner/tutorials/hardware_scan.md'
             - 'Virtual scanner': 'Scanner/tutorials/virtual_scan.md'
             - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
-            - 'Visualizer': 'Scanner/tutorials/visualizer.md'
-        - 'Explanations':
-            - 'Segmentation of images': 'Scanner/explanations/segmentation.md'    
+            - 'plant-3d-explorer: view your data': 'Scanner/tutorials/plant-3d-explorer.md'
         - 'How-to':
             - 'Home': 'Scanner/how_to/index.md'
             - 'Import external ressources': 'Scanner/how_to/import_files.md'
@@ -94,12 +92,12 @@ nav:
                 - 'Plant Imager': 'Scanner/docker/plantimager_docker.md'
                 - 'Virtual Plant Scanner': 'Scanner/docker/virtualplantscanner_docker.md'
                 - 'Plant Interpreter': 'Scanner/docker/plantinterpreter_docker.md'
-                - 'Plant Viewer': 'Scanner/docker/plantviewer_docker.md'
+                - 'plant-3d-explorer': 'Scanner/docker/plant3dexplorer_docker.md'
                 - 'Docker compose': 'Scanner/docker/docker_compose.md'
                 - 'Build romicscan docker for developers': 'Scanner/docker/docker_dev_build.md'
-    - 'Visualizer':
-        - 'Home': 'Visualizer/index.md'
-        - 'Guide': 'Visualizer/guide.md'
+    - 'plant-3d-explorer':
+        - 'Home': 'plant-3d-explorer/index.md'
+        - 'Guide': 'plant-3d-explorer/guide.md'
   - 'Research': 'research.md'
   - 'Data': 'data.md'
 

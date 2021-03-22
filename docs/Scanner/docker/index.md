@@ -11,16 +11,15 @@ We hereafter list the docker containers, their availability and provides link to
  - [ ] **plantimager** is not available yet and explanations [there](plantimager_docker.md)
  - [ ] **plantinterpreter** is not available yet and explanations [there](plantinterpreter_docker.md)
  - [ ] **virtualplantscanner** is not available yet and explanations [there](virtualplantimager_docker.md)
- - [x] **plantviewer** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plantviewer) and explanations [there](plantviewer_docker.md)
+ - [x] **plantviewer** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plantviewer) and explanations [there](plant3dexplorer_docker.md)
 
 
 ## Use cases with docker-compose
 In this section we reference the "real-life" use cases of our software. 
 
-### Use the plantviewer on a local database directory
+### Use the plant 3d explorer on a local database directory
 To easiest way to use the plantviewer on a local database directory without installing the ROMI libraries (and their dependencies) is to use the pre-built docker image and add a docker-compose YAML recipe.
 See [here](docker_compose.md#database--plantviewer) for more details.
-
 
 ## DockerHub
 

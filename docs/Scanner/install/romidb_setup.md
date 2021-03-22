@@ -29,7 +29,6 @@ python3.7 -m pip install flask flask-restful flask-cors && \
 python3.7 -m pip install .
 ```
 
-
 ## Initialize a ROMI database
 
 The `FSDB` class from the `romidata` module is used to manage a local file system for data storage.
