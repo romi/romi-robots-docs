@@ -5,6 +5,7 @@ How to see directly the results of your plant phenotyping with the `plant-3d-exp
 Throughout the whole process of plant phenotyping, viewing data is often needed.
 This tutorial explains how to use the romi `plant-3d-explorer`, a web-server tool, to explore, display and interact with most of the diverse data generated during a typical plant phenotyping experiment from 2D images (2D images, 3D objects like meshes or point cloud, quality evaluations, trait measurements).
 After this tutorial, you should be able to:
+
 * connect the plant-3d-explorer to a database containing the phenotyping data of one to several plants ;
 * explore the database content with the `plant-3d-explorer` menu page ;
 * For each plant, display, overlay and inspect in 3d every data generated during analysis
@@ -154,13 +155,13 @@ Easy movements are accessible with a mouse:
 #### Activate overlay with 2D images
 click on any image of the bottom carousel to activate the display of 2 images in the main panel. On Mouse-over, a single picture is enlarged and proposes to open it in the main panel.
 
-<img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-open.png" alt="plant3dexplorer_view-icons.png" width="800">
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-open.png" alt="plant3dexplorer_view-icons.png" width="800" style="display:block; margin-left: auto; margin-right: auto;">
 
 Overlay with active 3D layers is automatic. In the carousel, the box around the active displayed 2D image is now permanent.
 
 To close the 2D overlay, just click the close button of the boxed picture in the carousel.
 
-<img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-close.png" alt="plant3dexplorer_view-icons.png" width="800">
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-close.png" alt="plant3dexplorer_view-icons.png" width="800" style="display:block; margin-left: auto; margin-right: auto;">
 
 #### Moving the view with 2D overlay
 Note that movement control with the mouse slightly changes compared to the "free" view without 2D overlay. Notably, the free rotation mode is not possible anymore, since it is constrained by the real movements made by the camera when it took the pictures. 
@@ -170,17 +171,17 @@ Note that movement control with the mouse slightly changes compared to the "free
 * left-click to translate
 
 #### The phyllotaxis measure plots
-Plots represent the successive measures of divergence angles (left, in degrees) and internode length (right, in mm) between consecutive pairs of organs (here fruits) along the stem, from the base to the inflorescence tip. Both plots can be closed by clicking the cross at the far right the plot's title. Closed plot panels can be re-opened by clicking a green "+" sign appearing at the to right-hand corner when at least one plot is closed.
+Plots represent the successive measures of divergence angles (left, in degrees) and internode length (right, in mm) between consecutive pairs of organs (here fruits) along the stem, from the base to the inflorescence tip. Both plots can be closed by clicking the cross at the far right of the plot's title. Closed plot panels can be re-opened by clicking a green "+" sign appearing at the right-hand corner when at least one plot is closed. In the plots, a blue curve correspond to "automated" measure computed through an analysis pipeline (such as pipelines developed in romi plant-3d-vision). If available in the dataset, a red curve indicates a groundtruth "manual" measure.
 
-Mouse-over any of the two plots highlights an interval that correspond to a measure between two consecutive organs segmented by the analysis. The interval appears synchronously on both plots if opened. This interval and the organs are numbered by their order from the base of the stem, these numbers appear on the X-axis of the plots. 
+Mouse-over any of the two plots highlights an interval that correspond to a measure between two consecutive organs (fruits) segmented by the analysis. The interval appears synchronously on both plots if opened. This interval and the organs are numbered by their order from the base of the stem, these numbers appear on the (vertical) X-axis of the plots. The exact value of the selected interval is displayed on top of the plot ("automated" and "manual" values in blue and red respectively, if available).
 
-When the 'organ' 3d-layer is activated in the main panel, 
-automatically select the organ pair in the main panel that correspond to the current interval pointed by the mouse in the graph (the 3d layer of other organs disappear). The two graphs (divergence angles and internodes) are synchronized.
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_phyllo_panels.png" alt="phyllo_plots" width="600" style="display:block; margin-left: auto; margin-right: auto;">
 
-clicking an interval
+As shown above, when the 'organ' 3d-layer is active in the main panel, mouse-over the plot synchronously select the corresponding pair of organs in the current view (all other organ layers just disappear). Clicking the interval in the plot maintains the selection of the organ pair active despite further mouse movements. To deactivate the selection, click the green cross at the end of the shaded selection rectangle on either of the plots.
+Organ colors are also synchronized between main panel and plot panels. In the free 3D mode only, cliking a fruit layer display a bubble telling the organ number, colored as the corresponding fruit layer. Bubbles stay on screen if the 2D ovelay is activated (as in the picture above).
 
 #### Go back to main page
-In the top left corner of the page, click "all scans" 
+In the top left corner of the page, click "all scans":
 
-<img src="/assets/images/plant-3d-explorer/plant3dexplorer_allscans_backmenu.png" alt="backtomenu" width="100">
+<img src="/assets/images/plant-3d-explorer/plant3dexplorer_allscans_backmenu.png" alt="backtomenu" width="100" style="display:block; margin-left: auto; margin-right: auto;">
 
