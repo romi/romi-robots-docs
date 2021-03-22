@@ -33,7 +33,15 @@ nav:
         - 'Rover/developer.md'
     - 'Plant Phenotyping':
         - 'Home': 'Scanner/index.md'
-        - 'Build':
+        - 'Explanations':
+          - 'General design': 'Scanner/explanations/general_design.md'
+          - 'Segmentation of images': 'Scanner/explanations/segmentation.md'
+        - 'Modules':
+          - 'PlantDB': Scanner/modules/plantdb.md
+          - 'Plant 3D Explorer':
+            - 'Home': 'plant-3d-explorer/index.md'
+            - 'Guide': 'plant-3d-explorer/guide.md'
+        - 'Hardware setup':
             - 'Home': 'Scanner/build/index.md'
             - 'Aluminium frame': 'Scanner/build/alu_frame.md'
             - 'CNC frame': 'Scanner/build/cnc_frame.md'
@@ -44,10 +52,10 @@ nav:
             - 'Gimball communication': 'Scanner/build/gimball_communication.md'
             - 'PiCamera setup': 'Scanner/build/picamera_setup.md'
             - 'Troubleshooting': 'Scanner/build/troubleshooting.md'
-        - 'Install':
+        - 'Software setup':
             - 'Home': 'Scanner/install/index.md'
             - 'Create python environments': 'Scanner/install/create_env.md'
-            - 'Database setup': 'Scanner/install/romidb_setup.md'
+            - 'Database setup': 'Scanner/install/plantdb_setup.md'
             - 'Plant imager software setup': 'Scanner/install/plant_imager_setup.md'
             - 'Virtual plants scanner software setup': 'Scanner/install/virtual_plant_setup.md'
             - 'Plant reconstruction software setup': 'Scanner/install/plant_reconstruction_setup.md'
@@ -101,9 +109,6 @@ nav:
                 - 'plant-3d-explorer': 'Scanner/docker/plant3dexplorer_docker.md'
                 - 'Docker compose': 'Scanner/docker/docker_compose.md'
                 - 'Build romicscan docker for developers': 'Scanner/docker/docker_dev_build.md'
-    - 'Plant 3D Explorer':
-        - 'Home': 'plant-3d-explorer/index.md'
-        - 'Guide': 'plant-3d-explorer/guide.md'
   - 'Research': 'research.md'
   - 'Data': 'data.md'
 
@@ -131,6 +136,7 @@ extra:
   footer_logo: '/assets/images/eu-flag.png'
   repo_name: romi-robots-docs
   repo_url: https://github.com/romi/romi-robots-docs
+  disqus: romi
 
 markdown_extensions:
   - admonition
