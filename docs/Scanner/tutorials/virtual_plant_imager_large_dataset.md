@@ -1,4 +1,4 @@
-How to use the Virtual Plant Imager to generate a single virtual plant dataset
+How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes
 ===
 
 ## Objective
@@ -31,45 +31,16 @@ The data dir must contain the `obj` and `mtl` files.
 Additionally, background HDRI files can be downloaded from [hdri haven](https://hdrihaven.com/).
 Download `.hdr` files and put them in the `hdri` folder.
 
-### 2. Generate a virtual plant with lpy
+### 2. Generating a large dataset for machine learning purposes
 After preparing your working database directory. You have to run the docker container with the database mounted.
 ```bash
 cd plant-imager/docker
 ./run.sh -db /home/host/path/database_example  # This will map to `db` directory located in the the docker's user home
 ```
 
-Finally, you can generate the virtual dataset by running the following command
+To generate a large dataset, you have to run the script `generate_dataset.py` by passing the config file and the output folder.
 ```bash
-(lpyEnv) user@5c9e389f223d  romi_run_task --config plant-imager/config/vscan_lpy_blender.toml VirtualScan db/generated_dataset # Run VirtualScan by specifying the output folder generated_dataset
+(lpyEnv) user@5c9e389f223d  python generate_dataset.py plant-imager/config/vscan_lpy_blender.toml db/learning_set
 ```
 
-The lpy parameters that are used in the config [file](https://github.com/romi/plant-imager/blob/master/config/vscan_lpy_blender.toml) can be customized for your purpose.
-```toml
-[VirtualPlant.lpy_globals]
-BRANCHON = false
-MEAN_NB_DAYS = 70
-STDEV_NB_DAYS = 5
-BETA = 51
-INTERNODE_LENGTH = 1.3
-STEM_DIAMETER = 0.09
-```
-
-## Running the reconstruction pipeline on the virtual dataset
-
-If not installed yet, please refer to [Plant-3d-Vision](../tutorials/reconstruct_scan.md) documentation.
-
-With virtual data, you may want to use ground truth poses:
-```toml
-[Voxels]
-use_colmap_poses = false
-[Masks]
-upstream_task = Scan
-```
-
-Then the pipeline can be run as usual and `colmap` will not be run.
-
-To test the plant reconstruction pipeline on an example `/home/host/my_virtual_plant`:
-```bash
-romi_run_task --config plant-3d-vision/config/geom_pipe_virtual.toml PointCloud /home/host/my_virtual_plant
-```
-This should process all dependencies to obtain a segmented "PointCloud.ply" !
+After a while, and if the generation succeeded the `learning_set` folder will be populated by virtual plants.
