@@ -13,14 +13,14 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/docker/virtualplantscanner_docker/">
+        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/docker/virtualplantimager_docker/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
-        <title>Virtual Plant Scanner - ROMI Documentation</title>
+        <title>Virtual Plant Imager - ROMI Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-container-for-romi-virtualplantscanner" class="md-skip">
+        <a href="#docker-container-for-romi-virtual-plant-imager" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Virtual Plant Scanner
+              Virtual Plant Imager
             
           </span>
         </div>
@@ -956,8 +956,20 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/virtual_scan/" class="md-nav__link">
-        Virtual scanner
+      <a href="../../tutorials/virtual_plant_imager_single_dataset/" class="md-nav__link">
+        How to use the Virtual Plant Imager to generate a single virtual plant dataset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/virtual_plant_imager_large_dataset/" class="md-nav__link">
+        How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes
       </a>
     </li>
   
@@ -1485,12 +1497,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Virtual Plant Scanner
+          Virtual Plant Imager
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Virtual Plant Scanner
+        Virtual Plant Imager
       </a>
       
         
@@ -1505,6 +1517,40 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#building-the-docker-image" class="md-nav__link">
+    Building the Docker image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-docker-container" class="md-nav__link">
+    Running the docker container
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#pre-requisites" class="md-nav__link">
@@ -1741,7 +1787,26 @@
               
                 
                 
-                <h1 id="docker-container-for-romi-virtualplantscanner">Docker container for ROMI virtualplantscanner<a class="headerlink" href="#docker-container-for-romi-virtualplantscanner" title="Permanent link">Link</a></h1>
+                <h1 id="docker-container-for-romi-virtual-plant-imager">Docker container for ROMI virtual plant imager<a class="headerlink" href="#docker-container-for-romi-virtual-plant-imager" title="Permanent link">Link</a></h1>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
+<p>The following sections aim to show you how to build the docker image and run the corresponding container of the <a href="https://github.com/romi/plant-imager">Virtual Plant Imager</a></p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">Link</a></h2>
+<p>In addition to having docker installed in your system, you must also install the nvidia gpu drivers, nvidia-docker (v2.0) and nvidia-container-toolkit.</p>
+<p>This docker image has been tested successfully on:
+<code>docker --version=19.03.6 | nvidia driver version=450.102.04 | CUDA version=11.0</code></p>
+<h3 id="building-the-docker-image">Building the Docker image<a class="headerlink" href="#building-the-docker-image" title="Permanent link">Link</a></h3>
+<p>In this repository, you will find a script <code>build.sh</code> in the <code>docker</code> directory.</p>
+<p><div class="highlight"><pre><span></span><code>    git clone https://github.com/romi/plant-imager.git
+    <span class="nb">cd</span> plant-imager/
+    <span class="nb">cd</span> docker/
+    ./build.sh
+</code></pre></div>
+This will create by default a docker image <code>plantimager:latest</code>.
+Inside the docker image, a user is created and named as the one currently used by your system.
+If you want more build options (specific branches, tags...etc), type <code>./build.sh --help</code>.</p>
+<h3 id="running-the-docker-container">Running the docker container<a class="headerlink" href="#running-the-docker-container" title="Permanent link">Link</a></h3>
+<p>In the docker directory, you will find also a script named <code>run.sh</code>.</p>
+<p>To show more options, type <code>./run.sh --help</code></p>
 <h2 id="pre-requisites">Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permanent link">Link</a></h2>
 <p>For clarity let's defines some variables here:</p>
 <ul>

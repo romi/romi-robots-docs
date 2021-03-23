@@ -13,14 +13,14 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/tutorials/virtual_scan/">
+        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/tutorials/virtual_plant_imager_large_dataset/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.6">
     
     
       
-        <title>Virtual scanner - ROMI Documentation</title>
+        <title>How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes - ROMI Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#generate-a-virtual-scan" class="md-skip">
+        <a href="#how-to-use-the-virtual-plant-imager-to-generate-a-large-dataset-of-virtual-plant-for-machine-learning-purposes" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Virtual scanner
+              How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes
             
           </span>
         </div>
@@ -956,6 +956,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../virtual_plant_imager_single_dataset/" class="md-nav__link">
+        How to use the Virtual Plant Imager to generate a single virtual plant dataset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -967,12 +979,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Virtual scanner
+          How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Virtual scanner
+        How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes
       </a>
       
         
@@ -989,44 +1001,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#getting-started" class="md-nav__link">
-    Getting started
+  <a href="#objective" class="md-nav__link">
+    Objective
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    Basic usage
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
   </a>
   
-    <nav class="md-nav" aria-label="Basic usage">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-tutorial" class="md-nav__link">
+    Step-by-step tutorial
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-step tutorial">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#preparing-data" class="md-nav__link">
-    Preparing data
+  <a href="#1-preparing-your-scan-data" class="md-nav__link">
+    1. Preparing your scan data
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-a-scan-with-romiscan-and-lettucethink" class="md-nav__link">
-    Running a scan (with romiscan and lettucethink)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#running-the-pipeline-with-ground-truth-poses-without-colmap" class="md-nav__link">
-    Running the pipeline with ground-truth poses (without Colmap)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#testing-the-reconstruction-pipeline-on-a-virtual-scan" class="md-nav__link">
-    Testing the reconstruction pipeline on a virtual scan
+  <a href="#2-generating-a-large-dataset-for-machine-learning-purposes" class="md-nav__link">
+    2. Generating a large dataset for machine learning purposes
   </a>
   
 </li>
@@ -1553,8 +1558,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../docker/virtualplantscanner_docker/" class="md-nav__link">
-        Virtual Plant Scanner
+      <a href="../../docker/virtualplantimager_docker/" class="md-nav__link">
+        Virtual Plant Imager
       </a>
     </li>
   
@@ -1726,24 +1731,20 @@
               
                 
                 
-                <h1 id="generate-a-virtual-scan">Generate a virtual scan<a class="headerlink" href="#generate-a-virtual-scan" title="Permanent link">Link</a></h1>
-<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">Link</a></h2>
-<p>To follows this guide you should have:</p>
-<ul>
-<li>installed the necessary ROMI software <a href="../../install/virtual_plant_setup/">here</a></li>
-<li>access to a database, or use the provided examples</li>
-</ul>
-<h2 id="basic-usage">Basic usage<a class="headerlink" href="#basic-usage" title="Permanent link">Link</a></h2>
-<p>The virtual scanner works like an HTTP server using Blender.
-First, make sure you have <code>blender</code> (&gt;= 2.80) installed on your machine.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>DEPRECATED</strong>
-Then, clone the directory and access it:
-<div class="highlight"><pre><span></span><code>git clone git@github.com:romi/blender_virtual_scanner.git
-<span class="nb">cd</span> blender_virtual_scanner
-</code></pre></div></p>
-</div>
+                <h1 id="how-to-use-the-virtual-plant-imager-to-generate-a-large-dataset-of-virtual-plant-for-machine-learning-purposes">How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes<a class="headerlink" href="#how-to-use-the-virtual-plant-imager-to-generate-a-large-dataset-of-virtual-plant-for-machine-learning-purposes" title="Permanent link">Link</a></h1>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
+<p>Working with virtual plants instead of real ones makes data acquisition inexpensive and has the advantage to parametrize the type of data.
+By design, ground truth data can be easily extracted from virtual datasets for evaluation purposes and building machine learning models.
+The Virtual Plant Imager is designed two address these two issues.
+After reading this tutorial, you should be able to generate a single virtual plant dataset in order to evaluate the robustness of <a href="https://github.com/romi/plant-3d-vision">plant-3d-vision</a>.</p>
+<h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
+<p>If it is not already done, you must be able to build and run the docker image by following the <a href="../../docker/virtualplantimager_docker/">instructions</a>.</p>
+<h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
+<p>Principle: Technically, the <code>Virtual Plant Imager</code> relies on <a href="https://www.blender.org/">Blender v2.81a</a> to generate the images of 3d model of the plants.
+The 3d model can be provided as an input or can be also generated by <a href="https://lpy.readthedocs.io/en/latest/">lpy</a> based on biological rules.
+An Http server acts as an interface to drive Blender generation scripts.</p>
+<h3 id="1-preparing-your-scan-data">1. Preparing your scan data<a class="headerlink" href="#1-preparing-your-scan-data" title="Permanent link">Link</a></h3>
+<p>First, you have to create a working database on your host machine, let's say <code>home/host/path/database_example</code>. You can find an example of this database <a href="https://github.com/romi/plant-imager/tree/master/database_example">here</a>.</p>
 <p>You can obtain sample data for the scanner here, and put it in the data folder.
 <div class="highlight"><pre><span></span><code>wget https://db.romi-project.eu/models/arabidopsis_data.zip
 unzip arabidopsis_data.zip -d data
@@ -1751,78 +1752,17 @@ unzip arabidopsis_data.zip -d data
 <p>To use custom data, it must consist in <code>.obj</code> file, in which each type of organ corresponds to a distinct mesh.
 This mesh must have a single material whose name is the name of the organ.
 The data dir must contain the <code>obj</code> and <code>mtl</code> files.</p>
-<p>Additionally, background HDRI files can be downloaded from (hdri haven)[<a href="https://hdrihaven.com/">https://hdrihaven.com/</a>].
+<p>Additionally, background HDRI files can be downloaded from <a href="https://hdrihaven.com/">hdri haven</a>.
 Download <code>.hdr</code> files and put them in the <code>hdri</code> folder.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>DEPRECATED</strong>
-To start the virtual scanner, run the following script in blender:
-<div class="highlight"><pre><span></span><code>blender <span class="o">[</span>scene/texture.blend<span class="o">]</span> -b -P scan.py
-</code></pre></div>
-It will start an HTTP server on port <code>5000</code>.</p>
-</div>
-<h3 id="preparing-data">Preparing data<a class="headerlink" href="#preparing-data" title="Permanent link">Link</a></h3>
-<p>If you have 3D models with a single mesh</p>
-<h3 id="running-a-scan-with-romiscan-and-lettucethink">Running a scan (with <code>romiscan</code> and <code>lettucethink</code>)<a class="headerlink" href="#running-a-scan-with-romiscan-and-lettucethink" title="Permanent link">Link</a></h3>
-<p>The virtual scanner is integrated in <code>lettucethink-python</code>, so that it can be used directly with the <code>Scan</code> task in <code>romi_run_task</code>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code>lettucethink-python</code> is <strong>DEPRECATED</strong></p>
-</div>
-<p>Here is a sample configuration for the virtual scanner creating 640x480 images with ground truth segmentation of organs.
-The server mentioned above must be running before running <code>romi_run_task</code>.</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Scan.scanner]</span>
-<span class="n">camera_firmware</span> <span class="o">=</span> <span class="s">&quot;virtual&quot;</span>
-<span class="n">cnc_firmware</span> <span class="o">=</span> <span class="s">&quot;virtual&quot;</span>
-<span class="n">gimbal_firmware</span> <span class="o">=</span> <span class="s">&quot;virtual&quot;</span>
-<span class="n">id</span> <span class="o">=</span> <span class="s">&quot;virtual&quot;</span>
-
-<span class="k">[Scan.path]</span>
-<span class="n">id</span> <span class="o">=</span> <span class="s">&quot;virtual&quot;</span>
-<span class="n">type</span> <span class="o">=</span> <span class="s">&quot;circular&quot;</span>
-
-<span class="k">[Scan.scanner.scanner_args]</span>
-<span class="n">inverted</span> <span class="o">=</span> <span class="kc">false</span>
-
-<span class="k">[Scan.scanner.camera_args]</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mi">640</span>
-<span class="n">height</span> <span class="o">=</span> <span class="mi">480</span>
-<span class="n">focal</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">render_ground_truth</span> <span class="o">=</span> <span class="kc">true</span>
-<span class="n">load_object</span> <span class="o">=</span> <span class="s">&quot;arabidopsis_0.obj?dx=10&amp;dy=10&amp;dz=-5&quot;</span>
-<span class="n">load_background</span> <span class="o">=</span> <span class="s">&quot;quarry_03_8k.hdr&quot;</span>
-
-<span class="k">[Scan.scanner.cnc_args]</span>
-
-<span class="k">[Scan.scanner.gimbal_args]</span>
-
-<span class="k">[Scan.scanner.workspace]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="k">[ 200, 600,]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="k">[ 200, 600,]</span>
-<span class="n">z</span> <span class="o">=</span> <span class="k">[ -100, 300,]</span>
-
-<span class="k">[Scan.path.args]</span>
-<span class="n">num_points</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">radius</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">tilt</span> <span class="o">=</span> <span class="mf">0.45</span>
-<span class="n">xc</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">yc</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">z</span> <span class="o">=</span> <span class="mi">50</span>
-</code></pre></div>
-<h3 id="running-the-pipeline-with-ground-truth-poses-without-colmap">Running the pipeline with ground-truth poses (without Colmap)<a class="headerlink" href="#running-the-pipeline-with-ground-truth-poses-without-colmap" title="Permanent link">Link</a></h3>
-<p>To run the pipeline without <code>colmap</code> and use the virtual scanner poses as a ground
-truth, one must use set the following parameters:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Voxels]</span>
-<span class="n">use_colmap_poses</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="k">[Masks]</span>
-<span class="n">upstream_task</span> <span class="o">=</span> <span class="n">Scan</span>
-</code></pre></div>
-<p>Then the pipeline can be run as usual and <code>colmap</code> will not be run.</p>
-<h3 id="testing-the-reconstruction-pipeline-on-a-virtual-scan">Testing the reconstruction pipeline on a <em>virtual scan</em><a class="headerlink" href="#testing-the-reconstruction-pipeline-on-a-virtual-scan" title="Permanent link">Link</a></h3>
-<p>To test the plant reconstruction pipeline on an example <em>virtual scan</em> (<code>arabidopsis_26</code>):
-<div class="highlight"><pre><span></span><code>romi_run_task --config romiscan/config/original_pipe_0.toml PointCloud integration_tests/arabidopsis_26 --local-scheduler
-</code></pre></div>
-This should process all dependencies to obtain a segmented "PointCloud.ply" !</p>
+<h3 id="2-generating-a-large-dataset-for-machine-learning-purposes">2. Generating a large dataset for machine learning purposes<a class="headerlink" href="#2-generating-a-large-dataset-for-machine-learning-purposes" title="Permanent link">Link</a></h3>
+<p>After preparing your working database directory. You have to run the docker container with the database mounted.
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> plant-imager/docker
+./run.sh -db /home/host/path/database_example  <span class="c1"># This will map to `db` directory located in the the docker&#39;s user home</span>
+</code></pre></div></p>
+<p>To generate a large dataset, you have to run the script <code>generate_dataset.py</code> by passing the config file and the output folder.
+<div class="highlight"><pre><span></span><code><span class="o">(</span>lpyEnv<span class="o">)</span> user@5c9e389f223d  python generate_dataset.py plant-imager/config/vscan_lpy_blender.toml db/learning_set
+</code></pre></div></p>
+<p>After a while, and if the generation succeeded the <code>learning_set</code> folder will be populated by virtual plants.</p>
                 
               
               
@@ -1840,7 +1780,7 @@ This should process all dependencies to obtain a segmented "PointCloud.ply" !</p
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../hardware_scan/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../virtual_plant_imager_single_dataset/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1849,7 +1789,7 @@ This should process all dependencies to obtain a segmented "PointCloud.ply" !</p
               <span class="md-footer__direction">
                 Previous
               </span>
-              Plant imaging
+              How to use the Virtual Plant Imager to generate a single virtual plant dataset
             </div>
           </div>
         </a>
