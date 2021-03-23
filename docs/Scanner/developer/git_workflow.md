@@ -50,7 +50,7 @@ The terminal lists in a **red color all files requiring an action** (git add, gi
 Then just proceed as above with `git commit` and `git push`.
 
 ### check your commit has been pushed
-you can get the list of commits related to your current branch with `git log` (press `q` to exit the list in the terminal).
+After `git push`, you can get the list of pushd commits related to your current branch with `git log` (press `q` to exit the list in the terminal).
 
 ## Prepare your work for merging
 Once you are ready for creating a "Pull Request", let's update our branch with potential change to `origin/dev` since branching occurred.
@@ -87,7 +87,7 @@ git branch --delete my_branch  # delete local development branch
 git push origin :my_branch  # delete development branch on origin
 ```
 !!! note
-    `git branch -a` lists all the local branches first (with the current branch in green), followed by the remote-tracking branches in red.
+    `git branch -a` lists all the local branches first (with the current branch in green), followed by the remote-tracking branches in red. `git branch` only lists your local branches.
 
 ## Revert a commit
 You can revert the last commit with:

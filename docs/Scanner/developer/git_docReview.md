@@ -49,13 +49,30 @@ INFO    -  Start watching changes
 INFO    -  Start detecting changes
 Since the refresh is very rapid upon changes, you can then see in live the effect of you modifications.
 
-In the terminal, possible issues are listed, indicating you problems that should be fixed.  
-
+In the terminal, possible issues are listed (INFO and WARNING),pointing to problems that should be fixed: 
+* navigation issues (INFO):
 > INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
 
+In this case, pages should be added in the `nav` section of the `mkdocs.yml` file (see later point 4.). In the interactive browser, you cannot see and display pages that does not exist in the "nav" configuration.
+
+* internal hyperlink issues (WARNING):
+> WARNING -  Documentation file 'xxx/xxxx/file1.md' contains a link to 'xxx/yyy/otherfile.md' which is not found in the documentation files.
+
+In this case, check and modify the hyperlink in *file1.md* to provide good redirection to *otherfile.md*
+
 ### 3. Adding images in the content
-store in assets
-To have more options for images 
+* store the image files in assets/. You can also directly provide html adress for third party images if you are sure that the link will be stable over time.
+* To have more flexibility and options for images layout, use the html command in your markdown file:
+```
+<img src="/assets/images/my_image.png" alt="name_displayed_if_error" width="600" style="display:block; margin-left: auto; margin-right: auto;"> # here the style centers the picture
+```
+
+### 4. Modify the navigation in mkdocs.yml
+Open `mkdocs.yml` at the root of `romi-robots-docs` repo. 
+
+Some changes **must be** reported in this file in the `nav` section: when you create a new page (a new `file.md`) or a new directory, or modify the name of an existing file.md/directory.
+
+In the `nav` section, you can also enter the name given to pages in the menu.
 
 ## Commit your changes 
 This follow the classical git commit procedure:
