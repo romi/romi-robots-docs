@@ -5,7 +5,7 @@ From [romi-robots-docs](https://github.com/romi/romi-robots-docs), we incorporat
 ## Objectives
 At the end of this tutorial, you should be able to:
 * create content for romi-robots-docs
-* review modifications suggested for romi-robots-docs
+* review modifications suggested for romi-robots-docs by you colleagues
 ## Prerequisite
 * [Install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Example in Linux system with a Debian-based distribution (e.g. Ubuntu):
@@ -20,7 +20,7 @@ git clone https://github.com/romi/romi-robots-docs.git
 cd romi-robots-docs #enter the cloned repository so that all git actions are available 
 ```
 ## Step-by-step tutorial
-if you only review an existing branch (without adding or modifying content), go directly to step xx.
+if you only review an existing branch (without adding or modifying content), go directly to steps 8/9.
 ### 1. Create your local branch
 The default branch is `master`, that directly incorporate all changes. There is no dev branch.
 **Never ever work on `master`**: create a local branch to make changes, using the following commands:
@@ -74,7 +74,7 @@ Some changes **must be** reported in this file in the `nav` section: when you cr
 
 In the `nav` section, you can also enter the name given to pages in the menu.
 
-## Commit your changes 
+### 5. Commit your changes 
 This follow the classical git commit procedure:
 ```bash
 git status #list all files affected by changes
@@ -85,7 +85,7 @@ git push # push modification to `origin/my_branch`
 (git log) #optional: verify that your commit is recorded
 ```
 
-## Merge your working branch with current master: rebase is needed
+### 6. Merge your working branch with current master: rebase may be needed
 Assuming that your working branch is called `my_branch`
 ```bash
 git checkout master #switch to master
@@ -107,7 +107,10 @@ Finally, once all conflicts have been resolved and changes staged, Push the reba
 ```bash
 git push -f origin my_branch #-f (force) implies that login/password will be asked for.
 ```
-## test a branch (e.g. for a pull request review)
+### 7. Prepare a PR on GitHub webpage
+* Go to the distant romi repository : https://github.com/romi/romi-robots-docs
+* select you branch and prepare a PR: open a pull request (green button), enter a brief text to explain the modifications, assign reviewers (in the right column of the page), and press the green button 'create pull request'.
+### 8. test a distant branch (e.g. for a pull request review from your colleagues)
 ```bash
 git checkout test_branch #switch to 'test_branch'. /!\ do not switch to origin/test_branch since your working locally
 git fetch #Download objects and refs from the remote branch on /origin
@@ -115,6 +118,7 @@ git pull #Incorporates changes from the remote repository into the current local
 mkdocs serve #serve the docs website on the local server
 ```
 You can view the display, test the links, etc...
+You can also create a new branch from it to modify it.
 
-## make your review on GitHub web interface
+### 9. make your review on GitHub web interface
 comment the PR, file by file. Point to issues if any.
