@@ -122,3 +122,8 @@ You can also create a new branch from it to modify it.
 
 ### 9. make your review on GitHub web interface
 comment the PR, file by file. Point to issues if any.
+
+### 10. Use the project board (Kanban type)
+Go to: https://github.com/orgs/romi/projects/10
+* link your PR to existing issues
+* move the corresponding note to the appropriate column (To do / In progres / Test / Done)
