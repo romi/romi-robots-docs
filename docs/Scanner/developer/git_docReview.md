@@ -1,13 +1,29 @@
 # Contributing to docs
 
-From [romi-robots-docs](https://github.com/romi/romi-robots-docs), we incorporate changes using a typicall git workflow with commits and pull requests.
+From [romi-robots-docs](https://github.com/romi/romi-robots-docs), we incorporate changes using a typicall git workflow with commits and pull requests. the documentation is generated using [MkDocs](https://www.mkdocs.org/).
 
-## git clone romi-robots-docs
+## Objectives
+At the end of this tutorial, you should be able to:
+* create content for romi-robots-docs
+* review modifications suggested for romi-robots-docs
+## Prerequisite
+* [Install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* Example in Linux system with a Debian-based distribution (e.g. Ubuntu):
+  ```bash
+    git --version #verify that you have git installed: it should return the version (e.g. git version 2.25.1)
+    #if git is not installed:
+    $ sudo apt install git-all
+  ```
+* git clone romi-robots-docs
 ```bash
 git clone https://github.com/romi/romi-robots-docs.git
+cd romi-robots-docs #enter the cloned repository so that all git actions are available 
 ```
-## Create your local branch
-There is no dev branch: the main branch is `master`, that directly incorporate all changes.
+## Step-by-step tutorial
+if you only review an existing branch (without adding or modifying content), go directly to step xx.
+### 1. Create your local branch
+The default branch is `master`, that directly incorporate all changes. There is no dev branch.
+**Never ever work on `master`**: create a local branch to make changes, using the following commands:
 ```bash
 git checkout master # go to master
 git pull # update it with last changes
@@ -15,17 +31,31 @@ git checkout -b my_branch  # create local branch `my_branch` (it will derived fr
 git push --set-upstream origin my_branch  # attach branch `my_branch` to `origin/my_branch`. GitHub login/password will be asked for.
 ```
 
-## Visualize your changes locally on a web browser
+### 2. Visualize your changes locally on a web browser in an interactive manner
 ```bash
 mkdocs serve # reads the mkdocs.yml file to generate the web page.
 ```
+The terminal gives you information. The programs starts by building the documentation.
+As soon as you can read:
+> [I 210323 08:58:22 server:335] Serving on http://127.0.0.1:8000
 
-browser connected http://127.0.0.1:8000/
+..., you can connect your prefered web browser by copy-pasting the served url in the url bar: http://127.0.0.1:8000/ or just (ctrl+click) on the address to open it in your default browser.
 
-issues are listed and can be modified
+The program `mkdocs serve` constently watches for changes and refreshes the build as soon as they are detected, as indicated by the terminal:
+>[I 210323 08:58:22 handlers:62] Start watching changes
+INFO    -  Start watching changes
 
-## Adding images in the content
+>[I 210323 08:58:22 handlers:64] Start detecting changes
+INFO    -  Start detecting changes
+Since the refresh is very rapid upon changes, you can then see in live the effect of you modifications.
+
+In the terminal, possible issues are listed, indicating you problems that should be fixed.  
+
+> INFO    -  The following pages exist in the docs directory, but are not included in the "nav" configuration:
+
+### 3. Adding images in the content
 store in assets
+To have more options for images 
 
 ## Commit your changes 
 This follow the classical git commit procedure:

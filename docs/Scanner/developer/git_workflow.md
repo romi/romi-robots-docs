@@ -10,6 +10,10 @@ It all starts by cloning the repository you want to contribute to, *e.g.* `romis
 ```bash
 git clone https://github.com/romi/romiscan.git  # clone the repository
 ```
+To use all possibel git actions on this repository ('repo'), go the location of this local clone 
+```bash
+cd romiscan #the repo is cloned at the point where you executed the previous command (git clone). If you moved the clone repo, prefix with path like: cd path/to/yourcloned/romiscan
+```
 
 ## Create development branch
 To contribute to development you have to create a branch on which you will work.
