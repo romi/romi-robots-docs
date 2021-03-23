@@ -94,3 +94,8 @@ You can revert the last commit with:
 ```bahs
 git reset HEAD^
 ```
+### Update the project board (Kanban type)
+Go to: https://github.com/orgs/romi/projects
+* choose the project board corresponding to your pull request (PR)
+* link your PR to existing issues
+* move the corresponding note to the appropriate column
