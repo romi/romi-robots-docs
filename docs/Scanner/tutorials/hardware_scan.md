@@ -39,11 +39,12 @@ touch path/to/db/db/romidb
 `Scan` is the basic task for running an acquisition with the robot.
 
 A **default** configuration file for the plant imager can be found under `romiscanner/config/hardware.toml`.
-It regroups :  
-- specifications of the device setup (under the arguments linked to Scan.scanner)  
-- parameters describing the acquisition path (ScanPath)  
-- description of the object (in Scan.metadata.object)   
-- description of the hardware (in Scan.metadata.hardware) 
+It regroups specifications on: 
+* the acquisition path (ScanPath) 
+* needed parameters for connection between hardware components (CNC, Gimbal and camera) and software (Scan.scanner)
+* object metadata (in Scan.metadata.object)  
+* hardware metadata (in Scan.metadata.hardware) 
+
 ```toml
 [ScanPath] # Example, circular scan with 60 points:
 class_name = "Circle"
@@ -56,19 +57,12 @@ tilt = 0
 radius = 300
 n_points = 60
 
-[Scan.scanner.camera] # camera related parameters
-module = "romiscanner.sony"
-# module = "romiscanner.gp2"
+[Scan.scanner.cnc] # module and kwargs linked to the CNC
+module = "romiscanner.grbl"
 
-#[Scan.scanner.camera.kwargs]
-#url = "http://myflashair"
-
-[Scan.scanner.camera.kwargs]
-device_ip = "192.168.122.1"
-api_port = "10000"
-postview = true
-use_flashair = false
-rotation = 270
+[Scan.scanner.cnc.kwargs]
+homing = true
+port = "/dev/ttyACM0"
 
 [Scan.scanner.gimbal] # module and kwargs linked to the gimbal
 module = "romiscanner.blgimbal"
@@ -79,17 +73,15 @@ has_tilt = false
 zero_pan = 0
 invert_rotation = true
 
-[Scan.scanner.cnc] # module and kwargs linked to the CNC
-module = "romiscanner.grbl"
+[Scan.scanner.camera] # camera related parameters
+module = "romiscanner.sony"
 
-[Scan.scanner.cnc.kwargs]
-homing = true
-port = "/dev/ttyACM0"
-
-[Scan.metadata.workspace] # A volume containing the target scanned object
-x = [ 200, 600,]
-y = [ 200, 600,]
-z = [ -100, 300,]
+[Scan.scanner.camera.kwargs]
+device_ip = "192.168.122.1"
+api_port = "10000"
+postview = true
+use_flashair = false
+rotation = 270
 
 [Scan.metadata.object] # object related metadata
 species = "chenopodium album"
@@ -111,6 +103,11 @@ Z_motor = "X-Carve NEMA23"
 pan_motor = "iPower Motor GM4108H-120T Brushless Gimbal Motor"
 tilt_motor = "None"
 sensor = "RX0"
+
+[Scan.metadata.workspace] # A volume containing the target scanned object
+x = [ 200, 600,]
+y = [ 200, 600,]
+z = [ -100, 300,]
 ```
 
 !!! Warning
