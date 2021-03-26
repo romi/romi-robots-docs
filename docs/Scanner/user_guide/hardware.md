@@ -15,7 +15,7 @@ lower resolution) or directly via a micro USB.
 
 ## Hardware configuration files
 
-To gather configuration information of the hardware during an acquisition with the plant imager we use `toml` files. 
+To gather configuration information on the hardware during an acquisition with the plant imager we use `toml` files. 
 
 For example, saving the following lines in a `config.toml`:
 ```toml
@@ -65,7 +65,7 @@ growth_conditions = "SD+LD"
 treatment = "None"
 DAG = 40
 sample = "main_stem"
-experiment_id = "3dt_26-01-2021"
+experiment_id = "3dt_2021-01"
 dataset_id = "3dt"
 
 [Scan.metadata.hardware]
@@ -77,23 +77,23 @@ pan_motor = "iPower Motor GM4108H-120T Brushless Gimbal Motor"
 tilt_motor = "None"
 sensor = "RX0"
 
-[Scan.metadata.workspace] # mandatory
+[Scan.metadata.workspace]
 x = [ 200, 600,]
 y = [ 200, 600,]
 z = [ -100, 300,]
 ```
-Most of the arguments in this example have default values and for others (commented "mandatory" in the following 
-description) has to be written in the configuration file.  
+Some arguments in this example have default values and for others (commented "mandatory" in the following 
+description) it has to be specified in the configuration file.  
 
-Here a more detailed explanation and with full **default** parameters list:
+Here, a more detailed explanation with a full **default** parameters list:
 
 * The acquisition path:
 ```toml  
 [ScanPath] # mandatory
 class_name = "Circle"
 ```
-`class_name` is the type of path the robotic arm will follow. Here it will ba a circle, the other possibilities are
-commented next to the variable
+`class_name` defines the type of path the robotic arm will follow. In this case it will be a circle, the other possibilities 
+are commented next to the variable in the example above
 ```toml
 [ScanPath.kwargs] # mandatory
 center_x = 375
