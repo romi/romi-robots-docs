@@ -37,7 +37,10 @@ nav:
           - 'General design': 'Scanner/explanations/general_design.md'
           - 'Segmentation of images': 'Scanner/explanations/segmentation.md'
         - 'Modules':
-          - 'PlantDB': Scanner/modules/plantdb.md
+          - Scanner/modules/plantdb.md
+          - Scanner/modules/plant_3d_vision.md
+          - Scanner/modules/plant_imager.md
+          - Scanner/modules/virtual_plant_imager.md
           - 'Plant 3D Explorer':
             - 'Home': 'plant-3d-explorer/index.md'
             - 'Guide': 'plant-3d-explorer/guide.md'
@@ -111,6 +114,7 @@ nav:
                 - 'Build romicscan docker for developers': 'Scanner/docker/docker_dev_build.md'
   - 'Research': 'research.md'
   - 'Data': 'data.md'
+  - glossary.md
 
 theme:
   name: 'material'
@@ -166,6 +170,7 @@ markdown_extensions:
 
 plugins:
   - search
+  - gitsnippet
 
 extra_css:
   - assets/css/extra.css
