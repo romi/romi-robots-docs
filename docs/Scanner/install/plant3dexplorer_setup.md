@@ -50,7 +50,7 @@ npm start
 ```
 
 ### With a runnning local database
-If you have followed the install instructions of the ROMI database ([here](romidb_setup.md)), you can use it with the `Plant 3d explorer`:
+If you have followed the install instructions of the ROMI database ([here](plantdb_setup.md)), you can use it with the `Plant 3d explorer`:
  ```bash
 export REACT_APP_API_URL='0.0.0.0'
 npm start

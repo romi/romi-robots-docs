@@ -12,7 +12,7 @@ After this tutorial, you should be able to:
 
 ## Prerequisite
 * install romi `plant-3d-explorer` (from [source](https://github.com/romi/plant-3d-explorer) or using a [docker image](../docker/plant3dexplorer_docker.md) ) & read [install procedure](../install/plant3dexplorer_setup.md) 
-* install romi `plantdb` (from [source](https://github.com/romi/plantdb) or using a [docker image](../docker/romidb_docker.md)) & read [install procedure](../install/romidb_setup.md)
+* install romi `plantdb` (from [source](https://github.com/romi/plantdb) or using a [docker image](../docker/romidb_docker.md)) & read [install procedure](../install/plantdb_setup.md)
 * install romi `plant-3d-vision` (from [source](https://github.com/romi/plant-3d-vision) or using a [docker image](../docker/plantinterpreter_docker.md)) & read [install procedure](../install/plant_reconstruction_setup.md)
 * Create and activate isolated python environment (see the procedure [here](/docs/Scanner/install/create_env.md) )
 
