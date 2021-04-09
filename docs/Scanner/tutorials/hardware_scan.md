@@ -11,42 +11,39 @@ In order to collect data in the process of plant phenotyping, the plant imager r
 
 To run an acquisition, you should previously have:
 
-* built the scanner following the guidelines [here](../build/index.md)
+* built the robot following the guidelines [here](../build/index.md)
 * installed the necessary ROMI software [here](../install/plant_imager_setup.md) 
-  (make sure you are in the conda environment or that you run properly the docker for the `plantimager` repository)
-* interfaced the machine running the ROMI software with the plant imager
-  (main steps: 
-    1. check it is correctly connected to the Gimbal and CNC by USB
-    2. turn on camera and connect it to the device via wifi)
-* set up a [DB](../user_guide/data.md) (or do the following steps)
 
-To quickly retrieve an example DB you can use:
-```bash
-wget https://db.romi-project.eu/models/test_db.tar.gz
-tar -xf test_db.tar.gz
-```
-This will create a `integration_tests` folder with a ready to use test database.  
 
-You can also generate a simple database with the following commands:
+## Step-by-step tutorial
+
+### 1. Check that you are well interfaced with the plant imager
+
+ - make sure you are in the conda environment or that you run properly the docker for the `plantimager` repository  
+ - interface the machine running the ROMI software with the plant imager: 
+    1. check that your device is correctly connected to the Gimbal and CNC both by USB
+    2. turn on camera and connect it to the device via Wi-Fi
+ - set up a [DB](../user_guide/data.md) or quickly generate a simple database with the following commands:  
 ```bash
 mkdir path/to/db
-touch path/to/db/db/romidb
+touch path/to/db/romidb
 ```
+You have now your file based database *romidb*  
 
+### 2. Get the right configuration
 
-## Step by step tutorial
+`Scan` is the basic task for running an acquisition with the robot. 
+To run this task properly with `romi_run_task`, a configuration file is needed.
+A **default** one for the plant imager can be found under `romiscanner/config/hardware.toml`.  
+It regroups specifications on:
 
-`Scan` is the basic task for running an acquisition with the robot.
-
-A **default** configuration file for the plant imager can be found under `romiscanner/config/hardware.toml`.
-It regroups specifications on: 
-* the acquisition path (ScanPath) 
-* needed parameters for connection between hardware components (CNC, Gimbal and camera) and software (Scan.scanner)
-* object metadata (in Scan.metadata.object)  
-* hardware metadata (in Scan.metadata.hardware) 
+- the acquisition path (ScanPath)  
+- needed parameters for connection between hardware components (CNC, Gimbal and camera) and software (Scan.scanner)  
+- object metadata (in Scan.metadata.object)  
+- hardware metadata (in Scan.metadata.hardware)    
 
 ```toml
-[ScanPath] # Example, circular scan with 60 points:
+[ScanPath] # Example, circular path with 60 points:
 class_name = "Circle"
 
 [ScanPath.kwargs]
@@ -104,7 +101,7 @@ pan_motor = "iPower Motor GM4108H-120T Brushless Gimbal Motor"
 tilt_motor = "None"
 sensor = "RX0"
 
-[Scan.metadata.workspace] # A volume containing the target scanned object
+[Scan.metadata.workspace] # A volume containing the target imaged object
 x = [ 200, 600,]
 y = [ 200, 600,]
 z = [ -100, 300,]
@@ -112,29 +109,31 @@ z = [ -100, 300,]
 
 !!! Warning
     This is a default configuration file. You will most probably need to create one to fit your hardware setup. 
-    Check the configuration documentation for the [hardware](../metadata/hardware_metadata.md) and the [scanned object](../metadata/biological_metadata.md)
+    Check the configuration documentation for the [hardware](../metadata/hardware_metadata.md) and the [imaged object](../metadata/biological_metadata.md)
 
-### Running an acquisition with the `Scan` task
+### 3. Run an acquisition with the `Scan` task
 
-Assuming you have an active database, you can now run a scan using `romi_run_task`:
+Assuming you have an active database, you can now run a the task using `romi_run_task`:
 ```bash
-romi_run_task --config config/hardware.toml Scan /path/to/db/scan_id/
+romi_run_task --config config/hardware.toml Scan /path/to/db/imageset_id/
 ```
 where:
 
 - `/path/to/db` must be an existing FSDB database
-- there is no `/path/to/db/scan_id` already existing in the database.
+- there is no `/path/to/db/imageset_id` already existing in the database.
 
-This will create the corresponding folder and fill it with images from the scan.
+This will create the corresponding folder and fill it with images from the imageset.
 
+!!! Warning
+    After a rather short time following running the command, you should hear the robot start and when the acquisition is finished, a `This progress looks :)` should appear  
+    If it's not the case, try to look at the Troubleshooting section at the end of this tutorial 
 
-
-### Creation of a scan
+### 4. Obtain an image set
 
 Once the acquisition is done, the database is updated and we now have the following tree structure:
 ```
 db/
-├── scan_id/
+├── imageset_id/
 │   ├── images/
 │   ├── metadata/
 │   │   └── images/
@@ -149,7 +148,7 @@ with:
 - `images` containing a list of RGB images acquired by the camera moving around the plant
 - `metadata/images` a folder filled with json files recording the poses (camera coordinates) for each taken image  
 - `metadata/images.json` containing parameters of the acquisition that will be used later in reconstruction (type of format for the images, info on the object and the workspace)
-- `files.json` detailing the files contained in the scan
+- `files.json` detailing the files contained in the imageset_id
 - `scan.json`, a copy of the acquisition config file
 
 
@@ -159,14 +158,14 @@ You can now [reconstruct your plant in 3d](reconstruct_scan.md) !
 ## Troubleshooting
 
 ### Serial access denied
+* The CNC and Gimbal might be connected to different ports than the ones specified in the configuration file. Please check with the `dmesg -w` command.
 * Look [here](../build/troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.
-* Make sure the device used to run the acquisition is well connected to the camera (wifi)
-* Message to Gimbal still transiting :
-
+* Make sure the device used to run the acquisition is indeed connected to the camera (wifi)
+* Message to Gimbal still transiting :  
 ```bash
 Traceback (most recent call last):
   File "/home/romi/miniconda3/envs/scan_0.8/lib/python3.8/site-packages/serial/serialposix.py", line 265, in open
     self.fd = os.open(self.portstr, os.O_RDWR | os.O_NOCTTY | os.O_NONBLOCK)
 OSError: [Errno 16] Device or resource busy: '/dev/ttyACM0'
 ```
-Try deconnect and reconnect the USB link and rerun a Scan
+Try disconnect and reconnect the USB link and rerun an acquisition
