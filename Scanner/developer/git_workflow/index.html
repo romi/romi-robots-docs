@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/developer/git_workflow/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
@@ -1410,6 +1410,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -1424,6 +1425,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1461,6 +1463,26 @@
     Work on your modifications
   </a>
   
+    <nav class="md-nav" aria-label="Work on your modifications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-do-i-not-forget-changes-for-committing" class="md-nav__link">
+    How do I not forget changes for committing ?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check-your-commit-has-been-pushed" class="md-nav__link">
+    check your commit has been pushed
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1471,8 +1493,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#finalization" class="md-nav__link">
-    Finalization
+  <a href="#finalization-delete-integrated-branches" class="md-nav__link">
+    Finalization: delete integrated branches.
   </a>
   
 </li>
@@ -1482,12 +1504,49 @@
     Revert a commit
   </a>
   
+    <nav class="md-nav" aria-label="Revert a commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-the-project-board-kanban-type" class="md-nav__link">
+    Update the project board (Kanban type)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_docReview/" class="md-nav__link">
+        Contribute to docs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial_template/" class="md-nav__link">
+        Make a tutorial
+      </a>
     </li>
   
 
@@ -1512,14 +1571,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7_5" type="checkbox" id="__nav_3_4_7_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7_7" type="checkbox" id="__nav_3_4_7_7" >
       
-      <label class="md-nav__link" for="__nav_3_4_7_5">
+      <label class="md-nav__link" for="__nav_3_4_7_7">
         Docker
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Docker" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_7_5">
+        <label class="md-nav__title" for="__nav_3_4_7_7">
           <span class="md-nav__icon md-icon"></span>
           Docker
         </label>
@@ -1748,6 +1807,9 @@
 <h2 id="clone-configure-the-repository">Clone &amp; configure the repository<a class="headerlink" href="#clone-configure-the-repository" title="Permanent link">Link</a></h2>
 <p>It all starts by cloning the repository you want to contribute to, <em>e.g.</em> <code>romiscan</code>:
 <div class="highlight"><pre><span></span><code>git clone https://github.com/romi/romiscan.git  <span class="c1"># clone the repository</span>
+</code></pre></div>
+To use all possibel git actions on this repository ('repo'), go the location of this local clone 
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> romiscan <span class="c1">#the repo is cloned at the point where you executed the previous command (git clone). If you moved the clone repo, prefix with path like: cd path/to/yourcloned/romiscan</span>
 </code></pre></div></p>
 <h2 id="create-development-branch">Create development branch<a class="headerlink" href="#create-development-branch" title="Permanent link">Link</a></h2>
 <p>To contribute to development you have to create a branch on which you will work.</p>
@@ -1758,7 +1820,7 @@ git pull  <span class="c1"># update it</span>
 </code></pre></div></li>
 <li>Then create your new branch <code>my_branch</code> and set tracking to remote central repo (<code>origin</code>)
     <div class="highlight"><pre><span></span><code>git checkout -b my_branch  <span class="c1"># create local branch `my_branch`</span>
-git push --set-upstream origin my_branch  <span class="c1"># attach branch `my_branch` to `origin/my_branch`</span>
+git push --set-upstream origin my_branch  <span class="c1"># attach branch `my_branch` to `origin/my_branch`. Login/password will be asked for.</span>
 </code></pre></div></li>
 </ol>
 <h2 id="work-on-your-modifications">Work on your modifications<a class="headerlink" href="#work-on-your-modifications" title="Permanent link">Link</a></h2>
@@ -1767,6 +1829,17 @@ git push --set-upstream origin my_branch  <span class="c1"># attach branch `my_b
 git commit -m <span class="s2">&quot;This is my awesome commit!&quot;</span>
 git push  <span class="c1"># push modification to `origin/my_branch`</span>
 </code></pre></div></p>
+<h3 id="how-do-i-not-forget-changes-for-committing">How do I not forget changes for committing ?<a class="headerlink" href="#how-do-i-not-forget-changes-for-committing" title="Permanent link">Link</a></h3>
+<p>Commits that affect only a limited number of files are preferable to track changes and history. However, some work require to modify several files. Especially when working with an IDE allowing easy exploring and modifications of all you repository content, you may forget some of the changes you did. </p>
+<p><strong>To quickly identify all current files with uncommited changes in your current branch, just simply check with <code>git status</code> on your local branch.</strong></p>
+<p>The terminal lists in a <strong>red color all files requiring an action</strong> (git add, git restore, git remove): modified files, deleted files, newly added files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>after acting on listed red files, typing <code>git status</code> should turn all previous files in green. Your branch is ready for committing.</p>
+</div>
+<p>Then just proceed as above with <code>git commit</code> and <code>git push</code>.</p>
+<h3 id="check-your-commit-has-been-pushed">check your commit has been pushed<a class="headerlink" href="#check-your-commit-has-been-pushed" title="Permanent link">Link</a></h3>
+<p>After <code>git push</code>, you can get the list of pushd commits related to your current branch with <code>git log</code> (press <code>q</code> to exit the list in the terminal).</p>
 <h2 id="prepare-your-work-for-merging">Prepare your work for merging<a class="headerlink" href="#prepare-your-work-for-merging" title="Permanent link">Link</a></h2>
 <p>Once you are ready for creating a "Pull Request", let's update our branch with potential change to <code>origin/dev</code> since branching occurred.</p>
 <ol>
@@ -1783,21 +1856,30 @@ git rebase dev  <span class="c1"># rebase `dev` branch onto `my_branch`</span>
 git rebase --continue  <span class="c1"># to finish rebase</span>
 </code></pre></div></li>
 <li>Push the rebasing to remote central repo:
-    <div class="highlight"><pre><span></span><code>git push -f origin my_branch
+    <div class="highlight"><pre><span></span><code>git push -f origin my_branch <span class="c1">#-f (force) implies that login/password will be asked for.</span>
 </code></pre></div></li>
 </ol>
 <p>Then you can create your "Pull Request" from this latest commit using the GitHub interface.
 Don't forget to add reviewer.
 Now if you have a CI job checking the instability and performing tests, you may have to wait it all goes well before merging.</p>
-<h2 id="finalization">Finalization<a class="headerlink" href="#finalization" title="Permanent link">Link</a></h2>
-<p>Check if you find all yours commits on <code>origin/dev</code>, if yes:
+<h2 id="finalization-delete-integrated-branches">Finalization: delete integrated branches.<a class="headerlink" href="#finalization-delete-integrated-branches" title="Permanent link">Link</a></h2>
+<p>Check if you find all yours commits on <code>origin/dev</code> (either on GitHub interface of using <code>git log</code> in this branch), if yes:
 <div class="highlight"><pre><span></span><code>git branch --delete my_branch  <span class="c1"># delete local development branch</span>
 git push origin :my_branch  <span class="c1"># delete development branch on origin</span>
 </code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>git branch -a</code> lists all the local branches first (with the current branch in green), followed by the remote-tracking branches in red. <code>git branch</code> only lists your local branches.</p>
+</div>
 <h2 id="revert-a-commit">Revert a commit<a class="headerlink" href="#revert-a-commit" title="Permanent link">Link</a></h2>
 <p>You can revert the last commit with:
 <div class="highlight"><pre><span></span><code>git reset HEAD^
 </code></pre></div></p>
+<h3 id="update-the-project-board-kanban-type">Update the project board (Kanban type)<a class="headerlink" href="#update-the-project-board-kanban-type" title="Permanent link">Link</a></h3>
+<p>Go to: <a href="https://github.com/orgs/romi/projects">https://github.com/orgs/romi/projects</a>
+* choose the project board corresponding to your pull request (PR)
+* link your PR to existing issues
+* move the corresponding note to the appropriate column</p>
                 
               
               
@@ -1831,13 +1913,13 @@ git push origin :my_branch  <span class="c1"># delete development branch on orig
         </a>
       
       
-        <a href="../conda/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../git_docReview/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Conda
+              Contribute to docs
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -1897,10 +1979,10 @@ git push origin :my_branch  <span class="c1"># delete development branch on orig
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

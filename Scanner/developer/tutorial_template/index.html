@@ -13,14 +13,14 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/developer/conda/">
+        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/developer/tutorial_template/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
-        <title>Conda - ROMI Documentation</title>
+        <title>Make a tutorial - ROMI Documentation</title>
       
     
     
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#conda" class="md-skip">
+        <a href="#how-to-make-a-good-romi-tutorial" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Conda
+              Make a tutorial
             
           </span>
         </div>
@@ -1427,18 +1427,6 @@
             
   
   
-  
-    <li class="md-nav__item">
-      <a href="../tutorial_template/" class="md-nav__link">
-        Make a tutorial
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
     
   
   
@@ -1451,12 +1439,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Conda
+          Make a tutorial
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Conda
+        Make a tutorial
       </a>
       
         
@@ -1474,105 +1462,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
+  <a href="#objectives" class="md-nav__link">
+    Objectives
   </a>
-  
-    <nav class="md-nav" aria-label="Requirements">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install-conda-build" class="md-nav__link">
-    Install conda-build:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optional-install-anaconda-client" class="md-nav__link">
-    Optional - Install anaconda-client:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#build-conda-packages" class="md-nav__link">
-    Build conda packages:
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
   </a>
-  
-    <nav class="md-nav" aria-label="Build conda packages:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#build-lettucethink" class="md-nav__link">
-    Build lettucethink:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-romidata" class="md-nav__link">
-    Build romidata:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-romiscan" class="md-nav__link">
-    Build romiscan:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#build-romi-plantviz" class="md-nav__link">
-    Build romi-plantviz:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optional-build-dirsync-package" class="md-nav__link">
-    Optional - Build dirsync package:
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#optional-build-opencv-python-package" class="md-nav__link">
-    Optional - Build opencv-python package:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#conda-useful-commands" class="md-nav__link">
-    Conda useful commands:
+  <a href="#short-theoretical-primer" class="md-nav__link">
+    Short theoretical primer
   </a>
   
-    <nav class="md-nav" aria-label="Conda useful commands:">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-tutorial" class="md-nav__link">
+    Step-by-step tutorial
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-step tutorial">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#purge-built-packages" class="md-nav__link">
-    Purge built packages:
+  <a href="#1-this-is-step-1" class="md-nav__link">
+    1. This is step 1
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#clean-cache-unused-packages" class="md-nav__link">
-    Clean cache &amp; unused packages:
+  <a href="#2-this-is-step-2" class="md-nav__link">
+    2. This is step 2
   </a>
   
 </li>
@@ -1586,6 +1513,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conda/" class="md-nav__link">
+        Conda
+      </a>
     </li>
   
 
@@ -1825,69 +1764,40 @@
               
                 
                 
-                <h1 id="conda">Conda<a class="headerlink" href="#conda" title="Permanent link">Link</a></h1>
-<p>Recipes to build conda packages can be found <a href="https://github.com/romi/conda_recipes.git">here</a>.</p>
-<p>Follow theses instruction to build conda packages.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Conda packages should be built from the <code>base</code> environment.
-<div class="highlight"><pre><span></span><code>conda activate base
-</code></pre></div></p>
-</div>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">Link</a></h2>
-<h3 id="install-conda-build">Install <code>conda-build</code>:<a class="headerlink" href="#install-conda-build" title="Permanent link">Link</a></h3>
-<p>Install <code>conda-build</code>, in the <code>base</code> environment, to be able to build conda package:
-<div class="highlight"><pre><span></span><code>conda install conda-build
+                <h1 id="how-to-make-a-good-romi-tutorial">How to make a good romi tutorial ?<a class="headerlink" href="#how-to-make-a-good-romi-tutorial" title="Permanent link">Link</a></h1>
+<ul>
+<li><strong>Format</strong>: starts with "How", is a question, should be focused to a user-oriented question</li>
+<li><strong>content</strong>: try to build a streamline procedure. If the procedure is too complicated (like different case scenarios, if you need to explain <em>'if you want to ... and/or if you want to...'</em>), <strong>consider splitting your tutorial</strong> in as many tutorials as needed to obtain a streamline procedure.</li>
+</ul>
+<p>Here a suggested sections for our romi tutorials:</p>
+<h2 id="objectives">Objectives<a class="headerlink" href="#objectives" title="Permanent link">Link</a></h2>
+<p>At the end of this tutorial, you should be able to:
+* write a good tutorial
+* review others' tutorials</p>
+<h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
+<ul>
+<li>Installations</li>
+<li>link(s) to other tutorials</li>
+</ul>
+<h2 id="short-theoretical-primer">Short theoretical primer<a class="headerlink" href="#short-theoretical-primer" title="Permanent link">Link</a></h2>
+<p>(if needed)</p>
+<h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
+<h3 id="1-this-is-step-1">1. This is step 1<a class="headerlink" href="#1-this-is-step-1" title="Permanent link">Link</a></h3>
+<p>For non-computer experts, please remember to provide detailed information each time a command line is needed:
+- explain if a new terminal should be open or not ;
+- precise from where the command(s) should be executed ;
+- indicate whether a particular isolated environment should be activated (e.g. conda environment) ;
+- give precise and detailed command lines needed (make sure that all commands are given)
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> my repo <span class="c1">#precise from where the command should be executed</span>
+<span class="nb">command</span> <span class="m">1</span> <span class="c1">#code comments are wellcome !</span>
+<span class="nb">command</span> <span class="m">2</span> <span class="c1"># this is for....</span>
 </code></pre></div>
-<strong>WARNING:</strong> For macOS, follow these <a href="https://docs.conda.io/projects/conda-build/en/latest/resources/compiler-tools.html#macos-sdk">instructions</a> to install the required <code>macOS 10.9 SDK</code>.</p>
-<h3 id="optional-install-anaconda-client">Optional - Install <code>anaconda-client</code>:<a class="headerlink" href="#optional-install-anaconda-client" title="Permanent link">Link</a></h3>
-<p>To be able to upload your package on anaconda cloud you need to install <code>anaconda-client</code>:
-<div class="highlight"><pre><span></span><code>conda install anaconda-client
-</code></pre></div></p>
-<h2 id="build-conda-packages">Build conda packages:<a class="headerlink" href="#build-conda-packages" title="Permanent link">Link</a></h2>
-<h3 id="build-lettucethink">Build <code>lettucethink</code>:<a class="headerlink" href="#build-lettucethink" title="Permanent link">Link</a></h3>
-<p>Using the given recipe, it is easy to build the <code>lettucethink-python</code> conda package:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> conda_recipes/
-conda build lettucethink/ --user romi-eu
-</code></pre></div>
-<h3 id="build-romidata">Build <code>romidata</code>:<a class="headerlink" href="#build-romidata" title="Permanent link">Link</a></h3>
-<p>Using the given recipe, it is easy to build the <code>romidata</code> conda package:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> conda_recipes/
-conda build romidata/ -c romi-eu -c open3d-admin --user romi-eu
-</code></pre></div>
-<h3 id="build-romiscan">Build <code>romiscan</code>:<a class="headerlink" href="#build-romiscan" title="Permanent link">Link</a></h3>
-<p>Using the given recipe, it is easy to build the <code>romiscan</code> conda package:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> conda_recipes/
-conda build romiscan/ -c romi-eu -c conda-forge -c open3d-admin --user romi-eu
-</code></pre></div>
-<h3 id="build-romi-plantviz">Build <code>romi-plantviz</code>:<a class="headerlink" href="#build-romi-plantviz" title="Permanent link">Link</a></h3>
-<p>Using the given recipe, it is easy to build the <code>romi-plantviz</code> conda package:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> conda_recipes/
-conda build romi-plantviz/ -c romi-eu -c conda-forge --user romi-eu
-</code></pre></div>
-<h3 id="optional-build-dirsync-package">Optional - Build <code>dirsync</code> package:<a class="headerlink" href="#optional-build-dirsync-package" title="Permanent link">Link</a></h3>
-<p>To build <code>dirsync</code> you have to install <code>hgsvn</code>:
-<div class="highlight"><pre><span></span><code>sudo apt install hgsvn 
-</code></pre></div>
-Using the given recipe, it is easy to build the <code>dirsync</code> conda package:
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> conda_recipes
-conda build dirsync/recipe/ --user romi-eu
-</code></pre></div></p>
-<h3 id="optional-build-opencv-python-package">Optional - Build <code>opencv-python</code> package:<a class="headerlink" href="#optional-build-opencv-python-package" title="Permanent link">Link</a></h3>
-<p>To build <code>opencv-python</code> you have to install <code>qt4-qmake</code>:
-<div class="highlight"><pre><span></span><code>sudo apt install qt4-qmake qt4-default
-</code></pre></div></p>
-<p>Using the given recipe, it is easy to build the <code>opencv-python</code> conda package:
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> conda_recipes
-conda build opencv-python/ -c conda-forge --user romi-eu
-</code></pre></div></p>
-<h2 id="conda-useful-commands">Conda useful commands:<a class="headerlink" href="#conda-useful-commands" title="Permanent link">Link</a></h2>
-<h3 id="purge-built-packages">Purge built packages:<a class="headerlink" href="#purge-built-packages" title="Permanent link">Link</a></h3>
-<div class="highlight"><pre><span></span><code>conda build purge
-</code></pre></div>
-<h3 id="clean-cache-unused-packages">Clean cache &amp; unused packages:<a class="headerlink" href="#clean-cache-unused-packages" title="Permanent link">Link</a></h3>
-<div class="highlight"><pre><span></span><code>conda clean --all
-</code></pre></div>
+Provide ideas of the expected results to check that the commands were successfully run. examples:</p>
+<blockquote>
+<p>a new folder/object is created</p>
+<p>the terminal says "useful information"</p>
+</blockquote>
+<h3 id="2-this-is-step-2">2. This is step 2<a class="headerlink" href="#2-this-is-step-2" title="Permanent link">Link</a></h3>
                 
               
               
@@ -1906,7 +1816,7 @@ conda build opencv-python/ -c conda-forge --user romi-eu
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../tutorial_template/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../git_docReview/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1915,19 +1825,19 @@ conda build opencv-python/ -c conda-forge --user romi-eu
               <span class="md-footer__direction">
                 Previous
               </span>
-              Make a tutorial
+              Contribute to docs
             </div>
           </div>
         </a>
       
       
-        <a href="../../docker/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../conda/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Home
+              Conda
             </div>
           </div>
           <div class="md-footer__button md-icon">

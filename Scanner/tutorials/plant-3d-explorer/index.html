@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/tutorials/plant-3d-explorer/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.0">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.33e2939f.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
@@ -999,6 +999,7 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
         
       
       
@@ -1013,6 +1014,7 @@
       
         
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
@@ -1565,6 +1567,30 @@
   
   
     <li class="md-nav__item">
+      <a href="../../developer/git_docReview/" class="md-nav__link">
+        Contribute to docs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../developer/tutorial_template/" class="md-nav__link">
+        Make a tutorial
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../developer/conda/" class="md-nav__link">
         Conda
       </a>
@@ -1580,14 +1606,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7_5" type="checkbox" id="__nav_3_4_7_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7_7" type="checkbox" id="__nav_3_4_7_7" >
       
-      <label class="md-nav__link" for="__nav_3_4_7_5">
+      <label class="md-nav__link" for="__nav_3_4_7_7">
         Docker
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Docker" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_7_5">
+        <label class="md-nav__title" for="__nav_3_4_7_7">
           <span class="md-nav__icon md-icon"></span>
           Docker
         </label>
@@ -1811,10 +1837,12 @@
 <h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
 <p>Throughout the whole process of plant phenotyping, viewing data is often needed.
 This tutorial explains how to use the romi <code>plant-3d-explorer</code>, a web-server tool, to explore, display and interact with most of the diverse data generated during a typical plant phenotyping experiment from 2D images (2D images, 3D objects like meshes or point cloud, quality evaluations, trait measurements).
-After this tutorial, you should be able to:
-* connect the plant-3d-explorer to a database containing the phenotyping data of one to several plants ;
-* explore the database content with the <code>plant-3d-explorer</code> menu page ;
-* For each plant, display, overlay and inspect in 3d every data generated during analysis</p>
+After this tutorial, you should be able to:</p>
+<ul>
+<li>connect the plant-3d-explorer to a database containing the phenotyping data of one to several plants ;</li>
+<li>explore the database content with the <code>plant-3d-explorer</code> menu page ;</li>
+<li>For each plant, display, overlay and inspect in 3d every data generated during analysis</li>
+</ul>
 <h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
 <ul>
 <li>install romi <code>plant-3d-explorer</code> (from <a href="https://github.com/romi/plant-3d-explorer">source</a> or using a <a href="../../docker/plant3dexplorer_docker/">docker image</a> ) &amp; read <a href="../../install/plant3dexplorer_setup/">install procedure</a> </li>
@@ -1963,10 +1991,10 @@ Without this, the app will use: <a href="http://localhost:5000">http://localhost
 </ul>
 <h4 id="activate-overlay-with-2d-images">Activate overlay with 2D images<a class="headerlink" href="#activate-overlay-with-2d-images" title="Permanent link">Link</a></h4>
 <p>click on any image of the bottom carousel to activate the display of 2 images in the main panel. On Mouse-over, a single picture is enlarged and proposes to open it in the main panel.</p>
-<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-open.png" alt="plant3dexplorer_view-icons.png" width="800"></p>
+<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-open.png" alt="plant3dexplorer_view-icons.png" width="800" style="display:block; margin-left: auto; margin-right: auto;"></p>
 <p>Overlay with active 3D layers is automatic. In the carousel, the box around the active displayed 2D image is now permanent.</p>
 <p>To close the 2D overlay, just click the close button of the boxed picture in the carousel.</p>
-<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-close.png" alt="plant3dexplorer_view-icons.png" width="800"></p>
+<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_carousel-close.png" alt="plant3dexplorer_view-icons.png" width="800" style="display:block; margin-left: auto; margin-right: auto;"></p>
 <h4 id="moving-the-view-with-2d-overlay">Moving the view with 2D overlay<a class="headerlink" href="#moving-the-view-with-2d-overlay" title="Permanent link">Link</a></h4>
 <p>Note that movement control with the mouse slightly changes compared to the "free" view without 2D overlay. Notably, the free rotation mode is not possible anymore, since it is constrained by the real movements made by the camera when it took the pictures. </p>
 <ul>
@@ -1975,14 +2003,14 @@ Without this, the app will use: <a href="http://localhost:5000">http://localhost
 <li>left-click to translate</li>
 </ul>
 <h4 id="the-phyllotaxis-measure-plots">The phyllotaxis measure plots<a class="headerlink" href="#the-phyllotaxis-measure-plots" title="Permanent link">Link</a></h4>
-<p>Plots represent the successive measures of divergence angles (left, in degrees) and internode length (right, in mm) between consecutive pairs of organs (here fruits) along the stem, from the base to the inflorescence tip. Both plots can be closed by clicking the cross at the far right the plot's title. Closed plot panels can be re-opened by clicking a green "+" sign appearing at the to right-hand corner when at least one plot is closed.</p>
-<p>Mouse-over any of the two plots highlights an interval that correspond to a measure between two consecutive organs segmented by the analysis. The interval appears synchronously on both plots if opened. This interval and the organs are numbered by their order from the base of the stem, these numbers appear on the X-axis of the plots. </p>
-<p>When the 'organ' 3d-layer is activated in the main panel, 
-automatically select the organ pair in the main panel that correspond to the current interval pointed by the mouse in the graph (the 3d layer of other organs disappear). The two graphs (divergence angles and internodes) are synchronized.</p>
-<p>clicking an interval</p>
+<p>Plots represent the successive measures of divergence angles (left, in degrees) and internode length (right, in mm) between consecutive pairs of organs (here fruits) along the stem, from the base to the inflorescence tip. Both plots can be closed by clicking the cross at the far right of the plot's title. Closed plot panels can be re-opened by clicking a green "+" sign appearing at the right-hand corner when at least one plot is closed. In the plots, a blue curve correspond to "automated" measure computed through an analysis pipeline (such as pipelines developed in romi plant-3d-vision). If available in the dataset, a red curve indicates a groundtruth "manual" measure.</p>
+<p>Mouse-over any of the two plots highlights an interval that correspond to a measure between two consecutive organs (fruits) segmented by the analysis. The interval appears synchronously on both plots if opened. This interval and the organs are numbered by their order from the base of the stem, these numbers appear on the (vertical) X-axis of the plots. The exact value of the selected interval is displayed on top of the plot ("automated" and "manual" values in blue and red respectively, if available).</p>
+<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_phyllo_panels.png" alt="phyllo_plots" width="600" style="display:block; margin-left: auto; margin-right: auto;"></p>
+<p>As shown above, when the 'organ' 3d-layer is active in the main panel, mouse-over the plot synchronously select the corresponding pair of organs in the current view (all other organ layers just disappear). Clicking the interval in the plot maintains the selection of the organ pair active despite further mouse movements. To deactivate the selection, click the green cross at the end of the shaded selection rectangle on either of the plots.
+Organ colors are also synchronized between main panel and plot panels. In the free 3D mode only, cliking a fruit layer display a bubble telling the organ number, colored as the corresponding fruit layer. Bubbles stay on screen if the 2D ovelay is activated (as in the picture above).</p>
 <h4 id="go-back-to-main-page">Go back to main page<a class="headerlink" href="#go-back-to-main-page" title="Permanent link">Link</a></h4>
-<p>In the top left corner of the page, click "all scans" </p>
-<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_allscans_backmenu.png" alt="backtomenu" width="100"></p>
+<p>In the top left corner of the page, click "all scans":</p>
+<p><img src="/assets/images/plant-3d-explorer/plant3dexplorer_allscans_backmenu.png" alt="backtomenu" width="100" style="display:block; margin-left: auto; margin-right: auto;"></p>
                 
               
               
@@ -2082,10 +2110,10 @@ automatically select the organ pair in the main panel that correspond to the cur
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.d892486b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
