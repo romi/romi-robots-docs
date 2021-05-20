@@ -165,7 +165,7 @@ MODULES = {
 
 ## Use your newly created task
 You should now be able to use your newly created task `MyTask` with `romi_run_task`:
-```bash
+```shell
 romi_run_task MyTask /path/to/dataset --config /path/to/my_pipeline.toml
 ```
 

@@ -11,7 +11,7 @@ To do so, you may use the `romi_import_folder` or `romi_import_file` executables
 For example, you have a set of 10 RGB pictures named `img_00*.jpg` in a folder `my_plant/` that you would like to import as `outdoor_plant_1` in a romi database located under `/data/romi/db`.
 
 First you have to move the pictures to an `ìmages` sub-directory & create a `metadata.json` describing the object under study:
-```bash
+```shell
 cd my_plant
 mkdir images
 mv *.jpg images/.

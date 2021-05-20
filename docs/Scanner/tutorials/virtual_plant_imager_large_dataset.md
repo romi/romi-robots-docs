@@ -19,7 +19,7 @@ An Http server acts as an interface to drive Blender generation scripts.
 First, you have to create a working database on your host machine, let's say `home/host/path/database_example`. You can find an example of this database [here](https://github.com/romi/plant-imager/tree/master/database_example).
 
 You can obtain sample data for the scanner here, and put it in the data folder.
-```bash
+```shell
 wget https://db.romi-project.eu/models/arabidopsis_data.zip
 unzip arabidopsis_data.zip -d data
 ```
@@ -33,13 +33,13 @@ Download `.hdr` files and put them in the `hdri` folder.
 
 ### 2. Generating a large dataset for machine learning purposes
 After preparing your working database directory. You have to run the docker container with the database mounted.
-```bash
+```shell
 cd plant-imager/docker
 ./run.sh -db /home/host/path/database_example  # This will map to `db` directory located in the the docker's user home
 ```
 
 To generate a large dataset, you have to run the script `generate_dataset.py` by passing the config file and the output folder.
-```bash
+```shell
 (lpyEnv) user@5c9e389f223d  python generate_dataset.py plant-imager/config/vscan_lpy_blender.toml db/learning_set
 ```
 

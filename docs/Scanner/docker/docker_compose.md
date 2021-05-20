@@ -43,7 +43,7 @@ services:
 ```
 
 From the root directory of `3d-plantviewer` containing the `docker-compose.yml` in a terminal:
-```bash
+```shell
 export ROMI_DB=<path/to/db>
 docker-compose up -d 
 ```
@@ -55,7 +55,7 @@ docker-compose up -d
     If you have other containers running it might not work since it assumes the romidb container will have the `172.21.0.2` IP address!
 
 To stop the containers: 
-```bash
+```shell
 docker-compose stop
 ```
 

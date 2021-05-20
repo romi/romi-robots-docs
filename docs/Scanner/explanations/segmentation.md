@@ -13,7 +13,7 @@ The segmentation of an image consists in assigning a label to each of its pixels
 
 The binary segmentation of an image into *plant* and *background* is performed with the following command:
 
-```bash
+```shell
 romi_run_task Masks scan_id --config myconfig.toml 
 ``` 
 with upstream task being *ImagesFilesetExists* when processing the raw RGB images or *Undistorded* when processing images corrected using the intrinsic parameters of the camera. The task takes this set of images as an input and produce one binary mask for each image. 

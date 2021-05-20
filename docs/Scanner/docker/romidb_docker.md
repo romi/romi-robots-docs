@@ -8,7 +8,7 @@ Docker container for ROMI database
 
 ## Use pre-built docker image
 Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can easily download and start the pre-built `romidb` docker image with:
-```bash
+```shell
 export ROMI_DB=/data/ROMI/DB
 docker run -it -p 5000:5000 \
   -v $ROMI_DB:/home/scanner/db \
@@ -26,7 +26,7 @@ You can choose to use this script OR to "manually" call the `docker build` comma
 
 ### Provided convenience `build.sh` script
 To build the image with the provided build script, from the `romidata/docker` directory:
-```bash
+```shell
 ./build.sh
 ```
 You can also pass some options, use `./build.sh -h` to get more details about usage, options and default values.
@@ -34,7 +34,7 @@ You can also pass some options, use `./build.sh -h` to get more details about us
 
 ### Manually call the `docker build` command
 To build the image, from the `romidata` root directory:
-```bash
+```shell
 export VTAG="latest"
 docker build -t roboticsmicrofarms/romidb:$VTAG .
 ```
@@ -47,7 +47,7 @@ You can use the following optional arguments:
 
 ## Publish docker image
 Push it on docker hub:
-```bash
+```shell
 docker push roboticsmicrofarms/romidb:$VTAG
 ```
 This require a valid account & token on dockerhub!
@@ -63,7 +63,7 @@ To run it, you need to have a valid local ROMI database, look [here](../install/
 
 #### Provided `run.sh` script
 To start the container with the provided run script in `romidata/docker`, use:
-```bash
+```shell
 ./run.sh
 ```
 You can also pass some options, use `./run.sh -h` to get more details about usage and options.
@@ -71,7 +71,7 @@ You can also pass some options, use `./run.sh -h` to get more details about usag
 
 #### Manually
 Assuming you extracted it in your home folder (`/home/$USER/integration_tests`), you can start the `romidb` docker image with:
-```bash
+```shell
 docker run -it -p 5000:5000 -v /home/$USER/integration_tests:/home/scanner/db romidb:$VTAG
 ```
 

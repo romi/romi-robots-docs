@@ -201,7 +201,7 @@ Source: Raspberry Foundation [website](https://www.raspberrypi.org/documentation
 
 #### 1. General setup
 Switch over to `systemd-networkd`:
-```bash
+```shell
 # deinstall classic networking
 sudo apt --autoremove purge ifupdown dhcpcd5 isc-dhcp-client isc-dhcp-common
 rm -r /etc/network /etc/dhcp
@@ -239,7 +239,7 @@ network={
 EOF
 ```
 
-```bash
+```shell
 chmod 600 /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
 systemctl disable wpa_supplicant.service
 systemctl enable wpa_supplicant@wlan0.service
@@ -247,7 +247,7 @@ systemctl enable wpa_supplicant@wlan0.service
 
 #### Setting up a stand alone access point
 Example for this setup:
-```bash
+```shell
                  wifi
 mobile-phone <~.~.~.~.~> (wlan0)RPi(eth0)
             \             /
@@ -256,7 +256,7 @@ mobile-phone <~.~.~.~.~> (wlan0)RPi(eth0)
 Do "General setup" then create the following file to configure ``wlan0``.
 We only have the access point. There is no ethernet device configured.
 
-```bash
+```shell
 cat > /etc/systemd/network/08-wlan0.network <<EOF
 [Match]
 Name=wlan0

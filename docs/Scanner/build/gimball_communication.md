@@ -10,7 +10,7 @@ To do so, you can use ``dmesg``:
 1. make sure the usb cable from the Feather M0 is unplugged
 2. run ``dmesg -w`` in a terminal
 3. connect the usb and see something like:
-```bash
+```shell
 [70481.093408] cdc_acm 1-2:1.0: ttyACM1: USB ACM device
 ```
 
@@ -19,7 +19,7 @@ To do so, you can use ``dmesg``:
 
 Then you can use [picocom](https://github.com/npat-efault/picocom) to connect to the Feather M0:
 
-```bash
+```shell
 picocom /dev/ttyACM1 -b 115200
 ```
 

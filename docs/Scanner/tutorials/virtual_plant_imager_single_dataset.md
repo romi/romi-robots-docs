@@ -19,7 +19,7 @@ An Http server acts as an interface to drive Blender generation scripts.
 First, you have to create a working database on your host machine, let's say `home/host/path/database_example`. You can find an example of this database [here](https://github.com/romi/plant-imager/tree/master/database_example).
 
 You can obtain sample data for the scanner here, and put it in the data folder.
-```bash
+```shell
 wget https://db.romi-project.eu/models/arabidopsis_data.zip
 unzip arabidopsis_data.zip -d data
 ```
@@ -33,13 +33,13 @@ Download `.hdr` files and put them in the `hdri` folder.
 
 ### 2. Generate a virtual plant with lpy
 After preparing your working database directory. You have to run the docker container with the database mounted.
-```bash
+```shell
 cd plant-imager/docker
 ./run.sh -db /home/host/path/database_example  # This will map to `db` directory located in the the docker's user home
 ```
 
 Finally, you can generate the virtual dataset by running the following command
-```bash
+```shell
 (lpyEnv) user@5c9e389f223d  romi_run_task --config plant-imager/config/vscan_lpy_blender.toml VirtualScan db/generated_dataset # Run VirtualScan by specifying the output folder generated_dataset
 ```
 
@@ -69,7 +69,7 @@ upstream_task = Scan
 Then the pipeline can be run as usual and `colmap` will not be run.
 
 To test the plant reconstruction pipeline on an example `/home/host/my_virtual_plant`:
-```bash
+```shell
 romi_run_task --config plant-3d-vision/config/geom_pipe_virtual.toml PointCloud /home/host/my_virtual_plant
 ```
 This should process all dependencies to obtain a segmented "PointCloud.ply" !

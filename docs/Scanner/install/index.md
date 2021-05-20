@@ -25,14 +25,14 @@ To clone the git repository, you will need:
  - `ca-certificates`
 
 Start with these system dependencies:
-```bash
+```shell
 sudo apt-get install git ca-certificates
 ```
 
 ### Downloading from URLs
 Sometimes the documentation will provides commands with `wget` to download archives or other types of files, here is the command line to install it if you do not have it:
 
-```bash
+```shell
 sudo apt install wget
 ```
 

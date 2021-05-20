@@ -9,7 +9,7 @@ For the sake of clarity the environment will be called `plant_imager`.
 ## Install ROMI packages with `pip`:
 
 Activate your `plant_imager` environment!
-```bash
+```shell
 conda activate plant_imager
 ```
 
@@ -18,25 +18,25 @@ conda activate plant_imager
 
 ### Install `plant-imager` sources:
 To pilot the hardware you have to install the `plant-imager`package:
-```bash
+```shell
 python3 -m pip install -e git+https://github.com/romi/plant-imager.git@dev
 ```
 
 ### Install `romiscan` sources:
 To start "acquisition jobs", you have to install the `romiscan` package:
-```bash
+```shell
 python3 -m pip install -e git+https://github.com/romi/romiscan.git@dev
 ```
 
 ### Install `romidata` sources:
 Since we will need an active database to export the acquisitions, you have to install the `romidata` package:
-```bash
+```shell
 python3 -m pip install -e git+https://github.com/romi/romidata.git@dev
 ```
 
 ## Example database
 To quickly create an example DB you can use:
-```bash
+```shell
 wget https://db.romi-project.eu/models/test_db.tar.gz
 tar -xf test_db.tar.gz
 ```

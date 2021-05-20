@@ -7,7 +7,7 @@ Follow theses instruction to build conda packages.
 
 !!! warning
 	Conda packages should be built from the `base` environment.
-	```bash
+	```shell
 	conda activate base
 	```
 

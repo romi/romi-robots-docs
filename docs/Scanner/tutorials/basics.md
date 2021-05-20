@@ -29,7 +29,7 @@ the `romiscan` module. It is a wrapper for `luigi`, with preloaded tasks from
 the `romiscan` module.
 
 The general usage is as follows:
-```bash
+```shell
 romi_run_task [-h] [--config CONFIG] [--luigicmd LUIGICMD] [--module MODULE]
 [--local-scheduler] [--log-level LOG_LEVEL] task scan
 ```
@@ -94,7 +94,7 @@ mesh_source = "delaunay"
 ```
 
 To run the _full reconstruction pipeline_ use this configuration file with `romi_run_task`:
-```bash
+```shell
 romi_run_task --config scanner.json AnglesAndInternodes /path/to/db/scan_id/ --local-scheduler
 ```
 

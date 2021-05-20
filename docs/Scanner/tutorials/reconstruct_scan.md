@@ -14,7 +14,7 @@ To follows this guide you should have:
 
 ### Cleaning a dataset
 If you made a mess, had a failure or just want to start fresh with your dataset, no need to save a copy on the side, you can use the `Clean` task:
-```bash
+```shell
 romi_run_task Clean integration_tests/2019-02-01_10-56-33 \
     --config romiscan/config/original_pipe_0.toml --local-scheduler
 ``` 
@@ -30,7 +30,7 @@ If `true` the `Clean` task will run silently, else in interactive mode.
 
 #### Real scan dataset
 The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on real dataset with:
-```bash
+```shell
 romi_run_task AnglesAndInternodes integration_tests/2019-02-01_10-56-33 \
     --config romiscan/config/original_pipe_0.toml --local-scheduler
 ```
@@ -40,7 +40,7 @@ romi_run_task AnglesAndInternodes integration_tests/2019-02-01_10-56-33 \
 
 #### Virtual plant dataset
 The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on a virtual dataset with:
-```bash
+```shell
 romi_run_task AnglesAndInternodes integration_tests/arabidopsis_26 \
     --config romiscan/config/original_pipe_0.toml --local-scheduler
 ```
@@ -67,7 +67,7 @@ romi_run_task AnglesAndInternodes integration_tests/arabidopsis_26 \
 
 #### Real scan dataset
 The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on real dataset with:
-```bash
+```shell
 romi_run_task PointCloud integration_tests/2019-02-01_10-56-33 
     --config romiscan/config/ml_pipe_vplants_3.toml --local-scheduler
 ```
@@ -77,7 +77,7 @@ romi_run_task PointCloud integration_tests/2019-02-01_10-56-33
 
 #### Virtual plant dataset
 The full *geometric pipeline*, _ie._ all the way to angles and internodes measurement, can be called on a virtual dataset with:
-```bash
+```shell
 romi_run_task PointCloud integration_tests/arabidopsis_26 \
     --config romiscan/config/ml_pipe_vplants_3.toml --local-scheduler
 ```
