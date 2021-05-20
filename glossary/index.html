@@ -13,25 +13,21 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/docker/romidb_docker/">
+        <link rel="canonical" href="https://docs.romi-project.eu/glossary/">
       
-      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <link rel="icon" href="../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
-        <title>Database - ROMI Documentation</title>
+        <title>Glossary - ROMI Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.bde7dde4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#4cae4f">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ef6f36e2.min.css">
         
       
     
@@ -40,11 +36,13 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Nunito Sans";--md-code-font-family:"Ubuntu Mono"}</style>
       
     
     
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
     
     
       
@@ -58,10 +56,10 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="green" data-md-color-accent="deep-orange">
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -69,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-container-for-romi-database" class="md-skip">
+        <a href="#glossary" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +80,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://romi-project.eu/" title="ROMI Documentation" class="md-header__button md-logo" aria-label="ROMI Documentation" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -98,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Database
+              Glossary
             
           </span>
         </div>
@@ -168,7 +166,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../about/" class="md-tabs__link">
+    <a href="../about/" class="md-tabs__link">
       About
     </a>
   </li>
@@ -177,15 +175,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../../documentation/" class="md-tabs__link md-tabs__link--active">
+      <a href="../documentation/" class="md-tabs__link">
         Documentation
       </a>
     </li>
@@ -198,7 +194,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../research/" class="md-tabs__link">
+    <a href="../research/" class="md-tabs__link">
       Research
     </a>
   </li>
@@ -210,8 +206,22 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../../data/" class="md-tabs__link">
+    <a href="../data/" class="md-tabs__link">
       Data
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Glossary
     </a>
   </li>
 
@@ -240,7 +250,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://romi-project.eu/" title="ROMI Documentation" class="md-nav__button md-logo" aria-label="ROMI Documentation" data-md-component="logo">
       
-  <img src="../../../assets/images/logo.svg" alt="logo">
+  <img src="../assets/images/logo.svg" alt="logo">
 
     </a>
     ROMI Documentation
@@ -271,7 +281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../about/" class="md-nav__link">
+      <a href="../about/" class="md-nav__link">
         About
       </a>
     </li>
@@ -284,14 +294,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         Documentation
@@ -309,7 +317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../documentation/" class="md-nav__link">
+      <a href="../documentation/" class="md-nav__link">
         Robotics for micro-farms
       </a>
     </li>
@@ -342,7 +350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -375,7 +383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/bot/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/bot/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -387,7 +395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/structure/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/structure/" class="md-nav__link">
         Structure
       </a>
     </li>
@@ -399,7 +407,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/electronics/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/electronics/" class="md-nav__link">
         Electronics
       </a>
     </li>
@@ -411,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/tension/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/tension/" class="md-nav__link">
         Dinamyc Tension
       </a>
     </li>
@@ -423,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/power/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/power/" class="md-nav__link">
         Power
       </a>
     </li>
@@ -441,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/station/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/station/" class="md-nav__link">
         Charging Station (In development)
       </a>
     </li>
@@ -453,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/camera/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/camera/" class="md-nav__link">
         Camera Module
       </a>
     </li>
@@ -465,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/pipeline/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/pipeline/" class="md-nav__link">
         Crops Insights Pipeline
       </a>
     </li>
@@ -477,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/app/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/app/" class="md-nav__link">
         Farmers Dashboard App
       </a>
     </li>
@@ -489,7 +497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Farmers%20Dashboard/legacy/" class="md-nav__link">
+      <a href="../Farmers%20Dashboard/legacy/" class="md-nav__link">
         Legacy
       </a>
     </li>
@@ -528,7 +536,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Rover/" class="md-nav__link">
+      <a href="../Rover/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -540,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Rover/configuration/" class="md-nav__link">
+      <a href="../Rover/configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -552,7 +560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Rover/hardware/" class="md-nav__link">
+      <a href="../Rover/hardware/" class="md-nav__link">
         Hardware
       </a>
     </li>
@@ -564,7 +572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Rover/manual/" class="md-nav__link">
+      <a href="../Rover/manual/" class="md-nav__link">
         Manual
       </a>
     </li>
@@ -576,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Rover/software/" class="md-nav__link">
+      <a href="../Rover/software/" class="md-nav__link">
         Software
       </a>
     </li>
@@ -588,7 +596,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Rover/developer/" class="md-nav__link">
+      <a href="../Rover/developer/" class="md-nav__link">
         Developer
       </a>
     </li>
@@ -604,23 +612,21 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
       
       <label class="md-nav__link" for="__nav_3_4">
-        Scanner
+        Plant Phenotyping
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Scanner" data-md-level="2">
+      <nav class="md-nav" aria-label="Plant Phenotyping" data-md-level="2">
         <label class="md-nav__title" for="__nav_3_4">
           <span class="md-nav__icon md-icon"></span>
-          Scanner
+          Plant Phenotyping
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -629,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../" class="md-nav__link">
+      <a href="../Scanner/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -647,13 +653,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_2" type="checkbox" id="__nav_3_4_2" >
       
       <label class="md-nav__link" for="__nav_3_4_2">
-        Build
+        Explanations
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Build" data-md-level="3">
+      <nav class="md-nav" aria-label="Explanations" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_4_2">
           <span class="md-nav__icon md-icon"></span>
-          Build
+          Explanations
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -662,8 +668,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/" class="md-nav__link">
-        Home
+      <a href="../Scanner/explanations/general_design/" class="md-nav__link">
+        General design
       </a>
     </li>
   
@@ -674,104 +680,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/alu_frame/" class="md-nav__link">
-        Aluminium frame
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/cnc_frame/" class="md-nav__link">
-        CNC frame
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/cnc_electronics/" class="md-nav__link">
-        CNC electronics
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/cnc_communication/" class="md-nav__link">
-        CNC communication
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/cnc_calibration/" class="md-nav__link">
-        CNC calibration
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/gimball_setup/" class="md-nav__link">
-        Gimball setup
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/gimball_communication/" class="md-nav__link">
-        Gimball communication
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/picamera_setup/" class="md-nav__link">
-        PiCamera setup
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../build/troubleshooting/" class="md-nav__link">
-        Troubleshooting
+      <a href="../Scanner/explanations/segmentation/" class="md-nav__link">
+        Segmentation of images
       </a>
     </li>
   
@@ -794,13 +704,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_3" type="checkbox" id="__nav_3_4_3" >
       
       <label class="md-nav__link" for="__nav_3_4_3">
-        Install
+        Modules
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Install" data-md-level="3">
+      <nav class="md-nav" aria-label="Modules" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_4_3">
           <span class="md-nav__icon md-icon"></span>
-          Install
+          Modules
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -809,7 +719,76 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/" class="md-nav__link">
+      <a href="../Scanner/modules/plantdb/" class="md-nav__link">
+        Plantdb
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/modules/plant_3d_vision/" class="md-nav__link">
+        Plant 3d vision
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/modules/plant_imager/" class="md-nav__link">
+        Plant imager
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/modules/plant_3d_explorer/" class="md-nav__link">
+        Plant 3d explorer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_3_5" type="checkbox" id="__nav_3_4_3_5" >
+      
+      <label class="md-nav__link" for="__nav_3_4_3_5">
+        Plant 3D Explorer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Plant 3D Explorer" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_4_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Plant 3D Explorer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plant-3d-explorer/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -821,69 +800,15 @@
   
   
     <li class="md-nav__item">
-      <a href="../../install/create_env/" class="md-nav__link">
-        Create python environments
+      <a href="../plant-3d-explorer/guide/" class="md-nav__link">
+        Guide
       </a>
     </li>
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../install/romidb_setup/" class="md-nav__link">
-        Database setup
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../install/plant_imager_setup/" class="md-nav__link">
-        Plant imager software setup
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../install/virtual_plant_setup/" class="md-nav__link">
-        Virtual plants scanner software setup
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../install/plant_reconstruction_setup/" class="md-nav__link">
-        Plant reconstruction software setup
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../install/plant3dexplorer_setup/" class="md-nav__link">
-        plant-3d-explorer software setup
-      </a>
+        </ul>
+      </nav>
     </li>
   
 
@@ -905,13 +830,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_4" type="checkbox" id="__nav_3_4_4" >
       
       <label class="md-nav__link" for="__nav_3_4_4">
-        Tutorials
+        Hardware setup
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Tutorials" data-md-level="3">
+      <nav class="md-nav" aria-label="Hardware setup" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_4_4">
           <span class="md-nav__icon md-icon"></span>
-          Tutorials
+          Hardware setup
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -920,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/" class="md-nav__link">
+      <a href="../Scanner/build/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -932,8 +857,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/basics/" class="md-nav__link">
-        Basics
+      <a href="../Scanner/build/alu_frame/" class="md-nav__link">
+        Aluminium frame
       </a>
     </li>
   
@@ -944,8 +869,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/hardware_scan/" class="md-nav__link">
-        Plant imaging
+      <a href="../Scanner/build/cnc_frame/" class="md-nav__link">
+        CNC frame
       </a>
     </li>
   
@@ -956,8 +881,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/calibration/" class="md-nav__link">
-        Extrinsic calibration procedure
+      <a href="../Scanner/build/cnc_electronics/" class="md-nav__link">
+        CNC electronics
       </a>
     </li>
   
@@ -968,8 +893,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/virtual_plant_imager_single_dataset/" class="md-nav__link">
-        How to use the Virtual Plant Imager to generate a single virtual plant dataset
+      <a href="../Scanner/build/cnc_communication/" class="md-nav__link">
+        CNC communication
       </a>
     </li>
   
@@ -980,8 +905,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/virtual_plant_imager_large_dataset/" class="md-nav__link">
-        How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes
+      <a href="../Scanner/build/cnc_calibration/" class="md-nav__link">
+        CNC calibration
       </a>
     </li>
   
@@ -992,8 +917,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/reconstruct_scan/" class="md-nav__link">
-        Scan reconstruction
+      <a href="../Scanner/build/gimball_setup/" class="md-nav__link">
+        Gimball setup
       </a>
     </li>
   
@@ -1004,8 +929,32 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/plant-3d-explorer/" class="md-nav__link">
-        plant-3d-explorer: view your data
+      <a href="../Scanner/build/gimball_communication/" class="md-nav__link">
+        Gimball communication
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/build/picamera_setup/" class="md-nav__link">
+        PiCamera setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/build/troubleshooting/" class="md-nav__link">
+        Troubleshooting
       </a>
     </li>
   
@@ -1028,13 +977,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_5" type="checkbox" id="__nav_3_4_5" >
       
       <label class="md-nav__link" for="__nav_3_4_5">
-        How-to
+        Software setup
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="How-to" data-md-level="3">
+      <nav class="md-nav" aria-label="Software setup" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_4_5">
           <span class="md-nav__icon md-icon"></span>
-          How-to
+          Software setup
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1043,7 +992,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how_to/" class="md-nav__link">
+      <a href="../Scanner/install/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1055,8 +1004,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how_to/import_files/" class="md-nav__link">
-        Import external ressources
+      <a href="../Scanner/install/create_env/" class="md-nav__link">
+        Create python environments
       </a>
     </li>
   
@@ -1067,8 +1016,56 @@
   
   
     <li class="md-nav__item">
-      <a href="../../how_to/create_new_task/" class="md-nav__link">
-        Create a new task
+      <a href="../Scanner/install/plantdb_setup/" class="md-nav__link">
+        Database setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/install/plant_imager_setup/" class="md-nav__link">
+        Plant imager software setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/install/virtual_plant_setup/" class="md-nav__link">
+        Virtual plants scanner software setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/install/plant_reconstruction_setup/" class="md-nav__link">
+        Plant reconstruction software setup
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/install/plant3dexplorer_setup/" class="md-nav__link">
+        plant-3d-explorer software setup
       </a>
     </li>
   
@@ -1091,13 +1088,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_6" type="checkbox" id="__nav_3_4_6" >
       
       <label class="md-nav__link" for="__nav_3_4_6">
-        Specifications
+        Tutorials
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Specifications" data-md-level="3">
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_4_6">
           <span class="md-nav__icon md-icon"></span>
-          Specifications
+          Tutorials
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1106,7 +1103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/" class="md-nav__link">
+      <a href="../Scanner/tutorials/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1118,7 +1115,193 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/data/" class="md-nav__link">
+      <a href="../Scanner/tutorials/basics/" class="md-nav__link">
+        Basics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/tutorials/hardware_scan/" class="md-nav__link">
+        Plant imaging
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/tutorials/calibration/" class="md-nav__link">
+        Extrinsic calibration procedure
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/tutorials/virtual_plant_imager_single_dataset/" class="md-nav__link">
+        How to use the Virtual Plant Imager to generate a single virtual plant dataset
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/tutorials/virtual_plant_imager_large_dataset/" class="md-nav__link">
+        How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/tutorials/reconstruct_scan/" class="md-nav__link">
+        Scan reconstruction
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/tutorials/plant-3d-explorer/" class="md-nav__link">
+        plant-3d-explorer: view your data
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7" type="checkbox" id="__nav_3_4_7" >
+      
+      <label class="md-nav__link" for="__nav_3_4_7">
+        How-to
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="How-to" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          How-to
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/how_to/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/how_to/import_files/" class="md-nav__link">
+        Import external ressources
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/how_to/create_new_task/" class="md-nav__link">
+        Create a new task
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_8" type="checkbox" id="__nav_3_4_8" >
+      
+      <label class="md-nav__link" for="__nav_3_4_8">
+        Specifications
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Specifications" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_4_8">
+          <span class="md-nav__icon md-icon"></span>
+          Specifications
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/user_guide/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/user_guide/data/" class="md-nav__link">
         Data
       </a>
     </li>
@@ -1130,7 +1313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/hardware/" class="md-nav__link">
+      <a href="../Scanner/user_guide/hardware/" class="md-nav__link">
         Hardware
       </a>
     </li>
@@ -1145,14 +1328,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_6_4" type="checkbox" id="__nav_3_4_6_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_8_4" type="checkbox" id="__nav_3_4_8_4" >
       
-      <label class="md-nav__link" for="__nav_3_4_6_4">
+      <label class="md-nav__link" for="__nav_3_4_8_4">
         Metadata
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Metadata" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_6_4">
+        <label class="md-nav__title" for="__nav_3_4_8_4">
           <span class="md-nav__icon md-icon"></span>
           Metadata
         </label>
@@ -1163,7 +1346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../metadata/" class="md-nav__link">
+      <a href="../Scanner/metadata/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1175,7 +1358,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../metadata/biological_metadata/" class="md-nav__link">
+      <a href="../Scanner/metadata/biological_metadata/" class="md-nav__link">
         Biological metadata
       </a>
     </li>
@@ -1187,7 +1370,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../metadata/hardware_metadata/" class="md-nav__link">
+      <a href="../Scanner/metadata/hardware_metadata/" class="md-nav__link">
         Hardware metadata
       </a>
     </li>
@@ -1199,7 +1382,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../metadata/software_metadata/" class="md-nav__link">
+      <a href="../Scanner/metadata/software_metadata/" class="md-nav__link">
         Software metadata
       </a>
     </li>
@@ -1211,7 +1394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../metadata/tasks_metadata/" class="md-nav__link">
+      <a href="../Scanner/metadata/tasks_metadata/" class="md-nav__link">
         Tasks metadata
       </a>
     </li>
@@ -1229,7 +1412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/luigi/" class="md-nav__link">
+      <a href="../Scanner/user_guide/luigi/" class="md-nav__link">
         Luigi
       </a>
     </li>
@@ -1244,14 +1427,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_6_6" type="checkbox" id="__nav_3_4_6_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_8_6" type="checkbox" id="__nav_3_4_8_6" >
       
-      <label class="md-nav__link" for="__nav_3_4_6_6">
+      <label class="md-nav__link" for="__nav_3_4_8_6">
         Tasks
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Tasks" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_6_6">
+        <label class="md-nav__title" for="__nav_3_4_8_6">
           <span class="md-nav__icon md-icon"></span>
           Tasks
         </label>
@@ -1262,7 +1445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/" class="md-nav__link">
+      <a href="../Scanner/user_guide/tasks/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1274,7 +1457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/file_tasks/" class="md-nav__link">
+      <a href="../Scanner/user_guide/tasks/file_tasks/" class="md-nav__link">
         Files tasks
       </a>
     </li>
@@ -1286,7 +1469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/acquisition_tasks/" class="md-nav__link">
+      <a href="../Scanner/user_guide/tasks/acquisition_tasks/" class="md-nav__link">
         Acquisition tasks
       </a>
     </li>
@@ -1298,7 +1481,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/reconstruction_tasks/" class="md-nav__link">
+      <a href="../Scanner/user_guide/tasks/reconstruction_tasks/" class="md-nav__link">
         Reconstruction tasks
       </a>
     </li>
@@ -1310,7 +1493,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/ground_truth_tasks/" class="md-nav__link">
+      <a href="../Scanner/user_guide/tasks/ground_truth_tasks/" class="md-nav__link">
         Defining ground truth
       </a>
     </li>
@@ -1322,7 +1505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/evaluation_tasks/" class="md-nav__link">
+      <a href="../Scanner/user_guide/tasks/evaluation_tasks/" class="md-nav__link">
         Evaluation tasks
       </a>
     </li>
@@ -1340,7 +1523,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/pipelines/" class="md-nav__link">
+      <a href="../Scanner/user_guide/pipelines/" class="md-nav__link">
         Pipelines
       </a>
     </li>
@@ -1352,369 +1535,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/configuration_files/" class="md-nav__link">
+      <a href="../Scanner/user_guide/configuration_files/" class="md-nav__link">
         Configuration files
       </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7" type="checkbox" id="__nav_3_4_7" checked>
-      
-      <label class="md-nav__link" for="__nav_3_4_7">
-        Developer
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Developer" data-md-level="3">
-        <label class="md-nav__title" for="__nav_3_4_7">
-          <span class="md-nav__icon md-icon"></span>
-          Developer
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../developer/" class="md-nav__link">
-        Home
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../developer/user_case_scenarios/" class="md-nav__link">
-        User case scenarios
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../developer/git_workflow/" class="md-nav__link">
-        Git Workflow
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../developer/git_docReview/" class="md-nav__link">
-        Contribute to docs
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../developer/tutorial_template/" class="md-nav__link">
-        Make a tutorial
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../developer/conda/" class="md-nav__link">
-        Conda
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7_7" type="checkbox" id="__nav_3_4_7_7" checked>
-      
-      <label class="md-nav__link" for="__nav_3_4_7_7">
-        Docker
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Docker" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_7_7">
-          <span class="md-nav__icon md-icon"></span>
-          Docker
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        Home
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Database
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Database
-      </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#use-pre-built-docker-image" class="md-nav__link">
-    Use pre-built docker image
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#build-docker-image" class="md-nav__link">
-    Build docker image
-  </a>
-  
-    <nav class="md-nav" aria-label="Build docker image">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#provided-convenience-buildsh-script" class="md-nav__link">
-    Provided convenience build.sh script
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manually-call-the-docker-build-command" class="md-nav__link">
-    Manually call the docker build command
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#publish-docker-image" class="md-nav__link">
-    Publish docker image
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#starting-the-romidb-docker-image" class="md-nav__link">
-    Starting the romidb docker image
-  </a>
-  
-    <nav class="md-nav" aria-label="Starting the romidb docker image">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#provided-runsh-script" class="md-nav__link">
-    Provided run.sh script
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#manually" class="md-nav__link">
-    Manually
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#accessing-the-rest-api" class="md-nav__link">
-    Accessing the REST API
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../plantimager_docker/" class="md-nav__link">
-        Plant Imager
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../virtualplantimager_docker/" class="md-nav__link">
-        Virtual Plant Imager
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../plantinterpreter_docker/" class="md-nav__link">
-        Plant Interpreter
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../plant3dexplorer_docker/" class="md-nav__link">
-        plant-3d-explorer
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../docker_compose/" class="md-nav__link">
-        Docker compose
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../docker_dev_build/" class="md-nav__link">
-        Build romicscan docker for developers
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
     </li>
   
 
@@ -1733,16 +1556,16 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_9" type="checkbox" id="__nav_3_4_9" >
       
-      <label class="md-nav__link" for="__nav_3_5">
-        plant-3d-explorer
+      <label class="md-nav__link" for="__nav_3_4_9">
+        Developer
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="plant-3d-explorer" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_5">
+      <nav class="md-nav" aria-label="Developer" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_4_9">
           <span class="md-nav__icon md-icon"></span>
-          plant-3d-explorer
+          Developer
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1751,7 +1574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../plant-3d-explorer/" class="md-nav__link">
+      <a href="../Scanner/developer/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1763,9 +1586,186 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../plant-3d-explorer/guide/" class="md-nav__link">
-        Guide
+      <a href="../Scanner/developer/user_case_scenarios/" class="md-nav__link">
+        User case scenarios
       </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/developer/git_workflow/" class="md-nav__link">
+        Git Workflow
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/developer/git_submodules_workflow/" class="md-nav__link">
+        Git Submodules
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/developer/git_docReview/" class="md-nav__link">
+        Contribute to docs
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/developer/tutorial_template/" class="md-nav__link">
+        Make a tutorial
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/developer/conda/" class="md-nav__link">
+        Conda
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_9_8" type="checkbox" id="__nav_3_4_9_8" >
+      
+      <label class="md-nav__link" for="__nav_3_4_9_8">
+        Docker
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Docker" data-md-level="4">
+        <label class="md-nav__title" for="__nav_3_4_9_8">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/docker/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/docker/plantdb_docker/" class="md-nav__link">
+        Database
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/docker/plantimager_docker/" class="md-nav__link">
+        Plant Imager
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/docker/virtualplantimager_docker/" class="md-nav__link">
+        Virtual Plant Imager
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/docker/plantinterpreter_docker/" class="md-nav__link">
+        Plant Interpreter
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/docker/plant3dexplorer_docker/" class="md-nav__link">
+        plant-3d-explorer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Scanner/docker/docker_compose/" class="md-nav__link">
+        Docker compose
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -1790,7 +1790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../research/" class="md-nav__link">
+      <a href="../research/" class="md-nav__link">
         Research
       </a>
     </li>
@@ -1805,9 +1805,64 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../data/" class="md-nav__link">
+      <a href="../data/" class="md-nav__link">
         Data
       </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Glossary
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Glossary
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#database-related" class="md-nav__link">
+    Database related
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1825,86 +1880,38 @@
               
                 
                 
-                <h1 id="docker-container-for-romi-database">Docker container for ROMI database<a class="headerlink" href="#docker-container-for-romi-database" title="Permanent link">Link</a></h1>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>An <strong>existing local database directory is required</strong>, it will be mounted at container startup.
-To see how to create a local database directory, look <a href="../../install/romidb_setup/#initialize-a-romi-database">here</a>.</p>
+                <h1 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">Link</a></h1>
+<p>We hereafter defines the semantic, names and abbreviations to use in the projects documentations and communications.</p>
+<p>ROMI Software
+: the whole set of software developed by ROMI;</p>
+<p>ROMI Hardware
+: the three types of robots developed by ROMI, namely the "cable bot", the "rover" and the "plant imager";</p>
+<h3 id="database-related">Database related<a class="headerlink" href="#database-related" title="Permanent link">Link</a></h3>
+<p>database
+: the database itself;</p>
+<p>scan
+: a set of images, and the pipelines results;</p>
+<p>fileset
+: a set of files (<em>e.g.</em> a set of RGB images of a plant);</p>
+<p>file
+: a file (<em>e.g.</em> an RGB image of a plant);</p>
+<p>plant metadata
+: set of FAIR metadata attached to the plant (<em>e.g.</em> species, age, growth conditions...);</p>
+<p>acquisition metadata
+: set of metadata attached to the acquisition procedure &amp; hardware configuration (<em>e.g.</em> version of the CNC controller, camera settings, ...);</p>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
 </div>
-<h2 id="use-pre-built-docker-image">Use pre-built docker image<a class="headerlink" href="#use-pre-built-docker-image" title="Permanent link">Link</a></h2>
-<p>Assuming you have a valid ROMI database directory under <code>/data/ROMI/DB</code>, you can easily download and start the pre-built <code>romidb</code> docker image with:
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">ROMI_DB</span><span class="o">=</span>/data/ROMI/DB
-docker run -it -p <span class="m">5000</span>:5000 <span class="se">\</span>
-  -v <span class="nv">$ROMI_DB</span>:/home/scanner/db <span class="se">\</span>
-  roboticsmicrofarms/romidb:latest
-</code></pre></div>
-And should be able to access it here: <a href="http://localhost:5000/">http://localhost:5000/</a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>-v $ROMI_DB:/home/scanner/db</code> performs a <strong>bind mount</strong> to enable access to the local database by the docker image. See the official <a href="https://docs.docker.com/storage/bind-mounts/">documentation</a>.</p>
-</div>
-<h2 id="build-docker-image">Build docker image<a class="headerlink" href="#build-docker-image" title="Permanent link">Link</a></h2>
-<p>We provides a convenience bash script to ease the build of <code>romidb</code> docker image.
-You can choose to use this script OR to "manually" call the <code>docker build</code> command.</p>
-<h3 id="provided-convenience-buildsh-script">Provided convenience <code>build.sh</code> script<a class="headerlink" href="#provided-convenience-buildsh-script" title="Permanent link">Link</a></h3>
-<p>To build the image with the provided build script, from the <code>romidata/docker</code> directory:
-<div class="highlight"><pre><span></span><code>./build.sh
-</code></pre></div>
-You can also pass some options, use <code>./build.sh -h</code> to get more details about usage, options and default values.</p>
-<h3 id="manually-call-the-docker-build-command">Manually call the <code>docker build</code> command<a class="headerlink" href="#manually-call-the-docker-build-command" title="Permanent link">Link</a></h3>
-<p>To build the image, from the <code>romidata</code> root directory:
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">VTAG</span><span class="o">=</span><span class="s2">&quot;latest&quot;</span>
-docker build -t roboticsmicrofarms/romidb:<span class="nv">$VTAG</span> .
-</code></pre></div></p>
-<p>You can use the following optional arguments:</p>
-<ul>
-<li><code>--build-arg USER_NAME=&lt;user&gt;</code>: change the default user in container;</li>
-<li><code>--build-arg ROMIDATA_BRANCH=&lt;git_branch&gt;</code>: change the cloned git branch from <code>romidata</code>.</li>
-</ul>
-<h2 id="publish-docker-image">Publish docker image<a class="headerlink" href="#publish-docker-image" title="Permanent link">Link</a></h2>
-<p>Push it on docker hub:
-<div class="highlight"><pre><span></span><code>docker push roboticsmicrofarms/romidb:<span class="nv">$VTAG</span>
-</code></pre></div>
-This require a valid account &amp; token on dockerhub!</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">Link</a></h2>
-<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">Link</a></h3>
-<p>To run it, you need to have a valid local ROMI database, look <a href="../install/romidb_setup/#initialize-a-romi-database">here</a> for instructions and <a href="https://db.romi-project.eu/models/test_db.tar.gz">here</a> for an example database.</p>
-<h3 id="starting-the-romidb-docker-image">Starting the <code>romidb</code> docker image<a class="headerlink" href="#starting-the-romidb-docker-image" title="Permanent link">Link</a></h3>
-<h4 id="provided-runsh-script">Provided <code>run.sh</code> script<a class="headerlink" href="#provided-runsh-script" title="Permanent link">Link</a></h4>
-<p>To start the container with the provided run script in <code>romidata/docker</code>, use:
-<div class="highlight"><pre><span></span><code>./run.sh
-</code></pre></div>
-You can also pass some options, use <code>./run.sh -h</code> to get more details about usage and options.</p>
-<h4 id="manually">Manually<a class="headerlink" href="#manually" title="Permanent link">Link</a></h4>
-<p>Assuming you extracted it in your home folder (<code>/home/$USER/integration_tests</code>), you can start the <code>romidb</code> docker image with:
-<div class="highlight"><pre><span></span><code>docker run -it -p <span class="m">5000</span>:5000 -v /home/<span class="nv">$USER</span>/integration_tests:/home/scanner/db romidb:<span class="nv">$VTAG</span>
-</code></pre></div></p>
-<p>In both cases, you should see something like:
-<div class="highlight"><pre><span></span><code>n scans = 2
- * Serving Flask app &quot;romi_scanner_rest_api&quot; (lazy loading)
- * Environment: production
-   WARNING: This is a development server. Do not use it in a production deployment.
-   Use a production WSGI server instead.
- * Debug mode: off
- * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-</code></pre></div></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p><code>-v /home/$USER/integration_tests:/home/scanner/db</code> performs a <strong>bind mount</strong> to enable access to the local database by the docker image. See the official Docker <a href="https://docs.docker.com/storage/bind-mounts/">documentation</a>.</p>
-</div>
-<h3 id="accessing-the-rest-api">Accessing the REST API<a class="headerlink" href="#accessing-the-rest-api" title="Permanent link">Link</a></h3>
-<p>Once it's up, you should be able to access the REST API here: <a href="http://localhost:5000/">http://localhost:5000/</a></p>
-<p>To access the REST API, open your favorite browser and use URLs to access:</p>
-<ul>
-<li>the list of all scans: <a href="http://0.0.0.0:5000/scans">http://0.0.0.0:5000/scans</a></li>
-<li>the '2018-12-17_17-05-35' dataset: <a href="http://0.0.0.0:5000/scans/2018-12-17_17-05-35">http://0.0.0.0:5000/scans/2018-12-17_17-05-35</a></li>
-</ul>
-<p>You should see JSON formatted text.</p>
+<p>"scans" could be renamed "dataset" or !</p>
                 
               
               
                 
 
+
+  <h2 id="__comments">Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>var disqus_config=function(){this.page.url="https://docs.romi-project.eu/glossary/",this.page.identifier="glossary/"};window.addEventListener("load",function(){var e=document,i=e.createElement("script");i.src="//romi.disqus.com/embed.js",i.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(i)})</script>
 
               
             </article>
@@ -1918,7 +1925,7 @@ You can also pass some options, use <code>./run.sh -h</code> to get more details
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../data/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1927,31 +1934,21 @@ You can also pass some options, use <code>./run.sh -h</code> to get more details
               <span class="md-footer__direction">
                 Previous
               </span>
-              Home
+              Data
             </div>
           </div>
         </a>
       
-      
-        <a href="../plantimager_docker/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Plant Imager
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            CC Attribution-NonCommercial-ShareAlike 4.0 International
+          </div>
         
         Made with
         <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
@@ -1999,10 +1996,10 @@ You can also pass some options, use <code>./run.sh -h</code> to get more details
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
