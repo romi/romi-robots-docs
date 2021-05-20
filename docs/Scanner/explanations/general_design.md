@@ -1,13 +1,14 @@
 # Overview of the modules interactions
+
 The following figure shows a use case of the ROMI modules, and the way they interact, to design an efficient plant phenotyping platform used in research.
 
 ![Plant Phenotyping platform](../../assets/images/interact_plan_landscape.png)
 
-
 ## PlantDB
-Should be totally independent of the rest since it could be uses in other parts of the ROMI project (Rover, Cable bot, ...) trough the abstract class `DB` or even the local database class `FSDB`.
+Should be totally independent of the rest since it could be uses in other parts of the ROMI project (Rover, Cable bot, ...) through the abstract class `DB` or even the local database class `FSDB`.
 
 ## Plant Imager
+
 It requires a physical connection to the hardware (`pyserial`) to control. It also needs an active ROMI database to export acquired datasets (plant images).
 
 ## Virtual Plant Imager
@@ -18,14 +19,14 @@ In case of machine learning methods, a database would also provide training data
 It requires connection to an active ROMI database to import datasets to process and export the results.
 Two plant reconstruction approaches are available in the SmartInterpreter:
 
-1. Geometry based, try to infer the plant's geometry using structure from motion algorithms and space carving to first reconstruct a point cloud. 
+1. Geometry based, try to infer the plant's geometry using structure from motion algorithms and space carving to first reconstruct a point cloud.
 2. Machine learning based, try to infer the plant's geometry using semantic (organ) segmentation of pictures and space carving to first reconstruct a labelled point cloud.
 
 Then meshing and skeletonization finally enables to extract the plant's phyllotaxis.
 
 ## Plant 3D Explorer
-It requires a database with datasets to browse and represent.
 
+It requires a database with datasets to browse and represent.
 
 # Research oriented user story
 

@@ -1,6 +1,7 @@
 # Troubleshooting
 
 ## Serial access denied
+
 If you get an error about permission access:
 
 1. Check in what group you are with:

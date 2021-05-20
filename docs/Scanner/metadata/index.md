@@ -2,44 +2,46 @@ FAIR data for the ROMI plant scanner project
 ============================================
 
 ## FAIR data
+
 We aim at using FAIR data principles in the ROMI plant scanner project.
 
 Quoting the [GoFAIR](https://www.go-fair.org/fair-principles/) website:
 
-!!!quote 
+!!! quote
     In 2016, the "[FAIR Guiding Principles for scientific data management and stewardship](http://www.nature.com/articles/sdata201618)" were published in Scientific Data.
     The authors intended to provide guidelines to improve the **Findability**, **Accessibility**, **Interoperability**, and **Reuse** of digital assets.
-     The principles emphasise machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention) because humans increasingly rely on computational support to deal with data as a result of the increase in volume, complexity, and creation speed of data.
+    The principles emphasise machine-actionability (i.e., the capacity of computational systems to find, access, interoperate, and reuse data with none or minimal human intervention) because humans increasingly rely on computational support to deal with data as a result of the increase in volume, complexity, and creation speed of data.
 
-In our context, a biological dataset is a set of RAW images (eg: RGB images), used to reconstruct the plant 3D structure, associated with a set of metadata of different nature: biological, hardware & software.
-
+In our context, a biological dataset is a set of RAW images (eg: RGB images), used to reconstruct the plant 3D structure, associated with a set of metadata of
+different nature: biological, hardware & software.
 
 ## ROMI plant scanner metadata
-Metadata are stored hierarchically.
-We currently use the JSON format. 
+
+Metadata are stored hierarchically. We currently use the JSON format.
 
 There are many JSON files containing metadata in the `metadata` directory attached to a dataset.
 
-
 ### General metadata
-The first you should consider is `metadata/metadata.json`.
-Its top-level entries are:
+
+The first you should consider is `metadata/metadata.json`. Its top-level entries are:
 
 * "scanner", the hardware metadata (see [here](hardware_metadata.md))
 * "object", the biological metadata (see [here](biological_metadata.md))
 * "path", the parameter values used for the task `Scan` (see [here](#scanning-operation))
-* "computed",  the parameter values used for the task `Colmap` (see [here](#colmap-reconstruction))
-* "measures",  the parameter values used for the task `AnglesAndInternodes` (see [here](#measures-of-angles-and-internodes))
+* "computed", the parameter values used for the task `Colmap` (see [here](#colmap-reconstruction))
+* "measures", the parameter values used for the task `AnglesAndInternodes` (see [here](#measures-of-angles-and-internodes))
 
 !!! todo
     Remove top-level entries "path", "computed" & "measures", they look like duplicates from their respective task metadata.
 
 #### Scanning operation
+
 Found under the `path` top level section, it contains:
 
 - the trajectory of the camera under `path`
 
 Example:
+
 ```json
     "path": {
         "args": {
@@ -59,11 +61,12 @@ Example:
 !!! todo
     Potential duplication from the `Scan` task metadata!
 
-
 #### Colmap reconstruction
+
 Found under the `computed` top level section, it contains the `camera_model` used by Colmap.
 
 Example:
+
 ```json
     "computed": {
         "camera_model": {
@@ -88,13 +91,15 @@ Example:
 !!! todo
     Potential duplication from the `Colmap` task metadata!
 
-
 #### Measures of angles and internodes
+
 Found under the `measures` top level section:
+
 - Measured angles are under `angles`
 - Measured internodes are under `internodes`
 
 Example:
+
 ```json
     "measures": {
         "angles": [
@@ -115,15 +120,17 @@ Example:
 !!! todo
     Potential duplication from the `AnglesAndInternodes` task metadata!
 
-
 ### Tasks metadata
-Then there are the JSON files attached to each task, *e.g.* `Colmap_True____feature_extrac_3bbfcb1413.json`, they contain the parameter used to run this task. 
-Their content and meaning is explained in the [task metadata](tasks_metadata.md) section. 
+
+Then there are the JSON files attached to each task, *e.g.* `Colmap_True____feature_extrac_3bbfcb1413.json`, they contain the parameter used to run this task.
+Their content and meaning is explained in the [task metadata](tasks_metadata.md) section.
 
 ### Images metadata
+
 The image JSON file `metadata/images.json` contains ??? and is produced by ???.
 
 Example:
+
 ```json
 {
     "task_params": {
@@ -134,12 +141,13 @@ Example:
 }
 ```
 
-Found under the `metadata/images` directory, these JSON files contains  ??? and is produced by ???.
+Found under the `metadata/images` directory, these JSON files contains ??? and is produced by ???.
 
 !!! note
-    Sub-section `camera_model` seems redundant with same section in [reconstruction](#reconstruction).
+    Sub-section `camera_model` seems redundant with same section in [reconstruction](#colmap-reconstruction).
 
 Example:
+
 ```json
 {
     "calibrated_pose": [
@@ -197,14 +205,15 @@ Example:
 }
 ```
 
-
 ### Visualization metadata
+
 The visualization JSON file `metadata/Visualization.json` contains ??? and is produced by ???.
 
 !!! important
     Run the `Visualization` task to complete this section!
 
 Example:
+
 ```json
 {
     "files": {
@@ -212,7 +221,7 @@ Example:
         "images": [
             "image_rgb-000",
             "image_rgb-001",
-            ...
+            "..."
             "image_rgb-071"
         ],
         "mesh": "TriangleMesh",
@@ -222,7 +231,7 @@ Example:
         "thumbnails": [
             "thumbnail_rgb-000",
             "thumbnail_rgb-001",
-            ...
+            "..."
             "thumbnail_rgb-071"
         ],
         "zip": "scan"
@@ -231,11 +240,12 @@ Example:
 ```
 
 Found under the `metadata/Visualization/` directory, there are two category of JSON files:
- 
- - `image_*.json` contains  ??? and is produced by ???.
- - `thumbnail_*.json` contains  ??? and is produced by ???.
+
+- `image_*.json` contains ??? and is produced by ???.
+- `thumbnail_*.json` contains ??? and is produced by ???.
 
 Example for `image_*.json`:
+
 ```json
 {
     "image_id": "rgb-000"
@@ -243,18 +253,17 @@ Example for `image_*.json`:
 ```
 
 Example for `thumbnail_*.json`:
+
 ```json
 {
     "image_id": "rgb-000"
 }
 ```
 
-
 ### Other metadata
 
 !!! todo
     Explain what are & who produce:
-    
     - the image JSON file `metadata/images.json`
     - the image JSON files found under `metadata/images/*.json`
     - the visualization JSON file `metadata/Visualization.json`

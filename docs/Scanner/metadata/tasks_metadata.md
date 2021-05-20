@@ -6,9 +6,11 @@ They aim at keeping track of the parameters used by algorithms during any ROMI t
 They enable to trace back results and compare them.
 
 ## Database location
+
 Located under the `metadata` directory of the plant scan dataset, these JSON files contain the parameters used to run the task and are produced by each task.
 
 Examples of task metadata JSON file names:
+
 ```
 AnglesAndInternodes_1_0_2_0_0_1_9e87e344e6.json
 Colmap_True____feature_extrac_3bbfcb1413.json
@@ -25,8 +27,10 @@ The tasks ids are a concatenation of the task name, the first values of the firs
 ## AnglesAndInternodes task
 
 ### Configuration
+
 To configure this task, we use the `[AnglesAndInternodes]` section in the TOML configuration file.
 For example:
+
 ```toml
 [AnglesAndInternodes]
 upstream_task = "TreeGraph"
@@ -35,10 +39,13 @@ stem_axis_inverted = false
 ```
 
 ### Database location
+
 Found under `metadata/AnglesAndInternodes_*.json`.
 
 ### JSON example
+
 Example of `metadata/AnglesAndInternodes_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "task_params": {
@@ -55,12 +62,13 @@ Example of `metadata/AnglesAndInternodes_*.json` corresponding to the example TO
 }
 ```
 
-
 ## ClusteredMesh task
 
 ### Configuration
+
 To configure this task, we use the `[Colmap]` section in the TOML configuration file.
 For example:
+
 ```toml
 [ClusteredMesh]
 upstream_task = "SegmentedPointCloud"
@@ -69,10 +77,13 @@ min_length = 10.0
 ```
 
 ### Database location
+
 Found under `metadata/ClusteredMesh_*.json`.
 
 ### JSON example
+
 Example of `metadata/ClusteredMesh_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "task_params": {
@@ -85,12 +96,13 @@ Example of `metadata/ClusteredMesh_*.json` corresponding to the example TOML con
 }
 ```
 
-
 ## Colmap task
 
 ### Configuration
+
 To configure this task, we use the `[Colmap]` section in the TOML configuration file.
 For example:
+
 ```toml
 [Colmap]
 matcher = "exhaustive"
@@ -113,10 +125,13 @@ z = [-90, 300]
 ```
 
 ### Database location
+
 Found under `metadata/Colmap_*.json`.
 
 ### JSON example
+
 Example of `metadata/Colmap_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "bounding_box": {
@@ -157,22 +172,26 @@ Example of `metadata/Colmap_*.json` corresponding to the example TOML configurat
 }
 ```
 
-
 ## CurveSkeleton task
 
 ### Configuration
+
 To configure this task, we use the `[CurveSkeleton]` section in the TOML configuration file.
 For example:
+
 ```toml
 [CurveSkeleton]
 upstream_task = "TriangleMesh"
 ```
 
 ### Database location
+
 Found under `metadata/CurveSkeleton_*.json`.
 
 ### JSON example
+
 Example of `metadata/CurveSkeleton_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "task_params": {
@@ -183,12 +202,14 @@ Example of `metadata/CurveSkeleton_*.json` corresponding to the example TOML con
 }
 ```
 
-
 ## Masks task
 
 ### Configuration
-To configure this task, we use the `[Masks]` section in the TOML configuration file. Default parametrization based on linear masking.
+
+To configure this task, we use the `[Masks]` section in the TOML configuration file.
+Default parametrization based on linear masking.
 For example:
+
 ```toml
 [Masks]
 upstream_task = "Undistorted"
@@ -200,10 +221,13 @@ threshold = 0.3
 ```
 
 ### Database location
+
 Found under `metadata/Masks_*.json`.
 
 ### JSON example
+
 Example of `metadata/Masks_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "task_params": {
@@ -224,12 +248,13 @@ Example of `metadata/Masks_*.json` corresponding to the example TOML configurati
 }
 ```
 
-
 ## PointCloud task
 
 ### Configuration
+
 To configure this task, we use the `[PointCloud]` section in the TOML configuration file.
 For example:
+
 ```toml
 [PointCloud]
 upstream_task = "Voxels"
@@ -241,10 +266,13 @@ min_score = 0.2
 ```
 
 ### Database location
+
 Found under `metadata/PointCloud_*.json`.
 
 ### JSON example
+
 Example of `metadata/PointCloud_*.json`:
+
 ```json
 {
     "task_params": {
@@ -260,12 +288,13 @@ Example of `metadata/PointCloud_*.json`:
 }
 ```
 
-
 ## Segmentation2D task
 
 ### Configuration
+
 To configure this task, we use the `[Segmentation2D]` section in the TOML configuration file.
 For example:
+
 ```toml
 [Segmentation2D]
 upstream_task = "Undistorted"
@@ -287,10 +316,13 @@ scan_id = "models"
 ```
 
 ### Database location
+
 Found under `metadata/Segmentation2D_*.json`.
 
 ### JSON example
+
 Example of `metadata/Segmentation2D_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "task_params": {
@@ -316,12 +348,13 @@ Example of `metadata/Segmentation2D_*.json` corresponding to the example TOML co
 }
 ```
 
-
 ## SegmentedPointCloud task
 
 ### Configuration
+
 To configure this task, we use the `[SegmentedPointCloud]` section in the TOML configuration file.
 For example:
+
 ```toml
 [SegmentedPointCloud]
 upstream_segmentation = "Segmentation2D"
@@ -330,10 +363,13 @@ use_colmap_poses = true
 ```
 
 ### Database location
+
 Found under `metadata/SegmentedPointCloud_*.json`.
 
 ### JSON example
+
 Example of `metadata/SegmentedPointCloud_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "task_params": {
@@ -346,12 +382,13 @@ Example of `metadata/SegmentedPointCloud_*.json` corresponding to the example TO
 }
 ```
 
-
 ## TreeGraph task
 
 ### Configuration
+
 To configure this task, we use the `[TreeGraph]` section in the TOML configuration file.
 For example:
+
 ```toml
 [TreeGraph]
 upstream_task = "CurveSkeleton"
@@ -360,10 +397,13 @@ stem_axis_inverted = false
 ```
 
 ### Database location
+
 Found under `metadata/TreeGraph_*.json`.
 
 ### JSON example
+
 Example of `metadata/TreeGraph_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "task_params": {
@@ -376,22 +416,26 @@ Example of `metadata/TreeGraph_*.json` corresponding to the example TOML configu
 }
 ```
 
-
 ## TriangleMesh task
 
 ### Configuration
+
 To configure this task, we use the `[TriangleMesh]` section in the TOML configuration file.
 For example:
+
 ```toml
 [TriangleMesh]
 upstream_task = "PointCloud"
 ```
 
 ### Database location
+
 Found under `metadata/TriangleMesh_*.json`.
 
 ### JSON example
+
 Example of `metadata/TriangleMesh_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "task_params": {
@@ -402,22 +446,26 @@ Example of `metadata/TriangleMesh_*.json` corresponding to the example TOML conf
 }
 ```
 
-
 ## Undistorted task
 
 ### Configuration
+
 To configure this task, we use the `[Undistorted]` section in the TOML configuration file.
 For example:
+
 ```toml
 [Undistorted]
 upstream_task = "ImagesFilesetExists"
 ```
 
 ### Database location
+
 Found under `metadata/Undistorted_*.json`.
 
 ### JSON example
+
 Example of `metadata/Undistorted_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "task_params": {
@@ -429,12 +477,13 @@ Example of `metadata/Undistorted_*.json` corresponding to the example TOML confi
 }
 ```
 
-
 ## Visualization task
 
 ### Configuration
+
 To configure this task, we use the `[Visualization]` section in the TOML configuration file.
 For example:
+
 ```toml
 [Visualization]
 upstream_point_cloud = "PointCloud"
@@ -449,10 +498,13 @@ thumbnail_size = 150
 ```
 
 ### Database location
+
 Found under `metadata/Visualization.json`.
 
 ### JSON example
+
 Example of `metadata/Visualization.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "files": {
@@ -605,12 +657,13 @@ Example of `metadata/Visualization.json` corresponding to the example TOML confi
 }
 ```
 
-
 ## Voxels task
 
 ### Configuration
+
 To configure this task, we use the `[Voxels]` section in the TOML configuration file.
 For example:
+
 ```toml
 [Voxels]
 upstream_mask = "Masks"
@@ -624,10 +677,13 @@ labels = "[]"
 ```
 
 ### Database location
+
 Found under `metadata/Voxels_*.json`.
 
 ### JSON example
+
 Example of `metadata/Voxels_*.json` corresponding to the example TOML configuration file:
+
 ```json
 {
     "task_params": {
@@ -647,8 +703,8 @@ Example of `metadata/Voxels_*.json` corresponding to the example TOML configurat
 }
 ```
 
-
 ## Scan task
 
-!!!todo
-    For some reason the parameters are defined in the `metadata/metadata.json` file. Definition can be found [here](index.md#scanning-operation).
+!!! todo
+    For some reason the parameters are defined in the `metadata/metadata.json` file.
+    Definition can be found [here](index.md#scanning-operation).

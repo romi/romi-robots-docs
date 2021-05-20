@@ -13,27 +13,27 @@ Here is a list of biological metadata and their definition:
 * **growth conditions**: growth condition used, _eg_: "LD", "SD", "LD+SD";
 * **treatment**: specific treatment applied, if any, _eg_: "Auxin 1mM";
 * **DAG**: Days After Germination or age of the plant in days, _eg_: 40;
-* **sample**: part of the plant used, if any, _eg_: "main stem"; 
+* **sample**: part of the plant used, if any, _eg_: "main stem";
 * **experiment id**: an identifier for the experiment, _eg_: "dry plant";
-* **dataset id**: the Omero dataset identifier for the biological datase, _eg_: 12;
-
+* **dataset id**: the Omero dataset identifier for the biological dataset, _eg_: 12;
 
 ## Configuration
 
-!!!todo
+!!! todo
     How is it defined in a TOML configuration file ?
 
-
 ## Database location
+
 Located in `metadata/metadata.json` and found under the `object` top level section, it contains biologically relevant information such as the studied species, its age and growth conditions.
-This information are not restricted in their format but should contain a minimal set of entries.
+This information is not restricted in its format but should contain a minimal set of entries.
 
 !!! todo
     Defines the minimal set of entries! Use the MIAPPE standard?
 
-
 ## JSON example
+
 Example of a `metadata/metadata.json` file for biological metadata:
+
 ```json
     "object": {
         "age": "62d",

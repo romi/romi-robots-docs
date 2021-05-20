@@ -44,9 +44,10 @@ Control software: A firmware for the microcontroller board was written. The code
  
 ![](/assets/images/farmersDashboard/camera-preliminary-cablebot.jpg)
 
-!!! info ""
+!!! info
     Camera module tests on cablebot carrier
 
 
-!!!info "The camera module is is still on testing."
+!!! info
+    The camera module is is still on testing.
 

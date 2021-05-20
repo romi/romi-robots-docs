@@ -3,21 +3,22 @@ Tasks configuration
 
 ## Introduction
 
-Each tasks has some default configuration but to create a working pipeline, you need to set some parameters in a TOML configuration file.
+Each task has some default configuration but to create a working pipeline, you need to set some parameters in a TOML configuration file.
 
 There are two types of parameters:
 
 1. those associated with luigi: upstream tasks, requirements & outputs
 2. those tuning the used algorithms: variables & parameters
 
-For examples look at the configurations [examples](https://github.com/romi/romiscan/tree/dev/config) provided in `romiscan/configs`.
-
+For examples look at the configurations [examples](https://github.com/romi/plant3dvision/tree/dev/config) provided in `plant3dvision/configs`.
 
 ## I/O tasks
-These tasks refers to the inputs and outputs of each algorithmic tasks.
-They are often related to tasks defined in the `romidata` library.
+
+These tasks refer to the inputs and outputs of each algorithmic tasks.
+They are often related to task defined in the `plantdb` library.
 
 ### FilesetExists
+
 Check that the given `Fileset` id exists (in dataset).
 
 No luigi parameters (no upstream task).
@@ -26,8 +27,8 @@ List of task variables:
 
 - `fileset_id`: the id (`str`) to check for existence.
 
-
 ### ImagesFilesetExists(FilesetExists)
+
 Check that the image file set exists.
 
 No luigi parameters (no upstream task).
@@ -36,8 +37,8 @@ List of task variables:
 
 - `fileset_id`: the id (`str`) to check for existence `'images'` by default.
 
-
 ### ModelFileset(FilesetExists)
+
 Check that the trained ML models file set exists.
 
 No luigi parameters (no upstream task).
@@ -47,17 +48,19 @@ List of task variables:
 - `fileset_id`: the id (`str`) to check for existence `'models'` by default.
 
 Example:
+
 ```toml
 [ModelFileset]
 scan_id = "models"
 ```
-Defines the location of he trained ML models in a dataset named `'models'`.
 
+Defines the location of the trained ML models in a dataset named `'models'`.
 
 ## Database tasks
 
 ### Clean
-Defined in `romidata.task`, it is used to clean a scan dataset from the "processing folders".
+
+Defined in `plantdb.task`, it is used to clean a scan dataset from the "processing folders".
 
 No luigi parameters (no upstream task).
 
@@ -66,33 +69,35 @@ List of task variables:
 - `no_confirm`: boolean indicating whether a confirmation is required to clean the dataset, `False` by default, *i.e.* confirmation required.
 
 Example:
+
 ```toml
 [Clean]
 no_confirm = true
 ```
-Use this to clean without confirmation.
 
+Use this to clean without confirmation.
 
 ## Algorithmic tasks
 
 ### Colmap task
-Defined in `romiscan.task.colmap`, it is used to match scan images and estimate camera poses. 
-It can also be used to compute a sparse and/or dense point cloud. 
+
+Defined in `plant3dvision.task.colmap`, it is used to match scan images and estimate camera poses.
+It can also be used to compute a sparse and/or dense point cloud.
 
 List of luigi task parameters:
 
 - `upstream_task`: task upstream of the `Colmap` task, default is `ImagesFilesetExists`
 
-
 List of task variables:
 
-- `matcher`: images mathing method, can be either "exhaustive" (default) or "sequential";
-- `compute_dense`: boolean indicating whether to run the dense colmap to obtain a dense point cloud, `False` by default;
-- `cli_args`: dictionary of parameters for colmap command line prompts;
+- `matcher`: images matching method, can be either "exhaustive" (default) or "sequential";
+- `compute_dense`: boolean indicating whether to run the dense Colmap to obtain a dense point cloud, `False` by default;
+- `cli_args`: dictionary of parameters for Colmap command line prompts;
 - `align_pcd`: boolean indicating whether to align point cloud on calibrated or metadata poses, `True` by default;
-- `calibration_scan_id` : ID of the calibration scan, requires the .
+- `calibration_scan_id` : ID of the calibration scan, requires ???.
 
 Example:
+
 ```toml
 [Colmap]
 matcher = "exhaustive"
@@ -110,16 +115,16 @@ calibration_scan_id = "calib_scan_shortpath"
 "--robust_alignment_max_error" = "10"
 ```
 
-!!! todo
+!!! todo 
     Add a `compute_sparse`?
 
-
 ### Undistorted task
-Defined in `romiscan.task.proc2d`, it is used to reate undistorted images from pre-computed intrinsic camera parameters.
 
+Defined in `plant3dvision.task.proc2d`, it is used to create undistorted images from pre-computed intrinsic camera parameters.
 
 ### Masks task
-Defined in `romiscan.task.proc2d`, it is used to create binary mask of the plant location within each image. 
+
+Defined in `plant3dvision.task.proc2d`, it is used to create binary mask of the plant location within each image.
 
 List of luigi task parameters:
 
@@ -133,21 +138,20 @@ List of task variables:
 - `binarize`: boolean indicating whether to binarize the mask, default is `True`;
 - `threshold`: float used as threshold for binarization step, default is `0.0`;
 
-
 ### Voxels task
-Defined in `romiscan.task.cl`, it is used to reconstruct the 3D structure of the plant from binary or segmented masks . 
 
+Defined in `plant3dvision.task.cl`, it is used to reconstruct the 3D structure of the plant from binary or segmented masks.
 
 List of luigi task parameters:
 
 - `upstream_task`: task upstream of the `Colmap` task, default is `ImagesFilesetExists`
-
 
 List of task variables:
 
 - `type`: ;
 
 Example:
+
 ```toml
 [Voxels]
 upstream_mask = "Segmentation2D"
@@ -165,6 +169,7 @@ log = false
 ### PointCloud task
 
 Example:
+
 ```toml
 [PointCloud]
 level_set_value = 1
@@ -175,6 +180,7 @@ log = false
 ### SegmentedPointCloud task
 
 Example:
+
 ```toml
 [SegmentedPointCloud]
 upstream_segmentation = "Segmentation2D"
@@ -185,6 +191,7 @@ use_colmap_poses = true
 ### Segmentation2D task
 
 Example:
+
 ```toml
 [Segmentation2D]
 upstream_task = "Undistorted"
@@ -204,6 +211,7 @@ threshold = 0.0035
 ### Visualization task
 
 Example:
+
 ```toml
 [Visualization]
 max_image_size = 1500
@@ -216,60 +224,58 @@ mesh_source = "delaunay"
 ### ClusteredMesh task
 
 Example:
+
 ```toml
 [ClusteredMesh]
 upstream_task = "SegmentedPointCloud"
 ```
 
-
 ### AnglesAndInternodes task
 
 Example:
+
 ```toml
 [AnglesAndInternodes]
 upstream_task = "ClusteredMesh"
 ```
-
 
 ## Evaluation tasks
 
 ### VoxelGroundTruth
 
 Example:
+
 ```toml
 
 ```
 
-
 ### PointCloudGroundTruth
 
 Example:
+
 ```toml
 [PointCloudGroundTruth]
 pcd_size = 10000
 ```
 
-
 ### ClusteredMeshGroundTruth
 
 Example:
+
 ```toml
 
 ```
 
-
 ### PointCloudEvaluation task
 
 Example:
+
 ```toml
 [PointCloudEvaluation]
 max_distance = 0.2
 ```
 
-
 ### PointCloudSegmentationEvaluation task
-
-
 
 ### Segmentation2DEvaluation task
 

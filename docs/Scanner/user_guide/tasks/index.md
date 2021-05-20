@@ -3,9 +3,10 @@ Task definitions
 
 As we have seen previously, we are using the luigi paradigm and have defined a series of **tasks** to create flexible and modular pipelines.
 
-This section is more a general overview, For more details see the reference documentation (**TODO**)!
+This section is a more general overview, For more details see the reference documentation (**TODO**)!
 
 ## Base task class
+
 `RomiTask` is the base abstract class for the ROMI Plant Scanner project and subclass `luigi.Task`.
 
 It implements the following methods:

@@ -8,7 +8,6 @@ ROMI Software
 ROMI Hardware
 : the three types of robots developed by ROMI, namely the "cable bot", the "rover" and the "plant imager";
 
-
 ### Database related
 
 database
@@ -30,4 +29,4 @@ acquisition metadata
 : set of metadata attached to the acquisition procedure & hardware configuration (*e.g.* version of the CNC controller, camera settings, ...);
 
 !!! danger
-    "scans" could be renamed "dataset" or !
+"scans" could be renamed "dataset" or !

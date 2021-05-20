@@ -1,2 +1,0 @@
-# Virtual Plant Imager
-

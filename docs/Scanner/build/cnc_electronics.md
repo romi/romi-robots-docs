@@ -1,8 +1,7 @@
 Wiring the CNC
 ==============
 
-If you have the recent version, follow the official wiring instrucions [here](http://x-carve-instructions.inventables.com/1000mm/step6/).
-
+If you have the recent version, follow the official wiring instructions [here](http://x-carve-instructions.inventables.com/1000mm/step6/).
 
 Here is [link](http://x-carve-instructions.inventables.com/xcarve2015/step10/) to the post 2015 version of the "wiring" instructions.
 
@@ -29,8 +28,8 @@ Optional:
 
 ### Wire the Stepper Cable to the gShield
 
-Once you’ve determined which stepper cable belongs to which axis you can wire them into the gShield.
-First loosen all of the screws on the gShield (they will jump a thread when they are fully loose, but they won’t come out of the terminal blocks.)
+Once you’ve determined which stepper cable belongs to which axis, you can wire them into the gShield.
+First loosen all the screws on the gShield (they will jump a thread when they are fully loose, but they won’t come out of the terminal blocks.)
 
 The gShield is marked "X," "Y," and "Z".
 Wire the stepper cable according to the markings on the shield and order your wires (from left to right) black, green, white, red.
@@ -40,7 +39,6 @@ Wire the stepper cable according to the markings on the shield and order your wi
 Check out this diagram for clarification.
 
 ![gShield wiring diagram](http://x-carve-instructions.inventables.com/xcarve2015/step14/wiring-diagram2_copy.jpg)
-
 
 ### Mount the gShield
 
@@ -60,7 +58,8 @@ Loosen the screws in the power terminal of the gShield and insert the red twiste
 
 ### Connect Limit Switches to gShield
 
-Crimp the white ends of each limit switch wire pair. **The order of the white wires from left to right is X, Y, Z. The first, sixth, and eighth slots are left EMPTY.**
+Crimp the white ends of each limit switch wire pair.
+**The order of the white wires from left to right is X, Y, Z. The first, sixth, and eighth slots are left EMPTY.**
 
 ![Limit switches wiring diagram](http://x-carve-instructions.inventables.com/xcarve2015/step14/wiring-diagram-limit-switches.jpg)
 
@@ -73,7 +72,8 @@ Pin mapping:
 
 ### Power the gShield
 
-Loosen the screws in the power terminal of the gShield and insert the red twisted pair into `Vmot` and the black twisted pair into `GND`. This is similar to the optional 24V fan.
+Loosen the screws in the power terminal of the gShield and insert the red twisted pair into `Vmot` and the black twisted pair into `GND`.
+This is similar to the optional 24V fan.
 
 !!! note
     This will also power the Arduino.
