@@ -994,22 +994,36 @@
       
         <li class="md-nav__item">
   <a href="#step-by-step-tutorial" class="md-nav__link">
-    Step by step tutorial
+    Step-by-step tutorial
   </a>
   
-    <nav class="md-nav" aria-label="Step by step tutorial">
+    <nav class="md-nav" aria-label="Step-by-step tutorial">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#running-an-acquisition-with-the-scan-task" class="md-nav__link">
-    Running an acquisition with the Scan task
+  <a href="#1-check-that-you-are-well-interfaced-with-the-plant-imager" class="md-nav__link">
+    1. Check that you are well interfaced with the plant imager
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#creation-of-a-scan" class="md-nav__link">
-    Creation of a scan
+  <a href="#2-get-the-right-configuration" class="md-nav__link">
+    2. Get the right configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-run-an-acquisition-with-the-scan-task" class="md-nav__link">
+    3. Run an acquisition with the Scan task
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-obtain-an-image-set" class="md-nav__link">
+    4. Obtain an image set
   </a>
   
 </li>
@@ -1043,6 +1057,18 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../calibration/" class="md-nav__link">
+        Extrinsic calibration procedure
+      </a>
     </li>
   
 
@@ -1785,35 +1811,36 @@ In order to collect data in the process of plant phenotyping, the plant imager r
 <h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
 <p>To run an acquisition, you should previously have:</p>
 <ul>
-<li>built the scanner following the guidelines <a href="../../build/">here</a></li>
-<li>installed the necessary ROMI software <a href="../../install/plant_imager_setup/">here</a> 
-  (make sure you are in the conda environment or that you run properly the docker for the <code>plantimager</code> repository)</li>
-<li>interfaced the machine running the ROMI software with the plant imager
-  (main steps: <ol>
-<li>check it is correctly connected to the Gimbal and CNC by USB</li>
-<li>turn on camera and connect it to the device via wifi)</li>
+<li>built the robot following the guidelines <a href="../../build/">here</a></li>
+<li>installed the necessary ROMI software <a href="../../install/plant_imager_setup/">here</a> </li>
+</ul>
+<h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
+<h3 id="1-check-that-you-are-well-interfaced-with-the-plant-imager">1. Check that you are well interfaced with the plant imager<a class="headerlink" href="#1-check-that-you-are-well-interfaced-with-the-plant-imager" title="Permanent link">Link</a></h3>
+<ul>
+<li>make sure you are in the conda environment or that you run properly the docker for the <code>plantimager</code> repository  </li>
+<li>interface the machine running the ROMI software with the plant imager: <ol>
+<li>check that your device is correctly connected to the Gimbal and CNC both by USB</li>
+<li>turn on camera and connect it to the device via Wi-Fi</li>
 </ol>
 </li>
-<li>set up a <a href="../../user_guide/data/">DB</a> (or do the following steps)</li>
-</ul>
-<p>To quickly retrieve an example DB you can use:
-<div class="highlight"><pre><span></span><code>wget https://db.romi-project.eu/models/test_db.tar.gz
-tar -xf test_db.tar.gz
-</code></pre></div>
-This will create a <code>integration_tests</code> folder with a ready to use test database.  </p>
-<p>You can also generate a simple database with the following commands:
+<li>set up a <a href="../../user_guide/data/">DB</a> or quickly generate a simple database with the following commands:<br />
 <div class="highlight"><pre><span></span><code>mkdir path/to/db
-touch path/to/db/db/romidb
-</code></pre></div></p>
-<h2 id="step-by-step-tutorial">Step by step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
-<p><code>Scan</code> is the basic task for running an acquisition with the robot.</p>
-<p>A <strong>default</strong> configuration file for the plant imager can be found under <code>romiscanner/config/hardware.toml</code>.
-It regroups specifications on: 
-* the acquisition path (ScanPath) 
-* needed parameters for connection between hardware components (CNC, Gimbal and camera) and software (Scan.scanner)
-* object metadata (in Scan.metadata.object)<br />
-* hardware metadata (in Scan.metadata.hardware) </p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">ScanPath</span><span class="p">]</span> <span class="c1"># Example, circular scan with 60 points:</span>
+touch path/to/db/romidb
+</code></pre></div>
+You have now your file based database <em>romidb</em>  </li>
+</ul>
+<h3 id="2-get-the-right-configuration">2. Get the right configuration<a class="headerlink" href="#2-get-the-right-configuration" title="Permanent link">Link</a></h3>
+<p><code>Scan</code> is the basic task for running an acquisition with the robot. 
+To run this task properly with <code>romi_run_task</code>, a configuration file is needed.
+A <strong>default</strong> one for the plant imager can be found under <code>romiscanner/config/hardware.toml</code>.<br />
+It regroups specifications on:</p>
+<ul>
+<li>the acquisition path (ScanPath)  </li>
+<li>needed parameters for connection between hardware components (CNC, Gimbal and camera) and software (Scan.scanner)  </li>
+<li>object metadata (in Scan.metadata.object)  </li>
+<li>hardware metadata (in Scan.metadata.hardware)    </li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">ScanPath</span><span class="p">]</span> <span class="c1"># Example, circular path with 60 points:</span>
 <span class="n">class_name</span> <span class="o">=</span> <span class="s">&quot;Circle&quot;</span>
 
 <span class="k">[ScanPath.kwargs]</span>
@@ -1871,7 +1898,7 @@ It regroups specifications on:
 <span class="n">tilt_motor</span> <span class="o">=</span> <span class="s">&quot;None&quot;</span>
 <span class="n">sensor</span> <span class="o">=</span> <span class="s">&quot;RX0&quot;</span>
 
-<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">workspace</span><span class="p">]</span> <span class="c1"># A volume containing the target scanned object</span>
+<span class="p">[</span><span class="n">Scan</span><span class="p">.</span><span class="n">metadata</span><span class="p">.</span><span class="n">workspace</span><span class="p">]</span> <span class="c1"># A volume containing the target imaged object</span>
 <span class="n">x</span> <span class="o">=</span> <span class="k">[ 200, 600,]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="k">[ 200, 600,]</span>
 <span class="n">z</span> <span class="o">=</span> <span class="k">[ -100, 300,]</span>
@@ -1879,22 +1906,27 @@ It regroups specifications on:
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This is a default configuration file. You will most probably need to create one to fit your hardware setup. 
-Check the configuration documentation for the <a href="../../metadata/hardware_metadata/">hardware</a> and the <a href="../../metadata/biological_metadata/">scanned object</a></p>
+Check the configuration documentation for the <a href="../../metadata/hardware_metadata/">hardware</a> and the <a href="../../metadata/biological_metadata/">imaged object</a></p>
 </div>
-<h3 id="running-an-acquisition-with-the-scan-task">Running an acquisition with the <code>Scan</code> task<a class="headerlink" href="#running-an-acquisition-with-the-scan-task" title="Permanent link">Link</a></h3>
-<p>Assuming you have an active database, you can now run a scan using <code>romi_run_task</code>:
-<div class="highlight"><pre><span></span><code>romi_run_task --config config/hardware.toml Scan /path/to/db/scan_id/
+<h3 id="3-run-an-acquisition-with-the-scan-task">3. Run an acquisition with the <code>Scan</code> task<a class="headerlink" href="#3-run-an-acquisition-with-the-scan-task" title="Permanent link">Link</a></h3>
+<p>Assuming you have an active database, you can now run a the task using <code>romi_run_task</code>:
+<div class="highlight"><pre><span></span><code>romi_run_task --config config/hardware.toml Scan /path/to/db/imageset_id/
 </code></pre></div>
 where:</p>
 <ul>
 <li><code>/path/to/db</code> must be an existing FSDB database</li>
-<li>there is no <code>/path/to/db/scan_id</code> already existing in the database.</li>
+<li>there is no <code>/path/to/db/imageset_id</code> already existing in the database.</li>
 </ul>
-<p>This will create the corresponding folder and fill it with images from the scan.</p>
-<h3 id="creation-of-a-scan">Creation of a scan<a class="headerlink" href="#creation-of-a-scan" title="Permanent link">Link</a></h3>
+<p>This will create the corresponding folder and fill it with images from the imageset.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>After a rather short time following running the command, you should hear the robot start and when the acquisition is finished, a <code>This progress looks :)</code> should appear<br />
+If it's not the case, try to look at the Troubleshooting section at the end of this tutorial </p>
+</div>
+<h3 id="4-obtain-an-image-set">4. Obtain an image set<a class="headerlink" href="#4-obtain-an-image-set" title="Permanent link">Link</a></h3>
 <p>Once the acquisition is done, the database is updated and we now have the following tree structure:
 <div class="highlight"><pre><span></span><code>db/
-├── scan_id/
+├── imageset_id/
 │   ├── images/
 │   ├── metadata/
 │   │   └── images/
@@ -1908,23 +1940,24 @@ where:</p>
 <li><code>images</code> containing a list of RGB images acquired by the camera moving around the plant</li>
 <li><code>metadata/images</code> a folder filled with json files recording the poses (camera coordinates) for each taken image  </li>
 <li><code>metadata/images.json</code> containing parameters of the acquisition that will be used later in reconstruction (type of format for the images, info on the object and the workspace)</li>
-<li><code>files.json</code> detailing the files contained in the scan</li>
+<li><code>files.json</code> detailing the files contained in the imageset_id</li>
 <li><code>scan.json</code>, a copy of the acquisition config file</li>
 </ul>
 <p>You can now <a href="../reconstruct_scan/">reconstruct your plant in 3d</a> !</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">Link</a></h2>
 <h3 id="serial-access-denied">Serial access denied<a class="headerlink" href="#serial-access-denied" title="Permanent link">Link</a></h3>
 <ul>
+<li>The CNC and Gimbal might be connected to different ports than the ones specified in the configuration file. Please check with the <code>dmesg -w</code> command.</li>
 <li>Look <a href="../../build/troubleshooting/#serial-access-denied">here</a> if you can not communicate with the scanner using usb.</li>
-<li>Make sure the device used to run the acquisition is well connected to the camera (wifi)</li>
-<li>Message to Gimbal still transiting :</li>
-</ul>
-<p><div class="highlight"><pre><span></span><code>Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
+<li>Make sure the device used to run the acquisition is indeed connected to the camera (wifi)</li>
+<li>Message to Gimbal still transiting :<br />
+<div class="highlight"><pre><span></span><code>Traceback <span class="o">(</span>most recent call last<span class="o">)</span>:
   File <span class="s2">&quot;/home/romi/miniconda3/envs/scan_0.8/lib/python3.8/site-packages/serial/serialposix.py&quot;</span>, line <span class="m">265</span>, <span class="k">in</span> open
     self.fd <span class="o">=</span> os.open<span class="o">(</span>self.portstr, os.O_RDWR <span class="p">|</span> os.O_NOCTTY <span class="p">|</span> os.O_NONBLOCK<span class="o">)</span>
 OSError: <span class="o">[</span>Errno <span class="m">16</span><span class="o">]</span> Device or resource busy: <span class="s1">&#39;/dev/ttyACM0&#39;</span>
 </code></pre></div>
-Try deconnect and reconnect the USB link and rerun a Scan</p>
+Try disconnect and reconnect the USB link and rerun an acquisition</li>
+</ul>
                 
               
               
@@ -1958,13 +1991,13 @@ Try deconnect and reconnect the USB link and rerun a Scan</p>
         </a>
       
       
-        <a href="../virtual_plant_imager_single_dataset/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../calibration/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              How to use the Virtual Plant Imager to generate a single virtual plant dataset
+              Extrinsic calibration procedure
             </div>
           </div>
           <div class="md-footer__button md-icon">
