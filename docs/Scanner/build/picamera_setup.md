@@ -32,7 +32,7 @@ Before installing the softwares, you have to configure some of the Raspberry Pi 
 For security reasons, you have to change the `pi` user password because the default is known by everyone!
 
 Use the raspi-config` tool to do it:
-```bash
+```shell
 sudo raspi-config
 ```
 
@@ -50,13 +50,13 @@ You may also be interested by doing this with a graphical interface and we would
 
 ### Install Packages
 To install the required packages, enter the following into the console:
-```bash
+```shell
 sudo apt-get -y install hostapd dnsmasq
 ```
 
 ### Set Static IP Address
 Edit the `dhcpcd.conf` file:
-```bash
+```shell
 sudo nano /etc/dhcpcd.conf
 ```
 At the bottom of the file, add:
@@ -67,7 +67,7 @@ Save and exit by pressing ++ctrl+x++ and ++y++ when asked.
 
 Next, we need to tell the Raspberry Pi to set a static IP address for the WiFi interface.
 Open the interfaces file with the following command:
-```bash
+```shell
 sudo nano /etc/network/interfaces
 ```
 At the bottom of that file, add the following:

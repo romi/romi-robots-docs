@@ -10,7 +10,7 @@ For the sake of clarity the environment will be called `virtual_plants`.
 If you want to use the virtual scanner, the modified python version bundled with `blender` and the environment python version have to match.
 
 To obtain the python version bundled with your distribution of blender, type:
-```bash
+```shell
 blender -b --python-expr "import sys; print(sys.version)"
 ```
 
@@ -38,14 +38,14 @@ Activate your `virtual_plants` environment!
 
 ### Install `openalea.lpy`
 If you're using `python>=3.7` and `conda`, just install `lpy` from conda:
-```bash
+```shell
 conda install -c conda-forge -c fredboudon openalea.lpy
 ```
 
 ### Install `romicgal` sources
 To pilot the hardware you have to install the `romiscanner`package:
 
-```bash
+```shell
 python3 -m pip install -e git+https://github.com/romi/romicgal.git@dev
 ```
 
@@ -55,7 +55,7 @@ python3 -m pip install -e git+https://github.com/romi/romicgal.git@dev
 ### Install `romiscan` sources
 To start "acquisition jobs", you have to install the `romiscan` package:
 
-```bash
+```shell
 python3 -m pip install -e git+https://github.com/romi/romiscan.git@dev
 ```
 

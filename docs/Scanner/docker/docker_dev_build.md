@@ -22,14 +22,14 @@ To see the available options on the build and run scripts, call for help with `-
 
 ### Building base image
 To build the `roboticsmicrofarms/romiscan_base` docker image, from `romiscan/docker/base` do:
-```bash
+```shell
 ./build.sh
 ```
 
 
 ### Building dev image
 Once you have built the base image, build the dev image for the branch you want to test, *e.g.* `my_branch` for the `romiscan` library:
-```bash
+```shell
 ./build.sh -t my_branch --romiscan my_branch
 ```
 
@@ -42,34 +42,34 @@ Once you have built the base image, build the dev image for the branch you want 
 
 #### Test GPU accessibility
 You can test the accessibility of you GPU to the container with:
-```bash
+```shell
 ./run.sh -t my_branch --gpu_test
 ```
 
 
 #### Test the geometric pipeline
 You can test the geometric pipeline with:
-```bash
+```shell
 ./run.sh -t my_branch --geom_pipeline_test
 ```
 
 
 #### Test the ML pipeline
 You can test the ML pipeline with:
-```bash
+```shell
 ./run.sh -t my_branch --ml_pipeline_test
 ```
 
 
 #### Test both pipelines
 You can test both pipelines with:
-```bash
+```shell
 ./run.sh -t my_branch --pipeline_test
 ```
 
 
 #### Test geometric pipeline
-```bash
+```shell
 ./run.sh -t my_branch --ml_pipeline_test
 ```
 !!!danger
@@ -79,7 +79,7 @@ You can test both pipelines with:
 ## Use
 
 ### Start container in interactive mode
-```bash
+```shell
 ./run.sh -t my_branch 
 ```
 
@@ -103,7 +103,7 @@ If you have made some changes to the branch you are working on, add the `--updat
 
 #### Example1: run the `AnglesAndInternode` task with the ML pipeline
 In this example we bind a ROMI database to the container an run the test ML pipeline from the `romiscan` sources on the `arabido_test2_ml`: 
-```bash
+```shell
 ./run.sh -t my_branch \
          -p /home/scanner/database_jcharlaix/scans_reconstructed/ \
          -c 'romi_run_task --config romiscan/config/ml_pipe_test.toml \
@@ -112,13 +112,13 @@ In this example we bind a ROMI database to the container an run the test ML pipe
 
 #### Example2: run the `AnglesAndInternode` task with the geometric pipeline & print tasks infos
 To invokes mutliples commands, you can either chain the tasks with `&&` in the bash command you provides:
-```bash
+```shell
 ./run.sh -t my_branch -p /home/scanner/database_jcharlaix/scans_reconstructed/ -c 'romi_run_task --config romiscan/config/ml_pipe_test.toml AnglesAndInternodes db/arabido_test2_ml/ && print_task_info PointCloud db/arabido_test2_ml/ && print_task_info AnglesAndInternodes db/arabido_test2_ml/'
 ```
 This wil run the three commands (there could be more) in the same container.
 
 Or makes multiples calls to the `run.sh` script:
-```bash
+```shell
 ./run.sh -t my_branch -p /home/scanner/database_jcharlaix/scans_reconstructed/ -c 'romi_run_task --config romiscan/config/ml_pipe_test.toml AnglesAndInternodes db/arabido_test2_ml/'
 ./run.sh -t my_branch -p /home/scanner/database_jcharlaix/scans_reconstructed/ -c 'print_task_info PointCloud db/arabido_test2_ml/'
 ./run.sh -t my_branch -p /home/scanner/database_jcharlaix/scans_reconstructed/ -c 'print_task_info AnglesAndInternodes db/arabido_test2_ml/'

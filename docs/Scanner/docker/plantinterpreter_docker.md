@@ -8,7 +8,7 @@ Docker container for ROMI plantinterpreter
 
 ## Use pre-built docker image
 Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can easily download and start the pre-built `roboticsmicrofarms/romiscan` docker image with:
-```bash
+```shell
 export ROMI_DB=/data/ROMI/DB
 docker run --runtime=nvidia --gpus all \
   --env PYOPENCL_CTX='0' \

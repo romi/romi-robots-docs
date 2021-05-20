@@ -25,7 +25,7 @@ To do so, follows the official instructions here: https://docs.docker.com/get-do
 It uses the Python docker SDK `docker` available on [PyPi](https://pypi.org/project/docker/), to learn more read the [official](https://docker-py.readthedocs.io/en/stable/) documentation.
 
 If you upgrade from an older install, you may have to install the Python docker SDK:
-```bash
+```shell
 conda activate plant_scanner
 python -m pip install docker
 ```
@@ -46,7 +46,7 @@ Make sure to use version 3.6.
 
 !!!note 
     If you are using a conda environment, you can install `ceres-solver` dependency for COLMAP from the conda-forge channel:
-```bash
+```shell
 conda activate plant_scanner
 conda install ceres-solver -c conda-forge
 ```
@@ -70,7 +70,7 @@ Activate your `plant_scanner` environment!
 To start "reconstruction jobs", you have to install the `romiscan` package.
 
 Here we use the submodules but if you wish to edit other packages than `romiscan`, _e.g._ `romidata`, install them from source!
-```bash
+```shell
 conda activate plant_scanner
 git clone --branch dev https://github.com/romi/romiscan.git
 cd romiscan
@@ -91,7 +91,7 @@ You should now be ready to performs "plant reconstructions" following the [dedic
 We use some algorithms from [CGAL](https://www.cgal.org/) and propose a minimal python wrapper called `romicgal`.
 To install it:
 
-```bash
+```shell
 conda activate plant_scanner
 python3 -m pip install -e git+https://github.com/romi/romicgal.git@master
 ```
@@ -103,7 +103,7 @@ python3 -m pip install -e git+https://github.com/romi/romicgal.git@master
 ### Install `romiseg` sources
 To install the additional Machine Learning based segmentation module:
 
-```bash
+```shell
 conda activate plant_scanner
 python3 -m pip install -e git+https://github.com/romi/romiseg@dev
 ```

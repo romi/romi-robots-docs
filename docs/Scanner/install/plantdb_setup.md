@@ -14,12 +14,12 @@ For the sake of clarity it will be called `plantscans_db`.
 ## Install `romidata` sources
 
 Activate your `plantscans_db` environment!
-```bash
+```shell
 conda activate plantscans_db
 ```
 
 To create an active ROMI database, you have to install the `romidata` package:
-```bash
+```shell
 git clone https://github.com/romi/romidata.git && \
 cd romidata && \
 git checkout dev && \
@@ -36,26 +36,26 @@ A database is any folder which contains a file named `romidb`.
 
 To create an empty database, just create a new folder and an empty file named `romidb` in it.
 For example:
-```bash
+```shell
 mkdir /data/romi_db
 touch /data/romi_db/romidb
 ```
 
 Then define its location in an environment variable `DB_LOCATION`:
-```bash
+```shell
 export DB_LOCATION='/data/ROMI/DB'
 ```
 
 !!!note
     To permanently set this directory as the location of the DB, add it to your `~/.bashrc` file.
-    ```bash
+    ```shell
     echo 'export DB_LOCATION=/data/ROMI/DB' >> ~/.bashrc 
     ```
 
 
 ## Serve the REST API
 Then you can start the REST API with `romi_scanner_rest_api`:
-```bash
+```shell
 romi_scanner_rest_api
 ```
 You should see something like:

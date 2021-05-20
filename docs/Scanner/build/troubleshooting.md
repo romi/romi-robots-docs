@@ -4,12 +4,12 @@
 If you get an error about permission access:
 
 1. Check in what group you are with:
-    ```bash
+    ```shell
     groups ${USER}
     ```
 
 2. If you are not in `dialout`:
-    ```bash
+    ```shell
     sudo gpasswd --add ${USER} dialout
     ```
 

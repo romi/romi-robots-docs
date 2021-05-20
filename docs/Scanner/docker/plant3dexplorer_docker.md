@@ -14,7 +14,7 @@ Look here for a list of available tags: https://hub.docker.com/repository/docker
 The docker image does not contain any plant scans and does not come with a working ROMI local database.
 
 To quickly create an example DB you can use:
-```bash
+```shell
 wget https://db.romi-project.eu/models/test_db.tar.gz
 tar -xf test_db.tar.gz
 ```
@@ -29,14 +29,14 @@ To create a local ROMI database:
 
 ## Use pre-built docker image
 You can easily download and start the pre-built `plant 3d explorer` docker image with:
-```bash
+```shell
 docker run -p 3000:3000 roboticsmicrofarms/plantviewer:$VTAG
 ```
 
 By default the docker image will create a container pointing toward the official ROMI database https://db.romi-project.eu.
 
 To change that, _e.g._ to a local running database at '0.0.0.0', do [^1]:
-```bash
+```shell
 docker run --env REACT_APP_API_URL='0.0.0.0' -p 3000:3000 roboticsmicrofarms/plantviewer:$VTAG
 ```
 
@@ -44,12 +44,12 @@ docker run --env REACT_APP_API_URL='0.0.0.0' -p 3000:3000 roboticsmicrofarms/pla
 
 ## Build docker image
 To build the image, from the `plant 3d explorer` root directory, run:
-```bash
+```shell
 export VTAG="latest"
 docker build -t roboticsmicrofarms/plantviewer:$VTAG .
 ```
 To start the container using the built image:
-```bash
+```shell
 docker run -p 3000:3000 roboticsmicrofarms/plantviewer:$VTAG
 ```
 Once it's up and running, you should be able to access the viewer using a browser here: http://localhost:3000/
@@ -63,7 +63,7 @@ Once it's up and running, you should be able to access the viewer using a browse
 
 ## Publish docker image
 To push it on the `roboticsmicrofarms` docker hub:
-```bash
+```shell
 docker push roboticsmicrofarms/plantviewer:$VTAG
 ```
 This require a valid account and token on dockerhub!

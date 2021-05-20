@@ -16,11 +16,11 @@ The `Plant 3d explorer` relies on:
  - `npm`
 
 Install `node` and `npm`, on ubuntu:
-```bash
+```shell
 sudo apt install npm
 ```
 The packaged version ot `npm` is probably out of date (require `npm>=5`), to update it:
-```bash
+```shell
 npm install npm@latest -g
 ```
 
@@ -30,12 +30,12 @@ npm install npm@latest -g
 Activate your `plant_scanner` environment!
 
 Clone the visualizer git repository :
-```bash
+```shell
 git clone https://github.com/romi/3d-plantviewer.git
 cd 3d-plantviewer
 ```
 Install node packages and build the pages:
-```bash
+```shell
 npm install
 ```
 
@@ -44,20 +44,20 @@ npm install
 
 ### With the official ROMI database
 You can use the ROMI database to test the installation of the `Plant 3d explorer`:
-```bash
+```shell
 export REACT_APP_API_URL='https://db.romi-project.eu'
 npm start
 ```
 
 ### With a runnning local database
 If you have followed the install instructions of the ROMI database ([here](plantdb_setup.md)), you can use it with the `Plant 3d explorer`:
- ```bash
+```shell
 export REACT_APP_API_URL='0.0.0.0'
 npm start
 ```
 
 !!!tip
     To permanently set this URL as the location of the DB, add it to your `~/.bashrc` file.
-    ```bash
+    ```shell
     echo 'export REACT_APP_API_URL=0.0.0.0' >> ~/.bashrc 
     ```

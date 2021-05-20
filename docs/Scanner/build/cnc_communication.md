@@ -10,7 +10,7 @@ To do so, you can use ``dmesg``:
 1. make sure the usb cable from the arduino is unplugged
 2. run ``dmesg -w`` in a terminal
 3. connect the usb and see something like:
-```bash
+```shell
 [70480.940181] usb 1-2: new full-speed USB device number 31 using xhci_hcd
 [70481.090857] usb 1-2: New USB device found, idVendor=2a03, idProduct=0043, bcdDevice= 0.01
 [70481.090862] usb 1-2: New USB device strings: Mfr=1, Product=2, SerialNumber=220
@@ -26,7 +26,7 @@ To do so, you can use ``dmesg``:
 
 Then you can use [picocom](https://github.com/npat-efault/picocom) to connect to the arduino:
 
-```bash
+```shell
 picocom /dev/ttyACM0 -b 115200
 ```
 
@@ -35,7 +35,7 @@ picocom /dev/ttyACM0 -b 115200
 
 Once connected you should see something like:
 
-```bash
+```shell
 picocom v2.2
 
 port is        : /dev/ttyACM0

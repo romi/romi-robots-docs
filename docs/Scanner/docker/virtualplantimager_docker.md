@@ -13,7 +13,7 @@ This docker image has been tested successfully on:
 ### Building the Docker image
 In this repository, you will find a script `build.sh` in the `docker` directory.
 
-```bash
+```shell
     git clone https://github.com/romi/plant-imager.git
     cd plant-imager/
     cd docker/
@@ -36,14 +36,14 @@ For clarity let's defines some variables here:
 * `ROMI_CFG`: the directory containing the ROMI configurations (TOML files);
 
 To defines these variable, in a terminal:
-```bash
+```shell
 export ROMI_DB=/data/ROMI/DB
 export ROMI_CFG=/data/ROMI/configs
 ```
 
 ### Get an example archive with arabidopsis model
 Download & extract the example archive at the root directory of the romi database: 
-```bash
+```shell
 wget --progress=bar -P $ROMI_DB https://media.romi-project.eu/data/vscan_data.tar.xz
 tar -C $ROMI_DB/ -xvJf $ROMI_DB/vscan_data.tar.xz
 ```
@@ -100,7 +100,7 @@ voxel_size = 0.05
 
 ### Start the docker container
 Use the `roboticsmicrofarms/romiscanner` docker image:
-```bash
+```shell
 export ROMI_DB=/data/ROMI/DB
 export ROMI_CFG=/data/ROMI/configs
 
@@ -113,7 +113,7 @@ docker run --runtime=nvidia --gpus all \
 
 ### Initialize a scan dataset
 Use the `romi_import_folder` tool to import the required `data` into a new scan dataset, *e.g.* `vscan_007`:
-```bash 
+```shell 
 romi_import_folder ~/db/vscan_data/data/ ~/db/vscan_007/ --metadata ~/db/vscan_data/files.json
 ```
 

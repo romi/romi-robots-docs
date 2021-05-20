@@ -48,7 +48,7 @@ Principle: the `plant-3d-explorer` is a web client that displays in your favorit
 * if romi commands (like `romi_run_task`) are not accessible from your terminal, activate the appropriate python environment (e.g. using venv or conda) required for romi commands (or [read this procedure](../install/create_env.md))
 * Process all datasets for display by the `plant-3d-explorer` by running the following code
   
-```bash
+```shell
 dataset_list=('plant1','plant2','plant3')
 
 for ds in "${dataset_list[@]}"
@@ -77,7 +77,7 @@ done
 - Continue in the same shell terminal (if you open a new terminal, do not forget to activate appropriate python environment)
 - set the DB location using the `DB_LOCATION` environment variable 
 - Type the following commands to launch the server:
-```bash
+```shell
 export DB_LOCATION=/path/to/your/db
 romi_scanner_rest_api #command that starts the server
 ```
@@ -87,7 +87,7 @@ romi_scanner_rest_api #command that starts the server
 - Open a new terminal 
 - go to your local cloned directory of `plant-3d-explorer/`
 - start the frontend visualization server by entering:
-```bash
+```shell
 npm start
 ```
 You should now be able to access the `plant-3d-explorer` on [http://localhost:3000](http://localhost:3000). Depending on you system preferences, your default web browser may automatically open a window displaying the server content. if not, open your web browser and enter [http://localhost:3000](http://localhost:3000) in the url bar.
