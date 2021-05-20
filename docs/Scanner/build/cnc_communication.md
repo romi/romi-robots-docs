@@ -3,13 +3,14 @@ Communicating with the CNC
 
 ## Connect to the Arduino UNO
 
-First you need to find which USB port your arduino is connected to. 
+First you need to find which USB port your arduino is connected to.
 
 To do so, you can use ``dmesg``:
 
 1. make sure the usb cable from the arduino is unplugged
 2. run ``dmesg -w`` in a terminal
 3. connect the usb and see something like:
+
 ```shell
 [70480.940181] usb 1-2: new full-speed USB device number 31 using xhci_hcd
 [70481.090857] usb 1-2: New USB device found, idVendor=2a03, idProduct=0043, bcdDevice= 0.01
@@ -20,9 +21,8 @@ To do so, you can use ``dmesg``:
 [70481.093408] cdc_acm 1-2:1.0: ttyACM0: USB ACM device
 ```
 
-!!!important
+!!! important
     The important info here is ``ttyACM0``!
-
 
 Then you can use [picocom](https://github.com/npat-efault/picocom) to connect to the arduino:
 
@@ -65,8 +65,8 @@ Grbl 1.1f ['$' for help]
 
 This mean you now have access to a Grbl terminal (`Grbl 1.1f`) to communicate, notably send instructions, to the CNC!
 
-
 ## Troubleshooting
 
 ### Serial access denied
+
 Look [here](troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.

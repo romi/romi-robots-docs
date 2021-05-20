@@ -2,9 +2,9 @@ Extrinsic calibration
 =================
 
 ## Objective
-In order to correct errors that might be induced by the hardware setup, a procedure of extrinsic calibration has been 
-developed. We will see in this section how to do a calibration scan and use it in the further analysis.
 
+In order to correct errors that might be induced by the hardware setup, a procedure of extrinsic calibration has been developed.
+We will see in this section how to do a calibration scan and use it in the further analysis.
 
 ## Prerequisite
 The *Colmap* structure from motion algorithm is used during the 3d reconstruction (detailed here) and allows us to obtain more accurate positions of the camera than the ones returned by the robot. 
@@ -23,18 +23,21 @@ To correct that, a procedure has been developed to perform an extrinsic calibrat
 ### 1. Calibration Scan
 Because the bias is mainly induced by making a circular scan, one way to avoid it is to do a calibration scan with first a path constituted of lines (2 orthogonal lines in our case) followed by the path that will be used by other scans.  
 
-![Calibration scan diagram](../../assets/images/calibration_scan_figure.png){width=600 loading=lazy} 
+![Calibration scan diagram](../../assets/images/calibration_scan_figure.png){width=600 loading=lazy}
 
-To do so, run the CalibrationScan task the same way as for a regular Scan:  
-```bash
+To do so, run the CalibrationScan task the same way as for a regular Scan:
+
+```shell
 romi_run_task --config config/hardware.toml CalibrationScan /path/to/db/calibration_scan_id/
 ```
+
 For Colmap in order to get the maximum reference points from the scene, you might want to scan several "recognizable" objects.
 
-### 2. Get circular poses from path lines with Colmap  
+### 2. Get circular poses from path lines with Colmap
+
 Then thanks to the linear path added to the circular one, it is possible to retrieve accurate poses from Colmap with a proper scaling:
 
-```bash
+```shell
 romi_run_task --config config/geom_pipe_full.toml Colmap /path/to/db/calibration_scan_id/
 ```
 
@@ -45,4 +48,5 @@ We can now use the calibrated poses for the 3d reconstruction (full process deta
 [Colmap]
 calibration_scan_id = "calibration_scan_id"
 ```
+
 These two image set must be in the same DB.

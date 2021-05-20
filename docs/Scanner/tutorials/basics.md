@@ -3,7 +3,6 @@ How to use the ROMI scanner software?
 
 We here assume you have followed the "installation instructions" available [here](../install/index.md).
 
-
 ## Getting started
 
 There are some requirements to use the different algorithms in the pipeline.
@@ -20,32 +19,30 @@ Preferably, create a virtual environment for python 3.7 or python 3.8 using `vir
 !!! warning
     If using python 3.8, Open3D binaries are not yet available on pip, therefore you have to build Open3D from sources!
 
-
-
 ## Basic usage
 
-Every task on the scanner is launched through the `romi_run_task` command provided in
-the `romiscan` module. It is a wrapper for `luigi`, with preloaded tasks from
-the `romiscan` module.
+Every task on the scanner is launched through the `romi_run_task` command provided in the `plant3dvision` module.
+It is a wrapper for `luigi`, with preloaded tasks from the `plant3dvision` module.
 
 The general usage is as follows:
+
 ```shell
 romi_run_task [-h] [--config CONFIG] [--luigicmd LUIGICMD] [--module MODULE]
 [--local-scheduler] [--log-level LOG_LEVEL] task scan
 ```
 
-* `CONFIG` is either a file or a folder. If a file, it must be `json` or `toml` and contains the configuration of the task to run. If a folder, it will read all configuration files in `json` or `toml` format from the folder.
+* `CONFIG` is either a file or a folder. If a file, it must be `json` or `toml` and contains the configuration of the task to run. If a folder, it will read all   configuration files in `json` or `toml` format from the folder.
 * `LUIGICMD` is an optional parameter specifying an alternative command for `luigi`.
 * `MODULE` is an optional parameter for running task from external modules (see TODO).
 * `LOG_LEVEL` is the level of logging. Defaults to `INFO`, but can be set to `DEBUG` to increase verbosity.
 * `task` is the name of the class to run (see TODO)
-* `scan` is the location of the target `scan` on which to process the task. It is of the form `DB_LOCATION/SCAN_ID`, where `DB_LOCATION` is a path containing the `romidb` marker.
-
+* `scan` is the location of the target `scan` on which to process the task. It is of the form `DB_LOCATION/SCAN_ID`, where `DB_LOCATION` is a path containing the `plantdb` marker.
 
 ## Configuration files
 
 The configuration is in the form of a dictionary, in which each key is the ID of a given task.
 In `toml` format, it reads as follows:
+
 ```toml
 [FirstTask]
 parameter1 = value1
@@ -56,7 +53,9 @@ parameter2 = value2
 ```
 
 ## Pipelines
+
 This is a sample configuration for the _full reconstruction pipeline_:
+
 ```toml
 [Colmap]
 matcher = "exhaustive"
@@ -94,6 +93,7 @@ mesh_source = "delaunay"
 ```
 
 To run the _full reconstruction pipeline_ use this configuration file with `romi_run_task`:
+
 ```shell
 romi_run_task --config scanner.json AnglesAndInternodes /path/to/db/scan_id/ --local-scheduler
 ```
@@ -107,22 +107,43 @@ Already computed tasks will be left untouched.
 To recompute a task, just delete the corresponding folder in the scan directory and rerun `romi_run_task`.
 
 ## Default task reference
+
 ```python
 default_modules = {
-    "Scan": "romiscan.tasks.scan",
-    "Clean": "romiscan.tasks.scan",
-    "CalibrationScan": "romiscan.tasks.scan",
-    "Colmap": "romiscan.tasks.colmap",
-    "Undistorted": "romiscan.tasks.proc2d",
-    "Masks": "romiscan.tasks.proc2d",
-    "Segmentation2D": "romiscan.tasks.proc2d",
-    "Voxels": "romiscan.tasks.cl",
-    "PointCloud": "romiscan.tasks.proc3d",
-    "TriangleMesh": "romiscan.tasks.proc3d",
-    "CurveSkeleton": "romiscan.tasks.proc3d",
-    "TreeGraph": "romiscan.tasks.arabidopsis",
-    "AnglesAndInternodes": "romiscan.tasks.arabidopsis",
-    "Visualization": "romiscan.tasks.visualization"
+    # Scanning modules:
+    "Scan": "plantimager.tasks.scan",
+    "VirtualPlant": "plantimager.tasks.lpy",
+    "VirtualScan": "plantimager.tasks.scan",
+    "CalibrationScan": "plantimager.tasks.scan",
+    # Geometric reconstruction modules:
+    "Colmap": "plant3dvision.tasks.colmap",
+    "Undistorted": "plant3dvision.tasks.proc2d",
+    "Masks": "plant3dvision.tasks.proc2d",
+    "Voxels": "plant3dvision.tasks.cl",
+    "PointCloud": "plant3dvision.tasks.proc3d",
+    "TriangleMesh": "plant3dvision.tasks.proc3d",
+    "CurveSkeleton": "plant3dvision.tasks.proc3d",
+    # Machine learning reconstruction modules:
+    "Segmentation2D": "plant3dvision.tasks.proc2d",
+    "SegmentedPointCloud": "plant3dvision.tasks.proc3d",
+    "ClusteredMesh": "plant3dvision.tasks.proc3d",
+    "OrganSegmentation": "plant3dvision.tasks.proc3d",
+    # Quantification modules:
+    "TreeGraph": "plant3dvision.tasks.arabidopsis",
+    "AnglesAndInternodes": "plant3dvision.tasks.arabidopsis",
+    # Evaluation modules:
+    "VoxelsGroundTruth": "plant3dvision.tasks.evaluation",
+    "VoxelsEvaluation": "plant3dvision.tasks.evaluation",
+    "PointCloudGroundTruth": "plant3dvision.tasks.evaluation",
+    "PointCloudEvaluation": "plant3dvision.tasks.evaluation",
+    "ClusteredMeshGroundTruth": "plant3dvision.tasks.evaluation",
+    "PointCloudSegmentationEvaluation": "plant3dvision.tasks.evaluation",
+    "Segmentation2DEvaluation": "plant3dvision.tasks.evaluation",
+    "AnglesAndInternodesEvaluation": "plant3dvision.tasks.evaluation",
+    # Visu modules:
+    "Visualization": "plant3dvision.tasks.visualization",
+    # Database modules:
+    "Clean": "romitask.task"
 }
 ```
 
@@ -132,7 +153,7 @@ default_modules = {
 
 ```text
 Class name: Scan
-Module: romiscan.tasks.scan
+Module: plantimager.tasks.scan
 Description: A task for running a scan, real or virtual.
 Default upstream tasks: None
 Parameters:
@@ -141,7 +162,7 @@ Parameters:
     - path (DictParameter) : scanner path configuration (TODO: see hardware documentation)
 
 Class name: CalibrationScan
-Module: romiscan.tasks.scan
+Module: plantimager.tasks.scan
 Description: A task for running a scan, real or virtual, with a calibration path. It is used to calibrate
     Colmap poses for subsequent scans. (TODO: see calibration documentation)
 Default upstream tasks: None
@@ -152,47 +173,47 @@ Parameters:
     - n_line : number of shots taken on the orthogonal calibration lines
 
 Class name: Clean
-Module: romiscan.tasks.scan
+Module: plantimager.tasks.scan
 Description: Cleanup a scan, keeping only the "images" fileset and removing all computed pipelines.
 Default upstream tasks: None
 Parameters:
     - no_confirm (BoolParameter, default=False) : do not ask for confirmation in the command prompt.
 
 Class name: Colmap
-Module: romiscan.tasks.colmap
+Module: plant3dvision.tasks.colmap
 Description: Runs colmap on a given scan.
 Default upstream tasks: Scan
 Upstream task format: Fileset with image files
 Output fileset format: images.json, cameras.json, points3D.json, sparse.ply [, dense.ply]
 Parameters:
-    - matcher (Parameter, default="exhaustive") : either "exhaustive" or "sequential" (TODO: see colmap documentation)
-    - compute_dense (BoolParameter) : whether to run the dense colmap to obtain a dense point cloud
-    - cli_args (DictParameter) : parameters for colmap command line prompts (TODO: see colmap documentation)
+    - matcher (Parameter, default="exhaustive") : either "exhaustive" or "sequential" (TODO: see Colmap documentation)
+    - compute_dense (BoolParameter) : whether to run the dense Colmap to obtain a dense point cloud
+    - cli_args (DictParameter) : parameters for Colmap command line prompts (TODO: see Colmap documentation)
     - align_pcd (BoolParameter, default=True) : align point cloud on calibrated or metadata poses ?
     - calibration_scan_id (Parameter, default="") : ID of the calibration scan.
 
 Class name: Undistorted
-Module: romiscan.tasks.proc2d
+Module: plant3dvision.tasks.proc2d
 Description: Undistorts images using computed intrinsic camera parameters
 Default upstream tasks: Scan, Colmap
 Upstream task format: Fileset with image files
 Output fileset format: Fileset with image files
 
 Class name: Masks
-Module: romiscan.tasks.proc2d
+Module: plant3dvision.tasks.proc2d
 Description: compute masks using several functions
 Default upstream tasks: Undistorted
 Upstream task format: Fileset with image files
 Output fileset format: Fileset with grayscale or binary image files
 Parameters:
     - type (Parameter) : "linear", "excess_green", "vesselness", "invert" (TODO: see segmentation documentation) 
-    - parameters (ListParameter) : list of scalar parmeters, depends on type
+    - parameters (ListParameter) : list of scalar parameters, depends on type
     - dilation (IntParameter) : by how much to dilate masks if binary
     - binarize (BoolParameter, default=True) : binarize the masks
     - threshold (FloatParameter, default=0.0) : threshold for binarization
     - 
 Class name: Segmentation2D
-Module: romiscan.tasks.proc2d
+Module: plant3dvision.tasks.proc2d
 Description: compute masks using trained deep learning models
 Default upstream tasks: Undistorted
 Upstream task format: Fileset with image files
@@ -202,12 +223,12 @@ Parameters:
         only input files such that "channel" metadata is equal to "rgb".
     - labels (Parameter) : string of the form "a,b,c" such that a, b, c are the identifiers of the labels produced by the neural
       	network
-    - Sx, Sy (IntParametr) : size of the input of the neural network. Input pictures are cropped in the center to this size.
+    - Sx, Sy (IntParameter) : size of the input of the neural network. Input pictures are cropped in the center to this size.
     - model_segmentation_name : name of ".pt" file  that can be found at  `https://db.romi-project.eu/models`
     - 
 Class name: Voxels
-Module: romiscan.tasks.cl
-Description: Computes a volume from backprojection of 2D segmented images
+Module: plant3dvision.tasks.cl
+Description: Computes a volume from back-projection of 2D segmented images
 Default upstream tasks: 
     - upstream_mask: Masks
     - upstream_colmap: Colmap
@@ -223,41 +244,40 @@ Parameters:
     - log (BoolParameter, default=True), in the case of "averaging" type, whether to apply log when averaging values.
     
 Class name: PointCloud
-Module: romiscan.tasks.proc3d
+Module: plant3dvision.tasks.scan
 Description: Computes a point cloud from volumetric voxel data (either single or multiclass)
 Default upstream tasks: Voxels
 Upstream task format: npz file with as many 3D array as classes
 Output task format: single point cloud in ply. Metadata may include label name if multiclass.
 
 Class name: TriangleMesh
-Module: romiscan.tasks.proc3d
+Module: plant3dvision.tasks.scan
 Description: Triangulates input point cloud. Currently ignores class data and needs only one connected component.
 Default upstream tasks: PointCloud
 Upstream task format: ply file
 Output task format: ply triangle mesh file
 
 Class name: CurveSkeleton
-Module: romiscan.tasks.proc3d
+Module: plant3dvision.tasks.scan
 Description: Creates a 3D curve skeleton
 Default upstream tasks: TriangleMesh
 Upstream task format: ply triangle mesh
 Output task format: json with two entries "points" and "lines" (TODO: precise)
 
 Class name: TreeGraph
-Module: romiscan.tasks.arabidopsis
+Module: plant3dvision.tasks.arabidopsis
 Description: Creates a tree graph of the plant
 Default upstream tasks: CurveSkeleton
 Upstream task format: json
 Output task format: json (TODO: precise)
 
 Class name; AnglesAndInternodes
-Module: romiscan.tasks.arabidopsis
+Module: plant3dvision.tasks.arabidopsis
 Description: Computes angles and internode
 Default upstream tasks: TreeGraph
 Upstream task format: json
 Output task format: json (TODO: precise)
 ```
-
 
 ## Scanner API reference
 

@@ -1,13 +1,11 @@
 Building the aluminium frame
 ============================
 
-
-
 !!! important
-    All units are in millimeters!
-
+        All units are in millimeters!
 
 ## BOM
+
 <img src="/assets/images/alu_frame_wood_corners_3D.PNG" alt="Aluminium frame with wood corners overview" width="300" style="float:right">
 
 To build the aluminium frame you will need:
@@ -24,8 +22,8 @@ Note that:
 * Parts **A** defines the height of the scanner;
 * Parts **B** & **C** depends on the external size of the chosen CNC frame!
 
-
 ## Build instructions
+
 Start by building the smallest sides of the frame using two **A** parts & two **C** parts per side.
 To ease the build, lay them flat on the floor.
 
@@ -45,8 +43,8 @@ To ease the build, lay them flat on the floor.
       <figcaption>Assembled aluminium frame schematic & isometric view.</figcaption>
     </figure>
 
-
 ## Optional
+
 Add wood corner brackets to rigidify the structure.
 
 <figure>

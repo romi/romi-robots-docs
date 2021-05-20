@@ -6,8 +6,8 @@ This project has received funding from the European Union’s Horizon 2020 resea
 
 <img src="https://romi-project.eu/wp-content/themes/romi/assets/images/eu_flag.svg" alt="EU_flag" title="European Flag" width="200" />
 
-
 ## Research teams
+
 <div>
 <table style="background-color: #ffffff; margin-top: 2px; margin-bottom: 5px;">
 
@@ -44,14 +44,13 @@ This project has received funding from the European Union’s Horizon 2020 resea
 </table>
 </div>
 
-
 ## Official Website
+
 This is the _documentation website_ of the ROMI project, to access the _public project presentation_, follow this link: https://romi-project.eu/
 
-
 ## GitHub sources
-For now these [sources](https://github.com/romi) are private.
 
+For now these [sources](https://github.com/romi) are private.
 
 ## Presentation videos
 

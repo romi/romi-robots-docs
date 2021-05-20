@@ -1,7 +1,9 @@
 ---
 hide:
-  - navigation # Hide navigation
-  - toc        # Hide table of contents
+
+- navigation # Hide navigation
+- toc # Hide table of contents
+
 ---
 
 # Robotics for micro-farms
@@ -11,9 +13,8 @@ The goal is to develop an open-source, affordable, multipurpose platform adapted
 
 | Plant Phenotyping                           | Crop Monitoring                      | Rover                          |
 | :-----------------------------------------: | :----------------------------------: | :----------------------------: |
-| [![Plant Phenotyping](../assets/images/phenotyping.png){: style="width:350px"}](../Scanner/) | [![Crop Monitoring](../assets/images/farmers-dashboard.png){: style="width:350px"}](../Farmers Dashboard/) | [![Rover](../assets/images/rover.png){: style="width:350px"}](../Rover/)  |
+| [![Plant Phenotyping](assets/images/phenotyping.png){: style="width:350px"}](../Scanner/) | [![Crop Monitoring](assets/images/farmers-dashboard.png){: style="width:350px"}](../Farmers Dashboard/) | [![Rover](assets/images/rover.png){: style="width:350px"}](../Rover/)  |
 | [:material-robot-excited-outline:](https://github.com/romi/plant-imager) [:material-camera-iris:](https://github.com/romi/virtual_plant_imager) [:material-database-outline:](https://github.com/romi/plantdb) [:material-pine-tree-box:](https://github.com/romi/plant-3d-vision) [:material-file-tree-outline:](https://github.com/romi/plant-3d-explorer) [:material-graph-outline:](https://github.com/romi/romiseg) [:material-chart-timeline-variant-shimmer:](https://github.com/romi) [:material-graphql:](https://github.com/romi/romicgal) | [:material-camera-wireless-outline:](https://github.com/romi/romi-cablebot) [:material-database-outline:](https://github.com/romi/plantdb) [:material-monitor-dashboard:](https://github.com/romi/farmers-dashboard) | [:material-robot-mower-outline:](https://github.com/romi/romi-rover) [:material-database-outline:](https://github.com/romi/plantdb) [:material-graph-outline:](https://github.com/romi/romiseg) [:material-monitor-dashboard:](https://github.com/romi/farmers-dashboard) |
-
 
 ## Complete module list
 

@@ -5,13 +5,13 @@ We hereafter details how you can make your own algorithms available to the ROMI 
 
 For the sake of clarity and to illustrate how-to create a ROMI task from scratch, in this guide we will assume you want to add something quite different from what is already there.
 
-!!! Important
-    ROMI task usually have a **semantic meaning** and for example, the task `AnglesAndInternodes` may takes several type of object in input (mesh, pointcloud & skeletons) but always output the JSON file with the obtained measures.
+!!! Important 
+    ROMI task usually have a **semantic meaning** and for example, the task `AnglesAndInternodes` may take several types of object in input (mesh, point-cloud & skeletons) but always output the JSON file with the obtained measures.
     So, to decide if you have to create a new task or add your algorithm to an existing task, following this rule should help: **at a given step of the pipeline, if the output change, this is a NEW task!**
 
+## Add you algorithm to `plant3dvision`
 
-## Add you algorithm to `romiscan`
-You first have to add a file (or append to an existing one), *e.g.* named `algo.py`, under the `romiscan/romiscan` directory.
+You first have to add a file (or append to an existing one), *e.g.* named `algo.py`, under the `plant3dvision/plant3dvision` directory.
 
 Let's assume the previously added file has a main function called `my_algo` like this:
 
@@ -23,24 +23,26 @@ def my_algo(data, *params, **kwargs):
 
 It has:
 
- - **data input(s)** (*e.g.* images, point clouds, meshes, ...) that will often be the output of a previous task in the pipeline
- - **parameter(s)**, specific to the algorithm you want to add
- - **output(s)**, the transformed dataset that will often be the input of a following task in the pipeline
-
+- **data input(s)** (*e.g.* images, point clouds, meshes, ...) that will often be the output of a previous task in the pipeline
+- **parameter(s)**, specific to the algorithm you want to add
+- **output(s)**, the transformed dataset that will often be the input of a following task in the pipeline
 
 ## Create a ROMI task
 
 ### Dependency to `luigi`
-We use `luigi` to manage the pipeline execution and handle requirements & tasks dependencies. 
+
+We use `luigi` to manage the pipeline execution and handle requirements & tasks dependencies.
 To create a task you will thus have to create a new Python class `MyTask` inheriting from the `RomiTask` class and creates a few methods and at least a `run` method used by `luigi`.
 
-### Dependency to `romidata`
-To manage the files, inputs and outputs, we use the `romidata` package implementing a local file system database written in pure python.
-It provides classes and methods that simplifies and normalize the creation and use of the tasks outputs and inputs.  
+### Dependency to `plantdb`
 
+To manage the files, inputs and outputs, we use the `plantdb` package implementing a local file system database written in pure python.
+It provides classes and methods that simplifies and normalize the creation and use of the tasks outputs and inputs.
 
 ### New `RomiTask` template
-You will create a new python file `my_task.py` in the 'task' submodule: `romiscan/romiscan/tasks/my_task.py`
+
+You will create a new python file `my_task.py` in the 'task' submodule: `plant3dvision/plant3dvision/tasks/my_task.py`
+
 ```python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -51,12 +53,12 @@ Briefly describe your module here.
 
 import luigi
 
-from romidata import RomiTask
-from romidata import io
-from romiscan.log import logger  # Use this as logging method
+from plantdb import RomiTask
+from plantdb import io
+from plant3dvision.log import logger  # Use this as logging method
 
 # Now import your main method:
-from romiscan.algo import my_algo
+from plant3dvision.algo import my_algo
 
 
 def MyTask(RomiTask):
@@ -124,6 +126,7 @@ def MyTask(RomiTask):
 ```
 
 The corresponding TOML configuration file (`my_pipeline.toml`) controlling your task behaviour would look like this:
+
 ```toml
 [MyTask]
 upstream_task='SegmentedPointCloud'
@@ -133,14 +136,14 @@ log=true
 ```
 
 !!! Note
-    You may need to add methods to read and write data, this should be done in the `romidata` library using the `romidata/romidata/io.py` file!
-
+    You may need to add methods to read and write data, this should be done in the `plantdb` library using the `plantdb/plantdb/io.py` file!
 
 ### Multiple I/O for a task
-Your method (or the upstream task) may produce a set of object you want to save as separates files.
-In such case, use `Filset` objects.
+
+Your method (or the upstream task) may produce a set of object you want to save as separates files. In such case, use `Filset` objects.
 
 For example to output multiple JSON files:
+
 ```python
 list_of_jsonifyable = [...]
 task_output_fs = self.output().get()
@@ -151,20 +154,22 @@ for i, json_data in enumerate(list_of_jsonifyable):
     f.set_metadata("foo", f"bar{i}")
 ```
 
-
 ## Register your task
-Add it to `romiscan/modules.py` by referring to the task class name & its python module location:
+
+Add it to `plant3dvision/modules.py` by referring to the task class name & its python module location:
+
 ```python
 MODULES = {
     # ...
-    "MyTask": "romiscan.tasks.my_algo",
+    "MyTask": "plant3dvision.tasks.my_algo",
     # ...
 }
 ```
 
-
 ## Use your newly created task
+
 You should now be able to use your newly created task `MyTask` with `romi_run_task`:
+
 ```shell
 romi_run_task MyTask /path/to/dataset --config /path/to/my_pipeline.toml
 ```
