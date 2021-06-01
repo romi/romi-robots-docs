@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/modules/plant_3d_explorer/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
     
     
       
@@ -24,10 +24,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.875de78c.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.f1a3b89f.min.css">
         
       
     
@@ -797,11 +797,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#available-scripts" class="md-nav__link">
-    Available Scripts
+  <a href="#installation" class="md-nav__link">
+    Installation
   </a>
   
-    <nav class="md-nav" aria-label="Available Scripts">
+    <nav class="md-nav" aria-label="Installation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -810,6 +810,19 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-and-run-the-webapp-client" class="md-nav__link">
+    Test and run the webapp client
+  </a>
+  
+    <nav class="md-nav" aria-label="Test and run the webapp client">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#npm-test" class="md-nav__link">
@@ -1999,17 +2012,37 @@ Then update the node.js package manager with:
 <div class="highlight"><pre><span></span><code>npm install npm -g
 </code></pre></div>
 You may find that the npm packaged for your distro is too old... then head over to your browser, choose a search engine, type <code>npm</code>, and good luck!</p>
-<h2 id="available-scripts">Available Scripts<a class="headerlink" href="#available-scripts" title="Permanent link">Link</a></h2>
-<p>In the project directory, you can run:</p>
-<h3 id="npm-install"><code>npm install</code><a class="headerlink" href="#npm-install" title="Permanent link">Link</a></h3>
-<p>This is needed to install the dependencies of the project.</p>
 <p>To make sure everything works fine, your version of nodejs must be &gt;= 10, and your version of npm must be &gt;= 6.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">Link</a></h2>
+<p>First clone the <code>plant-3d-explorer</code> git repository and enter the downloaded folder:
+<div class="highlight"><pre><span></span><code>git clone https://github.com/romi/plant-3d-explorer.git
+<span class="nb">cd</span> plant-3d-explorer
+</code></pre></div></p>
+<h3 id="npm-install"><code>npm install</code><a class="headerlink" href="#npm-install" title="Permanent link">Link</a></h3>
+<p>This is needed to install the dependencies of the project. At the root of the project directory, execute the following command:
+<div class="highlight"><pre><span></span><code>npm install
+</code></pre></div></p>
+<h2 id="test-and-run-the-webapp-client">Test and run the webapp client<a class="headerlink" href="#test-and-run-the-webapp-client" title="Permanent link">Link</a></h2>
+<p>Still at root of the project directory, you can run:</p>
 <h3 id="npm-test"><code>npm test</code><a class="headerlink" href="#npm-test" title="Permanent link">Link</a></h3>
 <p>This will run the tests for the project. It will permanently run and run again on files when they are changed. Multiple commands are available, see <a href="https://create-react-app.dev/docs/running-tests/">this</a> for more info.</p>
 <p>Each test file is located with the component it is testing. So the tests for the file <code>src/ScanList/index.js</code> are located in <code>src/Scanlist/index.test.js</code>.</p>
 <h3 id="npm-start"><code>npm start</code><a class="headerlink" href="#npm-start" title="Permanent link">Link</a></h3>
-<p>Runs the app in the development mode.</p>
-<p>Open <a href="http://localhost:3000">http://localhost:3000</a> to view it in the browser.</p>
+<p>To run the app in the development mode, just execute :
+<div class="highlight"><pre><span></span><code>npm start
+</code></pre></div>
+After a brief, the terminal should display:
+<div class="highlight"><pre><span></span><code>Compiled successfully!
+
+You can now view sony_visualiseur-plantes-3d in the browser.
+
+  Local:            http://localhost:3000/
+  On Your Network:  http://192.168.0.18:3000/
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+</code></pre></div></p>
+<p>Then, open <a href="http://localhost:3000">http://localhost:3000</a> to view it in the browser.</p>
 <p>You need to add a file <code>.env.local</code> at project's root to set the <code>API URL</code>:
 <div class="highlight"><pre><span></span><code>REACT_APP_API_URL=&#39;{`API URL}&#39;
 </code></pre></div>
@@ -2194,7 +2227,7 @@ To install it, and its dependencies, do:
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.34eae1b6.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
