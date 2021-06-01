@@ -26,7 +26,7 @@ To run an acquisition, you should previously have:
 
 ```shell
 mkdir path/to/db
-touch path/to/db/plantdb
+touch path/to/db/romidb
 ```
 
 You have now your file based database *plantdb*
@@ -145,7 +145,7 @@ db/
 │   │   └── images.json
 │   └── files.json
 │   └── scan.json
-└── plantdb
+└── romidb
 ```
 
 with:
