@@ -20,7 +20,7 @@
     
     
       
-        <title>How to use the Virtual Plant Imager to generate a single virtual plant dataset - ROMI Documentation</title>
+        <title>How to evaluate an analysis in a virtual world (both virtual plant and imager) ? - ROMI Documentation</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-use-the-virtual-plant-imager-to-generate-a-single-virtual-plant-dataset" class="md-skip">
+        <a href="#how-to-evaluate-a-3d-reconstruction-and-automated-measures-with-a-virtual-plant-as-ground-truth" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              How to use the Virtual Plant Imager to generate a single virtual plant dataset
+              How to evaluate an analysis in a virtual world (both virtual plant and imager) ? 
             
           </span>
         </div>
@@ -1167,12 +1167,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          How to use the Virtual Plant Imager to generate a single virtual plant dataset
+          How to evaluate an analysis in a virtual world (both virtual plant and imager) ? 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        How to use the Virtual Plant Imager to generate a single virtual plant dataset
+        How to evaluate an analysis in a virtual world (both virtual plant and imager) ? 
       </a>
       
         
@@ -1212,15 +1212,23 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-preparing-your-scan-data" class="md-nav__link">
-    1. Preparing your scan data
+  <a href="#1-prepare-data-into-a-proper-database" class="md-nav__link">
+    1. Prepare data into a proper database
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Prepare data into a proper database">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-quick-ready-to-use-example" class="md-nav__link">
+    1.1 quick ready-to-use example
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-generate-a-virtual-plant-with-lpy" class="md-nav__link">
-    2. Generate a virtual plant with lpy
+  <a href="#12-customize-data-of-the-virtual-plant-andor-of-the-virtual-images" class="md-nav__link">
+    1.2 Customize data of the virtual plant and/or of the virtual images
   </a>
   
 </li>
@@ -1229,11 +1237,57 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#running-the-reconstruction-pipeline-on-the-virtual-dataset" class="md-nav__link">
-    Running the reconstruction pipeline on the virtual dataset
+        
+          <li class="md-nav__item">
+  <a href="#2-generate-virtual-images-from-a-lpy-virtual-plant-in-a-virtual-scene" class="md-nav__link">
+    2. Generate virtual images from a (Lpy) virtual plant in a virtual scene
   </a>
+  
+    <nav class="md-nav" aria-label="2. Generate virtual images from a (Lpy) virtual plant in a virtual scene">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-optional-how-to-modify-the-virtual-plant-with-lpy-parameters" class="md-nav__link">
+    2.1 (optional) how to modify the virtual plant with LPy parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-optional-how-to-modify-the-virtual-imaging-performed-by-the-virtual-imager" class="md-nav__link">
+    2.2 (optional) how to modify the virtual imaging performed by the virtual imager
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-running-a-reconstruction-pipeline-on-the-virtual-dataset" class="md-nav__link">
+    3. Running a reconstruction pipeline on the virtual dataset
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-evaluate-the-quality-of-the-construction-by-comparing-to-the-virtual-ground-truth-data" class="md-nav__link">
+    4. Evaluate the quality of the construction by comparing to the virtual ground truth data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-view-and-scrutinize-in-3d-all-data-generated-images-reconstruction-and-evalutation" class="md-nav__link">
+    5. View and scrutinize in 3D all data generated  (images, reconstruction and evalutation)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1251,7 +1305,7 @@
   
     <li class="md-nav__item">
       <a href="../virtual_plant_imager_large_dataset/" class="md-nav__link">
-        How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes
+        How to generate large "virtual" training data for machine-learning ?
       </a>
     </li>
   
@@ -1376,7 +1430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/" class="md-nav__link">
+      <a href="../../specifications/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1388,7 +1442,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/data/" class="md-nav__link">
+      <a href="../../specifications/data/" class="md-nav__link">
         Data
       </a>
     </li>
@@ -1400,8 +1454,20 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/hardware/" class="md-nav__link">
+      <a href="../../specifications/hardware/" class="md-nav__link">
         Hardware
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../specifications/virtual-plant-imager/" class="md-nav__link">
+        Virtual Plant Imager
       </a>
     </li>
   
@@ -1415,14 +1481,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_8_4" type="checkbox" id="__nav_3_4_8_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_8_5" type="checkbox" id="__nav_3_4_8_5" >
       
-      <label class="md-nav__link" for="__nav_3_4_8_4">
+      <label class="md-nav__link" for="__nav_3_4_8_5">
         Metadata
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Metadata" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_8_4">
+        <label class="md-nav__title" for="__nav_3_4_8_5">
           <span class="md-nav__icon md-icon"></span>
           Metadata
         </label>
@@ -1499,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/luigi/" class="md-nav__link">
+      <a href="../../specifications/luigi/" class="md-nav__link">
         Luigi
       </a>
     </li>
@@ -1514,14 +1580,14 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_8_6" type="checkbox" id="__nav_3_4_8_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_8_7" type="checkbox" id="__nav_3_4_8_7" >
       
-      <label class="md-nav__link" for="__nav_3_4_8_6">
+      <label class="md-nav__link" for="__nav_3_4_8_7">
         Tasks
         <span class="md-nav__icon md-icon"></span>
       </label>
       <nav class="md-nav" aria-label="Tasks" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_8_6">
+        <label class="md-nav__title" for="__nav_3_4_8_7">
           <span class="md-nav__icon md-icon"></span>
           Tasks
         </label>
@@ -1532,7 +1598,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1544,7 +1610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/file_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/file_tasks/" class="md-nav__link">
         Files tasks
       </a>
     </li>
@@ -1556,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/acquisition_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/acquisition_tasks/" class="md-nav__link">
         Acquisition tasks
       </a>
     </li>
@@ -1568,7 +1634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/reconstruction_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/reconstruction_tasks/" class="md-nav__link">
         Reconstruction tasks
       </a>
     </li>
@@ -1580,7 +1646,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/ground_truth_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/ground_truth_tasks/" class="md-nav__link">
         Defining ground truth
       </a>
     </li>
@@ -1592,7 +1658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/tasks/evaluation_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/evaluation_tasks/" class="md-nav__link">
         Evaluation tasks
       </a>
     </li>
@@ -1610,7 +1676,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/pipelines/" class="md-nav__link">
+      <a href="../../specifications/pipelines/" class="md-nav__link">
         Pipelines
       </a>
     </li>
@@ -1622,7 +1688,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../user_guide/configuration_files/" class="md-nav__link">
+      <a href="../../specifications/configuration_files/" class="md-nav__link">
         Configuration files
       </a>
     </li>
@@ -1927,39 +1993,124 @@
               
                 
                 
-                <h1 id="how-to-use-the-virtual-plant-imager-to-generate-a-single-virtual-plant-dataset">How to use the Virtual Plant Imager to generate a single virtual plant dataset<a class="headerlink" href="#how-to-use-the-virtual-plant-imager-to-generate-a-single-virtual-plant-dataset" title="Permanent link">Link</a></h1>
+                <h1 id="how-to-evaluate-a-3d-reconstruction-and-automated-measures-with-a-virtual-plant-as-ground-truth">How to evaluate a 3D reconstruction and automated measures with a virtual plant as ground truth<a class="headerlink" href="#how-to-evaluate-a-3d-reconstruction-and-automated-measures-with-a-virtual-plant-as-ground-truth" title="Permanent link">Link</a></h1>
 <h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
-<p>Working with virtual plants instead of real ones makes data acquisition inexpensive and has the advantage to parametrize the type of data.
-By design, ground truth data can be easily extracted from virtual datasets for evaluation purposes and building machine learning models.
-The Virtual Plant Imager is designed two address these two issues.
-After reading this tutorial, you should be able to generate a single virtual plant dataset in order to evaluate the robustness of <a href="https://github.com/romi/plant-3d-vision">plant-3d-vision</a>.</p>
+<p>Quantitative evaluation of a 3D reconstruction and/or automated measure from a phenotyping experiment is critical, from both developer and end-user perspectives. However, obtaining ground truth reference is often tedious (e.g. manual measurements, it must be anticipated (synchronous measures with image acquisition), and some type of data are just inacessible with available technologies (e.g. having a reference point cloud).</p>
+<p>Virtual plants makes data acquisition inexpensive and allows to parametrize the type of data. By design, ground truth data can be easily extracted from these virtual datasets. We thus designed the <code>Virtual Plant Imager</code> to take images of any 3D object, as a digital twin of our real <code>plant imager</code>.</p>
+<p>After reading this tutorial, you should be able to generate a single virtual plant dataset (including several ground truth reference) in order to evaluate the phenotyping results generated through an analysis pipeline made with our <a href="https://github.com/romi/plant-3d-vision">plant-3d-vision</a> tool suite.</p>
 <h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
-<p>If it is not already done, you must be able to build and run the docker image by following the <a href="../../docker/virtualplantimager_docker/">instructions</a>.</p>
+<p><img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50"> We highly recommend the use of dockers to run ROMI software.
+If it is not already done, you must be able to build and run the docker images of: </p>
+<ul>
+<li>the <code>(Virtual) Plant Imager</code> by following these <a href="https://github.com/romi/plant-imager#docker">instructions</a>. This is required to generate the virtual data (initial plant 3D model, ground truth and RGB images).</li>
+<li>the <code>plant-3d-vision</code> by following these <a href="https://github.com/romi/plant-3d-vision#Docker">instructions</a>. This is required to reconstruct a 3D model from the virtual 2D images, as if they were images of real plants. This docker will also allow you to evaluate this reconstruction using the available virtual ground truth data.</li>
+</ul>
 <h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
-<p>Principle: Technically, the <code>Virtual Plant Imager</code> relies on <a href="https://www.blender.org/">Blender v2.81a</a> to generate the images of 3d model of the plants.
-The 3d model can be provided as an input or can be also generated by <a href="https://lpy.readthedocs.io/en/latest/">lpy</a> based on biological rules.
-An HTTP server acts as an interface to drive Blender generation scripts.</p>
-<h3 id="1-preparing-your-scan-data">1. Preparing your scan data<a class="headerlink" href="#1-preparing-your-scan-data" title="Permanent link">Link</a></h3>
-<p>First, you have to create a working database on your host machine, let's say <code>home/host/path/database_example</code>.
-You can find an example of this database <a href="https://github.com/romi/plant-imager/tree/master/database_example">here</a>.</p>
-<p>You can obtain sample data for the scanner here, and put it in the data folder.</p>
-<div class="highlight"><pre><span></span><code>wget https://db.romi-project.eu/models/arabidopsis_data.zip
-unzip arabidopsis_data.zip -d data
+<p><strong>Principle</strong>: 
+You want to evaluate the results generated by an analysis pipeline made with our <code>plant-3d-vision</code> tool suite. Let's say that this pipeline is defined by a typical configuration file, <code>test_pipe.toml</code>. </p>
+<p>The idea is to generate images of a virtual 3D plant and provide these picture as input to the tested analysis pipeline. Technically, the <code>Virtual Plant Imager</code> relies on <a href="https://www.blender.org/">Blender v2.81a</a> to generate at set of (2D) RGB images from the plant 3d model, mimicking what a real camera would do on a real plant. Any virtual camera pose can be generated (ie. distance, angle), but virtual poses similar to the real robot (<code>plant imager</code>) are preferred. An HTTP server acts as an interface to drive Blender generation scripts.</p>
+<p>The virtual plant 3D model (with some of its ground truth references) can be imported and given as an input. However, we provide an integrated procedure to generate a virtual 3D plant directly "on the fly" with <a href="https://lpy.readthedocs.io/en/latest/">Lpy</a>, using a Lpy model and customizable parameters. Some ground truth references will also be automatically generated.</p>
+<p>Once this virtual plant has been virtually imaged, there are all data and metadata required to run an analysis with the tested pipeline. The results of this analysis will be compared to the virtual ground truth. Four type of <a href="/docs/Scanner/specifications/tasks/evaluation_tasks.md">evaluations</a> are currently implemented :</p>
+<ul>
+<li>evaluation of a 2D segmentation</li>
+<li>evaluation of a 3D segmentation of the point cloud</li>
+<li>comparison of point cloud similarity</li>
+<li>evaluation of phyllotaxis measures (angles and internodes)</li>
+</ul>
+<h3 id="1-prepare-data-into-a-proper-database">1. Prepare data into a proper database<a class="headerlink" href="#1-prepare-data-into-a-proper-database" title="Permanent link">Link</a></h3>
+<p>First, create a working directory on your host machine, let's say <code>home/host/path/my_virtual_db</code>.
+You can find an example of such a directory <a href="https://github.com/romi/plant-imager/tree/master/database_example">here</a>.</p>
+<p>This working directory is a proper <a href="/docs/Scanner/install/plantdb_setup.md#Initialize-a-ROMI-database">"romi" database</a> which contains additionnal data for the virtual plant generation and/or imaging grouped in a so-called <code>`vscan_data</code> folder:</p>
+<p><strong>Legend</strong>: </p>
+<ul>
+<li>(*) the name is fixed and cannot be changed</li>
+<li>(!) the folder/file must exist (no tag means that the folder is not required for the program to run)</li>
+</ul>
+<div class="highlight"><pre><span></span><code>my_virtual_db/
+│   romidb (!*) # a (empty) marker file for recognition by the plantdb module
+└───vscan_data/ (!*) 
+│   └───hdri/ (*)
+│       │   hdri_file1.hdr
+│       │   hdri_file2.hdr
+│       │   etc...
+│   └───lpy/ (*)
+│       │   my_plant_species_model.lpy
+│   └───obj/ (*)
+│       │   VirtualPlant.obj
+│       │   VirtualPlant_mtl
+│   └───metadata/(!*)
+│       │   hdri.json
+│       │   lpy.json
+│       │   obj.json
+│       │   palette.json
+│       │   scenes.json
+│   └───palette/ (*)
+│       │   my_plant_species_model.png
+│   └───scenes/ (*)
+│   files.json
 </code></pre></div>
-<p>To use custom data, it must consist in <code>.obj</code> file, in which each type of organ corresponds to a distinct mesh.
-This mesh must have a single material whose name is the name of the organ.
-The data dir must contain the <code>obj</code> and <code>mtl</code> files.</p>
-<p>Additionally, background HDRI files can be downloaded from <a href="https://hdrihaven.com/">hdri haven</a>.
-Download <code>.hdr</code> files and put them in the <code>hdri</code> folder.</p>
-<h3 id="2-generate-a-virtual-plant-with-lpy">2. Generate a virtual plant with lpy<a class="headerlink" href="#2-generate-a-virtual-plant-with-lpy" title="Permanent link">Link</a></h3>
-<p>After preparing your working database directory, run the docker container with the database mounted.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> plant-imager/docker
-./run.sh -db /home/host/path/database_example  <span class="c1"># This will map to `db` directory located in the the docker&#39;s user home</span>
+<h4 id="11-quick-ready-to-use-example">1.1 quick ready-to-use example<a class="headerlink" href="#11-quick-ready-to-use-example" title="Permanent link">Link</a></h4>
+<p><strong>Recommended if you are not familiar with the virtual plant imager</strong>. 
+You can directly obtain a functional working directory from the repository of the <a href="https://github.com/romi/plant-imager">plant-imager</a> you cloned in your host machine</p>
+<p>So if your working directory is named <code>my_virtual_db</code>, execute in a terminal:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> plant-imager <span class="c1"># enter the cloned repository in your host machine</span>
+cp -r database_example home/host/path/my_virtual_db
 </code></pre></div>
-<p>Finally, you can generate the virtual dataset by running the following command</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>lpyEnv<span class="o">)</span> user@5c9e389f223d  romi_run_task --config plant-imager/config/vscan_lpy_blender.toml VirtualScan db/generated_dataset <span class="c1"># Run VirtualScan by specifying the output folder generated_dataset</span>
+To skip details and directly run the <code>virtual plant imager</code>, <strong>go now to section [2.]</strong>(#2-generate-virtual-images-from-a-lpy-virtual-plant-in-a-virtual-scene)</p>
+<h4 id="12-customize-data-of-the-virtual-plant-andor-of-the-virtual-images">1.2 Customize data of the virtual plant and/or of the virtual images<a class="headerlink" href="#12-customize-data-of-the-virtual-plant-andor-of-the-virtual-images" title="Permanent link">Link</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For advanced users. If you modify data, you most likely need to modify the configuration .toml file downstream. </p>
+</div>
+<p>You can modify and enrich the virtual dataset in several manner (modifying the LPy model and parameters, importing your own model and avoiding Lpy-generation, change background scenes, etc...).
+For all these options, please refer to the <a href="../../specifications/virtual-plant-imager/">specifications</a> of the <code>virtual plant imager</code>.</p>
+<h3 id="2-generate-virtual-images-from-a-lpy-virtual-plant-in-a-virtual-scene">2. Generate virtual images from a (Lpy) virtual plant in a virtual scene<a class="headerlink" href="#2-generate-virtual-images-from-a-lpy-virtual-plant-in-a-virtual-scene" title="Permanent link">Link</a></h3>
+<p>Start the docker container of the <code>plant-imager</code> with your database mounted:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nb">cd</span> plant-imager/docker
+./run.sh -db /home/host/path/my_virtual_db  <span class="c1"># This will map your working databse to the `db` directory located in the docker&#39;s user home</span>
 </code></pre></div>
-<p>The lpy parameters that are used in the config <a href="https://github.com/romi/plant-imager/blob/master/config/vscan_lpy_blender.toml">file</a> can be customized for your purpose.</p>
+Then, in this docker container, generate the virtual dataset by running the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>lpyEnv<span class="o">)</span> user@5c9e389f223d  romi_run_task --config plant-imager/config/vscan_lpy_blender.toml VirtualScan db/my_virtual_plant <span class="c1"># Run VirtualScan by specifying the output folder &#39;my_virtual_plant&#39;</span>
+</code></pre></div>
+<p>The computation can take a few minutes, depending on your system capacities. if it works, the terminal should display something like that:
+<div class="highlight"><pre><span></span><code><span class="o">=====</span> Luigi Execution <span class="nv">Summary</span> <span class="o">=====</span>
+
+Scheduled <span class="m">4</span> tasks of which:
+* <span class="m">2</span> <span class="nb">complete</span> ones were encountered:
+    - <span class="m">1</span> LpyFileset<span class="o">(</span><span class="nv">scan_id</span><span class="o">=</span>vscan_data<span class="o">)</span>
+    - <span class="m">1</span> PaletteFileset<span class="o">(</span><span class="nv">scan_id</span><span class="o">=</span>vscan_data<span class="o">)</span>
+* <span class="m">2</span> ran successfully:
+    - <span class="m">1</span> VirtualPlant<span class="o">(</span>...<span class="o">)</span>
+    - <span class="m">1</span> VirtualScan<span class="o">(</span>...<span class="o">)</span>
+
+This progress looks :<span class="o">)</span> because there were no failed tasks or missing dependencies
+</code></pre></div>
+<strong>Results</strong>: in your database, a new folder (here called my_virtual_plant) should have been created, that contain data and metadata related to the virtual image acquisition of this virtual plant !</p>
+<div class="highlight"><pre><span></span><code>my_virtual_db
+│   romidb
+└───vscan_data/
+└───my_virtual_plant/
+│   ├── images/
+│   ├── metadata/
+│   │   └── images/
+│   │   └── images.json
+│   └── files.json
+│   └── scan.toml
+</code></pre></div>
+<p>With the default parameters provided with this example (Lpy model and configuration file), there is only one generated plant, which has the following main characteristics</p>
+<ul>
+<li>It is a model of an <em>Arabidopsis thaliana</em> plant</li>
+<li>It has only a main stem and no lateral branches (simplified architecture)</li>
+<li>It is a mature plant, that has grown an elongated inflorescence stem bearing several mature fruit (called a 'silique', the typical pod of the <em>Brassicaceae</em> family) and still has some flowers at the very tip.</li>
+</ul>
+<p>In the next two sections, we point to simple paramaters of the configuration <a href="https://github.com/romi/plant-imager/blob/master/config/vscan_lpy_blender.toml">file</a> used for this task to modify either the virtual plant or 
+the virtual imaging.</p>
+<h4 id="21-optional-how-to-modify-the-virtual-plant-with-lpy-parameters">2.1 (optional) how to modify the virtual plant with LPy parameters<a class="headerlink" href="#21-optional-how-to-modify-the-virtual-plant-with-lpy-parameters" title="Permanent link">Link</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Detailed description can be found here</p>
+</div>
+<p>Below are the main lpy parameters that can be customized to change how the virtual plant looks like (age, size, branching, etc...).</p>
 <div class="highlight"><pre><span></span><code><span class="k">[VirtualPlant.lpy_globals]</span>
 <span class="n">BRANCHON</span> <span class="o">=</span> <span class="kc">false</span>
 <span class="n">MEAN_NB_DAYS</span> <span class="o">=</span> <span class="mi">70</span>
@@ -1968,19 +2119,111 @@ Download <code>.hdr</code> files and put them in the <code>hdri</code> folder.</
 <span class="n">INTERNODE_LENGTH</span> <span class="o">=</span> <span class="mf">1.3</span>
 <span class="n">STEM_DIAMETER</span> <span class="o">=</span> <span class="mf">0.09</span>
 </code></pre></div>
-<h2 id="running-the-reconstruction-pipeline-on-the-virtual-dataset">Running the reconstruction pipeline on the virtual dataset<a class="headerlink" href="#running-the-reconstruction-pipeline-on-the-virtual-dataset" title="Permanent link">Link</a></h2>
-<p>If not installed yet, please refer to <a href="../reconstruct_scan/">Plant-3d-Vision</a> documentation.</p>
-<p>With virtual data, you may want to use ground truth poses:</p>
+<h4 id="22-optional-how-to-modify-the-virtual-imaging-performed-by-the-virtual-imager">2.2 (optional) how to modify the virtual imaging performed by the virtual imager<a class="headerlink" href="#22-optional-how-to-modify-the-virtual-imaging-performed-by-the-virtual-imager" title="Permanent link">Link</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Detailed description can be found here</p>
+</div>
+<p>Below are the main lpy parameters that can be customized to change how the virtual images are taken (path, background scenes, resolution, etc...)</p>
+<p>virtual camera path
+[ScanPath]
+class_name = "Circle"
+[ScanPath.kwargs]
+center_x = -2
+center_y = 3
+z = 65
+tilt = 8
+radius = 75
+n_points = 18</p>
+<h3 id="3-running-a-reconstruction-pipeline-on-the-virtual-dataset">3. Running a reconstruction pipeline on the virtual dataset<a class="headerlink" href="#3-running-a-reconstruction-pipeline-on-the-virtual-dataset" title="Permanent link">Link</a></h3>
+<p>Once you have a virtual dataset of images that all look like a real one, you can analyze it like a real one with romi pipelines from our <code>plant-3d-vision</code> tool suite !</p>
+<p><a href="#step-by-step-tutorial">Remember</a> that the pipeline you want to evaluate is defined by the following configuration file: <code>test_pipe.toml</code>.</p>
+<p>To adapt to the virtual imaging and focus the evaluation to the downstream image analysis and 3D reconstruction, you can adapt the configuration file to include ground truth from virtual imaging to use ground truth poses. Create a new configuration file for the evaluation and modify it as follows:</p>
+<p><div class="highlight"><pre><span></span><code>cp test_pipe.toml test_pipe_veval.toml <span class="c1">#copy and rename the configuration file of the pipeline you want to test </span>
+</code></pre></div>
+In the newly created <code>test_pipe_veval.toml</code>, deactivate use of colmap poses for the volume carving algorithm ([Voxel] Task of the pipeline).
 <div class="highlight"><pre><span></span><code><span class="k">[Voxels]</span>
 <span class="n">use_colmap_poses</span> <span class="o">=</span> <span class="kc">false</span>
 <span class="k">[Masks]</span>
 <span class="n">upstream_task</span> <span class="o">=</span> <span class="n">Scan</span>
+</code></pre></div></p>
+<p>Then the analysis pipeline can be run as usual except that <code>colmap</code> will not be run :</p>
+<div class="highlight"><pre><span></span><code>romi_run_task <span class="se">\ </span><span class="c1">#romi pipeline scheduler </span>
+--config path/to/test_pipe_veval.toml <span class="se">\ </span><span class="c1"># configuration of the pipeline to evaluate</span>
+AnglesAndInternodes <span class="se">\ </span><span class="c1">#Last task to execute</span>
+/path/to/my_virtual_plant <span class="c1">#folder inside the database on which the analysis will be run</span>
 </code></pre></div>
-<p>Then the pipeline can be run as usual and <code>colmap</code> will not be run.</p>
-<p>To test the plant reconstruction pipeline on an example <code>/home/host/my_virtual_plant</code>:</p>
-<div class="highlight"><pre><span></span><code>romi_run_task --config plant-3d-vision/config/geom_pipe_virtual.toml PointCloud /home/host/my_virtual_plant
+<p>This run should process all dependencies and generates notably a segmented point cloud and measures of the phyllotaxis (angles and internodes) ! </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>any available romi Tasks for image analysis can be runned here.
+Please refer to the <a href="/docs/Scanner/specifications/tasks/index.md">list of Tasks</a> implemented in our romi software suite.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The command line can be executed in docker container or in a terminal if you have activated the correct virtual environments and proceeded to local installation of the software.</p>
+<p>Please refer to this <a href="/docs/Scanner/tutorials/reconstruct_scan.md">tutorial</a> if you encounter problems to run pipeline from our <code>plant-3d-vision</code> tool suite.</p>
+</div>
+<p>After execution, the terminal should display luigi execution summary, as in this example:
+<div class="highlight"><pre><span></span><code><span class="o">=====</span> Luigi Execution <span class="nv">Summary</span> <span class="o">=====</span>
+
+Scheduled <span class="m">8</span> tasks of which:
+* <span class="m">2</span> <span class="nb">complete</span> ones were encountered:
+    - <span class="m">1</span> ImagesFilesetExists<span class="o">(</span><span class="nv">scan_id</span><span class="o">=</span>, <span class="nv">fileset_id</span><span class="o">=</span>images<span class="o">)</span>
+    - <span class="m">1</span> ModelFileset<span class="o">(</span><span class="nv">scan_id</span><span class="o">=</span>models<span class="o">)</span>
+* <span class="m">6</span> ran successfully:
+    - <span class="m">1</span> AnglesAndInternodes<span class="o">(</span>...<span class="o">)</span>
+    - <span class="m">1</span> OrganSegmentation<span class="o">(</span><span class="nv">scan_id</span><span class="o">=</span>, <span class="nv">upstream_task</span><span class="o">=</span>SegmentedPointCloud, <span class="nv">eps</span><span class="o">=</span><span class="m">2</span>.0, <span class="nv">min_points</span><span class="o">=</span><span class="m">5</span><span class="o">)</span>
+    - <span class="m">1</span> PointCloud<span class="o">(</span>...<span class="o">)</span>
+    - <span class="m">1</span> Segmentation2D<span class="o">(</span>...<span class="o">)</span>
+    - <span class="m">1</span> SegmentedPointCloud<span class="o">(</span><span class="nv">scan_id</span><span class="o">=</span>, <span class="nv">upstream_task</span><span class="o">=</span>PointCloud, <span class="nv">upstream_segmentation</span><span class="o">=</span>Segmentation2D, <span class="nv">use_colmap_poses</span><span class="o">=</span>False<span class="o">)</span>
+    ...
+
+This progress looks :<span class="o">)</span> because there were no failed tasks or missing <span class="nv">dependencies</span>
+
+<span class="o">=====</span> Luigi Execution <span class="nv">Summary</span> <span class="o">=====</span>
 </code></pre></div>
-<p>This should process all dependencies to obtain a segmented "PointCloud.ply" !</p>
+<strong>Results</strong>: new subfolders and metadata resulting from the analysis should have been created in the folder of the analyzed plant datset (called <code>my_virtual_plant</code> in this example).</p>
+<p>The particular data generated depends on the pipeline you called. We provide an example here with a pipeline involving machine-learning based segmentation of 2D images and proceeding up to phyllotaxis measures (angles &amp; internodes.)</p>
+<p><em>legend</em>: 
+  * (.) indicates data that were already present before the run of the pipeline (but the data content may have been modified)
+  * folder names generated by the analysis generally start with the corresponding Task name end with a hashcode to keep track of task execution by the Luigi scheduler (e.g. _1_0_2_0_0_1_5f7aad388e). Such code is replaced by '_hashcode' suffix in the example below</p>
+<div class="highlight"><pre><span></span><code>my_virtual_db
+│   romidb (.)
+└───vscan_data/ (.)
+└───my_virtual_plant/ (.)
+│   ├── images/ (.)
+│   ├── metadata/ (.)
+│   ├── AnglesAndInternodes_hashcode/
+│   ├── OrganSegmentation_hashcode/
+│   ├── PointCloud_hashcode/
+│   ├── Segmentation2D_hashcode/
+│   ├── PointCloudGroundTruth_100000__VirtualPlantObj_hashcode/
+│   ├── SegmentedPointCloud__Segmentation2D_PointCloud_3a1e8e0010/
+│   ├── VirtualPlant/
+│   ├── VirtualPlant_arabidopsis_note___BRANCHON___fal___angles____inte_hashcode/
+│   ├── Voxels_False___background_____False_hashcode/
+│   └── files.json (.)
+│   └── scan.toml (.)
+│   └── pipeline.toml
+</code></pre></div>
+<h3 id="4-evaluate-the-quality-of-the-construction-by-comparing-to-the-virtual-ground-truth-data">4. Evaluate the quality of the construction by comparing to the virtual ground truth data<a class="headerlink" href="#4-evaluate-the-quality-of-the-construction-by-comparing-to-the-virtual-ground-truth-data" title="Permanent link">Link</a></h3>
+<p>(work in progress)</p>
+<p>Once the analysis results are generated, you can now compare this results to the expected ground truth reference of the virtual plant.</p>
+<p>Several Evaluation Tasks have been developped by romi: check the <a href="/docs/Scanner/specifications/tasks/evaluation_tasks.md">list</a> to know which results is evaluating each of them.</p>
+<p>In the below example, we would like to evaluate the pointcloud reconstruction, so we run:</p>
+<div class="highlight"><pre><span></span><code>romi_run_task <span class="se">\ </span><span class="c1">#romi pipeline scheduler </span>
+--config path/to/test_pipe_veval.toml <span class="se">\ </span><span class="c1"># configuration of the pipeline to evaluate </span>
+PointCloudEvaluation <span class="se">\ </span><span class="c1">#evaluation task of to run</span>
+/path/to/my_virtual_plant <span class="c1">#analyzed data folder of the database that you want to evaluate</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please refer to this [tutorial] if you encounter problems to run pipeline from our <code>plant-3d-vision</code> tool suite.</p>
+</div>
+<h3 id="5-view-and-scrutinize-in-3d-all-data-generated-images-reconstruction-and-evalutation">5. View and scrutinize in 3D all data generated  (images, reconstruction and evalutation)<a class="headerlink" href="#5-view-and-scrutinize-in-3d-all-data-generated-images-reconstruction-and-evalutation" title="Permanent link">Link</a></h3>
+<p>(work in progress)
+Use of the plant-3d-explorer</p>
                 
               
               
@@ -2020,13 +2263,13 @@ Download <code>.hdr</code> files and put them in the <code>hdri</code> folder.</
       
       
         
-        <a href="../virtual_plant_imager_large_dataset/" class="md-footer__link md-footer__link--next" aria-label="Next: How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes" rel="next">
+        <a href="../virtual_plant_imager_large_dataset/" class="md-footer__link md-footer__link--next" aria-label="Next: How to generate large "virtual" training data for machine-learning ?" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes
+              How to generate large "virtual" training data for machine-learning ?
             </div>
           </div>
           <div class="md-footer__button md-icon">
