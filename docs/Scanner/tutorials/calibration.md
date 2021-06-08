@@ -24,7 +24,7 @@ In this tutorial, you will learn how to calibrate an image acquisition for downs
 
 ```shell
 mkdir path/to/db
-touch path/to/db/plantdb
+touch path/to/db/romidb
 ```
 You have now your file-based romi database *plantdb*
 ## Principles of the extrinsic calibration performed here
