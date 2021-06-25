@@ -139,12 +139,12 @@ Once the acquisition is done, the database is updated, and we now have the follo
 ```
 db/
 ├── imageset_id/
+│   ├── files.json
 │   ├── images/
 │   ├── metadata/
 │   │   └── images/
 │   │   └── images.json
-│   └── files.json
-│   └── scan.json
+│   └── scan.toml
 └── romidb
 ```
 
