@@ -1353,6 +1353,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how_to/create_new_evaluation_task/" class="md-nav__link">
+        Create a new evaluation task
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -1972,7 +1984,7 @@
 <p>Before reading this tutorial, you should first be able to run a basic acquisition without calibration, as explained in this <a href="../hardware_scan/">tutorial</a>.</p>
 </li>
 <li>
-<p>set up a <a href="../../user_guide/data/">database</a> or quickly generate a simple database with the following commands:</p>
+<p>set up a <a href="../../specifications/data/">database</a> or quickly generate a simple database with the following commands:</p>
 </li>
 </ul>
 <p><div class="highlight"><pre><span></span><code>mkdir path/to/db
@@ -1981,7 +1993,7 @@ touch path/to/db/romidb
 You have now your file-based romi database <em>plantdb</em></p>
 <h2 id="principles-of-the-extrinsic-calibration-performed-here">Principles of the extrinsic calibration performed here<a class="headerlink" href="#principles-of-the-extrinsic-calibration-performed-here" title="Permanent link">Link</a></h2>
 <p>The motor positions moving the camera along the acquisition path give a first indication of the scale of the picture, but this motor information is as accurate as the encoder allows them to be.</p>
-<p>To have the closest scaling from reality, we use <em><a href="https://colmap.github.io/">Colmap</a></em> (a structure-from-motion algorithm) at the very beggining of the 3d reconstructions (see <a href="/docs/Scanner/user_guide/pipelines.md">here</a>): this technique allows to refine the positions of the camera given by the robot motors.
+<p>To have the closest scaling from reality, we use <em><a href="https://colmap.github.io/">Colmap</a></em> (a structure-from-motion algorithm) at the very beginning of the 3d reconstructions (see <a href="/docs/Scanner/specifications/pipelines.md">here</a>): this technique allows to refine the positions of the camera given by the robot motors.
 However, those computed positions are determined up to a scaling and roto-translation of the world and as a result, present a problem for measuring real world unit quantities. In addition, each camera pose is aligned with the corresponding CNC arm position. This can lead to a bias in scaling induced by the offset between the camera optical center and the CNC arm as represented in the following picture:  <br />
 <img alt="Offset between camera and robotic arm" loading="lazy" src="../../../assets/images/calibration_camera_offset.png" width="600" /> </p>
 <p>It is particularly true when doing circular path (which is often the case with the phenotyping station). 

@@ -291,6 +291,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.romi-project.eu/Scanner/how_to/create_new_evaluation_task/</loc>
+         <lastmod>2021-06-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.romi-project.eu/Scanner/how_to/create_new_task/</loc>
          <lastmod>2021-06-29</lastmod>
          <changefreq>daily</changefreq>
@@ -482,66 +487,6 @@
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Scanner/tutorials/virtual_plant_imager_single_dataset/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/configuration_files/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/data/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/hardware/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/luigi/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/pipelines/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/tasks/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/tasks/acquisition_tasks/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/tasks/evaluation_tasks/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/tasks/file_tasks/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/tasks/ground_truth_tasks/</loc>
-         <lastmod>2021-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/user_guide/tasks/reconstruction_tasks/</loc>
          <lastmod>2021-06-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
