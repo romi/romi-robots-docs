@@ -20,7 +20,7 @@ In this tutorial, you will learn how to calibrate an image acquisition for downs
 
 *   Before reading this tutorial, you should first be able to run a basic acquisition without calibration, as explained in this [tutorial](../tutorials/hardware_scan.md).
 
-*   set up a [database](../user_guide/data.md) or quickly generate a simple database with the following commands:
+*   set up a [database](../specifications/data.md) or quickly generate a simple database with the following commands:
 
 ```shell
 mkdir path/to/db
@@ -30,7 +30,7 @@ You have now your file-based romi database *plantdb*
 ## Principles of the extrinsic calibration performed here
 The motor positions moving the camera along the acquisition path give a first indication of the scale of the picture, but this motor information is as accurate as the encoder allows them to be.
 
-To have the closest scaling from reality, we use *[Colmap](https://colmap.github.io/)* (a structure-from-motion algorithm) at the very beggining of the 3d reconstructions (see [here](/docs/Scanner/user_guide/pipelines.md)): this technique allows to refine the positions of the camera given by the robot motors.
+To have the closest scaling from reality, we use *[Colmap](https://colmap.github.io/)* (a structure-from-motion algorithm) at the very beginning of the 3d reconstructions (see [here](/docs/Scanner/specifications/pipelines.md)): this technique allows to refine the positions of the camera given by the robot motors.
 However, those computed positions are determined up to a scaling and roto-translation of the world and as a result, present a problem for measuring real world unit quantities. In addition, each camera pose is aligned with the corresponding CNC arm position. This can lead to a bias in scaling induced by the offset between the camera optical center and the CNC arm as represented in the following picture:    
 ![Offset between camera and robotic arm](../../assets/images/calibration_camera_offset.png){width=600 loading=lazy} 
 

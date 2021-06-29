@@ -22,7 +22,7 @@ To run an acquisition, you should previously have:
 - interface the machine running the ROMI software with the plant imager:
     1. check that your device is correctly connected to the Gimbal and CNC both by USB
     2. turn on camera and connect it to the device via Wi-Fi
-- set up a [DB](../user_guide/data.md) or quickly generate a simple database with the following commands:
+- set up a [DB](../specifications/data.md) or quickly generate a simple database with the following commands:
 
 ```shell
 mkdir path/to/db

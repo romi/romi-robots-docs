@@ -76,6 +76,7 @@ nav:
             - 'Home': 'Scanner/how_to/index.md'
             - 'Import external ressources': 'Scanner/how_to/import_files.md'
             - 'Create a new task': 'Scanner/how_to/create_new_task.md'
+            - 'Create a new evaluation task': 'Scanner/how_to/create_new_evaluation_task.md'
         - 'Specifications':
             - 'Home': 'Scanner/specifications/index.md'
             - 'Data': 'Scanner/specifications/data.md'
