@@ -1929,15 +1929,25 @@ The idea is to use a digital twin to generates the expected outcome of a task an
 </ul>
 <p>For example, the <code>Voxels</code> task has a <code>VoxelGroundTruth</code> task and a <code>VoxelEvaluation</code> task.</p>
 <h2 id="ground-truth-task">Ground truth task<a class="headerlink" href="#ground-truth-task" title="Permanent link">Link</a></h2>
-<p>It should inherit from <code>RomiTask</code> and define a <code>run</code> method exporting the ground truth later use as reference in the evaluation task.</p>
+<p>Ground truth tasks should be defined in <code>plant-3d-vision/plant3dvision/tasks/ground_truth.py</code>.
+It should inherit from <code>RomiTask</code> and define a <code>run</code> method exporting the ground truth later use as reference in the evaluation task.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to reference the task in <code>romitask/romitask/modules.py</code>.</p>
+</div>
 <h2 id="evaluation-task">Evaluation task<a class="headerlink" href="#evaluation-task" title="Permanent link">Link</a></h2>
-<p>The evaluation task that you will write should inherit from <code>EvaluationTask</code> that defines:</p>
+<p>Evaluation tasks should be defined in <code>plant-3d-vision/plant3dvision/tasks/evaluation.py</code>.
+The evaluation task that you will write should inherit from <code>EvaluationTask</code> that defines:</p>
 <ul>
 <li>the <code>requires</code> method to use an <code>upstream_task</code> and <code>ground_truth</code>;</li>
 <li>the <code>output</code> method to create the corresponding evaluation dataset</li>
 <li>the <code>evaluate</code> method that you should override;</li>
 <li>the <code>run</code> method that call <code>evaluate</code> and save the results as a JSON file.</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to reference the task in <code>romitask/romitask/modules.py</code>.</p>
+</div>
                 
               
               
