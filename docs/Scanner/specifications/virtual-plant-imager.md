@@ -25,11 +25,11 @@ db/
 The `Virtual Plant Imager` relies on [Blender v2.81a](https://www.blender.org/) to generate at set of (2D) RGB images from a plant 3d model. An HTTP server acts as an interface to drive Blender generation scripts.
 
 !!! Note
-    The `Virtual Plant Imager` is closely integrated with the plant generator [Lpy](https://lpy.readthedocs.io/en/latest/). For informations related to the generation of virtual 3D model of plants, you will be redirected to other LPy documentation.
+    The `Virtual Plant Imager` is closely integrated with the plant generator [Lpy](https://lpy.readthedocs.io/en/latest/). For information related to the generation of virtual 3D model of plants, you will be redirected to other LPy documentation.
  
 ## Input data (for romi_run_task VirtualScan)
-As for all romi tools, the `Virtual Plant Imager` requires a proper database to store, access and generate new data.
-Let's call `virtual_db` this database. In particular, it contains data for the virtual plant generation and/or imaging grouped in a so-called ``vscan_data` folder:
+As for all ROMI tools, the `Virtual Plant Imager` requires a proper database to store, access and generate new data.
+Let's call `virtual_db` this database. In particular, it contains data for the virtual plant generation and/or imaging grouped in a so-called ``vscan_data`` folder:
 
 **Legend**: 
 
