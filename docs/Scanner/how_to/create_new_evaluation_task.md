@@ -13,15 +13,21 @@ For example, the `Voxels` task has a `VoxelGroundTruth` task and a `VoxelEvaluat
 
 
 ## Ground truth task
-
+Ground truth tasks should be defined in `plant-3d-vision/plant3dvision/tasks/ground_truth.py`.
 It should inherit from `RomiTask` and define a `run` method exporting the ground truth later use as reference in the evaluation task.
 
+!!! warning
+    Do not forget to reference the task in `romitask/romitask/modules.py`.
 
 ## Evaluation task
-
+Evaluation tasks should be defined in `plant-3d-vision/plant3dvision/tasks/evaluation.py`.
 The evaluation task that you will write should inherit from `EvaluationTask` that defines:
 
 * the `requires` method to use an `upstream_task` and `ground_truth`;
 * the `output` method to create the corresponding evaluation dataset
 * the `evaluate` method that you should override;
 * the `run` method that call `evaluate` and save the results as a JSON file.
+
+
+!!! warning
+    Do not forget to reference the task in `romitask/romitask/modules.py`.
