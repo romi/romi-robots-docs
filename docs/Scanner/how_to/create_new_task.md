@@ -9,9 +9,10 @@ For the sake of clarity and to illustrate how-to create a ROMI task from scratch
     ROMI task usually have a **semantic meaning** and for example, the task `AnglesAndInternodes` may take several types of object in input (mesh, point-cloud & skeletons) but always output the JSON file with the obtained measures.
     So, to decide if you have to create a new task or add your algorithm to an existing task, following this rule should help: **at a given step of the pipeline, if the output change, this is a NEW task!**
 
-## Add you algorithm to `plant3dvision`
 
-You first have to add a file (or append to an existing one), *e.g.* named `algo.py`, under the `plant3dvision/plant3dvision` directory.
+## Add your algorithm to `plant3dvision`
+
+You first have to add a file (or append to an existing one), *e.g.* named `algo.py`, under the `plant-3d-vision/plant3dvision` directory.
 
 Let's assume the previously added file has a main function called `my_algo` like this:
 
@@ -27,6 +28,7 @@ It has:
 - **parameter(s)**, specific to the algorithm you want to add
 - **output(s)**, the transformed dataset that will often be the input of a following task in the pipeline
 
+
 ## Create a ROMI task
 
 ### Dependency to `luigi`
@@ -41,7 +43,7 @@ It provides classes and methods that simplifies and normalize the creation and u
 
 ### New `RomiTask` template
 
-You will create a new python file `my_task.py` in the 'task' submodule: `plant3dvision/plant3dvision/tasks/my_task.py`
+You will create a new python file `my_task.py` in the `tasks` submodule: `plant-3d-vision/plant3dvision/tasks/my_task.py`
 
 ```python
 #!/usr/bin/env python
@@ -56,6 +58,7 @@ import luigi
 from plantdb import RomiTask
 from plantdb import io
 from plant3dvision.log import logger  # Use this as logging method
+from plant3dvision.tasks.proc3d import SegmentedPointCloud
 
 # Now import your main method:
 from plant3dvision.algo import my_algo
@@ -154,9 +157,20 @@ for i, json_data in enumerate(list_of_jsonifyable):
     f.set_metadata("foo", f"bar{i}")
 ```
 
+
+## Test your task
+
+You should now be able to test your newly created task `MyTask` with `romi_run_task`:
+
+```shell
+romi_run_task MyTask /path/to/dataset --config /path/to/my_pipeline.toml --module plant3dvision.tasks.my_algo
+```
+
+Using the `--module` option you can test your task without registering it.
+
 ## Register your task
 
-Add it to `plant3dvision/modules.py` by referring to the task class name & its python module location:
+Once you are satisfied, you can add it to `romitask/modules.py` by referring to the task class name & its python module location:
 
 ```python
 MODULES = {
@@ -166,9 +180,10 @@ MODULES = {
 }
 ```
 
+
 ## Use your newly created task
 
-You should now be able to use your newly created task `MyTask` with `romi_run_task`:
+Finally, you should now be able to use your newly created task `MyTask` with `romi_run_task`:
 
 ```shell
 romi_run_task MyTask /path/to/dataset --config /path/to/my_pipeline.toml
