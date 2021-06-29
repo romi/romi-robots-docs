@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/modules/plant_3d_explorer/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
@@ -46,6 +46,8 @@
     
     
       
+
+
     
     
   </head>
@@ -793,141 +795,6 @@
   <a href="#requirements" class="md-nav__link">
     Requirements
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    Installation
-  </a>
-  
-    <nav class="md-nav" aria-label="Installation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#npm-install" class="md-nav__link">
-    npm install
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-and-run-the-webapp-client" class="md-nav__link">
-    Test and run the webapp client
-  </a>
-  
-    <nav class="md-nav" aria-label="Test and run the webapp client">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#npm-test" class="md-nav__link">
-    npm test
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#npm-start" class="md-nav__link">
-    npm start
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#npm-run-build" class="md-nav__link">
-    npm run build
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-container" class="md-nav__link">
-    Docker container
-  </a>
-  
-    <nav class="md-nav" aria-label="Docker container">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#build-docker-image" class="md-nav__link">
-    Build docker image
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-pre-built-docker-image" class="md-nav__link">
-    Use pre-built docker image
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#docker-compose" class="md-nav__link">
-    Docker compose
-  </a>
-  
-    <nav class="md-nav" aria-label="Docker compose">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-pre-built-docker-image_1" class="md-nav__link">
-    Use pre-built docker image
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-local-builds" class="md-nav__link">
-    Use local builds
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#technical-documentation" class="md-nav__link">
-    Technical documentation
-  </a>
-  
-    <nav class="md-nav" aria-label="Technical documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#view" class="md-nav__link">
-    view
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#contribute" class="md-nav__link">
-    contribute
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -2036,122 +1903,10 @@ It is the home of our webapp dedicated to the exploration of single plant acquis
 <p><img src="doc/images/screenshot_2.png" alt="Browsing screenshot" width="400"> <img src="doc/images/screenshot_1.png" alt="Exploring screenshot" width="400"></p>
 <p>For a general documentation on the whole ROMI project, head over <a href="https://docs.romi-project.eu">here</a>.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">Link</a></h2>
-<p>You will need <code>npm</code> to use this package.</p>
-<p>To install it, on UNIX systems with <code>apt</code>, do: 
-<div class="highlight"><pre><span></span><code>sudo apt install npm
-</code></pre></div>
-Then update the node.js package manager with:
-<div class="highlight"><pre><span></span><code>npm install npm -g
-</code></pre></div>
-You may find that the npm packaged for your distro is too old... then head over to your browser, choose a search engine, type <code>npm</code>, and good luck!</p>
-<p>To make sure everything works fine, your version of nodejs must be &gt;= 10, and your version of npm must be &gt;= 6.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">Link</a></h2>
-<p>First clone the <code>plant-3d-explorer</code> git repository and enter the downloaded folder:
-<div class="highlight"><pre><span></span><code>git clone https://github.com/romi/plant-3d-explorer.git
-<span class="nb">cd</span> plant-3d-explorer
-</code></pre></div></p>
-<h3 id="npm-install"><code>npm install</code><a class="headerlink" href="#npm-install" title="Permanent link">Link</a></h3>
-<p>This is needed to install the dependencies of the project. At the root of the project directory, execute the following command:
-<div class="highlight"><pre><span></span><code>npm install
-</code></pre></div></p>
-<h2 id="test-and-run-the-webapp-client">Test and run the webapp client<a class="headerlink" href="#test-and-run-the-webapp-client" title="Permanent link">Link</a></h2>
-<p>Still at root of the project directory, you can run:</p>
-<h3 id="npm-test"><code>npm test</code><a class="headerlink" href="#npm-test" title="Permanent link">Link</a></h3>
-<p>This will run the tests for the project. It will permanently run and run again on files when they are changed. Multiple commands are available, see <a href="https://create-react-app.dev/docs/running-tests/">this</a> for more info.</p>
-<p>Each test file is located with the component it is testing. So the tests for the file <code>src/ScanList/index.js</code> are located in <code>src/Scanlist/index.test.js</code>.</p>
-<h3 id="npm-start"><code>npm start</code><a class="headerlink" href="#npm-start" title="Permanent link">Link</a></h3>
-<p>To run the app in the development mode, just execute :
-<div class="highlight"><pre><span></span><code>npm start
-</code></pre></div>
-After a brief, the terminal should display:
-<div class="highlight"><pre><span></span><code>Compiled successfully!
-
-You can now view sony_visualiseur-plantes-3d in the browser.
-
-  Local:            http://localhost:3000/
-  On Your Network:  http://192.168.0.18:3000/
-
-Note that the development build is not optimized.
-To create a production build, use npm run build.
-</code></pre></div></p>
-<p>Then, open <a href="http://localhost:3000">http://localhost:3000</a> to view it in the browser.</p>
-<p>You need to add a file <code>.env.local</code> at project's root to set the <code>API URL</code>:
-<div class="highlight"><pre><span></span><code>REACT_APP_API_URL=&#39;{`API URL}&#39;
-</code></pre></div>
-Without this, the app will use <code>http://localhost:5000</code>.</p>
-<p>To use a local database, you must run the data storage server <a href="https://github.com/romi/plantdb">from this repository</a>.</p>
-<h3 id="npm-run-build"><code>npm run build</code><a class="headerlink" href="#npm-run-build" title="Permanent link">Link</a></h3>
-<p>Builds the app for production to the <code>build</code> folder.</p>
-<p>It correctly bundles React in production mode and optimizes the build for the best performance.</p>
-<p>The build is minified, and the filenames include the hashes.</p>
-<p>Your app is ready to be deployed!</p>
-<p>See the section about <a href="https://facebook.github.io/create-react-app/docs/deployment">deployment</a> for more information.</p>
-<h2 id="docker-container">Docker container<a class="headerlink" href="#docker-container" title="Permanent link">Link</a></h2>
-<h3 id="build-docker-image">Build docker image<a class="headerlink" href="#build-docker-image" title="Permanent link">Link</a></h3>
-<p>To build the image, at the root directory of the repo:
-<div class="highlight"><pre><span></span><code>docker build -t roboticsmicrofarms/plant_3d_explorer:2.1 .
-</code></pre></div>
-To run it:
-<div class="highlight"><pre><span></span><code>docker run -it -p <span class="m">3000</span>:3000 roboticsmicrofarms/plant_3d_explorer:2.1
-</code></pre></div>
-Once it's up, you should be able to access the viewer here: <a href="http://localhost:3000/">http://localhost:3000/</a></p>
-<p><strong>important</strong>:</p>
-<blockquote>
-<p>Use <code>chrome</code> as <code>firefox</code> has some issues with the used JavaScript libraries!</p>
-</blockquote>
-<p>Push it on <code>roboticsmicrofarms</code> docker hub:
-<div class="highlight"><pre><span></span><code>docker push roboticsmicrofarms/plant_3d_explorer:2.1
-</code></pre></div>
-This requires a valid account, token and existing repository (<code>plant_3d_explorer</code>) on docker hub!</p>
-<h3 id="use-pre-built-docker-image">Use pre-built docker image<a class="headerlink" href="#use-pre-built-docker-image" title="Permanent link">Link</a></h3>
-<p>First you need to pull the docker image:
-<div class="highlight"><pre><span></span><code>docker pull roboticsmicrofarms/plant_3d_explorer
-</code></pre></div>
-Then you can run it with:
-<div class="highlight"><pre><span></span><code>docker run -p <span class="m">3000</span>:3000 roboticsmicrofarms/plant_3d_explorer
-</code></pre></div></p>
-<h2 id="docker-compose">Docker compose<a class="headerlink" href="#docker-compose" title="Permanent link">Link</a></h2>
-<p>To use a local database, for testing or development, we provide a docker compose recipe that:</p>
-<ol>
-<li>start a <code>PlantDB</code> container using <code>roboticsmicrofarms/plantdb</code></li>
-<li>start a <code>Plant 3D Explorer</code> container using <code>roboticsmicrofarms/plant_3d_explorer</code></li>
-</ol>
-<p><strong>note</strong>:</p>
-<blockquote>
-<p>You need <code>docker-compose</code> installed, see 
-<a href="https://docs.docker.com/compose/install/">here</a>.</p>
-</blockquote>
-<h3 id="use-pre-built-docker-image_1">Use pre-built docker image<a class="headerlink" href="#use-pre-built-docker-image_1" title="Permanent link">Link</a></h3>
-<p>From the directory containing the <code>docker-compose.yml</code> in a terminal:
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">ROMI_DB</span><span class="o">=</span>&lt;path/to/db&gt;
-docker-compose up -d 
-</code></pre></div>
-<strong>important</strong>:</p>
-<blockquote>
-<p>Do not forget to set <code>ROMI_DB</code>, the path to the database.</p>
-</blockquote>
-<p><strong>note</strong>:
-To stop the containers: 
-<div class="highlight"><pre><span></span><code>docker-compose stop
-</code></pre></div></p>
-<h3 id="use-local-builds">Use local builds<a class="headerlink" href="#use-local-builds" title="Permanent link">Link</a></h3>
-<p>To use local builds for development or debugging purposes:</p>
-<ol>
-<li>build your image following the instructions above and use a specific tag like <code>debug</code></li>
-<li>edit the <code>docker-compose.yml</code> file to add the previously defined tag to the name of the image to start</li>
-</ol>
-<h2 id="technical-documentation">Technical documentation<a class="headerlink" href="#technical-documentation" title="Permanent link">Link</a></h2>
-<h3 id="view">view<a class="headerlink" href="#view" title="Permanent link">Link</a></h3>
-<p><a href="https://romi.github.io/plant-3d-explorer/">https://romi.github.io/plant-3d-explorer/</a></p>
-<h3 id="contribute">contribute<a class="headerlink" href="#contribute" title="Permanent link">Link</a></h3>
-<p>The documentation of this package is done by <a href="https://www.docz.site/">docz</a>.
-To install it, and its dependencies, do:
-<div class="highlight"><pre><span></span><code>npm install docz react react-dom
-</code></pre></div></p>
-<p>Then:
-<div class="highlight"><pre><span></span><code>npm run docz:dev
-</code></pre></div></p>
-<p>If you experience any difficulty with <code>docz</code>, head over <a href="https://www.docz.site/docs/getting-started">here</a>.</p>
+<p>You will need <code>npm</code> to use this package.
+It comes with <code>nodejs</code>, as per the official <a href="https://github.com/nodesource/distributions/blob/master/README.md">instruction</a>.
+To install v16.X, for ubuntu:
+```shell</p>
                 
               
               
@@ -2261,10 +2016,10 @@ To install it, and its dependencies, do:
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

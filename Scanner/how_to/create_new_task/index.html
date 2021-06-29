@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/how_to/create_new_task/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
@@ -46,6 +46,8 @@
     
     
       
+
+
     
     
   </head>
@@ -1289,8 +1291,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#add-you-algorithm-to-plant3dvision" class="md-nav__link">
-    Add you algorithm to plant3dvision
+  <a href="#add-your-algorithm-to-plant3dvision" class="md-nav__link">
+    Add your algorithm to plant3dvision
   </a>
   
 </li>
@@ -1333,6 +1335,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-your-task" class="md-nav__link">
+    Test your task
+  </a>
   
 </li>
       
@@ -1961,8 +1970,8 @@
 <p>ROMI task usually have a <strong>semantic meaning</strong> and for example, the task <code>AnglesAndInternodes</code> may take several types of object in input (mesh, point-cloud &amp; skeletons) but always output the JSON file with the obtained measures.
 So, to decide if you have to create a new task or add your algorithm to an existing task, following this rule should help: <strong>at a given step of the pipeline, if the output change, this is a NEW task!</strong></p>
 </div>
-<h2 id="add-you-algorithm-to-plant3dvision">Add you algorithm to <code>plant3dvision</code><a class="headerlink" href="#add-you-algorithm-to-plant3dvision" title="Permanent link">Link</a></h2>
-<p>You first have to add a file (or append to an existing one), <em>e.g.</em> named <code>algo.py</code>, under the <code>plant3dvision/plant3dvision</code> directory.</p>
+<h2 id="add-your-algorithm-to-plant3dvision">Add your algorithm to <code>plant3dvision</code><a class="headerlink" href="#add-your-algorithm-to-plant3dvision" title="Permanent link">Link</a></h2>
+<p>You first have to add a file (or append to an existing one), <em>e.g.</em> named <code>algo.py</code>, under the <code>plant-3d-vision/plant3dvision</code> directory.</p>
 <p>Let's assume the previously added file has a main function called <code>my_algo</code> like this:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_algo</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="o">*</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="c1"># Do something to data with given parameters to return transformed data `out_data`</span>
@@ -1982,7 +1991,7 @@ To create a task you will thus have to create a new Python class <code>MyTask</c
 <p>To manage the files, inputs and outputs, we use the <code>plantdb</code> package implementing a local file system database written in pure python.
 It provides classes and methods that simplifies and normalize the creation and use of the tasks outputs and inputs.</p>
 <h3 id="new-romitask-template">New <code>RomiTask</code> template<a class="headerlink" href="#new-romitask-template" title="Permanent link">Link</a></h3>
-<p>You will create a new python file <code>my_task.py</code> in the 'task' submodule: <code>plant3dvision/plant3dvision/tasks/my_task.py</code></p>
+<p>You will create a new python file <code>my_task.py</code> in the <code>tasks</code> submodule: <code>plant-3d-vision/plant3dvision/tasks/my_task.py</code></p>
 <div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
@@ -1995,6 +2004,7 @@ It provides classes and methods that simplifies and normalize the creation and u
 <span class="kn">from</span> <span class="nn">plantdb</span> <span class="kn">import</span> <span class="n">RomiTask</span>
 <span class="kn">from</span> <span class="nn">plantdb</span> <span class="kn">import</span> <span class="n">io</span>
 <span class="kn">from</span> <span class="nn">plant3dvision.log</span> <span class="kn">import</span> <span class="n">logger</span>  <span class="c1"># Use this as logging method</span>
+<span class="kn">from</span> <span class="nn">plant3dvision.tasks.proc3d</span> <span class="kn">import</span> <span class="n">SegmentedPointCloud</span>
 
 <span class="c1"># Now import your main method:</span>
 <span class="kn">from</span> <span class="nn">plant3dvision.algo</span> <span class="kn">import</span> <span class="n">my_algo</span>
@@ -2085,8 +2095,13 @@ It provides classes and methods that simplifies and normalize the creation and u
     <span class="c1"># Add some metadata to this `File` object</span>
     <span class="n">f</span><span class="o">.</span><span class="n">set_metadata</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;bar</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
+<h2 id="test-your-task">Test your task<a class="headerlink" href="#test-your-task" title="Permanent link">Link</a></h2>
+<p>You should now be able to test your newly created task <code>MyTask</code> with <code>romi_run_task</code>:</p>
+<div class="highlight"><pre><span></span><code>romi_run_task MyTask /path/to/dataset --config /path/to/my_pipeline.toml --module plant3dvision.tasks.my_algo
+</code></pre></div>
+<p>Using the <code>--module</code> option you can test your task without registering it.</p>
 <h2 id="register-your-task">Register your task<a class="headerlink" href="#register-your-task" title="Permanent link">Link</a></h2>
-<p>Add it to <code>plant3dvision/modules.py</code> by referring to the task class name &amp; its python module location:</p>
+<p>Once you are satisfied, you can add it to <code>romitask/modules.py</code> by referring to the task class name &amp; its python module location:</p>
 <div class="highlight"><pre><span></span><code><span class="n">MODULES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># ...</span>
     <span class="s2">&quot;MyTask&quot;</span><span class="p">:</span> <span class="s2">&quot;plant3dvision.tasks.my_algo&quot;</span><span class="p">,</span>
@@ -2094,7 +2109,7 @@ It provides classes and methods that simplifies and normalize the creation and u
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="use-your-newly-created-task">Use your newly created task<a class="headerlink" href="#use-your-newly-created-task" title="Permanent link">Link</a></h2>
-<p>You should now be able to use your newly created task <code>MyTask</code> with <code>romi_run_task</code>:</p>
+<p>Finally, you should now be able to use your newly created task <code>MyTask</code> with <code>romi_run_task</code>:</p>
 <div class="highlight"><pre><span></span><code>romi_run_task MyTask /path/to/dataset --config /path/to/my_pipeline.toml
 </code></pre></div>
 <div class="admonition warning">
@@ -2210,10 +2225,10 @@ It provides classes and methods that simplifies and normalize the creation and u
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

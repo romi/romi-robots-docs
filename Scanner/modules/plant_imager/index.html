@@ -16,7 +16,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/modules/plant_imager/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
@@ -46,6 +46,8 @@
     
     
       
+
+
     
     
   </head>
@@ -782,6 +784,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#docker" class="md-nav__link">
     Docker
   </a>
@@ -790,24 +799,78 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#building-the-docker-image" class="md-nav__link">
-    Building the Docker image
+  <a href="#using-the-plantimager-docker-image" class="md-nav__link">
+    Using the plantimager docker image
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the plantimager docker image">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-the-plantimager-image" class="md-nav__link">
+    Build the plantimager image
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-the-docker-container" class="md-nav__link">
-    Running the docker container
+  <a href="#run-a-plantimager-container" class="md-nav__link">
+    Run a plantimager container
   </a>
   
-    <nav class="md-nav" aria-label="Running the docker container">
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-the-virtualplantimager-docker-image" class="md-nav__link">
+    Using the virtualplantimager docker image
+  </a>
+  
+    <nav class="md-nav" aria-label="Using the virtualplantimager docker image">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-the-virtualplantimager-image" class="md-nav__link">
+    Build the virtualplantimager image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-a-virtualplantimager-container" class="md-nav__link">
+    Run a virtualplantimager container
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#example-generating-a-virtual-plant-dataset-with-lpy-and-blender" class="md-nav__link">
     Example: generating a virtual plant dataset with lpy and Blender
   </a>
+  
+    <nav class="md-nav" aria-label="Example: generating a virtual plant dataset with lpy and Blender">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-temporary-copy-of-the-example-database" class="md-nav__link">
+    Create a temporary copy of the example database
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-virtual-data" class="md-nav__link">
+    Generate a virtual data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -822,19 +885,53 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conda" class="md-nav__link">
-    Conda
+  <a href="#install-from-sources" class="md-nav__link">
+    Install from sources
   </a>
   
-    <nav class="md-nav" aria-label="Conda">
+    <nav class="md-nav" aria-label="Install from sources">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#install-in-conda-environment" class="md-nav__link">
-    Install in conda environment
+  <a href="#getting-started_1" class="md-nav__link">
+    Getting started
   </a>
   
-    <nav class="md-nav" aria-label="Install in conda environment">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-from-sources-to-use-the-plant-imager" class="md-nav__link">
+    Install from sources to use the plant imager
+  </a>
+  
+    <nav class="md-nav" aria-label="Install from sources to use the plant imager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conda-environment-creation" class="md-nav__link">
+    Conda environment creation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-sources" class="md-nav__link">
+    Install the sources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-from-sources-to-use-the-virtual-plant-imager" class="md-nav__link">
+    Install from sources to use the virtual plant imager
+  </a>
+  
+    <nav class="md-nav" aria-label="Install from sources to use the virtual plant imager">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -845,7 +942,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#conda-environment-creation" class="md-nav__link">
+  <a href="#conda-environment-creation_1" class="md-nav__link">
     Conda environment creation
   </a>
   
@@ -2006,46 +2103,127 @@
                 
                 
                 <h1 id="-virtual-plant-imager">-Virtual- Plant Imager<a class="headerlink" href="#-virtual-plant-imager" title="Permanent link">Link</a></h1>
-<ul>
-<li>
-<p>Plant Imager: Gather hardware control of the ROMI 3D plant imager as well as the virtual plant imager.</p>
-</li>
-<li>
-<p>Virtual Plant Imager: The romi virtual plant imager is based on Blender. We recommend using it inside a docker container.</p>
-</li>
-</ul>
+<p>To be as clear as possible, we define the following names:
+- <em>Plant Imager</em>: hardware control of the ROMI <em>3D plant imager</em>.
+- <em>Virtual Plant Imager</em>: simulate the plant imager using <a href="https://github.com/fredboudon/lpy">LPY</a> to generate virtual plants and <a href="https://www.blender.org/">Blender</a> for rendering. <strong>We recommend using it inside a docker container.</strong></p>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">Link</a></h2>
+<p>Clone the repository and initialize the sub-modules.
+In a terminal:
+<div class="highlight"><pre><span></span><code>git clone https://github.com/romi/plant-imager.git
+<span class="nb">cd</span> plant-imager/
+git submodule init  <span class="c1"># only do this ONCE if the sub-module have not yet been initialized!</span>
+</code></pre></div></p>
 <h2 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">Link</a></h2>
-<h3 id="building-the-docker-image">Building the Docker image<a class="headerlink" href="#building-the-docker-image" title="Permanent link">Link</a></h3>
-<p>In this repository, you will find a script <code>build.sh</code> in the <code>docker</code> directory.</p>
-<p><div class="highlight"><pre><span></span><code>    git clone https://github.com/romi/plant-imager.git
-    cd plant-imager/
-    git submodule init
-    git submodule update
-    ./docker/build.sh
+<p>For now, you have to first build the image locally, then you can use it.</p>
+<blockquote>
+<p><img alt="⚠" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/26a0.svg" title=":warning:" /> We will change that soon, so you can use pre-built images!</p>
+</blockquote>
+<p>Obviously you first have to follow the <a href="https://github.com/romi/plant-imager#getting-started">getting started</a> instructions.</p>
+<h3 id="using-the-plantimager-docker-image">Using the <code>plantimager</code> docker image<a class="headerlink" href="#using-the-plantimager-docker-image" title="Permanent link">Link</a></h3>
+<h4 id="build-the-plantimager-image">Build the <code>plantimager</code> image<a class="headerlink" href="#build-the-plantimager-image" title="Permanent link">Link</a></h4>
+<p>In this repository, you will find a dedicated script, named <code>build.sh</code>, in the <code>docker/plantimager/</code> directory.</p>
+<p>You may need to update the sub-modules before building the image.
+In a terminal move to the root of the cloned <code>plant-imager</code> repository and update the sub-modules with:
+<div class="highlight"><pre><span></span><code>git submodule update
+</code></pre></div></p>
+<p>Now you can use the provided build script.
+<div class="highlight"><pre><span></span><code>./docker/plantimager/build.sh
 </code></pre></div>
-This will create by default a docker image <code>plantimager:latest</code>.
-Inside the docker image, a user is created and named as the one currently used by your system.
-If you want more build options (specific branches, tags...etc), type <code>./docker/build.sh --help</code>.</p>
-<h3 id="running-the-docker-container">Running the docker container<a class="headerlink" href="#running-the-docker-container" title="Permanent link">Link</a></h3>
-<p>In the docker directory, you will find also a script named <code>run.sh</code>.</p>
-<p>To show more options, type <code>./run.sh --help</code></p>
+By default, this build script will create a docker image named <code>plantimager:latest</code>.
+If you want more build options (specific branches, tags...etc), type <code>./docker/plantimager/build.sh --help</code>.</p>
+<blockquote>
+<p><img alt="⚠" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/26a0.svg" title=":warning:" /> by default the docker user is the same as the one currently used by your system. Use <code>echo $USER</code> to check the active username.</p>
+</blockquote>
+<h4 id="run-a-plantimager-container">Run a <code>plantimager</code> container<a class="headerlink" href="#run-a-plantimager-container" title="Permanent link">Link</a></h4>
+<p>In the <code>docker/plantimager/</code> directory, you will also find a convenience script named <code>run.sh</code>.
+To get usage information and options list, use <code>./run.sh -h</code> or from the <code>plant-imager</code> repository root folder:
+<div class="highlight"><pre><span></span><code>./docker/plantimager/run.sh -h
+</code></pre></div></p>
+<h3 id="using-the-virtualplantimager-docker-image">Using the <code>virtualplantimager</code> docker image<a class="headerlink" href="#using-the-virtualplantimager-docker-image" title="Permanent link">Link</a></h3>
+<h4 id="build-the-virtualplantimager-image">Build the <code>virtualplantimager</code> image<a class="headerlink" href="#build-the-virtualplantimager-image" title="Permanent link">Link</a></h4>
+<p>In this repository, you will find a dedicated script, named <code>build.sh</code>, in the <code>docker/virtualplantimager/</code> directory.</p>
+<p>You may need to update the sub-modules before building the image.
+In a terminal move to the root of the cloned <code>plant-imager</code> repository and update the sub-modules with:
+<div class="highlight"><pre><span></span><code>git submodule update
+</code></pre></div></p>
+<p>Now you can use the provided build script.
+<div class="highlight"><pre><span></span><code>./docker/virtualplantimager/build.sh
+</code></pre></div>
+By default, this build script will create a docker image named <code>virtualplantimager:latest</code>.
+If you want more build options (specific branches, tags...etc), type <code>./docker/virtualplantimager/build.sh -h</code>.</p>
+<blockquote>
+<p><img alt="⚠" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/26a0.svg" title=":warning:" /> by default the docker user is the same as the one currently used by your system.
+Use <code>echo $USER</code> to check the active username.</p>
+</blockquote>
+<h4 id="run-a-virtualplantimager-container">Run a <code>virtualplantimager</code> container<a class="headerlink" href="#run-a-virtualplantimager-container" title="Permanent link">Link</a></h4>
+<p>In the <code>docker/virtualplantimager/</code> directory, you will also find a convenience script named <code>run.sh</code>.
+To get usage information and options list, use <code>./run.sh -h</code> or from the <code>plant-imager</code> repository root folder:
+<div class="highlight"><pre><span></span><code>./docker/virtualplantimager/run.sh -h
+</code></pre></div></p>
 <h4 id="example-generating-a-virtual-plant-dataset-with-lpy-and-blender">Example: generating a virtual plant dataset with lpy and Blender<a class="headerlink" href="#example-generating-a-virtual-plant-dataset-with-lpy-and-blender" title="Permanent link">Link</a></h4>
-<p>In this example, you only have to replace path values and <code>cd</code> to whose defined in your own system:
-<div class="highlight"><pre><span></span><code>cp -r plant-imager/database_example /home/host/path/ # Copy the database_example to avoid generating the dataset in the git repository
-cd plant-imager/docker
-./run.sh -t latest -db /my/host/path/database_example # This will map to `db` directory located in the the docker&#39;s user home
-&gt;&gt;&gt;(lpyEnv) user@5c9e389f223d  romi_run_task --config plant-imager/config/vscan_lpy_blender.toml VirtualScan db/generated_dataset # Run VirtualScan as usual by specifying your own generated_dataset
+<h5 id="create-a-temporary-copy-of-the-example-database">Create a temporary copy of the example database<a class="headerlink" href="#create-a-temporary-copy-of-the-example-database" title="Permanent link">Link</a></h5>
+<p>To avoid generating the dataset in the git repository, we highly recommend to first copy the example database to a temporary folder.
+On UNIX systems, from the <code>plant-imager/</code> root directory, do:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> plant-imager
+cp -r database_example /tmp/
+</code></pre></div></p>
+<p>You can check the temporary copy with:
+<div class="highlight"><pre><span></span><code>ls /tmp/database_example
+</code></pre></div></p>
+<h5 id="generate-a-virtual-data">Generate a virtual data<a class="headerlink" href="#generate-a-virtual-data" title="Permanent link">Link</a></h5>
+<p>Following the temporary copy, to generate a virtual <em>Arabidopsis thaliana</em> named <code>generated_dataset</code>, do:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> plant-imager
+./docker/virtualplantimager/run.sh <span class="se">\</span>
+  -t latest -db /tmp/database_example <span class="se">\</span>
+  -c <span class="s2">&quot;romi_run_task VirtualScan db/generated_dataset \</span>
+<span class="s2">        --config plant-imager/config/vscan_lpy_blender.toml&quot;</span>
 </code></pre></div>
-After a while, if the generation has succeeded, you can check the generated dataset on your mapped host machine directory <code>/my/host/path/database_example/generated_dataset</code></p>
-<h2 id="conda">Conda<a class="headerlink" href="#conda" title="Permanent link">Link</a></h2>
-<h3 id="install-in-conda-environment">Install in conda environment<a class="headerlink" href="#install-in-conda-environment" title="Permanent link">Link</a></h3>
+This will use a standard configuration for the <code>VirtualScan</code> task defined in <code>plant-imager/config/vscan_lpy_blender.toml</code>.
+After a while, if the generation has succeeded, you can check the generated dataset on your mapped host machine directory <code>/tmp/database_example/generated_dataset</code></p>
+<blockquote>
+<p><img alt="⚠" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/26a0.svg" title=":warning:" /> stopping or restarting your system will clean the <code>/tmp</code> directory.</p>
+<p><img alt="ℹ" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2139.svg" title=":information_source:" /> If you have an error about a locked database: <code>rm /tmp/generated_dataset/lock</code> and try again! </p>
+</blockquote>
+<p>For more information have a look at the official ROMI documentation <a href="https://docs.romi-project.eu/Scanner/">website</a>.</p>
+<h2 id="install-from-sources">Install from sources<a class="headerlink" href="#install-from-sources" title="Permanent link">Link</a></h2>
+<p>We <strong>highly</strong> recommend using the docker image for the <em>virtual plant imager</em> as installing things can get messy!</p>
+<h3 id="getting-started_1">Getting started<a class="headerlink" href="#getting-started_1" title="Permanent link">Link</a></h3>
+<p>Start by cloning the sources and getting the sub-modules:
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone plant-imager sources</span>
+git clone https://github.com/romi/plant-imager
+<span class="nb">cd</span> plant-imager
+<span class="c1"># Get the sub-modules:</span>
+git submodule init  <span class="c1"># only do this ONCE if the sub-module have not yet been initialized!</span>
+git submodule update
+</code></pre></div></p>
+<h3 id="install-from-sources-to-use-the-plant-imager">Install from sources to use the <em>plant imager</em><a class="headerlink" href="#install-from-sources-to-use-the-plant-imager" title="Permanent link">Link</a></h3>
+<h4 id="conda-environment-creation">Conda environment creation<a class="headerlink" href="#conda-environment-creation" title="Permanent link">Link</a></h4>
+<p>Create a conda environment named <code>plant_imager</code> and install required dependencies:
+<div class="highlight"><pre><span></span><code>conda create -n plant_imager <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+</code></pre></div></p>
+<h4 id="install-the-sources">Install the sources<a class="headerlink" href="#install-the-sources" title="Permanent link">Link</a></h4>
+<p>You may now proceed to install the python requirements and packages:
+<div class="highlight"><pre><span></span><code><span class="c1"># Don&#39;t forget to activate the environment!</span>
+conda activate plant_imager
+<span class="nb">cd</span> plant-imager
+<span class="c1"># Install `plantdb` from sub-modules:</span>
+python -m pip install -e ./plantdb/
+<span class="c1"># Install `romitask` from sub-modules:</span>
+python -m pip install -e ./romitask/
+<span class="c1"># Install `plant-imager`:</span>
+python -m pip install -e .
+</code></pre></div></p>
+<blockquote>
+<p><img alt="ℹ" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2139.svg" title=":information_source:" /> Please notice that we here use the git sub-modules to clone and install <code>romitask</code> and <code>plantdb</code>.</p>
+</blockquote>
+<h3 id="install-from-sources-to-use-the-virtual-plant-imager">Install from sources to use the <em>virtual plant imager</em><a class="headerlink" href="#install-from-sources-to-use-the-virtual-plant-imager" title="Permanent link">Link</a></h3>
 <h4 id="system-requirements">System requirements<a class="headerlink" href="#system-requirements" title="Permanent link">Link</a></h4>
 <div class="highlight"><pre><span></span><code>sudo apt-get install libgl1-mesa-dev libxi6 gcc
 </code></pre></div>
-<h4 id="conda-environment-creation">Conda environment creation<a class="headerlink" href="#conda-environment-creation" title="Permanent link">Link</a></h4>
-<p>Create a conda environment named <code>plant_scanner</code> and install required dependencies:
-<div class="highlight"><pre><span></span><code>conda create -n plant_scanner <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
-conda install -n plant_scanner -c conda-forge -c fredboudon flask imageio toml luigi <span class="nv">boost</span><span class="o">=</span><span class="m">1</span>.70.0 <span class="nv">qhull</span><span class="o">=</span><span class="m">2015</span>.2 openalea.lpy
+<h4 id="conda-environment-creation_1">Conda environment creation<a class="headerlink" href="#conda-environment-creation_1" title="Permanent link">Link</a></h4>
+<p>Create a conda environment named <code>plant_imager</code> and install required dependencies:
+<div class="highlight"><pre><span></span><code>conda create -n plant_imager <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+conda install -n plant_imager -c conda-forge -c fredboudon flask imageio toml luigi <span class="nv">boost</span><span class="o">=</span><span class="m">1</span>.70.0 <span class="nv">qhull</span><span class="o">=</span><span class="m">2015</span>.2 openalea.lpy
 </code></pre></div></p>
 <h4 id="blender-setup">Blender setup<a class="headerlink" href="#blender-setup" title="Permanent link">Link</a></h4>
 <p>In order to use the <code>bpy</code> module we have to do this mess:</p>
@@ -2062,32 +2240,31 @@ rm blender-2.81a-linux-glibc217-x86_64.tar.bz2
 </code></pre></div></p>
 <h5 id="2-copy-required-python-libraries-to-blender">2. Copy required python libraries to blender<a class="headerlink" href="#2-copy-required-python-libraries-to-blender" title="Permanent link">Link</a></h5>
 <p>Copy python libraries to the python's blender site-packages:
-<div class="highlight"><pre><span></span><code>sudo cp -r /opt/conda/envs/plant_scanner/lib/python3.7/site-packages/markupsafe/ /opt/blender/2.81/python/lib/python3.7/site-packages/
-sudo cp -r /opt/conda/envs/plant_scanner/lib/python3.7/site-packages/flask/ /opt/blender/2.81/python/lib/python3.7/site-packages/
-sudo cp -r /opt/conda/envs/plant_scanner/lib/python3.7/site-packages/itsdangerous/ /opt/blender/2.81/python/lib/python3.7/site-packages/
-sudo cp -r /opt/conda/envs/plant_scanner/lib/python3.7/site-packages/click/ /opt/blender/2.81/python/lib/python3.7/site-packages/
-sudo cp -r /opt/conda/envs/plant_scanner/lib/python3.7/site-packages/werkzeug/ /opt/blender/2.81/python/lib/python3.7/site-packages/
-sudo cp -r /opt/conda/envs/plant_scanner/lib/python3.7/site-packages/jinja2/ /opt/blender/2.81/python/lib/python3.7/site-packages/
-sudo cp -r /opt/conda/envs/plant_scanner/lib/python3.7/site-packages/imageio/ /opt/blender/2.81/python/lib/python3.7/site-packages/
+<div class="highlight"><pre><span></span><code>sudo cp -r /opt/conda/envs/plant_imager/lib/python3.7/site-packages/markupsafe/ /opt/blender/2.81/python/lib/python3.7/site-packages/
+sudo cp -r /opt/conda/envs/plant_imager/lib/python3.7/site-packages/flask/ /opt/blender/2.81/python/lib/python3.7/site-packages/
+sudo cp -r /opt/conda/envs/plant_imager/lib/python3.7/site-packages/itsdangerous/ /opt/blender/2.81/python/lib/python3.7/site-packages/
+sudo cp -r /opt/conda/envs/plant_imager/lib/python3.7/site-packages/click/ /opt/blender/2.81/python/lib/python3.7/site-packages/
+sudo cp -r /opt/conda/envs/plant_imager/lib/python3.7/site-packages/werkzeug/ /opt/blender/2.81/python/lib/python3.7/site-packages/
+sudo cp -r /opt/conda/envs/plant_imager/lib/python3.7/site-packages/jinja2/ /opt/blender/2.81/python/lib/python3.7/site-packages/
+sudo cp -r /opt/conda/envs/plant_imager/lib/python3.7/site-packages/imageio/ /opt/blender/2.81/python/lib/python3.7/site-packages/
 </code></pre></div></p>
 <h5 id="3-install-romi-sources">3. Install ROMI sources<a class="headerlink" href="#3-install-romi-sources" title="Permanent link">Link</a></h5>
-<p>We will now finish by cloning and installing the ROMI sources for <code>romiscanner</code>, <code>romiscan</code> and <code>romidata</code>:
-<div class="highlight"><pre><span></span><code><span class="nv">ROMISCAN_BRANCH</span><span class="o">=</span>dev
-<span class="nv">ROMIDATA_BRANCH</span><span class="o">=</span>dev
-<span class="nv">ROMISCANNER_BRANCH</span><span class="o">=</span>master
-<span class="c1"># Don&#39;t forget to activate the environment!</span>
-conda activate plant_scanner
-<span class="c1"># Clone &amp; install romidata</span>
-git clone --branch <span class="nv">$ROMIDATA_BRANCH</span> https://github.com/romi/romidata
-python -m pip install -e ./romidata/ --no-cache-dir
-<span class="c1"># Clone &amp; install romiscanner</span>
-git clone --branch <span class="nv">$ROMISCANNER_BRANCH</span> https://github.com/romi/romiscanner
-python -m pip install -e ./romiscanner/ --no-cache-dir
-<span class="c1"># Clone &amp; install romiscan</span>
-git clone --branch <span class="nv">$ROMISCAN_BRANCH</span> https://github.com/romi/romiscan
-python -m pip install -r ./romiscan/requirements.txt --no-cache-dir
-python -m pip install -e ./romiscan/ --no-cache-dir
+<p>We will now finish by cloning and installing the ROMI sources for <code>plant-imager</code>.
+<div class="highlight"><pre><span></span><code><span class="c1"># Don&#39;t forget to activate the environment!</span>
+conda activate plant_imager
+<span class="nb">cd</span> plant-imager
+<span class="c1"># Install `plantdb` from sub-modules:</span>
+python -m pip install -e ./plantdb/
+<span class="c1"># Install `romitask` from sub-modules:</span>
+python -m pip install -e ./romitask/
+<span class="c1"># Install `plant-imager`:</span>
+python -m pip install -e .
 </code></pre></div></p>
+<blockquote>
+<p><img alt="ℹ" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2139.svg" title=":information_source:" /> Please notice that we here use the git sub-modules to clone and install <code>romitask</code> and <code>plantdb</code>.</p>
+<p><img alt="ℹ" class="twemoji" src="https://twemoji.maxcdn.com/v/latest/svg/2139.svg" title=":information_source:" /> The <code>-e</code> option install the module or sub-module in <em>editable</em> mode.
+That means you will not have to reinstall them if you make modifications to the sources.</p>
+</blockquote>
                 
               
               
@@ -2197,10 +2374,10 @@ python -m pip install -e ./romiscan/ --no-cache-dir
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.b0710199.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.76f349be.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
