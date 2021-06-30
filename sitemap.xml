@@ -231,6 +231,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.romi-project.eu/Scanner/developer/pipeline_repeatability/</loc>
+         <lastmod>2021-06-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.romi-project.eu/Scanner/developer/tutorial_template/</loc>
          <lastmod>2021-06-30</lastmod>
          <changefreq>daily</changefreq>
