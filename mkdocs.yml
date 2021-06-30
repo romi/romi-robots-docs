@@ -100,6 +100,7 @@ nav:
             - 'Configuration files': 'Scanner/specifications/configuration_files.md'
         - 'Developer':
             - 'Home': 'Scanner/developer/index.md'
+            - 'Pipelines repeatability': 'Scanner/developer/pipeline_repeatability.md'
             - 'User case scenarios': 'Scanner/developer/user_case_scenarios.md'
             - 'Git Workflow': 'Scanner/developer/git_workflow.md'
             - 'Git Submodules': 'Scanner/developer/git_submodules_workflow.md'
