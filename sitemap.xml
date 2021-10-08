@@ -256,6 +256,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.romi-project.eu/Scanner/docker/plant-3d-vision_docker/</loc>
+         <lastmod>2021-10-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.romi-project.eu/Scanner/docker/plant3dexplorer_docker/</loc>
          <lastmod>2021-10-08</lastmod>
          <changefreq>daily</changefreq>
@@ -267,11 +272,6 @@
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Scanner/docker/plantimager_docker/</loc>
-         <lastmod>2021-10-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Scanner/docker/plantinterpreter_docker/</loc>
          <lastmod>2021-10-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
