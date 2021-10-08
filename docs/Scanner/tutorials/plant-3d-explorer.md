@@ -14,12 +14,12 @@ After this tutorial, you should be able to:
 
 * install romi `plant-3d-explorer` (from [source](https://github.com/romi/plant-3d-explorer) or using a [docker image](../docker/plant3dexplorer_docker.md) ) & read [install procedure](../install/plant3dexplorer_setup.md)
 * install romi `plantdb` (from [source](https://github.com/romi/plantdb) or using a [docker image](../docker/plantdb_docker.md)) & read [install procedure](../install/plantdb_setup.md)
-* install romi `plant-3d-vision` (from [source](https://github.com/romi/plant-3d-vision) or using a [docker image](../docker/plantinterpreter_docker.md)) & read [install procedure](../install/plant_reconstruction_setup.md)
+* install romi `plant-3d-vision` (from [source](https://github.com/romi/plant-3d-vision) or using a [docker image](../docker/plant-3d-vision_docker.md)) & read [install procedure](../install/plant_reconstruction_setup.md)
 * Create and activate isolated python environment (see the procedure [here](../install/create_env.md) )
 
 !!! note "Note for docker users <img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50">"
     You can avoid installs by using **docker** only.
-    Read first the docker procedures ( ['docker for plant-3d-vision'](../docker/plantinterpreter_docker.md) and ['docker-compose to run both database and 3d explorer with docker containers'](../docker/docker_compose.md) ).
+    Read first the docker procedures ( ['docker for plant-3d-vision'](../docker/plant-3d-vision_docker.md) and ['docker-compose to run both database and 3d explorer with docker containers'](../docker/docker_compose.md) ).
     In the following tutorial (steps 1, 2 and 3), follow the docker logo to adapt the procedure.
 
 ## Linked documentation
@@ -64,7 +64,7 @@ done
     For more information about using romi_run_task command, the Visualization task and the config file, please read XXXXX.
 
 !!! Note "Note for docker users <img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50">"
-    - Start a docker container by mounting your database as a volume ([details](../docker/plantinterpreter_docker.md/#manually))
+    - Start a docker container by mounting your database as a volume ([details](../docker/plant-3d-vision_docker.md/#manually))
     - In the container, run the same Visualization Task has above
 
 **check result**: a new folder called `Visualization` should have been created in each dataset of your database

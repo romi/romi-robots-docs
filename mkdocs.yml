@@ -112,7 +112,7 @@ nav:
                 - 'Database': 'Scanner/docker/plantdb_docker.md'
                 - 'Plant Imager': 'Scanner/docker/plantimager_docker.md'
                 - 'Virtual Plant Imager': 'Scanner/docker/virtualplantimager_docker.md'
-                - 'Plant Interpreter': 'Scanner/docker/plantinterpreter_docker.md'
+                - 'Plant Interpreter': 'Scanner/docker/plant-3d-vision_docker.md'
                 - 'plant-3d-explorer': 'Scanner/docker/plant3dexplorer_docker.md'
                 - 'Docker compose': 'Scanner/docker/docker_compose.md'
   - 'Research': 'research.md'

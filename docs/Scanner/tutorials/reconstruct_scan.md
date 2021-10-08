@@ -6,7 +6,7 @@ Plant reconstruction and analysis pipeline
 To follows this guide you should have:
 
 * installed the necessary ROMI software [here](../install/plant_reconstruction_setup.md) or followed the instructions for the docker
-  image [here](../docker/plantinterpreter_docker.md)
+  image [here](../docker/plant-3d-vision_docker.md)
 * access to a database with a "plant acquisition" to reconstruct (or use the provided examples)
 
 ## Reconstruction pipeline

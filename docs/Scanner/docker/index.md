@@ -9,7 +9,7 @@ We hereafter list the docker containers, their availability and provides link to
 
 - [x] **plantdb** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plantdb) and explanations [there](plantdb_docker.md)
 - [ ] **plantimager** is not available yet and explanations [there](plantimager_docker.md)
-- [ ] **plant-3d-vision** is not available yet and explanations [there](plantinterpreter_docker.md)
+- [x] **plant-3d-vision** is available [there](plant-3d-vision_docker.md)
 - [x] **plant-3d-explorer** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plant-3d-explorer) and
   explanations [there](plant3dexplorer_docker.md)
 
@@ -30,7 +30,7 @@ In order to be able to use the ROMI docker images you have to install `docker-ce
 To install `docker-ce`, please refer to the [official documentation](https://docs.docker.com/get-docker/).
 
 ### Install nvidia-docker
-To install `nvidia-docker2` , please refer to the [official documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker).
+To install `nvidia-docker2`, please refer to the [official documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker).
 
 
 ## DockerHub
@@ -41,9 +41,7 @@ The Docker hub repository for the ROMI project is here: https://hub.docker.com/o
 ### Colmap
 
 Docker images for the Colmap open source project:
-
 [https://hub.docker.com/r/colmap/colmap](https://hub.docker.com/r/colmap/colmap)
 
 nvidia/cuda with Colmap - (compatible with Driver Version: 418.67 CUDA Version: 10.1)
-
 [https://hub.docker.com/r/geki/colmap](https://hub.docker.com/r/geki/colmap)

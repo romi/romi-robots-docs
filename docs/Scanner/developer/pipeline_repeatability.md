@@ -16,7 +16,7 @@ Two main things can be tested:
 ## Prerequisite
 
 
-* install romi `plant-3d-vision` (from [source](https://github.com/romi/plant-3d-vision) or using a [docker image](../docker/plantinterpreter_docker.md)) & read [install procedure](../install/plant_reconstruction_setup.md)
+* install romi `plant-3d-vision` (from [source](https://github.com/romi/plant-3d-vision) or using a [docker image](../docker/plant-3d-vision_docker.md)) & read [install procedure](../install/plant_reconstruction_setup.md)
 * Create and activate isolated python environment (see the procedure [here](../../install/create_env.md) )
 
 
