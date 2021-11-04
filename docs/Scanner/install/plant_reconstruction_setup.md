@@ -81,12 +81,13 @@ git clone --branch dev https://github.com/romi/plant3dvision.git
 cd plant3dvision
 git submodule init
 git submodule update
-python3 -m pip install -r requirements.txt
-python3 -m pip install ./plantdb/
-python3 -m pip install ./romiseg/
-python3 -m pip install ./plantimager/
-python3 -m pip install ./romicgal/
-python3 -m pip install -e .
+python3 -m pip install -e ./plantdb/ --no-cache-dir
+python3 -m pip install -e ./romitask/ --no-cache-dir
+python3 -m pip install -e ./romiseg/ --no-cache-dir
+python3 -m pip install -e ./romicgal/ --no-cache-dir
+python3 -m pip install -e ./dtw/ --no-cache-dir
+python3 -m pip install -r requirements.txt --no-cache-dir
+python3 -m pip install -e . --no-cache-dir
 ```
 
 You should now be ready to performs "plant reconstructions" following the [dedicated](../tutorials/reconstruct_scan.md) user guide.
