@@ -67,7 +67,7 @@ On Debian-like OS, use the following command to install it:
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
-For more details & explanations, follow [this](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/#) official guide to learn how
+For more details & explanations, follow [this](https://conda.io/projects/conda/en/latest/user-guide/index.html) official guide to learn how
 to install `miniconda`.
 
 ### Environment creation
