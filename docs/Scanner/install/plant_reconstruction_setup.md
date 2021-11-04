@@ -89,7 +89,7 @@ python3 -m pip install -e ./dtw/ --no-cache-dir
 python3 -m pip install -r requirements.txt --no-cache-dir
 python3 -m pip install -e . --no-cache-dir
 ```
-
+git pull --recurse-submodules
 You should now be ready to performs "plant reconstructions" following the [dedicated](../tutorials/reconstruct_scan.md) user guide.
 
 ### Install `romicgal` sources
@@ -116,5 +116,6 @@ python3 -m pip install -e git+https://github.com/romi/romiseg@dev
 !!! warning
     If not using CUDA 10.*, you have to install the matching `pytorch` distribution. For example, for CUDA 9.2, use:
     ```shell
-    conda activate plant_imager pip install torch==1.4.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
+    conda activate plant_imager 
+    pip install torch==1.4.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
     ```
