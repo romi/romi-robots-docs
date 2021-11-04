@@ -2375,7 +2375,11 @@ python3 -m pip install -e git+https://github.com/romi/romiseg@dev
 <p>If not using CUDA 10.*, you have to install the matching <code>pytorch</code> distribution. For example, for CUDA 9.2, use:
 <div class="highlight"><pre><span></span><code>conda activate plant_imager 
 pip install <span class="nv">torch</span><span class="o">==</span><span class="m">1</span>.4.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
-</code></pre></div></p>
+</code></pre></div>
+To upgrade to Cuda 11.1, type
+<div class="highlight"><pre><span></span><code>conda install <span class="nv">pytorch</span><span class="o">==</span><span class="m">1</span>.8.0 <span class="nv">torchvision</span><span class="o">==</span><span class="m">0</span>.9.0 <span class="nv">torchaudio</span><span class="o">==</span><span class="m">0</span>.8.0 <span class="nv">cudatoolkit</span><span class="o">=</span><span class="m">11</span>.1 -c pytorch -c conda-forge
+</code></pre></div>
+See the (PyTorch webpage)[<a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a>] for compatible Torch and Cuda combinations.    </p>
 </div>
                 
               
