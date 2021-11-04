@@ -119,3 +119,8 @@ python3 -m pip install -e git+https://github.com/romi/romiseg@dev
     conda activate plant_imager 
     pip install torch==1.4.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
     ```
+    To upgrade to Cuda 11.1, type
+    ```shell
+    conda install pytorch==1.8.0 torchvision==0.9.0 torchaudio==0.8.0 cudatoolkit=11.1 -c pytorch -c conda-forge
+    ```
+    See the (PyTorch webpage)[https://pytorch.org/get-started/locally/] for compatible Torch and Cuda combinations.    
