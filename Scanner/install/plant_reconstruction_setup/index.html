@@ -2341,7 +2341,7 @@ If it's not done yet, follow the installation instructions of a ROMI database (<
 <h3 id="install-plant3dvision-sources">Install <code>plant3dvision</code> sources:<a class="headerlink" href="#install-plant3dvision-sources" title="Permanent link">Link</a></h3>
 <p>To start "reconstruction jobs", you have to install the <code>plant3dvision</code> package.</p>
 <p>Here we use the submodules but if you wish to edit other packages than <code>plant3dvision</code>, <em>e.g.</em> <code>plantdb</code>, install them from source!</p>
-<div class="highlight"><pre><span></span><code>conda activate plant_imager
+<p><div class="highlight"><pre><span></span><code>conda activate plant_imager
 git clone --branch dev https://github.com/romi/plant3dvision.git
 <span class="nb">cd</span> plant3dvision
 git submodule init
@@ -2354,7 +2354,8 @@ python3 -m pip install -e ./dtw/ --no-cache-dir
 python3 -m pip install -r requirements.txt --no-cache-dir
 python3 -m pip install -e . --no-cache-dir
 </code></pre></div>
-<p>You should now be ready to performs "plant reconstructions" following the <a href="../../tutorials/reconstruct_scan/">dedicated</a> user guide.</p>
+git pull --recurse-submodules
+You should now be ready to performs "plant reconstructions" following the <a href="../../tutorials/reconstruct_scan/">dedicated</a> user guide.</p>
 <h3 id="install-romicgal-sources">Install <code>romicgal</code> sources<a class="headerlink" href="#install-romicgal-sources" title="Permanent link">Link</a></h3>
 <p>We use some algorithms from <a href="https://www.cgal.org/">CGAL</a> and propose a minimal python wrapper called <code>romicgal</code>. To install it:</p>
 <div class="highlight"><pre><span></span><code>conda activate plant_imager
@@ -2372,7 +2373,8 @@ python3 -m pip install -e git+https://github.com/romi/romiseg@dev
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If not using CUDA 10.*, you have to install the matching <code>pytorch</code> distribution. For example, for CUDA 9.2, use:
-<div class="highlight"><pre><span></span><code>conda activate plant_imager pip install <span class="nv">torch</span><span class="o">==</span><span class="m">1</span>.4.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
+<div class="highlight"><pre><span></span><code>conda activate plant_imager 
+pip install <span class="nv">torch</span><span class="o">==</span><span class="m">1</span>.4.0+cu92 -f https://download.pytorch.org/whl/torch_stable.html
 </code></pre></div></p>
 </div>
                 
