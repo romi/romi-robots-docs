@@ -9,14 +9,13 @@
         <meta name="description" content="Technical documentation of the Robotics for Micro-farms project">
       
       
-      
         <meta name="author" content="ROMI Team">
       
       
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/specifications/configuration_files/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
     
     
       
@@ -24,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.a57b2b03.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.cd566b2a.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -37,16 +36,15 @@
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,700%7CUbuntu+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Nunito Sans";--md-code-font-family:"Ubuntu Mono"}</style>
+        <style>:root{--md-text-font:"Nunito Sans";--md-code-font:"Ubuntu Mono"}</style>
       
-    
     
     
       <link rel="stylesheet" href="../../../assets/css/extra.css">
     
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
-
 
     
     
@@ -61,7 +59,6 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
   
     
-    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -77,6 +74,7 @@
     <div data-md-component="announce">
       
     </div>
+    
     
       
 
@@ -112,8 +110,7 @@
       <label class="md-header__button md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
@@ -1829,7 +1826,6 @@
       
         
 
-
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
@@ -2404,8 +2400,8 @@
             <article class="md-content__inner md-typeset">
               
                 
-                
-                <h1 id="tasks-configuration">Tasks configuration<a class="headerlink" href="#tasks-configuration" title="Permanent link">Link</a></h1>
+
+<h1 id="tasks-configuration">Tasks configuration<a class="headerlink" href="#tasks-configuration" title="Permanent link">Link</a></h1>
 <h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">Link</a></h2>
 <p>Each task has some default configuration but to create a working pipeline, you need to set some parameters in a TOML configuration file.</p>
 <p>There are two types of parameters:</p>
@@ -2439,8 +2435,8 @@ They are often related to task defined in the <code>plantdb</code> library.</p>
 <li><code>fileset_id</code>: the id (<code>str</code>) to check for existence <code>'models'</code> by default.</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[ModelFileset]</span>
-<span class="n">scan_id</span> <span class="o">=</span> <span class="s">&quot;models&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">[ModelFileset]</span><span class="w"></span>
+<span class="n">scan_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;models&quot;</span><span class="w"></span>
 </code></pre></div>
 <p>Defines the location of the trained ML models in a dataset named <code>'models'</code>.</p>
 <h2 id="database-tasks">Database tasks<a class="headerlink" href="#database-tasks" title="Permanent link">Link</a></h2>
@@ -2452,8 +2448,8 @@ They are often related to task defined in the <code>plantdb</code> library.</p>
 <li><code>no_confirm</code>: boolean indicating whether a confirmation is required to clean the dataset, <code>False</code> by default, <em>i.e.</em> confirmation required.</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Clean]</span>
-<span class="n">no_confirm</span> <span class="o">=</span> <span class="kc">true</span>
+<div class="highlight"><pre><span></span><code><span class="k">[Clean]</span><span class="w"></span>
+<span class="n">no_confirm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
 </code></pre></div>
 <p>Use this to clean without confirmation.</p>
 <h2 id="algorithmic-tasks">Algorithmic tasks<a class="headerlink" href="#algorithmic-tasks" title="Permanent link">Link</a></h2>
@@ -2473,20 +2469,20 @@ It can also be used to compute a sparse and/or dense point cloud.</p>
 <li><code>calibration_scan_id</code> : ID of the calibration scan, requires ???.</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Colmap]</span>
-<span class="n">matcher</span> <span class="o">=</span> <span class="s">&quot;exhaustive&quot;</span>
-<span class="n">compute_dense</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="n">calibration_scan_id</span> <span class="o">=</span> <span class="s">&quot;calib_scan_shortpath&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">[Colmap]</span><span class="w"></span>
+<span class="n">matcher</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;exhaustive&quot;</span><span class="w"></span>
+<span class="n">compute_dense</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="n">calibration_scan_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;calib_scan_shortpath&quot;</span><span class="w"></span>
 
-<span class="k">[Colmap.cli_args.feature_extractor]</span>
-<span class="s">&quot;--ImageReader.single_camera&quot;</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span>
-<span class="s">&quot;--SiftExtraction.use_gpu&quot;</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span>
+<span class="k">[Colmap.cli_args.feature_extractor]</span><span class="w"></span>
+<span class="s">&quot;--ImageReader.single_camera&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"></span>
+<span class="s">&quot;--SiftExtraction.use_gpu&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"></span>
 
-<span class="k">[Colmap.cli_args.exhaustive_matcher]</span>
-<span class="s">&quot;--SiftMatching.use_gpu&quot;</span> <span class="o">=</span> <span class="s">&quot;1&quot;</span>
+<span class="k">[Colmap.cli_args.exhaustive_matcher]</span><span class="w"></span>
+<span class="s">&quot;--SiftMatching.use_gpu&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"></span>
 
-<span class="k">[Colmap.cli_args.model_aligner]</span>
-<span class="s">&quot;--robust_alignment_max_error&quot;</span> <span class="o">=</span> <span class="s">&quot;10&quot;</span>
+<span class="k">[Colmap.cli_args.model_aligner]</span><span class="w"></span>
+<span class="s">&quot;--robust_alignment_max_error&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10&quot;</span><span class="w"></span>
 </code></pre></div>
 <div class="admonition todo">
 <p class="admonition-title">Todo</p>
@@ -2519,14 +2515,14 @@ It can also be used to compute a sparse and/or dense point cloud.</p>
 <li><code>type</code>: ;</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Voxels]</span>
-<span class="n">upstream_mask</span> <span class="o">=</span> <span class="s">&quot;Segmentation2D&quot;</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="s">&quot;[\&quot;background\&quot;]&quot;</span>
-<span class="n">voxel_size</span> <span class="o">=</span> <span class="mf">0.3</span>
-<span class="n">type</span> <span class="o">=</span> <span class="s">&quot;averaging&quot;</span>
-<span class="n">invert</span> <span class="o">=</span> <span class="kc">false</span>
-<span class="n">use_colmap_poses</span> <span class="o">=</span> <span class="kc">true</span>
-<span class="n">log</span> <span class="o">=</span> <span class="kc">false</span>
+<div class="highlight"><pre><span></span><code><span class="k">[Voxels]</span><span class="w"></span>
+<span class="n">upstream_mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Segmentation2D&quot;</span><span class="w"></span>
+<span class="n">labels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;[\&quot;background\&quot;]&quot;</span><span class="w"></span>
+<span class="n">voxel_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3</span><span class="w"></span>
+<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;averaging&quot;</span><span class="w"></span>
+<span class="n">invert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="n">use_colmap_poses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="n">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -2534,52 +2530,52 @@ It can also be used to compute a sparse and/or dense point cloud.</p>
 </div>
 <h3 id="pointcloud-task">PointCloud task<a class="headerlink" href="#pointcloud-task" title="Permanent link">Link</a></h3>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[PointCloud]</span>
-<span class="n">level_set_value</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">background_prior</span><span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">log</span> <span class="o">=</span> <span class="kc">false</span>
+<div class="highlight"><pre><span></span><code><span class="k">[PointCloud]</span><span class="w"></span>
+<span class="n">level_set_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">background_prior</span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="w"></span>
+<span class="n">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
 </code></pre></div>
 <h3 id="segmentedpointcloud-task">SegmentedPointCloud task<a class="headerlink" href="#segmentedpointcloud-task" title="Permanent link">Link</a></h3>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[SegmentedPointCloud]</span>
-<span class="n">upstream_segmentation</span> <span class="o">=</span> <span class="s">&quot;Segmentation2D&quot;</span>
-<span class="n">upstream_task</span> <span class="o">=</span> <span class="s">&quot;PointCloud&quot;</span>
-<span class="n">use_colmap_poses</span> <span class="o">=</span> <span class="kc">true</span>
+<div class="highlight"><pre><span></span><code><span class="k">[SegmentedPointCloud]</span><span class="w"></span>
+<span class="n">upstream_segmentation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Segmentation2D&quot;</span><span class="w"></span>
+<span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PointCloud&quot;</span><span class="w"></span>
+<span class="n">use_colmap_poses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
 </code></pre></div>
 <h3 id="segmentation2d-task">Segmentation2D task<a class="headerlink" href="#segmentation2d-task" title="Permanent link">Link</a></h3>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Segmentation2D]</span>
-<span class="n">upstream_task</span> <span class="o">=</span> <span class="s">&quot;Undistorted&quot;</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s">&quot;{\&quot;channel\&quot;:\&quot;rgb\&quot;}&quot;</span>
-<span class="n">model_id</span> <span class="o">=</span> <span class="s">&quot;Resnetdataset_gl_png_896_896_epoch50&quot;</span>
-<span class="n">resize</span> <span class="o">=</span> <span class="kc">true</span>
-<span class="n">binarize</span> <span class="o">=</span> <span class="kc">true</span>
-<span class="n">dilation</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">Sx</span> <span class="o">=</span> <span class="mi">896</span>
-<span class="n">Sy</span> <span class="o">=</span> <span class="mi">896</span>
-<span class="n">epochs</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">batch</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.0001</span>
-<span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.0035</span>
+<div class="highlight"><pre><span></span><code><span class="k">[Segmentation2D]</span><span class="w"></span>
+<span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Undistorted&quot;</span><span class="w"></span>
+<span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{\&quot;channel\&quot;:\&quot;rgb\&quot;}&quot;</span><span class="w"></span>
+<span class="n">model_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Resnetdataset_gl_png_896_896_epoch50&quot;</span><span class="w"></span>
+<span class="n">resize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="n">binarize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="n">dilation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">Sx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">896</span><span class="w"></span>
+<span class="n">Sy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">896</span><span class="w"></span>
+<span class="n">epochs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">batch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">learning_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0001</span><span class="w"></span>
+<span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0035</span><span class="w"></span>
 </code></pre></div>
 <h3 id="visualization-task">Visualization task<a class="headerlink" href="#visualization-task" title="Permanent link">Link</a></h3>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Visualization]</span>
-<span class="n">max_image_size</span> <span class="o">=</span> <span class="mi">1500</span>
-<span class="n">max_point_cloud_size</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="n">thumbnail_size</span> <span class="o">=</span> <span class="mi">150</span>
-<span class="n">pcd_source</span> <span class="o">=</span> <span class="s">&quot;vox2pcd&quot;</span>
-<span class="n">mesh_source</span> <span class="o">=</span> <span class="s">&quot;delaunay&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">[Visualization]</span><span class="w"></span>
+<span class="n">max_image_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1500</span><span class="w"></span>
+<span class="n">max_point_cloud_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="w"></span>
+<span class="n">thumbnail_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">150</span><span class="w"></span>
+<span class="n">pcd_source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;vox2pcd&quot;</span><span class="w"></span>
+<span class="n">mesh_source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;delaunay&quot;</span><span class="w"></span>
 </code></pre></div>
 <h3 id="clusteredmesh-task">ClusteredMesh task<a class="headerlink" href="#clusteredmesh-task" title="Permanent link">Link</a></h3>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[ClusteredMesh]</span>
-<span class="n">upstream_task</span> <span class="o">=</span> <span class="s">&quot;SegmentedPointCloud&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">[ClusteredMesh]</span><span class="w"></span>
+<span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SegmentedPointCloud&quot;</span><span class="w"></span>
 </code></pre></div>
 <h3 id="anglesandinternodes-task">AnglesAndInternodes task<a class="headerlink" href="#anglesandinternodes-task" title="Permanent link">Link</a></h3>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[AnglesAndInternodes]</span>
-<span class="n">upstream_task</span> <span class="o">=</span> <span class="s">&quot;ClusteredMesh&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="k">[AnglesAndInternodes]</span><span class="w"></span>
+<span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ClusteredMesh&quot;</span><span class="w"></span>
 </code></pre></div>
 <h2 id="evaluation-tasks">Evaluation tasks<a class="headerlink" href="#evaluation-tasks" title="Permanent link">Link</a></h2>
 <h3 id="voxelgroundtruth">VoxelGroundTruth<a class="headerlink" href="#voxelgroundtruth" title="Permanent link">Link</a></h3>
@@ -2588,8 +2584,8 @@ It can also be used to compute a sparse and/or dense point cloud.</p>
 </code></pre></div>
 <h3 id="pointcloudgroundtruth">PointCloudGroundTruth<a class="headerlink" href="#pointcloudgroundtruth" title="Permanent link">Link</a></h3>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[PointCloudGroundTruth]</span>
-<span class="n">pcd_size</span> <span class="o">=</span> <span class="mi">10000</span>
+<div class="highlight"><pre><span></span><code><span class="k">[PointCloudGroundTruth]</span><span class="w"></span>
+<span class="n">pcd_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10000</span><span class="w"></span>
 </code></pre></div>
 <h3 id="clusteredmeshgroundtruth">ClusteredMeshGroundTruth<a class="headerlink" href="#clusteredmeshgroundtruth" title="Permanent link">Link</a></h3>
 <p>Example:</p>
@@ -2597,20 +2593,11 @@ It can also be used to compute a sparse and/or dense point cloud.</p>
 </code></pre></div>
 <h3 id="pointcloudevaluation-task">PointCloudEvaluation task<a class="headerlink" href="#pointcloudevaluation-task" title="Permanent link">Link</a></h3>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[PointCloudEvaluation]</span>
-<span class="n">max_distance</span> <span class="o">=</span> <span class="mf">0.2</span>
+<div class="highlight"><pre><span></span><code><span class="k">[PointCloudEvaluation]</span><span class="w"></span>
+<span class="n">max_distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span><span class="w"></span>
 </code></pre></div>
 <h3 id="pointcloudsegmentationevaluation-task">PointCloudSegmentationEvaluation task<a class="headerlink" href="#pointcloudsegmentationevaluation-task" title="Permanent link">Link</a></h3>
 <h3 id="segmentation2devaluation-task">Segmentation2DEvaluation task<a class="headerlink" href="#segmentation2devaluation-task" title="Permanent link">Link</a></h3>
-                
-              
-              
-                
-
-
-  <h2 id="__comments">Comments</h2>
-  <div id="disqus_thread"></div>
-  <script>var script,disqus_config=function(){this.page.url="https://docs.romi-project.eu/Scanner/specifications/configuration_files/",this.page.identifier="Scanner/specifications/configuration_files/"};"undefined"==typeof DISQUS?((script=document.createElement("script")).async=!0,script.src="https://romi.disqus.com/embed.js",script.setAttribute("data-timestamp",Date.now()),document.body.appendChild(script)):DISQUS.reset({reload:!0,config:disqus_config})</script>
 
               
             </article>
@@ -2619,8 +2606,7 @@ It can also be used to compute a sparse and/or dense point cloud.</p>
         
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
@@ -2659,52 +2645,51 @@ It can also be used to compute a sparse and/or dense point cloud.</p>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            CC Attribution-NonCommercial-ShareAlike 4.0 International
-          </div>
-        
-        
-          Made with
-          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-            Material for MkDocs
-          </a>
-        
-        
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CC Attribution-NonCommercial-ShareAlike 4.0 International
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://twitter.com/ROMI_EU_PROJECT" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
-      </a>
+    
+    <a href="https://twitter.com/ROMI_EU_PROJECT" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://www.facebook.com/ROMIEUProject" target="_blank" rel="noopener" title="www.facebook.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
-      </a>
+    
+    <a href="https://www.facebook.com/ROMIEUProject" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+    </a>
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://github.com/romi/" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://github.com/romi/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
@@ -2713,10 +2698,10 @@ It can also be used to compute a sparse and/or dense point cloud.</p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
