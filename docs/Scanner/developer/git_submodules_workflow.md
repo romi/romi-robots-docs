@@ -1,7 +1,7 @@
 # Git submodules in plant-3d-vision
 
 We make use of _git submodules_ in the `plant-3d-vision` repository to tightly control the version of the other ROMI libraries used as dependencies.
-To help its use we detail how to manage those submodules, especially how to update them.
+Hereafter we detail how to manage those submodules, especially how to update them.
 
 ## Getting started
 
@@ -33,6 +33,29 @@ git log
 
 !!! Tips
     Press key `q` to quit the log.
+
+## Integrate the modifications of a submodule
+
+```shell
+cd plant-3d-vision/
+git pull
+
+# It would be better to create an integration branch...
+
+cd dtw
+git checkout <branch_to_integrate>
+git pull
+git log  # check this is indeed the last commit that you want to integrate
+
+cd ..
+git status  # should see `modifié :         dtw (nouveaux commits)`
+
+git add dtw
+git status  # should show added `dtw` in green
+git commit -m "update dtw submodule"
+git push
+```
+
 
 ## Update the plant-3d-vision integration branch
 
