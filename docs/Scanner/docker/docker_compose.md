@@ -27,7 +27,7 @@ services:
   db:
     image: "roboticsmicrofarms/plantdb"
     volumes:
-      - ${ROMI_DB}:/home/scanner/db
+      - ${ROMI_DB}:/myapp/db
     expose:
       - "5000"
     healthcheck:
@@ -82,7 +82,7 @@ services:
     build: ../plantdb/.
     image: db:debug
     volumes:
-      - ${ROMI_DB}:/home/scanner/db
+      - ${ROMI_DB}:/myapp/db
     expose:
       - "5000"
     healthcheck:

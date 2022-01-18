@@ -13,14 +13,14 @@ Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can
 ```shell
 export ROMI_DB=/data/ROMI/DB
 docker run -it -p 5000:5000 \
-  -v $ROMI_DB:/home/scanner/db \
+  -v $ROMI_DB:/myapp/db \
   roboticsmicrofarms/plantdb:latest
 ```
 
 You should be able to access it here: http://localhost:5000/
 
 !!! note
-    `-v $ROMI_DB:/home/scanner/db` performs a **bind mount** to enable access to the local database by the docker image. See the
+    `-v $ROMI_DB:/myapp/db` performs a **bind mount** to enable access to the local database by the docker image. See the
     official [documentation](https://docs.docker.com/storage/bind-mounts/).
 
 ## Build docker image
@@ -85,7 +85,7 @@ You can also pass some options, use `./run.sh -h` to get more details about usag
 Assuming you extracted it in your home folder (`/home/$USER/integration_tests`), you can start the `plantdb` docker image with:
 
 ```shell
-docker run -it -p 5000:5000 -v /home/$USER/integration_tests:/home/scanner/db plantdb:$VTAG
+docker run -it -p 5000:5000 -v /home/$USER/integration_tests:/myapp/db plantdb:$VTAG
 ```
 
 In both cases, you should see something like:
@@ -101,7 +101,7 @@ n scans = 2
 ```
 
 !!! tip
-    `-v /home/$USER/integration_tests:/home/scanner/db` performs a **bind mount** to enable access to the local database by the docker image.
+    `-v /home/$USER/integration_tests:/myapp/db` performs a **bind mount** to enable access to the local database by the docker image.
     See the official Docker [documentation](https://docs.docker.com/storage/bind-mounts/).
 
 ### Accessing the REST API

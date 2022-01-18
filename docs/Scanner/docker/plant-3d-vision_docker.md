@@ -7,55 +7,49 @@ Docker container for ROMI plantinterpreter
 
 ## Use pre-built docker image
 
-Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can easily download and start the pre-built `roboticsmicrofarms/plant3dvision` docker image with:
+Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can easily download and start the pre-built `roboticsmicrofarms/plant-3d-vision` docker image with:
 
 ```shell
 export ROMI_DB=/data/ROMI/DB
 docker run --runtime=nvidia --gpus all \
   --env PYOPENCL_CTX='0' \
-  -v $ROMI_DB:/home/scanner/db \
-  -it roboticsmicrofarms/plant3dvision:latest
+  -v $ROMI_DB:/myapp/db \
+  -it roboticsmicrofarms/plant-3d-vision:latest
 ```
 
-This should start the latest pre-built `roboticsmicrofarms/plant3dvision` docker image in interactive mode.
-The database location inside the docker container is `~/db`.
+This should start the latest pre-built `roboticsmicrofarms/plant-3d-vision` docker image in interactive mode.
+The database location inside the docker container is `/myapp/db`.
 
 !!! note
-    `-v $ROMI_DB:/home/scanner/db` performs a **bind mount** to enable access to the local database by the docker image.
+    `-v $ROMI_DB:/myapp/db` performs a **bind mount** to enable access to the local database by the docker image.
     See the official [documentation](https://docs.docker.com/storage/bind-mounts/).
 
 ## Build docker image
 
-We provide a convenience bash script to ease the build of `roboticsmicrofarms/plant3dvision` docker image.
+We provide a convenience bash script to ease the build of `roboticsmicrofarms/plant-3d-vision` docker image.
 You can choose to use this script OR to "manually" call the `docker build` command.
 
 ### Provided convenience `build.sh` script
 
-To build the image with the provided build script, from the `plant3dvision/docker` directory:
+To build the image with the provided build script, from the root directory:
 
 ```shell
-./build.sh
+./docker/build.sh
 ```
 
-You can also pass some options, use `./build.sh -h` to get more details about usage, options and default values.
+You can also pass some options, use `./docker/build.sh -h` to get more details about usage, options and default values.
 
 !!! tips 
     To be sure to always pull the latest parent image, you may add the `--pull` option!
 
 ### Manually call the `docker build` command
 
-To build the image, from the `plant3dvision/docker` directory:
+To build the image, from the root directory:
 
 ```shell
 export VTAG="latest"
-docker build -t roboticsmicrofarms/plant3dvision:$VTAG .
+docker build -t roboticsmicrofarms/plant-3d-vision:$VTAG .
 ```
-
-You can use the following optional arguments:
-
-* `--build-arg PLANT3DVISION_BRANCH=<git_branch>`: change the cloned git branch from `plant3dvision`.
-* `--build-arg PLANTDB_BRANCH=<git_branch>`: change the cloned git branch from `plantdb`.
-* `--build-arg PLANTIMAGER_BRANCH=<git_branch>`: change the cloned git branch from `plantimager`.
 
 ## Publish docker image
 
@@ -73,7 +67,7 @@ This requires a valid account & token on dockerhub!
 
 To run it, you need to have a valid local ROMI database, look [here](../install/plantdb_setup.md/#initialize-a-romi-database) for instructions and [here](https://db.romi-project.eu/models/test_db.tar.gz) for an example database.
 
-### Starting the `plant3dvision` docker image
+### Starting the `plant-3d-vision` docker image
 
 #### Provided `run.sh` script
 
@@ -115,22 +109,22 @@ To performs test reconstructions, you have several possibilities:
 
 #### Manually
 
-Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can start the `roboticsmicrofarms/plant3dvision` docker image with:
+Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can start the `roboticsmicrofarms/plant-3d-vision` docker image with:
 
 ```shell
 export ROMI_DB=/data/ROMI/DB
 docker run --runtime=nvidia --gpus all \
   --env PYOPENCL_CTX='0' \
-  -v $ROMI_DB:/home/scanner/db \
-  -it roboticsmicrofarms/plant3dvision:$VTAG bash
+  -v $ROMI_DB:/myapp/db \
+  -it roboticsmicrofarms/plant-3d-vision:$VTAG bash
 ```
 
-This should start the built `roboticsmicrofarms/plant3dvision` docker image in interactive mode.
+This should start the built `roboticsmicrofarms/plant-3d-vision` docker image in interactive mode.
 The database location inside the docker container is `~/db`.
 
 Note that:
 
-- you are using the docker image `roboticsmicrofarms/plant3dvision:$VTAG`
+- you are using the docker image `roboticsmicrofarms/plant-3d-vision:$VTAG`
 - you mount the host directory `$ROMI_DB` "inside" the running container in the `~/db` directory
 - you activate all GPUs within the container with `--gpus all`
 - declaring the environment variable `PYOPENCL_CTX='0'` select the first CUDA GPU capable

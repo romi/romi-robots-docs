@@ -113,8 +113,8 @@ export ROMI_DB=/data/ROMI/DB
 export ROMI_CFG=/data/ROMI/configs
 
 docker run --runtime=nvidia --gpus all \
-    -v $ROMI_DB:/home/scanner/db \
-    -v $ROMI_CFG:/home/scanner/configs \
+    -v $ROMI_DB:/myapp/db \
+    -v $ROMI_CFG:/myapp/configs \
     -it roboticsmicrofarms/plantimager:latest bash
 ```
 

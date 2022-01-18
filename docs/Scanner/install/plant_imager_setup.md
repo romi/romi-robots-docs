@@ -24,9 +24,9 @@ To pilot the hardware you have to install the `plant-imager`package:
 python3 -m pip install -e git+https://github.com/romi/plant-imager.git@dev
 ```
 
-### Install `plant3dvision` sources:
+### Install `plant-3d-vision` sources:
 
-To start "acquisition jobs", you have to install the `plant3dvision` package:
+To start "acquisition jobs", you have to install the `plant-3d-vision` package:
 
 ```shell
 python3 -m pip install -e git+https://github.com/romi/plant3dvision.git@dev
