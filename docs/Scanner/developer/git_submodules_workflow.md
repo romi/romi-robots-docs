@@ -35,15 +35,18 @@ git log
     Press key `q` to quit the log.
 
 ## Integrate the modifications of a submodule
+For the sake of clarity, let's assume you have worked on the `dtw` submodule, integrated your changes in the branch 
+`<my_branch>` (usually `main`) and you want to integrate these modifications to `plant-3d-vision`.
 
+On way to do it is this:
 ```shell
 cd plant-3d-vision/
 git pull
 
 # It would be better to create an integration branch...
 
-cd dtw
-git checkout <branch_to_integrate>
+cd dtw  # could be another submodule than `dtw`
+git checkout <my_branch>  # usually `main` or `dev`/`develop`
 git pull
 git log  # check this is indeed the last commit that you want to integrate
 
