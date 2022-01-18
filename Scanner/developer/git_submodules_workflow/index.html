@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/developer/git_submodules_workflow/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
     
     
       
@@ -2288,13 +2288,16 @@ git log
 <p>Press key <code>q</code> to quit the log.</p>
 </div>
 <h2 id="integrate-the-modifications-of-a-submodule">Integrate the modifications of a submodule<a class="headerlink" href="#integrate-the-modifications-of-a-submodule" title="Permanent link">Link</a></h2>
+<p>For the sake of clarity, let's assume you have worked on the <code>dtw</code> submodule, integrated your changes in the branch 
+<code>&lt;my_branch&gt;</code> (usually <code>main</code>) and you want to integrate these modifications to <code>plant-3d-vision</code>.</p>
+<p>On way to do it is this:
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> plant-3d-vision/
 git pull
 
 <span class="c1"># It would be better to create an integration branch...</span>
 
-<span class="nb">cd</span> dtw
-git checkout &lt;branch_to_integrate&gt;
+<span class="nb">cd</span> dtw  <span class="c1"># could be another submodule than `dtw`</span>
+git checkout &lt;my_branch&gt;  <span class="c1"># usually `main` or `dev`/`develop`</span>
 git pull
 git log  <span class="c1"># check this is indeed the last commit that you want to integrate</span>
 
@@ -2305,7 +2308,7 @@ git add dtw
 git status  <span class="c1"># should show added `dtw` in green</span>
 git commit -m <span class="s2">&quot;update dtw submodule&quot;</span>
 git push
-</code></pre></div>
+</code></pre></div></p>
 <h2 id="update-the-plant-3d-vision-integration-branch">Update the plant-3d-vision integration branch<a class="headerlink" href="#update-the-plant-3d-vision-integration-branch" title="Permanent link">Link</a></h2>
 <p>From the <code>plant-3d-vision</code> folder, checkout the <code>dev</code> branch (integration branch):</p>
 <div class="highlight"><pre><span></span><code>git checkout dev
@@ -2443,7 +2446,7 @@ git checkout -b update/romicgal
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.01de222e.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

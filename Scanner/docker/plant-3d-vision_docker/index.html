@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/docker/plant-3d-vision_docker/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
     
     
       
@@ -2139,11 +2139,11 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#starting-the-plant3dvision-docker-image" class="md-nav__link">
-    Starting the plant3dvision docker image
+  <a href="#starting-the-plant-3d-vision-docker-image" class="md-nav__link">
+    Starting the plant-3d-vision docker image
   </a>
   
-    <nav class="md-nav" aria-label="Starting the plant3dvision docker image">
+    <nav class="md-nav" aria-label="Starting the plant-3d-vision docker image">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2326,43 +2326,37 @@
 To see how to create a local database directory, look <a href="../../install/plantdb_setup/#initialize-a-romi-database">here</a>.</p>
 </div>
 <h2 id="use-pre-built-docker-image">Use pre-built docker image<a class="headerlink" href="#use-pre-built-docker-image" title="Permanent link">Link</a></h2>
-<p>Assuming you have a valid ROMI database directory under <code>/data/ROMI/DB</code>, you can easily download and start the pre-built <code>roboticsmicrofarms/plant3dvision</code> docker image with:</p>
+<p>Assuming you have a valid ROMI database directory under <code>/data/ROMI/DB</code>, you can easily download and start the pre-built <code>roboticsmicrofarms/plant-3d-vision</code> docker image with:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">ROMI_DB</span><span class="o">=</span>/data/ROMI/DB
 docker run --runtime<span class="o">=</span>nvidia --gpus all <span class="se">\</span>
   --env <span class="nv">PYOPENCL_CTX</span><span class="o">=</span><span class="s1">&#39;0&#39;</span> <span class="se">\</span>
-  -v <span class="nv">$ROMI_DB</span>:/home/scanner/db <span class="se">\</span>
-  -it roboticsmicrofarms/plant3dvision:latest
+  -v <span class="nv">$ROMI_DB</span>:/myapp/db <span class="se">\</span>
+  -it roboticsmicrofarms/plant-3d-vision:latest
 </code></pre></div>
-<p>This should start the latest pre-built <code>roboticsmicrofarms/plant3dvision</code> docker image in interactive mode.
-The database location inside the docker container is <code>~/db</code>.</p>
+<p>This should start the latest pre-built <code>roboticsmicrofarms/plant-3d-vision</code> docker image in interactive mode.
+The database location inside the docker container is <code>/myapp/db</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>-v $ROMI_DB:/home/scanner/db</code> performs a <strong>bind mount</strong> to enable access to the local database by the docker image.
+<p><code>-v $ROMI_DB:/myapp/db</code> performs a <strong>bind mount</strong> to enable access to the local database by the docker image.
 See the official <a href="https://docs.docker.com/storage/bind-mounts/">documentation</a>.</p>
 </div>
 <h2 id="build-docker-image">Build docker image<a class="headerlink" href="#build-docker-image" title="Permanent link">Link</a></h2>
-<p>We provide a convenience bash script to ease the build of <code>roboticsmicrofarms/plant3dvision</code> docker image.
+<p>We provide a convenience bash script to ease the build of <code>roboticsmicrofarms/plant-3d-vision</code> docker image.
 You can choose to use this script OR to "manually" call the <code>docker build</code> command.</p>
 <h3 id="provided-convenience-buildsh-script">Provided convenience <code>build.sh</code> script<a class="headerlink" href="#provided-convenience-buildsh-script" title="Permanent link">Link</a></h3>
-<p>To build the image with the provided build script, from the <code>plant3dvision/docker</code> directory:</p>
-<div class="highlight"><pre><span></span><code>./build.sh
+<p>To build the image with the provided build script, from the root directory:</p>
+<div class="highlight"><pre><span></span><code>./docker/build.sh
 </code></pre></div>
-<p>You can also pass some options, use <code>./build.sh -h</code> to get more details about usage, options and default values.</p>
+<p>You can also pass some options, use <code>./docker/build.sh -h</code> to get more details about usage, options and default values.</p>
 <div class="admonition tips">
 <p class="admonition-title">Tips</p>
 <p>To be sure to always pull the latest parent image, you may add the <code>--pull</code> option!</p>
 </div>
 <h3 id="manually-call-the-docker-build-command">Manually call the <code>docker build</code> command<a class="headerlink" href="#manually-call-the-docker-build-command" title="Permanent link">Link</a></h3>
-<p>To build the image, from the <code>plant3dvision/docker</code> directory:</p>
+<p>To build the image, from the root directory:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">VTAG</span><span class="o">=</span><span class="s2">&quot;latest&quot;</span>
-docker build -t roboticsmicrofarms/plant3dvision:<span class="nv">$VTAG</span> .
+docker build -t roboticsmicrofarms/plant-3d-vision:<span class="nv">$VTAG</span> .
 </code></pre></div>
-<p>You can use the following optional arguments:</p>
-<ul>
-<li><code>--build-arg PLANT3DVISION_BRANCH=&lt;git_branch&gt;</code>: change the cloned git branch from <code>plant3dvision</code>.</li>
-<li><code>--build-arg PLANTDB_BRANCH=&lt;git_branch&gt;</code>: change the cloned git branch from <code>plantdb</code>.</li>
-<li><code>--build-arg PLANTIMAGER_BRANCH=&lt;git_branch&gt;</code>: change the cloned git branch from <code>plantimager</code>.</li>
-</ul>
 <h2 id="publish-docker-image">Publish docker image<a class="headerlink" href="#publish-docker-image" title="Permanent link">Link</a></h2>
 <p>Push it on docker hub:</p>
 <div class="highlight"><pre><span></span><code>docker push roboticsmicrofarms/plantdb:<span class="nv">$VTAG</span>
@@ -2371,7 +2365,7 @@ docker build -t roboticsmicrofarms/plant3dvision:<span class="nv">$VTAG</span> .
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">Link</a></h2>
 <h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">Link</a></h3>
 <p>To run it, you need to have a valid local ROMI database, look <a href="../install/plantdb_setup.md/#initialize-a-romi-database">here</a> for instructions and <a href="https://db.romi-project.eu/models/test_db.tar.gz">here</a> for an example database.</p>
-<h3 id="starting-the-plant3dvision-docker-image">Starting the <code>plant3dvision</code> docker image<a class="headerlink" href="#starting-the-plant3dvision-docker-image" title="Permanent link">Link</a></h3>
+<h3 id="starting-the-plant-3d-vision-docker-image">Starting the <code>plant-3d-vision</code> docker image<a class="headerlink" href="#starting-the-plant-3d-vision-docker-image" title="Permanent link">Link</a></h3>
 <h4 id="provided-runsh-script">Provided <code>run.sh</code> script<a class="headerlink" href="#provided-runsh-script" title="Permanent link">Link</a></h4>
 <p>To start the container, in interactive mode, with the provided run script in <code>plant3dvision/docker</code>, use:</p>
 <div class="highlight"><pre><span></span><code>./run.sh
@@ -2399,18 +2393,18 @@ docker build -t roboticsmicrofarms/plant3dvision:<span class="nv">$VTAG</span> .
 <p>This use test data &amp; test models (for ML) provided with <code>plant3dvision</code> in <code>plant3dvision/tests/testdata</code>.</p>
 </div>
 <h4 id="manually">Manually<a class="headerlink" href="#manually" title="Permanent link">Link</a></h4>
-<p>Assuming you have a valid ROMI database directory under <code>/data/ROMI/DB</code>, you can start the <code>roboticsmicrofarms/plant3dvision</code> docker image with:</p>
+<p>Assuming you have a valid ROMI database directory under <code>/data/ROMI/DB</code>, you can start the <code>roboticsmicrofarms/plant-3d-vision</code> docker image with:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">ROMI_DB</span><span class="o">=</span>/data/ROMI/DB
 docker run --runtime<span class="o">=</span>nvidia --gpus all <span class="se">\</span>
   --env <span class="nv">PYOPENCL_CTX</span><span class="o">=</span><span class="s1">&#39;0&#39;</span> <span class="se">\</span>
-  -v <span class="nv">$ROMI_DB</span>:/home/scanner/db <span class="se">\</span>
-  -it roboticsmicrofarms/plant3dvision:<span class="nv">$VTAG</span> bash
+  -v <span class="nv">$ROMI_DB</span>:/myapp/db <span class="se">\</span>
+  -it roboticsmicrofarms/plant-3d-vision:<span class="nv">$VTAG</span> bash
 </code></pre></div>
-<p>This should start the built <code>roboticsmicrofarms/plant3dvision</code> docker image in interactive mode.
+<p>This should start the built <code>roboticsmicrofarms/plant-3d-vision</code> docker image in interactive mode.
 The database location inside the docker container is <code>~/db</code>.</p>
 <p>Note that:</p>
 <ul>
-<li>you are using the docker image <code>roboticsmicrofarms/plant3dvision:$VTAG</code></li>
+<li>you are using the docker image <code>roboticsmicrofarms/plant-3d-vision:$VTAG</code></li>
 <li>you mount the host directory <code>$ROMI_DB</code> "inside" the running container in the <code>~/db</code> directory</li>
 <li>you activate all GPUs within the container with <code>--gpus all</code></li>
 <li>declaring the environment variable <code>PYOPENCL_CTX='0'</code> select the first CUDA GPU capable</li>
@@ -2538,7 +2532,7 @@ If you don't do this, you might not be able to access the <code>romi_run_task</c
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.01de222e.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

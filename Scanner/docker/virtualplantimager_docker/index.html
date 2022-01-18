@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/docker/virtualplantimager_docker/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
     
     
       
@@ -2385,8 +2385,8 @@ tar -C <span class="nv">$ROMI_DB</span>/ -xvJf <span class="nv">$ROMI_DB</span>/
 <span class="nb">export</span> <span class="nv">ROMI_CFG</span><span class="o">=</span>/data/ROMI/configs
 
 docker run --runtime<span class="o">=</span>nvidia --gpus all <span class="se">\</span>
-    -v <span class="nv">$ROMI_DB</span>:/home/scanner/db <span class="se">\</span>
-    -v <span class="nv">$ROMI_CFG</span>:/home/scanner/configs <span class="se">\</span>
+    -v <span class="nv">$ROMI_DB</span>:/myapp/db <span class="se">\</span>
+    -v <span class="nv">$ROMI_CFG</span>:/myapp/configs <span class="se">\</span>
     -it roboticsmicrofarms/plantimager:latest bash
 </code></pre></div>
 <h3 id="initialize-a-scan-dataset">Initialize a scan dataset<a class="headerlink" href="#initialize-a-scan-dataset" title="Permanent link">Link</a></h3>
@@ -2500,7 +2500,7 @@ romi_run_task VirtualScan ~/db/vscan_007 --config ~/plantimager/config/vscan_obj
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.1514a9a0.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.01de222e.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
