@@ -80,31 +80,19 @@ To check the latest commit of a submodule do:
 git log
 ```
 
-To update a submodule branch
+To get the commit short hash:
+
+```shell
+git rev-parse --short=8 HEAD
+```
+
+To update a submodule branch:
 
 ```shell
 cd <submodule_root_dir>
-git checkout <submodule_branch>
-git fetch
-git pull
+git checkout <submodule_branch>  # or commit short hash
 git status
 git log
-```
-
-## Create a branch for local merge
-
-Move to the root folder of the submodule you want to update:
-
-```shell
-cd <submodule_root_dir>
-git checkout -b update/<submodule_name>
-```
-
-For example to update `romicgal`:
-
-```shell
-cd romicgal
-git checkout -b update/romicgal
 ```
 
 ## Commit the changes
@@ -112,6 +100,5 @@ git checkout -b update/romicgal
 You may now commit the changes to `plant-3d-vision`:
 
 ```shell
-cd ..
-git checkout -b update/romicgal
+git commit -m "Update romicgal submodule"
 ```
