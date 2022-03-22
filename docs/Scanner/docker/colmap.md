@@ -1,8 +1,9 @@
 # Colmap docker image
 
-As we want the possibility to use the Python version we want, for example 3.8, and the provided docker image are based on Ubuntu18.04 that ship Python3.7, we need to create our own `Dockerfile`.
+As we want the possibility to choose the Python version we use, for example 3.8, and the provided docker image are based on **Ubuntu 18.04** that ship Python 3.6 & 3.7, we need to create our own `Dockerfile`.
 
 This has been done in `docker/colmap/Dockerfile` with:
+
   - Python 3.8
   - Colmap 3.7
 
