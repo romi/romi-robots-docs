@@ -1,22 +1,28 @@
-# Colmap
+# Colmap docker image
+
+As we want the possibility to use the Python version we want, for example 3.8, and the provided docker image are based on Ubuntu18.04 that ship Python3.7, we need to create our own `Dockerfile`.
+This has been done in `docker/colmap/Dockerfile` with:
+- Python 3.8
+- Colmap 3.7
 
 ## Build the docker image
 
+To build the docker image, use the `Dockerfile` in `docker/colmap/`:
+
 ```shell
-docker build -t="roboticsmicrofarms/colmap:3.7" docker/colmap/.
+image_name="roboticsmicrofarms/colmap"
+image_version="3.7"
+docker build -t="$image_name:$image_version" docker/colmap/.
+docker tag "$image_name:$image_version" "$image_name:latest"
 ```
 
 ## Test the container
 
-### Get a test dataset
-
-```shell
-cd /tmp
-wget https://db.romi-project.eu/models/test_db.tar.gz
-tar -xf test_db.tar.gz
-```
+Let's test the image we just created!
 
 ### Start a container
+
+You can start by creating a running container with:
 
 ```shell
 docker run -it --gpus all \
@@ -24,8 +30,32 @@ docker run -it --gpus all \
   roboticsmicrofarms/colmap:3.7
 ```
 
+Try to call the colmap executable to get the version number with:
+
+```shell
+colmap -v
+```
+
+As we also installed Python, try to call it after activating the `venv` with:
+```shell
+. /venv/bin/activate
+python -V
+```
+
+### Get a test dataset
+
+To further test the built image, let's try to use colmap on a typical set of data.
+If you do not have your own dataset, we provide a test dataset that you can download (to the temporary folder) as follows:
+
+```shell
+cd /tmp
+wget https://db.romi-project.eu/models/test_db.tar.gz
+tar -xf test_db.tar.gz
+```
+
 ### Extract images poses
 
+We use the "poses" (camera locations) provided in the images' metadata (JSON file associated to each images) by the plant-imager to create a `poses.txt` file containing each image coordinates:
 ```python
 import os
 import json
@@ -38,8 +68,8 @@ for i, file in enumerate(sorted(os.listdir("/tmp/metadata/images"))):
     # print(jdict)
     try:
         p = jdict['approximate_pose']
-    except:
-        p = jdict['pose']
+    except KeyError:
+        p = jdict['pose']  # backward compatibility, should work for provided test dataset
     s = '%s %d %d %d\n' % (file.split('.')[0] + ".jpg", p[0], p[1], p[2])
     posefile.write(s)
 
@@ -47,6 +77,8 @@ posefile.close()
 ```
 
 ### Test colmap tools
+
+You can test that the colmap tools are working properly by calling them as follows:
 
 ```shell
 DATASET_PATH=/tmp
@@ -96,4 +128,43 @@ colmap stereo_fusion \
     --workspace_format COLMAP \
     --input_type geometric \
     --output_path $DATASET_PATH/dense/fused.ply
+```
+
+### Test geometric pipeline
+
+If you have `plant-3d-vision` installed on your machine, you can further test the colmap image with the reconstruction pipelines using our test scripts and datasets.
+
+#### Test it on real data
+
+```shell
+export COLMAP_EXE="roboticsmicrofarms/colmap"
+./tests/check_geom_pipe.sh --tmp
+```
+
+#### Test it on virtual data
+
+```shell
+export COLMAP_EXE="roboticsmicrofarms/colmap"
+./tests/check_geom_pipe.sh --tmp --virtual
+```
+
+#### Test it on your (real) data
+
+```shell
+export COLMAP_EXE="roboticsmicrofarms/colmap"
+./tests/check_geom_pipe.sh --tmp --database /path/to/my/dataset
+```
+
+
+## Upload the built image
+Once you have checked the obtained image leads to functional containers, you can upload the image to docker hub!
+
+Start by login in to docker hub with:
+```shell
+docker login
+```
+
+Then you can upload with:
+```shell
+docker push "$image_name"
 ```
