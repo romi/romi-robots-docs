@@ -2310,10 +2310,10 @@
 
 
 <h1 id="colmap-docker-image">Colmap docker image<a class="headerlink" href="#colmap-docker-image" title="Permanent link">Link</a></h1>
-<p>As we want the possibility to use the Python version we want, for example 3.8, and the provided docker image are based on Ubuntu18.04 that ship Python3.7, we need to create our own <code>Dockerfile</code>.
-This has been done in <code>docker/colmap/Dockerfile</code> with:
-- Python 3.8
-- Colmap 3.7</p>
+<p>As we want the possibility to use the Python version we want, for example 3.8, and the provided docker image are based on Ubuntu18.04 that ship Python3.7, we need to create our own <code>Dockerfile</code>.</p>
+<p>This has been done in <code>docker/colmap/Dockerfile</code> with:
+  - Python 3.8
+  - Colmap 3.7</p>
 <h2 id="build-the-docker-image">Build the docker image<a class="headerlink" href="#build-the-docker-image" title="Permanent link">Link</a></h2>
 <p>To build the docker image, use the <code>Dockerfile</code> in <code>docker/colmap/</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">image_name</span><span class="o">=</span><span class="s2">&quot;roboticsmicrofarms/colmap&quot;</span>
