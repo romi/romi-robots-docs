@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/modules/plant_3d_vision/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.6">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.2d9f7617.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9d5733d3.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -208,6 +208,22 @@
       Research
     </a>
   </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../training/" class="md-tabs__link">
+        Training
+      </a>
+    </li>
+  
 
       
         
@@ -2157,6 +2173,68 @@
   
   
   
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Training
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Training" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Training
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../training/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../training/lpy/" class="md-nav__link">
+        Create Virtual Plants
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../../data/" class="md-nav__link">
         Data
@@ -2214,67 +2292,70 @@
 </ul>
 <h2 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">Link</a></h2>
 <h3 id="building-the-image">Building the image<a class="headerlink" href="#building-the-image" title="Permanent link">Link</a></h3>
-<p>To build the Docker image of plant-3d-vision, you have to clone the repo and run the script <code>docker/build.sh</code>.</p>
+<p>To build the Docker image of <code>plant-3d-vision</code>, you have to clone the git repository and run the script <code>docker/build.sh</code>.</p>
 <p><div class="highlight"><pre><span></span><code>git clone https://github.com/romi/plant-3d-vision.git
 <span class="nb">cd</span> plant-3d-vision/
-git submodule init
-git submodule update
+git submodule init  <span class="c1"># initialize the git submodules</span>
+git submodule update  <span class="c1"># clone the git submodules</span>
 ./docker/build.sh
 </code></pre></div>
-This will create an image docker <code>roboticsmicrofarms/plant-3d-vision:latest</code>. If you want to tag your image with a specific one, just pass the tag argument as follows
+This will create a docker image named <code>roboticsmicrofarms/plant-3d-vision:latest</code>.
+If you want to tag your image with a specific one, just pass the tag argument as follows
 <code>./docker/build.sh -t mytag</code></p>
 <p>To show more options (built-in user...), just type <code>./docker/build.sh -h</code>.
-Note that, you must run the script from the root of <code>plant-3d-vision</code> folder as shown previously.</p>
+Note that you must run the <code>build.sh</code> script from the root of the <code>plant-3d-vision</code> folder.</p>
 <h3 id="running-the-container">Running the container<a class="headerlink" href="#running-the-container" title="Permanent link">Link</a></h3>
 <p>In the docker folder, you will find also a run script <code>docker/run.sh</code>.
-You may want to mount your database folder and an other folder (let's say your configs).
+You may want to mount your database folder and another folder (let's say your configs).
 This can be done as follows:
 <div class="highlight"><pre><span></span><code>./docker/run.sh <span class="se">\</span>
     -v /home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/my_database:/home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/database/ <span class="se">\</span>
     -v /home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/my_configs/:/home/<span class="si">${</span><span class="nv">USER</span><span class="si">}</span>/config/
 </code></pre></div>
 Don't forget to change the paths with yours!</p>
-<p>If you want to run a docker image with an other tag, you can pass the tag name as an argument:
+<p>If you want to run a docker image with another tag, you can pass the tag name as an argument:
 <code>./docker/run.sh -t my_tage</code>.</p>
 <p>To see more running options (specif tag, command...), type <code>./docker/run.sh -h</code></p>
-<p><strong>Troubleshooting</strong>:</p>
-<ul>
-<li>You must install nvidia gpu drivers, nvidia-docker (v2.0) and nvidia-container-toolkit. To test if everything is okay:</li>
-</ul>
+<h3 id="troubleshooting">Troubleshooting:<a class="headerlink" href="#troubleshooting" title="Permanent link">Link</a></h3>
+<p>You must install nvidia gpu drivers, <code>nvidia-docker</code> (v2.0) and <code>nvidia-container-toolkit</code>. 
+To test if everything is okay:
 <div class="highlight"><pre><span></span><code>./docker/run.sh --gpu_test
-</code></pre></div>
+</code></pre></div></p>
 <p>This docker image has been tested successfully on:
 <code>docker --version=19.03.6 | nvidia driver version=450.102.04 | CUDA version=11.0</code></p>
 <h3 id="performing-a-task-with-plant-3d-vision">Performing a task with plant-3d-vision<a class="headerlink" href="#performing-a-task-with-plant-3d-vision" title="Permanent link">Link</a></h3>
 <p>Inside the docker image there is a <code>romi_run_task</code> command which performs a task on a database according to a passed config file.</p>
-<p>In this following example, we will use the test database and config file shipped in this repo:
+<p>In this following example, we will use the test database and config file shipped in this repository:
  - Run the default docker image (<code>roboticsmicrofarms/plant-3d-vision:latest</code>)
- - Mount the database (<code>plant-3d-vision/tests/testdata/</code>) and configs folder (plant-3d-vision/config/) inside the docker container
+ - Mount the database (<code>plant-3d-vision/tests/testdata/</code>) and configs folder (<code>plant-3d-vision/config/</code>) inside the docker container
  - Perform the task <code>AnglesAndInternodes</code> on the database with <code>geom_pipe_real.toml</code> config file</p>
 <div class="highlight"><pre><span></span><code>./docker/run.sh -v /path/to/plant-3d-vision/tests/testdata/:/home/<span class="nv">$USER</span>/database/ -v /path/to/plant-3d-vision/config/:/home/<span class="nv">$USER</span>/config
 romi_run_task --config ~/config/geom_pipe_real.toml AnglesAndInternodes ~/database/real_plant/
 </code></pre></div>
 <p>Don't forget to replace the paths <code>path/to/plant-3d-vision</code> by the correct ones.</p>
-<h2 id="install-requirements">Install requirements<a class="headerlink" href="#install-requirements" title="Permanent link">Link</a></h2>
-<p>Colmap is required to run the reconstruction tasks, follow the official install instructions for linux <a href="https://colmap.github.io/install.html#linux">here</a>.</p>
+<h2 id="install-from-sources">Install from sources<a class="headerlink" href="#install-from-sources" title="Permanent link">Link</a></h2>
+<h3 id="install-requirements">Install requirements<a class="headerlink" href="#install-requirements" title="Permanent link">Link</a></h3>
+<p><code>Colmap</code> is required to run the reconstruction tasks, follow the official install instructions for linux <a href="https://colmap.github.io/install.html#linux">here</a>.</p>
 <p>This library use <code>pyopencl</code> and thus require the following system libraries:</p>
 <ul>
-<li>ocl-icd-libopencl1</li>
-<li>opencl-headers</li>
+<li><code>ocl-icd-libopencl1</code></li>
+<li><code>opencl-headers</code></li>
 </ul>
-<p>In addition you will need:</p>
+<p>In addition, you will need:</p>
 <ul>
-<li>git</li>
-<li>python3-pip</li>
-<li>python3-wheel</li>
+<li><code>git</code></li>
+<li><code>python3-pip</code></li>
+<li><code>python3-wheel</code></li>
+<li><code>miniconda</code>, official installation instructions <a href="https://docs.conda.io/en/latest/miniconda.html">here</a></li>
+<li><code>poetry</code>, official installation instructions <a href="https://python-poetry.org/docs/#installation">here</a></li>
 </ul>
-<p>As you will be using the <code>romicgal</code> library, which is a minimal wrapper for CGAL 5.0 using <code>pybind11</code> you will also need:
-- wget
-- eigen3
-- gmp
-- mprf
-- pkg-config</p>
-<p>On Debian and Ubuntu, you can install them with:
+<p>As you will be using the <code>romicgal</code> library, which is a minimal wrapper for <code>CGAL5.0</code> using <code>pybind11</code> you will also need:
+- <code>wget</code>
+- <code>eigen3</code>
+- <code>gmp</code>
+- <code>mprf</code>
+- <code>pkg-config</code></p>
+<p>On Debian and Ubuntu, you can install them (except <code>miniconda</code> and <code>poetry</code>) with:
 <div class="highlight"><pre><span></span><code>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y <span class="se">\</span>
     git wget <span class="se">\</span>
     ocl-icd-libopencl1 opencl-headers <span class="se">\</span>
@@ -2289,30 +2370,25 @@ romi_run_task --config ~/config/geom_pipe_real.toml AnglesAndInternodes ~/databa
 <p>To avoid troubles during <code>pyopencl</code> install, check <code>/usr/lib/libOpenCL.so</code> exists, if not add it with:
 <div class="highlight"><pre><span></span><code>ln -s /usr/lib/x86_64-linux-gnu/libOpenCL.so.1 /usr/lib/libOpenCL.so
 </code></pre></div></p>
-<h2 id="conda-environment">Conda environment<a class="headerlink" href="#conda-environment" title="Permanent link">Link</a></h2>
-<h2 id="install-from-sources-in-conda-environment">Install from sources in conda environment<a class="headerlink" href="#install-from-sources-in-conda-environment" title="Permanent link">Link</a></h2>
-<p>In this install instructions, we leverage the <code>git submodule</code> functionality to clone the required ROMI libraries.</p>
+<h3 id="install-with-conda-poetry">Install with <code>conda</code> &amp; <code>poetry</code><a class="headerlink" href="#install-with-conda-poetry" title="Permanent link">Link</a></h3>
+<p>In this install instructions, we use <code>conda</code> and <code>poetry</code>.
+If you do not have those tools installed, have a look at the official instructions:
+ - <code>miniconda</code>: <a href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a>
+ - <code>poetry</code>: <a href="https://python-poetry.org/docs/#installation">https://python-poetry.org/docs/#installation</a></p>
 <ol>
 <li>Clone the <code>plant-3d-vision</code> sources:
     <div class="highlight"><pre><span></span><code>git clone https://github.com/romi/plant-3d-vision.git
 </code></pre></div></li>
-<li>Create a conda environment named <code>plant_3d_vision_0.10</code> with Python3.7 for example:
-    <div class="highlight"><pre><span></span><code>conda create --name plant_3d_vision_0.10 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+<li>Create a conda environment named <code>plant_3d_vision_0.10</code> with Python3.8 for example:
+    <div class="highlight"><pre><span></span><code>conda create --name plant_3d_vision_0.10 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8
 </code></pre></div></li>
 <li>Install sources and submodules in activated environment:
     <div class="highlight"><pre><span></span><code>conda activate plant_3d_vision_0.10
 <span class="nb">cd</span> plant-3d-vision/
-git submodule init
-git submodule update
-python3 -m pip install -r requirements.txt
-python3 -m pip install ./plantdb/
-python3 -m pip install ./romitask/
-python3 -m pip install ./romiseg/
-python3 -m pip install ./romicgal/  <span class="c1"># or conda install romicgal -c conda-forge -c romi-eu</span>
-python3 -m pip install .
+poetry install --no-dev
 </code></pre></div></li>
 <li>Test import of <code>plant3dvision</code> library:
-    <div class="highlight"><pre><span></span><code>conda activate scan_0.10
+    <div class="highlight"><pre><span></span><code>conda activate plant_3d_vision_0.10
 python3 -c <span class="s1">&#39;import plant3dvision&#39;</span>
 </code></pre></div></li>
 <li>Longer tests using shipped "test dataset":
@@ -2321,7 +2397,7 @@ bash check_pipe.sh
 rm testdata/models/models/Resnet_896_896_epoch50.pt
 </code></pre></div></li>
 </ol>
-<p><strong>Troubleshooting</strong>:</p>
+<h3 id="troubleshooting_1">Troubleshooting:<a class="headerlink" href="#troubleshooting_1" title="Permanent link">Link</a></h3>
 <ul>
 <li><code>ImportError: libGL.so.1: cannot open shared object file: No such file or directory</code> can be fixed with:
     <div class="highlight"><pre><span></span><code>apt-get install libgl1-mesa-glx
@@ -2330,17 +2406,6 @@ rm testdata/models/models/Resnet_896_896_epoch50.pt
     <div class="highlight"><pre><span></span><code>apt-get install libsm6 libxext6 libxrender-dev
 </code></pre></div></li>
 </ul>
-<h3 id="build-plant-3d-vision-conda-package">Build plant-3d-vision conda package<a class="headerlink" href="#build-plant-3d-vision-conda-package" title="Permanent link">Link</a></h3>
-<p>From the <code>base</code> conda environment, run:
-<div class="highlight"><pre><span></span><code>conda build conda_recipes/plant_3d_vision/ -c romi-eu -c open3d-admin -c conda-forge --user romi-eu
-</code></pre></div></p>
-<h3 id="install-plant-3d-vision-conda-package">Install plant-3d-vision conda package<a class="headerlink" href="#install-plant-3d-vision-conda-package" title="Permanent link">Link</a></h3>
-<p><div class="highlight"><pre><span></span><code>conda create -n plant3dvision plant3dvision -c romi-eu -c open3d-admin --force
-</code></pre></div>
-To test package install, in the activated environment import <code>plant3dvision</code> in python:
-<div class="highlight"><pre><span></span><code>conda activate plant3dvision
-python -c <span class="s1">&#39;import plant3dvision&#39;</span>
-</code></pre></div></p>
 
               
             </article>
@@ -2410,7 +2475,7 @@ python -c <span class="s1">&#39;import plant3dvision&#39;</span>
       
     
     <a href="https://twitter.com/ROMI_EU_PROJECT" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
     </a>
   
     
@@ -2419,7 +2484,7 @@ python -c <span class="s1">&#39;import plant3dvision&#39;</span>
       
     
     <a href="https://www.facebook.com/ROMIEUProject" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
     </a>
   
     
@@ -2428,7 +2493,7 @@ python -c <span class="s1">&#39;import plant3dvision&#39;</span>
       
     
     <a href="https://github.com/romi/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -2441,10 +2506,10 @@ python -c <span class="s1">&#39;import plant3dvision&#39;</span>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.5e67fbfe.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.467223ff.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.e87a5f81.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
