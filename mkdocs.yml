@@ -117,6 +117,9 @@ nav:
                 - 'plant-3d-explorer': 'Scanner/docker/plant3dexplorer_docker.md'
                 - 'Docker compose': 'Scanner/docker/docker_compose.md'
   - 'Research': 'research.md'
+  - 'Training':
+      - 'Home': 'training/index.md'
+      - 'Create Virtual Plants': 'training/lpy.md'
   - 'Data': 'data.md'
   - glossary.md
 
