@@ -43,6 +43,12 @@ It regroups specifications on:
 - object metadata (in Scan.metadata.object)
 - hardware metadata (in Scan.metadata.hardware)
 
+An important parameter is the number of images acquisition you want to perform, defined by `n_points`.
+If you pick a number of acquisition in the following range of values, it will result in an integer rotation angle:
+1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, **20**, **24**, **30**, **36**, **40**, **45**, 60, 72, 90, 120, 180, 360.
+
+The truly recommended values are in **bold**.
+
 ```toml
 [ScanPath] # Example, circular path with 60 points:
 class_name = "Circle"
