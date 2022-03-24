@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.romi-project.eu/Scanner/tutorials/hardware_scan/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.6">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.7">
     
     
       
@@ -2408,6 +2408,10 @@ It regroups specifications on:</p>
 <li>object metadata (in Scan.metadata.object)</li>
 <li>hardware metadata (in Scan.metadata.hardware)</li>
 </ul>
+<p>An important parameter is the number of images acquisition you want to perform, defined by <code>n_points</code>.
+If you pick a number of acquisition in the following range of values, it will result in an integer rotation angle:
+1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, <strong>20</strong>, <strong>24</strong>, <strong>30</strong>, <strong>36</strong>, <strong>40</strong>, <strong>45</strong>, 60, 72, 90, 120, 180, 360.</p>
+<p>The truly recommended values are in <strong>bold</strong>.</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">ScanPath</span><span class="p">]</span><span class="w"> </span><span class="c1"># Example, circular path with 60 points:</span><span class="w"></span>
 <span class="n">class_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Circle&quot;</span><span class="w"></span>
 
