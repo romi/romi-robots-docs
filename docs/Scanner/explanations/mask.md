@@ -34,6 +34,9 @@ ax[2].imshow(mask, cmap='gray')
 ax[2].set_title("Mask image")
 ```
 
+!!! Important
+    Pay attention to the values used for `threshold` and `dilation`.
+
 ## Method `excess_green`
 
 ![](../../assets/images/mask/excess_green_filter.png)
@@ -64,3 +67,6 @@ ax[1].set_title("Filtered image")
 ax[2].imshow(mask, cmap='gray')
 ax[2].set_title("Mask image")
 ```
+
+!!! Important
+    Pay attention to the values used for `threshold` and `dilation`.
