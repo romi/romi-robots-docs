@@ -35,7 +35,7 @@ nav:
         - 'Home': 'Scanner/index.md'
         - 'Explanations':
           - 'General design': 'Scanner/explanations/general_design.md'
-          - 'Mask': 'Scanner/explanations/mask.md'
+          - 'Mask': 'Scanner/explanations/masks.md'
           - 'Segmentation of images': 'Scanner/explanations/segmentation.md'
         - 'Modules':
           - Scanner/modules/plantdb.md
