@@ -1,5 +1,17 @@
-Wiring the CNC
-==============
+# Assembly & wiring of the CNC
+
+## X-Controller assembly
+
+If you ordered the X-Controller, follow the official assembly instructions [here](https://inventables.gitbook.io/x-carve-assembly/x-controller).
+
+!!! note
+    This is what we used in our second and third version of the phenotyping station hardware.
+
+!!! warning
+    We replaced the default `Grbl` firmware by `Oquam`, our own implementation. See [here](flashing_oquam.md) for the instructions on how to flash this firmware to the X-Controller.
+
+
+## gShield assembly
 
 If you have the recent version, follow the official wiring instructions [here](http://x-carve-instructions.inventables.com/1000mm/step6/).
 
@@ -7,7 +19,11 @@ Here is [link](http://x-carve-instructions.inventables.com/xcarve2015/step10/) t
 
 Here is [link](http://x-carve-instructions.inventables.com/xcarve2015/step14/) to the post 2015 version of the "electronic assembly" instructions.
 
-## BOM
+!!! note
+    This is what we used in our first version of the phenotyping station hardware.
+
+
+### BOM
 
 If you are familiar with the Arduino world, the electronic is pretty straightforward:
 
@@ -24,9 +40,10 @@ Optional:
 !!! note
     Before 2017 X-Carve shipped 400W power units, now they use a 320W unit. The link is for a 350W unit.
 
-## Wiring instructions
 
-### Wire the Stepper Cable to the gShield
+### Wiring instructions
+
+#### Wire the Stepper Cable to the gShield
 
 Once you’ve determined which stepper cable belongs to which axis, you can wire them into the gShield.
 First loosen all the screws on the gShield (they will jump a thread when they are fully loose, but they won’t come out of the terminal blocks.)
@@ -40,14 +57,14 @@ Check out this diagram for clarification.
 
 ![gShield wiring diagram](http://x-carve-instructions.inventables.com/xcarve2015/step14/wiring-diagram2_copy.jpg)
 
-### Mount the gShield
+#### Mount the gShield
 
 Now push the gShield onto the Arduino.
 There are pins on the gShield that go into the headers of the Arduino.
 
 ![gShield Arduino mount](https://dzevsq2emy08i.cloudfront.net/paperclip/project_instruction_image_uploaded_images/722/original/1117.jpg?1424475531)
 
-### 24V Fan mount (optional)
+#### 24V Fan mount (optional)
 
 If you want, you can add a 24V fan to cool the shield.
 Uses the 24V pins on the gShield as shown in the picture below:
@@ -56,7 +73,7 @@ Uses the 24V pins on the gShield as shown in the picture below:
 
 Loosen the screws in the power terminal of the gShield and insert the red twisted pair into `Vmot` and the black twisted pair into `GND`.
 
-### Connect Limit Switches to gShield
+#### Connect Limit Switches to gShield
 
 Crimp the white ends of each limit switch wire pair.
 **The order of the white wires from left to right is X, Y, Z. The first, sixth, and eighth slots are left EMPTY.**
@@ -70,7 +87,7 @@ Pin mapping:
 * `D12`: z-limit (red)
 * `GND`: ground (all 3)
 
-### Power the gShield
+#### Power the gShield
 
 Loosen the screws in the power terminal of the gShield and insert the red twisted pair into `Vmot` and the black twisted pair into `GND`.
 This is similar to the optional 24V fan.
