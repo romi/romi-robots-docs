@@ -12,14 +12,14 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/docker/plantimager_docker/">
+        <link rel="canonical" href="https://docs.romi-project.eu/Scanner/build/flashing_oquam/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
     
     
       
-        <title>Plant Imager - ROMI Documentation</title>
+        <title>Flashing Oquam - ROMI Documentation</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#docker-container-for-romi-plant-imager" class="md-skip">
+        <a href="#flashing-oquam-on-x-controller" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Plant Imager
+              Flashing Oquam
             
           </span>
         </div>
@@ -965,12 +965,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_4" type="checkbox" id="__nav_3_4_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_4" type="checkbox" id="__nav_3_4_4" checked>
       
       
       
@@ -993,7 +995,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1007,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/alu_frame/" class="md-nav__link">
+      <a href="../alu_frame/" class="md-nav__link">
         Aluminium frame
       </a>
     </li>
@@ -1021,7 +1023,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/cnc_frame/" class="md-nav__link">
+      <a href="../cnc_frame/" class="md-nav__link">
         CNC frame
       </a>
     </li>
@@ -1035,7 +1037,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/cnc_electronics/" class="md-nav__link">
+      <a href="../cnc_electronics/" class="md-nav__link">
         CNC electronics
       </a>
     </li>
@@ -1049,7 +1051,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/cnc_communication/" class="md-nav__link">
+      <a href="../cnc_communication/" class="md-nav__link">
         CNC communication
       </a>
     </li>
@@ -1061,11 +1063,141 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../build/flashing_oquam/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Flashing Oquam
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Flashing Oquam
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#download-the-sources" class="md-nav__link">
+    Download the sources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flashing-the-firmware" class="md-nav__link">
+    Flashing the firmware
+  </a>
+  
+    <nav class="md-nav" aria-label="Flashing the firmware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-zip-archive-of-the-arduino-libraries" class="md-nav__link">
+    Create a ZIP archive of the Arduino libraries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-the-arduino-ide" class="md-nav__link">
+    Open the Arduino IDE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-romiserial-library" class="md-nav__link">
+    Add the RomiSerial library
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-the-board" class="md-nav__link">
+    Select the board
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#power-up-the-x-controller" class="md-nav__link">
+    Power up the X-Controller
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-the-usb-port" class="md-nav__link">
+    Select the USB port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finally-flash-the-firmware" class="md-nav__link">
+    Finally flash the firmware
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    Troubleshooting
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#find-the-usb-port" class="md-nav__link">
+    Find the USB port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#serial-access-denied" class="md-nav__link">
+    Serial access denied
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1077,7 +1209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/cnc_calibration/" class="md-nav__link">
+      <a href="../cnc_calibration/" class="md-nav__link">
         CNC calibration
       </a>
     </li>
@@ -1091,7 +1223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/gimball_setup/" class="md-nav__link">
+      <a href="../gimball_setup/" class="md-nav__link">
         Gimball setup
       </a>
     </li>
@@ -1105,7 +1237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/gimball_communication/" class="md-nav__link">
+      <a href="../gimball_communication/" class="md-nav__link">
         Gimball communication
       </a>
     </li>
@@ -1119,7 +1251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/picamera_setup/" class="md-nav__link">
+      <a href="../picamera_setup/" class="md-nav__link">
         PiCamera setup
       </a>
     </li>
@@ -1133,7 +1265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build/troubleshooting/" class="md-nav__link">
+      <a href="../troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -1868,14 +2000,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_9" type="checkbox" id="__nav_3_4_9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_9" type="checkbox" id="__nav_3_4_9" >
       
       
       
@@ -2008,14 +2138,12 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_9_9" type="checkbox" id="__nav_3_4_9_9" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_9_9" type="checkbox" id="__nav_3_4_9_9" >
       
       
       
@@ -2038,7 +2166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../docker/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -2052,7 +2180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plantdb_docker/" class="md-nav__link">
+      <a href="../../docker/plantdb_docker/" class="md-nav__link">
         Database
       </a>
     </li>
@@ -2064,21 +2192,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../docker/plantimager_docker/" class="md-nav__link">
         Plant Imager
       </a>
-      
     </li>
   
 
@@ -2090,7 +2208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtualplantimager_docker/" class="md-nav__link">
+      <a href="../../docker/virtualplantimager_docker/" class="md-nav__link">
         Virtual Plant Imager
       </a>
     </li>
@@ -2104,7 +2222,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../colmap/" class="md-nav__link">
+      <a href="../../docker/colmap/" class="md-nav__link">
         Colmap
       </a>
     </li>
@@ -2118,7 +2236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plant-3d-vision_docker/" class="md-nav__link">
+      <a href="../../docker/plant-3d-vision_docker/" class="md-nav__link">
         Plant Interpreter
       </a>
     </li>
@@ -2132,7 +2250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plant3dexplorer_docker/" class="md-nav__link">
+      <a href="../../docker/plant3dexplorer_docker/" class="md-nav__link">
         plant-3d-explorer
       </a>
     </li>
@@ -2146,7 +2264,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../docker_compose/" class="md-nav__link">
+      <a href="../../docker/docker_compose/" class="md-nav__link">
         Docker compose
       </a>
     </li>
@@ -2302,7 +2420,89 @@
                 
 
 
-<h1 id="docker-container-for-romi-plant-imager">Docker container for ROMI plant-imager<a class="headerlink" href="#docker-container-for-romi-plant-imager" title="Permanent link">Link</a></h1>
+<h1 id="flashing-oquam-on-x-controller">Flashing Oquam on X-Controller<a class="headerlink" href="#flashing-oquam-on-x-controller" title="Permanent link">Link</a></h1>
+<p>The ROMI project developed the <code>Oquam</code> firware as an alternative to <code>Grbl</code>.
+To flash it on the X-Controller follow these instructions.</p>
+<p>You will need the Arduino IDE.
+On Ubuntu, with <code>snap</code>, do:
+<div class="highlight"><pre><span></span><code>snap install arduino
+</code></pre></div></p>
+<h2 id="download-the-sources">Download the sources<a class="headerlink" href="#download-the-sources" title="Permanent link">Link</a></h2>
+<p>Start by downloading the <code>libromi</code> sources from the ROMI GitHub repository:</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/romi/libromi.git
+git checkout encoder_z
+</code></pre></div>
+<h2 id="flashing-the-firmware">Flashing the firmware<a class="headerlink" href="#flashing-the-firmware" title="Permanent link">Link</a></h2>
+<h3 id="create-a-zip-archive-of-the-arduino-libraries">Create a ZIP archive of the Arduino libraries<a class="headerlink" href="#create-a-zip-archive-of-the-arduino-libraries" title="Permanent link">Link</a></h3>
+<p>You will need to add the <code>RomiSerial</code> as extra library to the Arduino IDE.
+It is located under <code>libromi/arduino_libraries/RomiSerial</code>.</p>
+<p>To create a ZIP archive:
+<div class="highlight"><pre><span></span><code>zip -r RomiSerial.zip RomiSerial
+</code></pre></div></p>
+<h3 id="open-the-arduino-ide">Open the Arduino IDE<a class="headerlink" href="#open-the-arduino-ide" title="Permanent link">Link</a></h3>
+<p>Open the <code>libromi/firmware/Oquam/Oquam.ino</code> sketch using <code>File &gt; Open...</code> or with the <kbd>Ctrl + O</kbd> shortcut.
+Then browse and select the INO file.</p>
+<h3 id="add-the-romiserial-library">Add the <code>RomiSerial</code> library<a class="headerlink" href="#add-the-romiserial-library" title="Permanent link">Link</a></h3>
+<p>Add the <code>RomiSerial.zip</code> library using the <code>Sketch &gt; Include Library &gt; Add .ZIP Library...</code> menu.
+Then browse and select the ZIP file.</p>
+<h3 id="select-the-board">Select the board<a class="headerlink" href="#select-the-board" title="Permanent link">Link</a></h3>
+<p>Select the right board to upload to using the <code>Tools &gt; Board</code> menu and select <code>Arduino UNO</code>.</p>
+<h3 id="power-up-the-x-controller">Power up the X-Controller<a class="headerlink" href="#power-up-the-x-controller" title="Permanent link">Link</a></h3>
+<p>Connect the power cord and start the X-Controller.</p>
+<h3 id="select-the-usb-port">Select the USB port<a class="headerlink" href="#select-the-usb-port" title="Permanent link">Link</a></h3>
+<p>Plug the USB cable and select the right USB port to upload to using <code>Tools &gt; Port</code> menu.</p>
+<p>See <a href="#find-the-usb-port">find the USB port</a> to determine which port the X-Controller is connected to.</p>
+<h3 id="finally-flash-the-firmware">Finally flash the firmware<a class="headerlink" href="#finally-flash-the-firmware" title="Permanent link">Link</a></h3>
+<p>You may now flash the firmware with the <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 0 1 2 12m15 0-5-5v3H8v4h4v3l5-5Z"/></svg></span> icon below the main menu.</p>
+<p>Wait for the IDE to indicate <code>Done uploading</code> on the status bar at the bottom right of the IDE window.
+Then you can unplug safely!</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">Link</a></h2>
+<h3 id="find-the-usb-port">Find the USB port<a class="headerlink" href="#find-the-usb-port" title="Permanent link">Link</a></h3>
+<p>To find which USB port your arduino board is connected to, you can use <code>dmesg</code>:</p>
+<ol>
+<li>make sure the usb cable is unplugged</li>
+<li>run <code>dmesg -w</code> in a terminal</li>
+<li>connect the usb (from the arduino board to the computer) and you should see something like:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="m">14818</span>.631347<span class="o">]</span> usb <span class="m">1</span>-4: new full-speed USB device number <span class="m">7</span> using xhci_hcd
+<span class="o">[</span><span class="m">14818</span>.787048<span class="o">]</span> usb <span class="m">1</span>-4: New USB device found, <span class="nv">idVendor</span><span class="o">=</span><span class="m">0403</span>, <span class="nv">idProduct</span><span class="o">=</span><span class="m">6001</span>, <span class="nv">bcdDevice</span><span class="o">=</span> <span class="m">6</span>.00
+<span class="o">[</span><span class="m">14818</span>.787062<span class="o">]</span> usb <span class="m">1</span>-4: New USB device strings: <span class="nv">Mfr</span><span class="o">=</span><span class="m">1</span>, <span class="nv">Product</span><span class="o">=</span><span class="m">2</span>, <span class="nv">SerialNumber</span><span class="o">=</span><span class="m">3</span>
+<span class="o">[</span><span class="m">14818</span>.787069<span class="o">]</span> usb <span class="m">1</span>-4: Product: X-Controller
+<span class="o">[</span><span class="m">14818</span>.787073<span class="o">]</span> usb <span class="m">1</span>-4: Manufacturer: Inventables
+<span class="o">[</span><span class="m">14818</span>.787077<span class="o">]</span> usb <span class="m">1</span>-4: SerialNumber: XCONTROLLER6CFIRF
+<span class="o">[</span><span class="m">14818</span>.847148<span class="o">]</span> usbcore: registered new interface driver usbserial_generic
+<span class="o">[</span><span class="m">14818</span>.847155<span class="o">]</span> usbserial: USB Serial support registered <span class="k">for</span> generic
+<span class="o">[</span><span class="m">14818</span>.851163<span class="o">]</span> usbcore: registered new interface driver ftdi_sio
+<span class="o">[</span><span class="m">14818</span>.851179<span class="o">]</span> usbserial: USB Serial support registered <span class="k">for</span> FTDI USB Serial Device
+<span class="o">[</span><span class="m">14818</span>.851367<span class="o">]</span> ftdi_sio <span class="m">1</span>-4:1.0: FTDI USB Serial Device converter detected
+<span class="o">[</span><span class="m">14818</span>.851402<span class="o">]</span> usb <span class="m">1</span>-4: Detected FT232RL
+<span class="o">[</span><span class="m">14818</span>.851860<span class="o">]</span> usb <span class="m">1</span>-4: FTDI USB Serial Device converter now attached to ttyUSB0
+</code></pre></div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The important info here is <code>ttyUSB0</code>!</p>
+</div>
+<h3 id="serial-access-denied">Serial access denied<a class="headerlink" href="#serial-access-denied" title="Permanent link">Link</a></h3>
+<p>If you get an error about permission access:</p>
+<ol>
+<li>
+<p>Check you selected the right USB port. If yes, proceed to the next steps.</p>
+</li>
+<li>
+<p>To see which groups your <code>$USER</code> belongs to:
+    <div class="highlight"><pre><span></span><code>groups <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>
+</code></pre></div>
+    If you see the <code>dialout</code> group there, go back to checking the USB port!</p>
+</li>
+<li>
+<p>If you are not in <code>dialout</code>:
+    <div class="highlight"><pre><span></span><code>sudo gpasswd --add <span class="si">${</span><span class="nv">USER</span><span class="si">}</span> dialout
+</code></pre></div></p>
+</li>
+<li>
+<p>Then log out for your session, and then log back in to see changes (with <code>groups ${USER}</code>).</p>
+</li>
+</ol>
 
               
             </article>
@@ -2316,7 +2516,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../plantdb_docker/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Database" rel="prev">
+        <a href="../cnc_communication/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CNC communication" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2325,20 +2525,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Database
+              CNC communication
             </div>
           </div>
         </a>
       
       
         
-        <a href="../virtualplantimager_docker/" class="md-footer__link md-footer__link--next" aria-label="Next: Virtual Plant Imager" rel="next">
+        <a href="../cnc_calibration/" class="md-footer__link md-footer__link--next" aria-label="Next: CNC calibration" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Virtual Plant Imager
+              CNC calibration
             </div>
           </div>
           <div class="md-footer__button md-icon">
