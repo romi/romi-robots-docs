@@ -51,6 +51,7 @@ nav:
             - 'CNC frame': 'Scanner/build/cnc_frame.md'
             - 'CNC electronics': 'Scanner/build/cnc_electronics.md'
             - 'CNC communication': 'Scanner/build/cnc_communication.md'
+            - 'Flashing Oquam': 'Scanner/build/flashing_oquam.md'
             - 'CNC calibration': 'Scanner/build/cnc_calibration.md'
             - 'Gimball setup': 'Scanner/build/gimball_setup.md'
             - 'Gimball communication': 'Scanner/build/gimball_communication.md'
