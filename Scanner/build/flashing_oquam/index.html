@@ -2421,16 +2421,19 @@
 
 
 <h1 id="flashing-oquam-on-x-controller">Flashing Oquam on X-Controller<a class="headerlink" href="#flashing-oquam-on-x-controller" title="Permanent link">Link</a></h1>
-<p>The ROMI project developed the <code>Oquam</code> firware as an alternative to <code>Grbl</code>.
+<p>The ROMI project developed the <code>Oquam</code> firmware as an alternative to <code>Grbl</code>.
 To flash it on the X-Controller follow these instructions.</p>
-<p>You will need the Arduino IDE.
-On Ubuntu, with <code>snap</code>, do:
+<p>You will need the Arduino IDE software.
+On Ubuntu, with <code>snap</code>, do:</p>
 <div class="highlight"><pre><span></span><code>snap install arduino
-</code></pre></div></p>
+</code></pre></div>
+<p>For other OS, have a look at the official Arduino software website <a href="https://www.arduino.cc/en/software">here</a>.</p>
 <h2 id="download-the-sources">Download the sources<a class="headerlink" href="#download-the-sources" title="Permanent link">Link</a></h2>
 <p>Start by downloading the <code>libromi</code> sources from the ROMI GitHub repository:</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/romi/libromi.git
-git checkout encoder_z
+</code></pre></div>
+<p>Currently, the software is developed under the <code>encoder_z</code> branch:</p>
+<div class="highlight"><pre><span></span><code>git checkout encoder_z
 </code></pre></div>
 <h2 id="flashing-the-firmware">Flashing the firmware<a class="headerlink" href="#flashing-the-firmware" title="Permanent link">Link</a></h2>
 <h3 id="create-a-zip-archive-of-the-arduino-libraries">Create a ZIP archive of the Arduino libraries<a class="headerlink" href="#create-a-zip-archive-of-the-arduino-libraries" title="Permanent link">Link</a></h3>
