@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#wiring-the-cnc" class="md-skip">
+        <a href="#assembly-wiring-of-the-cnc" class="md-skip">
           Skip to content
         </a>
       
@@ -1071,13 +1071,28 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#bom" class="md-nav__link">
-    BOM
+  <a href="#x-controller-assembly" class="md-nav__link">
+    X-Controller assembly
   </a>
   
 </li>
       
         <li class="md-nav__item">
+  <a href="#gshield-assembly" class="md-nav__link">
+    gShield assembly
+  </a>
+  
+    <nav class="md-nav" aria-label="gShield assembly">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bom" class="md-nav__link">
+    BOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#wiring-instructions" class="md-nav__link">
     Wiring instructions
   </a>
@@ -1117,6 +1132,11 @@
   <a href="#power-the-gshield" class="md-nav__link">
     Power the gShield
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2379,11 +2399,26 @@
                 
 
 
-<h1 id="wiring-the-cnc">Wiring the CNC<a class="headerlink" href="#wiring-the-cnc" title="Permanent link">Link</a></h1>
+<h1 id="assembly-wiring-of-the-cnc">Assembly &amp; wiring of the CNC<a class="headerlink" href="#assembly-wiring-of-the-cnc" title="Permanent link">Link</a></h1>
+<h2 id="x-controller-assembly">X-Controller assembly<a class="headerlink" href="#x-controller-assembly" title="Permanent link">Link</a></h2>
+<p>If you ordered the X-Controller, follow the official assembly instructions <a href="https://inventables.gitbook.io/x-carve-assembly/x-controller">here</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is what we used in our second and third version of the phenotyping station hardware.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We replaced the default <code>Grbl</code> firmware by <code>Oquam</code>, our own implementation. See <a href="../flashing_oquam/">here</a> for the instructions on how to flash this firmware to the X-Controller.</p>
+</div>
+<h2 id="gshield-assembly">gShield assembly<a class="headerlink" href="#gshield-assembly" title="Permanent link">Link</a></h2>
 <p>If you have the recent version, follow the official wiring instructions <a href="http://x-carve-instructions.inventables.com/1000mm/step6/">here</a>.</p>
 <p>Here is <a href="http://x-carve-instructions.inventables.com/xcarve2015/step10/">link</a> to the post 2015 version of the "wiring" instructions.</p>
 <p>Here is <a href="http://x-carve-instructions.inventables.com/xcarve2015/step14/">link</a> to the post 2015 version of the "electronic assembly" instructions.</p>
-<h2 id="bom">BOM<a class="headerlink" href="#bom" title="Permanent link">Link</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is what we used in our first version of the phenotyping station hardware.</p>
+</div>
+<h3 id="bom">BOM<a class="headerlink" href="#bom" title="Permanent link">Link</a></h3>
 <p>If you are familiar with the Arduino world, the electronic is pretty straightforward:</p>
 <ul>
 <li>Arduino UNO (official buy <a href="https://store.arduino.cc/arduino-uno-rev3">here</a>)</li>
@@ -2400,8 +2435,8 @@
 <p class="admonition-title">Note</p>
 <p>Before 2017 X-Carve shipped 400W power units, now they use a 320W unit. The link is for a 350W unit.</p>
 </div>
-<h2 id="wiring-instructions">Wiring instructions<a class="headerlink" href="#wiring-instructions" title="Permanent link">Link</a></h2>
-<h3 id="wire-the-stepper-cable-to-the-gshield">Wire the Stepper Cable to the gShield<a class="headerlink" href="#wire-the-stepper-cable-to-the-gshield" title="Permanent link">Link</a></h3>
+<h3 id="wiring-instructions">Wiring instructions<a class="headerlink" href="#wiring-instructions" title="Permanent link">Link</a></h3>
+<h4 id="wire-the-stepper-cable-to-the-gshield">Wire the Stepper Cable to the gShield<a class="headerlink" href="#wire-the-stepper-cable-to-the-gshield" title="Permanent link">Link</a></h4>
 <p>Once you’ve determined which stepper cable belongs to which axis, you can wire them into the gShield.
 First loosen all the screws on the gShield (they will jump a thread when they are fully loose, but they won’t come out of the terminal blocks.)</p>
 <p>The gShield is marked "X," "Y," and "Z".
@@ -2409,16 +2444,16 @@ Wire the stepper cable according to the markings on the shield and order your wi
 <p><img alt="gShield motor wire" src="https://dzevsq2emy08i.cloudfront.net/paperclip/project_instruction_image_uploaded_images/718/original/1096.jpg?1424475165" /></p>
 <p>Check out this diagram for clarification.</p>
 <p><img alt="gShield wiring diagram" src="http://x-carve-instructions.inventables.com/xcarve2015/step14/wiring-diagram2_copy.jpg" /></p>
-<h3 id="mount-the-gshield">Mount the gShield<a class="headerlink" href="#mount-the-gshield" title="Permanent link">Link</a></h3>
+<h4 id="mount-the-gshield">Mount the gShield<a class="headerlink" href="#mount-the-gshield" title="Permanent link">Link</a></h4>
 <p>Now push the gShield onto the Arduino.
 There are pins on the gShield that go into the headers of the Arduino.</p>
 <p><img alt="gShield Arduino mount" src="https://dzevsq2emy08i.cloudfront.net/paperclip/project_instruction_image_uploaded_images/722/original/1117.jpg?1424475531" /></p>
-<h3 id="24v-fan-mount-optional">24V Fan mount (optional)<a class="headerlink" href="#24v-fan-mount-optional" title="Permanent link">Link</a></h3>
+<h4 id="24v-fan-mount-optional">24V Fan mount (optional)<a class="headerlink" href="#24v-fan-mount-optional" title="Permanent link">Link</a></h4>
 <p>If you want, you can add a 24V fan to cool the shield.
 Uses the 24V pins on the gShield as shown in the picture below:</p>
 <p><img alt="Optional fan mount" src="https://dzevsq2emy08i.cloudfront.net/paperclip/project_instruction_image_uploaded_images/727/original/1129.jpg?1424475663" /></p>
 <p>Loosen the screws in the power terminal of the gShield and insert the red twisted pair into <code>Vmot</code> and the black twisted pair into <code>GND</code>.</p>
-<h3 id="connect-limit-switches-to-gshield">Connect Limit Switches to gShield<a class="headerlink" href="#connect-limit-switches-to-gshield" title="Permanent link">Link</a></h3>
+<h4 id="connect-limit-switches-to-gshield">Connect Limit Switches to gShield<a class="headerlink" href="#connect-limit-switches-to-gshield" title="Permanent link">Link</a></h4>
 <p>Crimp the white ends of each limit switch wire pair.
 <strong>The order of the white wires from left to right is X, Y, Z. The first, sixth, and eighth slots are left EMPTY.</strong></p>
 <p><img alt="Limit switches wiring diagram" src="http://x-carve-instructions.inventables.com/xcarve2015/step14/wiring-diagram-limit-switches.jpg" /></p>
@@ -2429,7 +2464,7 @@ Uses the 24V pins on the gShield as shown in the picture below:</p>
 <li><code>D12</code>: z-limit (red)</li>
 <li><code>GND</code>: ground (all 3)</li>
 </ul>
-<h3 id="power-the-gshield">Power the gShield<a class="headerlink" href="#power-the-gshield" title="Permanent link">Link</a></h3>
+<h4 id="power-the-gshield">Power the gShield<a class="headerlink" href="#power-the-gshield" title="Permanent link">Link</a></h4>
 <p>Loosen the screws in the power terminal of the gShield and insert the red twisted pair into <code>Vmot</code> and the black twisted pair into <code>GND</code>.
 This is similar to the optional 24V fan.</p>
 <div class="admonition note">
