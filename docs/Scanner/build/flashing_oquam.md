@@ -1,21 +1,31 @@
 # Flashing Oquam on X-Controller
 
-The ROMI project developed the `Oquam` firware as an alternative to `Grbl`.
+The ROMI project developed the `Oquam` firmware as an alternative to `Grbl`.
 To flash it on the X-Controller follow these instructions.
 
-You will need the Arduino IDE.
+You will need the Arduino IDE software.
 On Ubuntu, with `snap`, do:
+
 ```shell
 snap install arduino
 ```
+
+For other OS, have a look at the official Arduino software website [here](https://www.arduino.cc/en/software).
+
 
 ## Download the sources
 Start by downloading the `libromi` sources from the ROMI GitHub repository:
 
 ```shell
 git clone https://github.com/romi/libromi.git
+```
+
+Currently, the software is developed under the `encoder_z` branch:
+
+```shell
 git checkout encoder_z
 ```
+
 
 ## Flashing the firmware
 
