@@ -71,6 +71,7 @@ nav:
             - 'Plant imaging': 'Scanner/tutorials/hardware_scan.md'
             - 'Extrinsic calibration procedure': 'Scanner/tutorials/calibration.md'
             - 'How to evaluate an analysis in a virtual world (both virtual plant and imager) ? ': 'Scanner/tutorials/virtual_plant_imager_single_dataset.md'
+            - 'How to generate, analyze and visualize virtual plant images using public docker containers' : Scanner/tutorials/virtual_plant_generate_analyze_visualize.md
             - 'How to generate large "virtual" training data for machine-learning ?': 'Scanner/tutorials/virtual_plant_imager_large_dataset.md'
             - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
             - 'plant-3d-explorer: view your data': 'Scanner/tutorials/plant-3d-explorer.md'
