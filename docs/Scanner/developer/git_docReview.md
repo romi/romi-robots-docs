@@ -11,7 +11,11 @@ At the end of this tutorial, you should be able to:
 * review modifications suggested for romi-robots-docs by you colleagues
 
 ## Prerequisite
+  1. Install git
 
+  2. Install Mkdocs 
+
+### 1. Install git
 * [Install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * Example in Linux system with a Debian-based distribution (e.g. Ubuntu):
   ```shell
@@ -25,7 +29,21 @@ At the end of this tutorial, you should be able to:
 git clone https://github.com/romi/romi-robots-docs.git
 cd romi-robots-docs  #enter the cloned repository so that all git actions are available 
 ```
+### 2. Install mkdocs
+* install command (e.g. on Linux, see the [specific documentation](https://www.mkdocs.org/user-guide/installation/) for more detailed instructions )
 
+```
+sudo apt install mkdocs
+sudo pip3 install mkdocs-material #this extension of mkdocs is required
+```
+
+Note: if the second installation fails, you may consider installing or updating pip3:
+
+```
+sudo apt-get install python3-pip
+```
+
+Then re-run gain the command: `sudo pip3 install mkdocs-material`
 ## Step-by-step tutorial
 
 if you only review an existing branch (without adding or modifying content), go directly to steps 8/9.
@@ -164,3 +182,28 @@ Go to: https://github.com/orgs/romi/projects/10
 
 * link your PR to existing issues
 * move the corresponding note to the appropriate column (To do / In progress / Test / Done)
+
+## TROUBLESHOOTING
+
+### Warning messages
+They points to files reported in the mkdocs.yml but not existing in the current documentation. This is not an rugent issue sine the doculentation can be built despite these raised warnings. Consider modifying the indicated files.
+### Fatal errors occuring after executing `mkdocs serve`
+* module 'materialx.emoji'
+> cannot find module 'materialx.emoji' (No module named 'materialx')
+
+**solution**: execute `sudo pip3 install mkdocs-material`
+
+* 'gitsnippet'
+> ERROR    -  Config value: 'plugins'. Error: The "gitsnippet" plugin is not installed
+
+**solution**: execute `pip install mkdocs-gitsnippet-plugin`
+
+* 'decorator'
+> ERROR    -  The 'decorator' distribution was not found and is required by the application
+
+**solution**: execute `pip install decorator`
+
+* 'wcwidth'
+> ERROR    - The 'wcwidth' distribution was not found and is required by prompt-toolkit
+
+**solution**: execute `pip install wcwidth`
