@@ -67,14 +67,15 @@ nav:
             - 'plant-3d-explorer software setup': 'Scanner/install/plant3dexplorer_setup.md'
         - 'Tutorials':
             - 'Home': 'Scanner/tutorials/index.md'
-            - 'Basics': 'Scanner/tutorials/basics.md'
-            - 'Plant imaging': 'Scanner/tutorials/hardware_scan.md'
-            - 'Extrinsic calibration procedure': 'Scanner/tutorials/calibration.md'
+            - 'How to use the romi_run_task generic command ?': 'Scanner/tutorials/basics.md'
+            - 'How to make an acquisition with the Plant Imager ?': 'Scanner/tutorials/hardware_scan.md'
+            - 'How to calibrate the Plant imager ?': 'Scanner/tutorials/calibration.md'
             - 'How to evaluate an analysis in a virtual world (both virtual plant and imager) ? ': 'Scanner/tutorials/virtual_plant_imager_single_dataset.md'
             - 'How to generate, analyze and visualize virtual plant images using public docker containers' : Scanner/tutorials/virtual_plant_generate_analyze_visualize.md
             - 'How to generate large "virtual" training data for machine-learning ?': 'Scanner/tutorials/virtual_plant_imager_large_dataset.md'
-            - 'Scan reconstruction': 'Scanner/tutorials/reconstruct_scan.md'
-            - 'plant-3d-explorer: view your data': 'Scanner/tutorials/plant-3d-explorer.md'
+            - 'How to reconstruct 3D data from images ?': 'Scanner/tutorials/reconstruct_scan.md'
+            - 'How to view your results with plant-3d-explorer': 'Scanner/tutorials/plant-3d-explorer.md'
+            - 'How to evaluate an phyllotaxis measurement ? (case1) Use sm-dtw with simulated data': 'Scanner/tutorials/Tutorial_sm-dtw_simulatephyllotaxis.md'
         - 'How-to':
             - 'Home': 'Scanner/how_to/index.md'
             - 'Import external ressources': 'Scanner/how_to/import_files.md'
