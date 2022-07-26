@@ -1,1 +1,0 @@
-{{ gitsnippet('https://github.com/romi/plant-3d-vision', 'README.md', '') }}

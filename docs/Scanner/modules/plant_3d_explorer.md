@@ -1,1 +1,0 @@
-{{ gitsnippet('https://github.com/romi/plant-3d-explorer', 'README.md', '# Plant 3D Explorer') }}

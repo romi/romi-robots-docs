@@ -1,1 +1,0 @@
-{{ gitsnippet('https://github.com/romi/plantdb', 'README.md', '') }}
