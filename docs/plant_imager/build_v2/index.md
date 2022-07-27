@@ -1,5 +1,6 @@
-# Assembly instructions for the third version of the ROMI plant imager
+# Assembly instructions for the second version of the plant imager
 
+This is the documentation for the second iteration of the plant imager hardware.
 
 ## Assembly overview
 

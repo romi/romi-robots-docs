@@ -1,17 +1,16 @@
-# Assembly instructions for the third version of the ROMI plant imager
-
+# Assembly instructions for the third version of the plant imager
 
 This is the documentation for the third iteration of the plant imager hardware.
 It aims at improving the overall quality of the build and to fix some limitations of the second iteration.
 
-<img src="../../assets/images/plant_imager_v3/RomiV3.jpg" width="800"/>
+![](../../assets/images/plant_imager_v3/RomiV3.jpg)
 
 ## Rationale
 
 Notable limitations of the second version of the plant imager hardware:
 
-- unused z-axis motor
-- camera powering using batteries (limited to RX-0)
+- unused z-axis motor in absence of a tilt motor
+- camera powered by batteries (limited to RX-0)
 - unstable control of the gimbal (due to usb cable length)
 - wobbling camera arm and enclosure
 - poor surrounding isolation, even when wrapped with opaque fabric
