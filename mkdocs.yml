@@ -13,14 +13,19 @@ nav:
     - documentation.md
     - 'Farmers Dashboard':
         - 'Introduction': 'Farmers Dashboard/index.md'
-        - 'Mobile Carrier':
+        - 'Carrier Module':
             - 'Introduction': 'Farmers Dashboard/bot.md'
             - 'Structure': 'Farmers Dashboard/structure.md'
+            - 'Motion System': 'Farmers Dashboard/motion.md'
             - 'Electronics': 'Farmers Dashboard/electronics.md'
-            - 'Dinamyc Tension': 'Farmers Dashboard/tension.md'
             - 'Power': 'Farmers Dashboard/power.md'
-        - 'Charging Station (In development)': 'Farmers Dashboard/station.md'
+        - 'Charging Station': 'Farmers Dashboard/station.md'
         - 'Camera Module': 'Farmers Dashboard/camera.md'
+        - 'How to build the cablebot':
+            - 'Get the pieces': 'Farmers Dashboard/building.md'
+            - 'Assembly instructions': 'Farmers Dashboard/assembly.md'
+            - 'Install the software': 'Farmers Dashboard/install.md'  
+        - 'How to use the cablebot': 'Farmers Dashboard/use.md'
         - 'Crops Insights Pipeline': 'Farmers Dashboard/pipeline.md'
         - 'Farmers Dashboard App': 'Farmers Dashboard/app.md'
         - 'Farmers Dashboard/legacy.md'

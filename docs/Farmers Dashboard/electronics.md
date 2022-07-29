@@ -1,62 +1,60 @@
+# Control electronics
 
-![](/assets/images/farmersDashboard/electronics-map.png)
+The entire motion system is controlled by a low-cost and low-power microcontroller (Microchip SAMD21) that interfaces with the camera module. The much powerful computer in the camera module runs the main logics and communication subsystem based on the software and hardware stack used in the Rover, ensuring modularity and scalability.  As both the camera module and the Rover run the Raspberry PI ARM based Linux architecture our software stack is portable across each one of the robots. Those ensuring the Rover and the carrier use the same remote management interfaces. Following that approach the carrier can be managed using the same standard RC remote controller for on-site  maintenance operations.
 
-The navigation control is managed by any Arduino compatible board. This board will receive direct instructions via RC control or commands through the Serial port sent by the _Raspberry pi_ in the [Camera Module.](camera.md)
+![](/assets/images/farmersDashboard/electronics.png)
 
-![](/assets/images/farmersDashboard/cablebot-schematic.png)
+The Carrier module electronics is compossed by three main PCB's: the _control PCB_ that holds the man microcontroller on charge of the navigation, the Odrvie motor driver and the power ditribution PCB.
 
-!!! info ""
-    General Mobile Carrier electronics schematic
-    
-For now an Arduino Nano (Atmega328) is used as the main microcontroller, the code has been kept easily portable to any Cortex M0 board like the Feather M0 basic used in the Camera module.
+![](/assets/images/farmersDashboard/Cablebot-schematic.png)
 
-| **INPUTS**                                      | Notes                           |
-| ---                                             | ---                             |
-| Endstops                                        | 2 interrupts                    |
-| Laser position encoder                          | SPI                             |
-| Motor encoder                                   | 1 interrupt                     |
-| Battery voltage                                 | from voltage divider            |
-| RF speed channel                                | 1 interrupts per channel        |
-| Control commands USB or UART Serial port        | via level shifter in case of 5v |
-| IMU                                             | I2C                             |
-| Temperature / Humidity sensor (Sensirion SHT35) | I2C bus (on the works)          |
-| Charger connected signal                        | 1 interrupt                     |
-| User button                                     | 1 interrupt                     |
 
-| **Outputs**     | Notes           |
-| ---             | ---             |
-| Motor control   | PWM             |
-| User led        | Addressable RGB |
-| Navigation info | Serial Port     |
+## Control PCB
 
-## Brushless DC Motor with Encoder
+The navigation control is managed by any Arduino SAMD21 compatible board. This board will receive direct instructions via RC control or commands through the Serial port sent by the _Raspberry pi_ in the [Camera Module.](camera.md)
 
-![](/assets/images/farmersDashboard/cablebot-brushless.png)
+![](/assets/images/farmersDashboard/cablebot_controller_components.png)
 
-The carrier use this [brushless motor](https://wiki.dfrobot.com/FIT0441_Brushless_DC_Motor_with_Encoder_12V_159RPM) with an integrated encoder. The Torque in this motor is small but no external control electronics are needed, it is being tested to see if the torque is enough to handle the carrier weight on a big range of cable tensions.
+### Inputs
+- Two endstops (2 interrupts)
+- Position encoder (SPI)
+- Motor encoder (1 interrupt)
+- Battery voltage (from voltage dividerconnected to batt)
+- RF speed channel (1 interrupts) we have a second channel with no use for now.
+- USB or TX/RX only Serial port (level converter?).
+- IMU (I2C)
+- Charger connected input (1 interrupt)
+- User button (1 interrupt)
 
-|||
-| --- | --- |
-| Operating Voltage | 12V |
-| Motor Rated Speed| 7100-7300rpm
-|                    Torque |                                                    2.4kg*cm |
-|                     Speed |                                                     159 rpm |
-|           Reduction ratio |                                                        45:1 |
-| Signal cycle pulse number |                           45*6 (Each cycle outputs 6 pulse) |
-|              Control mode | PWM speed control, Direction control, Feedback pulse output |
-|                    Weight |                                      65g with kitchen scale |
+### Outputs
+- Motor control (PWM)
+- User led (Addressable RGB)
 
-!!!info "A higher torque motor is going to be tested"
-	This motor has shown a lack of torque on hight tension cables, research to find a suitable higher torque replacement is on the works
-	
-## Remote control
+### Feather Pinout
 
-As a way to control the carrier when no camera module is present or when the user needs to do simple and direct control for maintenance tasks a standard PWM remote control control is used.
+| Feather M0 Pin | | Function | |Int|
+|---|---|---|---|---|
+| 0 - RX (Serial1) (yellow) | PA11 | _Odrive Serial_ GPIO1 → TX  | SERCOM0.3 |
+| 1 - TX (Serial1) (green) | PA10 | _Odrive Serial_ GPIO2 → RX | SERCOM0.2 |
+| 5 | PA15 | Addressable Led → DIN |||
+| 6 | PA20 | Endstop Front or right (was Back ¹) | |🟢|
+| 9 | PA07 | Endstop Back or left (was Front ¹) | |🟢|
+| 10 - TX0 (green) | PA18 | Camera Module → RX | SERCOM1.2 |
+| 11 | PA16 | RC → STR (Optional Gimbal control)| | 🟢 |
+| 12 - RX0 (yellow) | PA19 | Camera Module → TX | SERCOM1.3 |
+| 13 | PA17 | RC Throttle → THR ||🟢|
+| 15 - A1 | PB08 | _Odrive Reset_ nRST (in J2) |
+| 16 - A2 | PB09 | User Button | | 🟢|
+| 17 - A3 | PA04 | Charging station home int | | 🟢|
+| 18 - A4 | PA05 | ADNS → MOT |   |
+| 19 - A5 | PB02 | ADNS → SS |   |
+| 20 - SDA | PA22 | I2C → SDA | SERCOM3.0 |
+| 21 - SCL | PA23 | I2C → SCL | SERCOM3.1 |
+| 22 - MISO | PA12 | ADNS → MI | SERCOM_ALT4.0  |
+| 23 - MOSI | PB10 | ADNS → MO | SERCOM_ALT4.2  |
+| 24 - SCK | PB11 | ADNS → SC | SERCOM_ALT4.3 |
+| RST | | Reset Button |
 
-![](/assets/images/farmersDashboard/cablebot-rc.png)
-
-!!! note ""
-    Exponential smoothing is used to remove noise on the RC signal.
 
 ## Mouse laser motion sensor
 
@@ -89,3 +87,26 @@ To detect collisions [OMRON D3V-013-1C23](https://www.components.omron.com/produ
 ![](/assets/images/farmersDashboard/endstop-cable.png)
 
  The cabling is routed trough machined channels between the aluminum sandwich sheets keeping it protected and organized.
+
+
+## Remote Control
+Any radio frequency remote control with at least one channel can be used with the CARM. We use one PWM channel to control the speed along the cable. A second PWM channel is already wired to be used in the future, for example to control camera orientation.
+
+We have used [HK-GT2B](https://hobbyking.com/en_us/hobbykingr-tmhk-gt2b-3ch-2-4ghz-transmitter-and-receiver-w-rechargable-li-ion-battery-1.html) model with good results.
+
+* 2.4GHz AFHDS signal operation
+* 3CH operation
+* 3.7v 800mAh Rechargeable li-ion transmitter battery
+* RF Power: 20dBm (100mW) max
+* Modulation: GFSK
+* Sensitivity: 1024
+* Transmitter Weight: 270g
+* Receiver power: 4.5~6.5 VDC
+
+Depending on the RF hardware sometimes adjusting the signal top/down limits with the remote potentiometers is not enough, this values can be adjusted on firmware changing the `RC_CALIBRATION` constant values for Min, Middle and Max values [here](https://github.com/romi/romi-cablebot/blob/main/motor-controller/src/motor-controller.ino#L88).
+
+To find out the values of your remote print to the console the value of the `rcSpeed` variable, some where in your `loop()` function and check the serial output while the trigger is at rest, top and bottom positions.
+
+To minimize vibrations of the carrier module while operated with the RF remote control, the noise on the signal is cleaned, applying exponential smoothing to it.
+
+![](/assets/images/farmersDashboard/cablebot-rc.png)

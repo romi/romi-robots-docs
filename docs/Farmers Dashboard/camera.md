@@ -1,13 +1,21 @@
-![](/assets/images/farmersDashboard/camera-explode.png)
+# Camera module
 
-Both the Cablebot and the Scanner require a reliable camera module, although the usage in both cases is slightly different:
+![](/assets/images/farmersDashboard/CAMM.jpg)
 
+**Size:** 148mm x 143mm x 63mm  
+**Weight:** 560gr  
+**CMOS sensor:** 12.3 mp, Sony IMX477 sensor.  
+**Optics:** Support for C- and CS-mount lenses.  
+**Networking:** Wi-Fi 2.4GHz 802.11 b/g/n  
+**Interfaces:** UART Serial, I2C, SWD.  
+
+
+Both the Cablebot and the Scanner require a reliable camera module, although the usage in both cases is slightly different
 For the **Scanner**, the camera is positioned at a given angle. The movement from angle position to the next is relativement infrequent and slow.
-
 For the **Cablebot**, the camera must adjust in real-time for swinging movements of the system.
 
 ## Controller board
-![](/assets/images/farmersDashboard/camera-brushless-controller.png)
+![](/assets/images/farmersDashboard/cablebot_camera_components.png)
 
 We decided to use a brushless motor, as is the custom in camera mount systems. We designed a controller board that exploits the functions offered by the TI DRV8313 chip. The DRV8313 requires as an input three Pulse Width Modulation signals (PWM) that encode the phase of each of the three voltages applied to the solenoids of the brushless motor. 
 
@@ -37,17 +45,7 @@ We had recurring problems with the cabling of the cameras in our previous soluti
 
 ## Housing
 
-![](/assets/images/farmersDashboard/camera-housing.png)
+A housing was designed that follows the same production principles used in other coblebot components.
 
-A housing was designed that can be made using a 3D printer.
-Control software: A firmware for the microcontroller board was written. The code has been integrated into the Romi Rover code repository so that it can be shared among all devices (Cablebot, Scanner, and Rover). The control software reuses the network functionality provided by the Rcom library developed in WP2 and the camera functions are accessible using standard web technology (HTTP and WebSockets).
- 
-![](/assets/images/farmersDashboard/camera-preliminary-cablebot.jpg)
-
-!!! info
-    Camera module tests on cablebot carrier
-
-
-!!! info
-    The camera module is is still on testing.
+![](/assets/images/farmersDashboard/despiece_CAMM.png)
 
