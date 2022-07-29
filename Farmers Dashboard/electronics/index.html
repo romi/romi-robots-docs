@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#brushless-dc-motor-with-encoder" class="md-skip">
+        <a href="#control-electronics" class="md-skip">
           Skip to content
         </a>
       
@@ -416,14 +416,14 @@
       
       
         <label class="md-nav__link" for="__nav_3_2_2">
-          Mobile Carrier
+          Carrier Module
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Mobile Carrier" data-md-level="3">
+      <nav class="md-nav" aria-label="Carrier Module" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Mobile Carrier
+          Carrier Module
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -459,6 +459,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../motion/" class="md-nav__link">
+        Motion System
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -466,6 +480,8 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
+        
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -483,6 +499,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -491,16 +509,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#brushless-dc-motor-with-encoder" class="md-nav__link">
-    Brushless DC Motor with Encoder
+  <a href="#control-pcb" class="md-nav__link">
+    Control PCB
+  </a>
+  
+    <nav class="md-nav" aria-label="Control PCB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#remote-control" class="md-nav__link">
-    Remote control
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feather-pinout" class="md-nav__link">
+    Feather Pinout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -525,24 +563,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#remote-control" class="md-nav__link">
+    Remote Control
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../tension/" class="md-nav__link">
-        Dinamyc Tension
-      </a>
     </li>
   
 
@@ -576,7 +607,7 @@
   
     <li class="md-nav__item">
       <a href="../station/" class="md-nav__link">
-        Charging Station (In development)
+        Charging Station
       </a>
     </li>
   
@@ -591,6 +622,95 @@
     <li class="md-nav__item">
       <a href="../camera/" class="md-nav__link">
         Camera Module
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" type="checkbox" id="__nav_3_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_5">
+          How to build the cablebot
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How to build the cablebot" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          How to build the cablebot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/" class="md-nav__link">
+        Get the pieces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assembly/" class="md-nav__link">
+        Assembly instructions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Install the software
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use/" class="md-nav__link">
+        How to use the cablebot
       </a>
     </li>
   
@@ -2612,142 +2732,185 @@
                 
 
 
-  <h1>Electronics</h1>
-
-<p><img alt="" src="/assets/images/farmersDashboard/electronics-map.png" /></p>
-<p>The navigation control is managed by any Arduino compatible board. This board will receive direct instructions via RC control or commands through the Serial port sent by the <em>Raspberry pi</em> in the <a href="../camera/">Camera Module.</a></p>
-<p><img alt="" src="/assets/images/farmersDashboard/cablebot-schematic.png" /></p>
-<div class="admonition info">
-<p>General Mobile Carrier electronics schematic</p>
-</div>
-<p>For now an Arduino Nano (Atmega328) is used as the main microcontroller, the code has been kept easily portable to any Cortex M0 board like the Feather M0 basic used in the Camera module.</p>
+<h1 id="control-electronics">Control electronics<a class="headerlink" href="#control-electronics" title="Permanent link">Link</a></h1>
+<p>The entire motion system is controlled by a low-cost and low-power microcontroller (Microchip SAMD21) that interfaces with the camera module. The much powerful computer in the camera module runs the main logics and communication subsystem based on the software and hardware stack used in the Rover, ensuring modularity and scalability.  As both the camera module and the Rover run the Raspberry PI ARM based Linux architecture our software stack is portable across each one of the robots. Those ensuring the Rover and the carrier use the same remote management interfaces. Following that approach the carrier can be managed using the same standard RC remote controller for on-site  maintenance operations.</p>
+<p><img alt="" src="/assets/images/farmersDashboard/electronics.png" /></p>
+<p>The Carrier module electronics is compossed by three main PCB's: the <em>control PCB</em> that holds the man microcontroller on charge of the navigation, the Odrvie motor driver and the power ditribution PCB.</p>
+<p><img alt="" src="/assets/images/farmersDashboard/Cablebot-schematic.png" /></p>
+<h2 id="control-pcb">Control PCB<a class="headerlink" href="#control-pcb" title="Permanent link">Link</a></h2>
+<p>The navigation control is managed by any Arduino SAMD21 compatible board. This board will receive direct instructions via RC control or commands through the Serial port sent by the <em>Raspberry pi</em> in the <a href="../camera/">Camera Module.</a></p>
+<p><img alt="" src="/assets/images/farmersDashboard/cablebot_controller_components.png" /></p>
+<h3 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">Link</a></h3>
+<ul>
+<li>Two endstops (2 interrupts)</li>
+<li>Position encoder (SPI)</li>
+<li>Motor encoder (1 interrupt)</li>
+<li>Battery voltage (from voltage dividerconnected to batt)</li>
+<li>RF speed channel (1 interrupts) we have a second channel with no use for now.</li>
+<li>USB or TX/RX only Serial port (level converter?).</li>
+<li>IMU (I2C)</li>
+<li>Charger connected input (1 interrupt)</li>
+<li>User button (1 interrupt)</li>
+</ul>
+<h3 id="outputs">Outputs<a class="headerlink" href="#outputs" title="Permanent link">Link</a></h3>
+<ul>
+<li>Motor control (PWM)</li>
+<li>User led (Addressable RGB)</li>
+</ul>
+<h3 id="feather-pinout">Feather Pinout<a class="headerlink" href="#feather-pinout" title="Permanent link">Link</a></h3>
 <table>
 <thead>
 <tr>
-<th><strong>INPUTS</strong></th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Endstops</td>
-<td>2 interrupts</td>
-</tr>
-<tr>
-<td>Laser position encoder</td>
-<td>SPI</td>
-</tr>
-<tr>
-<td>Motor encoder</td>
-<td>1 interrupt</td>
-</tr>
-<tr>
-<td>Battery voltage</td>
-<td>from voltage divider</td>
-</tr>
-<tr>
-<td>RF speed channel</td>
-<td>1 interrupts per channel</td>
-</tr>
-<tr>
-<td>Control commands USB or UART Serial port</td>
-<td>via level shifter in case of 5v</td>
-</tr>
-<tr>
-<td>IMU</td>
-<td>I2C</td>
-</tr>
-<tr>
-<td>Temperature / Humidity sensor (Sensirion SHT35)</td>
-<td>I2C bus (on the works)</td>
-</tr>
-<tr>
-<td>Charger connected signal</td>
-<td>1 interrupt</td>
-</tr>
-<tr>
-<td>User button</td>
-<td>1 interrupt</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th><strong>Outputs</strong></th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Motor control</td>
-<td>PWM</td>
-</tr>
-<tr>
-<td>User led</td>
-<td>Addressable RGB</td>
-</tr>
-<tr>
-<td>Navigation info</td>
-<td>Serial Port</td>
-</tr>
-</tbody>
-</table>
-<h2 id="brushless-dc-motor-with-encoder">Brushless DC Motor with Encoder<a class="headerlink" href="#brushless-dc-motor-with-encoder" title="Permanent link">Link</a></h2>
-<p><img alt="" src="/assets/images/farmersDashboard/cablebot-brushless.png" /></p>
-<p>The carrier use this <a href="https://wiki.dfrobot.com/FIT0441_Brushless_DC_Motor_with_Encoder_12V_159RPM">brushless motor</a> with an integrated encoder. The Torque in this motor is small but no external control electronics are needed, it is being tested to see if the torque is enough to handle the carrier weight on a big range of cable tensions.</p>
-<table>
-<thead>
-<tr>
+<th>Feather M0 Pin</th>
 <th></th>
+<th>Function</th>
 <th></th>
+<th>Int</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Operating Voltage</td>
-<td>12V</td>
+<td>0 - RX (Serial1) (yellow)</td>
+<td>PA11</td>
+<td><em>Odrive Serial</em> GPIO1 → TX</td>
+<td>SERCOM0.3</td>
+<td></td>
 </tr>
 <tr>
-<td>Motor Rated Speed</td>
-<td>7100-7300rpm</td>
+<td>1 - TX (Serial1) (green)</td>
+<td>PA10</td>
+<td><em>Odrive Serial</em> GPIO2 → RX</td>
+<td>SERCOM0.2</td>
+<td></td>
 </tr>
 <tr>
-<td>Torque</td>
-<td>2.4kg*cm</td>
+<td>5</td>
+<td>PA15</td>
+<td>Addressable Led → DIN</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td>Speed</td>
-<td>159 rpm</td>
+<td>6</td>
+<td>PA20</td>
+<td>Endstop Front or right (was Back ¹)</td>
+<td></td>
+<td>🟢</td>
 </tr>
 <tr>
-<td>Reduction ratio</td>
-<td>45:1</td>
+<td>9</td>
+<td>PA07</td>
+<td>Endstop Back or left (was Front ¹)</td>
+<td></td>
+<td>🟢</td>
 </tr>
 <tr>
-<td>Signal cycle pulse number</td>
-<td>45*6 (Each cycle outputs 6 pulse)</td>
+<td>10 - TX0 (green)</td>
+<td>PA18</td>
+<td>Camera Module → RX</td>
+<td>SERCOM1.2</td>
+<td></td>
 </tr>
 <tr>
-<td>Control mode</td>
-<td>PWM speed control, Direction control, Feedback pulse output</td>
+<td>11</td>
+<td>PA16</td>
+<td>RC → STR (Optional Gimbal control)</td>
+<td></td>
+<td>🟢</td>
 </tr>
 <tr>
-<td>Weight</td>
-<td>65g with kitchen scale</td>
+<td>12 - RX0 (yellow)</td>
+<td>PA19</td>
+<td>Camera Module → TX</td>
+<td>SERCOM1.3</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>PA17</td>
+<td>RC Throttle → THR</td>
+<td></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>15 - A1</td>
+<td>PB08</td>
+<td><em>Odrive Reset</em> nRST (in J2)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16 - A2</td>
+<td>PB09</td>
+<td>User Button</td>
+<td></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>17 - A3</td>
+<td>PA04</td>
+<td>Charging station home int</td>
+<td></td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>18 - A4</td>
+<td>PA05</td>
+<td>ADNS → MOT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>19 - A5</td>
+<td>PB02</td>
+<td>ADNS → SS</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>20 - SDA</td>
+<td>PA22</td>
+<td>I2C → SDA</td>
+<td>SERCOM3.0</td>
+<td></td>
+</tr>
+<tr>
+<td>21 - SCL</td>
+<td>PA23</td>
+<td>I2C → SCL</td>
+<td>SERCOM3.1</td>
+<td></td>
+</tr>
+<tr>
+<td>22 - MISO</td>
+<td>PA12</td>
+<td>ADNS → MI</td>
+<td>SERCOM_ALT4.0</td>
+<td></td>
+</tr>
+<tr>
+<td>23 - MOSI</td>
+<td>PB10</td>
+<td>ADNS → MO</td>
+<td>SERCOM_ALT4.2</td>
+<td></td>
+</tr>
+<tr>
+<td>24 - SCK</td>
+<td>PB11</td>
+<td>ADNS → SC</td>
+<td>SERCOM_ALT4.3</td>
+<td></td>
+</tr>
+<tr>
+<td>RST</td>
+<td></td>
+<td>Reset Button</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
-<div class="admonition info">
-<p class="admonition-title">A higher torque motor is going to be tested</p>
-<p>This motor has shown a lack of torque on hight tension cables, research to find a suitable higher torque replacement is on the works</p>
-</div>
-<h2 id="remote-control">Remote control<a class="headerlink" href="#remote-control" title="Permanent link">Link</a></h2>
-<p>As a way to control the carrier when no camera module is present or when the user needs to do simple and direct control for maintenance tasks a standard PWM remote control control is used.</p>
-<p><img alt="" src="/assets/images/farmersDashboard/cablebot-rc.png" /></p>
-<div class="admonition note">
-<p>Exponential smoothing is used to remove noise on the RC signal.</p>
-</div>
 <h2 id="mouse-laser-motion-sensor">Mouse laser motion sensor<a class="headerlink" href="#mouse-laser-motion-sensor" title="Permanent link">Link</a></h2>
 <p><img alt="" src="/assets/images/farmersDashboard/cablebot-laser.png" style="width:300px" /></p>
 <p>As a way to get real closed loop navigation the <a href="https://www.tindie.com/products/jkicklighter/adns-9800-laser-motion-sensor/">ADNS-9800 Laser Motion Sensor</a> is being used to track the movement over the cable.
@@ -2767,6 +2930,23 @@ The <a href="https://www.st.com/resource/en/datasheet/ism330dhcx.pdf">ISM330</a>
 <p>To detect collisions <a href="https://www.components.omron.com/product-detail?partNumber=D3V">OMRON D3V-013-1C23</a> miniature switches are used as end stops on both sides of the cablebot. A 3d printed cover protects the electronic parts and trigers the switch when an obstacle is found. Cabling is routed through the structure to avoid any damage on the lines.</p>
 <p><img alt="" src="/assets/images/farmersDashboard/endstop-cable.png" /></p>
 <p>The cabling is routed trough machined channels between the aluminum sandwich sheets keeping it protected and organized.</p>
+<h2 id="remote-control">Remote Control<a class="headerlink" href="#remote-control" title="Permanent link">Link</a></h2>
+<p>Any radio frequency remote control with at least one channel can be used with the CARM. We use one PWM channel to control the speed along the cable. A second PWM channel is already wired to be used in the future, for example to control camera orientation.</p>
+<p>We have used <a href="https://hobbyking.com/en_us/hobbykingr-tmhk-gt2b-3ch-2-4ghz-transmitter-and-receiver-w-rechargable-li-ion-battery-1.html">HK-GT2B</a> model with good results.</p>
+<ul>
+<li>2.4GHz AFHDS signal operation</li>
+<li>3CH operation</li>
+<li>3.7v 800mAh Rechargeable li-ion transmitter battery</li>
+<li>RF Power: 20dBm (100mW) max</li>
+<li>Modulation: GFSK</li>
+<li>Sensitivity: 1024</li>
+<li>Transmitter Weight: 270g</li>
+<li>Receiver power: 4.5~6.5 VDC</li>
+</ul>
+<p>Depending on the RF hardware sometimes adjusting the signal top/down limits with the remote potentiometers is not enough, this values can be adjusted on firmware changing the <code>RC_CALIBRATION</code> constant values for Min, Middle and Max values <a href="https://github.com/romi/romi-cablebot/blob/main/motor-controller/src/motor-controller.ino#L88">here</a>.</p>
+<p>To find out the values of your remote print to the console the value of the <code>rcSpeed</code> variable, some where in your <code>loop()</code> function and check the serial output while the trigger is at rest, top and bottom positions.</p>
+<p>To minimize vibrations of the carrier module while operated with the RF remote control, the noise on the signal is cleaned, applying exponential smoothing to it.</p>
+<p><img alt="" src="/assets/images/farmersDashboard/cablebot-rc.png" /></p>
 
               
             </article>
@@ -2780,7 +2960,7 @@ The <a href="https://www.st.com/resource/en/datasheet/ism330dhcx.pdf">ISM330</a>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../structure/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Structure" rel="prev">
+        <a href="../motion/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Motion System" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2789,20 +2969,20 @@ The <a href="https://www.st.com/resource/en/datasheet/ism330dhcx.pdf">ISM330</a>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Structure
+              Motion System
             </div>
           </div>
         </a>
       
       
         
-        <a href="../tension/" class="md-footer__link md-footer__link--next" aria-label="Next: Dinamyc Tension" rel="next">
+        <a href="../power/" class="md-footer__link md-footer__link--next" aria-label="Next: Power" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Dinamyc Tension
+              Power
             </div>
           </div>
           <div class="md-footer__button md-icon">

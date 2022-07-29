@@ -416,14 +416,14 @@
       
       
         <label class="md-nav__link" for="__nav_3_2_2">
-          Mobile Carrier
+          Carrier Module
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Mobile Carrier" data-md-level="3">
+      <nav class="md-nav" aria-label="Carrier Module" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Mobile Carrier
+          Carrier Module
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -461,8 +461,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../electronics/" class="md-nav__link">
-        Electronics
+      <a href="../motion/" class="md-nav__link">
+        Motion System
       </a>
     </li>
   
@@ -475,8 +475,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../tension/" class="md-nav__link">
-        Dinamyc Tension
+      <a href="../electronics/" class="md-nav__link">
+        Electronics
       </a>
     </li>
   
@@ -523,9 +523,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#power_1" class="md-nav__link">
+    Power
+  </a>
+  
+    <nav class="md-nav" aria-label="Power">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power-distribution-pcb" class="md-nav__link">
+    Power distribution PCB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#dcdc-switching-regulator" class="md-nav__link">
     DC/DC switching regulator
   </a>
+  
+    <nav class="md-nav" aria-label="DC/DC switching regulator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#battery-module" class="md-nav__link">
+    Battery module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -552,7 +585,7 @@
   
     <li class="md-nav__item">
       <a href="../station/" class="md-nav__link">
-        Charging Station (In development)
+        Charging Station
       </a>
     </li>
   
@@ -567,6 +600,95 @@
     <li class="md-nav__item">
       <a href="../camera/" class="md-nav__link">
         Camera Module
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" type="checkbox" id="__nav_3_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_5">
+          How to build the cablebot
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How to build the cablebot" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          How to build the cablebot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/" class="md-nav__link">
+        Get the pieces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assembly/" class="md-nav__link">
+        Assembly instructions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Install the software
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use/" class="md-nav__link">
+        How to use the cablebot
       </a>
     </li>
   
@@ -2589,11 +2711,16 @@
 
 
 <h1 id="power">Power<a class="headerlink" href="#power" title="Permanent link">Link</a></h1>
-<p>The power circuit has a main switch that avoids battery discharging during transportation or storing. Battery voltage is feeded directly in to the motor and measured trough a voltage divider, a DC/DC voltage converter provides low voltage to the logic electronics subsystem. Both voltages are exposed to the camera module allowing high voltage motors and avoiding the need of duplicated converters. Both battery terminals are directly exposed to the charger station allowing the carge process during rest periods.</p>
-<p><img alt="" src="/assets/images/farmersDashboard/cablebot-power.png" /></p>
+<h2 id="power_1">Power<a class="headerlink" href="#power_1" title="Permanent link">Link</a></h2>
+<p>The power circuit has a main switch that avoids battery discharging during transportation or storing. Battery voltage is feeded directly, a DC/DC voltage converter provides low voltage to the logic electronics subsystem. The battery voltage is feeded camera module allowing high voltage motors. Both battery terminals are directly exposed to the charger station allowing the carge process during rest periods.</p>
+<p><img alt="" src="/assets/images/farmersDashboard/Power_Diagram.png" /></p>
+<h3 id="power-distribution-pcb">Power distribution PCB<a class="headerlink" href="#power-distribution-pcb" title="Permanent link">Link</a></h3>
+<p><img alt="" src="/assets/images/farmersDashboard/cablebot_power_components.png" /></p>
 <h2 id="dcdc-switching-regulator">DC/DC switching regulator<a class="headerlink" href="#dcdc-switching-regulator" title="Permanent link">Link</a></h2>
 <p><img alt="" src="/assets/images/farmersDashboard/dc-dc.png" style="width:100px" /></p>
-<p>To provide low voltage (5v) the <strong><a href="https://www.mouser.es/datasheet/2/281/oki-78sr-e-1115659.pdf">OKI-78SR-5/1.5-W36E-C</a></strong> DC/DC switching regulator is used. It can provide 1.5A @ 5v and can stand inputs as high as 36v input. With this regulator we feed all the electronics contained in the carrier unit and  if needed provide power to the camera module.</p>
+<p>To provide low voltage (5v) the <strong><a href="https://www.mouser.es/datasheet/2/281/oki-78sr-e-1115659.pdf">OKI-78SR-5/1.5-W36E-C</a></strong> DC/DC switching regulator is used. It can provide 1.5A @ 5v and can stand inputs as high as 36v input. With this regulator we feed all the electronics contained in the carrier unit the camera module electronics use the same component to provide low voltage to it's own electronics.</p>
+<h3 id="battery-module">Battery module<a class="headerlink" href="#battery-module" title="Permanent link">Link</a></h3>
+<p><img alt="" src="/assets/images/farmersDashboard/despiece_battery_module.png" /></p>
 
               
             </article>
@@ -2607,7 +2734,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../tension/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dinamyc Tension" rel="prev">
+        <a href="../electronics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Electronics" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2616,20 +2743,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Dinamyc Tension
+              Electronics
             </div>
           </div>
         </a>
       
       
         
-        <a href="../station/" class="md-footer__link md-footer__link--next" aria-label="Next: Charging Station (In development)" rel="next">
+        <a href="../station/" class="md-footer__link md-footer__link--next" aria-label="Next: Charging Station" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Charging Station (In development)
+              Charging Station
             </div>
           </div>
           <div class="md-footer__button md-icon">

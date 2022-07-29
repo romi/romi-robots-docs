@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-mobile-carrier-cablebot" class="md-skip">
+        <a href="#the-carrier-module-carm" class="md-skip">
           Skip to content
         </a>
       
@@ -416,14 +416,14 @@
       
       
         <label class="md-nav__link" for="__nav_3_2_2">
-          Mobile Carrier
+          Carrier Module
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Mobile Carrier" data-md-level="3">
+      <nav class="md-nav" aria-label="Carrier Module" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Mobile Carrier
+          Carrier Module
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -442,61 +442,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Introduction
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         Introduction
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    Structure
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#motion-system" class="md-nav__link">
-    Motion system
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#control" class="md-nav__link">
-    Control
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interface-and-management" class="md-nav__link">
-    Interface and management
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -523,8 +471,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../electronics/" class="md-nav__link">
-        Electronics
+      <a href="../motion/" class="md-nav__link">
+        Motion System
       </a>
     </li>
   
@@ -537,8 +485,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../tension/" class="md-nav__link">
-        Dinamyc Tension
+      <a href="../electronics/" class="md-nav__link">
+        Electronics
       </a>
     </li>
   
@@ -573,7 +521,7 @@
   
     <li class="md-nav__item">
       <a href="../station/" class="md-nav__link">
-        Charging Station (In development)
+        Charging Station
       </a>
     </li>
   
@@ -588,6 +536,95 @@
     <li class="md-nav__item">
       <a href="../camera/" class="md-nav__link">
         Camera Module
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" type="checkbox" id="__nav_3_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_5">
+          How to build the cablebot
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How to build the cablebot" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          How to build the cablebot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/" class="md-nav__link">
+        Get the pieces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assembly/" class="md-nav__link">
+        Assembly instructions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Install the software
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use/" class="md-nav__link">
+        How to use the cablebot
       </a>
     </li>
   
@@ -2609,18 +2646,16 @@
                 
 
 
-<h1 id="the-mobile-carrier-cablebot">The mobile carrier (cablebot)<a class="headerlink" href="#the-mobile-carrier-cablebot" title="Permanent link">Link</a></h1>
-<p><img alt="" src="/assets/images/farmersDashboard/cable-full.png" /></p>
-<p>The mobile carrier is an autonomous motion platform capable of travelling suspended on a single tensioned nylon cable. Its design allows it to move it from one cable to another as well to adapt to <a href="../tension/">different cable tensions dynamically</a>; those features are unique among other systems</p>
-<p><img alt="" src="/assets/images/farmersDashboard/cablebot-valldaura.png" /></p>
-<h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">Link</a></h2>
-<p>The whole design uses a CNC folded aluminium-plastic sandwich panel designed to provide adequate outdoor resistance while being light-weight. The moving parts and other fixtures use custom 3D printed plastic (PLA/ABS). All the cabling and electronics integrate into the internal structure to minimize damage caused by environmental factors. The tension mechanism design allows it to move it from one cable to another as well to adapt to different cable tensions dynamically, and it uses a self-lubricated polymer to avoid maintenance. All the parts can be made on a Fab Lab or other rapid prototyping facility with no customized tooling required.</p>
-<h2 id="motion-system">Motion system<a class="headerlink" href="#motion-system" title="Permanent link">Link</a></h2>
-<p>The platform is battery powered  (12V LiPo 2Ah) and uses a brushless servo motor (DFROBOT FIT0441) combined with an optical cable tracker (ADNS-9800) to precisely move using a close loop system. It also contains built-in end stops switches as well as an inertial measurement unit to ensure it can safely operate autonomously. </p>
-<h2 id="control">Control<a class="headerlink" href="#control" title="Permanent link">Link</a></h2>
-<p>The entire motion system is controlled by a low-cost and low-power microcontroller  (Microchip ATmega328) that interfaces with the camera module. The much powerful computer in the camera module runs the main logics and communication subsystem based on the software and hardware stack used in the Rover, ensuring modularity and scalability.  As both the camera module and the Rover run the Raspberry PI ARM based Linux architecture our software stack is portable across each one of the robots. Those ensuring the Rover and the carrier use the same remote management interfaces. Following that approach the carrier can be managed using the same standard RC remote controller for on-site  maintenance operations.</p>
-<h2 id="interface-and-management">Interface and management<a class="headerlink" href="#interface-and-management" title="Permanent link">Link</a></h2>
+<h1 id="the-carrier-module-carm">The Carrier module (CARM)<a class="headerlink" href="#the-carrier-module-carm" title="Permanent link">Link</a></h1>
+<p><img alt="" src="/assets/images/farmersDashboard/cablebot.jpg" /></p>
+<p><strong>Size:</strong> 388mm x 216mm x 90<br />
+<strong>Weight:</strong> 1400gr<br />
+<strong>Max speed:</strong> 2m/s (software limited)<br />
+<strong>Max payload:</strong> 2500gr<br />
+<strong>Power consumption:</strong> 1.5Wh on rest, 45Wh normal operation.  </p>
+<p>The mobile carrier is an autonomous motion platform capable of travelling suspended on a single tensioned cable. It can be attached to the cable in a few seconds and controlled manually vie RF remote control. It integrates the Romi <a href="../camera/">Camera Module</a> as image capture device to allow remote operation and autonomous scanning and image upload. Includes <a href="../power/">Battery module</a> that recharges automatically in the <a href="../station/">Charging station module</a> while not scanning. </p>
 <p>The primary communication is achieved via Wi-Fi to interact with the farmer phone or laptop, the local farm server or to a remote instance through the internet. Wi-Fi ensures enough bandwidth is available to perform the image uploads as well as over-the-air software updates, and it eliminates the need for customized gateways. When a remote connection is required, and the farm does not have one, a Wi-Fi to 4G (or 5G) gateway is located in the recharging station at the cable end. </p>
+<p><img alt="" src="/assets/images/farmersDashboard/Comm_Diagram.png" /></p>
 
               
             </article>

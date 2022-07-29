@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#controller-board" class="md-skip">
+        <a href="#camera-module" class="md-skip">
           Skip to content
         </a>
       
@@ -414,14 +414,14 @@
       
       
         <label class="md-nav__link" for="__nav_3_2_2">
-          Mobile Carrier
+          Carrier Module
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Mobile Carrier" data-md-level="3">
+      <nav class="md-nav" aria-label="Carrier Module" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_2_2">
           <span class="md-nav__icon md-icon"></span>
-          Mobile Carrier
+          Carrier Module
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -459,8 +459,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../electronics/" class="md-nav__link">
-        Electronics
+      <a href="../motion/" class="md-nav__link">
+        Motion System
       </a>
     </li>
   
@@ -473,8 +473,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../tension/" class="md-nav__link">
-        Dinamyc Tension
+      <a href="../electronics/" class="md-nav__link">
+        Electronics
       </a>
     </li>
   
@@ -509,7 +509,7 @@
   
     <li class="md-nav__item">
       <a href="../station/" class="md-nav__link">
-        Charging Station (In development)
+        Charging Station
       </a>
     </li>
   
@@ -528,6 +528,8 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           Camera Module
@@ -543,6 +545,8 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
+  
+    
   
   
     <label class="md-nav__title" for="__toc">
@@ -597,6 +601,95 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_5" type="checkbox" id="__nav_3_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2_5">
+          How to build the cablebot
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="How to build the cablebot" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          How to build the cablebot
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building/" class="md-nav__link">
+        Get the pieces
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assembly/" class="md-nav__link">
+        Assembly instructions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        Install the software
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../use/" class="md-nav__link">
+        How to use the cablebot
+      </a>
     </li>
   
 
@@ -2617,14 +2710,19 @@
                 
 
 
-  <h1>Camera Module</h1>
-
-<p><img alt="" src="/assets/images/farmersDashboard/camera-explode.png" /></p>
-<p>Both the Cablebot and the Scanner require a reliable camera module, although the usage in both cases is slightly different:</p>
-<p>For the <strong>Scanner</strong>, the camera is positioned at a given angle. The movement from angle position to the next is relativement infrequent and slow.</p>
-<p>For the <strong>Cablebot</strong>, the camera must adjust in real-time for swinging movements of the system.</p>
+<h1 id="camera-module">Camera module<a class="headerlink" href="#camera-module" title="Permanent link">Link</a></h1>
+<p><img alt="" src="/assets/images/farmersDashboard/CAMM.jpg" /></p>
+<p><strong>Size:</strong> 148mm x 143mm x 63mm<br />
+<strong>Weight:</strong> 560gr<br />
+<strong>CMOS sensor:</strong> 12.3 mp, Sony IMX477 sensor.<br />
+<strong>Optics:</strong> Support for C- and CS-mount lenses.<br />
+<strong>Networking:</strong> Wi-Fi 2.4GHz 802.11 b/g/n<br />
+<strong>Interfaces:</strong> UART Serial, I2C, SWD.  </p>
+<p>Both the Cablebot and the Scanner require a reliable camera module, although the usage in both cases is slightly different
+For the <strong>Scanner</strong>, the camera is positioned at a given angle. The movement from angle position to the next is relativement infrequent and slow.
+For the <strong>Cablebot</strong>, the camera must adjust in real-time for swinging movements of the system.</p>
 <h2 id="controller-board">Controller board<a class="headerlink" href="#controller-board" title="Permanent link">Link</a></h2>
-<p><img alt="" src="/assets/images/farmersDashboard/camera-brushless-controller.png" /></p>
+<p><img alt="" src="/assets/images/farmersDashboard/cablebot_camera_components.png" /></p>
 <p>We decided to use a brushless motor, as is the custom in camera mount systems. We designed a controller board that exploits the functions offered by the TI DRV8313 chip. The DRV8313 requires as an input three Pulse Width Modulation signals (PWM) that encode the phase of each of the three voltages applied to the solenoids of the brushless motor. </p>
 <p>The control software is integrated into the code for the Romi Rover: <a href="https://github.com/romi/romi-rover-build-and-test/tree/ci_dev/romi-rover/gimbal_bldc">https://github.com/romi/romi-rover-build-and-test/tree/ci_dev/romi-rover/gimbal_bldc</a> 
 The design files can be found at <a href="https://github.com/romi/bldc_featherwing">https://github.com/romi/bldc_featherwing</a> </p>
@@ -2640,18 +2738,8 @@ The design files can be found at <a href="https://github.com/romi/bldc_featherwi
 <h2 id="wiring">Wiring<a class="headerlink" href="#wiring" title="Permanent link">Link</a></h2>
 <p>We had recurring problems with the cabling of the cameras in our previous solutions. The micro USB connectors were not reliable enough and often lost contact. The transmission of the power and the communication over a long USB cable often failed (power drop, broken serial link). We therefore choose to bring a 12V cable to the camera, connect it over a sturdy plug, and include a DC-DC converter inside the camera. Also, we use the WiFi functionality offered by the Raspberry Pi Zero W to send commands and download the images.</p>
 <h2 id="housing">Housing<a class="headerlink" href="#housing" title="Permanent link">Link</a></h2>
-<p><img alt="" src="/assets/images/farmersDashboard/camera-housing.png" /></p>
-<p>A housing was designed that can be made using a 3D printer.
-Control software: A firmware for the microcontroller board was written. The code has been integrated into the Romi Rover code repository so that it can be shared among all devices (Cablebot, Scanner, and Rover). The control software reuses the network functionality provided by the Rcom library developed in WP2 and the camera functions are accessible using standard web technology (HTTP and WebSockets).</p>
-<p><img alt="" src="/assets/images/farmersDashboard/camera-preliminary-cablebot.jpg" /></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Camera module tests on cablebot carrier</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The camera module is is still on testing.</p>
-</div>
+<p>A housing was designed that follows the same production principles used in other coblebot components.</p>
+<p><img alt="" src="/assets/images/farmersDashboard/despiece_CAMM.png" /></p>
 
               
             </article>
@@ -2665,7 +2753,7 @@ Control software: A firmware for the microcontroller board was written. The code
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../station/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Charging Station (In development)" rel="prev">
+        <a href="../station/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Charging Station" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2674,20 +2762,20 @@ Control software: A firmware for the microcontroller board was written. The code
               <span class="md-footer__direction">
                 Previous
               </span>
-              Charging Station (In development)
+              Charging Station
             </div>
           </div>
         </a>
       
       
         
-        <a href="../pipeline/" class="md-footer__link md-footer__link--next" aria-label="Next: Crops Insights Pipeline" rel="next">
+        <a href="../building/" class="md-footer__link md-footer__link--next" aria-label="Next: Get the pieces" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Crops Insights Pipeline
+              Get the pieces
             </div>
           </div>
           <div class="md-footer__button md-icon">
