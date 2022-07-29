@@ -2796,7 +2796,7 @@ Parameters in the <code>pipeline.toml</code> associated to the task must be defi
 <p>By default the <code>upstream_task</code> parameter of <code>CylinderRadiusEvaluation</code> is <code>CylinderRadiusGroundTruth</code></p>
 </div>
 <p>With the following command line:
-<div class="highlight"><pre><span></span><code>romi_run_task CylinderRadiusEvaluation /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml
+<div class="highlight"><pre><span></span><code>romi_run_task CylinderRadiusEvaluation /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml --module plant3dvision.tasks.evaluation
 </code></pre></div></p>
 <p>The <code>CylinderRadiusEvaluation.json</code> can be found in the <code>CylinderRadiusEvaluation__</code> fileset with the output results:
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
@@ -2808,7 +2808,7 @@ Parameters in the <code>pipeline.toml</code> associated to the task must be defi
 <h3 id="evaluate-the-evaluation-task">Evaluate the evaluation task<a class="headerlink" href="#evaluate-the-evaluation-task" title="Permanent link">Link</a></h3>
 <p>To see whether the evaluation is actually precise or not, a <code>CylinderRadiusGroundTruth</code> has been developed.
 It produces a ground truth point cloud cylinder with random dimensions (height and radius) and can be run the same way as any other task:
-<div class="highlight"><pre><span></span><code>romi_run_task CylinderRadiusGroundTruth /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml
+<div class="highlight"><pre><span></span><code>romi_run_task CylinderRadiusGroundTruth /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml 
 </code></pre></div></p>
 
               

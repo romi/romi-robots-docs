@@ -2623,29 +2623,58 @@
 <li>make sure the usb cable from the X-Controller board is unplugged from your computer</li>
 <li>run <code>dmesg -w</code> in a terminal</li>
 <li>connect the usb to your computer and see something like:
-    <div class="highlight"><pre><span></span><code><span class="o">[</span><span class="m">70480</span>.940181<span class="o">]</span> usb <span class="m">1</span>-2: new full-speed USB device number <span class="m">31</span> using xhci_hcd
-<span class="o">[</span><span class="m">70481</span>.090857<span class="o">]</span> usb <span class="m">1</span>-2: New USB device found, <span class="nv">idVendor</span><span class="o">=</span>2a03, <span class="nv">idProduct</span><span class="o">=</span><span class="m">0043</span>, <span class="nv">bcdDevice</span><span class="o">=</span> <span class="m">0</span>.01
-<span class="o">[</span><span class="m">70481</span>.090862<span class="o">]</span> usb <span class="m">1</span>-2: New USB device strings: <span class="nv">Mfr</span><span class="o">=</span><span class="m">1</span>, <span class="nv">Product</span><span class="o">=</span><span class="m">2</span>, <span class="nv">SerialNumber</span><span class="o">=</span><span class="m">220</span>
-<span class="o">[</span><span class="m">70481</span>.090865<span class="o">]</span> usb <span class="m">1</span>-2: Product: Arduino Uno
-<span class="o">[</span><span class="m">70481</span>.090868<span class="o">]</span> usb <span class="m">1</span>-2: Manufacturer: Arduino Srl            
-<span class="o">[</span><span class="m">70481</span>.090871<span class="o">]</span> usb <span class="m">1</span>-2: SerialNumber: 554313131383512001F0
-<span class="o">[</span><span class="m">70481</span>.093408<span class="o">]</span> cdc_acm <span class="m">1</span>-2:1.0: ttyACM0: USB ACM device
+    <div class="highlight"><pre><span></span><code><span class="o">[</span><span class="m">42063</span>.157605<span class="o">]</span> usb <span class="m">1</span>-2: new full-speed USB device number <span class="m">7</span> using xhci_hcd
+<span class="o">[</span><span class="m">42063</span>.313985<span class="o">]</span> usb <span class="m">1</span>-2: New USB device found, <span class="nv">idVendor</span><span class="o">=</span><span class="m">0403</span>, <span class="nv">idProduct</span><span class="o">=</span><span class="m">6001</span>, <span class="nv">bcdDevice</span><span class="o">=</span> <span class="m">6</span>.00
+<span class="o">[</span><span class="m">42063</span>.313991<span class="o">]</span> usb <span class="m">1</span>-2: New USB device strings: <span class="nv">Mfr</span><span class="o">=</span><span class="m">1</span>, <span class="nv">Product</span><span class="o">=</span><span class="m">2</span>, <span class="nv">SerialNumber</span><span class="o">=</span><span class="m">3</span>
+<span class="o">[</span><span class="m">42063</span>.313995<span class="o">]</span> usb <span class="m">1</span>-2: Product: X-Controller
+<span class="o">[</span><span class="m">42063</span>.313997<span class="o">]</span> usb <span class="m">1</span>-2: Manufacturer: Inventables
+<span class="o">[</span><span class="m">42063</span>.314000<span class="o">]</span> usb <span class="m">1</span>-2: SerialNumber: XCONTROLLER6CFIRF
+<span class="o">[</span><span class="m">42063</span>.317878<span class="o">]</span> ftdi_sio <span class="m">1</span>-2:1.0: FTDI USB Serial Device converter detected
+<span class="o">[</span><span class="m">42063</span>.317954<span class="o">]</span> usb <span class="m">1</span>-2: Detected FT232RL
+<span class="o">[</span><span class="m">42063</span>.318915<span class="o">]</span> usb <span class="m">1</span>-2: FTDI USB Serial Device converter now attached to ttyUSB0
 </code></pre></div></li>
 </ol>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The important info here is <code>ttyACM0</code>!</p>
+<p>The important info here is <code>ttyUSB0</code>!</p>
 </div>
 <h2 id="connect-with-picocom">Connect with <code>picocom</code><a class="headerlink" href="#connect-with-picocom" title="Permanent link">Link</a></h2>
 <p>Then you can use <a href="https://github.com/npat-efault/picocom">picocom</a> to connect to the board:</p>
-<div class="highlight"><pre><span></span><code>picocom /dev/ttyACM0 -b <span class="m">115200</span>
+<div class="highlight"><pre><span></span><code>picocom /dev/ttyUSB0 -b <span class="m">115200</span> --omap crcrlf
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>-b 115200</code> is the baudrate of the connection, read the <a href="https://linux.die.net/man/8/picocom">picocom man page</a> for more info.</p>
+<p><code>-b 115200</code> is the baudrate of the connection, read the <a href="https://linux.die.net/man/8/picocom">picocom man page</a> for more info.
+<code>--omap crcrlf</code> is mapping the serial output from <code>CR</code> to <code>CR+LF</code>.</p>
 </div>
 <p>Once connected you should see something like:</p>
-<div class="highlight"><pre><span></span><code>picocom v2.2
+<div class="highlight"><pre><span></span><code>picocom v3.1
+
+port is        : /dev/ttyUSB0
+flowcontrol    : none
+baudrate is    : <span class="m">115200</span>
+parity is      : none
+databits are   : <span class="m">8</span>
+stopbits are   : <span class="m">1</span>
+escape is      : C-a
+<span class="nb">local</span> <span class="nb">echo</span> is  : no
+noinit is      : no
+noreset is     : no
+hangup is      : no
+nolock is      : no
+send_cmd is    : sz -vv
+receive_cmd is : rz -vv -E
+imap is        : 
+omap is        : 
+emap is        : crcrlf,delbs,
+logfile is     : none
+initstring     : none
+exit_after is  : not <span class="nb">set</span>
+<span class="nb">exit</span> is        : no
+
+Type <span class="o">[</span>C-a<span class="o">]</span> <span class="o">[</span>C-h<span class="o">]</span> to see available commands
+Terminal ready
+<span class="c1">#_Init OK:00f7</span>
 </code></pre></div>
 <p>This mean you now have access to a <code>Oquam</code> terminal to communicate, notably send instructions, to the CNC!</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">Link</a></h2>

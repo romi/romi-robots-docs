@@ -1405,9 +1405,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#x-carve-controller-wiring" class="md-nav__link">
-    X-Carve controller wiring
+  <a href="#x-carve-controller" class="md-nav__link">
+    X-Carve controller
   </a>
+  
+    <nav class="md-nav" aria-label="X-Carve controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wiring_1" class="md-nav__link">
+    Wiring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test_1" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2644,7 +2664,7 @@
 
 <h1 id="pan-arm-electronics">Pan arm electronics<a class="headerlink" href="#pan-arm-electronics" title="Permanent link">Link</a></h1>
 <h2 id="pan-motor">Pan motor<a class="headerlink" href="#pan-motor" title="Permanent link">Link</a></h2>
-<p>We replaced the original z-axis stepper motor has been replaced by an hollow shaft stepper motor from <em>stepperonline</em> <code>23HS18-2004H</code>.
+<p>We replaced the original z-axis stepper motor by an hollow shaft stepper motor from <em>stepperonline</em> <code>23HS18-2004H</code>.
 Full specifications can be accessed <a href="https://www.omc-stepperonline.com/fr/biaxial-nema-23-arbre-creux-moteur-pas-a-pas-bipolar-0-78-nm-110-5oz-in-2-0a-57x57x45mm-23hs18-2004h">here</a>.</p>
 <p>Wiring of <code>23HS18-2004H</code>:</p>
 <table>
@@ -2712,36 +2732,52 @@ From our tests, it seems very stable at 360.</p>
 <li>set the resolution to <code>360</code>.</li>
 <li>make sure you then align the <code>0</code> again after you change resolution.</li>
 </ul>
-<p>If that does not work:
-* Drink a beer
-* Try again
-* Repeat as necessary.</p>
+<p>If that does not work:</p>
+<ul>
+<li>Drink a beer</li>
+<li>Try again</li>
+<li>Repeat as necessary.</li>
+</ul>
 <h3 id="testing-with-an-arduino">Testing with an Arduino<a class="headerlink" href="#testing-with-an-arduino" title="Permanent link">Link</a></h3>
 <h4 id="wiring">Wiring<a class="headerlink" href="#wiring" title="Permanent link">Link</a></h4>
+<p>To test the encoder with an Arduino UNO, wire the encoder a follows:</p>
 <ul>
 <li>Encoder Pin 12 Z+ (blue) -&gt; Arduino Pin 11</li>
 <li>Encoder Pin 13 Z- (blue &amp; white) -&gt; Arduino GND</li>
 <li>Encoder Pin 04 GND (green &amp; Brown) -&gt; Arduino GND</li>
 <li>Encoder Pin 06 +5V (red) -&gt; Arduino +5</li>
 </ul>
+<p>You can also wire two switches to PIN9 &amp; GND and to PIN10 and GND of the UNO.
+It is also possible to wire just one switch and swap PINs during the homing procedure, but beware of shortcuts.</p>
 <h4 id="test">Test<a class="headerlink" href="#test" title="Permanent link">Link</a></h4>
+<p>To test the encoder, we recommend to use the <em>serial monitor</em> of the Arduino IDE as you can select <code>Both NL &amp; CR</code> as EOL.</p>
 <ol>
 <li>Pull the Arduino script <code>libromi/firmware/Oquam/Oquam.ino</code> from the <code>encoder_z</code> branch of the <code>libromi</code> repository.</li>
-<li>Then build / upload.</li>
-<li>Then with <code>picocom</code> send:
-    <div class="highlight"><pre><span></span><code><span class="c1">#h[-1,-1,2]</span>
-<span class="c1">#H</span>
+<li>Then build / upload, refers to the detailed flashing <a href="../flashing_oquam/#flash-the-firmware">instructions</a>.</li>
+<li>Using the <em>serial monitor</em> of the Arduino IDE, deactivate the X &amp; Y axes (disables axes <code>0</code> &amp; <code>1</code>, and enables <code>2</code>) by sending:
+    <div class="highlight"><pre><span></span><code><span class="c1">#h[-1,-1,2]:xxxx</span>
+</code></pre></div></li>
+<li>Then test the homing procedure for the theta axis by sending:
+    <div class="highlight"><pre><span></span><code><span class="c1">#H:xxxx</span>
 </code></pre></div>
-    The first one disables Axis 0, 1, and enables 2 (disable X, Y enable Z).
-    Then while waiting for homing turn the encoder.
-    You will see 3 homing complete messages.</li>
-<li>Once this works, you can send:
-    <div class="highlight"><pre><span></span><code><span class="c1">#h[0,1,2]</span>
-<span class="c1">#H</span>
+    While the board is <em>waiting for homing</em>, turn the encoder, once you hit the <code>0</code> you will see a "homing complete" message.</li>
+<li>Now, let's try to home all axis. So activate all of them with:
+    <div class="highlight"><pre><span></span><code><span class="c1">#h[0,1,2]:xxxx</span>
+</code></pre></div></li>
+<li>Then test the homing procedure for all axes by sending:
+    <div class="highlight"><pre><span></span><code><span class="c1">#H:xxxx</span>
 </code></pre></div>
-    The X-Carve should home as normal (X &amp; Y axes) and then you turn the encoder and when it hits home it should stop the homing process.</li>
+    While the board is <em>waiting for homing</em>, press the X switch, then the Y switch and finally turn the encoder.
+    When you release the switches you will see a "homing complete" message.
+    Again, with the encoder, once you hit the <code>0</code> you will see a "homing complete" message.</li>
 </ol>
-<h3 id="x-carve-controller-wiring">X-Carve controller wiring<a class="headerlink" href="#x-carve-controller-wiring" title="Permanent link">Link</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <code>RomiSerial</code> expect both "newline" (NL) AND "carriage return" (CR)!
+So you have to select <code>Both NL &amp; CR</code> instead of the default <code>Newline</code> in the serial monitor of the Arduino IDE.</p>
+</div>
+<h3 id="x-carve-controller">X-Carve controller<a class="headerlink" href="#x-carve-controller" title="Permanent link">Link</a></h3>
+<h4 id="wiring_1">Wiring<a class="headerlink" href="#wiring_1" title="Permanent link">Link</a></h4>
 <p>Simply wire the rotary encoder Z+/Z- pins to the red/black Z-limit wires:</p>
 <ul>
 <li>Encoder Pin 12 Z+ (blue) -&gt; red Z-limit wire of the X-Carve controller</li>
@@ -2749,6 +2785,18 @@ From our tests, it seems very stable at 360.</p>
 <li>Encoder Pin 04 GND (green &amp; Brown) -&gt; black wire (-) of the 24/5V DC converter</li>
 <li>Encoder Pin 06 +5V (red) -&gt; red wire (+) of the 24/5V DC converter</li>
 </ul>
+<h4 id="test_1">Test<a class="headerlink" href="#test_1" title="Permanent link">Link</a></h4>
+<p>With the <code>Oquam</code> firmware flashed on the X-Controller (instructions <a href="../flashing_oquam/">here</a>) and the correct wiring:</p>
+<ol>
+<li>Open the Arduino IDE</li>
+<li>Plug the USB from the X-Controller to your computer</li>
+<li>Select the right USB port (assume <code>ttyUSB0</code>)</li>
+<li>Open the <em>serial monitor</em> of the Arduino IDE, select <code>Both NL &amp; CR</code>, send:
+    <div class="highlight"><pre><span></span><code><span class="c1">#h[0,1,2]:xxxx</span>
+<span class="c1">#H:xxxx</span>
+</code></pre></div>
+    The X-Carve should home X &amp; Y axes, then you turn the encoder and when it hits home it should stop the homing process.</li>
+</ol>
 
               
             </article>
