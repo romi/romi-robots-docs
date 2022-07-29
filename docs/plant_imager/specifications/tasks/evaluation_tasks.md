@@ -133,7 +133,7 @@ upstream_task = "PointCloud"
 
 With the following command line:
 ```shell
-romi_run_task CylinderRadiusEvaluation /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml
+romi_run_task CylinderRadiusEvaluation /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml --module plant3dvision.tasks.evaluation
 ```
 
 The `CylinderRadiusEvaluation.json` can be found in the `CylinderRadiusEvaluation__` fileset with the output results:
@@ -149,5 +149,5 @@ The `CylinderRadiusEvaluation.json` can be found in the `CylinderRadiusEvaluatio
 To see whether the evaluation is actually precise or not, a `CylinderRadiusGroundTruth` has been developed.
 It produces a ground truth point cloud cylinder with random dimensions (height and radius) and can be run the same way as any other task:
 ```shell
-romi_run_task CylinderRadiusGroundTruth /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml
+romi_run_task CylinderRadiusGroundTruth /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml 
 ```

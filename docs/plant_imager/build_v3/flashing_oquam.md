@@ -57,7 +57,7 @@ Plug the USB cable and select the right USB port to upload to using `Tools > Por
 
 See [find the USB port](#find-the-usb-port) to determine which port the X-Controller is connected to.
 
-### Finally flash the firmware
+### Flash the firmware
 You may now flash the firmware with the :material-arrow-right-bold-circle: icon below the main menu.
 
 Wait for the IDE to indicate `Done uploading` on the status bar at the bottom right of the IDE window.
