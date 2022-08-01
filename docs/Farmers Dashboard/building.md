@@ -4,14 +4,7 @@
 
 ![](/assets/images/farmersDashboard/printing.jpg)
 
-- 3d printing advice
-- materials
-- slicing recomendations
-
-imagen de la prusa imprimiendo...
-
 ![](/assets/images/farmersDashboard/printed_line_orange.png)
-
 
 ## Milling
 
