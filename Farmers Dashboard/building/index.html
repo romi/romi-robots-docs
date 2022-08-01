@@ -573,67 +573,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Get the pieces
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         Get the pieces
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#3d-print" class="md-nav__link">
-    3d print
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#milling" class="md-nav__link">
-    Milling
-  </a>
-  
-    <nav class="md-nav" aria-label="Milling">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#aluminum-composite" class="md-nav__link">
-    Aluminum composite
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#hdpe" class="md-nav__link">
-    HDPE
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -2705,11 +2647,11 @@
 
 
 <h1 id="get-the-pieces">Get the pieces<a class="headerlink" href="#get-the-pieces" title="Permanent link">Link</a></h1>
-<h2 id="3d-print">3d print<a class="headerlink" href="#3d-print" title="Permanent link">Link</a></h2>
+<h1 id="3d-print">3d print<a class="headerlink" href="#3d-print" title="Permanent link">Link</a></h1>
 <p><img alt="" src="/assets/images/farmersDashboard/printing.jpg" /></p>
 <p><img alt="" src="/assets/images/farmersDashboard/printed_line_orange.png" /></p>
-<h2 id="milling">Milling<a class="headerlink" href="#milling" title="Permanent link">Link</a></h2>
-<h3 id="aluminum-composite">Aluminum composite<a class="headerlink" href="#aluminum-composite" title="Permanent link">Link</a></h3>
+<h1 id="milling">Milling<a class="headerlink" href="#milling" title="Permanent link">Link</a></h1>
+<h2 id="aluminum-composite">Aluminum composite<a class="headerlink" href="#aluminum-composite" title="Permanent link">Link</a></h2>
 <p>Some cablebot parts are milled in a composite panel consisting of two aluminium cover sheets and a polymer core, this material can also be bended if cutted at specific depth with a 90 degrees V end mill. In the cablebot <a href="https://github.com/romi/romi-cablebot/tree/main/Hardware/Milled-Alucobond">repository</a> you can find all the parts as DXF files. Gcode has to be generated with specific settings for the used CNC machine.</p>
 <p><img alt="" src="/assets/images/farmersDashboard/milling_.jpg" /></p>
 <p>Feeds and speeds for V - Curve milling bit to bend alucobond</p>
@@ -2749,7 +2691,49 @@
 </tbody>
 </table>
 <p><img alt="" src="/assets/images/farmersDashboard/alucobond_line_grey.png" /></p>
-<h3 id="hdpe">HDPE<a class="headerlink" href="#hdpe" title="Permanent link">Link</a></h3>
+<h2 id="gcode-generation">Gcode generation<a class="headerlink" href="#gcode-generation" title="Permanent link">Link</a></h2>
+<p>In the Romi Cablebot github <a href="https://github.com/romi/romi-cablebot/tree/main/Hardware/Milled-Alucobond">repository</a> you can find all the drawings (in DXF format) to generate the needed gcode. In the files you will find different layers depending on the operation and the depth, in this example you can see the layer called <em>vcut</em> for the folding marks, <em>pocket-0.95mm</em> indicates a pocketing operation with a depth of 0.95 mm and <em>profiling</em> to cut the piece. Keep in mind that you will need to add bridges on your piece, so it doesn't move during machining, this process is different depending on the CAM software you use.</p>
+<p><img alt="" src="/assets/images/farmersDashboard/dxf.png" /></p>
+<h2 id="generating-gcode-in-blender">Generating Gcode in Blender<a class="headerlink" href="#generating-gcode-in-blender" title="Permanent link">Link</a></h2>
+<p><a href="https://github.com/vilemduha/blendercam">Blendercam</a> is a free/libre addon that allows gcode generation inside blender, in this way we avoid the use of extra software and model exporting. Don't forget to check their  <a href="https://github.com/vicobarberan/blendercam#-how-to-use-wiki">documentation</a>.</p>
+<p>To use it you need to clone the addon repository to some place in your computer:</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/vilemduha/blendercam
+</code></pre></div>
+<p>Some python dependencies sould also be installed, you can do it with pip from the command line:</p>
+<div class="highlight"><pre><span></span><code>$ ./pip3 install shapely
+$ ./pip3 install vtk
+$ ./pip3 install Equation
+</code></pre></div>
+<p><a href="https://github.com/aewallin/opencamlib">OpenCamLib</a> is an optional dependency, but based on our tests we recommend its installation.</p>
+<p>To activate the addon, in Blender, open the <em>Preferences</em> window (<em>edit → preferences</em>).<br />
+Clik on <em>File Paths</em> button and enter the path where you cloned the blender CAM repository in the <em>Scripts</em> field.</p>
+<p><img alt="" src="/assets/images/farmersDashboard/blender-preferences.png" /></p>
+<p>Save perferences and restart blender. Now enable it in <em>Add-ons</em> section (preferences window).</p>
+<p><img alt="" src="/assets/images/farmersDashboard/blender-addons.png" /></p>
+<h3 id="adding-a-post-processor">Adding a post processor<a class="headerlink" href="#adding-a-post-processor" title="Permanent link">Link</a></h3>
+<p>After installing the addon you will need a postprocessor script that works with your specific CNC machine. If none of the included ones works for you, you can easily create your own:</p>
+<p><strong>1.</strong> Modify <code>scripts/addons/cam/__init__.py</code> and add a new <em>item</em> on the <strong>machineSettings</strong> class (around line 125):</p>
+<p><img alt="" src="/assets/images/farmersDashboard/postprocessor.png" /></p>
+<p><strong>2.</strong> Create a new file in <code>scripts/addons/cam/nc/</code> directory with your post processor name. (ej. <code>raptor.py</code>). You can copy an existing postprocessor and modify it to fit your needs.</p>
+<p><strong>3.</strong> Modify <code>scripts/addons/cam/gcodepath.py</code>, search for the <code>exportGcodePath()</code> function and add a condition for your post processor where you specify the extension of the file and the name of the module you just created on step 2.</p>
+<p>There is example commit on what's needed to add a postprocessor <a href="https://github.com/vilemduha/blendercam/pull/122/files">here</a>. It is a little outdated (use <code>gcodepath.py</code> instead of <code>utils.py</code>) but can be used as a general guide.</p>
+<h3 id="steps-to-get-folding-traces">Steps to get folding traces<a class="headerlink" href="#steps-to-get-folding-traces" title="Permanent link">Link</a></h3>
+<p>As an example on how to get the proper traces for alucobond milling with folding parts.</p>
+<p><strong>1.</strong> With the object cutting side pointing up, duplicate it and <strong>rotate 90º</strong> with the bottom corner as rotation point.</p>
+<p><img alt="" src="/assets/images/farmersDashboard/folding01.png" width="300" /></p>
+<p><strong>2.</strong> Displace the duplicated part <strong>2mm towards the center</strong>. That's one millimeter per side of the folding axis.</p>
+<p><img alt="" src="/assets/images/farmersDashboard/folding02.png" width="300" /></p>
+<p><strong>3.</strong> Repeat both steps on the other side</p>
+<p><img alt="" src="/assets/images/farmersDashboard/folding03.png" width="300" /> <img alt="" src="/assets/images/farmersDashboard/folding04.png" width="300" /></p>
+<p><strong>4.</strong> Create a line at 1mm from the part border (centered between both pieces)</p>
+<p><img alt="" src="/assets/images/farmersDashboard/folding05.png" width="300" /></p>
+<p><strong>5.</strong> Repeat the process for the other side, now you have the V cutt milling traces</p>
+<p><img alt="" src="/assets/images/farmersDashboard/folding06.png" width="300" /></p>
+<p><strong>6.</strong> Join the two parts, remove the vertices outside the bottom layer and create a bridge to join both parts.
+This paths should be -2.2mm from the surface of the material (leaving a thikness of 0.8mm after cutting)</p>
+<p><img alt="" src="/assets/images/farmersDashboard/folding07.png" width="300" /></p>
+<p>Now you can process the part with blendercam to get the gcode.</p>
+<h2 id="hdpe">HDPE<a class="headerlink" href="#hdpe" title="Permanent link">Link</a></h2>
 <p>For the tension adjusting slider some HDPE pieces need to be milled, the center piece is the more complicated since the milling has to be on both sides.</p>
 <p>Feeds and speeds for HDPE:</p>
 <table>
