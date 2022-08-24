@@ -131,6 +131,7 @@ nav:
             - 'Contribute to docs': 'plant_imager/developer/git_docReview.md'
             - 'Make a tutorial': 'plant_imager/developer/tutorial_template.md'
             - 'Conda': 'plant_imager/developer/conda.md'
+            - 'COLMAP': 'plant_imager/developer/colmap_cli.md'
             - 'Docker':
                 - 'Home': 'plant_imager/docker/index.md'
                 - 'Database': 'plant_imager/docker/plantdb_docker.md'
