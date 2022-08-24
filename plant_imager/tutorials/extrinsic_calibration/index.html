@@ -12,21 +12,21 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/Rover/api-nodes/">
+        <link rel="canonical" href="https://docs.romi-project.eu/plant_imager/tutorials/extrinsic_calibration/">
       
-      <link rel="icon" href="../../assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.2.11">
     
     
       
-        <title>Api nodes - ROMI Documentation</title>
+        <title>How to calibrate the Plant imager ? - ROMI Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8c5ef100.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.9647289d.min.css">
         
       
     
@@ -41,9 +41,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#api-of-the-nodes" class="md-skip">
+        <a href="#extrinsic-image-calibration" class="md-skip">
           Skip to content
         </a>
       
@@ -83,7 +83,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://romi-project.eu/" title="ROMI Documentation" class="md-header__button md-logo" aria-label="ROMI Documentation" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Api nodes
+              How to calibrate the Plant imager ?
             
           </span>
         </div>
@@ -174,7 +174,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../about/" class="md-tabs__link">
+    <a href="../../../about/" class="md-tabs__link">
       About
     </a>
   </li>
@@ -183,13 +183,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../documentation/" class="md-tabs__link">
+      <a href="../../../documentation/" class="md-tabs__link md-tabs__link--active">
         Documentation
       </a>
     </li>
@@ -202,7 +204,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../research/" class="md-tabs__link">
+    <a href="../../../research/" class="md-tabs__link">
       Research
     </a>
   </li>
@@ -217,7 +219,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../training/" class="md-tabs__link">
+      <a href="../../../training/" class="md-tabs__link">
         Training
       </a>
     </li>
@@ -230,7 +232,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../data/" class="md-tabs__link">
+    <a href="../../../data/" class="md-tabs__link">
       Data
     </a>
   </li>
@@ -242,7 +244,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../../glossary/" class="md-tabs__link">
+    <a href="../../../glossary/" class="md-tabs__link">
       Glossary
     </a>
   </li>
@@ -273,7 +275,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://romi-project.eu/" title="ROMI Documentation" class="md-nav__button md-logo" aria-label="ROMI Documentation" data-md-component="logo">
       
-  <img src="../../assets/images/logo.svg" alt="logo">
+  <img src="../../../assets/images/logo.svg" alt="logo">
 
     </a>
     ROMI Documentation
@@ -304,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         About
       </a>
     </li>
@@ -317,12 +319,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -345,7 +349,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../documentation/" class="md-nav__link">
+      <a href="../../../documentation/" class="md-nav__link">
         Robotics for micro-farms
       </a>
     </li>
@@ -385,7 +389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -425,7 +429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/bot/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/bot/" class="md-nav__link">
         Introduction
       </a>
     </li>
@@ -439,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/structure/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/structure/" class="md-nav__link">
         Structure
       </a>
     </li>
@@ -453,7 +457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/motion/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/motion/" class="md-nav__link">
         Motion System
       </a>
     </li>
@@ -467,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/electronics/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/electronics/" class="md-nav__link">
         Electronics
       </a>
     </li>
@@ -481,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/power/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/power/" class="md-nav__link">
         Power
       </a>
     </li>
@@ -502,7 +506,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/station/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/station/" class="md-nav__link">
         Charging Station
       </a>
     </li>
@@ -516,7 +520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/camera/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/camera/" class="md-nav__link">
         Camera Module
       </a>
     </li>
@@ -556,7 +560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/building/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/building/" class="md-nav__link">
         Get the pieces
       </a>
     </li>
@@ -570,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/assembly/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/assembly/" class="md-nav__link">
         Assembly instructions
       </a>
     </li>
@@ -584,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/install/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/install/" class="md-nav__link">
         Install the software
       </a>
     </li>
@@ -605,7 +609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/use/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/use/" class="md-nav__link">
         How to use the cablebot
       </a>
     </li>
@@ -619,7 +623,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/pipeline/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/pipeline/" class="md-nav__link">
         Crops Insights Pipeline
       </a>
     </li>
@@ -633,7 +637,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/app/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/app/" class="md-nav__link">
         Farmers Dashboard App
       </a>
     </li>
@@ -647,7 +651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/legacy/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/legacy/" class="md-nav__link">
         Legacy
       </a>
     </li>
@@ -694,7 +698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../../Rover/" class="md-nav__link">
         Index
       </a>
     </li>
@@ -708,7 +712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
+      <a href="../../../Rover/configuration/" class="md-nav__link">
         Configuration
       </a>
     </li>
@@ -722,7 +726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hardware/" class="md-nav__link">
+      <a href="../../../Rover/hardware/" class="md-nav__link">
         Hardware
       </a>
     </li>
@@ -736,7 +740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../manual/" class="md-nav__link">
+      <a href="../../../Rover/manual/" class="md-nav__link">
         Manual
       </a>
     </li>
@@ -750,7 +754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../software/" class="md-nav__link">
+      <a href="../../../Rover/software/" class="md-nav__link">
         Software
       </a>
     </li>
@@ -764,7 +768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../developer/" class="md-nav__link">
+      <a href="../../../Rover/developer/" class="md-nav__link">
         Developer
       </a>
     </li>
@@ -783,12 +787,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" checked>
       
       
       
@@ -811,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         Home
       </a>
     </li>
@@ -851,7 +857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/explanations/general_design/" class="md-nav__link">
+      <a href="../../explanations/general_design/" class="md-nav__link">
         General design
       </a>
     </li>
@@ -865,7 +871,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/explanations/masks/" class="md-nav__link">
+      <a href="../../explanations/masks/" class="md-nav__link">
         Mask
       </a>
     </li>
@@ -879,7 +885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/explanations/segmentation/" class="md-nav__link">
+      <a href="../../explanations/segmentation/" class="md-nav__link">
         Segmentation of images
       </a>
     </li>
@@ -926,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/modules/plantdb/" class="md-nav__link">
+      <a href="../../modules/plantdb/" class="md-nav__link">
         Plantdb
       </a>
     </li>
@@ -940,7 +946,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/modules/plant_3d_vision/" class="md-nav__link">
+      <a href="../../modules/plant_3d_vision/" class="md-nav__link">
         Plant 3d vision
       </a>
     </li>
@@ -954,7 +960,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/modules/plant_imager/" class="md-nav__link">
+      <a href="../../modules/plant_imager/" class="md-nav__link">
         Plant imager
       </a>
     </li>
@@ -968,7 +974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/modules/plant_3d_explorer/" class="md-nav__link">
+      <a href="../../modules/plant_3d_explorer/" class="md-nav__link">
         Plant 3d explorer
       </a>
     </li>
@@ -1008,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant-3d-explorer/" class="md-nav__link">
+      <a href="../../../plant-3d-explorer/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1022,7 +1028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant-3d-explorer/guide/" class="md-nav__link">
+      <a href="../../../plant-3d-explorer/guide/" class="md-nav__link">
         Guide
       </a>
     </li>
@@ -1076,7 +1082,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/" class="md-nav__link">
+      <a href="../../build_v2/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1090,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/alu_frame/" class="md-nav__link">
+      <a href="../../build_v2/alu_frame/" class="md-nav__link">
         Aluminium frame
       </a>
     </li>
@@ -1104,7 +1110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/cnc_frame/" class="md-nav__link">
+      <a href="../../build_v2/cnc_frame/" class="md-nav__link">
         CNC frame
       </a>
     </li>
@@ -1118,7 +1124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/cnc_electronics/" class="md-nav__link">
+      <a href="../../build_v2/cnc_electronics/" class="md-nav__link">
         CNC electronics
       </a>
     </li>
@@ -1132,7 +1138,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/cnc_communication/" class="md-nav__link">
+      <a href="../../build_v2/cnc_communication/" class="md-nav__link">
         CNC communication
       </a>
     </li>
@@ -1146,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/cnc_calibration/" class="md-nav__link">
+      <a href="../../build_v2/cnc_calibration/" class="md-nav__link">
         CNC calibration
       </a>
     </li>
@@ -1160,7 +1166,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/gimbal_setup/" class="md-nav__link">
+      <a href="../../build_v2/gimbal_setup/" class="md-nav__link">
         Gimbal assembly
       </a>
     </li>
@@ -1174,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/gimbal_communication/" class="md-nav__link">
+      <a href="../../build_v2/gimbal_communication/" class="md-nav__link">
         Gimbal communication
       </a>
     </li>
@@ -1188,7 +1194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/picamera_setup/" class="md-nav__link">
+      <a href="../../build_v2/picamera_setup/" class="md-nav__link">
         PiCamera setup
       </a>
     </li>
@@ -1202,7 +1208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/troubleshooting/" class="md-nav__link">
+      <a href="../../build_v2/troubleshooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -1249,7 +1255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/" class="md-nav__link">
+      <a href="../../build_v3/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1263,7 +1269,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/alu_frame/" class="md-nav__link">
+      <a href="../../build_v3/alu_frame/" class="md-nav__link">
         Aluminium frame
       </a>
     </li>
@@ -1277,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/cnc_frame/" class="md-nav__link">
+      <a href="../../build_v3/cnc_frame/" class="md-nav__link">
         CNC frame
       </a>
     </li>
@@ -1291,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/frame_cnc/" class="md-nav__link">
+      <a href="../../build_v3/frame_cnc/" class="md-nav__link">
         Frame & CNC
       </a>
     </li>
@@ -1305,7 +1311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/enclosure/" class="md-nav__link">
+      <a href="../../build_v3/enclosure/" class="md-nav__link">
         Enclosure
       </a>
     </li>
@@ -1319,7 +1325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/cnc_electronics/" class="md-nav__link">
+      <a href="../../build_v3/cnc_electronics/" class="md-nav__link">
         CNC electronics
       </a>
     </li>
@@ -1333,7 +1339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/flashing_oquam/" class="md-nav__link">
+      <a href="../../build_v3/flashing_oquam/" class="md-nav__link">
         Flashing Oquam
       </a>
     </li>
@@ -1347,7 +1353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/cnc_communication/" class="md-nav__link">
+      <a href="../../build_v3/cnc_communication/" class="md-nav__link">
         CNC communication
       </a>
     </li>
@@ -1361,7 +1367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/pan_arm/" class="md-nav__link">
+      <a href="../../build_v3/pan_arm/" class="md-nav__link">
         Pan Arm
       </a>
     </li>
@@ -1375,7 +1381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/cnc_arm/" class="md-nav__link">
+      <a href="../../build_v3/cnc_arm/" class="md-nav__link">
         CNC & Pan Arm
       </a>
     </li>
@@ -1389,7 +1395,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/manual_gimbal/" class="md-nav__link">
+      <a href="../../build_v3/manual_gimbal/" class="md-nav__link">
         Manual Gimball
       </a>
     </li>
@@ -1403,7 +1409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/pan_electronics/" class="md-nav__link">
+      <a href="../../build_v3/pan_electronics/" class="md-nav__link">
         Pan electronics
       </a>
     </li>
@@ -1417,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/picamera/" class="md-nav__link">
+      <a href="../../build_v3/picamera/" class="md-nav__link">
         PiCamera
       </a>
     </li>
@@ -1431,7 +1437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/boms/" class="md-nav__link">
+      <a href="../../build_v3/boms/" class="md-nav__link">
         Complete BOMs
       </a>
     </li>
@@ -1445,7 +1451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/resources/" class="md-nav__link">
+      <a href="../../build_v3/resources/" class="md-nav__link">
         Resources
       </a>
     </li>
@@ -1492,7 +1498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/" class="md-nav__link">
+      <a href="../../install/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1506,7 +1512,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/create_env/" class="md-nav__link">
+      <a href="../../install/create_env/" class="md-nav__link">
         Create python environments
       </a>
     </li>
@@ -1520,7 +1526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/plantdb_setup/" class="md-nav__link">
+      <a href="../../install/plantdb_setup/" class="md-nav__link">
         Database setup
       </a>
     </li>
@@ -1534,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/plant_imager_setup/" class="md-nav__link">
+      <a href="../../install/plant_imager_setup/" class="md-nav__link">
         Plant imager software setup
       </a>
     </li>
@@ -1548,7 +1554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/virtual_plant_setup/" class="md-nav__link">
+      <a href="../../install/virtual_plant_setup/" class="md-nav__link">
         Virtual plants scanner software setup
       </a>
     </li>
@@ -1562,7 +1568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/plant_reconstruction_setup/" class="md-nav__link">
+      <a href="../../install/plant_reconstruction_setup/" class="md-nav__link">
         Plant reconstruction software setup
       </a>
     </li>
@@ -1576,7 +1582,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/plant3dexplorer_setup/" class="md-nav__link">
+      <a href="../../install/plant3dexplorer_setup/" class="md-nav__link">
         plant-3d-explorer software setup
       </a>
     </li>
@@ -1595,12 +1601,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7" type="checkbox" id="__nav_3_4_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_7" type="checkbox" id="__nav_3_4_7" checked>
       
       
       
@@ -1623,7 +1631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1637,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/basics/" class="md-nav__link">
+      <a href="../basics/" class="md-nav__link">
         How to use the romi_run_task generic command ?
       </a>
     </li>
@@ -1651,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/hardware_scan/" class="md-nav__link">
+      <a href="../hardware_scan/" class="md-nav__link">
         How to make an acquisition with the Plant Imager ?
       </a>
     </li>
@@ -1665,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/intrinsic_calibration/" class="md-nav__link">
+      <a href="../intrinsic_calibration/" class="md-nav__link">
         How to calibrate the camera ?
       </a>
     </li>
@@ -1677,11 +1685,100 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/extrinsic_calibration/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          How to calibrate the Plant imager ?
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         How to calibrate the Plant imager ?
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objective" class="md-nav__link">
+    Objective
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisite" class="md-nav__link">
+    Prerequisite
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#principles-of-the-extrinsic-calibration-performed-here" class="md-nav__link">
+    Principles of the extrinsic calibration performed here
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-tutorial" class="md-nav__link">
+    Step-by-step tutorial
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-step tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-calibration-acquisition" class="md-nav__link">
+    1. Calibration acquisition
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-compute-circular-poses-from-path-lines-with-colmap" class="md-nav__link">
+    2. Compute circular poses from path lines with Colmap
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-reuse-the-poses-extracted-from-the-calibration-scan" class="md-nav__link">
+    3. (re)Use the poses extracted from the calibration scan
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1693,7 +1790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/virtual_plant_imager_single_dataset/" class="md-nav__link">
+      <a href="../virtual_plant_imager_single_dataset/" class="md-nav__link">
         How to evaluate an analysis in a virtual world (both virtual plant and imager) ? 
       </a>
     </li>
@@ -1707,7 +1804,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/virtual_plant_generate_analyze_visualize/" class="md-nav__link">
+      <a href="../virtual_plant_generate_analyze_visualize/" class="md-nav__link">
         How to generate, analyze and visualize virtual plant images using public docker containers
       </a>
     </li>
@@ -1721,7 +1818,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/virtual_plant_imager_large_dataset/" class="md-nav__link">
+      <a href="../virtual_plant_imager_large_dataset/" class="md-nav__link">
         How to generate large "virtual" training data for machine-learning ?
       </a>
     </li>
@@ -1735,7 +1832,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/reconstruct_scan/" class="md-nav__link">
+      <a href="../reconstruct_scan/" class="md-nav__link">
         How to reconstruct 3D data from images ?
       </a>
     </li>
@@ -1749,7 +1846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/plant-3d-explorer/" class="md-nav__link">
+      <a href="../plant-3d-explorer/" class="md-nav__link">
         How to view your results with plant-3d-explorer
       </a>
     </li>
@@ -1763,7 +1860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/Tutorial_sm-dtw_simulatephyllotaxis/" class="md-nav__link">
+      <a href="../Tutorial_sm-dtw_simulatephyllotaxis/" class="md-nav__link">
         How to evaluate an phyllotaxis measurement ? (case1) Use sm-dtw with simulated data
       </a>
     </li>
@@ -1810,7 +1907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/" class="md-nav__link">
+      <a href="../../how_to/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1824,7 +1921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/import_files/" class="md-nav__link">
+      <a href="../../how_to/import_files/" class="md-nav__link">
         Import external resources
       </a>
     </li>
@@ -1838,7 +1935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/create_new_task/" class="md-nav__link">
+      <a href="../../how_to/create_new_task/" class="md-nav__link">
         Create a new task
       </a>
     </li>
@@ -1852,7 +1949,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/create_new_evaluation_task/" class="md-nav__link">
+      <a href="../../how_to/create_new_evaluation_task/" class="md-nav__link">
         Create a new evaluation task
       </a>
     </li>
@@ -1899,7 +1996,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/" class="md-nav__link">
+      <a href="../../specifications/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1913,7 +2010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/data/" class="md-nav__link">
+      <a href="../../specifications/data/" class="md-nav__link">
         Data
       </a>
     </li>
@@ -1927,7 +2024,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/hardware/" class="md-nav__link">
+      <a href="../../specifications/hardware/" class="md-nav__link">
         Hardware
       </a>
     </li>
@@ -1941,7 +2038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/virtual-plant-imager/" class="md-nav__link">
+      <a href="../../specifications/virtual-plant-imager/" class="md-nav__link">
         Virtual Plant Imager
       </a>
     </li>
@@ -1981,7 +2078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/metadata/" class="md-nav__link">
+      <a href="../../metadata/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1995,7 +2092,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/metadata/biological_metadata/" class="md-nav__link">
+      <a href="../../metadata/biological_metadata/" class="md-nav__link">
         Biological metadata
       </a>
     </li>
@@ -2009,7 +2106,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/metadata/hardware_metadata/" class="md-nav__link">
+      <a href="../../metadata/hardware_metadata/" class="md-nav__link">
         Hardware metadata
       </a>
     </li>
@@ -2023,7 +2120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/metadata/software_metadata/" class="md-nav__link">
+      <a href="../../metadata/software_metadata/" class="md-nav__link">
         Software metadata
       </a>
     </li>
@@ -2037,7 +2134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/metadata/tasks_metadata/" class="md-nav__link">
+      <a href="../../metadata/tasks_metadata/" class="md-nav__link">
         Tasks metadata
       </a>
     </li>
@@ -2058,7 +2155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/luigi/" class="md-nav__link">
+      <a href="../../specifications/luigi/" class="md-nav__link">
         Luigi
       </a>
     </li>
@@ -2098,7 +2195,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -2112,7 +2209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/file_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/file_tasks/" class="md-nav__link">
         Files tasks
       </a>
     </li>
@@ -2126,7 +2223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/acquisition_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/acquisition_tasks/" class="md-nav__link">
         Acquisition tasks
       </a>
     </li>
@@ -2140,7 +2237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/reconstruction_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/reconstruction_tasks/" class="md-nav__link">
         Reconstruction tasks
       </a>
     </li>
@@ -2154,7 +2251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/ground_truth_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/ground_truth_tasks/" class="md-nav__link">
         Defining ground truth
       </a>
     </li>
@@ -2168,7 +2265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/evaluation_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/evaluation_tasks/" class="md-nav__link">
         Evaluation tasks
       </a>
     </li>
@@ -2189,7 +2286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/pipelines/" class="md-nav__link">
+      <a href="../../specifications/pipelines/" class="md-nav__link">
         Pipelines
       </a>
     </li>
@@ -2203,7 +2300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/configuration_files/" class="md-nav__link">
+      <a href="../../specifications/configuration_files/" class="md-nav__link">
         Configuration files
       </a>
     </li>
@@ -2250,7 +2347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/" class="md-nav__link">
+      <a href="../../developer/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -2264,7 +2361,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/pipeline_repeatability/" class="md-nav__link">
+      <a href="../../developer/pipeline_repeatability/" class="md-nav__link">
         Pipelines repeatability
       </a>
     </li>
@@ -2278,7 +2375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/user_case_scenarios/" class="md-nav__link">
+      <a href="../../developer/user_case_scenarios/" class="md-nav__link">
         User case scenarios
       </a>
     </li>
@@ -2292,7 +2389,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/git_workflow/" class="md-nav__link">
+      <a href="../../developer/git_workflow/" class="md-nav__link">
         Git Workflow
       </a>
     </li>
@@ -2306,7 +2403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/git_submodules_workflow/" class="md-nav__link">
+      <a href="../../developer/git_submodules_workflow/" class="md-nav__link">
         Git Submodules
       </a>
     </li>
@@ -2320,7 +2417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/git_docReview/" class="md-nav__link">
+      <a href="../../developer/git_docReview/" class="md-nav__link">
         Contribute to docs
       </a>
     </li>
@@ -2334,7 +2431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/tutorial_template/" class="md-nav__link">
+      <a href="../../developer/tutorial_template/" class="md-nav__link">
         Make a tutorial
       </a>
     </li>
@@ -2348,7 +2445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/conda/" class="md-nav__link">
+      <a href="../../developer/conda/" class="md-nav__link">
         Conda
       </a>
     </li>
@@ -2362,7 +2459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/colmap_cli/" class="md-nav__link">
+      <a href="../../developer/colmap_cli/" class="md-nav__link">
         COLMAP
       </a>
     </li>
@@ -2402,7 +2499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/" class="md-nav__link">
+      <a href="../../docker/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -2416,7 +2513,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/plantdb_docker/" class="md-nav__link">
+      <a href="../../docker/plantdb_docker/" class="md-nav__link">
         Database
       </a>
     </li>
@@ -2430,7 +2527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/plantimager_docker/" class="md-nav__link">
+      <a href="../../docker/plantimager_docker/" class="md-nav__link">
         Plant Imager
       </a>
     </li>
@@ -2444,7 +2541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/virtualplantimager_docker/" class="md-nav__link">
+      <a href="../../docker/virtualplantimager_docker/" class="md-nav__link">
         Virtual Plant Imager
       </a>
     </li>
@@ -2458,7 +2555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/colmap/" class="md-nav__link">
+      <a href="../../docker/colmap/" class="md-nav__link">
         Colmap
       </a>
     </li>
@@ -2472,7 +2569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/plant-3d-vision_docker/" class="md-nav__link">
+      <a href="../../docker/plant-3d-vision_docker/" class="md-nav__link">
         Plant Interpreter
       </a>
     </li>
@@ -2486,7 +2583,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/plant3dexplorer_docker/" class="md-nav__link">
+      <a href="../../docker/plant3dexplorer_docker/" class="md-nav__link">
         plant-3d-explorer
       </a>
     </li>
@@ -2500,7 +2597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/docker_compose/" class="md-nav__link">
+      <a href="../../docker/docker_compose/" class="md-nav__link">
         Docker compose
       </a>
     </li>
@@ -2543,7 +2640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../research/" class="md-nav__link">
+      <a href="../../../research/" class="md-nav__link">
         Research
       </a>
     </li>
@@ -2584,7 +2681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../training/" class="md-nav__link">
+      <a href="../../../training/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -2598,7 +2695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../training/lpy/" class="md-nav__link">
+      <a href="../../../training/lpy/" class="md-nav__link">
         Create Virtual Plants
       </a>
     </li>
@@ -2620,7 +2717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../data/" class="md-nav__link">
+      <a href="../../../data/" class="md-nav__link">
         Data
       </a>
     </li>
@@ -2635,7 +2732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../glossary/" class="md-nav__link">
+      <a href="../../../glossary/" class="md-nav__link">
         Glossary
       </a>
     </li>
@@ -2656,248 +2753,81 @@
                 
 
 
-<h1 id="api-of-the-nodes">API of the nodes<a class="headerlink" href="#api-of-the-nodes" title="Permanent link">Link</a></h1>
-<p>The control software of the Romi Rover consists of number of nodes
-that communicate among each other. A number of <em>topics</em> are
-defined. These topics are a bit like an API.</p>
-<p>Besides the topics, the nodes also use different types of
-communication patterns. In most cases, the interaction with a node is
-similar to a remote procedure call. The client sends a JSON request
-over a messagelink (a websocket) to the node. The node replies with a
-JSON response message. In some cases, a simple HTTP request and
-response is used instead of a messagelink. In other cases, the node
-only braodcasts out JSON formatted events over a websocket. The types
-of communications are listed below.</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>service</td>
-<td>Uses the HTML request-response pattern</td>
-</tr>
-<tr>
-<td>controller</td>
-<td>Uses RPC over WebSocket</td>
-</tr>
-<tr>
-<td>streamer</td>
-<td>Transmits a continuous data flow over HTML</td>
-</tr>
-<tr>
-<td>messagehub</td>
-<td>Communicates over a WebSocket</td>
-</tr>
-<tr>
-<td>datahub</td>
-<td>Broadcasts messages over UDP</td>
-</tr>
-</tbody>
-</table>
-<p>Different nodes can implement the same topic. For example, the nodes
-<em>video4linux</em>, <em>picamera</em>, <em>fake_camera</em> all implement the <code>camera</code>
-topic. However, only one of these nodes should be active at one time.</p>
-<p>A nodes can also implement several topics. For example, the motor
-controller implements both the <code>motorcontroller</code> and <code>encoders</code>
-topics.</p>
-<p>This document does not go into the details of messagelinks or how to
-do an HTTP request. Here we simply document all the available topics,
-the type of communication, and their messages they expect.</p>
-<p>In rcom, a communication end-point is identified by the combination of
-topic and type. So a streamer with the topic <code>camera</code> is distinct from
-the service with the same topic.</p>
-<p>The following table lists all the topics and the types that have been
-defined by Romi Rover. In the sections below you will find more
-details on each.</p>
-<table>
-<thead>
-<tr>
-<th>API</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="#camera"><strong>camera</strong></a></td>
-<td>Provides RGB images</td>
-<td>service and streamer</td>
-</tr>
-<tr>
-<td><a href="#camera_recorder"><strong>camera_recorder</strong></a></td>
-<td>Records a sequence of images to disk</td>
-<td>controller</td>
-</tr>
-<tr>
-<td><a href="#cnc"><strong>cnc</strong></a></td>
-<td>Controls a XYZ motion device</td>
-<td>controller</td>
-</tr>
-<tr>
-<td><a href="#configuration"><strong>configuration</strong></a></td>
-<td>Exports the configuration file</td>
-<td>service</td>
-</tr>
-<tr>
-<td><a href="#control_panel"><strong>control_panel</strong></a></td>
-<td>Controls the display and power relays</td>
-<td>controller</td>
-</tr>
-<tr>
-<td><a href="#encoders"><strong>encoders</strong></a></td>
-<td>Broadcasts the encoder values of the wheels</td>
-<td>datahub</td>
-</tr>
-<tr>
-<td><a href="#fsdb"><strong>fsdb</strong></a></td>
-<td>Broadcasts events about newly created files</td>
-<td>messagehub</td>
-</tr>
-<tr>
-<td><a href="#gimbal"><strong>gimbal</strong></a></td>
-<td>Controls the camera mount</td>
-<td>controller</td>
-</tr>
-<tr>
-<td><a href="#motor_controller"><strong>motorcontroller</strong></a></td>
-<td>Controls the wheel motors</td>
-<td>controller</td>
-</tr>
-<tr>
-<td><a href="#navigation"><strong>navigation</strong></a></td>
-<td>Controls the displacement of the rover</td>
-<td>controller</td>
-</tr>
-<tr>
-<td><a href="#pose"><strong>pose</strong></a></td>
-<td>Broadcasts the position and orientation of the rover</td>
-<td>datahub</td>
-</tr>
-<tr>
-<td><a href="#proxy"><strong>proxy</strong></a></td>
-<td>A web proxy to all the nodes and a web server for static pages</td>
-<td>service &amp; messagehub</td>
-</tr>
-<tr>
-<td><a href="#script_engine"><strong>script_engine</strong></a></td>
-<td>Executes scripts</td>
-<td>service</td>
-</tr>
-<tr>
-<td><a href="#tool_carrier"><strong>tool_carrier</strong></a></td>
-<td>Handles the mechanical weeding tool carrier</td>
-<td>controller</td>
-</tr>
-</tbody>
-</table>
-<h2 id="camera">camera<a class="headerlink" href="#camera" title="Permanent link">Link</a></h2>
-<p>The existing implementations are: <code>video4linux</code>, <code>realsense</code>, <code>picamera</code>, and <code>fake_camera</code>.</p>
-<p>The camera combines two communication end-points interfaces. It has a
-service that provides single JPEG images. It also has a streamer
-interface that broadcasts a continuous stream of JPEG images encoded
-as a multipart response (the corresponding mimetype is
-"multipart/x-mixed-replace").</p>
-<p>The two handled URIs are: </p>
+<h1 id="extrinsic-image-calibration">Extrinsic Image Calibration<a class="headerlink" href="#extrinsic-image-calibration" title="Permanent link">Link</a></h1>
+<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
+<p>Calibration is giving the right scale to your images and is thus crucial to perform measures from phenotyping imaging.</p>
+<p>Scale (pixel size) is a priori unknown in a picture. In addition, some aspects of an hardware setup can create artefacts affecting scaling during 3D reconstruction. Hence, we developed a procedure of extrinsic calibration to scale 3D reconstructions to real world unit and correct possible artefacts induced by the configuration of our plant-imager robot.</p>
+<p>In this tutorial, you will learn how to calibrate an image acquisition for downstream analysis and how to re-use a previously made calibration for an analysis, provided that the set-up is the same.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Intrinsic calibration corrects possible defects induced by the lens of the camera. These type of defects are not addressed by this procedure.</p>
+</div>
+<h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
 <ul>
 <li>
-<p><code>/camera.jpg</code>: Use this URI to retrieve the latest RGB image from the camera service.</p>
+<p>Make sure that you installed all the ROMI software to run image acquisitions with the ROMI <code>Plant Imager</code> (explanation <a href="../../install/plant_imager_setup/">here</a>)</p>
 </li>
 <li>
-<p><code>/stream.html</code>: This URI to get a continuous, video-over-html stream from the camera streamer.</p>
+<p>install also <a href="/docs/plant_imager/modules/plant_3d_vision.md"><code>plant-3d-vision</code></a> to perform the calibration.</p>
 </li>
 </ul>
-<h2 id="camera_recorder">camera_recorder<a class="headerlink" href="#camera_recorder" title="Permanent link">Link</a></h2>
-<p>The camera_recorder is a controller that connects to a camera. Upon
-request, it will start recording the images of the camera to disk. It
-accepts to commands: start and stop.</p>
-<h3 id="start">start<a class="headerlink" href="#start" title="Permanent link">Link</a></h3>
-<p>Start recording the images to disk.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>{&quot;command&quot;: &quot;start&quot;}
+<p><img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50"> We highly recommend the use of dockers to run ROMI software. Details to build and run docker of the ROMI <code>Plant Imager</code> are <a href="https://github.com/romi/plant-imager#docker">here</a></p>
+<ul>
+<li>
+<p>Before reading this tutorial, you should first be able to run a basic acquisition without calibration, as explained in this <a href="../hardware_scan/">tutorial</a>.</p>
+</li>
+<li>
+<p>set up a <a href="../../specifications/data/">database</a> or quickly generate a simple database with the following commands:</p>
+</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>mkdir path/to/db
+touch path/to/db/romidb
 </code></pre></div>
-<h3 id="stop">stop<a class="headerlink" href="#stop" title="Permanent link">Link</a></h3>
-<p>Stop the recording.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>{&quot;command&quot;: &quot;stop&quot;}
+You have now your file-based romi database <em>plantdb</em></p>
+<h2 id="principles-of-the-extrinsic-calibration-performed-here">Principles of the extrinsic calibration performed here<a class="headerlink" href="#principles-of-the-extrinsic-calibration-performed-here" title="Permanent link">Link</a></h2>
+<p>The motor positions moving the camera along the acquisition path give a first indication of the scale of the picture, but this motor information is as accurate as the encoder allows them to be.</p>
+<p>To have the closest scaling from reality, we use <em><a href="https://colmap.github.io/">Colmap</a></em> (a structure-from-motion algorithm) at the very beginning of the 3d reconstructions (see <a href="/docs/plant_imager/specifications/pipelines.md">here</a>): this technique allows to refine the positions of the camera given by the robot motors.
+However, those computed positions are determined up to a scaling and roto-translation of the world and as a result, present a problem for measuring real world unit quantities. In addition, each camera pose is aligned with the corresponding CNC arm position. This can lead to a bias in scaling induced by the offset between the camera optical center and the CNC arm as represented in the following picture:  <br />
+<img alt="Offset between camera and robotic arm" loading="lazy" src="../../../assets/images/calibration_camera_offset.png" width="600" /> </p>
+<p>It is particularly true when doing circular path (which is often the case with the phenotyping station). 
+Indeed, because of that offset, the distance between 2 camera poses is bigger than it should be and as a result, the reconstructed the object is bigger than it is in real life (with a relative error of 2d / D). 
+To correct that, a procedure has been developed to perform an extrinsic calibration and apply the results for further image acquisitions using the same hardware settings.</p>
+<h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
+<h3 id="1-calibration-acquisition">1. Calibration acquisition<a class="headerlink" href="#1-calibration-acquisition" title="Permanent link">Link</a></h3>
+<p>Because the bias is mainly induced by making a circular path of image acquisition, one way to avoid it is to do a calibration acquisition with first a path constituted of two lines (two orthogonal lines in our case) followed by the path that will be used by other acquisitions.  </p>
+<p><img alt="Calibration scan diagram" loading="lazy" src="../../../assets/images/calibration_scan_figure.png" width="600" /></p>
+<p>To do so, run the task 'CalibrationScan' the same way as for a regular acquisition with the <code>romi_run_task</code> command, including your regular configuration file adapted to your plant imager (hereafter: <code>hardware.toml</code>).</p>
+<p>In the command, define a folder inside your romi database (called above <code>plantdb</code>) that will store the data of this calibration acquisition:</p>
+<div class="highlight"><pre><span></span><code>romi_run_task --config config/hardware.toml <span class="se">\ </span><span class="c1">#command and config</span>
+CalibrationScan <span class="se">\ </span><span class="c1"># romi task</span>
+/path/to/plantdb/calibration_scan_id/ <span class="c1">#data destination of this calibration scan </span>
 </code></pre></div>
-<h2 id="configuration">configuration<a class="headerlink" href="#configuration" title="Permanent link">Link</a></h2>
-<p>The <code>configuration</code> service allows nodes to obtain the settings of the
-rover. A simple HTML request with the name of the settings will return
-its associated value as a JSON-formatted object.</p>
-<p>Suppose the configuration file contains the following:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;menu&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;starters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;velouté de champignons&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;tomato &amp; mozarella&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;mains&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;eggplant lasagna&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;meatloaf with mashed potatoes&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;deserts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;chocolate mousse&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;panna cotta&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;crème brulée&quot;</span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Run this command either in a docker container of the plant-imager or, if you install plant-imager in your system, do not forget to activate the appropriate virtual environment to make <code>romi_run_task</code> command accessible.</p>
+</div>
+<p>Colmap performance increases when several "recognizable" objects are present in the scene, so that the program easily defines matching reference points between overlapping images. We advise to put such objects in the scene for the calibration acquisition (they could be removed later)</p>
+<h3 id="2-compute-circular-poses-from-path-lines-with-colmap">2. Compute circular poses from path lines with Colmap<a class="headerlink" href="#2-compute-circular-poses-from-path-lines-with-colmap" title="Permanent link">Link</a></h3>
+<p>Thanks to the linear path added to the circular one, Colmap can now retrieve accurate poses with a proper scaling. Colmap can be easily run with romi software <code>plant-3d-vision</code>.</p>
+<p>For such a run, a proper configuration file (.toml) is required. A <a href="https://github.com/romi/plant-3d-vision/tree/dev/config">default one</a> is provided with <code>plant-3d-vision</code>, and accessible from your local git-cloned repository or in the repository included inside the docker container.</p>
+<div class="highlight"><pre><span></span><code>romi_run_task --config path/toconfig/geom_pipe_full.toml <span class="se">\ </span><span class="c1">#command and path to config file</span>
+Colmap <span class="se">\ </span><span class="c1">#the task Colmap</span>
+/path/to/plantdb/calibration_scan_id/ <span class="c1">#data destination folder</span>
 </code></pre></div>
-<p>Then an HTTP request to the URI <code>/menu/starters</code> will return
-<code>["velouté de champignons", "tomato &amp; mozarella"]</code> in the body of the
-response.</p>
-<p>Implementation note: You can use the function <code>client_get</code> in the <code>rcom</code> API to obtain the value directly as a <code>json_object_t</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">json_object_t</span><span class="w"> </span><span class="n">list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client_get</span><span class="p">(</span><span class="s">&quot;configuration&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;menu/starters&quot;</span><span class="p">);</span><span class="w"></span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Run this command either in a docker container of <code>plant-3d-vision</code> or, if you install plant-imager in your system, do not forget to activate the appropriate virtual environment to make <code>romi_run_task</code> command accessible.</p>
+</div>
+<h3 id="3-reuse-the-poses-extracted-from-the-calibration-scan">3. (re)Use the poses extracted from the calibration scan<a class="headerlink" href="#3-reuse-the-poses-extracted-from-the-calibration-scan" title="Permanent link">Link</a></h3>
+<p>Now, the calibrated poses can be used to properly scale 3d reconstruction each time an analysis is performed (full process detailed <a href="../reconstruct_scan/">here</a>) on other image dataset.</p>
+<p>To do so, just add in the <em>Colmap</em> section of the configuration <em>.toml</em> file for reconstruction:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[Colmap]</span><span class="w"></span>
+<span class="n">calibration_scan_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;calibration_scan_id&quot;</span><span class="w"> </span><span class="c1">#name of the folder containing calibration data</span><span class="w"></span>
 </code></pre></div>
-<h2 id="control_panel">control_panel<a class="headerlink" href="#control_panel" title="Permanent link">Link</a></h2>
-<p>The control_panel is the controller that interfaces with the physical
-control panel of the rover. It currently handles to commands: shutdown
-and display.</p>
-<h3 id="shutdown">shutdown<a class="headerlink" href="#shutdown" title="Permanent link">Link</a></h3>
-<p>Goes through the following steps: Asks the control panel to cut the
-power circuit (cuts the motors but not the controllers), then
-initiates the shutdown of the on-board computer, and requests the
-control panel to cut the power of the logical circuit (with a 5
-seconds delay).</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>{&quot;command&quot;: &quot;shutdown&quot;}
+<p><strong>Important</strong>: </p>
+<div class="codehilite"><pre><span></span><code><span class="o">*</span><span class="w">   </span><span class="n">Calibration_scan_id</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">dataset</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">analyzed</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">romi</span><span class="w"> </span><span class="n">database</span><span class="err">.</span><span class="w"></span>
+<span class="o">*</span><span class="w">   </span><span class="n">To</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">valid</span><span class="p">,</span><span class="w"> </span><span class="n">calibration</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nb">camera</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="k">all</span><span class="w"> </span><span class="p">(</span><span class="n">tilt</span><span class="p">,</span><span class="w"> </span><span class="n">etc</span><span class="err">...</span><span class="p">)</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">robotic</span><span class="w"> </span><span class="n">arm</span><span class="err">.</span><span class="w"> </span><span class="n">For</span><span class="w"> </span><span class="n">instance</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">calibration</span><span class="w"> </span><span class="n">acquisition</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">performed</span><span class="w"> </span><span class="n">each</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="nb">camera</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">removed</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">replaced</span><span class="w"> </span><span class="n">back</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">arm</span><span class="err">.</span><span class="w"></span>
 </code></pre></div>
-<h3 id="display">display<a class="headerlink" href="#display" title="Permanent link">Link</a></h3>
-<p>Asks the control panel to display a message. The length of the message
-is currently limited to 16 characters. The message may not be
-displayed immediately, or may be skipped, if too many messages are
-sent.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>{&quot;command&quot;: &quot;display&quot;, &quot;message&quot;: &quot;No network&quot;}
-</code></pre></div>
-<h2 id="cnc">cnc<a class="headerlink" href="#cnc" title="Permanent link">Link</a></h2>
-<p>Existing implementations: <code>grbl</code>, <code>oquam</code>, and <code>fake_cnc</code>.</p>
-<p>The CNC has a JSON-over-WebSocket controller interface that accepts
-the commands documented below.  </p>
-<h3 id="moveto">moveto<a class="headerlink" href="#moveto" title="Permanent link">Link</a></h3>
-<p>Move to a specified absolute position in meters.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>{&quot;command&quot;: &quot;moveto&quot;, &quot;x&quot;: 0.4, &quot;y&quot;: 0.4}
-{&quot;command&quot;: &quot;moveto&quot;, &quot;z&quot;: -0.1}
-</code></pre></div>
-<h3 id="homing">homing<a class="headerlink" href="#homing" title="Permanent link">Link</a></h3>
-<p>Move to the home position, if the CNC has limit switches.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>{&quot;command&quot;: &quot;homing&quot;}
-</code></pre></div>
-<h3 id="travel">travel<a class="headerlink" href="#travel" title="Permanent link">Link</a></h3>
-<p>The <code>travel</code> command serves to make the CNC travel a given path, defined by a list of points in absolute coordinates in meter.</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>{&quot;command&quot;: &quot;travel&quot;, &quot;path&quot;: [[0,0,0], [0.5,0,0], [0.5,0.5,0], [0,0.5,0], [0,0,0]]}
-</code></pre></div>
-<h3 id="spindle">spindle<a class="headerlink" href="#spindle" title="Permanent link">Link</a></h3>
-<p>Starts or stops the spindle. A speed can be specified with a value between 0 (stopped) and 1 (maximum speed).</p>
-<p>Example:</p>
-<div class="highlight"><pre><span></span><code>{&quot;command&quot;: &quot;spindle&quot;, &quot;speed&quot;: 1}
-</code></pre></div>
-<h2 id="encoders">encoders<a class="headerlink" href="#encoders" title="Permanent link">Link</a></h2>
-<h2 id="fsdb">fsdb<a class="headerlink" href="#fsdb" title="Permanent link">Link</a></h2>
-<h2 id="gimbal">gimbal<a class="headerlink" href="#gimbal" title="Permanent link">Link</a></h2>
-<h2 id="motor_controller">motor_controller<a class="headerlink" href="#motor_controller" title="Permanent link">Link</a></h2>
-<h2 id="navigation">navigation<a class="headerlink" href="#navigation" title="Permanent link">Link</a></h2>
-<h2 id="pose">pose<a class="headerlink" href="#pose" title="Permanent link">Link</a></h2>
-<h2 id="proxy">proxy<a class="headerlink" href="#proxy" title="Permanent link">Link</a></h2>
-<h2 id="script_engine">script_engine<a class="headerlink" href="#script_engine" title="Permanent link">Link</a></h2>
-<h2 id="tool_carrier">tool_carrier<a class="headerlink" href="#tool_carrier" title="Permanent link">Link</a></h2>
 
               
             </article>
@@ -2907,6 +2837,41 @@ the commands documented below.  </p>
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../intrinsic_calibration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: How to calibrate the camera ?" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              How to calibrate the camera ?
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../virtual_plant_imager_single_dataset/" class="md-footer__link md-footer__link--next" aria-label="Next: How to evaluate an analysis in a virtual world (both virtual plant and imager) ? " rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              How to evaluate an analysis in a virtual world (both virtual plant and imager) ? 
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2963,10 +2928,10 @@ the commands documented below.  </p>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.748e2769.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

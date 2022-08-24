@@ -1389,16 +1389,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#usb-port" class="md-nav__link">
-    USB port
+  <a href="#finding-the-usb-port" class="md-nav__link">
+    Finding the USB port
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#connect-with-picocom" class="md-nav__link">
-    Connect with picocom
+  <a href="#serial-connection" class="md-nav__link">
+    Serial connection
   </a>
+  
+    <nav class="md-nav" aria-label="Serial connection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-picocom" class="md-nav__link">
+    With picocom
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-the-serial-monitor-of-the-arduino-ide" class="md-nav__link">
+    With the serial monitor of the Arduino IDE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1741,7 +1761,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/calibration/" class="md-nav__link">
+      <a href="../../tutorials/intrinsic_calibration/" class="md-nav__link">
+        How to calibrate the camera ?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/extrinsic_calibration/" class="md-nav__link">
         How to calibrate the Plant imager ?
       </a>
     </li>
@@ -2423,22 +2457,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../developer/colmap_cli/" class="md-nav__link">
+        COLMAP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_10_9" type="checkbox" id="__nav_3_4_10_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_10_10" type="checkbox" id="__nav_3_4_10_10" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3_4_10_9">
+        <label class="md-nav__link" for="__nav_3_4_10_10">
           Docker
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Docker" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_10_9">
+        <label class="md-nav__title" for="__nav_3_4_10_10">
           <span class="md-nav__icon md-icon"></span>
           Docker
         </label>
@@ -2704,12 +2752,12 @@
                 
 
 
-<h1 id="communicating-with-oquam">Communicating with Oquam<a class="headerlink" href="#communicating-with-oquam" title="Permanent link">Link</a></h1>
-<h2 id="usb-port">USB port<a class="headerlink" href="#usb-port" title="Permanent link">Link</a></h2>
+<h1 id="communicating-with-oquam">Communicating with <code>Oquam</code><a class="headerlink" href="#communicating-with-oquam" title="Permanent link">Link</a></h1>
+<h2 id="finding-the-usb-port">Finding the USB port<a class="headerlink" href="#finding-the-usb-port" title="Permanent link">Link</a></h2>
 <p>First you need to find which USB port your X-Controller board is connected to.</p>
 <p>To do so, you can use <code>dmesg</code>:</p>
 <ol>
-<li>make sure the usb cable from the X-Controller board is unplugged from your computer</li>
+<li>make sure the USB cable from the X-Controller board is unplugged from your computer</li>
 <li>run <code>dmesg -w</code> in a terminal</li>
 <li>connect the usb to your computer and see something like:
     <div class="highlight"><pre><span></span><code><span class="o">[</span><span class="m">42063</span>.157605<span class="o">]</span> usb <span class="m">1</span>-2: new full-speed USB device number <span class="m">7</span> using xhci_hcd
@@ -2727,14 +2775,16 @@
 <p class="admonition-title">Important</p>
 <p>The important info here is <code>ttyUSB0</code>!</p>
 </div>
-<h2 id="connect-with-picocom">Connect with <code>picocom</code><a class="headerlink" href="#connect-with-picocom" title="Permanent link">Link</a></h2>
+<h2 id="serial-connection">Serial connection<a class="headerlink" href="#serial-connection" title="Permanent link">Link</a></h2>
+<h3 id="with-picocom">With <code>picocom</code><a class="headerlink" href="#with-picocom" title="Permanent link">Link</a></h3>
 <p>Then you can use <a href="https://github.com/npat-efault/picocom">picocom</a> to connect to the board:</p>
-<div class="highlight"><pre><span></span><code>picocom /dev/ttyUSB0 -b <span class="m">115200</span> --omap crcrlf
+<div class="highlight"><pre><span></span><code>picocom /dev/ttyUSB0 -b <span class="m">115200</span> --omap crcrlf --echo
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>-b 115200</code> is the baudrate of the connection, read the <a href="https://linux.die.net/man/8/picocom">picocom man page</a> for more info.
-<code>--omap crcrlf</code> is mapping the serial output from <code>CR</code> to <code>CR+LF</code>.</p>
+<p><code>-b 115200</code> is the baud rate of the connection, read the <a href="https://linux.die.net/man/8/picocom">picocom man page</a> for more info.
+<code>--omap crcrlf</code> is mapping the serial output from <code>CR</code> to <code>CR+LF</code>.
+<code>--echo</code> allows you to see what you are typing.</p>
 </div>
 <p>Once connected you should see something like:</p>
 <div class="highlight"><pre><span></span><code>picocom v3.1
@@ -2746,7 +2796,7 @@ parity is      : none
 databits are   : <span class="m">8</span>
 stopbits are   : <span class="m">1</span>
 escape is      : C-a
-<span class="nb">local</span> <span class="nb">echo</span> is  : no
+<span class="nb">local</span> <span class="nb">echo</span> is  : yes
 noinit is      : no
 noreset is     : no
 hangup is      : no
@@ -2754,7 +2804,7 @@ nolock is      : no
 send_cmd is    : sz -vv
 receive_cmd is : rz -vv -E
 imap is        : 
-omap is        : 
+omap is        : crcrlf,
 emap is        : crcrlf,delbs,
 logfile is     : none
 initstring     : none
@@ -2763,15 +2813,17 @@ exit_after is  : not <span class="nb">set</span>
 
 Type <span class="o">[</span>C-a<span class="o">]</span> <span class="o">[</span>C-h<span class="o">]</span> to see available commands
 Terminal ready
-<span class="c1">#_Init OK:00f7</span>
 </code></pre></div>
 <p>This mean you now have access to a <code>Oquam</code> terminal to communicate, notably send instructions, to the CNC!</p>
+<h3 id="with-the-serial-monitor-of-the-arduino-ide">With the serial monitor of the <code>Arduino IDE</code><a class="headerlink" href="#with-the-serial-monitor-of-the-arduino-ide" title="Permanent link">Link</a></h3>
+<p>Open the <code>Arduino IDE</code>, go to <code>Tools &gt; Serial Monitor</code> or use the keyboard shortcut <span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-m">M</kbd></span>.
+Do not forget to select <code>Both NL &amp; CR</code> instead of the default <code>Newline</code>.</p>
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">Link</a></h2>
 <h3 id="serial-access-denied">Serial access denied<a class="headerlink" href="#serial-access-denied" title="Permanent link">Link</a></h3>
 <p>If you get an error about permission access:</p>
 <ol>
 <li>
-<p>Check in what group you are with:
+<p>Check in what <code>groups</code> you are with:
     <div class="highlight"><pre><span></span><code>groups <span class="si">${</span><span class="nv">USER</span><span class="si">}</span>
 </code></pre></div></p>
 </li>

@@ -1671,7 +1671,21 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorials/calibration/" class="md-nav__link">
+      <a href="../../tutorials/intrinsic_calibration/" class="md-nav__link">
+        How to calibrate the camera ?
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/extrinsic_calibration/" class="md-nav__link">
         How to calibrate the Plant imager ?
       </a>
     </li>
@@ -2430,22 +2444,36 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../colmap_cli/" class="md-nav__link">
+        COLMAP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_10_9" type="checkbox" id="__nav_3_4_10_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_10_10" type="checkbox" id="__nav_3_4_10_10" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3_4_10_9">
+        <label class="md-nav__link" for="__nav_3_4_10_10">
           Docker
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Docker" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_10_9">
+        <label class="md-nav__title" for="__nav_3_4_10_10">
           <span class="md-nav__icon md-icon"></span>
           Docker
         </label>
@@ -2726,10 +2754,10 @@ As it can impact the results of the analysis and is often not easily traceable, 
 <li>Create and activate isolated python environment (see the procedure <a href="../../install/create_env/">here</a> )</li>
 </ul>
 <h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
-<p>The <code>robustness_comparison</code> script has been developed to quantify randomness in the pipeline and has 2 modes, it can either test the stochasticity of one task or of the full pipeline. 
+<p>The <code>robustness_evaluation</code> script has been developed to quantify randomness in the pipeline and has 2 modes, it can either test the stochasticity of one task or of the full pipeline. 
 Basically it compares outputs of a task given the same input (previous task output or acquisition output depending on the mode) on a fixed parameterizable number of replicates.</p>
-<p><div class="highlight"><pre><span></span><code>robustness_comparison -h
-usage: robustness_comparison [-h] [-n REPLICATE_NUMBER] [-f] [-np]
+<p><div class="highlight"><pre><span></span><code>robustness_evaluation -h
+usage: robustness_evaluation [-h] [-n REPLICATE_NUMBER] [-f] [-np]
                              [-db TEST_DATABASE] [--models MODELS]
                              scan
                              {Clean,Colmap,Undistorted,Masks,Segmentation2D,Voxels,PointCloud,TriangleMesh,CurveSkeleton,TreeGraph,AnglesAndInternodes,Segmentation2d,SegmentedPointCloud,ClusteredMesh,OrganSegmentation}
@@ -2774,7 +2802,7 @@ optional arguments:
 The metrics used are the same as the ones for an evaluation against ground truth</p>
 <h3 id="1-test-of-a-single-task">1. Test of a single task<a class="headerlink" href="#1-test-of-a-single-task" title="Permanent link">Link</a></h3>
 <p>Example with the task TriangleMesh (whose goal is to compute a mesh from a point cloud):
-<div class="highlight"><pre><span></span><code>robustness_comparison /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n <span class="m">10</span>
+<div class="highlight"><pre><span></span><code>robustness_evaluation /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n <span class="m">10</span>
 </code></pre></div></p>
 <p>Resulting:
 <div class="highlight"><pre><span></span><code>path/
@@ -2798,7 +2826,7 @@ The scan datasets are identical up to <code>PointCloud</code> then the <code>Tri
 Results with the appropriate metric are in the <code>TriangleMesh_comparison.json</code> file.</p>
 <h3 id="2-independent-tests">2. Independent tests<a class="headerlink" href="#2-independent-tests" title="Permanent link">Link</a></h3>
 <p>If the goal is to see what are the impacts of randomness through the pipeline in the output of the task <code>TriangleMesh</code>, perform an independent test thanks to the -f parameter:
-<div class="highlight"><pre><span></span><code>robustness_comparison /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n <span class="m">10</span> -f
+<div class="highlight"><pre><span></span><code>robustness_evaluation /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n <span class="m">10</span> -f
 </code></pre></div></p>
 <p>With a similar tree result:
 <div class="highlight"><pre><span></span><code>path/
