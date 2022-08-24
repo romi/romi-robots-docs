@@ -89,7 +89,7 @@ nav:
             - 'Home': 'plant_imager/tutorials/index.md'
             - 'How to use the romi_run_task generic command ?': 'plant_imager/tutorials/basics.md'
             - 'How to make an acquisition with the Plant Imager ?': 'plant_imager/tutorials/hardware_scan.md'
-            - 'How to calibrate the Plant imager ?': 'plant_imager/tutorials/calibration.md'
+            - 'How to calibrate the Plant imager ?': 'plant_imager/tutorials/extrinsic_calibration.md'
             - 'How to evaluate an analysis in a virtual world (both virtual plant and imager) ? ': 'plant_imager/tutorials/virtual_plant_imager_single_dataset.md'
             - 'How to generate, analyze and visualize virtual plant images using public docker containers' : plant_imager/tutorials/virtual_plant_generate_analyze_visualize.md
             - 'How to generate large "virtual" training data for machine-learning ?': 'plant_imager/tutorials/virtual_plant_imager_large_dataset.md'
