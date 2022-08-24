@@ -31,7 +31,7 @@ picocom /dev/ttyACM0 -b 115200
 ```
 
 !!! note
-    `-b 115200` is the baudrate of the connection, read the [picocom man page](https://linux.die.net/man/8/picocom) for more info.
+    `-b 115200` is the baud rate of the connection, read the [picocom man page](https://linux.die.net/man/8/picocom) for more info.
 
 Once connected you should see something like:
 

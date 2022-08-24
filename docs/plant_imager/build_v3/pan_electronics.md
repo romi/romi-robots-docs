@@ -65,9 +65,9 @@ You can also wire two switches to PIN9 & GND and to PIN10 and GND of the UNO.
 It is also possible to wire just one switch and swap PINs during the homing procedure, but beware of shortcuts.
 
 
-#### Test
+#### Testing
 
-To test the encoder, we recommend to use the _serial monitor_ of the Arduino IDE as you can select `Both NL & CR` as EOL.
+To test the encoder, we recommend to use the _serial monitor_ of the Arduino IDE as you can manually select `Both NL & CR` as EOL.
 
 1. Pull the Arduino script `libromi/firmware/Oquam/Oquam.ino` from the `encoder_z` branch of the `libromi` repository.
 2. Then build / upload, refers to the detailed flashing [instructions](flashing_oquam.md#flash-the-firmware).
@@ -103,10 +103,10 @@ To test the encoder, we recommend to use the _serial monitor_ of the Arduino IDE
 
 Simply wire the rotary encoder Z+/Z- pins to the red/black Z-limit wires:
 
-* Encoder Pin 12 Z+ (blue) -> red Z-limit wire of the X-Carve controller
-* Encoder Pin 13 Z- (blue & white) -> black Z-limit wire of the X-Carve controller
-* Encoder Pin 04 GND (green & Brown) -> black wire (-) of the 24/5V DC converter
-* Encoder Pin 06 +5V (red) -> red wire (+) of the 24/5V DC converter
+* Encoder Pin 12 Z+ (blue w/ white stripe) -> red Z-limit wire of the X-Carve controller (PIN12, not PIN11 as with grblShield!)
+* Encoder Pin 13 Z- (white w/ blue stripe) -> black Z-limit wire of the X-Carve controller
+* Encoder Pin 04 GND (green w/ red strip) -> black wire (-) of the 24/5V DC converter
+* Encoder Pin 06 +5V (red w/ green stripe) -> red wire (+) of the 24/5V DC converter
 
 #### Test
 

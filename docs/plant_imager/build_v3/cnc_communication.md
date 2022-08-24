@@ -1,13 +1,13 @@
-# Communicating with Oquam
+# Communicating with `Oquam`
 
 
-## USB port
+## Finding the USB port
 
 First you need to find which USB port your X-Controller board is connected to.
 
 To do so, you can use ``dmesg``:
 
-1. make sure the usb cable from the X-Controller board is unplugged from your computer
+1. make sure the USB cable from the X-Controller board is unplugged from your computer
 2. run ``dmesg -w`` in a terminal
 3. connect the usb to your computer and see something like:
     ```shell
@@ -26,17 +26,19 @@ To do so, you can use ``dmesg``:
     The important info here is ``ttyUSB0``!
 
 
-## Connect with `picocom`
+## Serial connection
 
+### With `picocom`
 Then you can use [picocom](https://github.com/npat-efault/picocom) to connect to the board:
 
 ```shell
-picocom /dev/ttyUSB0 -b 115200 --omap crcrlf
+picocom /dev/ttyUSB0 -b 115200 --omap crcrlf --echo
 ```
 
 !!! note
-    `-b 115200` is the baudrate of the connection, read the [picocom man page](https://linux.die.net/man/8/picocom) for more info.
+    `-b 115200` is the baud rate of the connection, read the [picocom man page](https://linux.die.net/man/8/picocom) for more info.
     ` --omap crcrlf` is mapping the serial output from `CR` to `CR+LF`.
+    `--echo` allows you to see what you are typing.
 
 Once connected you should see something like:
 
@@ -50,7 +52,7 @@ parity is      : none
 databits are   : 8
 stopbits are   : 1
 escape is      : C-a
-local echo is  : no
+local echo is  : yes
 noinit is      : no
 noreset is     : no
 hangup is      : no
@@ -58,7 +60,7 @@ nolock is      : no
 send_cmd is    : sz -vv
 receive_cmd is : rz -vv -E
 imap is        : 
-omap is        : 
+omap is        : crcrlf,
 emap is        : crcrlf,delbs,
 logfile is     : none
 initstring     : none
@@ -67,10 +69,15 @@ exit is        : no
 
 Type [C-a] [C-h] to see available commands
 Terminal ready
-#_Init OK:00f7
+
 ```
 
 This mean you now have access to a `Oquam` terminal to communicate, notably send instructions, to the CNC!
+
+### With the serial monitor of the `Arduino IDE`
+
+Open the `Arduino IDE`, go to `Tools > Serial Monitor` or use the keyboard shortcut ++ctrl+shift+m++.
+Do not forget to select `Both NL & CR` instead of the default `Newline`.
 
 
 ## Troubleshooting
@@ -79,7 +86,7 @@ This mean you now have access to a `Oquam` terminal to communicate, notably send
 
 If you get an error about permission access:
 
-1. Check in what group you are with:
+1. Check in what `groups` you are with:
     ```shell
     groups ${USER}
     ```

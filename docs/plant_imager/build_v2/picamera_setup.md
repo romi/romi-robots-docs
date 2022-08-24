@@ -35,7 +35,7 @@ Before installing the software, you have to configure some Raspberry Pi OS setti
 
 For security reasons, you have to change the `pi` user password because the default is known by everyone!
 
-Use the raspi-config` tool to do it:
+Use the `raspi-config` tool to do it:
 
 ```shell
 sudo raspi-config

@@ -21,13 +21,13 @@ Two main things can be tested:
 
 
 ## Step-by-step tutorial
-The `robustness_comparison` script has been developed to quantify randomness in the pipeline and has 2 modes, it can either test the stochasticity of one task or of the full pipeline. 
+The `robustness_evaluation` script has been developed to quantify randomness in the pipeline and has 2 modes, it can either test the stochasticity of one task or of the full pipeline. 
 Basically it compares outputs of a task given the same input (previous task output or acquisition output depending on the mode) on a fixed parameterizable number of replicates.
 
 
 ```
-robustness_comparison -h
-usage: robustness_comparison [-h] [-n REPLICATE_NUMBER] [-f] [-np]
+robustness_evaluation -h
+usage: robustness_evaluation [-h] [-n REPLICATE_NUMBER] [-f] [-np]
                              [-db TEST_DATABASE] [--models MODELS]
                              scan
                              {Clean,Colmap,Undistorted,Masks,Segmentation2D,Voxels,PointCloud,TriangleMesh,CurveSkeleton,TreeGraph,AnglesAndInternodes,Segmentation2d,SegmentedPointCloud,ClusteredMesh,OrganSegmentation}
@@ -75,7 +75,7 @@ The metrics used are the same as the ones for an evaluation against ground truth
 ### 1. Test of a single task
 Example with the task TriangleMesh (whose goal is to compute a mesh from a point cloud):
 ```shell
-robustness_comparison /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n 10
+robustness_evaluation /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n 10
 ```
 
 Resulting:
@@ -104,7 +104,7 @@ Results with the appropriate metric are in the `TriangleMesh_comparison.json` fi
 ### 2. Independent tests
 If the goal is to see what are the impacts of randomness through the pipeline in the output of the task `TriangleMesh`, perform an independent test thanks to the -f parameter:
 ```shell
-robustness_comparison /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n 10 -f
+robustness_evaluation /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n 10 -f
 ```
 
 With a similar tree result:
