@@ -37,8 +37,8 @@ The several steps are:
 
 ### Prerequisite
 
-* install romi `plant-imager` (from [source](https://github.com/romi/plant-imager) or using a [docker image](../docker/plantimager_docker.md) ) & read [install procedure](../install/plant_imager_setup.md)
-* install romi `plant-3d-vision` (from [source](https://github.com/romi/plant-3d-vision) or using a [docker image](../docker/plantinterpreter_docker.md)) & read [install procedure](../install/plant_reconstruction_setup.md)
+* install romi `plant-imager` (from [source](https://github.com/romi/plant-imager) or using a [docker image](../../docker/plantimager_docker.md) ) & read [install procedure](../../install/plant_imager_setup.md)
+* install romi `plant-3d-vision` (from [source](https://github.com/romi/plant-3d-vision) or using a [docker image](../../docker/plant-3d-vision_docker.md)) & read [install procedure](../../install/plant_reconstruction_setup.md)
 * Create and activate isolated python environment (see the procedure [here](../../install/create_env.md) )
 
 ### Step-by-step tutorial
@@ -49,11 +49,11 @@ In our case we chose to evaluate our plant imager with a can.
 
 !!! Note
     Be careful to be able to detect your object from the background in the future reconstruction process. 
-    Different segmentation methods are described [here](../explanations/segmentation.md) and as we use the "Binary segmentation" algorithm the can has been painted in a very tasteful green.  
+    Different segmentation methods are described [here](../../explanations/segmentation.md) and as we use the "Binary segmentation" algorithm the can has been painted in a very tasteful green.  
     ![Green can for evaluation](../../../assets/images/green_can_evaluation.jpg){loading=lazy}  
 
 
-The procedure to take images is described in the [plant imager tutorial](../tutorials/hardware_scan.md) but here are the basic steps:  
+The procedure to take images is described in the [plant imager tutorial](../../tutorials/hardware_scan.md) but here are the basic steps:  
 
 * DB creation  
 ```shell
@@ -86,7 +86,7 @@ As for the `AnglesAndInternodes` measurement, in order for the `CylinderRadiusEv
 
 #### 2. Point cloud reconstruction 
 The next step is to compute a point cloud from the acquired data.
-As before, the full explanation of the operations concerning the reconstruction pipeline can be found in [this tutorial](../tutorials/reconstruct_scan.md) but mainly are:
+As before, the full explanation of the operations concerning the reconstruction pipeline can be found in [this tutorial](../../tutorials/reconstruct_scan.md) but mainly are:
 ```shell
 romi_run_task PointCloud /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml
 ```

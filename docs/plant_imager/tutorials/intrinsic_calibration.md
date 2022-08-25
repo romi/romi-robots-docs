@@ -1,9 +1,14 @@
-# Intrinsic Calibration
+# Intrinsic calibration
 
 Some cameras introduce significant distortion to images.
 The two major kinds of distortion are **radial distortion** and **tangential distortion**.
 
 With _radial distortion_, straight lines appear curved while with _tangential distortion_ some objects of the image may appears closer than they are in reality.
+
+<figure>
+    <img src="https://docs.opencv.org/4.x/calib_radial.jpg" alt="ChArUco board example" width="300" /> 
+    <figcaption>Illustration of an image captured with radial distortion as shown by the straight red lines added on top the picture afterward.<br>Source: OpenCV Python tutorial on <a href="https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html">camera calibration</a>.</figcaption>
+</figure>
 
 
 ## Objective
@@ -14,9 +19,9 @@ In this tutorial, you will learn how to **estimate the intrinsic camera paramete
 
 ## Prerequisite
 
-* Install the [`plant-imager`](../modules/plant_imager.md) ROMI library required to perform _image acquisitions_ together with the _Plant Imager hardware_.
+* Install the [`plant-imager`](https://github.com/romi/plant-imager) ROMI library required to perform _image acquisitions_ together with the _Plant Imager hardware_.
 
-* Install the [`plant-3d-vision`](../modules/plant_3d_vision.md) ROMI library required to perform _intrinsic calibration_.
+* Install the [`plant-3d-vision`](https://github.com/romi/plant-3d-vision) ROMI library required to perform _intrinsic calibration_.
 
 * Set up a ROMI `plantdb` local [database](../specifications/data.md) or quickly create it (under `/data/ROMI/DB`) with the following commands:
     ```shell
@@ -25,7 +30,7 @@ In this tutorial, you will learn how to **estimate the intrinsic camera paramete
     touch $DB_LOCATION/romidb
     ```
   
-<img src="../../assets/images/ext/docker_logo2.png" alt="docker_logo" width="50" />We highly recommend the use of docker containers to run ROMI software, if you wish to use the docker images we provide, have a look [here](https://github.com/romi/plant-imager#docker).
+<img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50" />We highly recommend the use of docker containers to run ROMI software, if you wish to use the docker images we provide, have a look [here](https://github.com/romi/plant-imager#docker).
 
 
 ## Step-by-step tutorial
@@ -34,7 +39,7 @@ In this tutorial, you will learn how to **estimate the intrinsic camera paramete
 A ChArUco board is the combination of a chess board and of ArUco markers.
 
 <figure>
-    <img src="../../assets/images/charuco_board_4x4_14by10_2_1.5.png" alt="ChArUco board example" width="400" /> 
+    <img src="/assets/images/charuco_board_4x4_14by10_2_1.5.png" alt="ChArUco board example" width="400" /> 
     <figcaption>An example of a 14x10 ChArUco board with 20mm chess square and 15mm 4x4 ArUco markers.</figcaption>
 </figure>
 
@@ -42,10 +47,13 @@ The previous figure shows the default board that we will use in this tutorial.
 
 To create it, you have to run the `create_charuco_board` CLI as follows:
 ```shell
-create_charuco_board --config plant-3d-vision/config/intrisic_calibration.toml
+create_charuco_board plant-3d-vision/config/intrisic_calibration.toml
 ```
+This will create a file named `charuco_board.png` in the current working directory.
 
-We strongly advise to **use the same** TOML configuration file as you will later need it for the estimation of the intrinsic camera parameters.
+We strongly advise to **use the same** TOML configuration file with `create_charuco_board` & `romi_run_task` commands to avoid inadvertently changing parameter values.
+Also, you will later need it for the estimation of the intrinsic camera parameters.
+
 An example of such configuration file is:
 ```toml
 [IntrinsicCalibrationScan]
@@ -70,9 +78,10 @@ board_fileset = "CreateCharucoBoard"
 camera_model = "OPENCV"  # defines the estimated parameters
 ```
 
-You may now **print it**.
+You may now **print the ChArUco board image**.
 Pay attention to use a software (like GIMP) that allows you to set the actual size of the image you want to print.
 With the previous configuration it should be:
+
  - width : `n_squares_x * square_length = 14 * 2. = 28cm`
  - height : `n_squares_y * square_length = 10 * 2. = 20cm`
 
@@ -82,20 +91,57 @@ Finally, **tape it flat onto something solid** in order to avoid deformation of 
 ### 2. Scan the ChArUco board
 To scan your newly printed ChArUco board, use the `IntrinsicCalibrationScan` task from `plant_imager`:
 ```shell
-romi_run_task IntrinsicCalibrationScan $DB_Location/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
+romi_run_task IntrinsicCalibrationScan $DB_LOCATION/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
 ```
 
-The camera should move to the center front of the scanner where you will hold your pattern and take `20` pictures (according to the previous configuration).
-Try to take picture of the board in different positions, it may even be cropped but needs to be still.
+The camera should move to the center front of the _plant imager_ where you will hold your pattern and take `20` pictures (according to the previous configuration).
+Try to take pictures of the board in different positions.
 
 !!! notes
-  It is not required to have the whole board in the picture, the ArUco markers will be used to detect the occluded sections!
+    It is not required to have the whole board in the picture, the ArUco markers will be used to detect the occluded sections!
 
 
 ### 3. Performs the camera parameters estimation
-You may now estimate the camera parameters, for a given model with:
+You may now **estimate the camera parameters**, for a given _camera model_ with:
 ```shell
-romi_run_task IntrinsicCalibration $DB_Location/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
+romi_run_task IntrinsicCalibration $DB_LOCATION/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
+```
+This should generate a `camera_model.json` inside the `$DB_LOCATION/intrisic_calib_1/camera_model` folder.
+
+An example of a `camera_model.json` file is:
+```json
+{
+    "model": "OPENCV",
+    "RMS_error": 0.3484289537533634,
+    "camera_matrix": [
+        [
+            1201.7588127324675,
+            0.0,
+            702.5429671940506
+        ],
+        [
+            0.0,
+            1199.117692017527,
+            536.7266695161917
+        ],
+        [
+            0.0,
+            0.0,
+            1.0
+        ]
+    ],
+    "distortion": [
+        0.021462456820485233,
+        -0.04707700665017203,
+        -0.00014475851274869323,
+        -0.0011459776173976073,
+        0.0
+    ],
+    "height": 1440,
+    "width": 1080
+}
 ```
 
-This should generate a `camera_model.json` in a `camera_model` folder inside the `$DB_Location/intrisic_calib_1` folder.
+!!! important
+    Do not hesitate to make several independent attempts at camera calibration, like 3 to 5, and choose the one with the lowest overall RMS error.
+    Obviously, _independent_ here means that you should perform multiple scans of the board and camera parameters estimation.

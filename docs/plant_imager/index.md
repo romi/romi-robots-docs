@@ -14,11 +14,11 @@ We aim at making our software architecture modular to ensure the required flexib
 
 ## Modules
 
-[PlantDB :material-database-outline:](modules/plantdb.md){ .md-button }
-[Plant 3D Explorer :material-file-tree-outline:](https://romi.github.io/plant-3d-explorer/){ .md-button }
+[PlantDB :material-database-outline:](https://github.com/romi/plantdb){ .md-button }
+[Plant 3D Explorer :material-file-tree-outline:](https://romi.github.io/plant-3d-explorer){ .md-button }
 
-[Plant Imager :material-robot-excited-outline:](modules/plant_imager.md){ .md-button }
-[Plant 3D Vision :material-pine-tree-box:](modules/plant_3d_vision.md){ .md-button }
+[Plant Imager :material-robot-excited-outline:](https://github.com/romi/plant-imager){ .md-button }
+[Plant 3D Vision :material-pine-tree-box:](https://github.com/romi/plant-3d-vision){ .md-button }
 
 ## Usage
 
