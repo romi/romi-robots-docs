@@ -2734,12 +2734,8 @@ touch <span class="nv">$DB_LOCATION</span>/romidb
 This will create a file named <code>charuco_board.png</code> in the current working directory.</p>
 <p>We strongly advise to <strong>use the same</strong> TOML configuration file with <code>create_charuco_board</code> &amp; <code>romi_run_task</code> commands to avoid inadvertently changing parameter values.
 Also, you will later need it for the estimation of the intrinsic camera parameters.</p>
-<p>An example of such configuration file is:
-<div class="highlight"><pre><span></span><code><span class="k">[IntrinsicCalibrationScan]</span><span class="w"></span>
-<span class="n">n_poses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;20&quot;</span><span class="w">  </span><span class="c1"># Number of acquisition of the printed ChArUco board</span><span class="w"></span>
-<span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="w"></span>
-
-<span class="k">[CreateCharucoBoard]</span><span class="w"></span>
+<p>An example of <code>intrisic_calibration.toml</code> configuration file is:
+<div class="highlight"><pre><span></span><code><span class="k">[CreateCharucoBoard]</span><span class="w"></span>
 <span class="n">n_squares_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;14&quot;</span><span class="w">  </span><span class="c1"># Number of chessboard squares in X direction.</span><span class="w"></span>
 <span class="n">n_squares_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10&quot;</span><span class="w">  </span><span class="c1"># Number of chessboard squares in Y direction.</span><span class="w"></span>
 <span class="n">square_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;2.&quot;</span><span class="w">  </span><span class="c1"># Length of square side, in cm</span><span class="w"></span>
@@ -2766,7 +2762,7 @@ With the previous configuration it should be:</p>
 <p>Finally, <strong>tape it flat onto something solid</strong> in order to avoid deformation of the printed pattern!</p>
 <h3 id="2-scan-the-charuco-board">2. Scan the ChArUco board<a class="headerlink" href="#2-scan-the-charuco-board" title="Permanent link">Link</a></h3>
 <p>To scan your newly printed ChArUco board, use the <code>IntrinsicCalibrationScan</code> task from <code>plant_imager</code>:
-<div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibrationScan <span class="nv">$DB_LOCATION</span>/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
+<div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibrationScan <span class="nv">$DB_LOCATION</span>/intrisic_calib_1 --config plant-3d-vision/config/scan.toml
 </code></pre></div></p>
 <p>The camera should move to the center front of the <em>plant imager</em> where you will hold your pattern and take <code>20</code> pictures (according to the previous configuration).
 Try to take pictures of the board in different positions.</p>
@@ -2774,6 +2770,79 @@ Try to take pictures of the board in different positions.</p>
 <p class="admonition-title">Notes</p>
 <p>It is not required to have the whole board in the picture, the ArUco markers will be used to detect the occluded sections!</p>
 </div>
+<p>An example for the <code>scan.toml</code> configuration file is:
+<div class="highlight"><pre><span></span><code><span class="k">[IntrinsicCalibrationScan]</span><span class="w"></span>
+<span class="n">n_poses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w">  </span><span class="c1"># Number of acquisition of the printed ChArUco board</span><span class="w"></span>
+<span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+
+<span class="k">[CalibrationScan]</span><span class="w"></span>
+<span class="n">n_points_line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="w"></span>
+<span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+
+<span class="k">[ScanPath]</span><span class="w"></span>
+<span class="n">class_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Circle&quot;</span><span class="w"></span>
+
+<span class="k">[ScanPath.kwargs]</span><span class="w"></span>
+<span class="n">center_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">375</span><span class="w"></span>
+<span class="n">center_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">375</span><span class="w"></span>
+<span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">90</span><span class="w"></span>
+<span class="n">tilt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="w"></span>
+<span class="n">n_points</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">36</span><span class="w"></span>
+
+<span class="k">[Scan.scanner.camera]</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;plantimager.sony&quot;</span><span class="w">  </span><span class="c1"># RX-0 camera</span><span class="w"></span>
+
+<span class="k">[Scan.scanner.gimbal]</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;plantimager.blgimbal&quot;</span><span class="w">  </span><span class="c1"># plant imager hardware v2</span><span class="w"></span>
+
+<span class="k">[Scan.scanner.cnc]</span><span class="w"></span>
+<span class="n">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;plantimager.grbl&quot;</span><span class="w">  </span><span class="c1"># plant imager hardware v2</span><span class="w"></span>
+
+<span class="k">[Scan.metadata.object]</span><span class="w"></span>
+<span class="n">species</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="w"></span>
+<span class="n">seed_stock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="w"></span>
+<span class="n">plant_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test&quot;</span><span class="w"></span>
+<span class="n">growth_environment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="w"></span>
+<span class="n">growth_conditions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;None&quot;</span><span class="w"></span>
+<span class="n">treatment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;none&quot;</span><span class="w"></span>
+<span class="n">DAG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="n">sample</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test_sample&quot;</span><span class="w"></span>
+<span class="n">experiment_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;None&quot;</span><span class="w"></span>
+<span class="n">dataset_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;test&quot;</span><span class="w"></span>
+
+<span class="k">[Scan.metadata.hardware]</span><span class="w"></span>
+<span class="n">frame</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;30profile v2&quot;</span><span class="w"></span>
+<span class="n">X_motor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;X-Carve NEMA23&quot;</span><span class="w"></span>
+<span class="n">Y_motor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;X-Carve NEMA23&quot;</span><span class="w"></span>
+<span class="n">Z_motor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;X-Carve NEMA23&quot;</span><span class="w"></span>
+<span class="n">pan_motor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;iPower Motor GM4108H-120T Brushless Gimbal Motor&quot;</span><span class="w"></span>
+<span class="n">tilt_motor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;None&quot;</span><span class="w"></span>
+<span class="n">sensor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Sony RX-0&quot;</span><span class="w"></span>
+
+<span class="k">[Scan.metadata.workspace]</span><span class="w"></span>
+<span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">,]</span><span class="w"></span>
+<span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">,]</span><span class="w"></span>
+<span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">-300</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,]</span><span class="w"></span>
+
+<span class="k">[Scan.scanner.camera.kwargs]</span><span class="w"></span>
+<span class="n">device_ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;192.168.122.1&quot;</span><span class="w"></span>
+<span class="n">api_port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10000&quot;</span><span class="w"></span>
+<span class="n">postview</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="n">use_flashair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="n">rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">270</span><span class="w"></span>
+
+<span class="k">[Scan.scanner.gimbal.kwargs]</span><span class="w"></span>
+<span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/dev/ttyACM1&quot;</span><span class="w"></span>
+<span class="n">has_tilt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="n">zero_pan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="n">invert_rotation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+
+<span class="k">[Scan.scanner.cnc.kwargs]</span><span class="w"></span>
+<span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/dev/ttyACM0&quot;</span><span class="w"></span>
+<span class="n">baud_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">115200</span><span class="w"></span>
+<span class="n">homing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+</code></pre></div></p>
 <h3 id="3-performs-the-camera-parameters-estimation">3. Performs the camera parameters estimation<a class="headerlink" href="#3-performs-the-camera-parameters-estimation" title="Permanent link">Link</a></h3>
 <p>You may now <strong>estimate the camera parameters</strong>, for a given <em>camera model</em> with:
 <div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibration <span class="nv">$DB_LOCATION</span>/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
