@@ -931,78 +931,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../modules/plantdb/" class="md-nav__link">
-        Plantdb
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../modules/plant_3d_vision/" class="md-nav__link">
-        Plant 3d vision
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../modules/plant_imager/" class="md-nav__link">
-        Plant imager
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../modules/plant_3d_explorer/" class="md-nav__link">
-        Plant 3d explorer
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_3_5" type="checkbox" id="__nav_3_4_3_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_3_1" type="checkbox" id="__nav_3_4_3_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3_4_3_5">
+        <label class="md-nav__link" for="__nav_3_4_3_1">
           Plant 3D Explorer
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Plant 3D Explorer" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_3_5">
+        <label class="md-nav__title" for="__nav_3_4_3_1">
           <span class="md-nav__icon md-icon"></span>
           Plant 3D Explorer
         </label>
@@ -2830,8 +2774,8 @@ The several steps are:  </p>
 </ul>
 <h3 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h3>
 <ul>
-<li>install romi <code>plant-imager</code> (from <a href="https://github.com/romi/plant-imager">source</a> or using a <a href="../docker/plantimager_docker.md">docker image</a> ) &amp; read <a href="../install/plant_imager_setup.md">install procedure</a></li>
-<li>install romi <code>plant-3d-vision</code> (from <a href="https://github.com/romi/plant-3d-vision">source</a> or using a <a href="../docker/plantinterpreter_docker.md">docker image</a>) &amp; read <a href="../install/plant_reconstruction_setup.md">install procedure</a></li>
+<li>install romi <code>plant-imager</code> (from <a href="https://github.com/romi/plant-imager">source</a> or using a <a href="../../../docker/plantimager_docker/">docker image</a> ) &amp; read <a href="../../../install/plant_imager_setup/">install procedure</a></li>
+<li>install romi <code>plant-3d-vision</code> (from <a href="https://github.com/romi/plant-3d-vision">source</a> or using a <a href="../../../docker/plant-3d-vision_docker/">docker image</a>) &amp; read <a href="../../../install/plant_reconstruction_setup/">install procedure</a></li>
 <li>Create and activate isolated python environment (see the procedure <a href="../../../install/create_env/">here</a> )</li>
 </ul>
 <h3 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h3>
@@ -2841,10 +2785,10 @@ In our case we chose to evaluate our plant imager with a can.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Be careful to be able to detect your object from the background in the future reconstruction process. 
-Different segmentation methods are described <a href="../explanations/segmentation.md">here</a> and as we use the "Binary segmentation" algorithm the can has been painted in a very tasteful green.<br />
+Different segmentation methods are described <a href="../../../explanations/segmentation/">here</a> and as we use the "Binary segmentation" algorithm the can has been painted in a very tasteful green.<br />
 <img alt="Green can for evaluation" loading="lazy" src="../../../../assets/images/green_can_evaluation.jpg" />  </p>
 </div>
-<p>The procedure to take images is described in the <a href="../tutorials/hardware_scan.md">plant imager tutorial</a> but here are the basic steps:  </p>
+<p>The procedure to take images is described in the <a href="../../../tutorials/hardware_scan/">plant imager tutorial</a> but here are the basic steps:  </p>
 <ul>
 <li>DB creation<br />
 <div class="highlight"><pre><span></span><code>mkdir path/to/db
@@ -2872,7 +2816,7 @@ touch path/to/db/romidb
 </code></pre></div></p>
 <h4 id="2-point-cloud-reconstruction">2. Point cloud reconstruction<a class="headerlink" href="#2-point-cloud-reconstruction" title="Permanent link">Link</a></h4>
 <p>The next step is to compute a point cloud from the acquired data.
-As before, the full explanation of the operations concerning the reconstruction pipeline can be found in <a href="../tutorials/reconstruct_scan.md">this tutorial</a> but mainly are:
+As before, the full explanation of the operations concerning the reconstruction pipeline can be found in <a href="../../../tutorials/reconstruct_scan/">this tutorial</a> but mainly are:
 <div class="highlight"><pre><span></span><code>romi_run_task PointCloud /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml
 </code></pre></div></p>
 <p>Resulting an equivalent of this tree structure (depending on the used configuration file):

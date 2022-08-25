@@ -931,78 +931,22 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../modules/plantdb/" class="md-nav__link">
-        Plantdb
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../modules/plant_3d_vision/" class="md-nav__link">
-        Plant 3d vision
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../modules/plant_imager/" class="md-nav__link">
-        Plant imager
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../modules/plant_3d_explorer/" class="md-nav__link">
-        Plant 3d explorer
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_3_5" type="checkbox" id="__nav_3_4_3_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4_3_1" type="checkbox" id="__nav_3_4_3_1" >
       
       
       
       
-        <label class="md-nav__link" for="__nav_3_4_3_5">
+        <label class="md-nav__link" for="__nav_3_4_3_1">
           Plant 3D Explorer
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Plant 3D Explorer" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_4_3_5">
+        <label class="md-nav__title" for="__nav_3_4_3_1">
           <span class="md-nav__icon md-icon"></span>
           Plant 3D Explorer
         </label>
@@ -2746,20 +2690,25 @@
                 
 
 
-<h1 id="intrinsic-calibration">Intrinsic Calibration<a class="headerlink" href="#intrinsic-calibration" title="Permanent link">Link</a></h1>
+<h1 id="intrinsic-calibration">Intrinsic calibration<a class="headerlink" href="#intrinsic-calibration" title="Permanent link">Link</a></h1>
 <p>Some cameras introduce significant distortion to images.
 The two major kinds of distortion are <strong>radial distortion</strong> and <strong>tangential distortion</strong>.</p>
 <p>With <em>radial distortion</em>, straight lines appear curved while with <em>tangential distortion</em> some objects of the image may appears closer than they are in reality.</p>
+<figure>
+    <img src="https://docs.opencv.org/4.x/calib_radial.jpg" alt="ChArUco board example" width="300" /> 
+    <figcaption>Illustration of an image captured with radial distortion as shown by the straight red lines added on top the picture afterward.<br>Source: OpenCV Python tutorial on <a href="https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html">camera calibration</a>.</figcaption>
+</figure>
+
 <h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
 <p>Correcting these "aberrations" prior to image processing can be a good idea to improve <strong>quality</strong> and <strong>accuracy</strong> of the reconstructed 3D scenes by <em>structure from motion</em> algorithms.</p>
 <p>In this tutorial, you will learn how to <strong>estimate the intrinsic camera parameters</strong> to calibrate image acquisition for downstream analysis and how to re-use it for a reconstruction pipeline, provided that the set-up is the same (same camera, optics, image size...).</p>
 <h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
 <ul>
 <li>
-<p>Install the <a href="../../modules/plant_imager/"><code>plant-imager</code></a> ROMI library required to perform <em>image acquisitions</em> together with the <em>Plant Imager hardware</em>.</p>
+<p>Install the <a href="https://github.com/romi/plant-imager"><code>plant-imager</code></a> ROMI library required to perform <em>image acquisitions</em> together with the <em>Plant Imager hardware</em>.</p>
 </li>
 <li>
-<p>Install the <a href="../../modules/plant_3d_vision/"><code>plant-3d-vision</code></a> ROMI library required to perform <em>intrinsic calibration</em>.</p>
+<p>Install the <a href="https://github.com/romi/plant-3d-vision"><code>plant-3d-vision</code></a> ROMI library required to perform <em>intrinsic calibration</em>.</p>
 </li>
 <li>
 <p>Set up a ROMI <code>plantdb</code> local <a href="../../specifications/data/">database</a> or quickly create it (under <code>/data/ROMI/DB</code>) with the following commands:
@@ -2769,21 +2718,23 @@ touch <span class="nv">$DB_LOCATION</span>/romidb
 </code></pre></div></p>
 </li>
 </ul>
-<p><img src="../../assets/images/ext/docker_logo2.png" alt="docker_logo" width="50" />We highly recommend the use of docker containers to run ROMI software, if you wish to use the docker images we provide, have a look <a href="https://github.com/romi/plant-imager#docker">here</a>.</p>
+<p><img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50" />We highly recommend the use of docker containers to run ROMI software, if you wish to use the docker images we provide, have a look <a href="https://github.com/romi/plant-imager#docker">here</a>.</p>
 <h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
 <h3 id="1-make-a-charuco-board-and-print-it">1. Make a ChArUco board and print it<a class="headerlink" href="#1-make-a-charuco-board-and-print-it" title="Permanent link">Link</a></h3>
 <p>A ChArUco board is the combination of a chess board and of ArUco markers.</p>
 <figure>
-    <img src="../../assets/images/charuco_board_4x4_14by10_2_1.5.png" alt="ChArUco board example" width="400" /> 
+    <img src="/assets/images/charuco_board_4x4_14by10_2_1.5.png" alt="ChArUco board example" width="400" /> 
     <figcaption>An example of a 14x10 ChArUco board with 20mm chess square and 15mm 4x4 ArUco markers.</figcaption>
 </figure>
 
 <p>The previous figure shows the default board that we will use in this tutorial.</p>
 <p>To create it, you have to run the <code>create_charuco_board</code> CLI as follows:
-<div class="highlight"><pre><span></span><code>create_charuco_board --config plant-3d-vision/config/intrisic_calibration.toml
-</code></pre></div></p>
-<p>We strongly advise to <strong>use the same</strong> TOML configuration file as you will later need it for the estimation of the intrinsic camera parameters.
-An example of such configuration file is:
+<div class="highlight"><pre><span></span><code>create_charuco_board plant-3d-vision/config/intrisic_calibration.toml
+</code></pre></div>
+This will create a file named <code>charuco_board.png</code> in the current working directory.</p>
+<p>We strongly advise to <strong>use the same</strong> TOML configuration file with <code>create_charuco_board</code> &amp; <code>romi_run_task</code> commands to avoid inadvertently changing parameter values.
+Also, you will later need it for the estimation of the intrinsic camera parameters.</p>
+<p>An example of such configuration file is:
 <div class="highlight"><pre><span></span><code><span class="k">[IntrinsicCalibrationScan]</span><span class="w"></span>
 <span class="n">n_poses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;20&quot;</span><span class="w">  </span><span class="c1"># Number of acquisition of the printed ChArUco board</span><span class="w"></span>
 <span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;5&quot;</span><span class="w"></span>
@@ -2805,27 +2756,66 @@ An example of such configuration file is:
 <span class="n">board_fileset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CreateCharucoBoard&quot;</span><span class="w"></span>
 <span class="n">camera_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;OPENCV&quot;</span><span class="w">  </span><span class="c1"># defines the estimated parameters</span><span class="w"></span>
 </code></pre></div></p>
-<p>You may now <strong>print it</strong>.
+<p>You may now <strong>print the ChArUco board image</strong>.
 Pay attention to use a software (like GIMP) that allows you to set the actual size of the image you want to print.
-With the previous configuration it should be:
- - width : <code>n_squares_x * square_length = 14 * 2. = 28cm</code>
- - height : <code>n_squares_y * square_length = 10 * 2. = 20cm</code></p>
+With the previous configuration it should be:</p>
+<ul>
+<li>width : <code>n_squares_x * square_length = 14 * 2. = 28cm</code></li>
+<li>height : <code>n_squares_y * square_length = 10 * 2. = 20cm</code></li>
+</ul>
 <p>Finally, <strong>tape it flat onto something solid</strong> in order to avoid deformation of the printed pattern!</p>
 <h3 id="2-scan-the-charuco-board">2. Scan the ChArUco board<a class="headerlink" href="#2-scan-the-charuco-board" title="Permanent link">Link</a></h3>
 <p>To scan your newly printed ChArUco board, use the <code>IntrinsicCalibrationScan</code> task from <code>plant_imager</code>:
-<div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibrationScan <span class="nv">$DB_Location</span>/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
+<div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibrationScan <span class="nv">$DB_LOCATION</span>/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
 </code></pre></div></p>
-<p>The camera should move to the center front of the scanner where you will hold your pattern and take <code>20</code> pictures (according to the previous configuration).
-Try to take picture of the board in different positions, it may even be cropped but needs to be still.</p>
+<p>The camera should move to the center front of the <em>plant imager</em> where you will hold your pattern and take <code>20</code> pictures (according to the previous configuration).
+Try to take pictures of the board in different positions.</p>
 <div class="admonition notes">
 <p class="admonition-title">Notes</p>
-</div>
 <p>It is not required to have the whole board in the picture, the ArUco markers will be used to detect the occluded sections!</p>
+</div>
 <h3 id="3-performs-the-camera-parameters-estimation">3. Performs the camera parameters estimation<a class="headerlink" href="#3-performs-the-camera-parameters-estimation" title="Permanent link">Link</a></h3>
-<p>You may now estimate the camera parameters, for a given model with:
-<div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibration <span class="nv">$DB_Location</span>/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
+<p>You may now <strong>estimate the camera parameters</strong>, for a given <em>camera model</em> with:
+<div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibration <span class="nv">$DB_LOCATION</span>/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
+</code></pre></div>
+This should generate a <code>camera_model.json</code> inside the <code>$DB_LOCATION/intrisic_calib_1/camera_model</code> folder.</p>
+<p>An example of a <code>camera_model.json</code> file is:
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OPENCV&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;RMS_error&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3484289537533634</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;camera_matrix&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="mf">1201.7588127324675</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="mf">0.0</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="mf">702.5429671940506</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="mf">0.0</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="mf">1199.117692017527</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="mf">536.7266695161917</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="mf">0.0</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="mf">0.0</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="mf">1.0</span><span class="w"></span>
+<span class="w">        </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;distortion&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="mf">0.021462456820485233</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="mf">-0.04707700665017203</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="mf">-0.00014475851274869323</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="mf">-0.0011459776173976073</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1440</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1080</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div></p>
-<p>This should generate a <code>camera_model.json</code> in a <code>camera_model</code> folder inside the <code>$DB_Location/intrisic_calib_1</code> folder.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do not hesitate to make several independent attempts at camera calibration, like 3 to 5, and choose the one with the lowest overall RMS error.
+Obviously, <em>independent</em> here means that you should perform multiple scans of the board and camera parameters estimation.</p>
+</div>
 
               
             </article>
