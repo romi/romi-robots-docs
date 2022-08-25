@@ -54,12 +54,8 @@ This will create a file named `charuco_board.png` in the current working directo
 We strongly advise to **use the same** TOML configuration file with `create_charuco_board` & `romi_run_task` commands to avoid inadvertently changing parameter values.
 Also, you will later need it for the estimation of the intrinsic camera parameters.
 
-An example of such configuration file is:
+An example of `intrisic_calibration.toml` configuration file is:
 ```toml
-[IntrinsicCalibrationScan]
-n_poses = "20"  # Number of acquisition of the printed ChArUco board
-offset = "5"
-
 [CreateCharucoBoard]
 n_squares_x = "14"  # Number of chessboard squares in X direction.
 n_squares_y = "10"  # Number of chessboard squares in Y direction.
@@ -91,7 +87,7 @@ Finally, **tape it flat onto something solid** in order to avoid deformation of 
 ### 2. Scan the ChArUco board
 To scan your newly printed ChArUco board, use the `IntrinsicCalibrationScan` task from `plant_imager`:
 ```shell
-romi_run_task IntrinsicCalibrationScan $DB_LOCATION/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
+romi_run_task IntrinsicCalibrationScan $DB_LOCATION/intrisic_calib_1 --config plant-3d-vision/config/scan.toml
 ```
 
 The camera should move to the center front of the _plant imager_ where you will hold your pattern and take `20` pictures (according to the previous configuration).
@@ -100,6 +96,80 @@ Try to take pictures of the board in different positions.
 !!! notes
     It is not required to have the whole board in the picture, the ArUco markers will be used to detect the occluded sections!
 
+An example for the `scan.toml` configuration file is:
+```toml
+[IntrinsicCalibrationScan]
+n_poses = 20  # Number of acquisition of the printed ChArUco board
+offset = 5
+
+[CalibrationScan]
+n_points_line = 11
+offset = 5
+
+[ScanPath]
+class_name = "Circle"
+
+[ScanPath.kwargs]
+center_x = 375
+center_y = 375
+z = 90
+tilt = 0
+radius = 300
+n_points = 36
+
+[Scan.scanner.camera]
+module = "plantimager.sony"  # RX-0 camera
+
+[Scan.scanner.gimbal]
+module = "plantimager.blgimbal"  # plant imager hardware v2
+
+[Scan.scanner.cnc]
+module = "plantimager.grbl"  # plant imager hardware v2
+
+[Scan.metadata.object]
+species = "none"
+seed_stock = "none"
+plant_id = "test"
+growth_environment = "none"
+growth_conditions = "None"
+treatment = "none"
+DAG = 0
+sample = "test_sample"
+experiment_id = "None"
+dataset_id = "test"
+
+[Scan.metadata.hardware]
+frame = "30profile v2"
+X_motor = "X-Carve NEMA23"
+Y_motor = "X-Carve NEMA23"
+Z_motor = "X-Carve NEMA23"
+pan_motor = "iPower Motor GM4108H-120T Brushless Gimbal Motor"
+tilt_motor = "None"
+sensor = "Sony RX-0"
+
+[Scan.metadata.workspace]
+x = [ 100, 500,]
+y = [ 100, 500,]
+z = [ -300, 100,]
+
+[Scan.scanner.camera.kwargs]
+device_ip = "192.168.122.1"
+api_port = "10000"
+postview = true
+use_flashair = false
+rotation = 270
+
+[Scan.scanner.gimbal.kwargs]
+port = "/dev/ttyACM1"
+has_tilt = false
+zero_pan = 0
+invert_rotation = true
+
+[Scan.scanner.cnc.kwargs]
+port = "/dev/ttyACM0"
+baud_rate = 115200
+homing = true
+```
 
 ### 3. Performs the camera parameters estimation
 You may now **estimate the camera parameters**, for a given _camera model_ with:
