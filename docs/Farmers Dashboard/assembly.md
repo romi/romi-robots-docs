@@ -24,10 +24,12 @@ There are two _hands_ on the CARM module, left and right. The assembly process f
 
 ![](/assets/images/farmersDashboard/assembly/hands/despiece_hand.png)
 
-### BOM
-
 #### 3d printed parts
-<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Hand_end_stop_trigger_left.jpg" alt="Hand end stop trigger left" height="125px"/> <img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Hand_base_left.jpg" alt="Hand base left" height="125"/> <img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Pulley_608zz.jpg" alt="Pulley 608zz" height="125"/> <img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Hand_base_right.jpg" alt="Hand base right" height="125"/> <img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Hand_end_stop_trigger_right.jpg" alt="Hand end stop trigger right" height="125"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Hand_end_stop_trigger_left.jpg" alt="Hand end stop trigger left"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Hand_base_left.jpg" alt="Hand base left"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Pulley_608zz.jpg" alt="Pulley 608zz"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Hand_base_right.jpg" alt="Hand base right"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Hand_end_stop_trigger_right.jpg" alt="Hand end stop trigger right"/>
 
 |       |                                                                                    |
 | :---: | ---                                                                                |
@@ -38,16 +40,16 @@ There are two _hands_ on the CARM module, left and right. The assembly process f
 | 1x    | [Hand end stop trigger right](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Hand_end_stop_trigger_right.stl) |
 
 #### Milled Alucobond parts
-<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_left_out_small.jpg" alt="Hand left out small" height="125"/>
-<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_left_middle_small.jpg" alt="Hand left middle small" height="125"/>
-<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_front_left.jpg" alt="Hand front left" height="125"/>
-<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_right_out_small.jpg" alt="Hand right out small" height="125"/>
-<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_right_middle_small.jpg" alt="Hand right middle small" height="125"/>
-<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_front_right.jpg" alt="Hand front right" height="125"/>
-<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_left_out_big.jpg" alt="Hand left out big" height="125"/>
-<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_left_middle_big.jpg" alt="Hand left middle big" height="125"/>
-<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_right_out_big.jpg" alt="Hand right out big" height="125"/>
-<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_right_middle_big.jpg" alt="Hand right middle big" height="125"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_left_out_small.jpg" alt="Hand left out small"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_left_middle_small.jpg" alt="Hand left middle small"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_front_left.jpg" alt="Hand front left"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_right_out_small.jpg" alt="Hand right out small"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_right_middle_small.jpg" alt="Hand right middle small"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_front_right.jpg" alt="Hand front right"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_left_out_big.jpg" alt="Hand left out big"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_left_middle_big.jpg" alt="Hand left middle big"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_right_out_big.jpg" alt="Hand right out big"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Hand_right_middle_big.jpg" alt="Hand right middle big"/>
 
 |       |                                                                                    |
 | :---: | ---                                                                                |
@@ -82,7 +84,7 @@ Just one set is needed either _small_ or _big_, depending on cable tension (big 
 | 2 | Screw M2x10 |
 | 2 | Nut M2 |
 
-## Assembly
+#### Assembly
 
 ![](/assets/images/farmersDashboard/assembly/hands/hands-00.jpg)
 All the needed pieces, to build the right hand. 
@@ -148,17 +150,118 @@ Follow the same procedure with the left hand so you can start with the arms.
 
 ### Left Arm
 
+![](/assets/images/farmersDashboard/assembly/arms/despiece_arm_left.png)
+
+#### 3d printed parts
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Left_arm_cap_out.jpg" alt="Left arm cap out"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Pogo_pin_clip.jpg" alt="Pogo pin clip"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Left_arm_cap_middle.jpg" alt="Left arm cap middle"/>
+
+|       |                                                                      |
+| :---: | ---                                                                  |
+| 1x    | [Left arm cap out](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Left_arm_cap_out.stl)       |
+| 1x    | [Pogo pin clip](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Pogo_pin_clip.stl)				|
+| 1x    | [Left arm cap middle](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Left_arm_cap_middle.stl) |
+
+#### Milled Alucobond
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Arm_left.jpg" alt="Left arm"/>
+
+|       |                                                                      |
+| :---: | ---                                                                  |
+| 1x    | [Arm left](https://github.com/romi/romi-cablebot/blob/main/Hardware/Milled-Alucobond/Cablebot-Arm_left.dxf)  |
+
+
 ### Right Arm
+
+![](/assets/images/farmersDashboard/assembly/arms/despiece_arm_right.png)
+
+#### 3d printed parts
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Control_board_pcb_holder.jpg" alt="Control board holder"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Right_arm_cap_middle.jpg" alt="Right arm cap middle"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Right_arm_cap_out.jpg" alt="Right arm cap out"/>
+
+|       |                                                                      |
+| :---: | ---                                                                  |
+| 1x    | [Control board holder](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Control_board_pcb_holder.stl)  |
+| 1x    | [Right arm cap middle](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Right_arm_cap_middle.stl)      |
+| 1x    | [Right arm cap out](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Right_arm_cap_out.stl)            |
+
+#### Milled Alucobond
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Arm_right.jpg" alt="Right arm"/>
+
+|       |                                                                      |
+| :---: | ---                                                                  |
+| 1x    | [Right arm](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Arm_right.dxf)  |
+
 
 ### Head
 
+The _head_ part of the module holds the brushless motor and the needed electronics to control it. This part slides depending on thee cable tension.
+
+![](/assets/images/farmersDashboard/assembly/head/despiece_head_front.png)
+
+#### 3d printed parts
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Encoder_cap.jpg" alt="Encoder cap"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Head_separator_front.jpg" alt="Head separator front"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Head_separator_up.jpg" alt="Head separator up"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Spring_holder_Up.jpg" alt="Spring holder up"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Head_separator_back.jpg" alt="Head separator back"/>
+<img src="/assets/images/farmersDashboard/assembly/3d-print/Cablebot-Encoder_holder.jpg" alt="Encoder holder"/>
+
+|       |                                                                      |
+| :---: | ---                                                                  |
+| 1x    | [Encoder cap](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Encoder_cap.stl)                   |
+| 1x    | [Head separator front](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Head_separator_front.stl) |
+| 1x    | [Head separator up](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Head_separator_up.stl)       |
+| 1x    | [Spring holder up](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Spring_holder_Up.stl)         |
+| 1x    | [Head separator back](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Head_separator_back.stl)   |
+| 1x    | [Encoder holder](https://github.com/romi/romi-cablebot/blob/main/Hardware/3d-Print/Cablebot-Encoder_holder.stl)             |
+
+#### Milled Alucobond
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Head_front.jpg" alt="Head front"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Head_middle_front.jpg" alt="Head middle front"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Head_middle_back.jpg" alt="Head middle back"/>
+<img src="/assets/images/farmersDashboard/assembly/Milled-Alucobond/Cablebot-Head_back.jpg" alt="Head back"/>
+
+|       |                                                                        |
+| :---: | ---                                                                    |
+| 1x    | [Head front](./Milled-Alucobond/Cablebot-Head_front.dxf)               |
+| 1x    | [Head middle front](./Milled-Alucobond/Cablebot-Head_middle_front.dxf) |
+| 1x    | [Head middle back](./Milled-Alucobond/Cablebot-Head_middle_back.dxf)   |
+| 1x    | [Head back](./Milled-Alucobond/Cablebot-Head_back.dxf)                 |
+
+
+#### Hardware parts
+
+|||
+|:---:| --- |
+|  |  |
+
+#### Assembly
+
+![](/assets/images/farmersDashboard/assembly/head/head-01.jpg)
+
+![](/assets/images/farmersDashboard/assembly/head/head-02.jpg)
+
+![](/assets/images/farmersDashboard/assembly/head/head-03.jpg)
+
+![](/assets/images/farmersDashboard/assembly/head/head-04.jpg)
+
+![](/assets/images/farmersDashboard/assembly/head/head-06.jpg)
+
+![](/assets/images/farmersDashboard/assembly/head/head-07.jpg)
+
 ### Body
 
+![](/assets/images/farmersDashboard/assembly/body/despiece_body.png)
 
 ## Battery module (BATM)
 
+![](/assets/images/farmersDashboard/assembly/batt/despiece_battery_module.png)
 
 ## Camera module (CAMM)
+
+![](/assets/images/farmersDashboard/assembly/camera/despiece_CAMM.png)
 
 
 ## Charging station module (CHAM)
