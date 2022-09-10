@@ -1,6 +1,6 @@
 # ROMI Rover User Manual
 
-![The ROMI Rover](assets/rover.png)
+![The ROMI Rover](/assets/images/rover/manual/rover.png)
 
 Draft v2 - Rover V3 - Summer 2022 
 
@@ -68,7 +68,7 @@ The following configuration is required for the use of the ROMI rover.
 
 |  | Image | Price | Features/Function |
 | ----------- | ----------- | ----------- | ----------- |
-| ROMI rover with a remote control, a battery charger, and a protective cover | <img src="assets/rover-colored.png" width="200px"><br><img src="assets/controller.png" width="200px"><br><img src="assets/charger.png" width="200px"> | 5000 € (estimate) | - Prevents weed development<br>- Takes image scans of the beds |
+| ROMI rover with a remote control, a battery charger, and a protective cover | <img src="/assets/images/rover/manual/rover-colored.png" width="200px"><br><img src="/assets/images/rover/manual/controller.png" width="200px"><br><img src="/assets/images/rover/manual/charger.png" width="200px"> | 5000 € (estimate) | - Prevents weed development<br>- Takes image scans of the beds |
 
 
 ## Overview of the components
@@ -142,7 +142,8 @@ The use of a Wi-Fi access point is optional but strongly
 recommended. The rover must be connected to a Wi-Fi access point with
 Internet access for the following functionality:
 
-- To automatically upload the images taken by the rover to the Farmer’s Dashboard web application.
+- To automatically upload the images taken by the rover to the
+  Farmer’s Dashboard web application.
 - For remote maintenance.
 
 Both features are optional and can be left out when the rover is used
@@ -279,25 +280,29 @@ to the soil. When the handle is parallel to the axis, the traction
 rover is "off" to assure that the motors are powered off.
 
 Lock lever vertical: Motor drive mode<br>
-<img src="assets/lock-lever-down.png" width="200px">
+<img src="/assets/images/rover/manual/lock-lever-down.png" width="200px">
 
 Lock lever horizontal: Freewheeling mode<br>
-<img src="assets/lock-lever-up.png" width="200px">
+<img src="/assets/images/rover/manual/lock-lever-up.png" width="200px">
 
 ### Control panel state message
 
 The display of the control panel is divided in two lines. The upper
 line shows current status of the rover:
 
-* **Ready**: The rover is ready for use. The on-board computer is running and the motors can be powered up.
+* **Ready**: The rover is ready for use. The on-board computer is
+    running and the motors can be powered up.
 
-* **Navigating**: The rover is in navigation mode. Use the controller to steer the rover.
+* **Navigating**: The rover is in navigation mode. Use the controller
+    to steer the rover.
 
-* **System Failure**: The rover encountered an error from which it cannot recover. Please restart the rover.
+* **System Failure**: The rover encountered an error from which it
+    cannot recover. Please restart the rover.
 
 ### Start-up procedure
 
-If it is the first usage of the rover, you should go to the section "First time configuration".
+If it is the first usage of the rover, you should go to the section
+"First time configuration".
 
 Before starting up, the rover should be in the following state:
 
@@ -363,7 +368,7 @@ address to your bookmarks.
 
 The rover comes with the Sony DUALSHOCK®4 Wireless Controller. 
 
-<img src="assets/Dualshock-4.png"/>
+<img src="/assets/images/rover/manual/Dualshock-4.png"/>
 
 The remote controller must be recharged using a micro USB cable that
 is plugged into the front of the controller. The controller is
