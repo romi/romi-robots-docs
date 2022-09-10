@@ -73,7 +73,7 @@ The following configuration is required for the use of the ROMI rover.
 
 ## Overview of the components
 
-<img src="assets/rover-overview.png">
+<img src="/assets/images/rover/manual/rover-overview.png">
 
 * **The control panel**: The control panel provides a means to view status
 messages, and request the rover to perform a preconfigured action.
