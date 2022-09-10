@@ -2523,7 +2523,7 @@ do things.</p>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<p>The full code of this example is split over the following files: <a href="examples/tutorial/monster_simple.cpp">monster_simple.cpp</a>, <a href="examples/tutorial/IMonster.h">IMonster.h</a>, and <a href="examples/tutorial/HappyMonster.h">HappyMonster.h</a></p>
+<p>The full code of this example is split over the following files: <a href="https://github.com/romi/librcom/blob/ci_dev/examples/tutorial/monster_simple.cpp">monster_simple.cpp</a>, <a href="https://github.com/romi/librcom/blob/ci_dev/examples/tutorial/IMonster.h">IMonster.h</a>, and <a href="https://github.com/romi/librcom/blob/ci_dev/examples/tutorial/HappyMonster.h">HappyMonster.h</a></p>
 <h2 id="the-client-side-application">The client-side application<a class="headerlink" href="#the-client-side-application" title="Permanent link">Link</a></h2>
 <p>In the next step we will write a monster that lives in a remote
 application, either on the same machine but in a different process, or
@@ -2642,7 +2642,7 @@ doesn't show up within 10 seconds, the application calls it quits.</p>
 object. The application can then call the <code>IMonster</code> methods as if the
 remote monster was a normal, local object.</p>
 <p>The full code of the new version can be found in
-<a href="examples/tutorial/monster_client.cpp">monster_client.cpp</a>.</p>
+<a href="https://github.com/romi/librcom/blob/ci_dev/examples/tutorial/monster_client.cpp">monster_client.cpp</a>.</p>
 <h2 id="the-registry">The registry<a class="headerlink" href="#the-registry" title="Permanent link">Link</a></h2>
 <p>If you run the example application above, it will quit with the
 following error message:</p>
@@ -2739,7 +2739,7 @@ the "real" C++ object:</p>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <p>That's it! The full code of this section can be found here:
-<a href="examples/tutorial/monster_server.cpp">monster_server.cpp</a>.</p>
+<a href="https://github.com/romi/librcom/blob/ci_dev/examples/tutorial/monster_server.cpp">monster_server.cpp</a>.</p>
 <h2 id="run-the-example">Run the example<a class="headerlink" href="#run-the-example" title="Permanent link">Link</a></h2>
 <p>To run the example, you must first start the <code>rcom-registry</code>:</p>
 <div class="highlight"><pre><span></span><code>$ build/bin/rcom-registry
@@ -3075,6 +3075,15 @@ additional functionality:</p>
 <p>RemoteStub</p>
 <p>RcomServer</p>
 <p>RcomMessageHandler</p>
+<h3 id="todo">TODO<a class="headerlink" href="#todo" title="Permanent link">Link</a></h3>
+<p>Remote access
+4G router, set-up at the farm
+Managing an fleet of rovers
+4G router with a solar panel
+queue management
+doc format messages
+describe format message for different actions: move, path, grab, ...
+c++ -&gt; Python</p>
 
               
             </article>
