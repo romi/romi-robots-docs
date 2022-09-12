@@ -609,20 +609,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        Index
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -630,6 +616,8 @@
       
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
+      
+        
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
@@ -647,6 +635,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -655,35 +645,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuration-file" class="md-nav__link">
-    Configuration file
+  <a href="#dimensions" class="md-nav__link">
+    Dimensions
   </a>
-  
-    <nav class="md-nav" aria-label="Configuration file">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-launch-section" class="md-nav__link">
-    The launch section
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the-node-settings" class="md-nav__link">
-    The node settings
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#script-file" class="md-nav__link">
-    Script file
+  <a href="#the-navigation-section" class="md-nav__link">
+    The navigation section
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-oquam-section" class="md-nav__link">
+    The Oquam section
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-ports-section" class="md-nav__link">
+    The ports section
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-user-interface-section" class="md-nav__link">
+    The user-interface section
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-weeder-section" class="md-nav__link">
+    The weeder section
   </a>
   
 </li>
@@ -719,20 +717,6 @@
     <li class="md-nav__item">
       <a href="../software/" class="md-nav__link">
         Software
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../developer/" class="md-nav__link">
-        Developer
       </a>
     </li>
   
@@ -2483,135 +2467,402 @@
                 
 
 
-  <h1>Configuration</h1>
-
-<p>The rover uses the following input files and directories:</p>
+<p>The Romi Rover control software uses the following input files (see
+also the  <a href="../software">Software</a> documentation:</p>
 <ul>
-<li>Configuration file: The main configuration file. This file should be passed on the command line to <code>rclaunch</code>.</li>
-<li>HTML directory: The location of the files for the web interface. The path should be set in the configuration file in the <code>webproxy</code> section.  </li>
-<li>Script file: The list of operations and associated command sequences. The path should be set in the configuration file in the <code>script_engine</code> section.  </li>
+<li>
+<p>The configuration file: Most of the settings of the rover can be modified in this file.</p>
+</li>
+<li>
+<p>The script file: This file lists all the commands of the rover that
+  are actionnable by the user, and what these commands should do.</p>
+</li>
 </ul>
 <p>The configuration and script files are discussed in detail below.</p>
-<h2 id="configuration-file">Configuration file<a class="headerlink" href="#configuration-file" title="Permanent link">Link</a></h2>
-<p>The rover control software is starting using the <code>rclaunch</code>
+<h1 id="configuration-file">Configuration file<a class="headerlink" href="#configuration-file" title="Permanent link">Link</a></h1>
+<p>The rover control software is starting using the <code>romi-rover</code>
 command. This command takes the path to the main configuration as an
 argument. Example configutation files can be found in the
 <code>romi-rover/config</code> directory.</p>
-<h3 id="the-launch-section">The launch section<a class="headerlink" href="#the-launch-section" title="Permanent link">Link</a></h3>
-<p>The <code>launch</code> section is required in all configuration files. A
-stripped-down version of this section looks like below:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w">    </span>
-
-<span class="w">    </span><span class="nt">&quot;launch&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;general&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;sessions-dir&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/tmp/session&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;romi&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;nodes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rclogger&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;configuration&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">//...</span><span class="w"></span>
-<span class="w">        </span><span class="p">}]</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
-<p>The <code>launch</code> section has two subsections, <code>general</code> and <code>nodes</code>. The
-first section groups the following settings:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Value</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sessions-dir</td>
-<td>String</td>
-<td>Optional</td>
-<td>Where to store the session data (log files, database, dumps)</td>
-</tr>
-<tr>
-<td>user</td>
-<td>String</td>
-<td>Optional</td>
-<td>The username under which the nodes will be executed</td>
-</tr>
-</tbody>
-</table>
-<p>The <code>nodes</code> section is an array that lists all the nodes that should
-be launched. The nodes are launched in the order given, but no
-guarantee is given that a node in the front of the list will be ready
-for communication before a node later in the list.</p>
-<p>Each node object accepts the following fields:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Value</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>path</td>
-<td>String</td>
-<td>Required</td>
-<td>The path (or name) of the executable</td>
-</tr>
-<tr>
-<td>args</td>
-<td>String</td>
-<td>Optional</td>
-<td>Additional command-line arguments to be passed to the executable</td>
-</tr>
-<tr>
-<td>disabled</td>
-<td>Boolean</td>
-<td>Optional</td>
-<td>Whether to skip the node or not</td>
-</tr>
-<tr>
-<td>host</td>
-<td>String</td>
-<td>Optional</td>
-<td>To start the node on a remote machine</td>
-</tr>
-<tr>
-<td>user</td>
-<td>String</td>
-<td>Optional</td>
-<td>The user account to start the node on a remote machine</td>
-</tr>
-</tbody>
-</table>
-<p>The PATH environment variable is used to find the executable.</p>
-<h3 id="the-node-settings">The node settings<a class="headerlink" href="#the-node-settings" title="Permanent link">Link</a></h3>
-<p>Each node can have its own section in the configuration file. The name
-of the section must be the name of the node. For example, the
-<code>webproxy</code> node will look for the key <code>webproxy</code> at the root of the
-configuration file:</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w">    </span>
-<span class="w">    </span><span class="nt">&quot;proxy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;html&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;romi-rover/html&quot;</span><span class="w"></span>
+<p>The configuration data is formated in JSON and is a dictionnary of
+top-level section names and the values for that section. It's overall structure is:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;imager&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;...&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;navigation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="p">},</span><span class="w"></span>
-
-<span class="w">    </span><span class="nt">&quot;launch&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="err">//...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;oquam&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;user-interface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;weeder&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<h2 id="script-file">Script file<a class="headerlink" href="#script-file" title="Permanent link">Link</a></h2>
+<p>The <code>navigation</code> section contains the parameters related to the
+navigation, from the low-level settings of the motor drivers to the
+settings for the autonomous navigation. The <code>oquam</code> section contains
+all the parameters related to the CNC. The <code>ports</code> section lists all
+of the serial ports and their usage. The <code>user-interface</code> is used to
+configure such things as the controller to rover speed
+mapping. Finally, in the <code>weeder</code> section you can change the settings
+related to the weeding algorithm. We will discuss each of these
+sections below.</p>
+<h2 id="dimensions">Dimensions<a class="headerlink" href="#dimensions" title="Permanent link">Link</a></h2>
+<p>As much as possible, the configuration and script files uses meter for
+distances, seconds for time, m/s for speeds, m/s² for acceleration.</p>
+<p>We deviate from the scientific standard for angles, for which we use
+degrees instead of radians.</p>
+<h2 id="the-navigation-section">The navigation section<a class="headerlink" href="#the-navigation-section" title="Permanent link">Link</a></h2>
+<p>An example of a complete navigation section is shown below:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;navigation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;rover&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;wheel-diameter&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.47</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;wheelbase&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.45</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;wheeltrack&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.35</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;maximum-speed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;maximum-acceleration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;brush-motor-driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;encoder-directions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;left&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;right&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;encoder-steps&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">16000</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;maximum-signal-amplitude&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;pid&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;ki&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">],</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;kp&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;track-follower&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>The <code>rover</code> section sets some of the physical parameters of the rover:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>wheel-diameter</td>
+<td>The diameter of the motorized wheel, in meter (m)</td>
+</tr>
+<tr>
+<td>wheelbase</td>
+<td>The distance between the axes of the front wheel and the back wheel (m)</td>
+</tr>
+<tr>
+<td>wheeltrack</td>
+<td>The distance between the back wheels (front wheels), measured from the middle of the left wheel to the middle of the right wheel (m)</td>
+</tr>
+<tr>
+<td>maximum-speed</td>
+<td>The maximum allowed speed (m/s)</td>
+</tr>
+<tr>
+<td>maximum-acceleration</td>
+<td>The maximum allowed acceleration (m/s²)</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>brush-motor-driver</code> object has a number of settings for the
+firmware that controls the motors:.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>encoder-directions</td>
+<td>This value is an array of two values, the first concerns the left wheel, the second concerns the right wheel. The values are either 1 or -1. In case the value is 1, the encoder values decrement when the wheel is turning forwards. In case the value is 1, the encoder values increment when the wheel is turning forwards.</td>
+</tr>
+<tr>
+<td>encoder-steps</td>
+<td>The number of encoder steps for a full turn of the wheel. This should take into account the number of steps of the encoder itself, plus the number of turns of the gearbox.</td>
+</tr>
+<tr>
+<td>maximum-signal-amplitude</td>
+<td>The maximum signal that the driver can send to the motor driver. Should be a value &gt; 0 and &lt;= 500;</td>
+</tr>
+<tr>
+<td>pid</td>
+<td>These are the values for the PI controller - a <a href="https://en.wikipedia.org/wiki/PID_controller">PID Controller without the 'D'</a> - used by the driver. Two values are needed: the constants Kp and Ki. They are not specified as floating-point values but as a couple [numerator, denominator]. So [3, 100] means 3/100<sup>th</sup>.</td>
+</tr>
+</tbody>
+</table>
+<p>Finally, the <code>track-follower</code> settings defines which algorithm should
+be used for the track following used for autonomous navigation. Three
+options are available at the time of writing:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>odometry</td>
+<td>Use the encoders on the wheels.</td>
+</tr>
+<tr>
+<td>manual</td>
+<td>Expect manual input from the controller.</td>
+</tr>
+<tr>
+<td>python</td>
+<td>This is the line following algorithm currently being tested that follows a line of crops. The name will likely change when the algorithms is integrated in the main software.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-oquam-section">The Oquam section<a class="headerlink" href="#the-oquam-section" title="Permanent link">Link</a></h2>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;oquam&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;cnc-range&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.75</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mf">-0.4</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;path-maximum-deviation&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.01</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;path-slice-duration&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.02</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;stepper-settings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;steps-per-revolution&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;microsteps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;gears-ratio&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;displacement-per-revolution&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.04</span><span class="p">,</span><span class="w"> </span><span class="mf">0.04</span><span class="p">,</span><span class="w"> </span><span class="mf">-0.0015</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;maximum-rpm&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;maximum-acceleration&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"> </span><span class="mf">0.03</span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cnc-range</td>
+<td>The dimensions of the three axes of the CNC. The values must be provided as an array of three couples, for the x, y, and z axis. Each couple specifies the minimum and maximum position in meters.</td>
+</tr>
+<tr>
+<td>path-maximum-deviation</td>
+<td>This value, in meters, sets the maximum allowed deviation from the ideal path when the CNC is requested to trace a polygonal path. By allowing a small deviation, the CNC can maintain a given speed while assuring that the maximum accelerations (and thus forces) are respected. It allows for smoother path travelings.</td>
+</tr>
+<tr>
+<td>path-slice-duration</td>
+<td>A long path is sliced into small segments of constant speed. This variable sets the default duration of these segments.</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>stepper-settings</code> provide the information on the stepper motors
+that are used. The following six pieces of information are required:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>steps-per-revolution</td>
+<td>The number os steps per revolution of the stepper motors, for the x, y, and z axis.</td>
+</tr>
+<tr>
+<td>microsteps</td>
+<td>If micro-stepping was enabled, the number of micro-steps for the x, y, and z axis (a value of 1 indicates no micro-stepping).</td>
+</tr>
+<tr>
+<td>gears-ratio</td>
+<td>If the stepper motors use gears, provide the gear ratio. 1 means no gearbox is used. A value of N means that N revolutions of the stepper motor are required for 1 revolution of the output axis, or that the driver has to send N times more steps to the stepper motor for the output axis to complete a revolution.</td>
+</tr>
+<tr>
+<td>displacement-per-revolution</td>
+<td>This value specifies by how much the CNC moves, in meter, for one revolution of the output axis of the motor + gearbox combination. This value is related to the size of the pulley that pulls on the belt.</td>
+</tr>
+<tr>
+<td>maximum-rpm</td>
+<td>The maximum speed of the stepper motors. The datasheets of the stepper motor generaly indicate this value in revolutions per minute (rpm).</td>
+</tr>
+<tr>
+<td>maximum-acceleration</td>
+<td>The maximum allowed acceleration, in m/s², for each of the axes.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-ports-section">The ports section<a class="headerlink" href="#the-ports-section" title="Permanent link">Link</a></h2>
+<p>This dictionnary lists which firmware drivers are available on what
+system ports. The rover uses mostly serial connections. The joystick
+uses a different device, however. The <code>rcdiscover</code> utility can be used
+to generate this list:</p>
+<div class="highlight"><pre><span></span><code>$ ./bin/rcdiscover path/to/config.json
+</code></pre></div>
+<p>The list has entries as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;ports&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;oquam&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/dev/ttyACM5&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;serial&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>First comes the name of the firmware that is accessible through this
+port. It tells the type of the port ('serial' or 'input-device'), and
+the device's path in the 'port' field).</p>
+<h2 id="the-user-interface-section">The user-interface section<a class="headerlink" href="#the-user-interface-section" title="Permanent link">Link</a></h2>
+<p>The user interface config contains the settings for the speed
+controller. There are two drive modes: fast and accurate. Each have
+their own settings:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;user-interface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;speed-controller&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;accurate&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;speed-multiplier&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;direction-multiplier&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.05</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;use-speed-curve&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;speed-curve-exponent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;use-direction-curve&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;direction-curve-exponent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;fast&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;speed-multiplier&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;direction-multiplier&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.15</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;use-speed-curve&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;speed-curve-exponent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;use-direction-curve&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;direction-curve-exponent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p>The speed controller sets the the speed of the left and right wheel
+and thus the radius of the turn that rover will follow.</p>
+<p>The two input values from the controller that set the speed and
+direction are mapped onto the range [-1, 1]. These normalized values
+are then used to determine the relative speed of the left and right
+wheel. The absolute speed of the rover is the product of the relative
+speed and the absolute speed given in the rover settings discussed
+above.</p>
+<p>The relative speed of the left wheel is:</p>
+<div class="highlight"><pre><span></span><code><span class="n">speed_left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">speed_multiplier</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">speed</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">direction_multiplier</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">direction</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<p>where <code>speed</code> and <code>direction</code> are the normalized inputs from the
+controller. </p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>speed-multiplier</td>
+<td>This number, with a value between 0 and 1, determines the maximum relative speed when the the speed trigger is completely pressed by the user.</td>
+</tr>
+<tr>
+<td>direction-multiplier</td>
+<td>The number defines the maximum speed difference, and thus the maximum turning angle, between the left and right wheel.</td>
+</tr>
+</tbody>
+</table>
+<p>In addition, it is possible to use an exponential curve to map the
+speed and direction values. This may give a more smooth behaviour when
+the rover starts from stand-still to higher speeds. A speed of zero
+still maps to zero, and a speed of one still maps to one, but in
+between the mapping follows a curve instead of a straight line. The
+curve is as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">((</span><span class="n">exp</span><span class="p">(</span><span class="n">exponent</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">exponent</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1.0</span><span class="p">));</span><span class="w"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>use-speed-curve</td>
+<td>true of false: should the speed controller use the exponential curve to map the speed value?</td>
+</tr>
+<tr>
+<td>speed-curve-exponent</td>
+<td>The exponent of the speed curve.</td>
+</tr>
+<tr>
+<td>use-direction-curve</td>
+<td>true of false: should the speed controller use the exponential curve to map the direction value?</td>
+</tr>
+<tr>
+<td>direction-curve-exponent</td>
+<td>The exponent of the direction curve.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-weeder-section">The weeder section<a class="headerlink" href="#the-weeder-section" title="Permanent link">Link</a></h2>
+<p>The weeder sections contains the settings for the weeder tool. These
+are as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;weeder&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;diameter-tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.04</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;imagecropper&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;workspace&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="mi">306</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="mi">210</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="mi">985</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="mi">745</span><span class="w"></span>
+<span class="w">            </span><span class="p">]</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;speed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;z0&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.22</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>diameter-tool</td>
+<td>The size of the weeding tool head, in meter.</td>
+</tr>
+<tr>
+<td>imagecropper.workspace</td>
+<td>The crop size and position the camera image to obtain the image of the workspace only.</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>The relative speed of the weeding tool, between 0 and 1.0. This speed is multiplied by the maximum speed of the CNC to obtain the final speed of the weeding tool.</td>
+</tr>
+<tr>
+<td>z0</td>
+<td>The position of the weeding tool when weeding.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="script-file">Script file<a class="headerlink" href="#script-file" title="Permanent link">Link</a></h1>
 <p>The script file consists of a JSON array of script objects:</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;script1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;display_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The First Script&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;script1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The First Script&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;script&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">            </span><span class="err">//...</span><span class="w"></span>
 <span class="w">        </span><span class="p">]</span><span class="w"></span>
@@ -2631,13 +2882,13 @@ configuration file:</p>
 </thead>
 <tbody>
 <tr>
-<td>name</td>
+<td>id</td>
 <td>String</td>
 <td>Required</td>
 <td>The internal name of the script</td>
 </tr>
 <tr>
-<td>display-name</td>
+<td>title</td>
 <td>String</td>
 <td>Required</td>
 <td>The name to be shown to end-users</td>
@@ -2654,8 +2905,8 @@ configuration file:</p>
 one after the other. For example:</p>
 <div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;script1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;display_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The First Script&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;script1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The First Script&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="nt">&quot;script&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">            </span><span class="p">{</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;start_recording&quot;</span><span class="p">},</span><span class="w"></span>
 <span class="w">            </span><span class="p">{</span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;move&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;distance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;speed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">},</span><span class="w"></span>
@@ -2688,20 +2939,12 @@ one after the other. For example:</p>
 <td>Move a given distance (at a given speed)</td>
 </tr>
 <tr>
-<td>moveat</td>
-<td>Move at a given speed</td>
-</tr>
-<tr>
 <td>hoe</td>
 <td>Start weeding</td>
 </tr>
 <tr>
 <td>homing</td>
 <td>Go to the home position (for rovers with a limit switch only)</td>
-</tr>
-<tr>
-<td>shutdown</td>
-<td>Turn off the robot</td>
 </tr>
 </tbody>
 </table>
@@ -2731,70 +2974,6 @@ one after the other. For example:</p>
 </tbody>
 </table>
 <p>The <code>moveat</code> action takes a <code>speed</code> value, as in the <code>move</code> command above.</p>
-<p>The <code>hoe</code> action takes the following parameters:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Value</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>method</td>
-<td>String</td>
-<td>Required</td>
-<td>See below</td>
-</tr>
-</tbody>
-</table>
-<p>Two methods are currenly available, <code>quincunx</code> and <code>boustrophedon</code>. Boustrophedon clean the complete surface underneath the rover. Quincunx tries to detect the <a href="https://en.wikipedia.org/wiki/Quincunx"><em>quincunx</em></a> pattern in which the vegetables are planted and clean between them.</p>
-<p>When the method is <code>quincunx</code>, the following additional parameters are
-can be passed:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Value</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>distance-plants</td>
-<td>number</td>
-<td>0.3m</td>
-<td>The distance between plant on a row</td>
-</tr>
-<tr>
-<td>distance-rows</td>
-<td>number</td>
-<td>0.25m</td>
-<td>The distance between rows</td>
-</tr>
-<tr>
-<td>radius-zones</td>
-<td>number</td>
-<td>0.1m</td>
-<td>The radius of the plants</td>
-</tr>
-<tr>
-<td>diameter-tool</td>
-<td>number</td>
-<td>0.05m</td>
-<td>The diameter of the weeding tool</td>
-</tr>
-<tr>
-<td>quincunx-threshold</td>
-<td>number</td>
-<td>1.0</td>
-<td>A threshold used in the detection of the plants. A lower value (&gt; 0) means be more tolerant in the detection, a higher value means be more selective.</td>
-</tr>
-</tbody>
-</table>
 
               
             </article>
@@ -2808,7 +2987,7 @@ can be passed:</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Index" rel="prev">
+        <a href="../manual/" class="md-footer__link md-footer__link--prev" aria-label="Previous: User Manual" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2817,7 +2996,7 @@ can be passed:</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Index
+              User Manual
             </div>
           </div>
         </a>
