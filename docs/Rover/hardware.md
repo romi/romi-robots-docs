@@ -4,7 +4,7 @@ Hardware Documentation
 This document describes the hardware, both the mechanical parts and
 the electronics..
 
-## The main structure   
+# The main structure   
 
 The figure below gives an overview of the main components.
 
@@ -26,6 +26,24 @@ We use currently use the X-Carve. Please follow X-Carve's documentation at [](ht
 ### The Z-axis
 
 ### The cover
+
+
+# The frame
+
+The drawings of the frame are available as PDF files. The current
+version is prototype V3:
+
+
+| File                 | Description  |
+| -------------------- | --------------------------- |
+| [![Rover](/assets/images/rover/hardware/Rover.png)](/assets/images/rover/hardware/Rover.pdf) | Overview of the components |
+| [![Frame](/assets/images/rover/hardware/Frame.png)](/assets/images/rover/hardware/Frame.pdf)  | The main frame. (fr: Châssis) |
+| [![Left-Wheel-Module](/assets/images/rover/hardware/Left-Wheel-Module.png)](/assets/images/rover/hardware/Left-Wheel-Module.pdf)  | The left wheel module (fr: Roue motrice gauche) |
+| [![Right-Wheel-Module](/assets/images/rover/hardware/Right-Wheel-Module.png)](/assets/images/rover/hardware/Right-Wheel-Module.pdf)  | The right wheel module. It is a mirror of the left wheel module. (fr: Roue motrice droite) |
+| [![Cover](/assets/images/rover/hardware/Cover.png)](/assets/images/rover/hardware/Cover.pdf)  | The arches for the rain and light cover. (fr: Toit) |
+| [![Caster](/assets/images/rover/hardware/Caster.png)](/assets/images/rover/hardware/Caster.pdf)  | The caster wheel. (fr: Roue folle) |
+| [![Fork-Caster](/assets/images/rover/hardware/Fork-Caster.png)](/assets/images/rover/hardware/Fork-Caster.pdf) | In it's latest version, the caster wheel now has a straight fork. This drawing updates and replaces the fork in the previous drawing. |
+
 
 
 
