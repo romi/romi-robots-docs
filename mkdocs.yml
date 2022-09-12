@@ -27,11 +27,9 @@ nav:
       - 'Farmers Dashboard/legacy.md'
   - 'Rover':
       - 'User Manual': 'Rover/manual.md'
-      - 'Rover/index.md'
-      - 'Rover/configuration.md'
+      - 'Configuration': 'Rover/configuration.md'
       - 'Rover/hardware.md'
       - 'Rover/software.md'
-      - 'Rover/developer.md'
       - 'Rover/librcom.md'
   - 'Plant Phenotyping':
       - 'Home': 'plant_imager/index.md'

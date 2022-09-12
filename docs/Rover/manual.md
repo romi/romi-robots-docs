@@ -325,7 +325,8 @@ rover or send commands to the rover.
 
 To turn off the rover, take the following steps:
 
-1. Deactivate the emergency button by pushing it in. This removes the power supply to the motor and CNC.
+1. Deactivate the emergency button by pushing it in. This removes the
+power supply to the motor and CNC.
 2. Turn off the on/off button on the electronics housing
 
 
