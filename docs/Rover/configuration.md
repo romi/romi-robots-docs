@@ -1,4 +1,4 @@
-
+# Romi Rover configuration
 
 The Romi Rover control software uses the following input files (see
 also the  [Software](../software) documentation:
