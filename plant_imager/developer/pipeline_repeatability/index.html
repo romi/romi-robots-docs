@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#testing-the-reconstruction-pipelines-repeatability" class="md-skip">
+        <a href="#evaluating-the-repeatability-of-a-reconstruction-and-quantification-pipeline" class="md-skip">
           Skip to content
         </a>
       
@@ -2162,6 +2162,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#cli-overview" class="md-nav__link">
+    CLI overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#step-by-step-tutorial" class="md-nav__link">
     Step-by-step tutorial
   </a>
@@ -2170,8 +2177,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-test-of-a-single-task" class="md-nav__link">
-    1. Test of a single task
+  <a href="#1-test-a-single-task" class="md-nav__link">
+    1. Test a single task
   </a>
   
 </li>
@@ -2482,116 +2489,135 @@
                 
 
 
-<h1 id="testing-the-reconstruction-pipelines-repeatability">Testing the reconstruction pipelines repeatability<a class="headerlink" href="#testing-the-reconstruction-pipelines-repeatability" title="Permanent link">Link</a></h1>
+<h1 id="evaluating-the-repeatability-of-a-reconstruction-and-quantification-pipeline">Evaluating the repeatability of a reconstruction and quantification pipeline<a class="headerlink" href="#evaluating-the-repeatability-of-a-reconstruction-and-quantification-pipeline" title="Permanent link">Link</a></h1>
 <h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
-<p>The reconstruction pipeline aims to convert the series of RGB images output of the plant-imager to a reconstructed 3d object, here a plant, with the ultimate goal to obtain quantitative phenotype information.
-It is composed of a sequence of different tasks, each having a specific function.
-Some algorithms used during these tasks may be stochastic, hence their output might vary even tough we provide the same input.
-As it can impact the results of the analysis and is often not easily traceable, it is of interest to be able to quantify it.</p>
-<p>Two main things can be tested:
-* With a proper metric, estimate how much different the outputs of a task can be given the same input.
-* Evaluation of the repercussion in the phenotypic traits extraction of a pipeline including randomness.</p>
+<p>The reconstruction and quantification pipeline aims to convert a series of RGB images (output of the plant-imager) into a 3D object, here a plant, with the ultimate goal to obtain quantitative phenotypic information.</p>
+<p>It is possible to create multiple pipelines as they are composed of a sequence of different tasks, each having a specific function.
+Some algorithms used in these tasks may be stochastic, hence <strong>their output might vary even tough we provide the same input</strong>.
+As it can impact the subsequent quantification, it is of interest to be able to <strong>identify the sources of variability and to quantify them</strong>.</p>
+<p>Mainly, two things can be evaluated:
+* using a dedicated metric (<em>e.g.</em> chamfer distance on point-clouds), quantify the differences in the outputs of a repeated task
+* quantify the final repercussion on the extracted phenotypic traits</p>
 <h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
 <ul>
-<li>install romi <code>plant-3d-vision</code> (from <a href="https://github.com/romi/plant-3d-vision">source</a> or using a <a href="../../docker/plant-3d-vision_docker/">docker image</a>) &amp; read <a href="../../install/plant_reconstruction_setup/">install procedure</a></li>
-<li>Create and activate isolated python environment (see the procedure <a href="../../install/create_env/">here</a> )</li>
+<li>
+<p>Create and activate an isolated Python environment (see the procedure <a href="../../install/create_env/">here</a> )</p>
+</li>
+<li>
+<p>Install romi <code>plant-3d-vision</code> (from <a href="https://github.com/romi/plant-3d-vision">source</a> or using a <a href="../../docker/plant-3d-vision_docker/">docker image</a>) &amp; read <a href="../../install/plant_reconstruction_setup/">install procedure</a></p>
+</li>
 </ul>
-<h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
-<p>The <code>robustness_evaluation</code> script has been developed to quantify randomness in the pipeline and has 2 modes, it can either test the stochasticity of one task or of the full pipeline. 
-Basically it compares outputs of a task given the same input (previous task output or acquisition output depending on the mode) on a fixed parameterizable number of replicates.</p>
+<h2 id="cli-overview">CLI overview<a class="headerlink" href="#cli-overview" title="Permanent link">Link</a></h2>
+<p>The <code>robustness_evaluation</code> script has been developed to quantify variability in the reconstruction and quantification pipeline.
+It may be used to test the variability of a specific task or of the full  reconstruction (and quantification) pipeline.</p>
+<p>Basically it compares outputs of a task given the same input (previous task output or acquisition output depending on the mode) on a fixed parameterizable number of replicates.</p>
 <p><div class="highlight"><pre><span></span><code>robustness_evaluation -h
-usage: robustness_evaluation [-h] [-n REPLICATE_NUMBER] [-f] [-np]
-                             [-db TEST_DATABASE] [--models MODELS]
-                             scan
-                             {Clean,Colmap,Undistorted,Masks,Segmentation2D,Voxels,PointCloud,TriangleMesh,CurveSkeleton,TreeGraph,AnglesAndInternodes,Segmentation2d,SegmentedPointCloud,ClusteredMesh,OrganSegmentation}
-                             config_file
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>usage: robustness_evaluation [-h] [-n REPLICATE_NUMBER] [-s SUFFIX] [-f] [-np] [-db TEST_DATABASE] [--models MODELS]
+                             [--log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
+                             scan task config_file
 
+Robustness evaluation of the Reconstruction &amp; Quantification pipelines.
 
-ROMI reconstruction &amp; analysis pipeline repeatability test procedure. Analyse
-the repeatability of a reconstruction &amp; analysis pipeline by: 1. duplicating
-the scan in a temporary folder (and cleaning it if necessary) 2. running the
-pipeline up to the previous task of the task to test 3. copying this result to
-a new database and replicate the dataset 4. repeating the task to test for
-each replicate 5. comparing the results pair by pair. Comparison can be done
-at the scale of the files but also with metrics if a reference can be set. To
-create fully independent tests, we run the pipeline up to the task to test on
-each replicate. Note that in order to use the ML pipeline, you will first have
-to: 1. create an output directory 2. use the `--models` argument to copy the
-CNN trained models required to run the pipeline.
+Evaluating the repeatability of a Reconstruction &amp; Quantification (R&amp;Q) pipeline is made as follows:
+ 1. duplicate the selected scan dataset in a temporary folder (and clean it from previous R&amp;Q if necessary)
+ 2. run the R&amp;Q pipeline up to the previous task of the selected task to evaluate, if any
+ 3. copy/replicate this result to a new database (append a replicate id to the dataset name)
+ 4. run the task to evaluate for each replicated dataset
+ 5. compare the directories of the task to evaluate pair by pair
+ 6. apply the comparison metrics for the task to evaluate, as defined in `robustness_evaluation.json` 
 
+Please note that:
+ - Directory comparisons are done at the scale of the files generated by the selected task.
+ - We use metrics to get a quantitative comparison on the output of the task.
+ - It is possible to create fully independent repetitions by running the whole R&amp;Q pipeline using `-f`.
+ - In order to use the ML-based R&amp;Q pipeline, you will have to:
+   1. create an output directory
+   2. use the `--models` argument to copy the CNN trained models
 
 positional arguments:
-  scan                  scan to use for repeatability analysis
-  {Clean,Colmap,Undistorted,Masks,Segmentation2D,Voxels,PointCloud,TriangleMesh,CurveSkeleton,TreeGraph,AnglesAndInternodes,Segmentation2d,SegmentedPointCloud,ClusteredMesh,OrganSegmentation}
-                        task to test, should be in: Clean, Colmap,
-                        Undistorted, Masks, Segmentation2D, Voxels,
-                        PointCloud, TriangleMesh, CurveSkeleton, TreeGraph,
-                        AnglesAndInternodes, Segmentation2d,
-                        SegmentedPointCloud, ClusteredMesh, OrganSegmentation
-  config_file           path to the TOML config file of the analysis pipeline
-
+  scan                  Scan dataset to use for repeatability evaluation.
+  task                  Task to test, should be in: AnglesAndInternodes, ClusteredMesh, Colmap, CurveSkeleton,
+                        ExtrinsicCalibration, IntrinsicCalibration, Masks, OrganSegmentation, PointCloud,
+                        Segmentation2D, Segmentation2d, SegmentedPointCloud, TreeGraph, TriangleMesh, Undistorted,
+                        Voxels
+  config_file           Path to the pipeline TOML configuration file.
 
 optional arguments:
   -h, --help            show this help message and exit
   -n REPLICATE_NUMBER, --replicate_number REPLICATE_NUMBER
-                        number of replicate to use for repeatability analysis
-  -f, --full_pipe       run the analysis pipeline on each replicate
-                        independently
-  -np, --no_pipeline    do not run the pipeline, only compare tasks outputs
+                        Number of replicate to use for repeatability evaluation. Defaults to `30`.
+  -s SUFFIX, --suffix SUFFIX
+                        Suffix to append to the created database folder.
+  -f, --full_pipe       Run the whole Reconstruction &amp; Quantification pipeline on each replicate independently.
+  -np, --no_pipeline    Do not run the pipeline, only compare tasks outputs.
   -db TEST_DATABASE, --test_database TEST_DATABASE
                         test database location to use. Use at your own risks!
-  --models MODELS       models database location to use with ML pipeline.
+  --models MODELS       Models database location to use with ML pipeline.
+  --log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}
+                        Set message logging level. Defaults to `INFO`.
+
+Detailed explanations here: https://docs.romi-project.eu/plant_imager/developer/pipeline_repeatability/
 </code></pre></div>
-The metrics used are the same as the ones for an evaluation against ground truth</p>
-<h3 id="1-test-of-a-single-task">1. Test of a single task<a class="headerlink" href="#1-test-of-a-single-task" title="Permanent link">Link</a></h3>
-<p>Example with the task TriangleMesh (whose goal is to compute a mesh from a point cloud):
-<div class="highlight"><pre><span></span><code>robustness_evaluation /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n <span class="m">10</span>
+The metrics used are the same as the ones for an evaluation against a ground-truth</p>
+<h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
+<h3 id="1-test-a-single-task">1. Test a single task<a class="headerlink" href="#1-test-a-single-task" title="Permanent link">Link</a></h3>
+<p>Example with the task <code>TriangleMesh</code> task, whose goal is to compute a mesh from a point-cloud:
+<div class="highlight"><pre><span></span><code>robustness_evaluation /path/db/my_scan TriangleMesh plant-3d-vision/config/pipeline.toml -n <span class="m">10</span>
+</code></pre></div>
+To summarize, the <code>pipeline.toml</code> configuration indicate the following order of tasks:
+<div class="highlight"><pre><span></span><code>ImagesFilesetExists -&gt; Colmap -&gt; Undistorted -&gt; Masks -&gt; Voxels -&gt; PointCloud -&gt; TriangleMesh
 </code></pre></div></p>
-<p>Resulting:
+<p>The call to <code>robustness_evaluation</code>, as previously defined, should result in the following folder structure:
 <div class="highlight"><pre><span></span><code>path/
-├── 20210628123840_rep_test_TriangleMesh/
-│   ├── scan_0
-│   ├── scan_1
-│   ├── scan_2
-│   ├── scan_3
-│   ├── scan_4
-│   ├── scan_5
-│   ├── scan_6
-│   ├── scan_7
-│   ├── scan_8
-│   ├── scan_9
+├── 20210628123840_eval_TriangleMesh/
+│   ├── my_scan_0/
+│   ├── my_scan_1/
+│   ├── my_scan_2/
+│   ├── my_scan_3/
+│   ├── my_scan_4/
+│   ├── my_scan_5/
+│   ├── my_scan_6/
+│   ├── my_scan_7/
+│   ├── my_scan_8/
+│   ├── my_scan_9/
 │   ├── filebyfile_comparison.json
 │   ├── romidb
-│   ├── TriangleMesh_comparison.json
-└── db/scan
+│   └── TriangleMesh_comparison.json
+└── db/
+    ├── my_scan/
+    └── romidb
 </code></pre></div>
-The scan datasets are identical up to <code>PointCloud</code> then the <code>TriangleMesh</code> task is run separately on each one.
-Results with the appropriate metric are in the <code>TriangleMesh_comparison.json</code> file.</p>
+The scan datasets <code>my_scan_*</code> are identical up to <code>PointCloud</code> as they result from copies of the same temporary folder.
+Then the <code>TriangleMesh</code> task is run separately on each one.
+Quantitative results, using the appropriate metric(s), are in the <code>TriangleMesh_comparison.json</code> file.</p>
 <h3 id="2-independent-tests">2. Independent tests<a class="headerlink" href="#2-independent-tests" title="Permanent link">Link</a></h3>
-<p>If the goal is to see what are the impacts of randomness through the pipeline in the output of the task <code>TriangleMesh</code>, perform an independent test thanks to the -f parameter:
-<div class="highlight"><pre><span></span><code>robustness_evaluation /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n <span class="m">10</span> -f
+<p>If the goal is to evaluate the impact of stochasticity through the whole pipeline in the output of the <code>TriangleMesh</code> task, you should perform independent tests (run the whole pipeline each time) using the <code>-f</code> parameter:
+<div class="highlight"><pre><span></span><code>robustness_evaluation /path/db/my_scan TriangleMesh plant-3d-vision/config/pipeline.toml -n <span class="m">10</span> -f
 </code></pre></div></p>
-<p>With a similar tree result:
+<p>This will yield a similar folder structure:
 <div class="highlight"><pre><span></span><code>path/
-├── 20210628123840_rep_test_TriangleMesh/
-│   ├── scan_0
-│   ├── scan_1
-│   ├── scan_2
-│   ├── scan_3
-│   ├── scan_4
-│   ├── scan_5
-│   ├── scan_6
-│   ├── scan_7
-│   ├── scan_8
-│   ├── scan_9
+├── 20210628123840_eval_TriangleMesh/
+│   ├── my_scan_0/
+│   ├── my_scan_1/
+│   ├── my_scan_2/
+│   ├── my_scan_3/
+│   ├── my_scan_4/
+│   ├── my_scan_5/
+│   ├── my_scan_6/
+│   ├── my_scan_7/
+│   ├── my_scan_8/
+│   ├── my_scan_9/
 │   ├── filebyfile_comparison.json
 │   ├── romidb
 │   ├── TriangleMesh_comparison.json
-└── db/scan
+└── db/
+    ├── my_scan/
+    └── romidb
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>To run tests on an existing database the -db parameter is configurable but be careful of what is to be tested</p>
+<p>To run tests on an existing database the <code>-db</code> parameter is configurable but be careful with it!</p>
 </div>
 
               

@@ -2089,11 +2089,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#cylinderradiusevaluation" class="md-nav__link">
-    CylinderRadiusEvaluation
+  <a href="#cylinderradiusestimation" class="md-nav__link">
+    CylinderRadiusEstimation
   </a>
   
-    <nav class="md-nav" aria-label="CylinderRadiusEvaluation">
+    <nav class="md-nav" aria-label="CylinderRadiusEstimation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2554,7 +2554,7 @@
 <h2 id="pointcloudevaluation">PointCloudEvaluation<a class="headerlink" href="#pointcloudevaluation" title="Permanent link">Link</a></h2>
 <h2 id="segmentation2devaluation">Segmentation2DEvaluation<a class="headerlink" href="#segmentation2devaluation" title="Permanent link">Link</a></h2>
 <h2 id="voxelsevaluation">VoxelsEvaluation<a class="headerlink" href="#voxelsevaluation" title="Permanent link">Link</a></h2>
-<h2 id="cylinderradiusevaluation">CylinderRadiusEvaluation<a class="headerlink" href="#cylinderradiusevaluation" title="Permanent link">Link</a></h2>
+<h2 id="cylinderradiusestimation">CylinderRadiusEstimation<a class="headerlink" href="#cylinderradiusestimation" title="Permanent link">Link</a></h2>
 <p>Thanks to ground truth derived from virtual plants data, most of the reconstruction tasks can be properly evaluated.
 However, the acquisition made by the plant imager can not be assessed with virtual ground truth and needs some from real world with an adapted comparison method.<br />
 The 2 main outputs of the plant imager are a set of images and the corresponding positions from the robotic arm.
@@ -2608,7 +2608,7 @@ touch path/to/db/romidb
 └── romidb
 </code></pre></div></li>
 </ul>
-<p>As for the <code>AnglesAndInternodes</code> measurement, in order for the <code>CylinderRadiusEvaluation</code> to retrieve the ground truth radius value, it must be added manually in a <code>imageset_id/measures.json</code> file:
+<p>As for the <code>AnglesAndInternodes</code> measurement, in order for the <code>CylinderRadiusEstimation</code> to retrieve the ground truth radius value, it must be added manually in a <code>imageset_id/measures.json</code> file:
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="nt">&quot;radius&quot;</span><span class="p">:</span><span class="mf">7.95</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
@@ -2638,27 +2638,27 @@ As before, the full explanation of the operations concerning the reconstruction 
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Be sure to obtain a proper reconstructed cylinder (as maybe a section of the object) by checking if you are satisfied with the <code>PointCloud_created_fileset/PointCloud.ply</code> point cloud in you favorite 3d software.<br />
-<img alt="can section point cloud" loading="lazy" src="../../../../assets/images/can_section_pcd.png" /> <br />
-If not, you can try to modify parameters in the <code>pipeline.toml</code> configuration file as:  <br />
-- the <code>bounding box</code> in the <code>Colmap</code> section<br />
-- the <code>threshold</code> parameter (or equivalent) of the <code>Masks</code> task<br />
+<p>Be sure to obtain a proper reconstructed cylinder (as maybe a section of the object) by checking if you are satisfied with the <code>PointCloud_created_fileset/PointCloud.ply</code> point cloud in you favorite 3d software.
+<img alt="can section point cloud" loading="lazy" src="../../../../assets/images/can_section_pcd.png" />
+If not, you can try to modify parameters in the <code>pipeline.toml</code> configuration file as:
+- the <code>bounding box</code> in the <code>Colmap</code> section
+- the <code>threshold</code> parameter (or equivalent) of the <code>Masks</code> task
 - the <code>voxel_size</code> linked to the <code>Voxels</code> task</p>
 </div>
 <h4 id="3-cylinder-radius-evaluation">3. Cylinder Radius Evaluation<a class="headerlink" href="#3-cylinder-radius-evaluation" title="Permanent link">Link</a></h4>
-<p>It is now possible to extract the radius from the point cloud using the <code>CylinderRadiusEvaluation</code>.
+<p>It is now possible to extract the radius from the point cloud using the <code>CylinderRadiusEstimation</code>.
 Parameters in the <code>pipeline.toml</code> associated to the task must be defined accordingly:
-<div class="highlight"><pre><span></span><code><span class="k">[CylinderRadiusEvaluation]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[CylinderRadiusEstimation]</span><span class="w"></span>
 <span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;PointCloud&quot;</span><span class="w"></span>
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>By default the <code>upstream_task</code> parameter of <code>CylinderRadiusEvaluation</code> is <code>CylinderRadiusGroundTruth</code></p>
+<p>By default the <code>upstream_task</code> parameter of <code>CylinderRadiusEstimation</code> is <code>CylinderRadiusGroundTruth</code></p>
 </div>
 <p>With the following command line:
-<div class="highlight"><pre><span></span><code>romi_run_task CylinderRadiusEvaluation /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml --module plant3dvision.tasks.evaluation
+<div class="highlight"><pre><span></span><code>romi_run_task CylinderRadiusEstimation /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml --module plant3dvision.tasks.evaluation
 </code></pre></div></p>
-<p>The <code>CylinderRadiusEvaluation.json</code> can be found in the <code>CylinderRadiusEvaluation__</code> fileset with the output results:
+<p>The <code>CylinderRadiusEstimation.json</code> can be found in the <code>CylinderRadiusEstimation__</code> fileset with the output results:
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;calculated_radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">8.265318865620745</span><span class="p">,</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;gt_radius&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">7.95</span><span class="p">,</span><span class="w"></span>
@@ -2684,12 +2684,12 @@ By default, random dimensions (height and radius) are assumed.</p>
 <span class="n">radius</span><span class="o">=</span><span class="mf">66.6</span><span class="w"></span>
 <span class="n">height</span><span class="o">=</span><span class="mf">13.0</span><span class="w"></span>
 </code></pre></div></p>
-<p>To evaluate of the <code>CylinderRadiusEvaluation</code> task thanks to the virtual cylinder generated by <code>CylinderRadiusGroundTruth</code>:
+<p>To evaluate of the <code>CylinderRadiusEstimation</code> task thanks to the virtual cylinder generated by <code>CylinderRadiusGroundTruth</code>:
 0. Set a <code>ROMI_DB</code> environment variable pointing to your local database:
     <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">ROMI_DB</span><span class="o">=</span><span class="nv">$USER</span><span class="s2">&quot;/romi_db/&quot;</span>
 </code></pre></div>
-1. Then, run the <code>CylinderRadiusEvaluation</code> task with:
-    <div class="highlight"><pre><span></span><code>romi_run_task CylinderRadiusEvaluation <span class="nv">$ROMI_DB</span>/virtual_cylinder/ --config plant-3d-vision/config/virtual_cylinder.toml  --module plant3dvision.tasks.evaluation
+1. Then, run the <code>CylinderRadiusEstimation</code> task with:
+    <div class="highlight"><pre><span></span><code>romi_run_task CylinderRadiusEstimation <span class="nv">$ROMI_DB</span>/virtual_cylinder/ --config plant-3d-vision/config/virtual_cylinder.toml  --module plant3dvision.tasks.evaluation
 </code></pre></div></p>
 
               

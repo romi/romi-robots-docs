@@ -2253,9 +2253,36 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#matchers" class="md-nav__link">
+    Matchers
+  </a>
+  
+    <nav class="md-nav" aria-label="Matchers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#exhaustive-matcher" class="md-nav__link">
     Exhaustive matcher
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sequential-matcher" class="md-nav__link">
+    Sequential matcher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spatial-matcher" class="md-nav__link">
+    Spatial matcher
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2267,8 +2294,29 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#point-triangulator" class="md-nav__link">
+    Point triangulator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#model-alignment" class="md-nav__link">
     Model alignment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundle-adjustment" class="md-nav__link">
+    Bundle adjustment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-analyzer" class="md-nav__link">
+    Model analyzer
   </a>
   
 </li>
@@ -2471,6 +2519,7 @@
 
 <h1 id="colmap-cli">COLMAP CLI<a class="headerlink" href="#colmap-cli" title="Permanent link">Link</a></h1>
 <h2 id="feature-extraction">Feature extraction<a class="headerlink" href="#feature-extraction" title="Permanent link">Link</a></h2>
+<p>Perform <strong>feature extraction</strong> for a set of images.</p>
 <p><div class="highlight"><pre><span></span><code>colmap feature_extractor -h
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>COLMAP 3.8 (Commit 31df46c on 2022-03-05 with CUDA)
@@ -2516,7 +2565,11 @@ them in a .ini project file passed to `--project_path`.
   --SiftExtraction.dsp_max_scale arg (=3)
   --SiftExtraction.dsp_num_scales arg (=10)
 </code></pre></div></p>
-<h2 id="exhaustive-matcher">Exhaustive matcher<a class="headerlink" href="#exhaustive-matcher" title="Permanent link">Link</a></h2>
+<h2 id="matchers">Matchers<a class="headerlink" href="#matchers" title="Permanent link">Link</a></h2>
+<p>Perform <strong>feature matching</strong> after performing feature extraction.</p>
+<h3 id="exhaustive-matcher">Exhaustive matcher<a class="headerlink" href="#exhaustive-matcher" title="Permanent link">Link</a></h3>
+<p>If the number of images in your dataset is relatively low (up to several hundreds), this matching mode should be fast enough and leads to the best reconstruction results.
+Here, every image is matched against every other image, while the block size determines how many images are loaded from disk into memory at the same time.</p>
 <p><div class="highlight"><pre><span></span><code>colmap exhaustive_matcher -h
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>COLMAP 3.8 (Commit 31df46c on 2022-03-05 with CUDA)
@@ -2547,8 +2600,94 @@ them in a .ini project file passed to `--project_path`.
   --SiftMatching.planar_scene arg (=0)
   --ExhaustiveMatching.block_size arg (=50)
 </code></pre></div></p>
+<h3 id="sequential-matcher">Sequential matcher<a class="headerlink" href="#sequential-matcher" title="Permanent link">Link</a></h3>
+<p>This mode is useful if the <strong>images are acquired in sequential order</strong>, e.g., by a video camera.
+In this case, consecutive frames have visual overlap and there is no need to match all image pairs exhaustively.
+Instead, consecutively captured images are matched against each other.
+This matching mode has built-in loop detection based on a vocabulary tree, where every N-th image (<code>loop_detection_period</code>) is matched against its visually most similar images (<code>loop_detection_num_images</code>).
+Note that image file names must be ordered sequentially (e.g., <code>image0001.jpg</code>, <code>image0002.jpg</code>, etc.).
+The order in the database is not relevant, since the images are explicitly ordered according to their file names.
+Note that loop detection requires a pre-trained vocabulary tree, that can be downloaded from <a href="https://demuc.de/colmap/">https://demuc.de/colmap/</a>.</p>
+<p><div class="highlight"><pre><span></span><code>colmap sequential_matcher -h
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>COLMAP 3.8 (Commit 31df46c on 2022-03-05 with CUDA)
+
+Options can either be specified via command-line or by defining
+them in a .ini project file passed to `--project_path`.
+
+  -h [ --help ] 
+  --random_seed arg (=0)
+  --log_to_stderr arg (=0)
+  --log_level arg (=2)
+  --project_path arg
+  --database_path arg
+  --SiftMatching.num_threads arg (=-1)
+  --SiftMatching.use_gpu arg (=1)
+  --SiftMatching.gpu_index arg (=-1)
+  --SiftMatching.max_ratio arg (=0.80000000000000004)
+  --SiftMatching.max_distance arg (=0.69999999999999996)
+  --SiftMatching.cross_check arg (=1)
+  --SiftMatching.max_error arg (=4)
+  --SiftMatching.max_num_matches arg (=32768)
+  --SiftMatching.confidence arg (=0.999)
+  --SiftMatching.max_num_trials arg (=10000)
+  --SiftMatching.min_inlier_ratio arg (=0.25)
+  --SiftMatching.min_num_inliers arg (=15)
+  --SiftMatching.multiple_models arg (=0)
+  --SiftMatching.guided_matching arg (=0)
+  --SiftMatching.planar_scene arg (=0)
+  --SequentialMatching.overlap arg (=10)
+  --SequentialMatching.quadratic_overlap arg (=1)
+  --SequentialMatching.loop_detection arg (=0)
+  --SequentialMatching.loop_detection_period arg (=10)
+  --SequentialMatching.loop_detection_num_images arg (=50)
+  --SequentialMatching.loop_detection_num_nearest_neighbors arg (=1)
+  --SequentialMatching.loop_detection_num_checks arg (=256)
+  --SequentialMatching.loop_detection_num_images_after_verification arg (=0)
+  --SequentialMatching.loop_detection_max_num_features arg (=-1)
+  --SequentialMatching.vocab_tree_path arg
+</code></pre></div></p>
+<h3 id="spatial-matcher">Spatial matcher<a class="headerlink" href="#spatial-matcher" title="Permanent link">Link</a></h3>
+<p>This matching mode <strong>matches every image against its spatial nearest neighbors</strong>.
+Spatial locations can be manually set in the database management.
+By default, COLMAP also extracts GPS information from EXIF and uses it for spatial nearest neighbor search.
+If accurate prior location information is available, this is the recommended matching mode.</p>
+<p><div class="highlight"><pre><span></span><code>colmap spatial_matcher -h
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>COLMAP 3.8 (Commit 31df46c on 2022-03-05 with CUDA)
+
+Options can either be specified via command-line or by defining
+them in a .ini project file passed to `--project_path`.
+
+  -h [ --help ] 
+  --random_seed arg (=0)
+  --log_to_stderr arg (=0)
+  --log_level arg (=2)
+  --project_path arg
+  --database_path arg
+  --SiftMatching.num_threads arg (=-1)
+  --SiftMatching.use_gpu arg (=1)
+  --SiftMatching.gpu_index arg (=-1)
+  --SiftMatching.max_ratio arg (=0.80000000000000004)
+  --SiftMatching.max_distance arg (=0.69999999999999996)
+  --SiftMatching.cross_check arg (=1)
+  --SiftMatching.max_error arg (=4)
+  --SiftMatching.max_num_matches arg (=32768)
+  --SiftMatching.confidence arg (=0.999)
+  --SiftMatching.max_num_trials arg (=10000)
+  --SiftMatching.min_inlier_ratio arg (=0.25)
+  --SiftMatching.min_num_inliers arg (=15)
+  --SiftMatching.multiple_models arg (=0)
+  --SiftMatching.guided_matching arg (=0)
+  --SiftMatching.planar_scene arg (=0)
+  --SpatialMatching.is_gps arg (=1)
+  --SpatialMatching.ignore_z arg (=1)
+  --SpatialMatching.max_num_neighbors arg (=50)
+  --SpatialMatching.max_distance arg (=100)
+</code></pre></div></p>
 <h2 id="mapper">Mapper<a class="headerlink" href="#mapper" title="Permanent link">Link</a></h2>
-<p><div class="highlight"><pre><span></span><code>colmap mapper -h
+<p><strong>Sparse 3D reconstruction / mapping of the dataset using SfM</strong> after performing feature extraction and matching.
+<div class="highlight"><pre><span></span><code>colmap mapper -h
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>COLMAP 3.8 (Commit 31df46c on 2022-03-05 with CUDA)
 
@@ -2625,8 +2764,87 @@ them in a .ini project file passed to `--project_path`.
   --Mapper.tri_min_angle arg (=1.5)
   --Mapper.tri_ignore_two_view_tracks arg (=1)
 </code></pre></div></p>
+<h2 id="point-triangulator">Point triangulator<a class="headerlink" href="#point-triangulator" title="Permanent link">Link</a></h2>
+<p><div class="highlight"><pre><span></span><code>colmap point_triangulator -h
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>COLMAP 3.8 (Commit 31df46c on 2022-03-05 with CUDA)
+
+Options can either be specified via command-line or by defining
+them in a .ini project file passed to `--project_path`.
+
+  -h [ --help ] 
+  --random_seed arg (=0)
+  --log_to_stderr arg (=0)
+  --log_level arg (=2)
+  --project_path arg
+  --database_path arg
+  --image_path arg
+  --input_path arg
+  --output_path arg
+  --clear_points arg (=0)               Whether to clear all existing points 
+                                        and observations
+  --Mapper.min_num_matches arg (=15)
+  --Mapper.ignore_watermarks arg (=0)
+  --Mapper.multiple_models arg (=1)
+  --Mapper.max_num_models arg (=50)
+  --Mapper.max_model_overlap arg (=20)
+  --Mapper.min_model_size arg (=10)
+  --Mapper.init_image_id1 arg (=-1)
+  --Mapper.init_image_id2 arg (=-1)
+  --Mapper.init_num_trials arg (=200)
+  --Mapper.extract_colors arg (=1)
+  --Mapper.num_threads arg (=-1)
+  --Mapper.min_focal_length_ratio arg (=0.10000000000000001)
+  --Mapper.max_focal_length_ratio arg (=10)
+  --Mapper.max_extra_param arg (=1)
+  --Mapper.ba_refine_focal_length arg (=1)
+  --Mapper.ba_refine_principal_point arg (=0)
+  --Mapper.ba_refine_extra_params arg (=1)
+  --Mapper.ba_min_num_residuals_for_multi_threading arg (=50000)
+  --Mapper.ba_local_num_images arg (=6)
+  --Mapper.ba_local_function_tolerance arg (=0)
+  --Mapper.ba_local_max_num_iterations arg (=25)
+  --Mapper.ba_global_use_pba arg (=0)
+  --Mapper.ba_global_pba_gpu_index arg (=-1)
+  --Mapper.ba_global_images_ratio arg (=1.1000000000000001)
+  --Mapper.ba_global_points_ratio arg (=1.1000000000000001)
+  --Mapper.ba_global_images_freq arg (=500)
+  --Mapper.ba_global_points_freq arg (=250000)
+  --Mapper.ba_global_function_tolerance arg (=0)
+  --Mapper.ba_global_max_num_iterations arg (=50)
+  --Mapper.ba_global_max_refinements arg (=5)
+  --Mapper.ba_global_max_refinement_change arg (=0.00050000000000000001)
+  --Mapper.ba_local_max_refinements arg (=2)
+  --Mapper.ba_local_max_refinement_change arg (=0.001)
+  --Mapper.snapshot_path arg
+  --Mapper.snapshot_images_freq arg (=0)
+  --Mapper.fix_existing_images arg (=0)
+  --Mapper.init_min_num_inliers arg (=100)
+  --Mapper.init_max_error arg (=4)
+  --Mapper.init_max_forward_motion arg (=0.94999999999999996)
+  --Mapper.init_min_tri_angle arg (=16)
+  --Mapper.init_max_reg_trials arg (=2)
+  --Mapper.abs_pose_max_error arg (=12)
+  --Mapper.abs_pose_min_num_inliers arg (=30)
+  --Mapper.abs_pose_min_inlier_ratio arg (=0.25)
+  --Mapper.filter_max_reproj_error arg (=4)
+  --Mapper.filter_min_tri_angle arg (=1.5)
+  --Mapper.max_reg_trials arg (=3)
+  --Mapper.local_ba_min_tri_angle arg (=6)
+  --Mapper.tri_max_transitivity arg (=1)
+  --Mapper.tri_create_max_angle_error arg (=2)
+  --Mapper.tri_continue_max_angle_error arg (=2)
+  --Mapper.tri_merge_max_reproj_error arg (=4)
+  --Mapper.tri_complete_max_reproj_error arg (=4)
+  --Mapper.tri_complete_max_transitivity arg (=5)
+  --Mapper.tri_re_max_angle_error arg (=5)
+  --Mapper.tri_re_min_ratio arg (=0.20000000000000001)
+  --Mapper.tri_re_max_trials arg (=1)
+  --Mapper.tri_min_angle arg (=1.5)
+  --Mapper.tri_ignore_two_view_tracks arg (=1)
+</code></pre></div></p>
 <h2 id="model-alignment">Model alignment<a class="headerlink" href="#model-alignment" title="Permanent link">Link</a></h2>
-<p>This step is used to "geo-reference" the reconstructed model.</p>
+<p>Align/geo-register model to coordinate system of given camera centers.</p>
 <p><div class="highlight"><pre><span></span><code>colmap model_aligner -h
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>COLMAP 3.8 (Commit 31df46c on 2022-03-05 with CUDA)
@@ -2652,6 +2870,48 @@ them in a .ini project file passed to `--project_path`.
   --estimate_scale arg (=1)
   --robust_alignment arg (=1)
   --robust_alignment_max_error arg (=0)
+</code></pre></div></p>
+<h2 id="bundle-adjustment">Bundle adjustment<a class="headerlink" href="#bundle-adjustment" title="Permanent link">Link</a></h2>
+<p>Run <strong>global bundle adjustment on a reconstructed scene</strong>, <em>e.g.</em> when a refinement of the intrinsics is needed or after running the <code>image_registrator</code>.</p>
+<p><div class="highlight"><pre><span></span><code>colmap bundle_adjuster -h
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>COLMAP 3.8 (Commit 31df46c on 2022-03-05 with CUDA)
+
+Options can either be specified via command-line or by defining
+them in a .ini project file passed to `--project_path`.
+
+  -h [ --help ] 
+  --random_seed arg (=0)
+  --log_to_stderr arg (=0)
+  --log_level arg (=2)
+  --project_path arg
+  --input_path arg
+  --output_path arg
+  --BundleAdjustment.max_num_iterations arg (=100)
+  --BundleAdjustment.max_linear_solver_iterations arg (=200)
+  --BundleAdjustment.function_tolerance arg (=0)
+  --BundleAdjustment.gradient_tolerance arg (=0)
+  --BundleAdjustment.parameter_tolerance arg (=0)
+  --BundleAdjustment.refine_focal_length arg (=1)
+  --BundleAdjustment.refine_principal_point arg (=0)
+  --BundleAdjustment.refine_extra_params arg (=1)
+  --BundleAdjustment.refine_extrinsics arg (=1)
+</code></pre></div></p>
+<h2 id="model-analyzer">Model analyzer<a class="headerlink" href="#model-analyzer" title="Permanent link">Link</a></h2>
+<p>Print statistics about reconstructions.</p>
+<p><div class="highlight"><pre><span></span><code>colmap model_analyzer -h
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>COLMAP 3.8 (Commit 31df46c on 2022-03-05 with CUDA)
+
+Options can either be specified via command-line or by defining
+them in a .ini project file passed to `--project_path`.
+
+  -h [ --help ] 
+  --random_seed arg (=0)
+  --log_to_stderr arg (=0)
+  --log_level arg (=2)
+  --project_path arg
+  --path arg
 </code></pre></div></p>
 
               

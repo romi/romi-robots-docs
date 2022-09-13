@@ -2492,11 +2492,14 @@
 <h1 id="intrinsic-calibration">Intrinsic calibration<a class="headerlink" href="#intrinsic-calibration" title="Permanent link">Link</a></h1>
 <p>Some cameras introduce significant distortion to images.
 The two major kinds of distortion are <strong>radial distortion</strong> and <strong>tangential distortion</strong>.</p>
-<p>With <em>radial distortion</em>, straight lines appear curved while with <em>tangential distortion</em> some objects of the image may appears closer than they are in reality.</p>
-<figure>
-    <img src="https://docs.opencv.org/4.x/calib_radial.jpg" alt="ChArUco board example" width="300" /> 
-    <figcaption>Illustration of an image captured with radial distortion as shown by the straight red lines added on top the picture afterward.<br>Source: OpenCV Python tutorial on <a href="https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html">camera calibration</a>.</figcaption>
-</figure>
+<p>With <em>radial distortion</em>, straight lines appear curved while with <em>tangential distortion</em> some objects of the image may appear closer than they are in reality.</p>
+<div class="polaroid">
+  <img src="https://docs.opencv.org/4.x/calib_radial.jpg" alt="ChArUco board example"/>
+  <div class="container">
+    <p>Illustration of an image captured with radial distortion as shown by the straight red lines added on top the picture afterward.
+    <br><u>Source</u>: OpenCV Python tutorial on <a href="https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html">camera calibration</a>.</p>
+  </div>
+</div>
 
 <h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
 <p>Correcting these "aberrations" prior to image processing can be a good idea to improve <strong>quality</strong> and <strong>accuracy</strong> of the reconstructed 3D scenes by <em>structure from motion</em> algorithms.</p>
@@ -2517,23 +2520,27 @@ touch <span class="nv">$DB_LOCATION</span>/romidb
 </code></pre></div></p>
 </li>
 </ul>
-<p><img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50" />We highly recommend the use of docker containers to run ROMI software, if you wish to use the docker images we provide, have a look <a href="https://github.com/romi/plant-imager#docker">here</a>.</p>
+<div class="icon">
+  <img src="/assets/images/ext/docker_logo2.png" alt="docker_logo">
+  We highly recommend the use of docker containers to run ROMI software, if you wish to use the docker images we provide, have a look <a href="https://github.com/romi/plant-imager#docker">here</a>.
+</div>
+
 <h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
 <h3 id="1-make-a-charuco-board-and-print-it">1. Make a ChArUco board and print it<a class="headerlink" href="#1-make-a-charuco-board-and-print-it" title="Permanent link">Link</a></h3>
 <p>A ChArUco board is the combination of a chess board and of ArUco markers.</p>
 <figure>
-    <img src="/assets/images/charuco_board_4x4_14by10_2_1.5.png" alt="ChArUco board example" width="400" /> 
+    <img src="/assets/images/charuco_board_4x4_14by10_2_1.5.png" alt="ChArUco board example" width="600" /> 
     <figcaption>An example of a 14x10 ChArUco board with 20mm chess square and 15mm 4x4 ArUco markers.</figcaption>
 </figure>
 
 <p>The previous figure shows the default board that we will use in this tutorial.</p>
 <p>To create it, you have to run the <code>create_charuco_board</code> CLI as follows:
-<div class="highlight"><pre><span></span><code>create_charuco_board plant-3d-vision/config/intrisic_calibration.toml
+<div class="highlight"><pre><span></span><code>create_charuco_board plant-3d-vision/config/intrinsic_calibration.toml
 </code></pre></div>
 This will create a file named <code>charuco_board.png</code> in the current working directory.</p>
 <p>We strongly advise to <strong>use the same</strong> TOML configuration file with <code>create_charuco_board</code> &amp; <code>romi_run_task</code> commands to avoid inadvertently changing parameter values.
 Also, you will later need it for the estimation of the intrinsic camera parameters.</p>
-<p>An example of <code>intrisic_calibration.toml</code> configuration file is:
+<p>An example of <code>intrinsic_calibration.toml</code> configuration file is:
 <div class="highlight"><pre><span></span><code><span class="k">[CreateCharucoBoard]</span><span class="w"></span>
 <span class="n">n_squares_x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;14&quot;</span><span class="w">  </span><span class="c1"># Number of chessboard squares in X direction.</span><span class="w"></span>
 <span class="n">n_squares_y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;10&quot;</span><span class="w">  </span><span class="c1"># Number of chessboard squares in Y direction.</span><span class="w"></span>
@@ -2549,7 +2556,6 @@ Also, you will later need it for the estimation of the intrinsic camera paramete
 <span class="k">[IntrinsicCalibration]</span><span class="w"></span>
 <span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;DetectCharuco&quot;</span><span class="w"></span>
 <span class="n">board_fileset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;CreateCharucoBoard&quot;</span><span class="w"></span>
-<span class="n">camera_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;OPENCV&quot;</span><span class="w">  </span><span class="c1"># defines the estimated parameters</span><span class="w"></span>
 </code></pre></div></p>
 <p>You may now <strong>print the ChArUco board image</strong>.
 Pay attention to use a software (like GIMP) that allows you to set the actual size of the image you want to print.
@@ -2561,14 +2567,47 @@ With the previous configuration it should be:</p>
 <p>Finally, <strong>tape it flat onto something solid</strong> in order to avoid deformation of the printed pattern!</p>
 <h3 id="2-scan-the-charuco-board">2. Scan the ChArUco board<a class="headerlink" href="#2-scan-the-charuco-board" title="Permanent link">Link</a></h3>
 <p>To scan your newly printed ChArUco board, use the <code>IntrinsicCalibrationScan</code> task from <code>plant_imager</code>:
-<div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibrationScan <span class="nv">$DB_LOCATION</span>/intrisic_calib_1 --config plant-3d-vision/config/scan.toml
+<div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibrationScan <span class="nv">$DB_LOCATION</span>/intrinsic_calib_1 --config plant-3d-vision/config/scan.toml
 </code></pre></div></p>
 <p>The camera should move to the center front of the <em>plant imager</em> where you will hold your pattern and take <code>20</code> pictures (according to the previous configuration).
 Try to take pictures of the board in different positions.</p>
-<div class="admonition notes">
-<p class="admonition-title">Notes</p>
-<p>It is not required to have the whole board in the picture, the ArUco markers will be used to detect the occluded sections!</p>
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="/assets/images/charuco_gallery/00000_rgb.jpg">
+      <img src="/assets/images/charuco_gallery/00000_rgb.jpg" alt="charuco board example" height="400">
+    </a>
+    <div class="desc">00000_rgb.jpg</div>
+  </div>
 </div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="/assets/images/charuco_gallery/00003_rgb.jpg">
+      <img src="/assets/images/charuco_gallery/00003_rgb.jpg" alt="charuco board example" height="400">
+    </a>
+    <div class="desc">00003_rgb.jpg</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="/assets/images/charuco_gallery/00005_rgb.jpg">
+      <img src="/assets/images/charuco_gallery/00005_rgb.jpg" alt="charuco board example" height="400">
+    </a>
+    <div class="desc">00005_rgb.jpg</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="/assets/images/charuco_gallery/00014_rgb.jpg">
+      <img src="/assets/images/charuco_gallery/00014_rgb.jpg" alt="charuco board example" height="400">
+    </a>
+    <div class="desc">00014_rgb.jpg</div>
+  </div>
+</div>
+
+<p>As illustrated by the previous image examples, it is not required to have the whole board in the picture, the ArUco markers will be used to detect the occluded sections!</p>
 <p>An example for the <code>scan.toml</code> configuration file is:
 <div class="highlight"><pre><span></span><code><span class="k">[IntrinsicCalibrationScan]</span><span class="w"></span>
 <span class="n">n_poses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w">  </span><span class="c1"># Number of acquisition of the printed ChArUco board</span><span class="w"></span>
@@ -2644,9 +2683,9 @@ Try to take pictures of the board in different positions.</p>
 </code></pre></div></p>
 <h3 id="3-performs-the-camera-parameters-estimation">3. Performs the camera parameters estimation<a class="headerlink" href="#3-performs-the-camera-parameters-estimation" title="Permanent link">Link</a></h3>
 <p>You may now <strong>estimate the camera parameters</strong>, for a given <em>camera model</em> with:
-<div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibration <span class="nv">$DB_LOCATION</span>/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
+<div class="highlight"><pre><span></span><code>romi_run_task IntrinsicCalibration <span class="nv">$DB_LOCATION</span>/intrinsic_calib_1 --config plant-3d-vision/config/intrinsic_calibration.toml
 </code></pre></div>
-This should generate a <code>camera_model.json</code> inside the <code>$DB_LOCATION/intrisic_calib_1/camera_model</code> folder.</p>
+This should generate a <code>camera_model.json</code> inside the <code>$DB_LOCATION/intrinsic_calib_1/camera_model</code> folder.</p>
 <p>An example of a <code>camera_model.json</code> file is:
 <div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OPENCV&quot;</span><span class="p">,</span><span class="w"></span>

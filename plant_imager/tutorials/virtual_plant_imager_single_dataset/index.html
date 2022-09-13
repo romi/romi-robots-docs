@@ -2549,8 +2549,12 @@
 <p>Virtual plants makes data acquisition inexpensive and allows to parametrize the type of data. By design, ground truth data can be easily extracted from these virtual datasets. We thus designed the <code>Virtual Plant Imager</code> to take images of any 3D object, as a digital twin of our real <code>plant imager</code>.</p>
 <p>After reading this tutorial, you should be able to generate a single virtual plant dataset (including several ground truth reference) in order to evaluate the phenotyping results generated through an analysis pipeline made with our <a href="https://github.com/romi/plant-3d-vision">plant-3d-vision</a> tool suite.</p>
 <h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
-<p><img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50"> We highly recommend the use of dockers to run ROMI software.
-If it is not already done, you must be able to build and run the docker images of: </p>
+<div class="icon">
+  <img src="/assets/images/ext/docker_logo2.png" alt="docker_logo">
+  We highly recommend the use of docker containers to run ROMI software, if you wish to use the docker images we provide, have a look <a href="https://github.com/romi/plant-imager#docker">here</a>.
+</div>
+
+<p>If it is not already done, you must be able to build and run the docker images of: </p>
 <ul>
 <li>the <code>(Virtual) Plant Imager</code> by following these <a href="https://github.com/romi/plant-imager#docker">instructions</a>. This is required to generate the virtual data (initial plant 3D model, ground truth and RGB images).</li>
 <li>the <code>plant-3d-vision</code> by following these <a href="https://github.com/romi/plant-3d-vision#Docker">instructions</a>. This is required to reconstruct a 3D model from the virtual 2D images, as if they were images of real plants. This docker will also allow you to evaluate this reconstruction using the available virtual ground truth data.</li>
