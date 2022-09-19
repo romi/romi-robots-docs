@@ -303,8 +303,8 @@ the encoder.
 It is all held together using 3D printed components and two laser-cut
 aluminium plates. It look roughly like this:
 
-<img src="/assets/images/rover/hardware/steering-mount-1.png" height="200px">
-<img src="/assets/images/rover/hardware/steering-mount-2.png" height="200px">
+<img src="/assets/images/rover/hardware/steering-mount-1.png" height="100px">
+<img src="/assets/images/rover/hardware/steering-mount-2.png" height="100px">
 
 The files are available at
 [romi-rover-design/steering](https://github.com/romi/romi-rover-design/tree/main/steering).
