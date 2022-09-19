@@ -3,12 +3,15 @@
 Some cameras introduce significant distortion to images.
 The two major kinds of distortion are **radial distortion** and **tangential distortion**.
 
-With _radial distortion_, straight lines appear curved while with _tangential distortion_ some objects of the image may appears closer than they are in reality.
+With _radial distortion_, straight lines appear curved while with _tangential distortion_ some objects of the image may appear closer than they are in reality.
 
-<figure>
-    <img src="https://docs.opencv.org/4.x/calib_radial.jpg" alt="ChArUco board example" width="300" /> 
-    <figcaption>Illustration of an image captured with radial distortion as shown by the straight red lines added on top the picture afterward.<br>Source: OpenCV Python tutorial on <a href="https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html">camera calibration</a>.</figcaption>
-</figure>
+<div class="polaroid">
+  <img src="https://docs.opencv.org/4.x/calib_radial.jpg" alt="ChArUco board example"/>
+  <div class="container">
+    <p>Illustration of an image captured with radial distortion as shown by the straight red lines added on top the picture afterward.
+    <br><u>Source</u>: OpenCV Python tutorial on <a href="https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html">camera calibration</a>.</p>
+  </div>
+</div>
 
 
 ## Objective
@@ -29,8 +32,11 @@ In this tutorial, you will learn how to **estimate the intrinsic camera paramete
     mkdir $DB_LOCATION
     touch $DB_LOCATION/romidb
     ```
-  
-<img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50" />We highly recommend the use of docker containers to run ROMI software, if you wish to use the docker images we provide, have a look [here](https://github.com/romi/plant-imager#docker).
+
+<div class="icon">
+  <img src="/assets/images/ext/docker_logo2.png" alt="docker_logo">
+  We highly recommend the use of docker containers to run ROMI software, if you wish to use the docker images we provide, have a look <a href="https://github.com/romi/plant-imager#docker">here</a>.
+</div>
 
 
 ## Step-by-step tutorial
@@ -39,7 +45,7 @@ In this tutorial, you will learn how to **estimate the intrinsic camera paramete
 A ChArUco board is the combination of a chess board and of ArUco markers.
 
 <figure>
-    <img src="/assets/images/charuco_board_4x4_14by10_2_1.5.png" alt="ChArUco board example" width="400" /> 
+    <img src="/assets/images/charuco_board_4x4_14by10_2_1.5.png" alt="ChArUco board example" width="600" /> 
     <figcaption>An example of a 14x10 ChArUco board with 20mm chess square and 15mm 4x4 ArUco markers.</figcaption>
 </figure>
 
@@ -47,14 +53,14 @@ The previous figure shows the default board that we will use in this tutorial.
 
 To create it, you have to run the `create_charuco_board` CLI as follows:
 ```shell
-create_charuco_board plant-3d-vision/config/intrisic_calibration.toml
+create_charuco_board plant-3d-vision/config/intrinsic_calibration.toml
 ```
 This will create a file named `charuco_board.png` in the current working directory.
 
 We strongly advise to **use the same** TOML configuration file with `create_charuco_board` & `romi_run_task` commands to avoid inadvertently changing parameter values.
 Also, you will later need it for the estimation of the intrinsic camera parameters.
 
-An example of `intrisic_calibration.toml` configuration file is:
+An example of `intrinsic_calibration.toml` configuration file is:
 ```toml
 [CreateCharucoBoard]
 n_squares_x = "14"  # Number of chessboard squares in X direction.
@@ -71,7 +77,6 @@ min_n_corners = "20"  # Minimum number of detected corners to export them
 [IntrinsicCalibration]
 upstream_task = "DetectCharuco"
 board_fileset = "CreateCharucoBoard"
-camera_model = "OPENCV"  # defines the estimated parameters
 ```
 
 You may now **print the ChArUco board image**.
@@ -87,14 +92,50 @@ Finally, **tape it flat onto something solid** in order to avoid deformation of 
 ### 2. Scan the ChArUco board
 To scan your newly printed ChArUco board, use the `IntrinsicCalibrationScan` task from `plant_imager`:
 ```shell
-romi_run_task IntrinsicCalibrationScan $DB_LOCATION/intrisic_calib_1 --config plant-3d-vision/config/scan.toml
+romi_run_task IntrinsicCalibrationScan $DB_LOCATION/intrinsic_calib_1 --config plant-3d-vision/config/scan.toml
 ```
 
 The camera should move to the center front of the _plant imager_ where you will hold your pattern and take `20` pictures (according to the previous configuration).
 Try to take pictures of the board in different positions.
 
-!!! notes
-    It is not required to have the whole board in the picture, the ArUco markers will be used to detect the occluded sections!
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="/assets/images/charuco_gallery/00000_rgb.jpg">
+      <img src="/assets/images/charuco_gallery/00000_rgb.jpg" alt="charuco board example" height="400">
+    </a>
+    <div class="desc">00000_rgb.jpg</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="/assets/images/charuco_gallery/00003_rgb.jpg">
+      <img src="/assets/images/charuco_gallery/00003_rgb.jpg" alt="charuco board example" height="400">
+    </a>
+    <div class="desc">00003_rgb.jpg</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="/assets/images/charuco_gallery/00005_rgb.jpg">
+      <img src="/assets/images/charuco_gallery/00005_rgb.jpg" alt="charuco board example" height="400">
+    </a>
+    <div class="desc">00005_rgb.jpg</div>
+  </div>
+</div>
+
+<div class="responsive">
+  <div class="gallery">
+    <a target="_blank" href="/assets/images/charuco_gallery/00014_rgb.jpg">
+      <img src="/assets/images/charuco_gallery/00014_rgb.jpg" alt="charuco board example" height="400">
+    </a>
+    <div class="desc">00014_rgb.jpg</div>
+  </div>
+</div>
+
+
+As illustrated by the previous image examples, it is not required to have the whole board in the picture, the ArUco markers will be used to detect the occluded sections!
 
 An example for the `scan.toml` configuration file is:
 ```toml
@@ -174,9 +215,9 @@ homing = true
 ### 3. Performs the camera parameters estimation
 You may now **estimate the camera parameters**, for a given _camera model_ with:
 ```shell
-romi_run_task IntrinsicCalibration $DB_LOCATION/intrisic_calib_1 --config plant-3d-vision/config/intrisic_calibration.toml
+romi_run_task IntrinsicCalibration $DB_LOCATION/intrinsic_calib_1 --config plant-3d-vision/config/intrinsic_calibration.toml
 ```
-This should generate a `camera_model.json` inside the `$DB_LOCATION/intrisic_calib_1/camera_model` folder.
+This should generate a `camera_model.json` inside the `$DB_LOCATION/intrinsic_calib_1/camera_model` folder.
 
 An example of a `camera_model.json` file is:
 ```json

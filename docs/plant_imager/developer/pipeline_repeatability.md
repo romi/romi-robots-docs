@@ -1,131 +1,148 @@
-Testing the reconstruction pipelines repeatability
-===
+# Evaluating the repeatability of a reconstruction and quantification pipeline
+
 
 ## Objective
-The reconstruction pipeline aims to convert the series of RGB images output of the plant-imager to a reconstructed 3d object, here a plant, with the ultimate goal to obtain quantitative phenotype information.
-It is composed of a sequence of different tasks, each having a specific function.
-Some algorithms used during these tasks may be stochastic, hence their output might vary even tough we provide the same input.
-As it can impact the results of the analysis and is often not easily traceable, it is of interest to be able to quantify it.
+The reconstruction and quantification pipeline aims to convert a series of RGB images (output of the plant-imager) into a 3D object, here a plant, with the ultimate goal to obtain quantitative phenotypic information.
 
-Two main things can be tested:
-* With a proper metric, estimate how much different the outputs of a task can be given the same input.
-* Evaluation of the repercussion in the phenotypic traits extraction of a pipeline including randomness.
+It is possible to create multiple pipelines as they are composed of a sequence of different tasks, each having a specific function.
+Some algorithms used in these tasks may be stochastic, hence **their output might vary even tough we provide the same input**.
+As it can impact the subsequent quantification, it is of interest to be able to **identify the sources of variability and to quantify them**.
 
+Mainly, two things can be evaluated:
+* using a dedicated metric (_e.g._ chamfer distance on point-clouds), quantify the differences in the outputs of a repeated task
+* quantify the final repercussion on the extracted phenotypic traits
 
 
 ## Prerequisite
 
+* Create and activate an isolated Python environment (see the procedure [here](../install/create_env.md) )
 
-* install romi `plant-3d-vision` (from [source](https://github.com/romi/plant-3d-vision) or using a [docker image](../docker/plant-3d-vision_docker.md)) & read [install procedure](../install/plant_reconstruction_setup.md)
-* Create and activate isolated python environment (see the procedure [here](../install/create_env.md) )
+* Install romi `plant-3d-vision` (from [source](https://github.com/romi/plant-3d-vision) or using a [docker image](../docker/plant-3d-vision_docker.md)) & read [install procedure](../install/plant_reconstruction_setup.md)
 
 
-## Step-by-step tutorial
-The `robustness_evaluation` script has been developed to quantify randomness in the pipeline and has 2 modes, it can either test the stochasticity of one task or of the full pipeline. 
+## CLI overview
+The `robustness_evaluation` script has been developed to quantify variability in the reconstruction and quantification pipeline.
+It may be used to test the variability of a specific task or of the full  reconstruction (and quantification) pipeline.
+
 Basically it compares outputs of a task given the same input (previous task output or acquisition output depending on the mode) on a fixed parameterizable number of replicates.
 
-
-```
+```shell
 robustness_evaluation -h
-usage: robustness_evaluation [-h] [-n REPLICATE_NUMBER] [-f] [-np]
-                             [-db TEST_DATABASE] [--models MODELS]
-                             scan
-                             {Clean,Colmap,Undistorted,Masks,Segmentation2D,Voxels,PointCloud,TriangleMesh,CurveSkeleton,TreeGraph,AnglesAndInternodes,Segmentation2d,SegmentedPointCloud,ClusteredMesh,OrganSegmentation}
-                             config_file
+```
+```
+usage: robustness_evaluation [-h] [-n REPLICATE_NUMBER] [-s SUFFIX] [-f] [-np] [-db TEST_DATABASE] [--models MODELS]
+                             [--log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}]
+                             scan task config_file
 
+Robustness evaluation of the Reconstruction & Quantification pipelines.
 
-ROMI reconstruction & analysis pipeline repeatability test procedure. Analyse
-the repeatability of a reconstruction & analysis pipeline by: 1. duplicating
-the scan in a temporary folder (and cleaning it if necessary) 2. running the
-pipeline up to the previous task of the task to test 3. copying this result to
-a new database and replicate the dataset 4. repeating the task to test for
-each replicate 5. comparing the results pair by pair. Comparison can be done
-at the scale of the files but also with metrics if a reference can be set. To
-create fully independent tests, we run the pipeline up to the task to test on
-each replicate. Note that in order to use the ML pipeline, you will first have
-to: 1. create an output directory 2. use the `--models` argument to copy the
-CNN trained models required to run the pipeline.
+Evaluating the repeatability of a Reconstruction & Quantification (R&Q) pipeline is made as follows:
+ 1. duplicate the selected scan dataset in a temporary folder (and clean it from previous R&Q if necessary)
+ 2. run the R&Q pipeline up to the previous task of the selected task to evaluate, if any
+ 3. copy/replicate this result to a new database (append a replicate id to the dataset name)
+ 4. run the task to evaluate for each replicated dataset
+ 5. compare the directories of the task to evaluate pair by pair
+ 6. apply the comparison metrics for the task to evaluate, as defined in `robustness_evaluation.json` 
 
+Please note that:
+ - Directory comparisons are done at the scale of the files generated by the selected task.
+ - We use metrics to get a quantitative comparison on the output of the task.
+ - It is possible to create fully independent repetitions by running the whole R&Q pipeline using `-f`.
+ - In order to use the ML-based R&Q pipeline, you will have to:
+   1. create an output directory
+   2. use the `--models` argument to copy the CNN trained models
 
 positional arguments:
-  scan                  scan to use for repeatability analysis
-  {Clean,Colmap,Undistorted,Masks,Segmentation2D,Voxels,PointCloud,TriangleMesh,CurveSkeleton,TreeGraph,AnglesAndInternodes,Segmentation2d,SegmentedPointCloud,ClusteredMesh,OrganSegmentation}
-                        task to test, should be in: Clean, Colmap,
-                        Undistorted, Masks, Segmentation2D, Voxels,
-                        PointCloud, TriangleMesh, CurveSkeleton, TreeGraph,
-                        AnglesAndInternodes, Segmentation2d,
-                        SegmentedPointCloud, ClusteredMesh, OrganSegmentation
-  config_file           path to the TOML config file of the analysis pipeline
-
+  scan                  Scan dataset to use for repeatability evaluation.
+  task                  Task to test, should be in: AnglesAndInternodes, ClusteredMesh, Colmap, CurveSkeleton,
+                        ExtrinsicCalibration, IntrinsicCalibration, Masks, OrganSegmentation, PointCloud,
+                        Segmentation2D, Segmentation2d, SegmentedPointCloud, TreeGraph, TriangleMesh, Undistorted,
+                        Voxels
+  config_file           Path to the pipeline TOML configuration file.
 
 optional arguments:
   -h, --help            show this help message and exit
   -n REPLICATE_NUMBER, --replicate_number REPLICATE_NUMBER
-                        number of replicate to use for repeatability analysis
-  -f, --full_pipe       run the analysis pipeline on each replicate
-                        independently
-  -np, --no_pipeline    do not run the pipeline, only compare tasks outputs
+                        Number of replicate to use for repeatability evaluation. Defaults to `30`.
+  -s SUFFIX, --suffix SUFFIX
+                        Suffix to append to the created database folder.
+  -f, --full_pipe       Run the whole Reconstruction & Quantification pipeline on each replicate independently.
+  -np, --no_pipeline    Do not run the pipeline, only compare tasks outputs.
   -db TEST_DATABASE, --test_database TEST_DATABASE
                         test database location to use. Use at your own risks!
-  --models MODELS       models database location to use with ML pipeline.
+  --models MODELS       Models database location to use with ML pipeline.
+  --log-level {CRITICAL,FATAL,ERROR,WARN,WARNING,INFO,DEBUG,NOTSET}
+                        Set message logging level. Defaults to `INFO`.
+
+Detailed explanations here: https://docs.romi-project.eu/plant_imager/developer/pipeline_repeatability/
 ```
-The metrics used are the same as the ones for an evaluation against ground truth
+The metrics used are the same as the ones for an evaluation against a ground-truth
 
+## Step-by-step tutorial
 
-### 1. Test of a single task
-Example with the task TriangleMesh (whose goal is to compute a mesh from a point cloud):
+### 1. Test a single task
+Example with the task `TriangleMesh` task, whose goal is to compute a mesh from a point-cloud:
 ```shell
-robustness_evaluation /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n 10
+robustness_evaluation /path/db/my_scan TriangleMesh plant-3d-vision/config/pipeline.toml -n 10
+```
+To summarize, the `pipeline.toml` configuration indicate the following order of tasks:
+```
+ImagesFilesetExists -> Colmap -> Undistorted -> Masks -> Voxels -> PointCloud -> TriangleMesh
 ```
 
-Resulting:
+The call to `robustness_evaluation`, as previously defined, should result in the following folder structure:
 ```
 path/
-├── 20210628123840_rep_test_TriangleMesh/
-│   ├── scan_0
-│   ├── scan_1
-│   ├── scan_2
-│   ├── scan_3
-│   ├── scan_4
-│   ├── scan_5
-│   ├── scan_6
-│   ├── scan_7
-│   ├── scan_8
-│   ├── scan_9
+├── 20210628123840_eval_TriangleMesh/
+│   ├── my_scan_0/
+│   ├── my_scan_1/
+│   ├── my_scan_2/
+│   ├── my_scan_3/
+│   ├── my_scan_4/
+│   ├── my_scan_5/
+│   ├── my_scan_6/
+│   ├── my_scan_7/
+│   ├── my_scan_8/
+│   ├── my_scan_9/
 │   ├── filebyfile_comparison.json
 │   ├── romidb
-│   ├── TriangleMesh_comparison.json
-└── db/scan
+│   └── TriangleMesh_comparison.json
+└── db/
+    ├── my_scan/
+    └── romidb
 ```
-The scan datasets are identical up to `PointCloud` then the `TriangleMesh` task is run separately on each one.
-Results with the appropriate metric are in the `TriangleMesh_comparison.json` file.
+The scan datasets `my_scan_*` are identical up to `PointCloud` as they result from copies of the same temporary folder.
+Then the `TriangleMesh` task is run separately on each one.
+Quantitative results, using the appropriate metric(s), are in the `TriangleMesh_comparison.json` file.
 
 
 ### 2. Independent tests
-If the goal is to see what are the impacts of randomness through the pipeline in the output of the task `TriangleMesh`, perform an independent test thanks to the -f parameter:
+If the goal is to evaluate the impact of stochasticity through the whole pipeline in the output of the `TriangleMesh` task, you should perform independent tests (run the whole pipeline each time) using the `-f` parameter:
 ```shell
-robustness_evaluation /path/db/scan TriangleMesh plant-3d-vision/config/pipeline.toml -n 10 -f
+robustness_evaluation /path/db/my_scan TriangleMesh plant-3d-vision/config/pipeline.toml -n 10 -f
 ```
 
-With a similar tree result:
+This will yield a similar folder structure:
 ```
 path/
-├── 20210628123840_rep_test_TriangleMesh/
-│   ├── scan_0
-│   ├── scan_1
-│   ├── scan_2
-│   ├── scan_3
-│   ├── scan_4
-│   ├── scan_5
-│   ├── scan_6
-│   ├── scan_7
-│   ├── scan_8
-│   ├── scan_9
+├── 20210628123840_eval_TriangleMesh/
+│   ├── my_scan_0/
+│   ├── my_scan_1/
+│   ├── my_scan_2/
+│   ├── my_scan_3/
+│   ├── my_scan_4/
+│   ├── my_scan_5/
+│   ├── my_scan_6/
+│   ├── my_scan_7/
+│   ├── my_scan_8/
+│   ├── my_scan_9/
 │   ├── filebyfile_comparison.json
 │   ├── romidb
 │   ├── TriangleMesh_comparison.json
-└── db/scan
+└── db/
+    ├── my_scan/
+    └── romidb
 ```
 
 !!! Note
-    To run tests on an existing database the -db parameter is configurable but be careful of what is to be tested
+    To run tests on an existing database the `-db` parameter is configurable but be careful with it!

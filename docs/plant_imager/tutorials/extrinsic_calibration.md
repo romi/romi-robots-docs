@@ -16,7 +16,10 @@ In this tutorial, you will learn how to calibrate an image acquisition for downs
 
 * install also [`plant-3d-vision`](/docs/plant_imager/modules/plant_3d_vision.md) to perform the calibration.
   
-<img src="/assets/images/ext/docker_logo2.png" alt="docker_logo" width="50"> We highly recommend the use of dockers to run ROMI software. Details to build and run docker of the ROMI `Plant Imager` are [here](https://github.com/romi/plant-imager#docker)
+<div class="icon">
+  <img src="/assets/images/ext/docker_logo2.png" alt="docker_logo">
+  We highly recommend the use of docker containers to run ROMI software, if you wish to use the docker images we provide, have a look <a href="https://github.com/romi/plant-imager#docker">here</a>.
+</div>
 
 *   Before reading this tutorial, you should first be able to run a basic acquisition without calibration, as explained in this [tutorial](../tutorials/hardware_scan.md).
 
