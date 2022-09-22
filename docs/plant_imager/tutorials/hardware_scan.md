@@ -170,7 +170,7 @@ You can now [reconstruct your plant in 3d](reconstruct_scan.md) !
 
 * The CNC and Gimbal might be connected to different ports than the ones specified in the configuration file. Please check with the `dmesg -w` command.
 * Look [here](../build_v2/troubleshooting.md#serial-access-denied) if you can not communicate with the scanner using usb.
-* Make sure the device used to run the acquisition is indeed connected to the camera (wifi)
+* Make sure the device used to run the acquisition is indeed connected to the camera (Wi-Fi)
 * Message to Gimbal still transiting :
 
 ```shell
