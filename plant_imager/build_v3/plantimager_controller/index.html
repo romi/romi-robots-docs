@@ -1301,11 +1301,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup" class="md-nav__link">
-    Setup
+  <a href="#initial-setup" class="md-nav__link">
+    Initial setup
   </a>
   
-    <nav class="md-nav" aria-label="Setup">
+    <nav class="md-nav" aria-label="Initial setup">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1348,6 +1348,26 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-hotspot" class="md-nav__link">
+    Configure the hotspot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-oquam" class="md-nav__link">
+    Install Oquam
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Oquam">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#install-requirements" class="md-nav__link">
@@ -2549,7 +2569,7 @@
 1. control the CNC (with Oquam) over USB
 2. create a local Wi-Fi network</p>
 <p>It thus acts as an <em>access point</em> for other devices, notably for the PiCamera(s) (Pi Zero W).</p>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">Link</a></h2>
+<h2 id="initial-setup">Initial setup<a class="headerlink" href="#initial-setup" title="Permanent link">Link</a></h2>
 <h3 id="flash-raspbian-lite-os">Flash Raspbian Lite OS<a class="headerlink" href="#flash-raspbian-lite-os" title="Permanent link">Link</a></h3>
 <p>To flash the OS on the microSD, have a look at the official Raspberry Pi OS instructions <a href="https://www.raspberrypi.com/software/">here</a>.
 We strongly advise to use the <strong>Raspberry Pi Imager</strong>.</p>
@@ -2591,6 +2611,17 @@ sudo adduser romi sudo
 <p>We should probably give instructions to remove the default <code>pi</code> user, or at least to remove it from the <code>sudo</code> group?!
 <code>sudo deluser --remove-home pi</code></p>
 </div>
+<h2 id="configure-the-hotspot">Configure the hotspot<a class="headerlink" href="#configure-the-hotspot" title="Permanent link">Link</a></h2>
+<p>To configure the RPi4 to act as a hotspot, set the name od the SSId to use then use the dedicated script as follows:
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">SSID2</span><span class="o">=</span><span class="s2">&quot;Plant Imager&quot;</span>
+<span class="nb">export</span> <span class="nv">AP_PWD</span><span class="o">=</span><span class="s2">&quot;my_secret_password!&quot;</span>
+bash tests-hardware/network-hotspot-setup.sh
+</code></pre></div></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Change the password as it is not so secret anymore! </p>
+</div>
+<h2 id="install-oquam">Install Oquam<a class="headerlink" href="#install-oquam" title="Permanent link">Link</a></h2>
 <h3 id="install-requirements">Install requirements<a class="headerlink" href="#install-requirements" title="Permanent link">Link</a></h3>
 <p>To install the requirements simply run:
 <div class="highlight"><pre><span></span><code>sudo apt install build-essential cmake git libpng-dev libjpeg9-dev
