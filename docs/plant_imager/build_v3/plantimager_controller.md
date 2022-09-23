@@ -6,7 +6,7 @@ We use a Raspberry Pi 4 as a "main controller" to:
 
 It thus acts as an _access point_ for other devices, notably for the PiCamera(s) (Pi Zero W).
 
-## Setup
+## Initial setup
 
 ### Flash Raspbian Lite OS
 
@@ -61,6 +61,21 @@ sudo adduser romi sudo
     We should probably give instructions to remove the default `pi` user, or at least to remove it from the `sudo` group?!
     `sudo deluser --remove-home pi`
 
+
+## Configure the hotspot
+To configure the RPi4 to act as a hotspot, set the name od the SSId to use then use the dedicated script as follows:
+```shell
+export SSID2="Plant Imager"
+export AP_PWD="my_secret_password!"
+bash tests-hardware/network-hotspot-setup.sh
+```
+
+!!! important
+    Change the password as it is not so secret anymore! 
+
+
+## Install Oquam
+
 ### Install requirements
 To install the requirements simply run:
 ```shell
@@ -86,3 +101,4 @@ cd build
 cmake ..
 make oquam
 ```
+
