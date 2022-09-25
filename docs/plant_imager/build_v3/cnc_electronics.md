@@ -21,6 +21,18 @@ If you ordered the X-Controller, follow the official assembly instructions [here
     We replaced the default `Grbl` firmware by `Oquam`, our own implementation. See [here](flashing_oquam.md) for the instructions on how to flash this firmware to the X-Controller.
 
 
+## Change micro-stepping
+By default, the X-Controller board is set to 8x microstepping for X & Y axes and to 2x microstepping for the Z axis.
+
+DIP switches:
+- 8x microstepping with switches 1, 3, and 4 in the 'ON' position.
+- 2x microstepping with only switches 2 and 4 'ON'.
+
+You can use these values later in the _Oquam_ `config.json` (see the related [section](registry_setup.md#configure-the-plant-imager-controller)), but this will limit the precision of the axes.
+
+We would thus strongly recommend to **change them to 16x microstepping** by setting the DIP switches 1, 2 & 4 in the 'ON' position and 3 to 'OFF'.
+
+
 ## Troubleshooting
 
 ### Parts

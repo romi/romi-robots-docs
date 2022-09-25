@@ -43,7 +43,7 @@ Note that the CNC group has 3 axis movement (X, Y & Z), the gimbal add a forth o
 
 <figure>
     <img src="/assets/images/scanner_electronics-overview.png" alt="Plant imager electronics overview" width="1200" />
-  <figcaption>Overview of the plant imager's electronics. Note that the PiCamera act as a wifi hotspot to which the controller computer is registered. </figcaption>
+  <figcaption>Overview of the plant imager's electronics. Note that the PiCamera act as a Wi-Fi hotspot to which the controller computer is registered. </figcaption>
 </figure>
 
 The two groups communicate with the main controller by USB.

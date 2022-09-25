@@ -66,7 +66,9 @@ nav:
           - 'CNC & Pan Arm': 'plant_imager/build_v3/cnc_arm.md'
           - 'Manual Gimball': 'plant_imager/build_v3/manual_gimbal.md'
           - 'Pan electronics': 'plant_imager/build_v3/pan_electronics.md'
+          - 'Main controller': 'plant_imager/build_v3/plantimager_controller.md'
           - 'PiCamera': 'plant_imager/build_v3/picamera.md'
+          - 'Registry setup': 'plant_imager/build_v3/registry_setup.md'
           - 'Complete BOMs': 'plant_imager/build_v3/boms.md'
           - 'Resources': 'plant_imager/build_v3/resources.md'
       - 'Software setup':

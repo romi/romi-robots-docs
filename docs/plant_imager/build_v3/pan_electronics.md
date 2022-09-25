@@ -33,7 +33,7 @@ Thus, the re-wiring looks like this:
 
 ## Incremental rotary encoder
 
-The encoder has 4800 steps and this is too fine for the arduino to see.
+The encoder has 4096 steps and this is too fine for the arduino to see.
 From our tests, it seems very stable at 360.
 
 ### Change the steps resolution
