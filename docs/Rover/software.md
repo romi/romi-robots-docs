@@ -4,9 +4,7 @@ Software Installation
 ## Overview
 
 This document describes how to run and compile the software for the
-ROMI Rover. If you are a developer looking for details on the source
-code then have a look at the separate [Developer
-Documentation](/Rover/developer).
+ROMI Rover. 
 
 ## Prerequisites
 
@@ -14,37 +12,27 @@ The software of the rover runs on Linux. It is not tied to a specific
 Linux distribution but we have tested it mostly on recent versions of
 Debian (includin Raspian) and Ubuntu.
 
-The software is mostly writen in C and depends on the following
+The software is mostly writen in C++ and depends on the following
 libraries:
-
-![](/assets/images/software-dependencies.svg)
-
-- **libr**: Common code for the rcom and the libromi libraries. It
-  provides some OS abstraction (for example for threads, memory
-  allocation, file system, networking), some core functionality
-  (logging, time), and some base classes (variable-size memory
-  buffers, json parser, lists, serial
-  connections). [Code](https://github.com/romi/libr)
     
 - **rcom**: An inter-process communication framework. It provides
   real-time communication using UDP messages and high-level
-  communication based on web protocols (HTTP, Websockets). It also
-  includes several utilities to develop and manage rcom applications.
-  [Code](https://github.com/romi/rcom)
+  communication based on web protocols (HTTP, Websockets). The code is
+  available on [GitHub](https://github.com/romi/librcom) and [separate
+  documentation](https://docs.romi-project.eu/Rover/librcom/) is
+  available also.
 
-- **libromi**: Base classes for the romi rover: fsdb (database with
-  filesystem back-end), image loading and manipulations, …)
-  [Code](https://github.com/romi/libromi)
+- **libromi**: The library with thd base classes for the romi rover:
+  [Code](https://github.com/romi/libromi). This repository also
+  contains the firmware for most of the microcontrollers used in the
+  Rover, Plant Imager, and Cablebot. 
 
-- **romi-brush-motor-controller**: The motor
-    controller. [Code](https://github.com/romi/romi-brush-motor-controller)
+- **romi-rover**: All of the apps for the Romi rover, including
+  `romi-rover`, `romi-camera`, and `romi-cablebot`.
+  [Code](https://github.com/romi/romi-rover-build-and-test)
 
-- **romi-rover**: All of the apps for the Romi rover. 
-  [Code](https://github.com/romi/romi-rover)
 
-By default, the rover uses a USB camera. It is possible to use the
-Intel Realsense camera on the Picamera instead. In that case, you will
-have to install additional libraries (see XXX).
+
 
 ## Installing a Raspberry Pi from scratch
 
@@ -109,135 +97,79 @@ $ sudo apt install libpng-dev libjpeg9-dev
 ```
 That's it. You should be ready.
 
-!!! tips "Quick install"
-    ```bash
-    #!/bin/bash
-
-    # Install the dependencies
-    sudo apt install build-essential cmake git libpng-dev libjpeg9-dev
-
-    # Download, compile and install the libraries & apps
-    for id in libr rcom libromi romi-rover; do
-        echo ----------------------------------------------
-        echo Compiling $id
-
-        # Download or update the github repository
-        if [ -d $id ]; then
-            cd $id
-            git pull
-        else
-            git clone https://github.com/romi/$id.git
-            cd $id
-        fi
-
-        # Standard cmake build sequence
-        mkdir -p build
-        cd build
-        cmake ..
-        make
-        sudo make install
-        sudo ldconfig
-
-        # Get ready for the next component
-        cd ../..
-    done
-    ```
 
 ## Installing the romi-rover apps
 
-You should first install the [libr](https://github.com/romi/libr),
-[rcom](https://github.com/romi/rcom), and
-[libromi](https://github.com/romi/libromi) libraries. Check out their
-the Github pages for the installation instruction and the API
-documentation.
+The installation has it [own
+documentation](https://github.com/romi/romi-rover-build-and-test) on
+github.
 
-You should also flash the motor controller to the Arduino
-(instructions are available on
-[Github](https://github.com/romi/romi-brush-motor-controller)) too.
 
-Once that is done, the installation of the romi-rover apps is
-straight-forward. First, check out the code:
+## Compiling the romi-camera 
 
-```bash
-$ git clone https://github.com/romi/romi-rover.git 
-```
+The `romi-camera` application is used in the Rover, Cablebot, and
+Plant Imager. Because the camera uses the Raspberry Pi Zero, which has
+less RAM memory than its larger siblings.
 
-Then proceed to the compilation and installation:
-```bash
-$ cd romi-rover
-$ mkdir build
-$ cd build
-$ cmake ..
-$ make
-$ sudo make install
-```
-
-## Compiling the picamera app
-
-Although not currently used by the ROMI Rover, we have an Rcom app to
-access the Picamera. To get it working, you will first have to install
-the _raspicam_ library:
+The installation proceeds as described in the documentation of
+[romi-rover-build-and-test](https://github.com/romi/romi-rover-build-and-test). However,
+it is not necessary to compile all applications and limit this step to
+the camera app only:
 
 ```bash
-$ git clone https://github.com/cedricve/raspicam.git
-$ cd raspicam/
 $ mkdir build
 $ cd build/
 $ cmake ..
-$ make
-$ sudo make install
-$ sudo ldconfig
+$ make romi-camera
 ```
 
-Once raspicam is installed, you must re-run cmake to enable the
-compilation of the picamera app:
+## Starting up the software manually
+
+As explained in the [rcom
+documentation](https://docs.romi-project.eu/Rover/librcom/#the-registry),
+the `rcom-registry` has to be started before the other
+applications. It can be started remotely using ssh as follows:
 
 ```bash
-$ cd romi-rover/build/
-$ rm CMakeCache.txt
-$ cmake .. -DWITH_PICAMERA=ON
-$ make
-$ sudo make install
+$ ssh romi@camera.local /home/romi/romi-rover-build-and-test/build/bin/romi-camera \
+    --registry <IP-ADDRESS-REGISTRY> --mode video --fps 5 --bitrate 12000000
 ```
 
-## Compiling the realsense app
+In the second step, the `romi-camera` should be started up. The rcom
+c onnections use a time-out so there is some flexibility in the
+start-up order of the applications.
 
-The fonctionality of the Realsense camera app is not complete. You can
-use it to obtain RGB images and depth images (as BW PNG images). You
-will first have to install
-[_librealsense2_](https://github.com/IntelRealSense/librealsense/).
-
-When librealsense is installed, re-run cmake to enable the compilation
-of the realsense app:
 
 ```bash
-$ cd romi-rover/build/
-$ rm CMakeCache.txt
-$ cmake .. -DWITH_REALSENSE=ON
-$ make
-$ sudo make install
+$ ./build/bin/rcom-registry
 ```
 
-## Configuration
-
-### Configuring the romi-rover apps
-
-In the directory /home/romi, create the following directories and copy
-the default configuration and script files:
+If you use any Python code, such as the Unet neural network for the
+image segmentation, the following script can be used: 
 
 ```bash
-$ cd /home/romi
-$ mkdir sessions
-$ mkdir config
-$ cp <romi-rover>/config/config-romi-rover.json config/
-$ mkdir scripts
-$ cp <romi-rover>/script/config-default.json scripts/
+$ python3 ./application/romi-python/main.py \
+      --model-path <PATH-UNET-WEIGHTS> 
 ```
 
-        "html": "<romi-rover>/interface/html",
+Lastly, the `romi-rover` application should be started.
 
+```bash
+$ ./build/bin/romi-rover --config $CONFIG_FILE \
+    --session $SESSION_DIR --script $SCRIPT_FILE
+```
 
-### Starting the apps on boot 
+A more elaborate example can be found in this
+[script](https://github.com/romi/romi-rover-build-and-test/blob/ci_dev/scripts/rover-start).
+It should be called indirectly using the `intra-row-weeding-tbm`
+script:
+
+```bash
+$ cd scrips
+$ ./intra-row-weeding-tbm
+```
+
+## Starting the apps on boot 
 
 Currently we are still using the old rc.local mechanism. The file
 /etc/rc.local is no longer included in more recent Ubuntu versions. If
@@ -276,19 +208,36 @@ To enable the apps on start-up, add the following line in
 /etc/rc.local, above the `exit 0` line:
 
 ```bash
-/usr/local/bin/rclaunch /home/romi/config/config-romi-rover.json &
+sudo -u romi PATH-TO-STARTUP-SCRIPT &
 ```
 
 
-
-### Configuring the image uploads
-
+# Rcom interfaces
 
 
-## Annex: the apps and their options
 
-```
-    "fake_camera": {
-        "image": "data/camera.jpg"
-    },
-```
+## Camera
+
+The CNC interface is exported by the `romi-camera` application.
+
+| Method | Parameters | Return | Description | 
+|-----------|----------------|----------------|----------------|
+| camera:grab-jpeg-binary | None | A binary buffer with a JPEG-encoded image | |
+| camera:set-value | name: the name of the setting, value: the numerical value | None | |
+| camera:select-option | name: the name of the option, value: the value as a string | None | |
+
+## CNC
+
+The CNC interface is exported by the `oquam` application.
+
+| Method | Parameters | Return | Comments | 
+|-----------|----------------|----------------|----------------|
+| cnc-homing | None | None | Starts the homing procedure that puts the CNC's arm in the home position |
+| cnc-moveto | x, y, z: the position to move to, speed: the relative speed, as a fraction of the absolute speed | None | |
+| cnc-spindle | speed: the speed, between 0 and 1 | None | |
+| cnc-travel | path: a list of [x, y, z] points, speed: the relative speed | None | |
+| cnc-get-range | None | The dimensions of the CNC, as [[xmin, xmax], [ymin, ymax], [zmin, zmax]] | |
+| cnc-helix | xc, yc: the center point of the arc, alpha: the angle of the arc, z: to z-position to move to, speed: the relative speed | None | |
+| cnc-get-position | None  | Returns the position as {"x": x, "y": y, "z": z} | |
+
+
