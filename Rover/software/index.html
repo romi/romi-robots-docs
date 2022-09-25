@@ -715,56 +715,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#compiling-the-picamera-app" class="md-nav__link">
-    Compiling the picamera app
+  <a href="#compiling-the-romi-camera" class="md-nav__link">
+    Compiling the romi-camera
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#compiling-the-realsense-app" class="md-nav__link">
-    Compiling the realsense app
+  <a href="#starting-up-the-software-manually" class="md-nav__link">
+    Starting up the software manually
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-    <nav class="md-nav" aria-label="Configuration">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#configuring-the-romi-rover-apps" class="md-nav__link">
-    Configuring the romi-rover apps
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#starting-the-apps-on-boot" class="md-nav__link">
     Starting the apps on boot
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configuring-the-image-uploads" class="md-nav__link">
-    Configuring the image uploads
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#annex-the-apps-and-their-options" class="md-nav__link">
-    Annex: the apps and their options
   </a>
   
 </li>
@@ -2553,49 +2519,34 @@
 <h1 id="software-installation">Software Installation<a class="headerlink" href="#software-installation" title="Permanent link">Link</a></h1>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">Link</a></h2>
 <p>This document describes how to run and compile the software for the
-ROMI Rover. If you are a developer looking for details on the source
-code then have a look at the separate <a href="/Rover/developer">Developer
-Documentation</a>.</p>
+ROMI Rover. </p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">Link</a></h2>
 <p>The software of the rover runs on Linux. It is not tied to a specific
 Linux distribution but we have tested it mostly on recent versions of
 Debian (includin Raspian) and Ubuntu.</p>
-<p>The software is mostly writen in C and depends on the following
+<p>The software is mostly writen in C++ and depends on the following
 libraries:</p>
-<p><img alt="" src="/assets/images/software-dependencies.svg" /></p>
 <ul>
-<li>
-<p><strong>libr</strong>: Common code for the rcom and the libromi libraries. It
-  provides some OS abstraction (for example for threads, memory
-  allocation, file system, networking), some core functionality
-  (logging, time), and some base classes (variable-size memory
-  buffers, json parser, lists, serial
-  connections). <a href="https://github.com/romi/libr">Code</a></p>
-</li>
 <li>
 <p><strong>rcom</strong>: An inter-process communication framework. It provides
   real-time communication using UDP messages and high-level
-  communication based on web protocols (HTTP, Websockets). It also
-  includes several utilities to develop and manage rcom applications.
-  <a href="https://github.com/romi/rcom">Code</a></p>
+  communication based on web protocols (HTTP, Websockets). The code is
+  available on <a href="https://github.com/romi/librcom">GitHub</a> and <a href="https://docs.romi-project.eu/Rover/librcom/">separate
+  documentation</a> is
+  available also.</p>
 </li>
 <li>
-<p><strong>libromi</strong>: Base classes for the romi rover: fsdb (database with
-  filesystem back-end), image loading and manipulations, …)
-  <a href="https://github.com/romi/libromi">Code</a></p>
+<p><strong>libromi</strong>: The library with thd base classes for the romi rover:
+  <a href="https://github.com/romi/libromi">Code</a>. This repository also
+  contains the firmware for most of the microcontrollers used in the
+  Rover, Plant Imager, and Cablebot. </p>
 </li>
 <li>
-<p><strong>romi-brush-motor-controller</strong>: The motor
-    controller. <a href="https://github.com/romi/romi-brush-motor-controller">Code</a></p>
-</li>
-<li>
-<p><strong>romi-rover</strong>: All of the apps for the Romi rover. 
-  <a href="https://github.com/romi/romi-rover">Code</a></p>
+<p><strong>romi-rover</strong>: All of the apps for the Romi rover, including
+  <code>romi-rover</code>, <code>romi-camera</code>, and <code>romi-cablebot</code>.
+  <a href="https://github.com/romi/romi-rover-build-and-test">Code</a></p>
 </li>
 </ul>
-<p>By default, the rover uses a USB camera. It is possible to use the
-Intel Realsense camera on the Picamera instead. In that case, you will
-have to install additional libraries (see XXX).</p>
 <h2 id="installing-a-raspberry-pi-from-scratch">Installing a Raspberry Pi from scratch<a class="headerlink" href="#installing-a-raspberry-pi-from-scratch" title="Permanent link">Link</a></h2>
 <p>We use the <em>Lite</em> version of Raspbian. You can download it at
 <a href="https://www.raspberrypi.org/downloads/raspbian/">https://www.raspberrypi.org/downloads/raspbian/</a>. There
@@ -2640,110 +2591,53 @@ anoher editor, now is a good time to install it:</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt install libpng-dev libjpeg9-dev
 </code></pre></div>
 That's it. You should be ready.</p>
-<div class="admonition tips">
-<p class="admonition-title">Quick install</p>
-<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
-
-<span class="c1"># Install the dependencies</span>
-sudo apt install build-essential cmake git libpng-dev libjpeg9-dev
-
-<span class="c1"># Download, compile and install the libraries &amp; apps</span>
-<span class="k">for</span> id <span class="k">in</span> libr rcom libromi romi-rover<span class="p">;</span> <span class="k">do</span>
-    <span class="nb">echo</span> ----------------------------------------------
-    <span class="nb">echo</span> Compiling <span class="nv">$id</span>
-
-    <span class="c1"># Download or update the github repository</span>
-    <span class="k">if</span> <span class="o">[</span> -d <span class="nv">$id</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-        <span class="nb">cd</span> <span class="nv">$id</span>
-        git pull
-    <span class="k">else</span>
-        git clone https://github.com/romi/<span class="nv">$id</span>.git
-        <span class="nb">cd</span> <span class="nv">$id</span>
-    <span class="k">fi</span>
-
-    <span class="c1"># Standard cmake build sequence</span>
-    mkdir -p build
-    <span class="nb">cd</span> build
-    cmake ..
-    make
-    sudo make install
-    sudo ldconfig
-
-    <span class="c1"># Get ready for the next component</span>
-    <span class="nb">cd</span> ../..
-<span class="k">done</span>
-</code></pre></div>
-</div>
 <h2 id="installing-the-romi-rover-apps">Installing the romi-rover apps<a class="headerlink" href="#installing-the-romi-rover-apps" title="Permanent link">Link</a></h2>
-<p>You should first install the <a href="https://github.com/romi/libr">libr</a>,
-<a href="https://github.com/romi/rcom">rcom</a>, and
-<a href="https://github.com/romi/libromi">libromi</a> libraries. Check out their
-the Github pages for the installation instruction and the API
-documentation.</p>
-<p>You should also flash the motor controller to the Arduino
-(instructions are available on
-<a href="https://github.com/romi/romi-brush-motor-controller">Github</a>) too.</p>
-<p>Once that is done, the installation of the romi-rover apps is
-straight-forward. First, check out the code:</p>
-<div class="highlight"><pre><span></span><code>$ git clone https://github.com/romi/romi-rover.git 
-</code></pre></div>
-<p>Then proceed to the compilation and installation:
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> romi-rover
-$ mkdir build
-$ <span class="nb">cd</span> build
-$ cmake ..
-$ make
-$ sudo make install
-</code></pre></div></p>
-<h2 id="compiling-the-picamera-app">Compiling the picamera app<a class="headerlink" href="#compiling-the-picamera-app" title="Permanent link">Link</a></h2>
-<p>Although not currently used by the ROMI Rover, we have an Rcom app to
-access the Picamera. To get it working, you will first have to install
-the <em>raspicam</em> library:</p>
-<div class="highlight"><pre><span></span><code>$ git clone https://github.com/cedricve/raspicam.git
-$ <span class="nb">cd</span> raspicam/
-$ mkdir build
+<p>The installation has it <a href="https://github.com/romi/romi-rover-build-and-test">own
+documentation</a> on
+github.</p>
+<h2 id="compiling-the-romi-camera">Compiling the romi-camera<a class="headerlink" href="#compiling-the-romi-camera" title="Permanent link">Link</a></h2>
+<p>The <code>romi-camera</code> application is used in the Rover, Cablebot, and
+Plant Imager. Because the camera uses the Raspberry Pi Zero, which has
+less RAM memory than its larger siblings.</p>
+<p>The installation proceeds as described in the documentation of
+<a href="https://github.com/romi/romi-rover-build-and-test">romi-rover-build-and-test</a>. However,
+it is not necessary to compile all applications and limit this step to
+the camera app only:</p>
+<div class="highlight"><pre><span></span><code>$ mkdir build
 $ <span class="nb">cd</span> build/
 $ cmake ..
-$ make
-$ sudo make install
-$ sudo ldconfig
+$ make romi-camera
 </code></pre></div>
-<p>Once raspicam is installed, you must re-run cmake to enable the
-compilation of the picamera app:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> romi-rover/build/
-$ rm CMakeCache.txt
-$ cmake .. -DWITH_PICAMERA<span class="o">=</span>ON
-$ make
-$ sudo make install
+<h2 id="starting-up-the-software-manually">Starting up the software manually<a class="headerlink" href="#starting-up-the-software-manually" title="Permanent link">Link</a></h2>
+<p>As explained in the <a href="https://docs.romi-project.eu/Rover/librcom/#the-registry">rcom
+documentation</a>,
+the <code>rcom-registry</code> has to be started before the other
+applications. It can be started remotely using ssh as follows:</p>
+<div class="highlight"><pre><span></span><code>$ ssh romi@camera.local /home/romi/romi-rover-build-and-test/build/bin/romi-camera <span class="se">\</span>
+    --registry &lt;IP-ADDRESS-REGISTRY&gt; --mode video --fps <span class="m">5</span> --bitrate <span class="m">12000000</span>
 </code></pre></div>
-<h2 id="compiling-the-realsense-app">Compiling the realsense app<a class="headerlink" href="#compiling-the-realsense-app" title="Permanent link">Link</a></h2>
-<p>The fonctionality of the Realsense camera app is not complete. You can
-use it to obtain RGB images and depth images (as BW PNG images). You
-will first have to install
-<a href="https://github.com/IntelRealSense/librealsense/"><em>librealsense2</em></a>.</p>
-<p>When librealsense is installed, re-run cmake to enable the compilation
-of the realsense app:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> romi-rover/build/
-$ rm CMakeCache.txt
-$ cmake .. -DWITH_REALSENSE<span class="o">=</span>ON
-$ make
-$ sudo make install
+<p>In the second step, the <code>romi-camera</code> should be started up. The rcom
+c onnections use a time-out so there is some flexibility in the
+start-up order of the applications.</p>
+<div class="highlight"><pre><span></span><code>$ ./build/bin/rcom-registry
 </code></pre></div>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">Link</a></h2>
-<h3 id="configuring-the-romi-rover-apps">Configuring the romi-rover apps<a class="headerlink" href="#configuring-the-romi-rover-apps" title="Permanent link">Link</a></h3>
-<p>In the directory /home/romi, create the following directories and copy
-the default configuration and script files:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> /home/romi
-$ mkdir sessions
-$ mkdir config
-$ cp &lt;romi-rover&gt;/config/config-romi-rover.json config/
-$ mkdir scripts
-$ cp &lt;romi-rover&gt;/script/config-default.json scripts/
+<p>If you use any Python code, such as the Unet neural network for the
+image segmentation, the following script can be used: </p>
+<div class="highlight"><pre><span></span><code>$ python3 ./application/romi-python/main.py <span class="se">\</span>
+      --model-path &lt;PATH-UNET-WEIGHTS&gt; 
 </code></pre></div>
-<div class="codehilite"><pre><span></span><code>    &quot;html&quot;: &quot;&lt;romi-rover&gt;/interface/html&quot;,
+<p>Lastly, the <code>romi-rover</code> application should be started.</p>
+<div class="highlight"><pre><span></span><code>$ ./build/bin/romi-rover --config <span class="nv">$CONFIG_FILE</span> <span class="se">\</span>
+    --session <span class="nv">$SESSION_DIR</span> --script <span class="nv">$SCRIPT_FILE</span>
 </code></pre></div>
-
-<h3 id="starting-the-apps-on-boot">Starting the apps on boot<a class="headerlink" href="#starting-the-apps-on-boot" title="Permanent link">Link</a></h3>
+<p>A more elaborate example can be found in this
+<a href="https://github.com/romi/romi-rover-build-and-test/blob/ci_dev/scripts/rover-start">script</a>.
+It should be called indirectly using the <code>intra-row-weeding-tbm</code>
+script:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> scrips
+$ ./intra-row-weeding-tbm
+</code></pre></div>
+<h2 id="starting-the-apps-on-boot">Starting the apps on boot<a class="headerlink" href="#starting-the-apps-on-boot" title="Permanent link">Link</a></h2>
 <p>Currently we are still using the old rc.local mechanism. The file
 /etc/rc.local is no longer included in more recent Ubuntu versions. If
 <code>ls /etc/rc.local</code> returns an error, you will have to create the file
@@ -2771,14 +2665,97 @@ exit 0
 </code></pre></div></p>
 <p>To enable the apps on start-up, add the following line in
 /etc/rc.local, above the <code>exit 0</code> line:</p>
-<div class="highlight"><pre><span></span><code>/usr/local/bin/rclaunch /home/romi/config/config-romi-rover.json <span class="p">&amp;</span>
+<div class="highlight"><pre><span></span><code>sudo -u romi PATH-TO-STARTUP-SCRIPT <span class="p">&amp;</span>
 </code></pre></div>
-<h3 id="configuring-the-image-uploads">Configuring the image uploads<a class="headerlink" href="#configuring-the-image-uploads" title="Permanent link">Link</a></h3>
-<h2 id="annex-the-apps-and-their-options">Annex: the apps and their options<a class="headerlink" href="#annex-the-apps-and-their-options" title="Permanent link">Link</a></h2>
-<div class="highlight"><pre><span></span><code>    &quot;fake_camera&quot;: {
-        &quot;image&quot;: &quot;data/camera.jpg&quot;
-    },
-</code></pre></div>
+<h1 id="rcom-interfaces">Rcom interfaces<a class="headerlink" href="#rcom-interfaces" title="Permanent link">Link</a></h1>
+<h2 id="camera">Camera<a class="headerlink" href="#camera" title="Permanent link">Link</a></h2>
+<p>The CNC interface is exported by the <code>romi-camera</code> application.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Return</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>camera:grab-jpeg-binary</td>
+<td>None</td>
+<td>A binary buffer with a JPEG-encoded image</td>
+<td></td>
+</tr>
+<tr>
+<td>camera:set-value</td>
+<td>name: the name of the setting, value: the numerical value</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>camera:select-option</td>
+<td>name: the name of the option, value: the value as a string</td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="cnc">CNC<a class="headerlink" href="#cnc" title="Permanent link">Link</a></h2>
+<p>The CNC interface is exported by the <code>oquam</code> application.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Parameters</th>
+<th>Return</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cnc-homing</td>
+<td>None</td>
+<td>None</td>
+<td>Starts the homing procedure that puts the CNC's arm in the home position</td>
+</tr>
+<tr>
+<td>cnc-moveto</td>
+<td>x, y, z: the position to move to, speed: the relative speed, as a fraction of the absolute speed</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>cnc-spindle</td>
+<td>speed: the speed, between 0 and 1</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>cnc-travel</td>
+<td>path: a list of [x, y, z] points, speed: the relative speed</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>cnc-get-range</td>
+<td>None</td>
+<td>The dimensions of the CNC, as [[xmin, xmax], [ymin, ymax], [zmin, zmax]]</td>
+<td></td>
+</tr>
+<tr>
+<td>cnc-helix</td>
+<td>xc, yc: the center point of the arc, alpha: the angle of the arc, z: to z-position to move to, speed: the relative speed</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>cnc-get-position</td>
+<td>None</td>
+<td _x_:="&quot;x&quot;:" _y_:="&quot;y&quot;:" _z_:="&quot;z&quot;:" x_="x," y_="y," z="z">Returns the position as</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
               
             </article>

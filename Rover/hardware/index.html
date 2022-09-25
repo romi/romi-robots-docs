@@ -2447,6 +2447,8 @@
 <p>This document describes the hardware, both the mechanical parts and
 the electronics, of the Romi Rover for weeding. This document is
 detailing the third version of the prototype.</p>
+<p>The design files for the hardware can be found in <a href="https://github.com/romi/romi-rover-design">a dedicated GitHub
+repository</a>.</p>
 <h1 id="the-main-structure">The main structure<a class="headerlink" href="#the-main-structure" title="Permanent link">Link</a></h1>
 <p>The figure below gives an overview of the main components.</p>
 <p><img src="/assets/images/rover/manual/rover-overview.png"></p>
@@ -2586,8 +2588,11 @@ version of the prototype.</p>
 </table>
 <h2 id="the-electronics-and-wiring">The electronics and wiring<a class="headerlink" href="#the-electronics-and-wiring" title="Permanent link">Link</a></h2>
 <p>An overview of the wiring can be found in the following diagram. The
-diagram is quite large so you may want to open it in a separate
-window or download it and open it with <a href="https://inkscape.org/">Inkscape</a>. Here's the <a href="https://github.com/romi/romi-rover-design/blob/main/wiring/schema-hardware.svg">GitHub link</a>.</p>
+diagram is quite large so you may want to open it in a separate window
+or download it and open it with
+<a href="https://inkscape.org/">Inkscape</a>. Here's the <a href="https://github.com/romi/romi-rover-design/blob/main/wiring/schema-hardware.svg">GitHub
+link</a>
+of this file.</p>
 <p><img src="https://raw.githubusercontent.com/romi/romi-rover-design/main/wiring/schema-hardware.svg"></p>
 <p>The <a href="https://www.meanwell-web.com/en-gb/dc-dc-ultra-slim-industrial-din-rail-converter-ddr--30g--24">Meanwell
 DDR-30G-24 transformer</a>
@@ -2803,36 +2808,32 @@ MP1584EN-based 24V-to-5V DC-DC <a href="https://www.amazon.fr/gp/product/B07MY2X
 converter</a>
 to power the Pi Zero and we also add a <a href="https://fr.farnell.com/amp-te-connectivity/216550-1/fiche-jack-8-8-droite/dp/1284342?st=rj45">RJ45 connection
 plug</a>. This</p>
+<p>The 3D file of housing can be found <a href="https://github.com/romi/romi-rover-design/tree/main/camera">here</a>.</p>
 <p>TODO: PCB file</p>
-<p>TODO: 3D file of housing</p>
 <p>The camera is up for a review because we want to switch to the
-Raspberry Pi HQ camera.</p>
+<a href="https://www.raspberrypi.com/products/raspberry-pi-high-quality-camera/">Raspberry Pi HQ Camera</a>.</p>
 <h2 id="the-steering">The steering<a class="headerlink" href="#the-steering" title="Permanent link">Link</a></h2>
-<p>The steering of the front wheels is currently performed by two <a href="https://www.phidgets.com/?tier=3&amp;catid=24&amp;pcid=21&amp;prodid=353">NEMA 23 stepper
-motors with a 1:77 gearbox</a>. The stepper motors are controlled by two
-standard stepper controller and an Arduino Uno. We also use two
-<a href="https://www.conrad.fr/p/opkon-absolu-codeur-1-pcs-mrv-50a-magnetique-bride-de-serrage-2102690">absolute rotary
-encoders from Opkon</a>
+<p>The steering of the front wheels is currently performed by two <a href="https://www.phidgets.com/?tier=3&amp;catid=24&amp;pcid=21&amp;prodid=353">NEMA
+23 stepper motors with a 1:77
+gearbox</a>. The
+stepper motors are controlled by two standard stepper controller and
+an Arduino Uno. We also use two <a href="https://www.conrad.fr/p/opkon-absolu-codeur-1-pcs-mrv-50a-magnetique-bride-de-serrage-2102690">absolute rotary encoders from
+Opkon</a>
 to adjust for errors.</p>
 <p>NOTE: at the time of writing, the steering controller has not been
 integrated into the electronics housing, yet.</p>
 <p>The coupling of the stepper motors and of the encoder onto the wheel
 axis is still provisional. We use a <a href="?">coupler</a> to join the wheel
-axis to the motor. To connect the encoder to the axis, we use a GT2
-belt and two 3D printed pulleys, one for the wheel axes and one for
+axis to the motor. To connect the encoder to the axis, we use a <a href="">GT2
+belt</a> and two 3D printed pulleys, one for the wheel axes and one for
 the encoder.</p>
 <p>It is all held together using 3D printed components and two laser-cut
 aluminium plates. It look roughly like this:</p>
-<p><img src="/assets/images/rover/hardware/steering-mount-1.png" height="100px">
-<img src="/assets/images/rover/hardware/steering-mount-2.png" height="100px"></p>
-<p>The files are available at
+<p><img src="/assets/images/rover/hardware/steering-mount-1.png" width="30%"><br>
+<img src="/assets/images/rover/hardware/steering-mount-2.png" width="30%"></p>
+<p>The 3D files files are available at
 <a href="https://github.com/romi/romi-rover-design/tree/main/steering">romi-rover-design/steering</a>.</p>
-<p>The mechanical components</p>
-<p>The control part</p>
-<ol>
-<li>The list of components</li>
-<li>The wiring</li>
-</ol>
+<p>TODO: link coupler, length GT2 belt</p>
 <h1 id="the-weeding-tool">The weeding tool<a class="headerlink" href="#the-weeding-tool" title="Permanent link">Link</a></h1>
 <h2 id="the-cnc">The CNC<a class="headerlink" href="#the-cnc" title="Permanent link">Link</a></h2>
 <p>A CNC is adapted for use in the rover. We are using the 1000 mm sized
@@ -2881,13 +2882,79 @@ weeding hoe on or off, as shown in the figure below (see also the
 figure in the section on the power circuit).</p>
 <p><img src="/assets/images/rover/hardware/relay-hoe.svg" width="300px"></p>
 <h2 id="the-z-axis">The Z-axis<a class="headerlink" href="#the-z-axis" title="Permanent link">Link</a></h2>
-<ol>
-<li>The list of components</li>
-<li>The 3D files</li>
-<li>The 2D files for laser cutting</li>
-<li>The wiring</li>
-</ol>
+<p>We replaced the default z-axis of the CNC with a longer and stronger
+axis to carry the weeding tool.</p>
+<p>The new axis uses standard mechanical elements together with laser-cut
+plates and 3D printed components. The 2D and 3D designas are available
+here
+<a href="https://github.com/romi/romi-rover-design/tree/main/z-axis">here</a>. You
+will find the list of additional components below.</p>
+<p>The gShield has a pin to turn the spindle on/off. This pin actuates
+the power relay shown in the list below to start/stop the motor.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Quantity</th>
+<th>Specifications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flange Bearing 8mm</td>
+<td>2</td>
+<td><a href="https://www.motedis.fr/shop/Dynamic-Accesories/Trapezoidal-Threaded-Spindle-Accessories/Flange-Bearing-8mm-die-cast-KFL08::999995213.html">Motedis KFL08</a></td>
+</tr>
+<tr>
+<td>Trapezoidal threaded TR 8x1,5</td>
+<td>630 mm</td>
+<td><a href="https://www.motedis.fr/shop/Dynamic-Accesories/Trapezoidal-Threaded-Spindle-Accessories/Trapezoidal-threaded-spindle-RPTS-right-TR-8x15::999999708.html">Motedis</a></td>
+</tr>
+<tr>
+<td>GT2 pulley 20 teeth 8mm bore</td>
+<td>1</td>
+<td><a href="https://www.motedis.fr/shop/Dynamic-Accesories/Timing-belts-and-gear-wheels/GT2-pulley-20-teeth-8mm-bore-for-6mm-belt::999994250.html">Motedis</a></td>
+</tr>
+<tr>
+<td>Shaft</td>
+<td>2 x 600 mm</td>
+<td><a href="https://www.motedis.fr/shop/Dynamic-Accesories/Precision-Shafts-Components/Precision-shaft-8-mm-h6-steel-hardened-and-ground::999996494.html">Motedis</a></td>
+</tr>
+<tr>
+<td>Shaft supports</td>
+<td>4</td>
+<td><a href="https://www.motedis.fr/shop/Dynamic-Accesories/Precision-Shafts-Components/Shaft-Supports-SHF8::999995310.html">Motedis</a></td>
+</tr>
+<tr>
+<td>Anti-backlash nut</td>
+<td>1</td>
+<td><a href="https://www.motedis.fr/shop/Dynamic-Accesories/Trapezoidal-Threaded-Spindle-Accessories/Anti-backlash-Zedex-nut-TR-8x15::999995838.html">Motedis</a></td>
+</tr>
+<tr>
+<td>Linear plain bearing</td>
+<td>4</td>
+<td><a href="https://www.motedis.fr/shop/Dynamic-Accesories/Precision-Shafts-Components/Linear-plain-bearing-Igus-RJMP-01-08::999999323.html">Motedis</a></td>
+</tr>
+<tr>
+<td>Linear bearings</td>
+<td>4</td>
+<td><a href="https://www.motedis.fr/shop/Dynamic-Accesories/Precision-Shafts-Components/SCE8UU-Linear-bearings-for-8mm-shafts::999996692.html">Motedis</a></td>
+</tr>
+<tr>
+<td>Power relay</td>
+<td>1</td>
+<td><a href="https://www.sparkfun.com/products/13815">Sparkfun</a></td>
+</tr>
+</tbody>
+</table>
 <h2 id="the-weeding-head">The weeding head<a class="headerlink" href="#the-weeding-head" title="Permanent link">Link</a></h2>
+<p>We use a rather simple design for the weeding head. The
+<a href="https://github.com/romi/romi-rover-design/blob/main/z-axis/WeedingTool_WeedingTool2.stl">support</a>
+can be produced using a 3D printer and the <a href="https://github.com/romi/romi-rover-design/blob/main/z-axis/Lame_droite.dxf">four aluminium blades</a>
+produced using a professional laser-cutting service. We have drawn a couple of
+<a href="https://github.com/romi/romi-rover-design/blob/main/z-axis/WeedingToolHeads.pdf">alternative
+designs</a>
+but these have not been tested, yet.</p>
 
               
             </article>
