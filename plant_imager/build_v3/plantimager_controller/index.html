@@ -1409,8 +1409,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-the-hotspot" class="md-nav__link">
-    Configure the hotspot
+  <a href="#configure-the-controller-to-act-as-a-hotspot" class="md-nav__link">
+    Configure the controller to act as a hotspot
   </a>
   
 </li>
@@ -1431,6 +1431,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#add-the-users-private-bin-to-the-path" class="md-nav__link">
+    Add the user's private bin to the $PATH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#clone-the-sources_1" class="md-nav__link">
     Clone the sources
   </a>
@@ -1440,6 +1447,13 @@
           <li class="md-nav__item">
   <a href="#install-the-sources" class="md-nav__link">
     Install the sources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-installation" class="md-nav__link">
+    Test the installation
   </a>
   
 </li>
@@ -2712,12 +2726,17 @@ mkdir build
 cmake ..
 make oquam
 </code></pre></div></p>
-<h2 id="configure-the-hotspot">Configure the hotspot<a class="headerlink" href="#configure-the-hotspot" title="Permanent link">Link</a></h2>
-<p>To configure the RPi4 to act as a hotspot, set the name od the SSId to use then use the dedicated script as follows:
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">SSID2</span><span class="o">=</span><span class="s2">&quot;Plant Imager&quot;</span>
-<span class="nb">export</span> <span class="nv">AP_PWD</span><span class="o">=</span><span class="s2">&quot;my_secret_password!&quot;</span>
-bash tests-hardware/network-hotspot-setup.sh
+<h2 id="configure-the-controller-to-act-as-a-hotspot">Configure the controller to act as a hotspot<a class="headerlink" href="#configure-the-controller-to-act-as-a-hotspot" title="Permanent link">Link</a></h2>
+<p>To configure the RPi4 to act as a hotspot you may use the <code>network-hotspot-setup.sh</code> CLI, as root:
+<div class="highlight"><pre><span></span><code>sudo bash tests-hardware/network-hotspot-setup.sh  --ssid <span class="s2">&quot;Plant Imager&quot;</span> --pwd <span class="s2">&quot;my_secret_password!&quot;</span>
 </code></pre></div></p>
+<p>This will:</p>
+<ul>
+<li>install the required dependencies</li>
+<li>configure the routing tables</li>
+<li>set the name of the SSID</li>
+<li>set the password to use to connect to the hotspot</li>
+</ul>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Change the password as it is not so secret anymore!</p>
@@ -2726,28 +2745,47 @@ bash tests-hardware/network-hotspot-setup.sh
 <h3 id="install-system-requirements">Install system requirements<a class="headerlink" href="#install-system-requirements" title="Permanent link">Link</a></h3>
 <p>You will need python and pip, that can be easily installed as follows:
 <div class="highlight"><pre><span></span><code>sudo apt update
-sudo apt install python3 python-pip
+sudo apt install python3 python3-pip
+</code></pre></div></p>
+<h3 id="add-the-users-private-bin-to-the-path">Add the user's private <code>bin</code> to the <code>$PATH</code><a class="headerlink" href="#add-the-users-private-bin-to-the-path" title="Permanent link">Link</a></h3>
+<p>We have to add a few lines to the <code>.bashrc</code> file so the locally installed Python library are available.</p>
+<p>To do so, simply copy/paste the following lines in the terminal:
+<div class="highlight"><pre><span></span><code>cat<span class="s">&lt;&lt;EOF &gt;&gt; ~/.bashrc</span>
+
+<span class="s"># set PATH so it includes user&#39;s private bin if it exists</span>
+<span class="s">if [ -d &quot;$HOME/.local/bin&quot; ] ; then</span>
+<span class="s">    PATH=&quot;$HOME/.local/bin:$PATH&quot;</span>
+<span class="s">fi</span>
+<span class="s">EOF</span>
 </code></pre></div></p>
 <h3 id="clone-the-sources_1">Clone the sources<a class="headerlink" href="#clone-the-sources_1" title="Permanent link">Link</a></h3>
-<p>To clone the sources from the ROMI GitHub repository, simply run:
+<p>To clone the <code>plant-image</code> sources from the ROMI GitHub repository, simply run:
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span>  <span class="c1"># Move back to the user home directory</span>
-git clone --branch dev --recurse-submodules https://github.com/romi/plant-imager.git
+git clone --branch dev_lyon --recurse-submodules https://github.com/romi/plant-imager.git
 </code></pre></div></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code>--recurse-submodules</code> option will automatically initialize and update each submodule in the repository.</p>
 </div>
 <h3 id="install-the-sources">Install the sources<a class="headerlink" href="#install-the-sources" title="Permanent link">Link</a></h3>
-<p>Then move to the cloned directory and install the <code>plant-imager</code> Python library and its submodules with:
+<p>Then move to the cloned directory and install the <code>plant-imager</code> Python library and its submodules (<code>plantdb</code> &amp; <code>romitask</code>) with:
 <div class="highlight"><pre><span></span><code><span class="c1"># Don&#39;t forget to activate the environment!</span>
 <span class="nb">cd</span> plant-imager
-<span class="c1"># Install `plantdb` from sub-modules:</span>
+<span class="c1"># Install `plantdb` requirements &amp; sources from submodules:</span>
+python -m pip install -r ./plantdb/requirements.txt
 python -m pip install -e ./plantdb/
-<span class="c1"># Install `romitask` from sub-modules:</span>
+<span class="c1"># Install `romitask` sources from submodules:</span>
 python -m pip install -e ./romitask/
 <span class="c1"># Install `plant-imager`:</span>
 python -m pip install -e .
 </code></pre></div></p>
+<h3 id="test-the-installation">Test the installation<a class="headerlink" href="#test-the-installation" title="Permanent link">Link</a></h3>
+<p>To test the installation of the Python libraries you can run:
+<div class="highlight"><pre><span></span><code>python -c <span class="s2">&quot;import plantdb&quot;</span>
+python -c <span class="s2">&quot;import romitask&quot;</span>
+python -c <span class="s2">&quot;import plantimager&quot;</span>
+</code></pre></div></p>
+<p>If no error message is returned, you are all set with this part, well done!</p>
 
               
             </article>
