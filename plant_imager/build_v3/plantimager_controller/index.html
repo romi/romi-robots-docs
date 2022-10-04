@@ -1309,18 +1309,19 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#flash-raspbian-lite-os" class="md-nav__link">
-    Flash Raspbian Lite OS
+  <a href="#flash-raspberry-pi-os" class="md-nav__link">
+    Flash Raspberry Pi OS
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="Flash Raspberry Pi OS">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#change-the-hostname" class="md-nav__link">
-    Change the hostname
+  <a href="#manually-change-the-hostname" class="md-nav__link">
+    Manually change the hostname
   </a>
   
-    <nav class="md-nav" aria-label="Change the hostname">
+    <nav class="md-nav" aria-label="Manually change the hostname">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1343,8 +1344,61 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#create-the-romi-user" class="md-nav__link">
-    Create the romi user
+  <a href="#manually-create-the-romi-user" class="md-nav__link">
+    Manually create the romi user
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-romi-user-to-groups" class="md-nav__link">
+    Add the romi user to groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotate-the-7-touchscreen" class="md-nav__link">
+    Rotate the 7'' touchscreen
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-oquam" class="md-nav__link">
+    Install Oquam
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Oquam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-system-requirements" class="md-nav__link">
+    Install the system requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-the-sources" class="md-nav__link">
+    Clone the sources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-the-sources" class="md-nav__link">
+    Compile the sources
   </a>
   
 </li>
@@ -1362,30 +1416,30 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-oquam" class="md-nav__link">
-    Install Oquam
+  <a href="#install-the-plant-imager" class="md-nav__link">
+    Install the plant-imager
   </a>
   
-    <nav class="md-nav" aria-label="Install Oquam">
+    <nav class="md-nav" aria-label="Install the plant-imager">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#install-requirements" class="md-nav__link">
-    Install requirements
+  <a href="#install-system-requirements" class="md-nav__link">
+    Install system requirements
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#clone-the-sources" class="md-nav__link">
+  <a href="#clone-the-sources_1" class="md-nav__link">
     Clone the sources
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#compile-the-sources" class="md-nav__link">
-    Compile the sources
+  <a href="#install-the-sources" class="md-nav__link">
+    Install the sources
   </a>
   
 </li>
@@ -2570,10 +2624,26 @@
 2. create a local Wi-Fi network</p>
 <p>It thus acts as an <em>access point</em> for other devices, notably for the PiCamera(s) (Pi Zero W).</p>
 <h2 id="initial-setup">Initial setup<a class="headerlink" href="#initial-setup" title="Permanent link">Link</a></h2>
-<h3 id="flash-raspbian-lite-os">Flash Raspbian Lite OS<a class="headerlink" href="#flash-raspbian-lite-os" title="Permanent link">Link</a></h3>
-<p>To flash the OS on the microSD, have a look at the official Raspberry Pi OS instructions <a href="https://www.raspberrypi.com/software/">here</a>.
-We strongly advise to use the <strong>Raspberry Pi Imager</strong>.</p>
-<h3 id="change-the-hostname">Change the <code>hostname</code><a class="headerlink" href="#change-the-hostname" title="Permanent link">Link</a></h3>
+<h3 id="flash-raspberry-pi-os">Flash Raspberry Pi OS<a class="headerlink" href="#flash-raspberry-pi-os" title="Permanent link">Link</a></h3>
+<p>To flash the OS on the microSD, have a look at the official Raspberry Pi OS instructions <a href="https://www.raspberrypi.com/software/">here</a>.</p>
+<p>We strongly advise to use the <strong>Raspberry Pi Imager</strong> as it will allow you to set the hostname, create a user and its password prior to booting the RPi.</p>
+<p>If you have access to <code>snaps</code>, use the <code>rpi-imager</code> package from the store:
+<div class="highlight"><pre><span></span><code>sudo snap install rpi-imager
+</code></pre></div>
+This will guarantee to access the latest version of the <code>imager</code> tool with the configurable options!</p>
+<p>Then the procedure to install and configure is as follows:</p>
+<ol>
+<li>Open the <code>Imager</code> app</li>
+<li>Choose the OS, we use the <code>Raspberry Pi OS (64bit)</code> as we have an RPi4</li>
+<li>Select the storage device</li>
+<li>Click the "Advanced options" icon (bottom right)</li>
+<li>Click "Set hostname" and set it to <code>plant-imager</code> <img alt="" src="../../../assets/images/plant_imager_v3/set_hostname.png" /></li>
+<li>Click "Set username and password" and set it to <code>romi</code> (or something else) and use a password <img alt="" src="../../../assets/images/plant_imager_v3/set_user_password.png" /></li>
+<li>Optionally set the "locale settings"</li>
+<li>Hit the "Save" button (this should close the "Advanced options" windows and go back to the main one)</li>
+<li>Finally, hit the "Write" button to flash the OS to the microSD.</li>
+</ol>
+<h4 id="manually-change-the-hostname">Manually change the <code>hostname</code><a class="headerlink" href="#manually-change-the-hostname" title="Permanent link">Link</a></h4>
 <p>We strongly advise to give a specific <code>hostname</code> to each device to avoid having the all named <code>raspberrypi</code>.</p>
 <p>Choose option A OR B, then reboot the RPi!</p>
 <div class="admonition important">
@@ -2582,49 +2652,49 @@ We strongly advise to use the <strong>Raspberry Pi Imager</strong>.</p>
 Hostname labels cannot begin or end with a hyphen.
 No other symbols, punctuation characters, or blank spaces are permitted.</p>
 </div>
-<h4 id="a-using-raspi-config">A. Using <code>raspi-config</code><a class="headerlink" href="#a-using-raspi-config" title="Permanent link">Link</a></h4>
+<h6 id="a-using-raspi-config">A. Using <code>raspi-config</code><a class="headerlink" href="#a-using-raspi-config" title="Permanent link">Link</a></h6>
 <p>It is possible to change the hostname with the <code>raspi-config</code> tool:
 <div class="highlight"><pre><span></span><code>sudo raspi-config
 </code></pre></div>
 Then move to <code>1 System Options &gt; S4 Hostname</code>.
 Enter the desired hostname, <em>e.g.</em> <code>plant-imager</code>, and hit <code>&lt;OK&gt;</code>.</p>
-<h4 id="b-command-line">B. Command-line<a class="headerlink" href="#b-command-line" title="Permanent link">Link</a></h4>
+<h6 id="b-command-line">B. Command-line<a class="headerlink" href="#b-command-line" title="Permanent link">Link</a></h6>
 <p>For example, we want to rename our first <em>romi-camera</em> <code>plant-imager</code>.
 We can do so by changing <code>/etc/hostname</code> &amp; <code>/etc/hosts</code> with:
 <div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">NEW_HNAME</span><span class="o">=</span><span class="s2">&quot;plant-imager&quot;</span>
 sudo sed <span class="s2">&quot;s/raspberrypi/</span><span class="nv">$NEW_HNAME</span><span class="s2">/&quot;</span> /etc/hostname
 sudo sed <span class="s2">&quot;s/raspberrypi/</span><span class="nv">$NEW_HNAME</span><span class="s2">/&quot;</span> /etc/hosts
 </code></pre></div></p>
-<h3 id="create-the-romi-user">Create the <code>romi</code> user<a class="headerlink" href="#create-the-romi-user" title="Permanent link">Link</a></h3>
+<h4 id="manually-create-the-romi-user">Manually create the <code>romi</code> user<a class="headerlink" href="#manually-create-the-romi-user" title="Permanent link">Link</a></h4>
 <p>Boot the RPi, login with the default <code>pi</code> user &amp; <code>raspberry</code> password.
 Then create the user <code>romi</code> with:
 <div class="highlight"><pre><span></span><code>sudo adduser romi
 </code></pre></div>
 This will also create the home directory for this user and ask for a password.</p>
-<p>Add this user to <code>dialout</code>, <code>video</code> &amp; <code>sudo</code> groups with:
-<div class="highlight"><pre><span></span><code>sudo adduser romi dialout
-sudo adduser romi video
-sudo adduser romi sudo
-</code></pre></div></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>We should probably give instructions to remove the default <code>pi</code> user, or at least to remove it from the <code>sudo</code> group?!
 <code>sudo deluser --remove-home pi</code></p>
 </div>
-<h2 id="configure-the-hotspot">Configure the hotspot<a class="headerlink" href="#configure-the-hotspot" title="Permanent link">Link</a></h2>
-<p>To configure the RPi4 to act as a hotspot, set the name od the SSId to use then use the dedicated script as follows:
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">SSID2</span><span class="o">=</span><span class="s2">&quot;Plant Imager&quot;</span>
-<span class="nb">export</span> <span class="nv">AP_PWD</span><span class="o">=</span><span class="s2">&quot;my_secret_password!&quot;</span>
-bash tests-hardware/network-hotspot-setup.sh
+<h3 id="add-the-romi-user-to-groups">Add the <code>romi</code> user to groups<a class="headerlink" href="#add-the-romi-user-to-groups" title="Permanent link">Link</a></h3>
+<p>Add this user to <code>dialout</code>, <code>video</code> &amp; <code>sudo</code> groups with:
+<div class="highlight"><pre><span></span><code>sudo adduser romi dialout
+sudo adduser romi video
+sudo adduser romi sudo
 </code></pre></div></p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Change the password as it is not so secret anymore! </p>
-</div>
-<h2 id="install-oquam">Install Oquam<a class="headerlink" href="#install-oquam" title="Permanent link">Link</a></h2>
-<h3 id="install-requirements">Install requirements<a class="headerlink" href="#install-requirements" title="Permanent link">Link</a></h3>
-<p>To install the requirements simply run:
-<div class="highlight"><pre><span></span><code>sudo apt install build-essential cmake git libpng-dev libjpeg9-dev
+<h3 id="rotate-the-7-touchscreen">Rotate the 7'' touchscreen<a class="headerlink" href="#rotate-the-7-touchscreen" title="Permanent link">Link</a></h3>
+<p>To rotate the 7'' touchscreen, with an RPi 4 and the latest Raspberry OS:</p>
+<ol>
+<li>Hit the raspberry main menu</li>
+<li>Got to <code>Preference</code> &gt; <code>Screen Configuration</code></li>
+<li>On the <code>Screen Layout Editor</code> menu bar, hit <code>Configure</code>, select <code>Screens</code> &gt; <code>DSI-1</code> &gt; <code>Orientation</code> and select <code>inverted</code>.</li>
+<li>Hit the "Green check" icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.78 2.2 24 6.42 8.44 22 0 13.55l4.22-4.22 4.22 4.22L19.78 2.2m0 2.8L8.44 16.36l-4.22-4.17-1.41 1.36 5.63 5.62L21.19 6.42 19.78 5Z"/></svg></span> to validate!</li>
+<li>It should ask you to reboot to apply changes.</li>
+</ol>
+<h2 id="install-oquam">Install <code>Oquam</code><a class="headerlink" href="#install-oquam" title="Permanent link">Link</a></h2>
+<h3 id="install-the-system-requirements">Install the system requirements<a class="headerlink" href="#install-the-system-requirements" title="Permanent link">Link</a></h3>
+<p>To install the system requirements, simply run:
+<div class="highlight"><pre><span></span><code>sudo apt install build-essential cmake git libpng-dev libjpeg-dev
 </code></pre></div></p>
 <h3 id="clone-the-sources">Clone the sources<a class="headerlink" href="#clone-the-sources" title="Permanent link">Link</a></h3>
 <p>To clone the sources from the ROMI GitHub repository, simply run:
@@ -2641,6 +2711,42 @@ mkdir build
 <span class="nb">cd</span> build
 cmake ..
 make oquam
+</code></pre></div></p>
+<h2 id="configure-the-hotspot">Configure the hotspot<a class="headerlink" href="#configure-the-hotspot" title="Permanent link">Link</a></h2>
+<p>To configure the RPi4 to act as a hotspot, set the name od the SSId to use then use the dedicated script as follows:
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">SSID2</span><span class="o">=</span><span class="s2">&quot;Plant Imager&quot;</span>
+<span class="nb">export</span> <span class="nv">AP_PWD</span><span class="o">=</span><span class="s2">&quot;my_secret_password!&quot;</span>
+bash tests-hardware/network-hotspot-setup.sh
+</code></pre></div></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Change the password as it is not so secret anymore!</p>
+</div>
+<h2 id="install-the-plant-imager">Install the <code>plant-imager</code><a class="headerlink" href="#install-the-plant-imager" title="Permanent link">Link</a></h2>
+<h3 id="install-system-requirements">Install system requirements<a class="headerlink" href="#install-system-requirements" title="Permanent link">Link</a></h3>
+<p>You will need python and pip, that can be easily installed as follows:
+<div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt install python3 python-pip
+</code></pre></div></p>
+<h3 id="clone-the-sources_1">Clone the sources<a class="headerlink" href="#clone-the-sources_1" title="Permanent link">Link</a></h3>
+<p>To clone the sources from the ROMI GitHub repository, simply run:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span>  <span class="c1"># Move back to the user home directory</span>
+git clone --branch dev --recurse-submodules https://github.com/romi/plant-imager.git
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>--recurse-submodules</code> option will automatically initialize and update each submodule in the repository.</p>
+</div>
+<h3 id="install-the-sources">Install the sources<a class="headerlink" href="#install-the-sources" title="Permanent link">Link</a></h3>
+<p>Then move to the cloned directory and install the <code>plant-imager</code> Python library and its submodules with:
+<div class="highlight"><pre><span></span><code><span class="c1"># Don&#39;t forget to activate the environment!</span>
+<span class="nb">cd</span> plant-imager
+<span class="c1"># Install `plantdb` from sub-modules:</span>
+python -m pip install -e ./plantdb/
+<span class="c1"># Install `romitask` from sub-modules:</span>
+python -m pip install -e ./romitask/
+<span class="c1"># Install `plant-imager`:</span>
+python -m pip install -e .
 </code></pre></div></p>
 
               
