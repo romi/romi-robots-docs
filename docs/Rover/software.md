@@ -100,6 +100,16 @@ That's it. You should be ready.
 
 ## Installing the romi-rover apps
 
+The Reaspberry Pi comes with a file calles `/etc/ld.so.preload` that
+preloads an library for all applications. This mechanism conflicts
+with our use the [Address
+Sanitizer](https://github.com/google/sanitizers/wiki/AddressSanitizer)
+to detect memory errors. So you should hide the existing file:
+
+```bash
+$ mv /etc/ld.so.preload /etc/ld.so.preload.backup
+```
+
 The installation has it [own
 documentation](https://github.com/romi/romi-rover-build-and-test) on
 github.
