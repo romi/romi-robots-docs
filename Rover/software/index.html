@@ -2592,6 +2592,13 @@ anoher editor, now is a good time to install it:</p>
 </code></pre></div>
 That's it. You should be ready.</p>
 <h2 id="installing-the-romi-rover-apps">Installing the romi-rover apps<a class="headerlink" href="#installing-the-romi-rover-apps" title="Permanent link">Link</a></h2>
+<p>The Reaspberry Pi comes with a file calles <code>/etc/ld.so.preload</code> that
+preloads an library for all applications. This mechanism conflicts
+with our use the <a href="https://github.com/google/sanitizers/wiki/AddressSanitizer">Address
+Sanitizer</a>
+to detect memory errors. So you should hide the existing file:</p>
+<div class="highlight"><pre><span></span><code>$ mv /etc/ld.so.preload /etc/ld.so.preload.backup
+</code></pre></div>
 <p>The installation has it <a href="https://github.com/romi/romi-rover-build-and-test">own
 documentation</a> on
 github.</p>
