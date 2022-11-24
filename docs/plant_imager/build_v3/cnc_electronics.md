@@ -1,7 +1,7 @@
 # Wiring of the X-Controller
 
 <figure>
-<img src="../../../assets/images/x_controller.jpg" style="height:350px" />
+<img src="../../../assets/images/x_controller.jpg" style="max-height:350px" />
   <figcaption>X-Controller.</figcaption>
 </figure>
 

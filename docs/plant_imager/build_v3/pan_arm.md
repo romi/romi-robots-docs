@@ -1,6 +1,11 @@
 # Pan arm assembly
 
 
+| <img src="../../../assets/images/plant_imager_v3/arm/Arm_1.jpg" style="max-height:600px"> | <img src="../../../assets/images/plant_imager_v3/arm/Arm_2.jpg" style="max-height:600px"> |
+|:-----------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|
+|                                   Pan arm - Front (CAD)                                   |                                   Pan arm - Back (CAD)                                    |
+
+
 ## BOM
 
 | ID  | Name                            | Qty | Off the shelf / Custom | Material  | Manufacturer             | Serial number  | Link                                                                                                                                                                                                                                                                                                    |
@@ -43,3 +48,7 @@
 ## Assembly
 
 You can find the PDF with the BOM and assembly instructions for the arm [here](../../assets/images/plant_imager_v3/arm/Arm-BOM_Assembly.pdf).
+
+| <img src="../../../assets/images/plant_imager_v3/arm/Pan_Arm_two_picamera_front_picture.jpg" style="max-height:500px"> | <img src="../../../assets/images/plant_imager_v3/arm/Pan_Arm_two_picamera_back_picture.jpg" style="max-height:500px"> |
+|:----------------------------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------:|
+|                          Pan arm with two PiCamera - Front                                                             |                                                          Pan arm with two PiCamera - Back                             |

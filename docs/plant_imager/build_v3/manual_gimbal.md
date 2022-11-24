@@ -1,11 +1,13 @@
 # Manual gimbal
 
 <figure>
-  <img src="../../../assets/images/plant_imager_v3/manual_gimbal/Manual_Gimbal_1.jpg"/ style="height:350px">
-  <figcaption>Manual gimbal with 360° protractor & PiCamera.</figcaption>
+  <img src="../../../assets/images/plant_imager_v3/manual_gimbal/Manual_Gimbal_1.jpg" style="max-height:350px">
+  <figcaption>CAD - Manual gimbal with 360° protractor & PiCamera.</figcaption>
 </figure>
 
 ## BOM
+
+To assemble a SINGLE manual gimbal, you will need the following list of materials:
 
 | ID  | Name                              | Qty | Off the shelf / Custom | Material  | Manufacturer  | Serial number | Link                                                                                                                                                                                                                                                                     |
 |-----|-----------------------------------|-----|------------------------|-----------|---------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -15,7 +17,6 @@
 | 4   | MG012                             | 1   | Custom                 | Aluminium |               |               | [pdf](../../assets/images/plant_imager_v3/manual_gimbal/MG012_Dessin.pdf)                                                                                                                                                                                               |
 | 5   | MG011                             | 1   | Custom                 | PMMA      | RS PRO        | 434-295       | [pdf](../../assets/images/plant_imager_v3/manual_gimbal/MG011_Dessin.pdf), [dxf](../../assets/images/plant_imager_v3/manual_gimbal/MG011.dxf), [rs-online.com](https://fr.rs-online.com/web/p/plaques-en-plastique/0434295)                                            |
 | 6   | MG014                             | 1   | Custom                 | PMMA      |               |               | [dxf](../../assets/images/plant_imager_v3/manual_gimbal/MG014.dxf)                                                                                                                          |
-| 7   | Mounting Plate Rpi Zero Hq Camera | 1   | Custom                 | PMMA      |               |               | [dxf](../../assets/images/plant_imager_v3/manual_gimbal/Mounting_Plate_Rpi_Zero_Hq_Camera_V3.dxf)                                                                                                                                                                       |
 | 8   | Protractor dial deg               | 1   | Custom                 | PMMA      |               |               | [dxf](../../assets/images/plant_imager_v3/manual_gimbal/Protractor_dial_deg_v2.dxf)                                                                                                                                                                                     |
 | 9   | Spacer M5x8                       | 2   | Off the shelf          |           | Vis express   | 8470100818    | [vis-express.fr](https://www.vis-express.fr/fr/entretoise-cylindrique-lisse-inox-a2/319096-1953491-entret-cyl-lisse-10x8-diam-int-5-inox-3663072497689.html#/21-conditionnement-unitaire)                                                                                |
 | 10  | Spacer M5x20                      | 1   | Off the shelf          |           | Vis express   | 8470102018    | [vis-express.fr](https://www.vis-express.fr/fr/entretoise-cylindrique-lisse-inox-a2/319101-1953511-entret-cyl-lisse-10x20-diam-int-5-inox-3663072501874.html#/21-conditionnement-unitaire)                                                                               |
@@ -29,13 +30,13 @@
 | 18  | Bosch nut                         | 2   | Off the Shelf          |           | Bosch Rexroth | 3842523142    | [rs-online.com](https://fr.rs-online.com/web/p/raccords-pour-elements-de-structure/4667297)                                                                                                                                                                              |
 | 19  | Washer M4 L                       | 1   | Off the Shelf          |           | Vis express   | 3534000402    | [vis-express.fr](https://www.vis-express.fr/fr/rondelle-plate-serie-l-large-acier-nfe-25513/29531-1002784-rondelle-plate-m4x14x08-l-acier-zing-blanc-3663072058569.html#/21-conditionnement-unitaire)                                                                    |
 | 20  | IGUS GTM-0818-020                 | 2   | Off the Shelf          |           | IGUS          | GTM-0818-020  | [amazon.fr](https://www.amazon.fr/GTM-0818-020-Roulement-support-r%C3%A9sistance-ouverture/dp/B08KG7VZRR/ref=sr_1_1?__mk_fr_FR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=19FJXDQWH1EPZ&keywords=igus+GTM-0818-020&qid=1642583634&sprefix=igus+gtm-0818-020%2Caps%2C53&sr=8-1) |
-| 21  | RaspberryPiZeroW                  | 1   | Off the Shelf          |           |               |               | [kubii.fr](https://www.kubii.fr/home/2077-kit-pi-zero-w-kubii-3272496009509.html?search_query=kit+pi+zero&results=91)                                                                                                                                                    |
-| 22  | Raspberry Pi HQ Camera            | 1   | Off the Shelf          |           |               |               | [kubii.fr](https://www.kubii.fr/raspberry-pi-microbit/2950-camera-hq-officielle-633696492738.html)                                                                                                                                                                       |
-| 23  | 6mm CS-mount lens                 | 1   | Off the Shelf          |           |               |               | [kubii.fr](https://www.kubii.fr/raspberry-pi-microbit/2952-lentille-grand-angle-officielle-6mm-3272496301498.html)                                                                                                                                                       |
-| 24  | Ribbon cable                      | 1   | Off the Shelf          |           |               |               | [kubii.fr](https://www.kubii.fr/cameras-accessoires/1830-cable-pour-camera-pi-zero-edition-kubii-3272496006768.html)                                                                                                                                                     |
-| 25  | 5mm M2.5 nylon screws             | 8   | Off the Shell          |           |               |               | [thepihut.com](https://thepihut.com/products/mounting-plate-for-high-quality-camera?variant=31867507048510)                                                                                                                                                              |
-| 26  | M2.5 nylon nuts                   | 8   | Off the Self           |           |               |               |                                                                                                                                                                                                                                                                          |
+
 
 ## Assembly
 
 You can find the PDF with the BOM and assembly instructions for the manual gimbal [here](../../assets/images/plant_imager_v3/manual_gimbal/Manual_Gimbal-BOM_Assembly.pdf).
+
+<figure>
+  <img src="../../../assets/images/plant_imager_v3/manual_gimbal/manual_gimbal_picture.jpg" style="max-height:350px">
+  <figcaption>Manual gimbal with 360° protractor & PiCamera.</figcaption>
+</figure>

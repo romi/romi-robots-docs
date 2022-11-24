@@ -1,5 +1,10 @@
 # PiCamera HQ
 
+<figure>
+  <img src="../../../assets/images/plant_imager_v3/picamera_picture.jpg" style="max-height:350px">
+  <figcaption>PiCamera.</figcaption>
+</figure>
+
 ## BOM
 
 To assemble a SINGLE PiCamera HQ, you will need the following list of materials:
@@ -12,9 +17,6 @@ To assemble a SINGLE PiCamera HQ, you will need the following list of materials:
 | 23  | 6mm CS-mount lens                 | 1   | Off the Shelf          |           |               |               | [kubii.fr](https://www.kubii.fr/raspberry-pi-microbit/2952-lentille-grand-angle-officielle-6mm-3272496301498.html)                                                                                                                                                       |
 | 24  | Ribbon cable                      | 1   | Off the Shelf          |           |               |               | [kubii.fr](https://www.kubii.fr/cameras-accessoires/1830-cable-pour-camera-pi-zero-edition-kubii-3272496006768.html)                                                                                                                                                     |
 | 25  | 5mm M2.5 nylon screws             | 8   | Off the Shell          |           |               |               | [thepihut.com](https://thepihut.com/products/mounting-plate-for-high-quality-camera?variant=31867507048510)                                                                                                                                                              |
-
-!!! note
-    This is contained in the "Manual gimbal" BOM.
 
 
 ## Assembly

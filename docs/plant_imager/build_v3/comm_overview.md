@@ -12,7 +12,7 @@ We use a Raspberry Pi 4 as a "main controller" to:
 It thus acts as an _Access Point_ (_a.k.a._ Hotspot) for the other devices, notably for the PiCamera(s) (Pi Zero W).
 
 <figure>
-<img src="../../../assets/images/plant_imager_v3/PlantImager_v3_electronics.png" style="height:550px" />
+<img src="../../../assets/images/plant_imager_v3/PlantImager_v3_electronics.png" style="max-height:550px" />
   <figcaption>Overview of the connectivity for the Plant Imager v3.</figcaption>
 </figure>
 
