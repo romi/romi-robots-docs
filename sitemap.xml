@@ -2,642 +2,657 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.romi-project.eu/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/about/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/data/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/documentation/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/glossary/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/research/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/app/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/assembly/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/bot/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/building/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/camera/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/electronics/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/install/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/legacy/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/motion/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/pipeline/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/power/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/station/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/structure/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/tension/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/use/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/api-nodes/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/configuration/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/developer/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/hardware/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/librcom/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/manual/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/software/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/UserManual/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/UserManual/copyright/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/UserManual/description/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/UserManual/legend/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/UserManual/requirements/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/UserManual/specifications/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant-3d-explorer/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant-3d-explorer/guide/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v2/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v2/alu_frame/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v2/cnc_calibration/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v2/cnc_communication/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v2/cnc_electronics/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v2/cnc_frame/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v2/gimbal_communication/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v2/gimbal_setup/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v2/picamera_setup/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v2/troubleshooting/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/alu_frame/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/boms/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/cnc_arm/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/cnc_communication/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/cnc_electronics/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/cnc_frame/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.romi-project.eu/plant_imager/build_v3/comm_overview/</loc>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/enclosure/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.romi-project.eu/plant_imager/build_v3/flash_rpi_os/</loc>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/flashing_oquam/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/frame_cnc/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/manual_gimbal/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/pan_arm/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/pan_electronics/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/picamera/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.romi-project.eu/plant_imager/build_v3/picamera_soft/</loc>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/plantimager_controller/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/registry_setup/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/build_v3/resources/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/developer/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/developer/colmap_cli/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/developer/conda/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/developer/git_docReview/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/developer/git_submodules_workflow/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/developer/git_workflow/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/developer/pipeline_repeatability/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/developer/tutorial_template/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/developer/user_case_scenarios/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/docker/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/docker/colmap/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/docker/docker_compose/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/docker/plant-3d-vision_docker/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/docker/plant3dexplorer_docker/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/docker/plantdb_docker/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/docker/plantimager_docker/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/docker/virtualplantimager_docker/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/explanations/general_design/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/explanations/masks/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/explanations/segmentation/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/how_to/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/how_to/create_new_evaluation_task/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/how_to/create_new_task/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/how_to/import_files/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/install/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/install/create_env/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/install/plant3dexplorer_setup/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/install/plant_imager_setup/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/install/plant_reconstruction_setup/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/install/plantdb_setup/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/install/virtual_plant_setup/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/metadata/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/metadata/biological_metadata/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/metadata/hardware_metadata/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/metadata/software_metadata/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/metadata/tasks_metadata/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/configuration_files/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/data/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/hardware/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/luigi/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/pipelines/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/virtual-plant-imager/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/tasks/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/tasks/acquisition_tasks/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/tasks/evaluation_tasks/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/tasks/file_tasks/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/tasks/ground_truth_tasks/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/specifications/tasks/reconstruction_tasks/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/Tutorial_sm-dtw_simulatephyllotaxis/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/basics/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/extrinsic_calibration/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/hardware_scan/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/intrinsic_calibration/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/plant-3d-explorer/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/reconstruct_scan/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/virtual_plant_generate_analyze_visualize/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/virtual_plant_imager_large_dataset/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/tutorials/virtual_plant_imager_single_dataset/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/training/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.romi-project.eu/training/lpy/</loc>
-         <lastmod>2022-10-13</lastmod>
+         <lastmod>2022-11-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

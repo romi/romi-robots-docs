@@ -1265,20 +1265,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../plantimager_controller/" class="md-nav__link">
-        Main controller
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -1328,85 +1314,66 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#software" class="md-nav__link">
-    Software
-  </a>
-  
-    <nav class="md-nav" aria-label="Software">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#flash-raspbian-lite-os" class="md-nav__link">
-    Flash Raspbian Lite OS
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#change-the-hostname" class="md-nav__link">
-    Change the hostname
-  </a>
-  
-    <nav class="md-nav" aria-label="Change the hostname">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-using-raspi-config" class="md-nav__link">
-    A. Using raspi-config
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-command-line" class="md-nav__link">
-    B. Command-line
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-the-romi-user" class="md-nav__link">
-    Create the romi user
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#install-requirements" class="md-nav__link">
-    Install requirements
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#clone-the-sources" class="md-nav__link">
-    Clone the sources
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compile-the-sources" class="md-nav__link">
-    Compile the sources
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comm_overview/" class="md-nav__link">
+        Communication overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../flash_rpi_os/" class="md-nav__link">
+        Flashing RPi OS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../picamera_soft/" class="md-nav__link">
+        PiCamera OS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plantimager_controller/" class="md-nav__link">
+        Main controller
+      </a>
     </li>
   
 
@@ -2646,71 +2613,6 @@
 <p class="admonition-title">Todo</p>
 <p>Write assembly instructions!</p>
 </div>
-<h2 id="software">Software<a class="headerlink" href="#software" title="Permanent link">Link</a></h2>
-<h3 id="flash-raspbian-lite-os">Flash Raspbian Lite OS<a class="headerlink" href="#flash-raspbian-lite-os" title="Permanent link">Link</a></h3>
-<p>To flash the OS on the microSD, have a look at the official Raspberry Pi OS instructions <a href="https://www.raspberrypi.com/software/">here</a>.
-We strongly advise to use the <strong>Raspberry Pi Imager</strong> to do so.</p>
-<h3 id="change-the-hostname">Change the <code>hostname</code><a class="headerlink" href="#change-the-hostname" title="Permanent link">Link</a></h3>
-<p>We strongly advise to give a specific <code>hostname</code> to each device to avoid having the all named <code>raspberrypi</code>.</p>
-<p>Choose option A OR B, then reboot the RPi!</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>RFCs mandate that a hostname's labels may contain only the ASCII letters 'a' through 'z' (case-insensitive), the digits '0' through '9', and the hyphen.
-Hostname labels cannot begin or end with a hyphen.
-No other symbols, punctuation characters, or blank spaces are permitted.</p>
-</div>
-<h4 id="a-using-raspi-config">A. Using <code>raspi-config</code><a class="headerlink" href="#a-using-raspi-config" title="Permanent link">Link</a></h4>
-<p>It is possible to change the hostname with the <code>raspi-config</code> tool:
-<div class="highlight"><pre><span></span><code>sudo raspi-config
-</code></pre></div>
-Then move to <code>1 System Options &gt; S4 Hostname</code>.
-Enter the desired hostname, <em>e.g.</em> <code>picamera1</code>, and hit <code>&lt;OK&gt;</code>.</p>
-<h4 id="b-command-line">B. Command-line<a class="headerlink" href="#b-command-line" title="Permanent link">Link</a></h4>
-<p>For example, we want to rename our first <em>romi-camera</em> <code>picamera1</code>.
-We can do so by changing <code>/etc/hostname</code> &amp; <code>/etc/hosts</code> with:
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">NEW_HNAME</span><span class="o">=</span><span class="s2">&quot;picamera1&quot;</span>
-sudo sed <span class="s2">&quot;s/raspberrypi/</span><span class="nv">$NEW_HNAME</span><span class="s2">/&quot;</span> /etc/hostname
-sudo sed <span class="s2">&quot;s/raspberrypi/</span><span class="nv">$NEW_HNAME</span><span class="s2">/&quot;</span> /etc/hosts
-</code></pre></div></p>
-<h3 id="create-the-romi-user">Create the <code>romi</code> user<a class="headerlink" href="#create-the-romi-user" title="Permanent link">Link</a></h3>
-<p>Boot the RPi, login with the default <code>pi</code> user &amp; <code>raspberry</code> password.
-Then create the user <code>romi</code> with:
-<div class="highlight"><pre><span></span><code>sudo adduser romi
-</code></pre></div>
-This will also create the home directory for this user and ask for a password.</p>
-<p>Add this user to <code>dialout</code>, <code>video</code> &amp; <code>sudo</code> groups with:
-<div class="highlight"><pre><span></span><code>sudo adduser romi dialout
-sudo adduser romi video
-sudo adduser romi sudo
-</code></pre></div></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>We should probably give instructions to remove the default <code>pi</code> user, or at least to remove it from the <code>sudo</code> group?!
-<code>sudo deluser --remove-home pi</code></p>
-</div>
-<h3 id="install-requirements">Install requirements<a class="headerlink" href="#install-requirements" title="Permanent link">Link</a></h3>
-<p>To install the requirements simply run:
-<div class="highlight"><pre><span></span><code>sudo apt install build-essential cmake git libpng-dev libjpeg9-dev
-</code></pre></div></p>
-<p>We also deactivate something useless in our case (dynamic linker):
-<div class="highlight"><pre><span></span><code>sudo mv /etc/ld.so.preload /etc/ld.so.preload.bak
-</code></pre></div></p>
-<h3 id="clone-the-sources">Clone the sources<a class="headerlink" href="#clone-the-sources" title="Permanent link">Link</a></h3>
-<p>To clone the sources from the ROMI GitHub repository, simply run:
-<div class="highlight"><pre><span></span><code>git clone --branch ci_dev --recurse-submodules https://github.com/romi/romi-rover-build-and-test.git
-</code></pre></div></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The <code>--recurse-submodules</code> option will automatically initialize and update each submodule in the repository.</p>
-</div>
-<h3 id="compile-the-sources">Compile the sources<a class="headerlink" href="#compile-the-sources" title="Permanent link">Link</a></h3>
-<p>Then move to the cloned directory and compile the <code>romi-camera</code> app with:
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> romi-rover-build-and-test
-mkdir build
-<span class="nb">cd</span> build
-cmake ..
-make romi-camera
-</code></pre></div></p>
 
               
             </article>
@@ -2724,7 +2626,7 @@ make romi-camera
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../plantimager_controller/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Main controller" rel="prev">
+        <a href="../pan_electronics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Pan electronics" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -2733,20 +2635,20 @@ make romi-camera
               <span class="md-footer__direction">
                 Previous
               </span>
-              Main controller
+              Pan electronics
             </div>
           </div>
         </a>
       
       
         
-        <a href="../registry_setup/" class="md-footer__link md-footer__link--next" aria-label="Next: Registry setup" rel="next">
+        <a href="../comm_overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Communication overview" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Registry setup
+              Communication overview
             </div>
           </div>
           <div class="md-footer__button md-icon">
