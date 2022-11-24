@@ -1,7 +1,7 @@
 # Manual gimbal
 
 <figure>
-  <img height="350" src="../../assets/images/plant_imager_v3/manual_gimbal/Manual_Gimbal_1.jpg"/>
+  <img src="../../../assets/images/plant_imager_v3/manual_gimbal/Manual_Gimbal_1.jpg"/ style="height:350px">
   <figcaption>Manual gimbal with 360° protractor & PiCamera.</figcaption>
 </figure>
 

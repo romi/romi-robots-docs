@@ -1,9 +1,13 @@
-# Assembly instructions for the third version of the plant imager
+# Assembly instructions for the third version of the Plant Imager
 
 This is the documentation for the third iteration of the plant imager hardware.
 It aims at improving the overall quality of the build and to fix some limitations of the second iteration.
 
-![](../../assets/images/plant_imager_v3/RomiV3.jpg)
+<figure>
+  <img src="../../../assets/images/plant_imager_v3/RomiV3.jpg" style="height:450px">
+  <figcaption>The Plant Imager v3 assembled at the RDP laboratory.</figcaption>
+</figure>
+
 
 ## Rationale
 

@@ -4,7 +4,7 @@
 We chose the X-Carve 1000 mm as basis for the CNC gantry, feel free to choose another one but beware to check the aluminium frame still fit!
 
 <figure>
-<img src="http://x-carve-instructions.inventables.com/assets/x-carve-main.jpg" alt="X-Carve_CNC" title="X-Carve CNC" height="350" />
+<img src="http://x-carve-instructions.inventables.com/assets/x-carve-main.jpg" style="height:350px" />
   <figcaption>X-Carve 1000mm.</figcaption>
 </figure>
 

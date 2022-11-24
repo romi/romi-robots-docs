@@ -24,4 +24,4 @@ Note that this should be run from the project's root directory.
 
 ### Deploy
 
-Once you are satisfied with your modifications, push them to the github repository and wait for the automatic build, or use `mkdocs gh-deploy`.
+Once you are satisfied with your modifications, push them to the GitHub repository and wait for the automatic build, or use `mkdocs gh-deploy`.

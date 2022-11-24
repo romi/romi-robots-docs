@@ -29,4 +29,4 @@ acquisition metadata
 : set of metadata attached to the acquisition procedure & hardware configuration (*e.g.* version of the CNC controller, camera settings, ...);
 
 !!! danger
-"scans" could be renamed "dataset" or !
+    "scans" could be renamed "dataset" or !

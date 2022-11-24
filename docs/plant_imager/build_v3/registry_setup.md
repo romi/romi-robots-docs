@@ -14,7 +14,7 @@ We now need to configure the devices.
     ./build/bin/rcom-registry
     ```
 
-!!! notes
+!!! note
     The _Plant Imager controller_ should start the AP at boot.
     The _romi-camera(s)_ should automatically connect to the AP.
 

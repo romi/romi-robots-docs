@@ -1,13 +1,16 @@
 # Wiring of the X-Controller
 
-![](../../assets/images/x_controller.jpg)
+<figure>
+<img src="../../../assets/images/x_controller.jpg" style="height:350px" />
+  <figcaption>X-Controller.</figcaption>
+</figure>
 
 ## BOM
 
 To assemble the X-Controller, you will need to buy one:
 
 * US buy [here](https://www.inventables.com/technologies/x-carve/choose)
-* EU buy [here](https://robosavvy.com/store/inventables-x-carver-1000mm-in-stock.html)
+* EU buy [here](https://robosavvy.co.uk/inventables-xcarve-1000mm-in-stock.html)
 
 
 ## Assembly

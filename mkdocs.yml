@@ -66,8 +66,11 @@ nav:
           - 'CNC & Pan Arm': 'plant_imager/build_v3/cnc_arm.md'
           - 'Manual Gimball': 'plant_imager/build_v3/manual_gimbal.md'
           - 'Pan electronics': 'plant_imager/build_v3/pan_electronics.md'
-          - 'Main controller': 'plant_imager/build_v3/plantimager_controller.md'
           - 'PiCamera': 'plant_imager/build_v3/picamera.md'
+          - 'Communication overview': 'plant_imager/build_v3/comm_overview.md'
+          - 'Flashing RPi OS': 'plant_imager/build_v3/flash_rpi_os.md'
+          - 'PiCamera OS': 'plant_imager/build_v3/picamera_soft.md'
+          - 'Main controller': 'plant_imager/build_v3/plantimager_controller.md'
           - 'Registry setup': 'plant_imager/build_v3/registry_setup.md'
           - 'Complete BOMs': 'plant_imager/build_v3/boms.md'
           - 'Resources': 'plant_imager/build_v3/resources.md'
@@ -184,6 +187,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
