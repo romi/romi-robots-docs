@@ -1,4 +1,4 @@
-# Extrinsic Image Calibration
+# Calibrate the Plant imager
 
 
 ## Objective

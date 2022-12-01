@@ -1,5 +1,5 @@
-How to evaluate a 3D reconstruction and automated measures with a virtual plant as ground truth
-===
+# Evaluate an analysis in a virtual world (both virtual plant and imager)
+
 
 ## Objective
 Quantitative evaluation of a 3D reconstruction and/or automated measure from a phenotyping experiment is critical, from both developer and end-user perspectives. However, obtaining ground truth reference is often tedious (e.g. manual measurements, it must be anticipated (synchronous measures with image acquisition), and some type of data are just inacessible with available technologies (e.g. having a reference point cloud).

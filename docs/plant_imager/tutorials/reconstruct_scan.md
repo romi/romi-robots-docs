@@ -1,5 +1,7 @@
+# Reconstruct 3D data from images
+
 Plant reconstruction and analysis pipeline
-===
+
 
 ## Getting started
 
@@ -20,7 +22,7 @@ romi_run_task Clean integration_tests/2019-02-01_10-56-33 \
     --config plant3dvision/config/original_pipe_0.toml --local-scheduler
 ``` 
 
-Here the config may use the `[Clean]` section where you can defines the `force` option:
+Here the config may use the `[Clean]` section where you can define the `force` option:
 
 ```toml
 [Clean]

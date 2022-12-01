@@ -1,8 +1,10 @@
-How to generate, analyze and visualize virtual plant images using public docker containers
-===
+# Evaluate a 3D reconstruction and automated measures with a virtual plant as ground truth
+
+
+Generate, analyze and visualize virtual plant images using public docker containers.
 
 ## Objective
-Instead of installing `virtual-plant-imager`, `plant-3d-vision` and `plant-3d-explorer` on your computer you can pull their corresponding docker images and use directly the pre installed softwares.
+Instead of installing `virtual-plant-imager`, `plant-3d-vision` and `plant-3d-explorer` on your computer you can pull their corresponding docker images and use directly the pre-installed software.
 After reading this tutorial, you should be able to generate, analyze and visualize virtual plant images using only public docker images.
 
 ## Prerequisite
@@ -16,6 +18,11 @@ First, you have to give the right access to your database path
 ```shell
 sudo chmod -R 777 /path/of/your/db
 ```
+
+!!! todo
+    Fix these instructions as they are WRONG!
+    We now use Unix group rights to access the database path!
+
 
 ### 2. Generate virtual dataset with plant-imager
 

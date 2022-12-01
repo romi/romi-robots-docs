@@ -1,5 +1,7 @@
+# Generate large "virtual" training data for machine-learning
+
 How to use the Virtual Plant Imager to generate a large dataset of virtual plant for machine learning purposes
-===
+
 
 ## Objective
 Working with virtual plants instead of real ones makes data acquisition inexpensive and has the advantage to parametrize the type of data.

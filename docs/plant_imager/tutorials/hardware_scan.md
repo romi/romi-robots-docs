@@ -1,5 +1,5 @@
-Plant Imager Bot
-===
+# Make an acquisition with the Plant Imager
+
 
 ## Objective
 

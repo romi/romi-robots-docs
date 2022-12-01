@@ -1,5 +1,7 @@
+# Evaluate a phyllotaxis measurement (case1) Use sm-dtw with simulated data
+
 How to use the 'sm-dtw' assessment tool with simulated synthetic phyllotaxis data
-===
+
 
 ## Related Materials:
 * Download and view the full **[tutorial video](https://zenodo.org/record/6793459#.YsKmMXjP0Uk)**. See also [below](Tutorial_sm-dtw_simulatephyllotaxis.md#outline-of-the-tutorial-video) how to navigate rapidely into the content of this video.

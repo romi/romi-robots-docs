@@ -1,4 +1,4 @@
-# Intrinsic calibration
+# Calibrate the camera
 
 Some cameras introduce significant distortion to images.
 The two major kinds of distortion are **radial distortion** and **tangential distortion**.
