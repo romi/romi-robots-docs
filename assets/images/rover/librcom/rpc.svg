@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1021"
+   inkscape:version="1.0.2 (1.0.2+r75+1)"
+   sodipodi:docname="rpc.svg">
+  <defs
+     id="defs1015" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="73.294725"
+     inkscape:cy="589.81651"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1025"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:document-rotation="0" />
+  <metadata
+     id="metadata1018">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="50.781212"
+       y="126.64185"
+       id="text1568"><tspan
+         sodipodi:role="line"
+         id="tspan1566"
+         x="50.781212"
+         y="126.64185"
+         style="stroke-width:0.264583">RPCClient</tspan></text>
+    <text
+       id="text1572"
+       y="127.17639"
+       x="104.23512"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.264583"
+         y="127.17639"
+         x="104.23512"
+         id="tspan1570"
+         sodipodi:role="line">MessageLink</tspan></text>
+    <text
+       id="text1576"
+       y="126.90911"
+       x="148.06732"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.264583"
+         y="126.90911"
+         x="148.06732"
+         id="tspan1574"
+         sodipodi:role="line">RPCServer</tspan></text>
+    <text
+       id="text1580"
+       y="127.17639"
+       x="-6.6817365"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.264583"
+         y="127.17639"
+         x="-6.6817374"
+         id="tspan1578"
+         sodipodi:role="line">RemoteFoo</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="223.17006"
+       y="126.37458"
+       id="text1584"><tspan
+         sodipodi:role="line"
+         id="tspan1582"
+         x="223.17006"
+         y="126.37458"
+         style="stroke-width:0.264583">FooAdaptor</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="258.1394"
+       y="126.64186"
+       id="text1588"><tspan
+         sodipodi:role="line"
+         id="tspan1586"
+         x="258.1394"
+         y="126.64186"
+         style="stroke-width:0.264583">Foo</tspan></text>
+    <rect
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1590"
+       width="70.826424"
+       height="11.22532"
+       x="-72.430046"
+       y="119.15832" />
+    <rect
+       y="118.89104"
+       x="18.708862"
+       height="11.225319"
+       width="35.279575"
+       id="rect1592"
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1594"
+       width="35.279575"
+       height="11.225319"
+       x="113.85681"
+       y="119.15832" />
+    <rect
+       y="118.89104"
+       x="157.95628"
+       height="11.225319"
+       width="67.351913"
+       id="rect1596"
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <rect
+       y="118.89104"
+       x="233.05902"
+       height="11.225319"
+       width="35.279575"
+       id="rect1598"
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1621"
+       y="84.30854"
+       x="-47.18988"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.264583"
+         y="84.30854"
+         x="-47.18988"
+         id="tspan1619"
+         sodipodi:role="line">Foo</tspan></text>
+    <rect
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1623"
+       width="35.279575"
+       height="11.225319"
+       x="-72.270226"
+       y="76.557732" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-100.10654"
+       y="84.30854"
+       id="text1627"><tspan
+         sodipodi:role="line"
+         id="tspan1625"
+         x="-100.10654"
+         y="84.30854"
+         style="stroke-width:0.264583">MyObject</tspan></text>
+    <rect
+       y="76.557732"
+       x="-125.18687"
+       height="11.225319"
+       width="35.279575"
+       id="rect1629"
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       id="text1633"
+       y="126.64186"
+       x="-100.10654"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.264583"
+         y="126.64186"
+         x="-100.10654"
+         id="tspan1631"
+         sodipodi:role="line">MyObject</tspan></text>
+    <rect
+       style="opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect1635"
+       width="35.279575"
+       height="11.225319"
+       x="-125.18687"
+       y="118.89104" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="196.4431"
+       y="140.53987"
+       id="text1639"><tspan
+         sodipodi:role="line"
+         id="tspan1637"
+         x="196.4431"
+         y="140.53987"
+         style="stroke-width:0.264583">IPRCHandler</tspan></text>
+    <text
+       id="text1643"
+       y="139.47079"
+       x="55.59206"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.264583"
+         y="139.47079"
+         x="55.59206"
+         id="tspan1641"
+         sodipodi:role="line">IPRCHandler</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="50.513939"
+       y="146.88986"
+       id="text1647"><tspan
+         sodipodi:role="line"
+         id="tspan1645"
+         x="50.513939"
+         y="146.88986"
+         style="stroke-width:0.264583">IPRCClient</tspan></text>
+    <text
+       id="text1651"
+       y="140.74266"
+       x="149.67093"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.264583"
+         y="140.74266"
+         x="149.67093"
+         id="tspan1649"
+         sodipodi:role="line">IPRCServer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-44.901283"
+       y="96.707664"
+       id="text1655"><tspan
+         sodipodi:role="line"
+         id="tspan1653"
+         x="-44.901283"
+         y="96.707664"
+         style="stroke-width:0.264583">IFoo</tspan></text>
+    <text
+       id="text1659"
+       y="140.53987"
+       x="-45.168552"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:5.02708px;font-family:'Nunito Sans';-inkscape-font-specification:'Nunito Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.264583"
+         y="140.53987"
+         x="-45.168552"
+         id="tspan1657"
+         sodipodi:role="line">IFoo</tspan></text>
+  </g>
+</svg>
