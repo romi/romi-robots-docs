@@ -2727,6 +2727,17 @@
 <li>The firmware for the motor controller, found at <a href="https://github.com/romi/romi-cablebot/tree/camera-integration">https://github.com/romi/romi-cablebot/tree/camera-integration</a></li>
 <li>The firmware to control the panning of the camera, found at <a href="https://github.com/romi/libromi/tree/ci_dev/firmware/BLDC">https://github.com/romi/libromi/tree/ci_dev/firmware/BLDC</a></li>
 </ol>
+<p>In addition, the installation requires the following actions on the Raspberry Pi Zero:</p>
+<ol>
+<li>Create the "romi" user account.</li>
+<li>Enable the SSH server (optional but recommended).</li>
+<li>Enable the legacy camera interface.</li>
+<li>Configure the serial ports.</li>
+<li>Configure the start-up scripts.</li>
+<li>Configure the WiFi, either for the Cablebot to connect to an existing WiFi or to use the Cablenot as a WiFi access point.</li>
+<li>Install and configure the Apache HTTP server for the web interface.</li>
+<li>Configure the backup/transfer of the images.</li>
+</ol>
 <h2 id="basic-software-setup">Basic software setup<a class="headerlink" href="#basic-software-setup" title="Permanent link">Link</a></h2>
 <p><img alt="" src="/assets/images/farmersDashboard/rpiZ-08.png" /></p>
 <p>Download <a href="https://www.raspberrypi.org/downloads/raspberry-pi-os/">Raspberry Pi OS (32-bit) Lite</a> and burn the image to a sdcard of at least 8GB.
