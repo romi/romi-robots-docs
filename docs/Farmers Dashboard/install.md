@@ -1,5 +1,14 @@
 # Raspberry Pi
 
+## Overview
+
+The software for the Cablebot consists of three components:
+
+1. The main software running on the Raspberry Pi Zero of the camera module. This is a combination of GNU/Linux and the ROMI software, found at [https://github.com/romi/romi-rover-build-and-test](https://github.com/romi/romi-rover-build-and-test) 
+2. The firmware for the motor controller, found at [https://github.com/romi/romi-cablebot/tree/camera-integration](https://github.com/romi/romi-cablebot/tree/camera-integration)
+3. The firmware to control the panning of the camera, found at [https://github.com/romi/libromi/tree/ci_dev/firmware/BLDC](https://github.com/romi/libromi/tree/ci_dev/firmware/BLDC)
+
+
 ## Basic software setup
 
 ![](/assets/images/farmersDashboard/rpiZ-08.png)

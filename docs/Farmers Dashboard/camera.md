@@ -19,7 +19,7 @@ For the **Cablebot**, the camera must adjust in real-time for swinging movements
 
 We decided to use a brushless motor, as is the custom in camera mount systems. We designed a controller board that exploits the functions offered by the TI DRV8313 chip. The DRV8313 requires as an input three Pulse Width Modulation signals (PWM) that encode the phase of each of the three voltages applied to the solenoids of the brushless motor. 
 
-The control software is integrated into the code for the Romi Rover: https://github.com/romi/romi-rover-build-and-test/tree/ci_dev/romi-rover/gimbal_bldc 
+The control software is integrated into the code for the Romi Rover: https://github.com/romi/libromi/tree/ci_dev/firmware/BLDC 
 The design files can be found at https://github.com/romi/bldc_featherwing 
 
 ## Microcontroller
