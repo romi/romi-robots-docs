@@ -215,7 +215,7 @@ Let's start by installing the requirements:
 sudo apt install apache2
 ```
 
-Change `DocumentRoot` in `/etc/apache2/sites-enabled/000-default.conf` to `~/romi-rover-build-and-test/applications/romi-monitor/`
+Change `DocumentRoot` in `/etc/apache2/sites-enabled/000-default.conf` to `/home/romi/romi-rover-build-and-test/applications/romi-monitor/`
 
 Also add:
 ```shell

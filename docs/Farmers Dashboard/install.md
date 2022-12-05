@@ -8,8 +8,21 @@ The software for the Cablebot consists of three components:
 2. The firmware for the motor controller, found at [https://github.com/romi/romi-cablebot/tree/camera-integration](https://github.com/romi/romi-cablebot/tree/camera-integration)
 3. The firmware to control the panning of the camera, found at [https://github.com/romi/libromi/tree/ci_dev/firmware/BLDC](https://github.com/romi/libromi/tree/ci_dev/firmware/BLDC)
 
+In addition, the installation requires the following actions on the Raspberry Pi Zero:
 
-## Basic software setup
+1. Create the "romi" user account.
+2. Configure the WiFi to connect to an existing WiFi
+3. Enable the SSH server
+4. Enable the legacy camera interface.
+5. Configure the serial ports.
+6. Configure the start-up scripts.
+7. Install and configure the Apache HTTP server for the web interface.
+8. Configure the backup/transfer of the images.
+
+
+## Installing the Raspberry Pi Zero
+
+### Install the Linux operating system
 
 ![](/assets/images/farmersDashboard/rpiZ-08.png)
 
@@ -29,32 +42,200 @@ sudo apt update
 sudo apt upgrade
 ~~~
 
-* Create user romi, set password and add it to needed groups.
+#### Basic configuration
+
+Run the `sudo raspi-config` command to change the base configuration:
+
+**Keyboard**:
+
+If you need you can change keyboard, WLAN country and timezone
+settings using raspi-config. Run `raspi-config` command and select
+`5 Localization Options`.
+
+**Hostname**:
+
+Still in raspi-config,
+
+1. Select `System Options`
+2. Select `S4 Hostname`
+3. Question: `Please enter a hostname`: Enter `cablebot`
+4. Select `OK`
+
+**Wifi**:
+
+In raspi-config,
+
+1. Select `1 System Options` 
+2. Select `S1 Wireless LAN`
+3. Question: `Please enter SSID` Type the name of the WiFi network you want to connect to.
+4. Question: `Please enter passphrase. Leave it empty if none.` Type the password.
+5. Click `OK`
+
+**SSH**:
+
+In raspi-config,
+
+1. Select `3 Interface Option` 
+2. Select `I2 SSH`
+3. Question: `Would you like the SSH server to be enabled?` Select `Yes`
+
+
+Make sure to test the remote login. To know the IP address of the Pi, run the following command:
+
+```sh
+$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN group default qlen 1000
+    link/ether e4:5f:01:93:b6:a3 brd ff:ff:ff:ff:ff:ff
+3: wlan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether e4:5f:01:93:b6:a7 brd ff:ff:ff:ff:ff:ff
+    inet 172.20.10.12/28 brd 172.20.10.15 scope global dynamic noprefixroute wlan0
+       valid_lft 86163sec preferred_lft 75363sec
+    inet6 2a02:8440:3141:50b1:d111:5312:d516:8327/64 scope global mngtmpaddr noprefixroute 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::1577:9a8:248f:7648/64 scope link 
+       valid_lft forever preferred_lft forever
+```
+
+The IP address of the WiFi interface can be found in the wlan0 section. In our case, it is 172.20.10.12. Now try to log in from a remote machine on the same network:
+
+```sh
+$ ssh romi@<IP-ADDRESS>
+```
+
+Replace IP-ADDRESS with the address found using `ip a`. Make sure that this work before continuing because further down we are going the deactivate the login console on the screen.
+
+
+## Enable the legacy camera interface
+
+On newer version of the OS image, the legacy interface has to be activated manually. This can be done using raspi-config:
+
+```sh
+$ sudo raspi-config
+```
+
+1. Select _3 Interface Options_
+2. Select _I1 Legacy Camera_
+3. Select _Yes_
+4. Reboot
+
+
+## Configure the serial ports
+
+```sh
+$ sudo raspi-config
+```
+
+1. Select _3 Interface Options_
+2. Select _I6 Serial Port_
+3. Question: _Would you like a login shell to be accessible over serial?_ Select _No_
+4. Question: _Would you like the serial port hardware to be enabled?_ Select  _Yes_
+
+The confirmation dialog should display:
+
+```
+The serial login shell is disabled
+The serial interface is enabled
+```
+
+Click OK but don't reboot, yet.
+
+In /boot/config.txt, add the following line at the end of the file, in the section [all]:
+
+  dtoverlay=pi3-disable-bt
+
+In /boot/cmdline.txt, remove (if still there):
+
+  console=serial0,115200 
+
+
+Then reboot.
+
+When the Pi is back online, the ports /dev/serial0 and /dev/serial1 should be available:
+
+```sh
+$ ls /dev/serial*
+/dev/serial0  /dev/serial1
+```
+
+
+## Create user romi
+
+Create user romi, set password and add it to needed groups.
 ~~~bash
 sudo useradd romi
 sudo usermod -a -G sudo,adm,dialout,video,netdev,plugdev,gpio romi
 ~~~
 
-* Run `raspi-config` command and change:
-1. _Network Options_ → _Hostname_ to _cablebot_
-2. If you need you can change keyboard, WLAN country and timezone settings inside _Localization Options_.
-3. Enable the cammera, SSH server if you haven't yet and I2C interface in _Interfacing Options_.
-4. You can also update _raspi-config_ tool via the _Update_ menu.
-5. Select _Finish_ and reboot your Pi (`sudo reboot`).
+Quit the current shell and reconnect using the "romi" login.
 
-* Install platformio
-~~~sh
-sudo apt-get install python3-distutils
-curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -o get-platformio.py
-python3 get-platformio.py
+
+## Clone, compile, and install the software
+
+As user "romi" do:
+
+For the main software:
+
+~~~bash
+$ git clone --branch ci_dev --recurse-submodules https://github.com/romi/romi-rover-build-and-test.git
+$ cd romi-rover-build-and-test
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make rcom-registry
+$ make romi-cablebot
 ~~~
 
-Edit your bash profile config fiel (usually `.bashrc`) and add the line 
-~~~sh
-export PATH=$PATH:~/.platformio/penv/bin
+For the firmware of the motor controller:
+
+~~~bash
+$ cd ~
+$ git clone https://github.com/romi/romi-cablebot.git
+$ cd romi-cablebot
+$ TODO
 ~~~
 
-## OverlayFS
+
+For the firmware of the camera pan controller:
+
+~~~bash
+$ TODO
+~~~
+
+## Install the Apache web server
+
+~~~bash
+$ sudo apt install apache2
+$ sudo nano /etc/apache2/sites-enabled/000-default.conf
+~~~
+
+Change `DocumentRoot` in `/etc/apache2/sites-enabled/000-default.conf` to `/home/romi/romi-rover-build-and-test/applications/romi-monitor/`
+
+Also add:
+```shell
+        <Directory /home/romi/romi-rover-build-and-test/applications/romi-monitor/>
+                   Options Indexes
+                   AllowOverride None
+                   Require all granted
+        </Directory>
+```
+Then restart the `apache2.service` with `systemctl`:
+```shell
+sudo systemctl restart apache2.service
+```
+
+
+
+## Starting the software on boot
+
+
+
+## Extra: OverlayFS
 
 To avoid file system corruption on Raspberry Pi's that can have their power interrupted suddenly, having a read-only file system it's a good option.
 
@@ -128,7 +309,7 @@ Alternatively you can undo all changes from Enable overlayroot in commandline an
 	* https://wiki.archlinux.org/title/Overlay_filesystem  
 
 
-## Romi autossh
+## Extra: Romi autossh
 
 Locating a Romi device (ej. cablebot) on a network can be a dificult task depending on the network topology. Services like Dataplicity can solve this problem but have some disatvantages as not being free software, cost, vendor lock, etc.
 
@@ -140,11 +321,13 @@ Having a server accesible via a public IP address is enough to make this work. M
 ~~~
 ssh-keygen
 ~~~
+
 #### Copy your key to the server to allow passwordless access.
 The user must exist already on the server, we recomend creating a specific user for this task.
 ~~~
 ssh-copy-id user@server
 ~~~
+
 #### Test a reverse SSH tunnel
 
 Select a specific port for each of the devices to use on the _port-s:localhost:22_ part of the command, so that port number (_port-s_) of the server will be linked to port 22 on the device.
@@ -157,8 +340,10 @@ ssh -J user@server -p port-s user@localhost
 ~~~
 
 If that worked we can now setup the autossh to make the conection on boot and keep it alive.
+
 #### Install autossh
 Depending on your linux package manager, ej. `sudo pacman -S autossh` or `sudo apt install autossh`
+
 #### Test autossh reverse tunneling
 ~~~
 autossh -M 0 -f -o "ServerAliveInterval 45" -o "ServerAliveCountMax 2" -N -R port-s:localhost:22 [-p srv-ssh-port] user@server-with-public-ip
