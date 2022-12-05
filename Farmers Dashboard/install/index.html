@@ -532,18 +532,86 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-software-setup" class="md-nav__link">
-    Basic software setup
+  <a href="#installing-the-raspberry-pi-zero" class="md-nav__link">
+    Installing the Raspberry Pi Zero
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing the Raspberry Pi Zero">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-linux-operating-system" class="md-nav__link">
+    Install the Linux operating system
+  </a>
+  
+    <nav class="md-nav" aria-label="Install the Linux operating system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-configuration" class="md-nav__link">
+    Basic configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-the-legacy-camera-interface" class="md-nav__link">
+    Enable the legacy camera interface
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#overlayfs" class="md-nav__link">
-    OverlayFS
+  <a href="#configure-the-serial-ports" class="md-nav__link">
+    Configure the serial ports
   </a>
   
-    <nav class="md-nav" aria-label="OverlayFS">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-user-romi" class="md-nav__link">
+    Create user romi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-compile-and-install-the-software" class="md-nav__link">
+    Clone, compile, and install the software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-apache-web-server" class="md-nav__link">
+    Install the Apache web server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-the-software-on-boot" class="md-nav__link">
+    Starting the software on boot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-overlayfs" class="md-nav__link">
+    Extra: OverlayFS
+  </a>
+  
+    <nav class="md-nav" aria-label="Extra: OverlayFS">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -607,11 +675,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#romi-autossh" class="md-nav__link">
-    Romi autossh
+  <a href="#extra-romi-autossh" class="md-nav__link">
+    Extra: Romi autossh
   </a>
   
-    <nav class="md-nav" aria-label="Romi autossh">
+    <nav class="md-nav" aria-label="Extra: Romi autossh">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2730,15 +2798,16 @@
 <p>In addition, the installation requires the following actions on the Raspberry Pi Zero:</p>
 <ol>
 <li>Create the "romi" user account.</li>
-<li>Enable the SSH server (optional but recommended).</li>
+<li>Configure the WiFi to connect to an existing WiFi</li>
+<li>Enable the SSH server</li>
 <li>Enable the legacy camera interface.</li>
 <li>Configure the serial ports.</li>
 <li>Configure the start-up scripts.</li>
-<li>Configure the WiFi, either for the Cablebot to connect to an existing WiFi or to use the Cablenot as a WiFi access point.</li>
 <li>Install and configure the Apache HTTP server for the web interface.</li>
 <li>Configure the backup/transfer of the images.</li>
 </ol>
-<h2 id="basic-software-setup">Basic software setup<a class="headerlink" href="#basic-software-setup" title="Permanent link">Link</a></h2>
+<h2 id="installing-the-raspberry-pi-zero">Installing the Raspberry Pi Zero<a class="headerlink" href="#installing-the-raspberry-pi-zero" title="Permanent link">Link</a></h2>
+<h3 id="install-the-linux-operating-system">Install the Linux operating system<a class="headerlink" href="#install-the-linux-operating-system" title="Permanent link">Link</a></h3>
 <p><img alt="" src="/assets/images/farmersDashboard/rpiZ-08.png" /></p>
 <p>Download <a href="https://www.raspberrypi.org/downloads/raspberry-pi-os/">Raspberry Pi OS (32-bit) Lite</a> and burn the image to a sdcard of at least 8GB.
 To avid connecting the Pi to a monitor you can follow the instructions to setup <a href="https://www.raspberrypi.org/documentation/configuration/wireless/headless.md">WiFi</a> and <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/README.md">ssh</a> (scroll down to number 3) for a headless setup.</p>
@@ -2755,34 +2824,136 @@ To avid connecting the Pi to a monitor you can follow the instructions to setup 
 sudo apt upgrade
 </code></pre></div></p>
 </li>
-<li>
+</ul>
+<h4 id="basic-configuration">Basic configuration<a class="headerlink" href="#basic-configuration" title="Permanent link">Link</a></h4>
+<p>Run the <code>sudo raspi-config</code> command to change the base configuration:</p>
+<p><strong>Keyboard</strong>:</p>
+<p>If you need you can change keyboard, WLAN country and timezone
+settings using raspi-config. Run <code>raspi-config</code> command and select
+<code>5 Localization Options</code>.</p>
+<p><strong>Hostname</strong>:</p>
+<p>Still in raspi-config,</p>
+<ol>
+<li>Select <code>System Options</code></li>
+<li>Select <code>S4 Hostname</code></li>
+<li>Question: <code>Please enter a hostname</code>: Enter <code>cablebot</code></li>
+<li>Select <code>OK</code></li>
+</ol>
+<p><strong>Wifi</strong>:</p>
+<p>In raspi-config,</p>
+<ol>
+<li>Select <code>1 System Options</code> </li>
+<li>Select <code>S1 Wireless LAN</code></li>
+<li>Question: <code>Please enter SSID</code> Type the name of the WiFi network you want to connect to.</li>
+<li>Question: <code>Please enter passphrase. Leave it empty if none.</code> Type the password.</li>
+<li>Click <code>OK</code></li>
+</ol>
+<p><strong>SSH</strong>:</p>
+<p>In raspi-config,</p>
+<ol>
+<li>Select <code>3 Interface Option</code> </li>
+<li>Select <code>I2 SSH</code></li>
+<li>Question: <code>Would you like the SSH server to be enabled?</code> Select <code>Yes</code></li>
+</ol>
+<p>Make sure to test the remote login. To know the IP address of the Pi, run the following command:</p>
+<div class="highlight"><pre><span></span><code>$ ip a
+<span class="m">1</span>: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span class="m">65536</span> qdisc noqueue state UNKNOWN group default qlen <span class="m">1000</span>
+    link/loopback <span class="m">00</span>:00:00:00:00:00 brd <span class="m">00</span>:00:00:00:00:00
+    inet <span class="m">127</span>.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+<span class="m">2</span>: eth0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu <span class="m">1500</span> qdisc mq state DOWN group default qlen <span class="m">1000</span>
+    link/ether e4:5f:01:93:b6:a3 brd ff:ff:ff:ff:ff:ff
+<span class="m">3</span>: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc pfifo_fast state UP group default qlen <span class="m">1000</span>
+    link/ether e4:5f:01:93:b6:a7 brd ff:ff:ff:ff:ff:ff
+    inet <span class="m">172</span>.20.10.12/28 brd <span class="m">172</span>.20.10.15 scope global dynamic noprefixroute wlan0
+       valid_lft 86163sec preferred_lft 75363sec
+    inet6 2a02:8440:3141:50b1:d111:5312:d516:8327/64 scope global mngtmpaddr noprefixroute 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::1577:9a8:248f:7648/64 scope link 
+       valid_lft forever preferred_lft forever
+</code></pre></div>
+<p>The IP address of the WiFi interface can be found in the wlan0 section. In our case, it is 172.20.10.12. Now try to log in from a remote machine on the same network:</p>
+<div class="highlight"><pre><span></span><code>$ ssh romi@&lt;IP-ADDRESS&gt;
+</code></pre></div>
+<p>Replace IP-ADDRESS with the address found using <code>ip a</code>. Make sure that this work before continuing because further down we are going the deactivate the login console on the screen.</p>
+<h2 id="enable-the-legacy-camera-interface">Enable the legacy camera interface<a class="headerlink" href="#enable-the-legacy-camera-interface" title="Permanent link">Link</a></h2>
+<p>On newer version of the OS image, the legacy interface has to be activated manually. This can be done using raspi-config:</p>
+<div class="highlight"><pre><span></span><code>$ sudo raspi-config
+</code></pre></div>
+<ol>
+<li>Select <em>3 Interface Options</em></li>
+<li>Select <em>I1 Legacy Camera</em></li>
+<li>Select <em>Yes</em></li>
+<li>Reboot</li>
+</ol>
+<h2 id="configure-the-serial-ports">Configure the serial ports<a class="headerlink" href="#configure-the-serial-ports" title="Permanent link">Link</a></h2>
+<div class="highlight"><pre><span></span><code>$ sudo raspi-config
+</code></pre></div>
+<ol>
+<li>Select <em>3 Interface Options</em></li>
+<li>Select <em>I6 Serial Port</em></li>
+<li>Question: <em>Would you like a login shell to be accessible over serial?</em> Select <em>No</em></li>
+<li>Question: <em>Would you like the serial port hardware to be enabled?</em> Select  <em>Yes</em></li>
+</ol>
+<p>The confirmation dialog should display:</p>
+<div class="highlight"><pre><span></span><code>The serial login shell is disabled
+The serial interface is enabled
+</code></pre></div>
+<p>Click OK but don't reboot, yet.</p>
+<p>In /boot/config.txt, add the following line at the end of the file, in the section [all]:</p>
+<p>dtoverlay=pi3-disable-bt</p>
+<p>In /boot/cmdline.txt, remove (if still there):</p>
+<p>console=serial0,115200 </p>
+<p>Then reboot.</p>
+<p>When the Pi is back online, the ports /dev/serial0 and /dev/serial1 should be available:</p>
+<div class="highlight"><pre><span></span><code>$ ls /dev/serial*
+/dev/serial0  /dev/serial1
+</code></pre></div>
+<h2 id="create-user-romi">Create user romi<a class="headerlink" href="#create-user-romi" title="Permanent link">Link</a></h2>
 <p>Create user romi, set password and add it to needed groups.
 <div class="highlight"><pre><span></span><code>sudo useradd romi
 sudo usermod -a -G sudo,adm,dialout,video,netdev,plugdev,gpio romi
 </code></pre></div></p>
-</li>
-<li>
-<p>Run <code>raspi-config</code> command and change:</p>
-</li>
-<li><em>Network Options</em> → <em>Hostname</em> to <em>cablebot</em></li>
-<li>If you need you can change keyboard, WLAN country and timezone settings inside <em>Localization Options</em>.</li>
-<li>Enable the cammera, SSH server if you haven't yet and I2C interface in <em>Interfacing Options</em>.</li>
-<li>You can also update <em>raspi-config</em> tool via the <em>Update</em> menu.</li>
-<li>
-<p>Select <em>Finish</em> and reboot your Pi (<code>sudo reboot</code>).</p>
-</li>
-<li>
-<p>Install platformio
-<div class="highlight"><pre><span></span><code>sudo apt-get install python3-distutils
-curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -o get-platformio.py
-python3 get-platformio.py
+<p>Quit the current shell and reconnect using the "romi" login.</p>
+<h2 id="clone-compile-and-install-the-software">Clone, compile, and install the software<a class="headerlink" href="#clone-compile-and-install-the-software" title="Permanent link">Link</a></h2>
+<p>As user "romi" do:</p>
+<p>For the main software:</p>
+<div class="highlight"><pre><span></span><code>$ git clone --branch ci_dev --recurse-submodules https://github.com/romi/romi-rover-build-and-test.git
+$ <span class="nb">cd</span> romi-rover-build-and-test
+$ mkdir build
+$ <span class="nb">cd</span> build
+$ cmake ..
+$ make rcom-registry
+$ make romi-cablebot
+</code></pre></div>
+<p>For the firmware of the motor controller:</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> ~
+$ git clone https://github.com/romi/romi-cablebot.git
+$ <span class="nb">cd</span> romi-cablebot
+$ TODO
+</code></pre></div>
+<p>For the firmware of the camera pan controller:</p>
+<div class="highlight"><pre><span></span><code>$ TODO
+</code></pre></div>
+<h2 id="install-the-apache-web-server">Install the Apache web server<a class="headerlink" href="#install-the-apache-web-server" title="Permanent link">Link</a></h2>
+<div class="highlight"><pre><span></span><code>$ sudo apt install apache2
+$ sudo nano /etc/apache2/sites-enabled/000-default.conf
+</code></pre></div>
+<p>Change <code>DocumentRoot</code> in <code>/etc/apache2/sites-enabled/000-default.conf</code> to <code>/home/romi/romi-rover-build-and-test/applications/romi-monitor/</code></p>
+<p>Also add:
+<div class="highlight"><pre><span></span><code>        &lt;Directory /home/romi/romi-rover-build-and-test/applications/romi-monitor/&gt;
+                   Options Indexes
+                   AllowOverride None
+                   Require all granted
+        &lt;/Directory&gt;
+</code></pre></div>
+Then restart the <code>apache2.service</code> with <code>systemctl</code>:
+<div class="highlight"><pre><span></span><code>sudo systemctl restart apache2.service
 </code></pre></div></p>
-</li>
-</ul>
-<p>Edit your bash profile config fiel (usually <code>.bashrc</code>) and add the line 
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:~/.platformio/penv/bin
-</code></pre></div></p>
-<h2 id="overlayfs">OverlayFS<a class="headerlink" href="#overlayfs" title="Permanent link">Link</a></h2>
+<h2 id="starting-the-software-on-boot">Starting the software on boot<a class="headerlink" href="#starting-the-software-on-boot" title="Permanent link">Link</a></h2>
+<h2 id="extra-overlayfs">Extra: OverlayFS<a class="headerlink" href="#extra-overlayfs" title="Permanent link">Link</a></h2>
 <p>To avoid file system corruption on Raspberry Pi's that can have their power interrupted suddenly, having a read-only file system it's a good option.</p>
 <blockquote>
 <p>In computing, OverlayFS is a union mount filesystem implementation for Linux. It combines multiple different underlying mount points into one, resulting in single directory structure that contains underlying files and sub-directories from all sources. Common applications overlay a read/write partition over a read-only partition, such as with LiveCDs and IoT devices with limited flash memory write cycles. <a href="https://en.wikipedia.org/wiki/OverlayFS">Wikipedia</a></p>
@@ -2834,7 +3005,7 @@ and adding <code>ro</code> to <code>/etc/fstab</code>
 * <a href="https://github.com/nils-werner/raspi-overlayroot">https://github.com/nils-werner/raspi-overlayroot</a><br />
 * <a href="https://wiki.archlinux.org/title/Overlay_filesystem">https://wiki.archlinux.org/title/Overlay_filesystem</a>  </p>
 </div>
-<h2 id="romi-autossh">Romi autossh<a class="headerlink" href="#romi-autossh" title="Permanent link">Link</a></h2>
+<h2 id="extra-romi-autossh">Extra: Romi autossh<a class="headerlink" href="#extra-romi-autossh" title="Permanent link">Link</a></h2>
 <p>Locating a Romi device (ej. cablebot) on a network can be a dificult task depending on the network topology. Services like Dataplicity can solve this problem but have some disatvantages as not being free software, cost, vendor lock, etc.</p>
 <p>Having a server accesible via a public IP address is enough to make this work. Maintaining a persistent SSH reverse tunnel with autoSSH between the Romi device and the server will allow us to access the device from anywhere without knowing his IP address.</p>
 <h3 id="client-side-romi-device">Client side (Romi device)<a class="headerlink" href="#client-side-romi-device" title="Permanent link">Link</a></h3>
