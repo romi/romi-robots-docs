@@ -31,11 +31,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.romi-project.eu/test/</loc>
-         <lastmod>2022-12-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://docs.romi-project.eu/Farmers%20Dashboard/</loc>
          <lastmod>2022-12-05</lastmod>
          <changefreq>daily</changefreq>
@@ -142,11 +137,6 @@
     </url>
     <url>
          <loc>https://docs.romi-project.eu/Rover/librcom/</loc>
-         <lastmod>2022-12-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.romi-project.eu/Rover/manual-original/</loc>
          <lastmod>2022-12-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
