@@ -88,6 +88,7 @@ nav:
           - 'Plant Imager': 'plant_imager/tutorials/hardware_scan.md'
           - 'Intrinsic calibration': 'plant_imager/tutorials/intrinsic_calibration.md'
           - 'Extrinsic calibration': 'plant_imager/tutorials/extrinsic_calibration.md'
+          - 'Multiple scans': 'plant_imager/tutorials/multi_scan.md'
           - 'Virtual world': 'plant_imager/tutorials/virtual_plant_imager_single_dataset.md'
           - 'Virtual plant images' : plant_imager/tutorials/virtual_plant_generate_analyze_visualize.md
           - 'Training data for ML': 'plant_imager/tutorials/virtual_plant_imager_large_dataset.md'
