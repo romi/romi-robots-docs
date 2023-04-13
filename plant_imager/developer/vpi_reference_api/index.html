@@ -12,24 +12,24 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/plant_imager/tutorials/Tutorial_sm-dtw_simulatephyllotaxis/">
+        <link rel="canonical" href="https://docs.romi-project.eu/plant_imager/developer/vpi_reference_api/">
       
       
-        <link rel="prev" href="../plant-3d-explorer/">
+        <link rel="prev" href="../colmap_cli/">
       
       
-        <link rel="next" href="../../how_to/">
+        <link rel="next" href="../../docker/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
-        <title>SM-DTW with simulated data - ROMI Documentation</title>
+        <title>VPI API - ROMI Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -75,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#evaluate-a-phyllotaxis-measurement-case1-use-sm-dtw-with-simulated-data" class="md-skip">
+        <a href="#virtual-plant-imager-api" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SM-DTW with simulated data
+              VPI API
             
           </span>
         </div>
@@ -1532,16 +1532,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
       
       
       
@@ -1550,7 +1548,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3_7">
           <span class="md-nav__icon md-icon"></span>
           Tutorials
@@ -1563,7 +1561,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../tutorials/" class="md-nav__link">
         Home
       </a>
     </li>
@@ -1577,7 +1575,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basics/" class="md-nav__link">
+      <a href="../../tutorials/basics/" class="md-nav__link">
         CLI basics
       </a>
     </li>
@@ -1591,7 +1589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hardware_scan/" class="md-nav__link">
+      <a href="../../tutorials/hardware_scan/" class="md-nav__link">
         Plant Imager
       </a>
     </li>
@@ -1605,7 +1603,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intrinsic_calibration/" class="md-nav__link">
+      <a href="../../tutorials/intrinsic_calibration/" class="md-nav__link">
         Intrinsic calibration
       </a>
     </li>
@@ -1619,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extrinsic_calibration/" class="md-nav__link">
+      <a href="../../tutorials/extrinsic_calibration/" class="md-nav__link">
         Extrinsic calibration
       </a>
     </li>
@@ -1633,7 +1631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../multi_scan/" class="md-nav__link">
+      <a href="../../tutorials/multi_scan/" class="md-nav__link">
         Multiple scans
       </a>
     </li>
@@ -1647,7 +1645,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual_plant_imager_single_dataset/" class="md-nav__link">
+      <a href="../../tutorials/virtual_plant_imager_single_dataset/" class="md-nav__link">
         Virtual world
       </a>
     </li>
@@ -1661,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual_plant_generate_analyze_visualize/" class="md-nav__link">
+      <a href="../../tutorials/virtual_plant_generate_analyze_visualize/" class="md-nav__link">
         Virtual plant images
       </a>
     </li>
@@ -1675,7 +1673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual_plant_imager_large_dataset/" class="md-nav__link">
+      <a href="../../tutorials/virtual_plant_imager_large_dataset/" class="md-nav__link">
         Training data for ML
       </a>
     </li>
@@ -1689,7 +1687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reconstruct_scan/" class="md-nav__link">
+      <a href="../../tutorials/reconstruct_scan/" class="md-nav__link">
         Reconstruct 3D data
       </a>
     </li>
@@ -1703,7 +1701,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plant-3d-explorer/" class="md-nav__link">
+      <a href="../../tutorials/plant-3d-explorer/" class="md-nav__link">
         Explore your data
       </a>
     </li>
@@ -1715,107 +1713,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          SM-DTW with simulated data
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tutorials/tutorial_sm-dtw_simulatephyllotaxis/" class="md-nav__link">
         SM-DTW with simulated data
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#related-materials" class="md-nav__link">
-    Related Materials:
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#objective" class="md-nav__link">
-    Objective
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisite" class="md-nav__link">
-    Prerequisite
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-by-step-tutorial" class="md-nav__link">
-    Step-by-step tutorial
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1-download-the-docker-image" class="md-nav__link">
-    1. Download the docker image
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-using-jupyter-notebook-inside-a-docker" class="md-nav__link">
-    2. Using jupyter notebook inside a docker:
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Using jupyter notebook inside a docker:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#running-the-jupyter-notebook" class="md-nav__link">
-    Running the Jupyter notebook:
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#outline-of-the-tutorial-video" class="md-nav__link">
-    Outline of the tutorial video
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2276,14 +2178,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10" checked>
       
       
       
@@ -2292,7 +2196,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_10_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3_10">
           <span class="md-nav__icon md-icon"></span>
           Developer
@@ -2305,7 +2209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Home
       </a>
     </li>
@@ -2319,7 +2223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/pipeline_repeatability/" class="md-nav__link">
+      <a href="../pipeline_repeatability/" class="md-nav__link">
         Pipelines repeatability
       </a>
     </li>
@@ -2333,7 +2237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/user_case_scenarios/" class="md-nav__link">
+      <a href="../user_case_scenarios/" class="md-nav__link">
         User case scenarios
       </a>
     </li>
@@ -2347,7 +2251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/git_workflow/" class="md-nav__link">
+      <a href="../git_workflow/" class="md-nav__link">
         Git Workflow
       </a>
     </li>
@@ -2361,7 +2265,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/git_submodules_workflow/" class="md-nav__link">
+      <a href="../git_submodules_workflow/" class="md-nav__link">
         Git Submodules
       </a>
     </li>
@@ -2375,7 +2279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/git_docReview/" class="md-nav__link">
+      <a href="../git_docReview/" class="md-nav__link">
         Contribute to docs
       </a>
     </li>
@@ -2389,7 +2293,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/tutorial_template/" class="md-nav__link">
+      <a href="../tutorial_template/" class="md-nav__link">
         Make a tutorial
       </a>
     </li>
@@ -2403,7 +2307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/conda/" class="md-nav__link">
+      <a href="../conda/" class="md-nav__link">
         Conda
       </a>
     </li>
@@ -2417,9 +2321,194 @@
   
   
     <li class="md-nav__item">
-      <a href="../../developer/colmap_cli/" class="md-nav__link">
+      <a href="../colmap_cli/" class="md-nav__link">
         COLMAP
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          VPI API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        VPI API
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#start-the-blender-server" class="md-nav__link">
+    Start the Blender server
+  </a>
+  
+    <nav class="md-nav" aria-label="Start the Blender server">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-a-container" class="md-nav__link">
+    Start a container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-the-blender-flask-server" class="md-nav__link">
+    Start the Blender Flask server
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-server" class="md-nav__link">
+    Test the server
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    Reference
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objects" class="md-nav__link">
+    Objects
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    Classes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backgrounds" class="md-nav__link">
+    Backgrounds
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera" class="md-nav__link">
+    Camera
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    Rendering
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-camera" class="md-nav__link">
+    Setup camera
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-arabidopsis_0-obj" class="md-nav__link">
+    Load arabidopsis_0 OBJ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-old-tree-in-the-park-background" class="md-nav__link">
+    Load "old tree in the park" background
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-camera" class="md-nav__link">
+    Move camera
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-scene-and-download-image" class="md-nav__link">
+    Render scene and download image
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render-only-leaves" class="md-nav__link">
+    Render only leaves
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2436,17 +2525,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_11" >
       
       
       
-        <label class="md-nav__link" for="__nav_3_10_10" id="__nav_3_10_10_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_10_11" id="__nav_3_10_11_label" tabindex="0">
           Docker
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_10_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3_10_10">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_10_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_10_11">
           <span class="md-nav__icon md-icon"></span>
           Docker
         </label>
@@ -2614,118 +2703,131 @@
                   
 
 
-<h1 id="evaluate-a-phyllotaxis-measurement-case1-use-sm-dtw-with-simulated-data">Evaluate a phyllotaxis measurement (case1) Use sm-dtw with simulated data<a class="headerlink" href="#evaluate-a-phyllotaxis-measurement-case1-use-sm-dtw-with-simulated-data" title="Permanent link">Link</a></h1>
-<p>How to use the 'sm-dtw' assessment tool with simulated synthetic phyllotaxis data</p>
-<h2 id="related-materials">Related Materials:<a class="headerlink" href="#related-materials" title="Permanent link">Link</a></h2>
+<h1 id="virtual-plant-imager-api">Virtual Plant Imager API<a class="headerlink" href="#virtual-plant-imager-api" title="Permanent link">Link</a></h1>
+<p>Once you start the <code>romi_virtualplantimager</code> Python script in Blender, you will have a Flask server running and listening to HTTP requests.</p>
+<p>Hereafter we list the GET/POST requests that can be made and give some examples.</p>
+<h2 id="start-the-blender-server">Start the Blender server<a class="headerlink" href="#start-the-blender-server" title="Permanent link">Link</a></h2>
+<p>There are many ways to do this, but the simplest &amp; fastest option is to use the Docker image <code>roboticsmicrofarms/virtualplantimager</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We make use of the <code>$DB_LOCATION</code> environment variable.
+If not done yet, you may want to set it with <code>export DB_LOCATION=/path/to/database</code>.
+Or replace it with the path to use.</p>
+</div>
+<h3 id="start-a-container">Start a container<a class="headerlink" href="#start-a-container" title="Permanent link">Link</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Docker CLI</label><label for="__tabbed_1_2"><code>run.sh</code> script</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Start a container and open a bash shell:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>roboticsmicrofarms/virtualplantimager:latest<span class="w"> </span>-v<span class="w"> </span><span class="nv">$DB_LOCATION</span>:/myapp/db<span class="w"> </span>bash
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>Start a container and open a bash shell:
+<div class="highlight"><pre><span></span><code>./docker/virtualplantimager/run.sh<span class="w"> </span>-db<span class="w"> </span><span class="nv">$DB_LOCATION</span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<h3 id="start-the-blender-flask-server">Start the Blender Flask server<a class="headerlink" href="#start-the-blender-flask-server" title="Permanent link">Link</a></h3>
+<p>Then start the Blender server (listening to port 5000) with:
+<div class="highlight"><pre><span></span><code>romi_bpy<span class="w"> </span>plant-imager/bin/romi_virtualplantimager<span class="w"> </span>--<span class="w"> </span>--port<span class="w"> </span><span class="m">9001</span>
+</code></pre></div>
+When the server is up and running you should get something like:
+<div class="highlight"><pre><span></span><code> * Serving Flask app &#39;romi_virtualplantimager&#39;
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9001
+ * Running on http://172.17.0.2:9001
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The first HTTP address is accessible from within the container.
+The second HTTP address is accessible from the host running the container.</p>
+</div>
+<h3 id="test-the-server">Test the server<a class="headerlink" href="#test-the-server" title="Permanent link">Link</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">From the host</label><label for="__tabbed_2_2">From the container</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>You may now use a web browser to submit a <code>/hello_world</code> request at <code>http://172.17.0.2:9001</code>.</p>
+<p>To do so, just copy/paste <code>http://172.17.0.2:9001/hello_world</code> to the URL bar.</p>
+</div>
+<div class="tabbed-block">
+<p>You may use Python to submit a request at <code>http://172.0.0.1:9001</code>.</p>
+<p>For example, you may get info by submitting a <code>/hello_world</code> request as follows:</p>
+<ol>
+<li>Open a new shell in the running container with (do not forget to replace the <code>CONTAINER_ID</code>):
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>CONTAINER_ID<span class="w"> </span>bash
+</code></pre></div></li>
+<li>Then use Python to send a GET request:
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import requests</span>
+<span class="s2">res = requests.get(&#39;http://127.0.0.1:9001/hello_world&#39;)</span>
+<span class="s2">print(res.content.decode())&quot;</span>
+</code></pre></div></li>
+</ol>
+</div>
+</div>
+</div>
+<p>You should get a JSON response similar to this:
+<div class="highlight"><pre><span></span><code>&quot;Hello World!&quot;
+&quot;I am a Flask server named &#39;romi_virtualplantimager&#39;.&quot;
+&quot;I run Blender 2.93.16 built on 2023-03-21.&quot;
+&quot;I run Python 3.9.16.&quot;
+</code></pre></div></p>
+<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">Link</a></h2>
+<h3 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">Link</a></h3>
 <ul>
-<li>
-<p>Download and view the full <strong><a href="https://zenodo.org/record/6793459#.YsKmMXjP0Uk">tutorial video</a></strong>. See also <a href="./#outline-of-the-tutorial-video">below</a> how to navigate rapidely into the content of this video.</p>
-</li>
-<li>
-<p><strong>related readme</strong> procedure: you can also help by reading the readme of the <a href="https://github.com/fabfabBesnard/Phyllotaxis-sim-eval/blob/main/docker/docker_readme.md">project</a>.</p>
-</li>
+<li><code>/objects</code> (GET): retrieve the list of <code>obj</code> files in the data folder that can be loaded.</li>
+<li><code>/load_object/&lt;object_id&gt;</code> (GET) load the given object in the scene. Takes a translation vector as URL parameters (<code>dx</code>, <code>dy</code>, <code>dz</code>)</li>
 </ul>
-<h2 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">Link</a></h2>
+<h3 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">Link</a></h3>
 <ul>
-<li>generate synthetic data to use the sm-dtw program</li>
-<li>use sm-dtw</li>
-<li>evaluate the prediction made by sm-dtw</li>
+<li><code>/classes</code> (GET): retrieve the list of classes.</li>
 </ul>
-<h2 id="prerequisite">Prerequisite<a class="headerlink" href="#prerequisite" title="Permanent link">Link</a></h2>
-<p>you only need to install <a href="https://docs.docker.com/desktop/#download-and-install">docker</a>. No other third-party software (R, python, jupyter, conda) is required, as all the programs are run from inside the docker container</p>
-<h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
-<h2 id="1-download-the-docker-image">1. Download the docker image<a class="headerlink" href="#1-download-the-docker-image" title="Permanent link">Link</a></h2>
-<p>It should be downloaded automatically when trying to run the docker for the first time</p>
-<div class="highlight"><pre><span></span><code>docker run -p 8888:8888 -it roboticsmicrofarms/sm-dtw_demo:latest bash
+<h3 id="backgrounds">Backgrounds<a class="headerlink" href="#backgrounds" title="Permanent link">Link</a></h3>
+<ul>
+<li><code>/backgrounds</code> (GET): retrieve the list of <code>hdr</code> files in the <code>hdri</code> folder that can be loaded.</li>
+<li><code>/load_background/&lt;background_id&gt;</code> (GET) load the given background in the scene.</li>
+</ul>
+<h3 id="camera">Camera<a class="headerlink" href="#camera" title="Permanent link">Link</a></h3>
+<ul>
+<li><code>/camera_intrinsics</code> (POST): set camera intrinsics. Keys: <code>width</code>, <code>height</code>, <code>focal</code></li>
+<li><code>/camera_pose</code> (POST): set camera pose. Keys: <code>tx</code>, <code>ty</code>, <code>tz</code>, <code>rx</code>, <code>ry</code>, <code>rz</code></li>
+</ul>
+<h3 id="rendering">Rendering<a class="headerlink" href="#rendering" title="Permanent link">Link</a></h3>
+<ul>
+<li><code>/render</code> (GET): gets the rendering of the scene</li>
+<li><code>/render_class/&lt;class_id&gt;</code> (GET) renders the scene, with everything transparent except the given class</li>
+</ul>
+<div class="admonition todo">
+<p class="admonition-title">Todo</p>
+<p>Missing endpoints.</p>
+</div>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">Link</a></h2>
+<p>Using a browser to send HTTP requests is not too convenient.
+Instead, you may use <a href="https://httpie.org/">httpie</a> to send HTTP commands from a terminal.</p>
+<p>To easily adapt to other configurations, we define the <code>$VPI_HOST</code> &amp; <code>$VPI_PORT</code> variables.
+For example, matching the example given above, we define:
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">VPI_HOST</span><span class="o">=</span><span class="s1">&#39;172.17.0.2&#39;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">VPI_PORT</span><span class="o">=</span><span class="s1">&#39;9001&#39;</span>
+</code></pre></div></p>
+<h3 id="setup-camera">Setup camera<a class="headerlink" href="#setup-camera" title="Permanent link">Link</a></h3>
+<div class="highlight"><pre><span></span><code>http<span class="w"> </span>-f<span class="w"> </span>post<span class="w"> </span><span class="s2">&quot;http://</span><span class="nv">$VPI_HOST</span><span class="s2">:</span><span class="nv">$VPI_PORT</span><span class="s2">/camera_intrinsics width=1920 height=1080 focal=35&quot;</span>
 </code></pre></div>
-<h2 id="2-using-jupyter-notebook-inside-a-docker">2. Using jupyter notebook inside a docker:<a class="headerlink" href="#2-using-jupyter-notebook-inside-a-docker" title="Permanent link">Link</a></h2>
-<h3 id="running-the-jupyter-notebook">Running the Jupyter notebook:<a class="headerlink" href="#running-the-jupyter-notebook" title="Permanent link">Link</a></h3>
-<ol>
-<li>In your <strong>local machine</strong>, create a working directory to store the results generated by the notebook. It will be mounted inside the container, where its name will be "docker_sandbox". The name in you local machine can be identical or different, but keep the name inside the docker to avoid further changes in the notebooks. Sop open a terminal and type: </li>
-</ol>
-<div class="highlight"><pre><span></span><code>mkdir docker_sandbox # this folder can be created anywhere in your local machine
-cd docker_sandbox # Move into this working directory
+<h3 id="load-arabidopsis_0-obj">Load <code>arabidopsis_0</code> OBJ<a class="headerlink" href="#load-arabidopsis_0-obj" title="Permanent link">Link</a></h3>
+<div class="highlight"><pre><span></span><code>http<span class="w"> </span>get<span class="w"> </span><span class="s2">&quot;http://</span><span class="nv">$VPI_HOST</span><span class="s2">:</span><span class="nv">$VPI_PORT</span><span class="s2">/load_object/arabidopsis_0.obj?dx=10&amp;dy=20&amp;dz=1&quot;</span>
 </code></pre></div>
-<ol>
-<li>Start the container:</li>
-</ol>
-<p><div class="highlight"><pre><span></span><code>docker run -v $(pwd):/myapp/docker_sandbox -p 8888:8888 -it roboticsmicrofarms/sm-dtw_demo:latest bash
+<h3 id="load-old-tree-in-the-park-background">Load "old tree in the park" background<a class="headerlink" href="#load-old-tree-in-the-park-background" title="Permanent link">Link</a></h3>
+<div class="highlight"><pre><span></span><code>http<span class="w"> </span>get<span class="w"> </span><span class="s2">&quot;http://127.0.0.1:</span><span class="nv">$VPI_PORT</span><span class="s2">/load_background/old_tree_in_city_park_8k.hdr&quot;</span>
 </code></pre></div>
-<em>Note</em>: you can start this command from anywhere in your local machine by correctly mapping the mounted volume in the string before the semi-column (<code>-v path/in/your/machine:/myapp/docker_sandbox</code>) </p>
-<ol>
-<li><strong>Inside the container</strong>, serve the notebooks by entering the following command after the running container's prompt (which should be something like: <code>(dtw) root@aa7632c1fc29:/myapp#</code>):</li>
-</ol>
-<div class="highlight"><pre><span></span><code>jupyter notebook Phyllotaxis-sim-eval/notebooks/docker_run --ip 0.0.0.0 --no-browser --allow-root
+<h3 id="move-camera">Move camera<a class="headerlink" href="#move-camera" title="Permanent link">Link</a></h3>
+<div class="highlight"><pre><span></span><code>http<span class="w"> </span>-f<span class="w"> </span>post<span class="w"> </span><span class="s2">&quot;http://</span><span class="nv">$VPI_HOST</span><span class="s2">:</span><span class="nv">$VPI_PORT</span><span class="s2">/camera_pose tx=-60 ty=0 tz=50 rx=60 ry=0 rz=-90&quot;</span>
 </code></pre></div>
-<ol>
-<li>Outside the docker, start your browser</li>
-<li>enter the url with token:"<a href="http://127.0.0.1:8888/?token=">http://127.0.0.1:8888/?token=</a>....." or directly Ctrl+click on it</li>
-<li>select the correct kernel (R, dtw or bash, as indicated in the first cell of the notebook)</li>
-<li>run the notebook !</li>
-</ol>
-<h2 id="outline-of-the-tutorial-video">Outline of the tutorial video<a class="headerlink" href="#outline-of-the-tutorial-video" title="Permanent link">Link</a></h2>
-<p>Here is the main content of the video and indicative time to help you directly jump into the chapters you are interested in !</p>
-<table>
-<thead>
-<tr>
-<th>Chapter</th>
-<th>Time start</th>
-<th>Content description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Introduction</td>
-<td>00min 00s</td>
-<td>Romi Project, object of this video</td>
-</tr>
-<tr>
-<td>Content Outline</td>
-<td>00min 30s</td>
-<td>details the content of the video</td>
-</tr>
-<tr>
-<td>What is sm-dtw ?</td>
-<td>1min 05s</td>
-<td>general description of sm-dtw program</td>
-</tr>
-<tr>
-<td>Why/when do I need 'sm-dtw'</td>
-<td>2min 40s</td>
-<td>Presents the precise example of our use for phyllotaxis measurement in Romi and propose other possible user cases</td>
-</tr>
-<tr>
-<td>Where to find online written documentation</td>
-<td>8min15</td>
-<td>provides a link to the 'readme' page of the github repo of the project</td>
-</tr>
-<tr>
-<td>Docker &amp; Jupyter notebooks</td>
-<td>8min 47</td>
-<td>Download and start docker + start Jupyter Notebooks Prepare a working folder to store your data on your local machine</td>
-</tr>
-<tr>
-<td>Step1 (1<sup>st</sup> Jupyter notebook)</td>
-<td>12min 12s</td>
-<td>Explains how to simulate synthetic data made of a sequence of reference phyllotaxis data (angles and internodes) a test sequence containing errors</td>
-</tr>
-<tr>
-<td>Step2 (2<sup>nd</sup> Jupyter notebook)</td>
-<td>28min 15s</td>
-<td>Explains how to realignthe two phyllotaxis sequences generated in step1 using sm-dtw</td>
-</tr>
-<tr>
-<td>Step3 (3<sup>rd</sup> Jupyter notebook)</td>
-<td>39min 11s</td>
-<td>Explains how to check that the alignment prediction made by sm-dtw correspond to the errors generated in step1</td>
-</tr>
-<tr>
-<td>Quit and close Jupyter notebooks and docker container</td>
-<td>51min 20s</td>
-<td>proper procedure to close and quit jupyter notebooks and the docker container.</td>
-</tr>
-</tbody>
-</table>
+<h3 id="render-scene-and-download-image">Render scene and download image<a class="headerlink" href="#render-scene-and-download-image" title="Permanent link">Link</a></h3>
+<div class="highlight"><pre><span></span><code>http<span class="w"> </span>--download<span class="w"> </span>get<span class="w"> </span><span class="s2">&quot;http://</span><span class="nv">$VPI_HOST</span><span class="s2">:</span><span class="nv">$VPI_PORT</span><span class="s2">/render&quot;</span>
+</code></pre></div>
+<h3 id="render-only-leaves">Render only leaves<a class="headerlink" href="#render-only-leaves" title="Permanent link">Link</a></h3>
+<div class="highlight"><pre><span></span><code>http<span class="w"> </span>--download<span class="w"> </span>get<span class="w"> </span><span class="s2">&quot;http://</span><span class="nv">$VPI_HOST</span><span class="s2">:</span><span class="nv">$VPI_PORT</span><span class="s2">/render_class/Color_7&quot;</span>
+</code></pre></div>
 
 
 
@@ -2768,7 +2870,7 @@ cd docker_sandbox # Move into this working directory
       
     
     <a href="https://twitter.com/ROMI_EU_PROJECT" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
     </a>
   
     
@@ -2779,7 +2881,7 @@ cd docker_sandbox # Move into this working directory
       
     
     <a href="https://www.facebook.com/ROMIEUProject" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
     </a>
   
     
@@ -2790,7 +2892,7 @@ cd docker_sandbox # Move into this working directory
       
     
     <a href="https://github.com/romi/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -2807,7 +2909,7 @@ cd docker_sandbox # Move into this working directory
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

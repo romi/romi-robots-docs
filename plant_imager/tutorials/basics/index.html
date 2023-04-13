@@ -21,7 +21,7 @@
         <link rel="next" href="../hardware_scan/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
@@ -29,7 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
@@ -1645,54 +1645,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#scanner-api-reference" class="md-nav__link">
-    Scanner API reference
-  </a>
-  
-    <nav class="md-nav" aria-label="Scanner API reference">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#objects" class="md-nav__link">
-    Objects
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#classes" class="md-nav__link">
-    Classes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#backgrounds" class="md-nav__link">
-    Backgrounds
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#camera" class="md-nav__link">
-    Camera
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rendering" class="md-nav__link">
-    Rendering
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1834,7 +1786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Tutorial_sm-dtw_simulatephyllotaxis/" class="md-nav__link">
+      <a href="../tutorial_sm-dtw_simulatephyllotaxis/" class="md-nav__link">
         SM-DTW with simulated data
       </a>
     </li>
@@ -2451,23 +2403,37 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../developer/vpi_reference_api/" class="md-nav__link">
+        VPI API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_10" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_10_11" >
       
       
       
-        <label class="md-nav__link" for="__nav_3_10_10" id="__nav_3_10_10_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_10_11" id="__nav_3_10_11_label" tabindex="0">
           Docker
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_10_10_label" aria-expanded="false">
-        <label class="md-nav__title" for="__nav_3_10_10">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_10_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_10_11">
           <span class="md-nav__icon md-icon"></span>
           Docker
         </label>
@@ -2644,7 +2610,7 @@ The most important part is <a href="https://colmap.github.io/">Colmap</a> (v3.6)
 <p>The two requirements that are not shipped with <code>pip</code> are:</p>
 <ul>
 <li><a href="https://colmap.github.io/">Colmap</a> (v3.6 or v3.7) for the <em>structure from motion</em> algorithms</li>
-<li><a href="https://www.blender.org/">Blender</a> (&gt;= 2.81) to be able to use the <em>virtual plant imager</em></li>
+<li><a href="https://www.blender.org/">Blender</a> (&gt;= 2.93) to be able to use the <em>virtual plant imager</em></li>
 </ul>
 <p>Preferably, create a virtual environment for python 3.7 or python 3.8 using <code>virtualenv</code> or a conda environment specific to the 3D Scanner.</p>
 <div class="admonition warning">
@@ -2787,177 +2753,6 @@ Already computed tasks will be left untouched.</p>
 <p>This is for reference only, please update the changes in the code.
 This will be later replaced by a reference doc generated from the code!</p>
 </div>
-<div class="highlight"><pre><span></span><code>Class name: Scan
-Module: plantimager.tasks.scan
-Description: A task for running a scan, real or virtual.
-Default upstream tasks: None
-Parameters:
-    - metadata (DictParameter) : metadata for the scan
-    - scanner (DictParameter) : scanner hardware configuration (TODO: see hardware documentation)
-    - path (DictParameter) : scanner path configuration (TODO: see hardware documentation)
-
-Class name: CalibrationScan
-Module: plantimager.tasks.scan
-Description: A task for running a scan, real or virtual, with a calibration path. It is used to calibrate
-    Colmap poses for subsequent scans. (TODO: see calibration documentation)
-Default upstream tasks: None
-Parameters:
-    - metadata (DictParameter) : metadata for the scan
-    - scanner (DictParameter) : scanner hardware configuration (TODO: see hardware documentation)
-    - path (DictParameter) : scanner path configuration (TODO: see hardware documentation)
-    - n_line : number of shots taken on the orthogonal calibration lines
-
-Class name: Clean
-Module: plantimager.tasks.scan
-Description: Cleanup a scan, keeping only the &quot;images&quot; fileset and removing all computed pipelines.
-Default upstream tasks: None
-Parameters:
-    - no_confirm (BoolParameter, default=False) : do not ask for confirmation in the command prompt.
-
-Class name: Colmap
-Module: plant3dvision.tasks.colmap
-Description: Runs colmap on a given scan.
-Default upstream tasks: Scan
-Upstream task format: Fileset with image files
-Output fileset format: images.json, cameras.json, points3D.json, sparse.ply [, dense.ply]
-Parameters:
-    - matcher (Parameter, default=&quot;exhaustive&quot;) : either &quot;exhaustive&quot; or &quot;sequential&quot; (TODO: see Colmap documentation)
-    - compute_dense (BoolParameter) : whether to run the dense Colmap to obtain a dense point cloud
-    - cli_args (DictParameter) : parameters for Colmap command line prompts (TODO: see Colmap documentation)
-    - align_pcd (BoolParameter, default=True) : align point cloud on calibrated or metadata poses ?
-    - calibration_scan_id (Parameter, default=&quot;&quot;) : ID of the calibration scan.
-
-Class name: Undistorted
-Module: plant3dvision.tasks.proc2d
-Description: Undistorts images using computed intrinsic camera parameters
-Default upstream tasks: Scan, Colmap
-Upstream task format: Fileset with image files
-Output fileset format: Fileset with image files
-
-Class name: Masks
-Module: plant3dvision.tasks.proc2d
-Description: compute masks using several functions
-Default upstream tasks: Undistorted
-Upstream task format: Fileset with image files
-Output fileset format: Fileset with grayscale or binary image files
-Parameters:
-    - type (Parameter) : &quot;linear&quot;, &quot;excess_green&quot;, &quot;vesselness&quot;, &quot;invert&quot; (TODO: see segmentation documentation) 
-    - parameters (ListParameter) : list of scalar parameters, depends on type
-    - dilation (IntParameter) : by how much to dilate masks if binary
-    - binarize (BoolParameter, default=True) : binarize the masks
-    - threshold (FloatParameter, default=0.0) : threshold for binarization
-    - 
-Class name: Segmentation2D
-Module: plant3dvision.tasks.proc2d
-Description: compute masks using trained deep learning models
-Default upstream tasks: Undistorted
-Upstream task format: Fileset with image files
-Output fileset format: Fileset with grayscale image files, each corresponding to a given input image and class
-Parameters:
-    - query (DictParameter) : query to pass to upstream fileset. It filters file by metadata, e.g {&quot;channel&quot;: &quot;rgb&quot;} will process
-        only input files such that &quot;channel&quot; metadata is equal to &quot;rgb&quot;.
-    - labels (Parameter) : string of the form &quot;a,b,c&quot; such that a, b, c are the identifiers of the labels produced by the neural
-        network
-    - Sx, Sy (IntParameter) : size of the input of the neural network. Input pictures are cropped in the center to this size.
-    - model_segmentation_name : name of &quot;.pt&quot; file  that can be found at  `https://db.romi-project.eu/models`
-    - 
-Class name: Voxels
-Module: plant3dvision.tasks.cl
-Description: Computes a volume from back-projection of 2D segmented images
-Default upstream tasks: 
-    - upstream_mask: Masks
-    - upstream_colmap: Colmap
-Upstream task format:
-    - upstream_mask: Fileset with grayscale images
-    - upstream_colmap: Output of Colmap task
-Output fileset format: npz file with as many arrays as classes
-Parameters:
-    - use_colmap_poses (BoolParameter, default=True): Either use precomputed camera poses or output from the Colmap task
-    - voxel_size (FloatParameter): size of one side of voxels
-    - type (Parameter): &quot;carving&quot; or &quot;averaging&quot; (TODO: See 3D documentation)
-    - multiclass (BoolParameter, default=False): whether input data is single class or multiclass (e.g as an output of Segmentation2D)
-    - log (BoolParameter, default=True), in the case of &quot;averaging&quot; type, whether to apply log when averaging values.
-
-Class name: PointCloud
-Module: plant3dvision.tasks.scan
-Description: Computes a point cloud from volumetric voxel data (either single or multiclass)
-Default upstream tasks: Voxels
-Upstream task format: npz file with as many 3D array as classes
-Output task format: single point cloud in ply. Metadata may include label name if multiclass.
-
-Class name: TriangleMesh
-Module: plant3dvision.tasks.scan
-Description: Triangulates input point cloud. Currently ignores class data and needs only one connected component.
-Default upstream tasks: PointCloud
-Upstream task format: ply file
-Output task format: ply triangle mesh file
-
-Class name: CurveSkeleton
-Module: plant3dvision.tasks.scan
-Description: Creates a 3D curve skeleton
-Default upstream tasks: TriangleMesh
-Upstream task format: ply triangle mesh
-Output task format: json with two entries &quot;points&quot; and &quot;lines&quot; (TODO: precise)
-
-Class name: TreeGraph
-Module: plant3dvision.tasks.arabidopsis
-Description: Creates a tree graph of the plant
-Default upstream tasks: CurveSkeleton
-Upstream task format: json
-Output task format: json (TODO: precise)
-
-Class name; AnglesAndInternodes
-Module: plant3dvision.tasks.arabidopsis
-Description: Computes angles and internode
-Default upstream tasks: TreeGraph
-Upstream task format: json
-Output task format: json (TODO: precise)
-</code></pre></div>
-<h2 id="scanner-api-reference">Scanner API reference<a class="headerlink" href="#scanner-api-reference" title="Permanent link">Link</a></h2>
-<h3 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">Link</a></h3>
-<ul>
-<li><code>/objects</code> (GET): retrieve the list of <code>obj</code> files in the data folder that can be loaded.</li>
-<li><code>/load_object/&lt;object_id&gt;</code> (GET) load the given object in the scene. Takes a translation vector as URL parameters (<code>dx</code>, <code>dy</code>, <code>dz</code>)</li>
-</ul>
-<h3 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">Link</a></h3>
-<ul>
-<li><code>/classes</code> (GET): retrieve the list of classes.</li>
-</ul>
-<h3 id="backgrounds">Backgrounds<a class="headerlink" href="#backgrounds" title="Permanent link">Link</a></h3>
-<ul>
-<li><code>/backgrounds</code> (GET): retrieve the list of <code>hdr</code> files in the <code>hdri</code> folder that can be loaded.</li>
-<li><code>/load_background/&lt;background_id&gt;</code> (GET) load the given background in the scene.</li>
-</ul>
-<h3 id="camera">Camera<a class="headerlink" href="#camera" title="Permanent link">Link</a></h3>
-<ul>
-<li><code>/camera_intrinsics</code> (POST): set camera intrinsics. Keys: <code>width</code>, <code>height</code>, <code>focal</code></li>
-<li><code>/camera_pose</code> (POST): set camera pose. Keys: <code>tx</code>, <code>ty</code>, <code>tz</code>, <code>rx</code>, <code>ry</code>, <code>rz</code></li>
-</ul>
-<h3 id="rendering">Rendering<a class="headerlink" href="#rendering" title="Permanent link">Link</a></h3>
-<ul>
-<li><code>/render</code> (GET): gets the rendering of the scene</li>
-<li><code>/render_class/&lt;class_id&gt;</code> (GET) renders the scene, with everything transparent except the given class</li>
-</ul>
-<p>TODO: missing endpoints</p>
-<p><a href="https://httpie.org/">httpie</a></p>
-<div class="highlight"><pre><span></span><code># Setup camera
-http -f post http://localhost:5000/camera_intrinsics width=1920 height=1080 focal=35
-
-# Load arabidopsis_0
-http get &#39;http://localhost:5000/load_object/arabidopsis_0.obj?dx=10&amp;dy=20&amp;dz=1&#39;
-
-# Load &quot;old tree in the park&quot; background
-http get http://127.0.0.1:5000/load_background/old_tree_in_city_park_8k.hdr
-
-# Move camera
-http -f post http://localhost:5000/camera_pose tx=-60 ty=0 tz=50 rx=60 ry=0 rz=-90
-
-# Render scene and download image
-http --download get http://localhost:5000/render
-
-# Render only leaves
-http --download get http://localhost:5000/render_class/Color_7
-</code></pre></div>
 
 
 
@@ -3000,7 +2795,7 @@ http --download get http://localhost:5000/render_class/Color_7
       
     
     <a href="https://twitter.com/ROMI_EU_PROJECT" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
     </a>
   
     
@@ -3011,7 +2806,7 @@ http --download get http://localhost:5000/render_class/Color_7
       
     
     <a href="https://www.facebook.com/ROMIEUProject" target="_blank" rel="noopener" title="www.facebook.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
     </a>
   
     
@@ -3022,7 +2817,7 @@ http --download get http://localhost:5000/render_class/Color_7
       
     
     <a href="https://github.com/romi/" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -3039,7 +2834,7 @@ http --download get http://localhost:5000/render_class/Color_7
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "toc.integrate"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
