@@ -24,4 +24,4 @@
 
 * [Reconstruct 3D data](reconstruct_scan.md): Reconstruct 3D data from RGB images
 * [Explore your data](plant-3d-explorer.md): View your reconstructions and analysis with the `plant-3d-explorer`
-* [SM-DTW with simulated data](Tutorial_sm-dtw_simulatephyllotaxis.md): Evaluate phyllotaxis measurements with `SM-DTW` from simulated data
+* [SM-DTW with simulated data](tutorial_sm-dtw_simulatephyllotaxis.md): Evaluate phyllotaxis measurements with `SM-DTW` from simulated data

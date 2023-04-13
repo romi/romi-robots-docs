@@ -94,7 +94,7 @@ nav:
           - 'Training data for ML': 'plant_imager/tutorials/virtual_plant_imager_large_dataset.md'
           - 'Reconstruct 3D data': 'plant_imager/tutorials/reconstruct_scan.md'
           - 'Explore your data': 'plant_imager/tutorials/plant-3d-explorer.md'
-          - 'SM-DTW with simulated data': 'plant_imager/tutorials/Tutorial_sm-dtw_simulatephyllotaxis.md'
+          - 'SM-DTW with simulated data': 'plant_imager/tutorials/tutorial_sm-dtw_simulatephyllotaxis.md'
       - 'How-to':
           - 'Home': 'plant_imager/how_to/index.md'
           - 'Import external resources': 'plant_imager/how_to/import_files.md'
@@ -131,6 +131,7 @@ nav:
           - 'Make a tutorial': 'plant_imager/developer/tutorial_template.md'
           - 'Conda': 'plant_imager/developer/conda.md'
           - 'COLMAP': 'plant_imager/developer/colmap_cli.md'
+          - 'VPI API': 'plant_imager/developer/vpi_reference_api.md'
           - 'Docker':
               - 'Home': 'plant_imager/docker/index.md'
               - 'Database': 'plant_imager/docker/plantdb_docker.md'
