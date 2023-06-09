@@ -2677,6 +2677,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#access-a-running-container" class="md-nav__link">
+    Access a running container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-an-interactive-container" class="md-nav__link">
+    Launch an interactive container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#perform-a-reconstruction-job" class="md-nav__link">
+    Perform a reconstruction job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fyi" class="md-nav__link">
     FYI
   </a>
@@ -2742,7 +2763,7 @@
 <p><em>By Jonathan Legrand.</em></p>
 <h3 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">Link</a></h3>
 <h4 id="install-docker-engine">Install Docker Engine<a class="headerlink" href="#install-docker-engine" title="Permanent link">Link</a></h4>
-<p>If it's not done already, you need to <strong>install the Docker Engine</strong> on your machine.</p>
+<p>If it's not done already, <strong>install the Docker Engine</strong> on your machine.</p>
 <p>Follow the official instructions here: <a href="https://docs.docker.com/engine/install/">Install Docker Engine</a>.</p>
 <h4 id="pull-the-docker-image">Pull the Docker image<a class="headerlink" href="#pull-the-docker-image" title="Permanent link">Link</a></h4>
 <p>We made a specific Docker image for this workshop shipping an example dataset and notebooks.</p>
@@ -2762,6 +2783,7 @@
 <li><code>-gpus all</code> add all GPU devices to the container</li>
 <li><code>-p 8888:8888</code> bing your port 8888 to the container port 8888</li>
 </ul>
+<p>To stop the container, press <kbd>ctrl</kbd> + <kbd>c</kbd> twice to exit the jupyter notebook, this will also stop (and destroy) the container.</p>
 <h3 id="connect-to-the-notebook">Connect to the notebook<a class="headerlink" href="#connect-to-the-notebook" title="Permanent link">Link</a></h3>
 <p>Following the previous <code>docker run</code> command, a series of messages should appear in the terminal.
 They are emitted by jupyter notebook, and they should give you something like:</p>
@@ -2777,7 +2799,38 @@ This should take you to the landing page of jupyter notebook.</p>
 <img alt="jupyter notebook index" src="../jupyter_nb_index.png" /></p>
 <h3 id="run-a-notebook">Run a notebook<a class="headerlink" href="#run-a-notebook" title="Permanent link">Link</a></h3>
 <p>To start playing around with our notebooks, move to the <code>notebooks</code> folder, then select the notebook you want to use.</p>
+<h3 id="access-a-running-container">Access a running container<a class="headerlink" href="#access-a-running-container" title="Permanent link">Link</a></h3>
+<p>Once your container is up and running, you may open a second terminal and connect to the running container.
+This can be useful, notably to perform other tasks than running the notebook. </p>
+<p>Your first need to know the ID or NAME of your container.
+You may access this information by calling <code>docker container list</code>.</p>
+<p>For example:
+<div class="highlight"><pre><span></span><code>CONTAINER ID   IMAGE                                     COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+969493021b00   roboticsmicrofarms/plant-3d-vision:ippn   &quot;/bin/bash -c &#39;jupyt…&quot;   30 seconds ago   Up 29 seconds   0.0.0.0:8888-&gt;8888/tcp, :::8888-&gt;8888/tcp   exciting_shamir
+</code></pre></div></p>
+<p>To access this container you can then call:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>969493021b00<span class="w"> </span>bash
+</code></pre></div>
+You should now be logged as <code>myuser</code> inside the <code>969493021b00</code> container, and your terminal should look like this:
+<div class="highlight"><pre><span></span><code>myuser@969493021b00:~$<span class="w"> </span>
+</code></pre></div>
+To exit the running container, press <kbd>ctrl</kbd> + <kbd>d</kbd> to log out and destroy it.</p>
+<h3 id="launch-an-interactive-container">Launch an interactive container<a class="headerlink" href="#launch-an-interactive-container" title="Permanent link">Link</a></h3>
+<p>If you do not wish to use the jupyter notebook or want to start the container and gain access to the terminal, simply do:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span>roboticsmicrofarms/plant-3d-vision:ippn<span class="w"> </span>bash
+</code></pre></div></p>
+<p>To exit the running container, press <kbd>ctrl</kbd> + <kbd>d</kbd> to log out and destroy it.</p>
+<h3 id="perform-a-reconstruction-job">Perform a reconstruction job<a class="headerlink" href="#perform-a-reconstruction-job" title="Permanent link">Link</a></h3>
+<p>Once you followed the <a href="#access-a-running-container">access a running container</a> or <a href="#launch-an-interactive-container">launch an interactive container</a> instruction, you can launch a reconstruction job on a dataset.</p>
+<p>For example, to obtain a <em>point cloud</em> using the <em>geometric based reconstruction pipeline</em> for the <em>Ler_20220803_2_1</em> dataset, simply run:
+<div class="highlight"><pre><span></span><code><span class="c1"># Start by cleaning the dataset:</span>
+romi_run_task<span class="w"> </span>Clean<span class="w"> </span>Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/geom_pipe_real.toml
+<span class="c1"># Reconstruct the point cloud:</span>
+romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span>Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/geom_pipe_real.toml
+</code></pre></div></p>
 <h3 id="fyi">FYI<a class="headerlink" href="#fyi" title="Permanent link">Link</a></h3>
+<p>As we did not bind a local directory to the container, everything you do in that container will stay inside it (hence the name...).
+This also mean that upon exit (and destruction with the <code>--rm</code> option), all of your work and modification will be gone!</p>
 <p>Here are a few facts about this Docker image:</p>
 <ul>
 <li>The <code>plant-3d-vision</code> sources can be found under <code>$HOME/plant-3d-vision</code>.</li>
