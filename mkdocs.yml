@@ -141,6 +141,10 @@ nav:
               - 'Plant 3D Vision': 'plant_imager/docker/plant-3d-vision_docker.md'
               - 'Plant 3D Explorer': 'plant_imager/docker/plant3dexplorer_docker.md'
               - 'Docker compose': 'plant_imager/docker/docker_compose.md'
+  - Training:
+      - 'Home': training/index.md
+      - 'LPy': training/lpy.md
+      - 'IPPN Angers 2023': training/ippn_2023.md
   - glossary.md
 
 theme:
