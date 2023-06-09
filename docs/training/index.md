@@ -11,4 +11,4 @@ As part of the ROMI project, we here propose a list of training courses related 
 
 ## Workshop
 
-- IPPN Anger 2023: :material-school-outline: Learn how to [create virtual plants](lpy.md) with L-Py.
+- IPPN Angers 2023: :material-school-outline: material used and presented to the 2023 IPPN workshop in Angers, France.
