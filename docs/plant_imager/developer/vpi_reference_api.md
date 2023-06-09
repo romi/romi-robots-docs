@@ -26,10 +26,11 @@ There are many ways to do this, but the simplest & fastest option is to use the 
     ```
 
 ### Start the Blender Flask server
-Then start the Blender server (listening to port 5000) with:
+Then start the Blender server (listening to port `9001`) with:
 ```shell
 romi_bpy plant-imager/bin/romi_virtualplantimager -- --port 9001
 ```
+
 When the server is up and running you should get something like:
 ```
  * Serving Flask app 'romi_virtualplantimager'
