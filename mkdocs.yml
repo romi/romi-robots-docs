@@ -35,7 +35,9 @@ nav:
   - 'Plant Phenotyping':
       - 'Home': 'plant_imager/index.md'
       - 'Explanations':
+        - 'Home': 'plant_imager/explanations/index.md'
         - 'General design': 'plant_imager/explanations/general_design.md'
+        - 'Strengths & limitations': 'plant_imager/explanations/strengths_limits.md'
         - 'Mask': 'plant_imager/explanations/masks.md'
         - 'Image segmentation': 'plant_imager/explanations/segmentation.md'
       - 'Modules':
