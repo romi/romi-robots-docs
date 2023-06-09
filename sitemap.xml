@@ -436,6 +436,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.romi-project.eu/plant_imager/explanations/</loc>
+         <lastmod>2023-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.romi-project.eu/plant_imager/explanations/general_design/</loc>
          <lastmod>2023-06-09</lastmod>
          <changefreq>daily</changefreq>
@@ -447,6 +452,11 @@
     </url>
     <url>
          <loc>https://docs.romi-project.eu/plant_imager/explanations/segmentation/</loc>
+         <lastmod>2023-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.romi-project.eu/plant_imager/explanations/strengths_limits/</loc>
          <lastmod>2023-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>

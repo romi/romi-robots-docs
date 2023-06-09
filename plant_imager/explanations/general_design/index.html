@@ -15,10 +15,10 @@
         <link rel="canonical" href="https://docs.romi-project.eu/plant_imager/explanations/general_design/">
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../">
       
       
-        <link rel="next" href="../masks/">
+        <link rel="next" href="../strengths_limits/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
@@ -779,6 +779,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -853,6 +867,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../strengths_limits/" class="md-nav__link">
+        Strengths & limitations
+      </a>
     </li>
   
 
@@ -2692,29 +2720,23 @@
 <p>The following figure shows a use case of the ROMI modules, and the way they interact, to design an efficient plant phenotyping platform used in research.</p>
 <p><img alt="Plant Phenotyping platform" src="../../../assets/images/interact_plan_landscape.png" /></p>
 <h2 id="plantdb">PlantDB<a class="headerlink" href="#plantdb" title="Permanent link">Link</a></h2>
-<p>Should be totally independent of the rest since it could be uses in other parts of the ROMI project (Rover, Cable bot, ...) through the abstract class <code>DB</code> or even the local database class <code>FSDB</code>.</p>
+<p>It implements our <em>database system</em> and is totally <strong>independent</strong> of the rest since it could be uses in other parts of the ROMI project (Rover, Cable bot, ...) through the abstract class <code>DB</code> or even the local database class <code>FSDB</code>.</p>
 <h2 id="plant-imager">Plant Imager<a class="headerlink" href="#plant-imager" title="Permanent link">Link</a></h2>
-<p>It requires a physical connection to the hardware (<code>pyserial</code>) to control. It also needs an active ROMI database to export acquired datasets (plant images).</p>
+<p>It requires a <strong>physical connection</strong> to the hardware (<code>pyserial</code>) to control.
+It also needs an active ROMI database (PlantDB) to export acquired datasets (plant images).</p>
 <h2 id="virtual-plant-imager">Virtual Plant Imager<a class="headerlink" href="#virtual-plant-imager" title="Permanent link">Link</a></h2>
-<p>It requires a connection to an active ROMI database to export generated datasets (virtual plant images).
-In case of machine learning methods, a database would also provide training datasets.</p>
+<p>It requires a connection to an active ROMI database (PlantDB) to export generated datasets (virtual plant images).
+In case of machine learning methods, the database would also provide training datasets and trained models.</p>
 <h2 id="plant-3d-vision">Plant 3D Vision<a class="headerlink" href="#plant-3d-vision" title="Permanent link">Link</a></h2>
-<p>It requires connection to an active ROMI database to import datasets to process and export the results.
-Two plant reconstruction approaches are available in the SmartInterpreter:</p>
+<p>It requires connection to an active ROMI database (PlantDB) to import the dataset to process and export the results.
+Two plant reconstruction approaches are available:</p>
 <ol>
-<li>Geometry based, try to infer the plant's geometry using structure from motion algorithms and space carving to first reconstruct a point cloud.</li>
-<li>Machine learning based, try to infer the plant's geometry using semantic (organ) segmentation of pictures and space carving to first reconstruct a labelled point cloud.</li>
+<li><strong>Geometry based</strong>: try to infer the plant's geometry using structure from motion algorithms and space carving to first reconstruct a point cloud.</li>
+<li><strong>Machine learning based</strong>: try to infer the plant's geometry using semantic (organ) segmentation of pictures and space carving to first reconstruct a labelled point cloud.</li>
 </ol>
 <p>Then meshing and skeletonization finally enables to extract the plant's phyllotaxis.</p>
 <h2 id="plant-3d-explorer">Plant 3D Explorer<a class="headerlink" href="#plant-3d-explorer" title="Permanent link">Link</a></h2>
-<p>It requires a database with datasets to browse and represent.</p>
-<h1 id="research-oriented-user-story">Research oriented user story<a class="headerlink" href="#research-oriented-user-story" title="Permanent link">Link</a></h1>
-<ol>
-<li>The user put his/her plant inside the scanner and run <strong>acquisitions</strong>, which returns a set of images per plant.</li>
-<li>These images are uploaded to a <strong>central database</strong>.</li>
-<li>The user <strong>defines a pipeline</strong> to reconstruct and quantify plants architecture by choosing among a set of predefined methods and algorithms. These instructions may be run by a distant server.</li>
-<li>Finally, the user can access the acquisitions, reconstructions &amp; quantitative data by connecting to a visualization server using his/her computer</li>
-</ol>
+<p>It requires an active ROMI database (PlantDB) with datasets to browse and represent.</p>
 
 
 
