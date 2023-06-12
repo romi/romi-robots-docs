@@ -858,8 +858,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-proof" class="md-nav__link">
-    The proof
+  <a href="#the-visual-proof" class="md-nav__link">
+    The visual proof
   </a>
   
 </li>
@@ -877,9 +877,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#calibration-procedure" class="md-nav__link">
-    Calibration procedure
+  <a href="#intrinsic-calibration-procedure" class="md-nav__link">
+    Intrinsic calibration procedure
   </a>
+  
+    <nav class="md-nav" aria-label="Intrinsic calibration procedure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-problem_1" class="md-nav__link">
+    The problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-solution_1" class="md-nav__link">
+    The solution
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2723,28 +2743,30 @@
 
 
 <h1 id="known-strengths-and-limitations">Known strengths and limitations<a class="headerlink" href="#known-strengths-and-limitations" title="Permanent link">Link</a></h1>
-<p>The way we designed the <em>Plant Imager</em> and the software has strengths but also impose some limitations.
-We try to cover them in the following section.</p>
+<p>The way we designed the <em>Plant Imager</em> and the software has strengths but also some limitations.
+We try to cover those we are aware of in the following section.</p>
 <h2 id="open-loop-design">Open loop design<a class="headerlink" href="#open-loop-design" title="Permanent link">Link</a></h2>
 <h3 id="the-problem">The problem<a class="headerlink" href="#the-problem" title="Permanent link">Link</a></h3>
-<p>The motors we use function in an <em>open loop</em> manner, that is: we send and series of instructions to the motors, telling them how many steps we want and in which direction to performs them... and hopes for the best.</p>
-<p>Indeed, contrary to the <em>feedback loop</em> design, there is no way of knowing if those instruction were followed accurately.
-This <em>open loop</em> design might seem unfortunate or inadequate but this is actually a lot cheaper.</p>
+<p>The motors we use function in an <em>open loop</em> manner, that is: we send and series of instructions to the motors, telling them how many steps we want and in which direction to performs them... and we hope for the best.</p>
+<p>Indeed, contrary to a <em>feedback loop</em> design, there is no way of knowing if those instruction were followed accurately.
+This <em>open loop</em> design might seem unfortunate or inadequate but this is actually a lot cheaper and widely used in robotics.</p>
 <p>As there is a user standing next to the <em>Plant Imager</em> you might expect her/him to notice any mistake made by the robot.
 This is simply not true and not a good approach to tackling the problem.</p>
-<h3 id="the-proof">The proof<a class="headerlink" href="#the-proof" title="Permanent link">Link</a></h3>
-<p>To prove this point, I have performed a series of 5 repetitions of the very same acquisitions, without changing a thing between each of them.
+<h3 id="the-visual-proof">The visual proof<a class="headerlink" href="#the-visual-proof" title="Permanent link">Link</a></h3>
+<p>I have performed a series of 5 repetitions of the very same acquisitions, without changing a thing between each of them.
 To my knowledge, everything went fine, but this is what I got when I cycled through the pictures taken at the same position (the first one):</p>
 <p><img alt="plant_imager_v2_repeatability.gif" src="../plant_imager_v2_repeatability.gif" /></p>
-<p>As you can see, most of the images looks exactly the same, and if it was not for the frame indicator on the top right we would not notice, but the repeat <code>Sangoku_40_1</code> has a small offset compared to the others.</p>
-<p>You may try to stay positive and say that one out of five is not that bad.
-Unfortunately, this is not true as this is just one position and the sampling for this position only is not enough to draw this conclusion.
-Also, we do not would like to build a reliable machine, users will not be too happy with that success rate.</p>
+<p>As you can see, most of the images looks exactly the same, and if it was not for the frame indicator on the top right we would not notice the change.
+However, we can clearly see that one frame, <code>Sangoku_40_1</code>, has a small offset compared to the others.</p>
 <h3 id="the-solution">The solution<a class="headerlink" href="#the-solution" title="Permanent link">Link</a></h3>
 <p>As the accuracy of the camera positions is not perfect, we have to resort to <em>Structure from Motion</em> algorithm to compensate for those imperfections.</p>
-<h2 id="calibration-procedure">Calibration procedure<a class="headerlink" href="#calibration-procedure" title="Permanent link">Link</a></h2>
+<h2 id="intrinsic-calibration-procedure">Intrinsic calibration procedure<a class="headerlink" href="#intrinsic-calibration-procedure" title="Permanent link">Link</a></h2>
+<h3 id="the-problem_1">The problem<a class="headerlink" href="#the-problem_1" title="Permanent link">Link</a></h3>
+<p>Every camera need a lens to capture the luminous signals.
+However, the cheaper the camera, the cheaper the lens and the more likely it will induce deformations to the image due to imperfections.</p>
+<h3 id="the-solution_1">The solution<a class="headerlink" href="#the-solution_1" title="Permanent link">Link</a></h3>
 <p>We developed an intrinsic calibration procedure to compensate for lens aberrations.
-We use OpenCV and a ChArUco broard to accurately estimate and correct them.</p>
+We use OpenCV and a ChArUco board to accurately estimate and correct them.</p>
 
 
 
