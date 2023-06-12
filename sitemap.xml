@@ -446,7 +446,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://docs.romi-project.eu/plant_imager/explanations/geometric_workflow/</loc>
+         <lastmod>2023-06-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://docs.romi-project.eu/plant_imager/explanations/masks/</loc>
+         <lastmod>2023-06-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://docs.romi-project.eu/plant_imager/explanations/ml_workflow/</loc>
          <lastmod>2023-06-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
