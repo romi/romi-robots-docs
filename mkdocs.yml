@@ -160,7 +160,6 @@ theme:
   favicon: 'assets/images/favicon.ico'
   features:
     - navigation.tabs
-    - toc.integrate
 
 extra:
   homepage: https://romi-project.eu/

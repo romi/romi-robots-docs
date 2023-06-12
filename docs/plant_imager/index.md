@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # Plant Phenotyping
 
 **Within the ROMI project, some work packages are oriented towards the development of a 3D plant phenotyping platform adapted to single potted plants.

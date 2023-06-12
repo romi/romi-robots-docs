@@ -1,22 +1,25 @@
 # Get the pieces
 
-# 3d print
+## 3d print
 
 ![](/assets/images/farmersDashboard/printing.jpg)
 
 ![](/assets/images/farmersDashboard/printed_line_orange.png)
 
-# Milling
+## Milling
 
-## Aluminum composite
+### Aluminum composite
 
-Some cablebot parts are milled in a composite panel consisting of two aluminium cover sheets and a polymer core, this material can also be bended if cutted at specific depth with a 90 degrees V end mill. In the cablebot [repository](https://github.com/romi/romi-cablebot/tree/main/Hardware/Milled-Alucobond) you can find all the parts as DXF files. Gcode has to be generated with specific settings for the used CNC machine.
+Some cablebot parts are milled in a composite panel consisting of two aluminium cover sheets and a polymer core, this material can also be bent if cut at specific depth with a 90 degrees V-end mill.
+In the cablebot [repository](https://github.com/romi/romi-cablebot/tree/main/Hardware/Milled-Alucobond) you can find all the parts as DXF files.
+Gcode has to be generated with specific settings for the used CNC machine.
 
 ![](/assets/images/farmersDashboard/milling_.jpg)
 
 Feeds and speeds for V - Curve milling bit to bend alucobond
 
-In our case we are using a high revolution spindle that works in between 18k-24k RPM. After some tests, we have found that this feeds and speeds work us well for cutting 3mm alucobond composite:
+In our case we are using a high revolution spindle that works in between 18k-24k RPM.
+After some tests, we have found that this feeds and speeds work us well for cutting 3mm alucobond composite:
 
 | Tool 			 | RPM        | Feed         | Feed plunge   | Stepdown     |
 | ---------------| ---------- | ------------ | ------------- | ------------ |
@@ -27,15 +30,18 @@ In our case we are using a high revolution spindle that works in between 18k-24k
 ![](/assets/images/farmersDashboard/alucobond_line_grey.png)
 
 
-## Gcode generation
+### Gcode generation
 
-In the Romi Cablebot github [repository](https://github.com/romi/romi-cablebot/tree/main/Hardware/Milled-Alucobond) you can find all the drawings (in DXF format) to generate the needed gcode. In the files you will find different layers depending on the operation and the depth, in this example you can see the layer called _vcut_ for the folding marks, _pocket-0.95mm_ indicates a pocketing operation with a depth of 0.95 mm and _profiling_ to cut the piece. Keep in mind that you will need to add bridges on your piece, so it doesn't move during machining, this process is different depending on the CAM software you use.
+In the Romi Cablebot github [repository](https://github.com/romi/romi-cablebot/tree/main/Hardware/Milled-Alucobond) you can find all the drawings (in DXF format) to generate the needed gcode.
+In the files you will find different layers depending on the operation and the depth, in this example you can see the layer called _vcut_ for the folding marks, _pocket-0.95mm_ indicates a pocketing operation with a depth of 0.95 mm and _profiling_ to cut the piece.
+Keep in mind that you will need to add bridges on your piece, so it doesn't move during machining, this process is different depending on the CAM software you use.
 
 ![](/assets/images/farmersDashboard/dxf.png)
 
-## Generating Gcode in Blender
+### Generating Gcode in Blender
 
-[Blendercam](https://github.com/vilemduha/blendercam) is a free/libre addon that allows gcode generation inside blender, in this way we avoid the use of extra software and model exporting. Don't forget to check their  [documentation](https://github.com/vicobarberan/blendercam#-how-to-use-wiki).
+[Blendercam](https://github.com/vilemduha/blendercam) is a free/libre addon that allows gcode generation inside blender, in this way we avoid the use of extra software and model exporting.
+Don't forget to check their  [documentation](https://github.com/vicobarberan/blendercam#-how-to-use-wiki).
 
 To use it you need to clone the addon repository to some place in your computer:
 
@@ -43,7 +49,7 @@ To use it you need to clone the addon repository to some place in your computer:
 git clone https://github.com/vilemduha/blendercam
 ~~~
 
-Some python dependencies sould also be installed, you can do it with pip from the command line:
+Some python dependencies should also be installed, you can do it with pip from the command line:
 
 ```
 $ ./pip3 install shapely
@@ -58,11 +64,12 @@ Clik on _File Paths_ button and enter the path where you cloned the blender CAM 
 
 ![](/assets/images/farmersDashboard/blender-preferences.png)
 
-Save perferences and restart blender. Now enable it in _Add-ons_ section (preferences window).
+Save preferences and restart blender.
+Now enable it in _Add-ons_ section (preferences window).
 
 ![](/assets/images/farmersDashboard/blender-addons.png)
 
-### Adding a post processor
+#### Adding a post processor
 
 After installing the addon you will need a postprocessor script that works with your specific CNC machine. If none of the included ones works for you, you can easily create your own:
 
@@ -78,7 +85,7 @@ There is example commit on what's needed to add a postprocessor [here](https://g
 
 
 
-### Steps to get folding traces
+#### Steps to get folding traces
 As an example on how to get the proper traces for alucobond milling with folding parts.
 
 **1.** With the object cutting side pointing up, duplicate it and **rotate 90º** with the bottom corner as rotation point.
@@ -102,15 +109,15 @@ As an example on how to get the proper traces for alucobond milling with folding
 ![](/assets/images/farmersDashboard/folding06.png){ width="300" }
 
 **6.** Join the two parts, remove the vertices outside the bottom layer and create a bridge to join both parts.
-This paths should be -2.2mm from the surface of the material (leaving a thikness of 0.8mm after cutting)
+This paths should be -2.2mm from the surface of the material (leaving a thickness of 0.8mm after cutting)
 
 ![](/assets/images/farmersDashboard/folding07.png){ width="300" }
 
 Now you can process the part with blendercam to get the gcode.
 
-## HDPE
+### HDPE
 
-For the tension adjusting slider some HDPE pieces need to be milled, the center piece is the more complicated since the milling has to be on both sides.
+For the tension adjusting slider some HDPE pieces need to be milled, the centerpiece is the more complicated since the milling has to be on both sides.
 
 Feeds and speeds for HDPE:
 

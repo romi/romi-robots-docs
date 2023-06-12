@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # How to use the cablebot
 
 - On/off

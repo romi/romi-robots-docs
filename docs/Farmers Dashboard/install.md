@@ -11,7 +11,7 @@ The software for the Cablebot consists of three components:
 In addition, the installation requires the following actions on the Raspberry Pi Zero:
 
 1. Create the "romi" user account.
-2. Configure the WiFi to connect to an existing WiFi
+2. Configure the Wi-Fi to connect to an existing Wi-Fi
 3. Enable the SSH server
 4. Enable the legacy camera interface.
 5. Configure the serial ports.
@@ -27,9 +27,9 @@ In addition, the installation requires the following actions on the Raspberry Pi
 ![](/assets/images/farmersDashboard/rpiZ-08.png)
 
 Download [Raspberry Pi OS (32-bit) Lite](https://www.raspberrypi.org/downloads/raspberry-pi-os/) and burn the image to a sdcard of at least 8GB.
-To avid connecting the Pi to a monitor you can follow the instructions to setup [WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/headless.md) and [ssh](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) (scroll down to number 3) for a headless setup.
+To avid connecting the Pi to a monitor you can follow the instructions to set up [WiFi](https://www.raspberrypi.org/documentation/configuration/wireless/headless.md) and [ssh](https://www.raspberrypi.org/documentation/remote-access/ssh/README.md) (scroll down to number 3) for a headless setup.
 
-Once your Pi is connected to the network and your'e logged via ssh as _pi_ user there are some simple tasks to do:
+Once your Pi is connected to the network and you're logged via ssh as _pi_ user there are some simple tasks to do:
 
 * For security reasons it is recommended that you change the pasword of default user _pi_
 ~~~sh
