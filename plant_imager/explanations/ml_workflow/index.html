@@ -869,9 +869,96 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#reconstruction-part" class="md-nav__link">
+    Reconstruction part
+  </a>
+  
+    <nav class="md-nav" aria-label="Reconstruction part">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aim" class="md-nav__link">
+    Aim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-idea" class="md-nav__link">
+    General idea
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     Overview
   </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantification-part" class="md-nav__link">
+    Quantification part
+  </a>
+  
+    <nav class="md-nav" aria-label="Quantification part">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aim_1" class="md-nav__link">
+    Aim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-idea_1" class="md-nav__link">
+    General idea
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_1" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2726,9 +2813,96 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#reconstruction-part" class="md-nav__link">
+    Reconstruction part
+  </a>
+  
+    <nav class="md-nav" aria-label="Reconstruction part">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aim" class="md-nav__link">
+    Aim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-idea" class="md-nav__link">
+    General idea
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#overview" class="md-nav__link">
     Overview
   </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quantification-part" class="md-nav__link">
+    Quantification part
+  </a>
+  
+    <nav class="md-nav" aria-label="Quantification part">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aim_1" class="md-nav__link">
+    Aim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-idea_1" class="md-nav__link">
+    General idea
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview_1" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#details_1" class="md-nav__link">
+    Details
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2748,8 +2922,55 @@
 
 
 <h1 id="the-machine-learning-based-workflow">The machine-learning based workflow<a class="headerlink" href="#the-machine-learning-based-workflow" title="Permanent link">Link</a></h1>
+<p>The second workflow we introduce is the one we called <em>machine-learning based workflow</em> as we make use of a trained CNN to <strong>predict organ types and locations</strong> on our original RGB images.
+This information is then projected on the point cloud, so we can compute the fruit orientation in space.
+From there we can fulfill our goal: to estimate the fruits' successive angles and internodes lengths.</p>
+<h2 id="reconstruction-part">Reconstruction part<a class="headerlink" href="#reconstruction-part" title="Permanent link">Link</a></h2>
+<h3 id="aim">Aim<a class="headerlink" href="#aim" title="Permanent link">Link</a></h3>
+<p>The aim of the reconstruction part is to reconstruct a 3D model of the plant, here a point cloud, from a set of RGB images.</p>
+<h3 id="general-idea">General idea<a class="headerlink" href="#general-idea" title="Permanent link">Link</a></h3>
+<p>As for the <em>geometry based workflow</em>, we sought at combining <em>structure from motion</em> with <em>space carving</em> to obtain a <strong>quick and reliable</strong> 3D reconstruction of the plant.</p>
+<p>However, we added an extra layer of complexity with the prediction of organs types and locations instead of the simple &amp; fast <em>linear filter</em>.
+This in turn improve the automation level of the reconstruction procedure as the plant is automatically identified in the scene.
+There is thus no need for manual definition of the scene bounding-box.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">Link</a></h2>
-<p><img alt="lite_ml_pipeline.svg" src="../../../assets/images/lite_ml_pipeline.svg" /></p>
+<figure>
+  <img src="/assets/images/ml_reconstruct_pipeline.svg" width="800" />
+  <figcaption>
+    Reconstruction part of the machine-learning based workflow as defined in <samp>ml_pipe_real.toml</samp> configuration & default parameters.
+  </figcaption>
+</figure>
+
+<h3 id="details">Details<a class="headerlink" href="#details" title="Permanent link">Link</a></h3>
+<ol>
+<li>We start with the <code>Colmap</code> task to estimate both intrinsic and extrinsic parameters using a <em>structure from motion</em> algorithm.</li>
+<li>The camera intrinsics are used by the <code>Undistorted</code> task with a <code>SIMPLE_RADIAL</code> model to fix the original RGB images.</li>
+<li>Then the <code>Segmentation2D</code> task performs semantic labelling of the plant organs in each image and create a binary mask for each image and organ type.</li>
+<li>This is later used by the <code>Voxels</code> task, in combination with the camera extrinsics (also called camera poses), to perform the <em>space carving</em> of a 3D volume. This reconstructs the volume occupied by the plant in the selected portion of the scene.</li>
+<li>Finally, this is turned into a point cloud describing the envelope of the reconstructed plant structure by the <code>PointCloud</code> task.</li>
+</ol>
+<h2 id="quantification-part">Quantification part<a class="headerlink" href="#quantification-part" title="Permanent link">Link</a></h2>
+<h3 id="aim_1">Aim<a class="headerlink" href="#aim_1" title="Permanent link">Link</a></h3>
+<p>The aim of the quantification part is estimate the fruits' successive angles and internodes lengths, from the 3D point cloud.</p>
+<h3 id="general-idea_1">General idea<a class="headerlink" href="#general-idea_1" title="Permanent link">Link</a></h3>
+<p>We sought at projecting the CNN predictions about organ types on the 3D point cloud to know the exact position of each fruit.
+From there we could <strong>estimate the fruit directions</strong>, thanks to oriented bounding-box for fruits directions and the mean skeleton for the branching point to the main stem.  </p>
+<h2 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">Link</a></h2>
+<figure>
+  <img src="/assets/images/ml_quantif_pipeline.svg" width="800" />
+  <figcaption>
+    Quantification part of the machine-learning based workflow as defined in <samp>ml_pipe_real.toml</samp> configuration & default parameters.
+  </figcaption>
+</figure>
+
+<h3 id="details_1">Details<a class="headerlink" href="#details_1" title="Permanent link">Link</a></h3>
+<ol>
+<li>We start by projecting the CNN predictions about organ types and locations to the 3D point cloud with the <code>SegmentedPointcloud</code> task.</li>
+<li>From there individualize each organ thanks to the <code>OrganSegmentation</code> task.</li>
+<li>Finally, the <code>AnglesAndInternodes</code> task will compute the <em>fruits direction and branching points</em>, allowing us to estimate the successive angles and internode lengths between the fruits.</li>
+</ol>
+<p>The <code>ClusteredMesh</code> task is here to generate a labelled triangular mesh that can be visualized, but is not necessary to the previous quantification workflow.
+Note that this task could be used in place of the <code>OrganSegmentation</code> task, and it could be later used by <code>AnglesAndInternodes</code>.</p>
 
 
 

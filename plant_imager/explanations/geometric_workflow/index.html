@@ -2910,8 +2910,16 @@ From there we can fulfill our goal: to estimate the fruits' successive angles an
 <li>We have to use <em>structure from motion</em> to get accurate estimate of the <strong>true camera positions</strong> because of the uncertainties from the motors (see <a href="../strengths_limits/#open-loop-design">open-loop-design</a>).</li>
 <li>We use <em>space carving</em>, instead of <em>multiview stereo</em> (as in the second part of Colmap reconstruction pipeline), because we want a <strong>fast reconstruction of a small portion of the scene</strong>.</li>
 </ol>
+<p>The second step is <strong>fast</strong> because we use a simple <em>linear filter</em> to detect the plant position, and we select a small region where there is only the plant to reconstruct.</p>
+<p>However, without a precise and repeatable acquisition procedure with the <em>Plant Imager</em>, you might have to often change the bounding-box manually, which <strong>breaks the full automation</strong> of the reconstruction procedure.</p>
 <h3 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">Link</a></h3>
-<p><img alt="lite_reconstruction_pipeline.svg" src="../../../assets/images/lite_reconstruction_pipeline.svg" /></p>
+<figure>
+  <img src="/assets/images/geom_reconstruct_pipeline.svg" width="800" />
+  <figcaption>
+    Reconstruction part of the geometry based workflow as defined in <samp>geom_pipe_real.toml</samp> configuration & default parameters.
+  </figcaption>
+</figure>
+
 <h3 id="details">Details<a class="headerlink" href="#details" title="Permanent link">Link</a></h3>
 <ol>
 <li>We start with the <code>Colmap</code> task to estimate both intrinsic and extrinsic parameters using a <em>structure from motion</em> algorithm.</li>
@@ -2926,7 +2934,13 @@ From there we can fulfill our goal: to estimate the fruits' successive angles an
 <h3 id="general-idea_1">General idea<a class="headerlink" href="#general-idea_1" title="Permanent link">Link</a></h3>
 <p>We sought at extracting the <strong>skeleton</strong> of the plant to be able to <strong>estimate the organs direction</strong>, here the fruits or leaves, thanks to a single trajectory of points describing it.</p>
 <h3 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">Link</a></h3>
-<p><img alt="lite_geometric_pipeline.svg" src="../../../assets/images/lite_geometric_pipeline.svg" /></p>
+<figure>
+  <img src="/assets/images/geom_quantif_pipeline.svg" width="800" />
+  <figcaption>
+    Quantification part of the geometry based workflow as defined in <samp>geom_pipe_real.toml</samp> configuration & default parameters.
+  </figcaption>
+</figure>
+
 <h3 id="details_1">Details<a class="headerlink" href="#details_1" title="Permanent link">Link</a></h3>
 <ol>
 <li>We start by transforming the point cloud into a triangular mesh with the <code>TriangleMesh</code> task.</li>

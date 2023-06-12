@@ -2752,6 +2752,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#access-a-host-directory-from-the-container" class="md-nav__link">
+    Access a host directory from the container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fyi" class="md-nav__link">
     FYI
   </a>
@@ -2911,6 +2918,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#access-a-host-directory-from-the-container" class="md-nav__link">
+    Access a host directory from the container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#fyi" class="md-nav__link">
     FYI
   </a>
@@ -3011,9 +3025,12 @@ romi_run_task<span class="w"> </span>Clean<span class="w"> </span>Ler_20220803_2
 <span class="c1"># Reconstruct the point cloud:</span>
 romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span>Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/geom_pipe_real.toml
 </code></pre></div></p>
-<h3 id="fyi">FYI<a class="headerlink" href="#fyi" title="Permanent link">Link</a></h3>
+<h3 id="access-a-host-directory-from-the-container">Access a host directory from the container<a class="headerlink" href="#access-a-host-directory-from-the-container" title="Permanent link">Link</a></h3>
 <p>As we did not bind a local directory to the container, everything you do in that container will stay inside it (hence the name...).
 This also mean that upon exit (and destruction with the <code>--rm</code> option), all of your work and modification will be gone!</p>
+<p>To prevent this, you may use the <code>-v</code> option to bind mount a local folder as a volume in the container.
+For example, to mount another database from your host, registered under <code>$DB_LOCATION</code>, use: <code>-v $DB_LOCATION:/myapp/db</code>.</p>
+<h3 id="fyi">FYI<a class="headerlink" href="#fyi" title="Permanent link">Link</a></h3>
 <p>Here are a few facts about this Docker image:</p>
 <ul>
 <li>The <code>plant-3d-vision</code> sources can be found under <code>$HOME/plant-3d-vision</code>.</li>
