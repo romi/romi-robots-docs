@@ -16,8 +16,18 @@ The rational is mainly in two part:
 1. We have to use _structure from motion_ to get accurate estimate of the **true camera positions** because of the uncertainties from the motors (see [open-loop-design](strengths_limits.md#open-loop-design)).
 2. We use _space carving_, instead of _multiview stereo_ (as in the second part of Colmap reconstruction pipeline), because we want a **fast reconstruction of a small portion of the scene**.
 
+The second step is **fast** because we use a simple _linear filter_ to detect the plant position, and we select a small region where there is only the plant to reconstruct.
+
+However, without a precise and repeatable acquisition procedure with the _Plant Imager_, you might have to often change the bounding-box manually, which **breaks the full automation** of the reconstruction procedure.
+
 ### Overview
-![lite_reconstruction_pipeline.svg](../../assets/images/lite_reconstruction_pipeline.svg)
+
+<figure>
+  <img src="/assets/images/geom_reconstruct_pipeline.svg" width="800" />
+  <figcaption>
+    Reconstruction part of the geometry based workflow as defined in <samp>geom_pipe_real.toml</samp> configuration & default parameters.
+  </figcaption>
+</figure>
 
 ### Details
 1. We start with the `Colmap` task to estimate both intrinsic and extrinsic parameters using a _structure from motion_ algorithm.
@@ -36,7 +46,13 @@ The aim of the quantification part is estimate the fruits' successive angles and
 We sought at extracting the **skeleton** of the plant to be able to **estimate the organs direction**, here the fruits or leaves, thanks to a single trajectory of points describing it.
 
 ### Overview
-![lite_geometric_pipeline.svg](../../assets/images/lite_geometric_pipeline.svg)
+
+<figure>
+  <img src="/assets/images/geom_quantif_pipeline.svg" width="800" />
+  <figcaption>
+    Quantification part of the geometry based workflow as defined in <samp>geom_pipe_real.toml</samp> configuration & default parameters.
+  </figcaption>
+</figure>
 
 ### Details
 1. We start by transforming the point cloud into a triangular mesh with the `TriangleMesh` task.
