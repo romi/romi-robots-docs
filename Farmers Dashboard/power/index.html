@@ -255,9 +255,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://romi-project.eu/" title="ROMI Documentation" class="md-nav__button md-logo" aria-label="ROMI Documentation" data-md-component="logo">
       
@@ -2741,6 +2739,72 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#power_1" class="md-nav__link">
+    Power
+  </a>
+  
+    <nav class="md-nav" aria-label="Power">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#power-distribution-pcb" class="md-nav__link">
+    Power distribution PCB
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dcdc-switching-regulator" class="md-nav__link">
+    DC/DC switching regulator
+  </a>
+  
+    <nav class="md-nav" aria-label="DC/DC switching regulator">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#battery-module" class="md-nav__link">
+    Battery module
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -2751,13 +2815,18 @@
 
 <h1 id="power">Power<a class="headerlink" href="#power" title="Permanent link">Link</a></h1>
 <h2 id="power_1">Power<a class="headerlink" href="#power_1" title="Permanent link">Link</a></h2>
-<p>The power circuit has a main switch that avoids battery discharging during transportation or storing. Battery voltage is feeded directly, a DC/DC voltage converter provides low voltage to the logic electronics subsystem. The battery voltage is feeded camera module allowing high voltage motors. Both battery terminals are directly exposed to the charger station allowing the carge process during rest periods.</p>
+<p>The power circuit has a main switch that avoids battery discharging during transportation or storing.
+Battery voltage is fed directly, a DC/DC voltage converter provides low voltage to the logic electronics subsystem.
+The battery voltage is feeding the camera module allowing high voltage motors.
+Both battery terminals are directly exposed to the charger station allowing the charge process during rest periods.</p>
 <p><img alt="" src="/assets/images/farmersDashboard/Power_Diagram.png" /></p>
 <h3 id="power-distribution-pcb">Power distribution PCB<a class="headerlink" href="#power-distribution-pcb" title="Permanent link">Link</a></h3>
 <p><img alt="" src="/assets/images/farmersDashboard/cablebot_power_components.png" /></p>
 <h2 id="dcdc-switching-regulator">DC/DC switching regulator<a class="headerlink" href="#dcdc-switching-regulator" title="Permanent link">Link</a></h2>
 <p><img alt="" src="/assets/images/farmersDashboard/dc-dc.png" style="width:100px" /></p>
-<p>To provide low voltage (5v) the <strong><a href="https://www.mouser.es/datasheet/2/281/oki-78sr-e-1115659.pdf">OKI-78SR-5/1.5-W36E-C</a></strong> DC/DC switching regulator is used. It can provide 1.5A @ 5v and can stand inputs as high as 36v input. With this regulator we feed all the electronics contained in the carrier unit the camera module electronics use the same component to provide low voltage to it's own electronics.</p>
+<p>To provide low voltage (5v) the <strong><a href="https://www.mouser.es/datasheet/2/281/oki-78sr-e-1115659.pdf">OKI-78SR-5/1.5-W36E-C</a></strong> DC/DC switching regulator is used.
+It can provide 1.5A @ 5v and can stand inputs as high as 36v input.
+With this regulator we feed all the electronics contained in the carrier unit the camera module electronics use the same component to provide low voltage to its own electronics.</p>
 <h3 id="battery-module">Battery module<a class="headerlink" href="#battery-module" title="Permanent link">Link</a></h3>
 <p><img alt="" src="/assets/images/farmersDashboard/despiece_battery_module.png" /></p>
 
@@ -2838,7 +2907,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "toc.integrate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>

@@ -255,9 +255,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://romi-project.eu/" title="ROMI Documentation" class="md-nav__button md-logo" aria-label="ROMI Documentation" data-md-component="logo">
       
@@ -2973,6 +2971,304 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-the-raspberry-pi-zero" class="md-nav__link">
+    Installing the Raspberry Pi Zero
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing the Raspberry Pi Zero">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-linux-operating-system" class="md-nav__link">
+    Install the Linux operating system
+  </a>
+  
+    <nav class="md-nav" aria-label="Install the Linux operating system">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-configuration" class="md-nav__link">
+    Basic configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-the-legacy-camera-interface" class="md-nav__link">
+    Enable the legacy camera interface
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-the-serial-ports" class="md-nav__link">
+    Configure the serial ports
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-user-romi" class="md-nav__link">
+    Create user romi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-compile-and-install-the-software" class="md-nav__link">
+    Clone, compile, and install the software
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-the-apache-web-server" class="md-nav__link">
+    Install the Apache web server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#starting-the-software-on-boot" class="md-nav__link">
+    Starting the software on boot
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-overlayfs" class="md-nav__link">
+    Extra: OverlayFS
+  </a>
+  
+    <nav class="md-nav" aria-label="Extra: OverlayFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raspbian" class="md-nav__link">
+    Raspbian
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#archlinux" class="md-nav__link">
+    Archlinux
+  </a>
+  
+    <nav class="md-nav" aria-label="Archlinux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-raspi-overlayroot" class="md-nav__link">
+    Install Raspi-Overlayroot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-overlayroot-hook" class="md-nav__link">
+    Enable overlayroot hook
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable-overlayroot-in-commandline" class="md-nav__link">
+    Enable overlayroot in commandline
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-filesystems-readonly" class="md-nav__link">
+    Set filesystems readonly
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-the-root-filesystem" class="md-nav__link">
+    Editing the root filesystem
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extra-romi-autossh" class="md-nav__link">
+    Extra: Romi autossh
+  </a>
+  
+    <nav class="md-nav" aria-label="Extra: Romi autossh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-side-romi-device" class="md-nav__link">
+    Client side (Romi device)
+  </a>
+  
+    <nav class="md-nav" aria-label="Client side (Romi device)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-rsa-key-withouth-passphrase" class="md-nav__link">
+    Generate a rsa key (withouth passphrase)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy-your-key-to-the-server-to-allow-passwordless-access" class="md-nav__link">
+    Copy your key to the server to allow passwordless access.
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-a-reverse-ssh-tunnel" class="md-nav__link">
+    Test a reverse SSH tunnel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-autossh" class="md-nav__link">
+    Install autossh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-autossh-reverse-tunneling" class="md-nav__link">
+    Test autossh reverse tunneling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-autossh-on-boot-with-systemd" class="md-nav__link">
+    Starting autossh on boot with systemd
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-side" class="md-nav__link">
+    Server side
+  </a>
+  
+    <nav class="md-nav" aria-label="Server side">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#no-password-logins-optional" class="md-nav__link">
+    No Password logins (optional)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrict-client-commands" class="md-nav__link">
+    Restrict client commands
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-side-user-computer" class="md-nav__link">
+    Client side (user computer)
+  </a>
+  
+    <nav class="md-nav" aria-label="Client side (user computer)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generate-and-copy-rsa-key" class="md-nav__link">
+    Generate and copy RSA key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-connection-with-ssh-config-file" class="md-nav__link">
+    Setup connection with ssh config file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -2992,7 +3288,7 @@
 <p>In addition, the installation requires the following actions on the Raspberry Pi Zero:</p>
 <ol>
 <li>Create the "romi" user account.</li>
-<li>Configure the WiFi to connect to an existing WiFi</li>
+<li>Configure the Wi-Fi to connect to an existing Wi-Fi</li>
 <li>Enable the SSH server</li>
 <li>Enable the legacy camera interface.</li>
 <li>Configure the serial ports.</li>
@@ -3004,8 +3300,8 @@
 <h3 id="install-the-linux-operating-system">Install the Linux operating system<a class="headerlink" href="#install-the-linux-operating-system" title="Permanent link">Link</a></h3>
 <p><img alt="" src="/assets/images/farmersDashboard/rpiZ-08.png" /></p>
 <p>Download <a href="https://www.raspberrypi.org/downloads/raspberry-pi-os/">Raspberry Pi OS (32-bit) Lite</a> and burn the image to a sdcard of at least 8GB.
-To avid connecting the Pi to a monitor you can follow the instructions to setup <a href="https://www.raspberrypi.org/documentation/configuration/wireless/headless.md">WiFi</a> and <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/README.md">ssh</a> (scroll down to number 3) for a headless setup.</p>
-<p>Once your Pi is connected to the network and your'e logged via ssh as <em>pi</em> user there are some simple tasks to do:</p>
+To avid connecting the Pi to a monitor you can follow the instructions to set up <a href="https://www.raspberrypi.org/documentation/configuration/wireless/headless.md">WiFi</a> and <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/README.md">ssh</a> (scroll down to number 3) for a headless setup.</p>
+<p>Once your Pi is connected to the network and you're logged via ssh as <em>pi</em> user there are some simple tasks to do:</p>
 <ul>
 <li>
 <p>For security reasons it is recommended that you change the pasword of default user <em>pi</em>
@@ -3379,7 +3675,7 @@ This will allow you to simply do <code>ssh romi-device</code> to log in your dev
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "toc.integrate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>

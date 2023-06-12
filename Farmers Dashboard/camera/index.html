@@ -255,9 +255,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://romi-project.eu/" title="ROMI Documentation" class="md-nav__button md-logo" aria-label="ROMI Documentation" data-md-component="logo">
       
@@ -2741,6 +2739,74 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#controller-board" class="md-nav__link">
+    Controller board
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#microcontroller" class="md-nav__link">
+    Microcontroller
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motor-and-encoder" class="md-nav__link">
+    Motor and encoder
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera" class="md-nav__link">
+    Camera
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring" class="md-nav__link">
+    Wiring
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#housing" class="md-nav__link">
+    Housing
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -2758,26 +2824,39 @@
 <strong>Networking:</strong> Wi-Fi 2.4GHz 802.11 b/g/n<br />
 <strong>Interfaces:</strong> UART Serial, I2C, SWD.  </p>
 <p>Both the Cablebot and the Scanner require a reliable camera module, although the usage in both cases is slightly different
-For the <strong>Scanner</strong>, the camera is positioned at a given angle. The movement from angle position to the next is relativement infrequent and slow.
+For the <strong>Scanner</strong>, the camera is positioned at a given angle.
+The movement from angle position to the next is relatively infrequent and slow.
 For the <strong>Cablebot</strong>, the camera must adjust in real-time for swinging movements of the system.</p>
 <h2 id="controller-board">Controller board<a class="headerlink" href="#controller-board" title="Permanent link">Link</a></h2>
 <p><img alt="" src="/assets/images/farmersDashboard/cablebot_camera_components.png" /></p>
-<p>We decided to use a brushless motor, as is the custom in camera mount systems. We designed a controller board that exploits the functions offered by the TI DRV8313 chip. The DRV8313 requires as an input three Pulse Width Modulation signals (PWM) that encode the phase of each of the three voltages applied to the solenoids of the brushless motor. </p>
+<p>We decided to use a brushless motor, as is the custom in camera mount systems.
+We designed a controller board that exploits the functions offered by the TI DRV8313 chip.
+The DRV8313 requires as an input three Pulse Width Modulation signals (PWM) that encode the phase of each of the three voltages applied to the solenoids of the brushless motor. </p>
 <p>The control software is integrated into the code for the Romi Rover: <a href="https://github.com/romi/libromi/tree/ci_dev/firmware/BLDC">https://github.com/romi/libromi/tree/ci_dev/firmware/BLDC</a> 
 The design files can be found at <a href="https://github.com/romi/bldc_featherwing">https://github.com/romi/bldc_featherwing</a> </p>
 <h2 id="microcontroller">Microcontroller<a class="headerlink" href="#microcontroller" title="Permanent link">Link</a></h2>
 <p><img alt="" src="/assets/images/farmersDashboard/feather-m0.png" /></p>
-<p>The PWMs signals should be of a high frequency, as to avoid any ripples in the signal, and should be closely synchronised. We therefore opted for a Cortex M0 microcontroller instead of the more common AVR microcontrollers found on the Arduino Uno, for example. Concretely, we are using  the Adafruit Feather M0 Basic, but the code should run on any Arduino -compatible SAMD21 microcontroller board.</p>
+<p>The PWMs signals should be of a high frequency, as to avoid any ripples in the signal, and should be closely synchronised.
+We therefore opted for a Cortex M0 microcontroller instead of the more common AVR microcontrollers found on the Arduino Uno, for example.
+Concretely, we are using the Adafruit Feather M0 Basic, but the code should run on any Arduino -compatible SAMD21 microcontroller board.</p>
 <h2 id="motor-and-encoder">Motor and encoder<a class="headerlink" href="#motor-and-encoder" title="Permanent link">Link</a></h2>
 <p><img alt="" src="/assets/images/farmersDashboard/camera-motor.png" /></p>
-<p>To estimate the angular position of the motor we use a HAL-based encoder. We are using standard components that are sold for the drone market. In particular,   we are using the iPower Motor GM4108H-120T Gimbal Motor with AS5048A Encoder and slip ring from iFlight-rc.com.</p>
+<p>To estimate the angular position of the motor we use a HAL-based encoder.
+We are using standard components that are sold for the drone market.
+In particular, we are using the iPower Motor GM4108H-120T Gimbal Motor with AS5048A Encoder and slip ring from iFlight-rc.com.</p>
 <h2 id="camera">Camera<a class="headerlink" href="#camera" title="Permanent link">Link</a></h2>
 <p><img alt="" src="/assets/images/farmersDashboard/hq-raspicam.jpg" /></p>
-<p>We use the recent Raspberry Pi High Quality Camera Module. The module is connected to the Raspberry Pi Zero W single-board computer. The camera module has a CS mount that allows us to change the lens.</p>
+<p>We use the recent Raspberry Pi High Quality Camera Module.
+The module is connected to the Raspberry Pi Zero W single-board computer.
+The camera module has a CS mount that allows us to change the lens.</p>
 <h2 id="wiring">Wiring<a class="headerlink" href="#wiring" title="Permanent link">Link</a></h2>
-<p>We had recurring problems with the cabling of the cameras in our previous solutions. The micro USB connectors were not reliable enough and often lost contact. The transmission of the power and the communication over a long USB cable often failed (power drop, broken serial link). We therefore choose to bring a 12V cable to the camera, connect it over a sturdy plug, and include a DC-DC converter inside the camera. Also, we use the WiFi functionality offered by the Raspberry Pi Zero W to send commands and download the images.</p>
+<p>We had recurring problems with the cabling of the cameras in our previous solutions.
+The micro USB connectors were not reliable enough and often lost contact.
+The transmission of the power and the communication over a long USB cable often failed (power drop, broken serial link).
+We therefore choose to bring a 12V cable to the camera, connect it over a sturdy plug, and include a DC-DC converter inside the camera.
+Also, we use the Wi-Fi functionality offered by the Raspberry Pi Zero W to send commands and download the images.</p>
 <h2 id="housing">Housing<a class="headerlink" href="#housing" title="Permanent link">Link</a></h2>
-<p>A housing was designed that follows the same production principles used in other coblebot components.</p>
+<p>A housing was designed that follows the same production principles used in other cablebot components.</p>
 <p><img alt="" src="/assets/images/farmersDashboard/despiece_CAMM.png" /></p>
 
 
@@ -2857,7 +2936,7 @@ The design files can be found at <a href="https://github.com/romi/bldc_featherwi
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "toc.integrate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>

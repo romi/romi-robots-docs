@@ -255,9 +255,7 @@
   
 
 
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://romi-project.eu/" title="ROMI Documentation" class="md-nav__button md-logo" aria-label="ROMI Documentation" data-md-component="logo">
       
@@ -2763,6 +2761,94 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#control-pcb" class="md-nav__link">
+    Control PCB
+  </a>
+  
+    <nav class="md-nav" aria-label="Control PCB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inputs" class="md-nav__link">
+    Inputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outputs" class="md-nav__link">
+    Outputs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feather-pinout" class="md-nav__link">
+    Feather Pinout
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mouse-laser-motion-sensor" class="md-nav__link">
+    Mouse laser motion sensor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imu" class="md-nav__link">
+    IMU
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endstops" class="md-nav__link">
+    Endstops
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-control" class="md-nav__link">
+    Remote Control
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
@@ -2772,12 +2858,17 @@
 
 
 <h1 id="control-electronics">Control electronics<a class="headerlink" href="#control-electronics" title="Permanent link">Link</a></h1>
-<p>The entire motion system is controlled by a low-cost and low-power microcontroller (Microchip SAMD21) that interfaces with the camera module. The much powerful computer in the camera module runs the main logics and communication subsystem based on the software and hardware stack used in the Rover, ensuring modularity and scalability.  As both the camera module and the Rover run the Raspberry PI ARM based Linux architecture our software stack is portable across each one of the robots. Those ensuring the Rover and the carrier use the same remote management interfaces. Following that approach the carrier can be managed using the same standard RC remote controller for on-site  maintenance operations.</p>
+<p>The entire motion system is controlled by a low-cost and low-power microcontroller (Microchip SAMD21) that interfaces with the camera module.
+The much powerful computer in the camera module runs the main logics and communication subsystem based on the software and hardware stack used in the Rover, ensuring modularity and scalability.
+As both the camera module and the Rover run the Raspberry PI ARM based Linux architecture our software stack is portable across each one of the robots.
+Those ensuring the Rover and the carrier use the same remote management interfaces.
+Following that approach the carrier can be managed using the same standard RC remote controller for on-site  maintenance operations.</p>
 <p><img alt="" src="/assets/images/farmersDashboard/electronics.png" /></p>
-<p>The Carrier module electronics is compossed by three main PCB's: the <em>control PCB</em> that holds the man microcontroller on charge of the navigation, the Odrvie motor driver and the power ditribution PCB.</p>
+<p>The Carrier module electronics is composed by three main PCB's: the <em>control PCB</em> that holds the man microcontroller on charge of the navigation, the Odrvie motor driver and the power distribution PCB.</p>
 <p><img alt="" src="/assets/images/farmersDashboard/Cablebot-schematic.png" /></p>
 <h2 id="control-pcb">Control PCB<a class="headerlink" href="#control-pcb" title="Permanent link">Link</a></h2>
-<p>The navigation control is managed by any Arduino SAMD21 compatible board. This board will receive direct instructions via RC control or commands through the Serial port sent by the <em>Raspberry pi</em> in the <a href="../camera/">Camera Module.</a></p>
+<p>The navigation control is managed by any Arduino SAMD21 compatible board.
+This board will receive direct instructions via RC control or commands through the Serial port sent by the <em>Raspberry pi</em> in the <a href="../camera/">Camera Module.</a></p>
 <p><img alt="" src="/assets/images/farmersDashboard/cablebot_controller_components.png" /></p>
 <h3 id="inputs">Inputs<a class="headerlink" href="#inputs" title="Permanent link">Link</a></h3>
 <ul>
@@ -2966,11 +3057,15 @@ The <a href="https://www.st.com/resource/en/datasheet/ism330dhcx.pdf">ISM330</a>
 <a href="https://github.com/stm32duino/ISM330DLC">Arduino library</a></p>
 <h2 id="endstops">Endstops<a class="headerlink" href="#endstops" title="Permanent link">Link</a></h2>
 <p><img alt="" src="/assets/images/farmersDashboard/endStops.gif" /></p>
-<p>To detect collisions <a href="https://www.components.omron.com/product-detail?partNumber=D3V">OMRON D3V-013-1C23</a> miniature switches are used as end stops on both sides of the cablebot. A 3d printed cover protects the electronic parts and trigers the switch when an obstacle is found. Cabling is routed through the structure to avoid any damage on the lines.</p>
+<p>To detect collisions <a href="https://www.components.omron.com/product-detail?partNumber=D3V">OMRON D3V-013-1C23</a> miniature switches are used as end stops on both sides of the cablebot.
+A 3d printed cover protects the electronic parts and triggers the switch when an obstacle is found.
+Cabling is routed through the structure to avoid any damage on the lines.</p>
 <p><img alt="" src="/assets/images/farmersDashboard/endstop-cable.png" /></p>
 <p>The cabling is routed trough machined channels between the aluminum sandwich sheets keeping it protected and organized.</p>
 <h2 id="remote-control">Remote Control<a class="headerlink" href="#remote-control" title="Permanent link">Link</a></h2>
-<p>Any radio frequency remote control with at least one channel can be used with the CARM. We use one PWM channel to control the speed along the cable. A second PWM channel is already wired to be used in the future, for example to control camera orientation.</p>
+<p>Any radio frequency remote control with at least one channel can be used with the CARM.
+We use one PWM channel to control the speed along the cable.
+A second PWM channel is already wired to be used in the future, for example to control camera orientation.</p>
 <p>We have used <a href="https://hobbyking.com/en_us/hobbykingr-tmhk-gt2b-3ch-2-4ghz-transmitter-and-receiver-w-rechargable-li-ion-battery-1.html">HK-GT2B</a> model with good results.</p>
 <ul>
 <li>2.4GHz AFHDS signal operation</li>
@@ -2983,7 +3078,7 @@ The <a href="https://www.st.com/resource/en/datasheet/ism330dhcx.pdf">ISM330</a>
 <li>Receiver power: 4.5~6.5 VDC</li>
 </ul>
 <p>Depending on the RF hardware sometimes adjusting the signal top/down limits with the remote potentiometers is not enough, this values can be adjusted on firmware changing the <code>RC_CALIBRATION</code> constant values for Min, Middle and Max values <a href="https://github.com/romi/romi-cablebot/blob/main/motor-controller/src/motor-controller.ino#L88">here</a>.</p>
-<p>To find out the values of your remote print to the console the value of the <code>rcSpeed</code> variable, some where in your <code>loop()</code> function and check the serial output while the trigger is at rest, top and bottom positions.</p>
+<p>To find out the values of your remote print to the console the value of the <code>rcSpeed</code> variable, somewhere in your <code>loop()</code> function and check the serial output while the trigger is at rest, top and bottom positions.</p>
 <p>To minimize vibrations of the carrier module while operated with the RF remote control, the noise on the signal is cleaned, applying exponential smoothing to it.</p>
 <p><img alt="" src="/assets/images/farmersDashboard/cablebot-rc.png" /></p>
 
@@ -3064,7 +3159,7 @@ The <a href="https://www.st.com/resource/en/datasheet/ism330dhcx.pdf">ISM330</a>
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "toc.integrate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
