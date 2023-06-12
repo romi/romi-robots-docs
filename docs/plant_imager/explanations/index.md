@@ -43,7 +43,7 @@ To that respect, we imposed ourselves the following "constrains":
 
 ## How it worked so far...
 
-As for every decent technological development team, we decided to "start simple" and try to "complexify over time".
+As for most technological development strategy, we decided to "start simple" and try to "complexify over time".
 
 We thus chose a simple plant model to reconstruct, like _Arabidopsis thaliana_, as it has small leaves that are mostly located at the base of the plant.
 This was to avoid the "occlusion problem", where large leaves would occlude the rest from the camera.
