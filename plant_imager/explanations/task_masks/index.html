@@ -45,8 +45,6 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/_markdown_exec_ansi.css">
-    
       <link rel="stylesheet" href="../../../assets/css/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -901,33 +899,6 @@
         
           <li class="md-nav__item">
   <a href="#example-code" class="md-nav__link">
-    Example &amp; code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#method-excess_green" class="md-nav__link">
-    Method excess_green
-  </a>
-  
-    <nav class="md-nav" aria-label="Method excess_green">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#theory_1" class="md-nav__link">
-    Theory
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-code_1" class="md-nav__link">
     Example &amp; code
   </a>
   
@@ -2801,33 +2772,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#method-excess_green" class="md-nav__link">
-    Method excess_green
-  </a>
-  
-    <nav class="md-nav" aria-label="Method excess_green">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#theory_1" class="md-nav__link">
-    Theory
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#example-code_1" class="md-nav__link">
-    Example &amp; code
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2852,37 +2796,86 @@
 Finally, we use a <em>binary dilation</em> to enlarge the masked area. </p>
 <h3 id="example-code">Example &amp; code<a class="headerlink" href="#example-code" title="Permanent link">Link</a></h3>
 <p>Here is an example of what the <code>linear</code> filter does:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;/opt/hostedtoolcache/Python/3.10.12/x64/lib/python3.10/site-packages/markdown_exec/formatters/python.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">59</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_python</span>
-    <span class="n">exec</span><span class="p">(</span><span class="n">compiled</span><span class="p">,</span> <span class="n">exec_globals</span><span class="p">)</span>  <span class="c1"># noqa: S102</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;code block: n1&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;matplotlib&#39;</span>
-</code></pre></div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Pay attention to the values used for <code>rgb_coefs</code>, <code>threshold</code> and <code>dilation</code>.</p>
-</div>
-<h2 id="method-excess_green">Method <code>excess_green</code><a class="headerlink" href="#method-excess_green" title="Permanent link">Link</a></h2>
-<h3 id="theory_1">Theory<a class="headerlink" href="#theory_1" title="Permanent link">Link</a></h3>
-<p>This filter was published in: Woebbecke, D. M., Meyer, G. E., Von Bargen, K., &amp; Mortensen, D. A. (1995). <em>Color indices for weed identification under various soil, residue, and lighting conditions.</em> <strong>Transactions of the ASAE</strong>, 38(1), 259-269.</p>
-<p>The equation for the <em>excess green</em> method (<span class="arithmatex"><span class="MathJax_Preview">EG</span><script type="math/tex">EG</script></span>) is as follows: <span class="arithmatex"><span class="MathJax_Preview">EG= 2*g-r-b</span><script type="math/tex">EG= 2*g-r-b</script></span>, with:</p>
-<ul>
-<li><span class="arithmatex"><span class="MathJax_Preview">r = R/(R+G+B)</span><script type="math/tex">r = R/(R+G+B)</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">g = G/(R+G+B)</span><script type="math/tex">g = G/(R+G+B)</script></span></li>
-<li><span class="arithmatex"><span class="MathJax_Preview">b = B/(R+G+B)</span><script type="math/tex">b = B/(R+G+B)</script></span></li>
-<li>Then we apply a <em>high-pass threshold</em> to binarize the image and create a mask locating the plant in the image.
-Finally, we use a <em>binary dilation</em> to enlarge the masked area. </li>
-</ul>
-<h3 id="example-code_1">Example &amp; code<a class="headerlink" href="#example-code_1" title="Permanent link">Link</a></h3>
-<p>Here is an example of what the <code>excess_green</code> filter does:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s2">&quot;/opt/hostedtoolcache/Python/3.10.12/x64/lib/python3.10/site-packages/markdown_exec/formatters/python.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">59</span><span class="p">,</span> <span class="ow">in</span> <span class="n">_run_python</span>
-    <span class="n">exec</span><span class="p">(</span><span class="n">compiled</span><span class="p">,</span> <span class="n">exec_globals</span><span class="p">)</span>  <span class="c1"># noqa: S102</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;code block: n2&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;matplotlib&#39;</span>
-</code></pre></div>
+<p><code>``python exec="on" source="below"
+import matplotlib.pyplot as plt
+from imageio.v3 import imread
+from plant3dvision import test_db_path
+from plant3dvision.proc2d import linear, dilation
+path = test_db_path()
+img = imread(path.joinpath('real_plant/images/00000_rgb.jpg'))
+rgb_coefs = [0.1, 1., 0.1]
+filter_img = linear(img, rgb_coefs)  # apply</code>linear` filter
+threshold = 0.3
+mask = filter_img &gt; threshold  # convert to binary mask using threshold
+radius = 2
+dilated_mask = dilation(mask, radius)  # apply a dilation to binary mask
+fig, axes = plt.subplots(2, 2, figsize=(8, 7))
+axes[0, 0].imshow(img)
+axes[0, 0].set_title("Original image")
+axes[0, 1].imshow(filter_img, cmap='gray')
+axes[0, 1].set_title("Mask image (linear filter)")
+axes[1, 0].imshow(mask, cmap='gray')
+axes[1, 0].set_title(f"Binary mask image (threshold={threshold})")
+axes[1, 1].imshow(dilated_mask, cmap='gray')
+axes[1, 1].set_title(f"Dilated binary mask image (radius={radius})")
+[ax.set_axis_off() for ax in axes.flatten()]
+plt.tight_layout()</p>
+<h1 id="markdown-exec-hide">markdown-exec: hide<a class="headerlink" href="#markdown-exec-hide" title="Permanent link">Link</a></h1>
+<p>from io import BytesIO  # markdown-exec: hide
+from base64 import b64encode  # markdown-exec: hide
+buffer = BytesIO()  # markdown-exec: hide
+plt.savefig(buffer, format="png")  # markdown-exec: hide
+print(f"<figure><img src=\"data:image/png;base64,{b64encode(buffer.getvalue()).decode()}\" alt=\"Linear filter example\" /><figcaption>Example of linear filtering, thresholding and binary dilation on an RGB image.</figcaption></figure>")  # markdown-exec: hide
+<div class="highlight"><pre><span></span><code>!!! Important
+    Pay attention to the values used for `rgb_coefs`, `threshold` and `dilation`.
+
+## Method `excess_green`
+
+### Theory
+This filter was published in: Woebbecke, D. M., Meyer, G. E., Von Bargen, K., &amp; Mortensen, D. A. (1995). _Color indices for weed identification under various soil, residue, and lighting conditions._ **Transactions of the ASAE**, 38(1), 259-269.
+
+The equation for the _excess green_ method ($EG$) is as follows: $EG= 2*g-r-b$, with:
+
+- $r = R/(R+G+B)$
+- $g = G/(R+G+B)$
+- $b = B/(R+G+B)$
+- 
+Then we apply a _high-pass threshold_ to binarize the image and create a mask locating the plant in the image.
+Finally, we use a _binary dilation_ to enlarge the masked area. 
+
+### Example &amp; code
+Here is an example of what the `excess_green` filter does:
+
+```python exec=&quot;on&quot; html=&quot;true&quot; source=&quot;below&quot;
+import matplotlib.pyplot as plt
+from imageio.v3 import imread
+from plant3dvision import test_db_path
+from plant3dvision.proc2d import excess_green, dilation
+path = test_db_path()
+img = imread(path.joinpath(&#39;real_plant/images/00000_rgb.jpg&#39;))
+filter_img = excess_green(img)  # apply `excess_green` filter
+threshold = 0.3
+mask = filter_img &gt; threshold  # convert to binary mask using threshold
+radius = 2
+dilated_mask = dilation(mask, radius)  # apply a dilation to binary mask
+fig, axes = plt.subplots(2, 2, figsize=(8, 7))
+axes[0, 0].imshow(img)
+axes[0, 0].set_title(&quot;Original image&quot;)
+axes[0, 1].imshow(filter_img, cmap=&#39;gray&#39;)
+axes[0, 1].set_title(&quot;Mask image (excess green filter)&quot;)
+axes[1, 0].imshow(mask, cmap=&#39;gray&#39;)
+axes[1, 0].set_title(f&quot;Binary mask image (threshold={threshold})&quot;)
+axes[1, 1].imshow(dilated_mask, cmap=&#39;gray&#39;)
+axes[1, 1].set_title(f&quot;Dilated binary mask image (radius={radius})&quot;)
+[ax.set_axis_off() for ax in axes.flatten()]
+plt.tight_layout()
+# markdown-exec: hide
+from io import BytesIO  # markdown-exec: hide
+from base64 import b64encode  # markdown-exec: hide
+buffer = BytesIO()  # markdown-exec: hide
+plt.savefig(buffer, format=&quot;png&quot;)  # markdown-exec: hide
+print(f&quot;&lt;div&gt;&lt;img src=\&quot;data:image/png;base64,{b64encode(buffer.getvalue()).decode()}\&quot; alt=\&quot;Excess green filter example\&quot; /&gt;&lt;figcaption&gt;Example of excess green filtering, thresholding and binary dilation on an RGB image.&lt;/figcaption&gt;&lt;/div&gt;&quot;)  # markdown-exec: hide
+</code></pre></div></p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Pay attention to the values used for <code>threshold</code> and <code>dilation</code>.</p>

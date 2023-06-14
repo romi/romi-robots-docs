@@ -45,8 +45,6 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/_markdown_exec_ansi.css">
-    
       <link rel="stylesheet" href="../../assets/css/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
@@ -2976,12 +2974,12 @@
 <p>This should start a container and jupyter notebook.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <ul>
 <li><code>--rm</code> automatically remove the container when it exits</li>
 <li><code>-gpus all</code> add all GPU devices to the container</li>
 <li><code>-p 8888:8888</code> bing your port 8888 to the container port 8888</li>
 </ul>
+</div>
 <p>To stop the container, press <kbd>ctrl</kbd> + <kbd>c</kbd> twice to exit the jupyter notebook, this will also stop (and destroy) the container.</p>
 <h3 id="connect-to-the-notebook">Connect to the notebook<a class="headerlink" href="#connect-to-the-notebook" title="Permanent link">Link</a></h3>
 <p>Following the previous <code>docker run</code> command, a series of messages should appear in the terminal.
@@ -3023,15 +3021,19 @@ To exit the running container, press <kbd>ctrl</kbd> + <kbd>d</kbd> to log out a
 <p>Once you followed the <a href="#access-a-running-container">access a running container</a> or <a href="#launch-an-interactive-container">launch an interactive container</a> instruction, you can launch a reconstruction job on a dataset.</p>
 <p>For example, to obtain a <em>point cloud</em> using the <em>geometric based reconstruction pipeline</em> for the <em>Ler_20220803_2_1</em> dataset, simply run:
 <div class="highlight"><pre><span></span><code><span class="c1"># Start by cleaning the dataset:</span>
-romi_run_task<span class="w"> </span>Clean<span class="w"> </span>Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/geom_pipe_real.toml
+romi_run_task<span class="w"> </span><span class="nv">$DB_LOCATION</span>/Clean<span class="w"> </span>Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/geom_pipe_real.toml
 <span class="c1"># Reconstruct the point cloud:</span>
-romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span>Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/geom_pipe_real.toml
+romi_run_task<span class="w"> </span><span class="nv">$DB_LOCATION</span>/PointCloud<span class="w"> </span>Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/geom_pipe_real.toml
 </code></pre></div></p>
 <h3 id="access-a-host-directory-from-the-container">Access a host directory from the container<a class="headerlink" href="#access-a-host-directory-from-the-container" title="Permanent link">Link</a></h3>
 <p>As we did not bind a local directory to the container, everything you do in that container will stay inside it (hence the name...).
 This also mean that upon exit (and destruction with the <code>--rm</code> option), all of your work and modification will be gone!</p>
 <p>To prevent this, you may use the <code>-v</code> option to bind mount a local folder as a volume in the container.
 For example, to mount another database from your host, registered under <code>$DB_LOCATION</code>, use: <code>-v $DB_LOCATION:/myapp/db</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This will 'overwrite' the demonstration database (for this container only).</p>
+</div>
 <h3 id="fyi">FYI<a class="headerlink" href="#fyi" title="Permanent link">Link</a></h3>
 <p>Here are a few facts about this Docker image:</p>
 <ul>
