@@ -5,7 +5,6 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-18.04
     container:
       image: roboticsmicrofarms/plant-3d-vision:latest
 
