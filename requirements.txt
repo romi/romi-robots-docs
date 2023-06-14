@@ -4,3 +4,4 @@ mkdocs-material-extensions
 markdown-inline-graphviz-extension
 mkdocs-gitsnippet-plugin
 #mkdocs-with-pdf
+markdown-exec[ansi]
