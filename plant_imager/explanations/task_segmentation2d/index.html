@@ -12,20 +12,20 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/plant_imager/explanations/masks/">
+        <link rel="canonical" href="https://docs.romi-project.eu/plant_imager/explanations/task_segmentation2d/">
       
       
-        <link rel="prev" href="../ml_workflow/">
+        <link rel="prev" href="../task_masks/">
       
       
-        <link rel="next" href="../segmentation/">
+        <link rel="next" href="../../../plant-3d-explorer/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>Mask - ROMI Documentation</title>
+        <title>Image segmentation - ROMI Documentation</title>
       
     
     
@@ -44,6 +44,8 @@
         <style>:root{--md-text-font:"Nunito Sans";--md-code-font:"Ubuntu Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../../assets/_markdown_exec_ansi.css">
     
       <link rel="stylesheet" href="../../../assets/css/extra.css">
     
@@ -69,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#masks" class="md-skip">
+        <a href="#segmentation-of-images" class="md-skip">
           Skip to content
         </a>
       
@@ -101,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mask
+              Image segmentation
             
           </span>
         </div>
@@ -847,6 +849,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../task_masks/" class="md-nav__link">
+        Mask
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -859,12 +875,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Mask
+          Image segmentation
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Mask
+        Image segmentation
       </a>
       
         
@@ -883,16 +899,129 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#method-linear" class="md-nav__link">
-    Method linear
+  <a href="#binary-segmentation" class="md-nav__link">
+    Binary segmentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Binary segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#index-computation" class="md-nav__link">
+    Index computation
+  </a>
+  
+    <nav class="md-nav" aria-label="Index computation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-support-vector-machine-svm" class="md-nav__link">
+    Linear support vector machine (SVM)
+  </a>
+  
+    <nav class="md-nav" aria-label="Linear support vector machine (SVM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file" class="md-nav__link">
+    Configuration file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excess-green" class="md-nav__link">
+    Excess green
+  </a>
+  
+    <nav class="md-nav" aria-label="Excess green">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file_1" class="md-nav__link">
+    Configuration file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-class-segmentation" class="md-nav__link">
+    Multi-class segmentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-class segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file_2" class="md-nav__link">
+    Configuration File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dnn-model" class="md-nav__link">
+    DNN model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binarization" class="md-nav__link">
+    Binarization
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-excess_green" class="md-nav__link">
-    Method excess_green
+  <a href="#dilation" class="md-nav__link">
+    Dilation
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-data-from-the-virtual-scanner" class="md-nav__link">
+    Working with data from the virtual scanner
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with data from the virtual scanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file_3" class="md-nav__link">
+    Configuration File
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -900,20 +1029,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../segmentation/" class="md-nav__link">
-        Image segmentation
-      </a>
     </li>
   
 
@@ -2733,16 +2848,129 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#method-linear" class="md-nav__link">
-    Method linear
+  <a href="#binary-segmentation" class="md-nav__link">
+    Binary segmentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Binary segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#index-computation" class="md-nav__link">
+    Index computation
+  </a>
+  
+    <nav class="md-nav" aria-label="Index computation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linear-support-vector-machine-svm" class="md-nav__link">
+    Linear support vector machine (SVM)
+  </a>
+  
+    <nav class="md-nav" aria-label="Linear support vector machine (SVM)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file" class="md-nav__link">
+    Configuration file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excess-green" class="md-nav__link">
+    Excess green
+  </a>
+  
+    <nav class="md-nav" aria-label="Excess green">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file_1" class="md-nav__link">
+    Configuration file
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-class-segmentation" class="md-nav__link">
+    Multi-class segmentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-class segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file_2" class="md-nav__link">
+    Configuration File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dnn-model" class="md-nav__link">
+    DNN model
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binarization" class="md-nav__link">
+    Binarization
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-excess_green" class="md-nav__link">
-    Method excess_green
+  <a href="#dilation" class="md-nav__link">
+    Dilation
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-data-from-the-virtual-scanner" class="md-nav__link">
+    Working with data from the virtual scanner
+  </a>
+  
+    <nav class="md-nav" aria-label="Working with data from the virtual scanner">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file_3" class="md-nav__link">
+    Configuration File
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2761,67 +2989,129 @@
                   
 
 
-<h1 id="masks">Masks<a class="headerlink" href="#masks" title="Permanent link">Link</a></h1>
-<p>Here we show the effects of the <code>type</code> of filter to use in the <code>Mask</code> task.</p>
-<h2 id="method-linear">Method <code>linear</code><a class="headerlink" href="#method-linear" title="Permanent link">Link</a></h2>
-<p><img alt="" src="../../../assets/images/mask/linear_filter.png" /></p>
-<p>The image have been generated with the following python code:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">imageio</span> <span class="kn">import</span> <span class="n">imread</span>
-<span class="kn">from</span> <span class="nn">skimage.exposure</span> <span class="kn">import</span> <span class="n">rescale_intensity</span>
-<span class="kn">from</span> <span class="nn">plant3dvision</span> <span class="kn">import</span> <span class="n">test_db_path</span>
-<span class="kn">from</span> <span class="nn">plant3dvision.proc2d</span> <span class="kn">import</span> <span class="n">linear</span><span class="p">,</span> <span class="n">dilation</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">test_db_path</span><span class="p">()</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;real_plant/images/00000_rgb.jpg&#39;</span><span class="p">))</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># transform the uint8 RGB image into a float RGB numpy array</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">rescale_intensity</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">out_range</span><span class="o">=</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))</span>  <span class="c1"># rescale to [0., 1.]</span>
-<span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.4</span>
-<span class="nb">filter</span> <span class="o">=</span> <span class="n">linear</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">])</span>  <span class="c1"># apply `linear` filter</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="nb">filter</span> <span class="o">&gt;</span> <span class="n">threshold</span>  <span class="c1"># convert to binary mask using threshold</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">dilation</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># apply a dilation to binary mask</span>
-<span class="c1"># Plot the original image, filtered image and binary mask</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Original image&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="nb">filter</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Filtered image&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mask image&quot;</span><span class="p">)</span>
+<h1 id="segmentation-of-images">Segmentation of images<a class="headerlink" href="#segmentation-of-images" title="Permanent link">Link</a></h1>
+<p>The segmentation of an image consists in assigning a label to each of its pixels. For the 3d reconstruction of a plant, we need at least the segmentation of the
+images into 2 classes: <em>plant</em> and <em>background</em>.
+For a reconstruction with semantic labeling of the point cloud, we will need a semantic segmentation of the images giving one label for each organ type (e.g. {<em>leaf</em>, <em>stem</em>,<em>pedicel</em>, <em>flower</em>, <em>fruit</em>}).
+The figure below shows the binary and multi-class segmentations for a virtual plant.</p>
+<figure>
+<img src="/assets/images/segmentation/segmentation_ex.png" alt="Binary and multi-class segmentation examples" width="600" />
+<figcaption>Example image of virtual arabidopsis (left) with binary (middle) and multi-class segmentation (right).</figcaption>
+</figure>
+
+<h2 id="binary-segmentation">Binary segmentation<a class="headerlink" href="#binary-segmentation" title="Permanent link">Link</a></h2>
+<p>The binary segmentation of an image into <em>plant</em> and <em>background</em> is performed with the following command:</p>
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>Masks<span class="w"> </span>scan_id<span class="w"> </span>--config<span class="w"> </span>myconfig.toml<span class="w"> </span>
 </code></pre></div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Pay attention to the values used for <code>threshold</code> and <code>dilation</code>.</p>
+<p>with upstream task being <em>ImagesFilesetExists</em> when processing the raw RGB images or <em>Undistorded</em> when processing images corrected using the intrinsic parameters of the camera.
+The task takes this set of images as an input and produce one binary mask for each image.</p>
+<p>There are 2 methods available to compute indices for binary segmentation: Excess Green Index and Linear SVM.
+For each method, we provide an example configuration file in the <em>Index computation</em> section.</p>
+<h3 id="index-computation">Index computation<a class="headerlink" href="#index-computation" title="Permanent link">Link</a></h3>
+<h4 id="linear-support-vector-machine-svm">Linear support vector machine (SVM)<a class="headerlink" href="#linear-support-vector-machine-svm" title="Permanent link">Link</a></h4>
+<p>A linear combination of R, G and B is used to compute the index for pixel <span class="arithmatex"><span class="MathJax_Preview">(i,j)</span><script type="math/tex">(i,j)</script></span>:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview"> S_{ij}=w_0 R_{ij} + w_1 G_{ij} +w_2 B_{ij} </div>
+<script type="math/tex; mode=display"> S_{ij}=w_0 R_{ij} + w_1 G_{ij} +w_2 B_{ij} </script>
 </div>
-<h2 id="method-excess_green">Method <code>excess_green</code><a class="headerlink" href="#method-excess_green" title="Permanent link">Link</a></h2>
-<p><img alt="" src="../../../assets/images/mask/excess_green_filter.png" /></p>
-<p>The image have been generated with the following python code:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">imageio</span> <span class="kn">import</span> <span class="n">imread</span>
-<span class="kn">from</span> <span class="nn">skimage.exposure</span> <span class="kn">import</span> <span class="n">rescale_intensity</span>
-<span class="kn">from</span> <span class="nn">plant3dvision</span> <span class="kn">import</span> <span class="n">test_db_path</span>
-<span class="kn">from</span> <span class="nn">plant3dvision.proc2d</span> <span class="kn">import</span> <span class="n">excess_green</span><span class="p">,</span> <span class="n">dilation</span>
-<span class="n">path</span> <span class="o">=</span> <span class="n">test_db_path</span><span class="p">()</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;real_plant/images/00000_rgb.jpg&#39;</span><span class="p">))</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>  <span class="c1"># transform the uint8 RGB image into a float RGB numpy array</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">rescale_intensity</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">out_range</span><span class="o">=</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">))</span>  <span class="c1"># rescale to [0., 1.]</span>
-<span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.4</span>
-<span class="nb">filter</span> <span class="o">=</span> <span class="n">excess_green</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># apply `excess_green` filter</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="nb">filter</span> <span class="o">&gt;</span> <span class="n">threshold</span>  <span class="c1"># convert to binary mask using threshold</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">dilation</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># apply a dilation to binary mask</span>
-<span class="c1"># Plot the original image, filtered image and binary mask</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Original image&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="nb">filter</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Filtered image&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Mask image&quot;</span><span class="p">)</span>
+<p>where <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> is the <em>parameters</em> vector specified in the configuration file. A simple vector, like <span class="arithmatex"><span class="MathJax_Preview">w=(0,1,0)</span><script type="math/tex">w=(0,1,0)</script></span> may be used for example.</p>
+<p>Alternatively, you can train an SVM to learn those weights, and the threshold to be provided in the configuration file.
+For this, we consider you have a sample image and a ground truth binary mask.
+A ground truth may be produced using a manual annotation tool like <a href="https://github.com/wkentaro/labelme">LabelMe</a>.</p>
+<p>Using for example a list of N randomly selected pixels as <span class="arithmatex"><span class="MathJax_Preview">X_{train}</span><script type="math/tex">X_{train}</script></span> (array of size [N,3]) and their corresponding labels as <span class="arithmatex"><span class="MathJax_Preview">Y_{train}</span><script type="math/tex">Y_{train}</script></span> (array of size N), a  linear SVM is trained using</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </code></pre></div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Pay attention to the values used for <code>threshold</code> and <code>dilation</code>.</p>
+<p>the weights can then be retrieved as <em>clf.coef_</em> and the threshold as <em>-clf.intercept_</em></p>
+<h5 id="configuration-file">Configuration file<a class="headerlink" href="#configuration-file" title="Permanent link">Link</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">[Masks]</span>
+<span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ImagesFilesetExists&quot;</span><span class="w"> </span><span class="c1"># other option &quot;Undistorted&quot;</span>
+<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;linear&quot;</span>
+<span class="n">parameters</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;[0,1,0]&quot;</span>
+<span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span>
+</code></pre></div>
+<h4 id="excess-green">Excess green<a class="headerlink" href="#excess-green" title="Permanent link">Link</a></h4>
+<p>This segmentation method is assuming the plant is green and the background is not. It has no parameter but it may be less robust than the linear SVM.</p>
+<p>We compute the normalized RGB values <span class="arithmatex"><span class="MathJax_Preview">x \in {r,g,b}</span><script type="math/tex">x \in {r,g,b}</script></span> for each pixel <span class="arithmatex"><span class="MathJax_Preview">(i,j)</span><script type="math/tex">(i,j)</script></span>:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview"> x_{ij} = \frac{X_{ij}}{R_{ij}+G_{ij}+B_{ij}} </div>
+<script type="math/tex; mode=display"> x_{ij} = \frac{X_{ij}}{R_{ij}+G_{ij}+B_{ij}} </script>
+</div>
+<p>where <span class="arithmatex"><span class="MathJax_Preview">X \in {R, G, B}</span><script type="math/tex">X \in {R, G, B}</script></span> is the red, green or blue image</p>
+<p>Then, the green excess index is computed as:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview"> \operatorname{ExG}=2g-r-b </div>
+<script type="math/tex; mode=display"> \operatorname{ExG}=2g-r-b </script>
+</div>
+<h5 id="configuration-file_1">Configuration file<a class="headerlink" href="#configuration-file_1" title="Permanent link">Link</a></h5>
+<div class="highlight"><pre><span></span><code><span class="k">[Masks]</span>
+<span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ImagesFilesetExists&quot;</span><span class="w"> </span><span class="c1"># other option &quot;Undistorted&quot;</span>
+<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;excess_green&quot;</span>
+<span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span>
+</code></pre></div>
+<h2 id="multi-class-segmentation">Multi-class segmentation<a class="headerlink" href="#multi-class-segmentation" title="Permanent link">Link</a></h2>
+<p>The <em>Segmentation2D</em> task performs the semantic segmentation of images using a deep neural network (DNN). The command to run this task is:</p>
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>Segmentation2D<span class="w"> </span>scan_id<span class="w"> </span>my_config.toml
+</code></pre></div>
+<p>This will produce a series of binary masks, one for each class on which the network was trained.</p>
+<figure>
+<img src="/assets/images/segmentation/unet.png" alt="U-net architecture" width="600" />
+<figcaption>Generic encoder/decoder architecture for semantic segmentation (U-net).</figcaption>
+</figure>
+
+<p>The architecture of the network is inspired from the U-net <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>, with a ResNet encoder <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>.
+It consists in encoding and decoding pathways with skip connections between the 2.
+Along the encoding pathways, there is a sequence of convolutions and the image signal is upsampled along the decoding pathway.</p>
+<p>The network is trained for segmenting images of a size <span class="arithmatex"><span class="MathJax_Preview">(S_x,S_y)</span><script type="math/tex">(S_x,S_y)</script></span> which is not necessarily the image size of the acquired images.
+Those parameters <em>Sx</em> and <em>Sy</em> should be provided in the configuration file.
+The images will be cropped to <span class="arithmatex"><span class="MathJax_Preview">(S_x,S_y)</span><script type="math/tex">(S_x,S_y)</script></span> before being fed to the DNN and it is then resized to the original size as an output of the task.</p>
+<h4 id="configuration-file_2">Configuration File<a class="headerlink" href="#configuration-file_2" title="Permanent link">Link</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">[Segmentation2D]</span>
+<span class="n">model_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Resnetdataset_gl_png_896_896_epoch50&quot;</span><span class="w">  </span><span class="c1"># no default value</span>
+<span class="n">Sx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">896</span><span class="w"> </span>
+<span class="n">Sy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">896</span>
+<span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.01</span>
+</code></pre></div>
+<h3 id="dnn-model">DNN model<a class="headerlink" href="#dnn-model" title="Permanent link">Link</a></h3>
+<p>The neural architecture weights are obtained through training on an annotated dataset (see How to train a DNN for semantic segmentation).
+Those weights should be stored in the database (at <code>&lt;database&gt;/models/models</code>) and the name of the weights file should be provided as the <em>model_id</em> parameter in the configuration.
+You can use our model trained on virtual arabidopsis <a href="https://media.romi-project.eu/data/Resnetdataset_gl_png_896_896_epoch50.pt">here</a></p>
+<h2 id="binarization">Binarization<a class="headerlink" href="#binarization" title="Permanent link">Link</a></h2>
+<p>A binary mask <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> is produced from the index or from the output of the DNN, <em>I</em>, by applying a threshold <span class="arithmatex"><span class="MathJax_Preview">\theta</span><script type="math/tex">\theta</script></span> on I for each pixel <span class="arithmatex"><span class="MathJax_Preview">(i,j)</span><script type="math/tex">(i,j)</script></span>:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">\begin{equation} m_{ij} = \begin{cases} 255 &amp; \text{if $I_{ij}&gt;\theta$}\\ 0 &amp; \text{otherwise} \end{cases}       
+\end{equation}</div>
+<script type="math/tex; mode=display">\begin{equation} m_{ij} = \begin{cases} 255 & \text{if $I_{ij}>\theta$}\\ 0 & \text{otherwise} \end{cases}       
+\end{equation}</script>
+</div>
+<p>This threshold may be chosen empirically, or it may be learnt from annotated data (see linear SVM section).</p>
+<h2 id="dilation">Dilation<a class="headerlink" href="#dilation" title="Permanent link">Link</a></h2>
+<p>If the integer <em>dilation</em> parameter is non-zero a morphological dilation is applied to the image using the function <a href="https://scikit-image.org/docs/dev/api/skimage.morphology.html#skimage.morphology.binary_dilation"><em>binary_dilation</em></a> from the <em>skimage.morphology</em> module.</p>
+<p>The <em>dilation</em> parameter sets the number of times <em>binary_dilation</em> is iteratively applied.
+For a faithful reconstruction this parameter should be set to <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> but in practice you may want to have a coarser point cloud.
+This is true when your segmentation is not perfect, dilation will fill the holes or when the reconstructed mesh is broken because the point-cloud is too thin.</p>
+<h2 id="working-with-data-from-the-virtual-scanner">Working with data from the virtual scanner<a class="headerlink" href="#working-with-data-from-the-virtual-scanner" title="Permanent link">Link</a></h2>
+<p>When working with data generated with the virtual scanner, the <em>images</em> folder contains multiple channels corresponding to the various class for which images were generated (<em>stem</em>, <em>flower</em>, <em>fruit</em>, <em>leaf</em>, <em>pedicel</em>).
+You have to select the <em>rgb</em> channel using the <em>query</em> parameter.</p>
+<h4 id="configuration-file_3">Configuration File<a class="headerlink" href="#configuration-file_3" title="Permanent link">Link</a></h4>
+<div class="highlight"><pre><span></span><code><span class="k">[Masks]</span>
+<span class="n">type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;excess_green&quot;</span>
+<span class="n">threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.2</span>
+<span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;{\&quot;channel\&quot;:\&quot;rgb\&quot;}&quot;</span>
+</code></pre></div>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Ronneberger, O., Fischer, P., &amp; Brox, T. (2015, October). U-net: Convolutional networks for biomedical image segmentation. In International Conference on Medical image computing and computer-assisted intervention (pp. 234-241). Springer, Cham.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Zhang, Z., Liu, Q., &amp; Wang, Y. (2018). Road extraction by deep residual u-net. IEEE Geoscience and Remote Sensing Letters, 15(5), 749-753.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
 </div>
 
 
