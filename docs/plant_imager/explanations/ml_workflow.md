@@ -16,7 +16,7 @@ However, we added an extra layer of complexity with the prediction of organs typ
 This in turn improve the automation level of the reconstruction procedure as the plant is automatically identified in the scene.
 There is thus no need for manual definition of the scene bounding-box.
 
-## Overview
+### Overview
 
 <figure>
   <img src="/assets/images/ml_reconstruct_pipeline.svg" width="800" />
@@ -42,7 +42,7 @@ The aim of the quantification part is estimate the fruits' successive angles and
 We sought at projecting the CNN predictions about organ types on the 3D point cloud to know the exact position of each fruit.
 From there we could **estimate the fruit directions**, thanks to oriented bounding-box for fruits directions and the mean skeleton for the branching point to the main stem.  
 
-## Overview
+### Overview
 
 <figure>
   <img src="/assets/images/ml_quantif_pipeline.svg" width="800" />

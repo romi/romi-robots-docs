@@ -40,8 +40,8 @@ nav:
         - 'Strengths & limitations': 'plant_imager/explanations/strengths_limits.md'
         - 'Geometric workflow': 'plant_imager/explanations/geometric_workflow.md'
         - 'Machine-learning workflow': 'plant_imager/explanations/ml_workflow.md'
-        - 'Mask': 'plant_imager/explanations/masks.md'
-        - 'Image segmentation': 'plant_imager/explanations/segmentation.md'
+        - 'Mask': 'plant_imager/explanations/task_masks.md'
+        - 'Image segmentation': 'plant_imager/explanations/task_segmentation2d.md'
       - 'Modules':
         - 'Plant 3D Explorer':
           - 'Home': 'plant-3d-explorer/index.md'
@@ -207,6 +207,7 @@ markdown_extensions:
 plugins:
   - search
   - gitsnippet
+  - markdown-exec
 
 extra_css:
   - assets/css/extra.css

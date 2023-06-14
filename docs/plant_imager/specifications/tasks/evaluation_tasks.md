@@ -49,7 +49,7 @@ In our case we chose to evaluate our plant imager with a can.
 
 !!! Note
     Be careful to be able to detect your object from the background in the future reconstruction process. 
-    Different segmentation methods are described [here](../../explanations/segmentation.md) and as we use the "Binary segmentation" algorithm the can has been painted in a very tasteful green.  
+    Different segmentation methods are described [here](../../explanations/task_segmentation2d.md) and as we use the "Binary segmentation" algorithm the can has been painted in a very tasteful green.  
     ![Green can for evaluation](../../../assets/images/green_can_evaluation.jpg){loading=lazy}  
 
 
