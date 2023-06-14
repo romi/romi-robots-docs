@@ -207,7 +207,7 @@ markdown_extensions:
 plugins:
   - search
   - gitsnippet
-  - markdown-exec
+#  - markdown-exec
 
 extra_css:
   - assets/css/extra.css
