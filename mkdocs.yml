@@ -101,9 +101,15 @@ nav:
           - 'SM-DTW with simulated data': 'plant_imager/tutorials/tutorial_sm-dtw_simulatephyllotaxis.md'
       - 'How-to':
           - 'Home': 'plant_imager/how_to/index.md'
-          - 'Import external resources': 'plant_imager/how_to/import_files.md'
-          - 'Create a new task': 'plant_imager/how_to/create_new_task.md'
-          - 'Create a new evaluation task': 'plant_imager/how_to/create_new_evaluation_task.md'
+          - 'Colmap': 'assets/notebooks/HowTo -Colmap- From RGB images to camera poses.ipynb'
+          - 'Undistorted': 'assets/notebooks/HowTo -Undistorted- Undistort RGB images using camera model.ipynb'
+          - 'Masks': 'assets/notebooks/HowTo -Masks- From RGB images to masks.ipynb'
+          - 'Voxels': 'assets/notebooks/HowTo -Voxels- From mask images and camera coordinates to volume.ipynb'
+          - 'PointCloud': 'assets/notebooks/HowTo -PointCloud- From carved volume to point cloud.ipynb'
+          - 'TriangleMesh': 'assets/notebooks/HowTo -TriangleMesh- From point cloud to triangular mesh.ipynb'
+          - 'CurveSkeleton': 'assets/notebooks/HowTo -CurveSkeleton- From triangular mesh to curved skeleton.ipynb'
+          - 'TreeGraph': 'assets/notebooks/HowTo -TreeGraph- From curved skeleton to tree graph.ipynb'
+          - 'AnglesAndInternodes': 'assets/notebooks/HowTo -AnglesAndInternodes- Extract fruits angles and internodes distance from a tree graph.ipynb'
       - 'Specifications':
           - 'Home': 'plant_imager/specifications/index.md'
           - 'Data': 'plant_imager/specifications/data.md'
@@ -136,6 +142,11 @@ nav:
           - 'Conda': 'plant_imager/developer/conda.md'
           - 'COLMAP': 'plant_imager/developer/colmap_cli.md'
           - 'VPI API': 'plant_imager/developer/vpi_reference_api.md'
+          - 'How-to':
+              - 'Home': 'plant_imager/developer/how_to/index.md'
+              - 'Import external resources': 'plant_imager/developer/how_to/import_files.md'
+              - 'Create a new task': 'plant_imager/developer/how_to/create_new_task.md'
+              - 'Create a new evaluation task': 'plant_imager/developer/how_to/create_new_evaluation_task.md'
           - 'Docker':
               - 'Home': 'plant_imager/docker/index.md'
               - 'Database': 'plant_imager/docker/plantdb_docker.md'
@@ -160,6 +171,7 @@ theme:
   favicon: 'assets/images/favicon.ico'
   features:
     - navigation.tabs
+    - content.code.copy
 
 extra:
   homepage: https://romi-project.eu/
@@ -195,7 +207,12 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
@@ -208,6 +225,14 @@ plugins:
   - search
   - gitsnippet
 #  - markdown-exec
+  - mermaid2:
+      version: 10.2.3
+  - mkdocs-jupyter:
+      include: ["*.ipynb"] # Default: ["*.py", "*.ipynb"]
+      ignore: ["HowTo -AnglesAndInternodes- Extract fruits angles and internodes distance from a tree graph.ipynb"]
+      include_requirejs: true
+      ignore_h1_titles: True
+      include_source: True
 
 extra_css:
   - assets/css/extra.css

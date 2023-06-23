@@ -5,3 +5,4 @@ markdown-inline-graphviz-extension
 mkdocs-gitsnippet-plugin
 #mkdocs-with-pdf
 #markdown-exec[ansi]
+mkdocs-mermaid2-plugin
