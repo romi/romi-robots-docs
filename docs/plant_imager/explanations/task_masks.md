@@ -12,9 +12,13 @@ Then we apply a _high-pass threshold_ to binarize the image and create a mask lo
 Finally, we use a _binary dilation_ to enlarge the masked area. 
 
 ### Example & code
-Here is an example of what the `linear` filter does:
+Here is an example of what the `linear` filter does when used in combination with a binarization step and a dilation step, as in the `Masks` task:
 
-```python exec="on" source="below"
+![linear_filter.png](..%2F..%2Fassets%2Fimages%2Fmask%2Flinear_filter.png)
+
+The source code for this figure is as follows:
+
+```python
 import matplotlib.pyplot as plt
 from imageio.v3 import imread
 from plant3dvision import test_db_path
@@ -38,13 +42,6 @@ axes[1, 1].imshow(dilated_mask, cmap='gray')
 axes[1, 1].set_title(f"Dilated binary mask image (radius={radius})")
 [ax.set_axis_off() for ax in axes.flatten()]
 plt.tight_layout()
-
-# markdown-exec: hide
-from io import BytesIO  # markdown-exec: hide
-from base64 import b64encode  # markdown-exec: hide
-buffer = BytesIO()  # markdown-exec: hide
-plt.savefig(buffer, format="png")  # markdown-exec: hide
-print(f"<figure><img src=\"data:image/png;base64,{b64encode(buffer.getvalue()).decode()}\" alt=\"Linear filter example\" /><figcaption>Example of linear filtering, thresholding and binary dilation on an RGB image.</figcaption></figure>")  # markdown-exec: hide
 ```
 
 !!! Important
@@ -65,9 +62,13 @@ Then we apply a _high-pass threshold_ to binarize the image and create a mask lo
 Finally, we use a _binary dilation_ to enlarge the masked area. 
 
 ### Example & code
-Here is an example of what the `excess_green` filter does:
+Here is an example of what the `excess_green` filter does when used in combination with a binarization step and a dilation step, as in the `Masks` task:
 
-```python exec="on" html="true" source="below"
+![excess_green_filter.png](..%2F..%2Fassets%2Fimages%2Fmask%2Fexcess_green_filter.png)
+
+The source code for this figure is as follows:
+
+```python
 import matplotlib.pyplot as plt
 from imageio.v3 import imread
 from plant3dvision import test_db_path
@@ -90,12 +91,6 @@ axes[1, 1].imshow(dilated_mask, cmap='gray')
 axes[1, 1].set_title(f"Dilated binary mask image (radius={radius})")
 [ax.set_axis_off() for ax in axes.flatten()]
 plt.tight_layout()
-# markdown-exec: hide
-from io import BytesIO  # markdown-exec: hide
-from base64 import b64encode  # markdown-exec: hide
-buffer = BytesIO()  # markdown-exec: hide
-plt.savefig(buffer, format="png")  # markdown-exec: hide
-print(f"<div><img src=\"data:image/png;base64,{b64encode(buffer.getvalue()).decode()}\" alt=\"Excess green filter example\" /><figcaption>Example of excess green filtering, thresholding and binary dilation on an RGB image.</figcaption></div>")  # markdown-exec: hide
 ```
 
 !!! Important
