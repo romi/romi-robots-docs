@@ -99,6 +99,7 @@ nav:
           - 'Reconstruct 3D data': 'plant_imager/tutorials/reconstruct_scan.md'
           - 'Explore your data': 'plant_imager/tutorials/plant-3d-explorer.md'
           - 'SM-DTW with simulated data': 'plant_imager/tutorials/tutorial_sm-dtw_simulatephyllotaxis.md'
+          - 'Robustness evaluation': 'plant_imager/tutorials/robustness_evaluation.md'
       - 'How-to':
           - 'Home': 'plant_imager/how_to/index.md'
           - 'Colmap': 'assets/notebooks/HowTo -Colmap- From RGB images to camera poses.ipynb'

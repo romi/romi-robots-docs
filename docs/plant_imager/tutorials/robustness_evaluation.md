@@ -3,9 +3,9 @@
 We have a CLI tool to evaluate the robustness of the Reconstruction & Quantification (R&Q) tasks.
 Indeed, some tasks like `Colmap` are known to be stochastic, notably the feature detection and matching that use non-deterministic algorithms.
 
-Hereafter we give the general idea and some examples about task evaluation.
+Hereafter we give a design overview, some examples about task evaluation and the API.
 
-## General idea
+## Design overview
 To evaluate to robustness of a task, we sought at a very simplistic and empirical approach: repeat the task and analyze the variability of the results.
 
 To do so we follow these steps:
@@ -30,7 +30,7 @@ Please note that:
 
 ## Evaluate the robustness of the Structure from Motion algorithms
 
-To evaluate the robustness of the Structure from Motion algorithms, one option is to independently reproduce the same estimation of the camera intrinsic and extrinsic parameters.
+To evaluate the robustness of the Structure from Motion algorithms, one option is to independently reproduce the same estimation of the camera intrinsic and extrinsic parameters on several datasets.
 
 Camera extrinsic can be compared to their Euclidean distance to the expected CNC poses and the median poses obtained from Colmap.
 Camera intrinsics can be compared for a given camera model using simple statistics like the deviation from the mean value of each parameter.
@@ -38,17 +38,22 @@ Camera intrinsics can be compared for a given camera model using simple statisti
 ### Command line
 To evaluate the robustness of the Structure from Motion algorithms defined in the `Colmap` task proceed as follows:
 ```shell
-robustness_evaluation Colmap /Data/ROMI/eval_dataset/ --config config/geom_pipe_real.toml --clean --suffix exhaustive_matcher -n 50
+robustness_evaluation Colmap /Data/ROMI/eval_dataset_* \
+  --config config/geom_pipe_real.toml --clean --suffix exhaustive_matcher -n 50
 ```
 
 ### Explanations
 Let's break it down:
 
- - we use a scan dataset named `eval_dataset` accessible under `/Data/ROMI/`
+ - we use a list of scan dataset matching the UNIX glob expression `eval_dataset_*` accessible under `/Data/ROMI/`
  - we use the `geom_pipe_real.toml` from the `config` directory of the `plant-3d-vision` Python module
  - we request a `Clean` task to be performed prior to the robustness evaluation with the `--clean` option
  - we append the `exhaustive_matcher` as a suffix to the evaluation database name with `--suffix exhaustive_matcher`
  - we request 50 repetitions of the `Colmap` task with `-n 50`
+
+!!! note
+    You may specify list of scan dataset, to use instead of a UNIX glob expression.
+    It should be provided as a space separated list of directory names, _e.g._ `robustness_evaluation Colmap /Data/ROMI/eval_dataset_2 /Data/ROMI/eval_dataset_3`.
 
 ### What to expect
 The evaluation database, that is the database containing the replicated & processed scan dataset, will be located under `/Data/ROMI` and should be named something like `YYYY.MM.DD_HH.MM_Eval_Colmap_exhaustive_matcher`.
@@ -64,7 +69,8 @@ The distance between point clouds can be evaluated using a `chamfer distance`.
 ### Command line
 To evaluate the robustness of the geometry-based reconstruction pipeline, defined by using the `geom_pipe_real.toml` configuration up to the `PointCloud` task, proceed as follows:
 ```shell
-robustness_evaluation PointCloud /Data/ROMI/eval_dataset/ --config config/geom_pipe_real.toml --full-pipe --clean --suffix independent_reconstruction -n 50
+robustness_evaluation PointCloud /Data/ROMI/eval_dataset/ \
+ --config config/geom_pipe_real.toml --full-pipe --clean --suffix independent_reconstruction -n 50
 ```
 
 ### Explanations
