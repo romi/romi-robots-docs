@@ -4,7 +4,10 @@ hide:
 ---
 # Installing and Operating the Cablebot
 
-The Cablebot is a crucial component of the **Farmers Dashboard** developed as part of the **Robots for Microfarms (ROMI)** project. It is designed to be an open tool for farmers, aiding them in various agricultural tasks. The Cablebot serves as an autonomous robotic system that can be utilized for a range of applications in the farm.
+The Cablebot is a crucial component of the **ROMI** platform combining the [Carrier module](https://docs.romi-project.eu/Farmers%20Dashboard/bot/), the [Charging Station](https://docs.romi-project.eu/Farmers%20Dashboard/station/)
+and the [Camera module](/Farmers%20Dashboard/camera/) into a single tool dedicated to the remote operation and autonomous scanning of crop beds.
+
+The Cablebot is under continous developement. For more detailed instructions refer to the [development respository](https://github.com/romi/romi-cablebot).
 
 ## Installation Process
 
@@ -46,4 +49,4 @@ Operating the Cablebot involves a series of steps to ensure its proper functioni
 
 10. **Task Review and Analysis**: After the Cablebot completes a task, review the data collected and analyze the results. The Farmers Dashboard might provide tools for data visualization and analysis to help you make informed decisions.
 
-This is a work in progress tool under continous developement. For more detailed instructions and troubleshooting, refer to the ongoing software installation guide at [Farmers Dashboard Cablebot](https://docs.romi-project.eu/Farmers%20Dashboard/install/).
+Some graphical user interfaces are currently under development. For more detailed instructions on the operation and control commands refer to the ongoing software installation guide at [Farmers Dashboard Cablebot](https://docs.romi-project.eu/Farmers%20Dashboard/install/).
