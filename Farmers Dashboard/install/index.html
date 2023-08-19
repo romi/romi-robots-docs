@@ -3567,6 +3567,38 @@ settings using raspi-config. Run <code>raspi-config</code> command and select
 <li>Reboot</li>
 </ol>
 <h2 id="configure-the-serial-ports">Configure the serial ports<a class="headerlink" href="#configure-the-serial-ports" title="Permanent link">Link</a></h2>
+<p>The Raspberry Pi Zero W has one "real" serial controller, called UART0 or PL011, and one more limited serial controller, called UART1 or mini UART.</p>
+<p>(The list of pins on the 40-pin GPIO header can be found here: <a href="https://pinout.xyz/">https://pinout.xyz/</a>)
+(See also the Raspberry Pi documentation: <a href="https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts">https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts</a>)</p>
+<p>By default, the Raspberry Pi is configured as follows:</p>
+<ul>
+<li>UART0 is used to communicate with the Bluetooth controller. It is mapped to /dev/ttyAMA0.</li>
+<li>UART1 is used for the Linux console. By default, the mini UART is mapped to the pin 8 (GPIO 14) for TX, and pin 10 (GPIO 15) for RX. The serial device is mapped to /dev/ttyS0.</li>
+</ul>
+<p>The GPIO pins 14 and 15 are used for the "primary" serial. By default, UART1 is the primary serial. </p>
+<p>For the Cablebot, we want to change this as follows:</p>
+<ul>
+<li>UART0 connects the motor controller on GPIO pins 14 and 15 (pins 8 and 10)</li>
+</ul>
+<p>Disabling Bluetooth will make UART0 available again.  </p>
+<p>In /boot/config.txt, add the following line at the end of the file (after [all]):</p>
+<div class="highlight"><pre><span></span><code>dtoverlay=disable-bt
+</code></pre></div>
+<p>This disables the Bluetooth kernel module.</p>
+<p>Then, disable the console on the serial port. In /boot/cmdline.txt, remove:</p>
+<div class="highlight"><pre><span></span><code>console=serial0,11520
+</code></pre></div>
+<p>In a terminal, run the following command to disables the modem and Bluetooth services of the OS:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>hciuart.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>bluealsa.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>bluetooth.service
+</code></pre></div></p>
+<p>And reboot:
+<div class="highlight"><pre><span></span><code>sudo reboot
+</code></pre></div></p>
+<p>After these changes, UART0 will be the primary serial and connected to GPIO pins 14 and 15. </p>
+<p>It does not seem possible to have both serial active and available in GPIO pins. This is because both UART0 and UART1 are (hard)wired to GPIO pins 14 and 15...</p>
+<p>Alternatively (to be tested):</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>raspi-config
 </code></pre></div>
 <ol>
@@ -3578,16 +3610,6 @@ settings using raspi-config. Run <code>raspi-config</code> command and select
 <p>The confirmation dialog should display:</p>
 <div class="highlight"><pre><span></span><code>The serial login shell is disabled
 The serial interface is enabled
-</code></pre></div>
-<p>Click OK but don't reboot, yet.</p>
-<p>In /boot/config.txt, add the following line at the end of the file, in the section [all]:</p>
-<p>dtoverlay=pi3-disable-bt</p>
-<p>In /boot/cmdline.txt, remove (if still there):</p>
-<p>console=serial0,115200 </p>
-<p>Then reboot.</p>
-<p>When the Pi is back online, the ports /dev/serial0 and /dev/serial1 should be available:</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>/dev/serial*
-/dev/serial0<span class="w">  </span>/dev/serial1
 </code></pre></div>
 <h2 id="create-user-romi">Create user romi<a class="headerlink" href="#create-user-romi" title="Permanent link">Link</a></h2>
 <p>Create user romi, set password and add it to needed groups.
@@ -3631,6 +3653,31 @@ Then restart the <code>apache2.service</code> with <code>systemctl</code>:
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2.service
 </code></pre></div></p>
 <h2 id="starting-the-software-on-boot">Starting the software on boot<a class="headerlink" href="#starting-the-software-on-boot" title="Permanent link">Link</a></h2>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/rc.local
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will &quot;exit 0&quot; on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ &quot;$_IP&quot; ]; then
+  printf &quot;My IP address is %s\n&quot; &quot;$_IP&quot;
+fi
+
+sudo -u romi /home/romi/romi-rover-build-and-test/build/bin/rcom-registry &amp;
+
+exit 0
+</code></pre></div>
 <h2 id="extra-overlayfs">Extra: OverlayFS<a class="headerlink" href="#extra-overlayfs" title="Permanent link">Link</a></h2>
 <p>To avoid file system corruption on Raspberry Pi's that can have their power interrupted suddenly, having a read-only file system it's a good option.</p>
 <blockquote>
