@@ -119,6 +119,7 @@ On newer version of the OS image, the legacy interface has to be activated manua
 $ sudo raspi-config
 ```
 
+
 1. Select _3 Interface Options_
 2. Select _I1 Legacy Camera_
 3. Select _Yes_
@@ -126,6 +127,59 @@ $ sudo raspi-config
 
 
 ## Configure the serial ports
+
+The Raspberry Pi Zero W has one "real" serial controller, called UART0 or PL011, and one more limited serial controller, called UART1 or mini UART.
+
+(The list of pins on the 40-pin GPIO header can be found here: https://pinout.xyz/)
+(See also the Raspberry Pi documentation: https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts)
+
+By default, the Raspberry Pi is configured as follows:
+
+* UART0 is used to communicate with the Bluetooth controller. It is mapped to /dev/ttyAMA0.
+* UART1 is used for the Linux console. By default, the mini UART is mapped to the pin 8 (GPIO 14) for TX, and pin 10 (GPIO 15) for RX. The serial device is mapped to /dev/ttyS0.
+
+The GPIO pins 14 and 15 are used for the "primary" serial. By default, UART1 is the primary serial. 
+
+
+For the Cablebot, we want to change this as follows:
+
+* UART0 connects the motor controller on GPIO pins 14 and 15 (pins 8 and 10)
+
+Disabling Bluetooth will make UART0 available again.  
+
+In /boot/config.txt, add the following line at the end of the file (after [all]):
+
+```
+dtoverlay=disable-bt
+```
+
+This disables the Bluetooth kernel module.
+
+Then, disable the console on the serial port. In /boot/cmdline.txt, remove:
+
+```
+console=serial0,11520
+```
+
+In a terminal, run the following command to disables the modem and Bluetooth services of the OS:
+```sh
+sudo systemctl disable hciuart.service
+sudo systemctl disable bluealsa.service
+sudo systemctl disable bluetooth.service
+```
+
+And reboot:
+```
+sudo reboot
+```
+
+
+After these changes, UART0 will be the primary serial and connected to GPIO pins 14 and 15. 
+
+It does not seem possible to have both serial active and available in GPIO pins. This is because both UART0 and UART1 are (hard)wired to GPIO pins 14 and 15...
+
+
+Alternatively (to be tested):
 
 ```sh
 $ sudo raspi-config
@@ -143,25 +197,7 @@ The serial login shell is disabled
 The serial interface is enabled
 ```
 
-Click OK but don't reboot, yet.
 
-In /boot/config.txt, add the following line at the end of the file, in the section [all]:
-
-  dtoverlay=pi3-disable-bt
-
-In /boot/cmdline.txt, remove (if still there):
-
-  console=serial0,115200 
-
-
-Then reboot.
-
-When the Pi is back online, the ports /dev/serial0 and /dev/serial1 should be available:
-
-```sh
-$ ls /dev/serial*
-/dev/serial0  /dev/serial1
-```
 
 
 ## Create user romi
@@ -232,6 +268,37 @@ sudo systemctl restart apache2.service
 
 
 ## Starting the software on boot
+
+~~~bash
+$ sudo nano /etc/rc.local
+~~~
+
+
+~~~
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+
+sudo -u romi /home/romi/romi-rover-build-and-test/build/bin/rcom-registry &
+
+exit 0
+~~~
+
 
 
 
