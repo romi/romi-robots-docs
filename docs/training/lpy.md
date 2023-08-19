@@ -32,7 +32,7 @@ lpy
 ### Pre-requisites
 
 - a first contact with python language.
-- laptop or computer with linux, macos (or possibly windows).
+- laptop or computer with Linux, MacOS (or possibly windows).
 
 ### Helpcard
 

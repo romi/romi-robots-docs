@@ -4,7 +4,7 @@ How to use the 'sm-dtw' assessment tool with simulated synthetic phyllotaxis dat
 
 
 ## Related Materials:
-* Download and view the full **[tutorial video](https://zenodo.org/record/6793459#.YsKmMXjP0Uk)**. See also [below](Tutorial_sm-dtw_simulatephyllotaxis.md#outline-of-the-tutorial-video) how to navigate rapidely into the content of this video.
+* Download and view the full **[tutorial video](https://zenodo.org/record/6793459#.YsKmMXjP0Uk)**. See also [below](tutorial_sm-dtw_simulatephyllotaxis.md#outline-of-the-tutorial-video) how to navigate rapidely into the content of this video.
 
 * **related readme** procedure: you can also help by reading the readme of the [project](https://github.com/fabfabBesnard/Phyllotaxis-sim-eval/blob/main/docker/docker_readme.md).
 

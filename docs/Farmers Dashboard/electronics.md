@@ -1,17 +1,22 @@
 # Control electronics
 
-The entire motion system is controlled by a low-cost and low-power microcontroller (Microchip SAMD21) that interfaces with the camera module. The much powerful computer in the camera module runs the main logics and communication subsystem based on the software and hardware stack used in the Rover, ensuring modularity and scalability.  As both the camera module and the Rover run the Raspberry PI ARM based Linux architecture our software stack is portable across each one of the robots. Those ensuring the Rover and the carrier use the same remote management interfaces. Following that approach the carrier can be managed using the same standard RC remote controller for on-site  maintenance operations.
+The entire motion system is controlled by a low-cost and low-power microcontroller (Microchip SAMD21) that interfaces with the camera module.
+The much powerful computer in the camera module runs the main logics and communication subsystem based on the software and hardware stack used in the Rover, ensuring modularity and scalability.
+As both the camera module and the Rover run the Raspberry PI ARM based Linux architecture our software stack is portable across each one of the robots.
+Those ensuring the Rover and the carrier use the same remote management interfaces.
+Following that approach the carrier can be managed using the same standard RC remote controller for on-site  maintenance operations.
 
 ![](/assets/images/farmersDashboard/electronics.png)
 
-The Carrier module electronics is compossed by three main PCB's: the _control PCB_ that holds the man microcontroller on charge of the navigation, the Odrvie motor driver and the power ditribution PCB.
+The Carrier module electronics is composed by three main PCB's: the _control PCB_ that holds the man microcontroller on charge of the navigation, the Odrvie motor driver and the power distribution PCB.
 
 ![](/assets/images/farmersDashboard/Cablebot-schematic.png)
 
 
 ## Control PCB
 
-The navigation control is managed by any Arduino SAMD21 compatible board. This board will receive direct instructions via RC control or commands through the Serial port sent by the _Raspberry pi_ in the [Camera Module.](camera.md)
+The navigation control is managed by any Arduino SAMD21 compatible board.
+This board will receive direct instructions via RC control or commands through the Serial port sent by the _Raspberry pi_ in the [Camera Module.](camera.md)
 
 ![](/assets/images/farmersDashboard/cablebot_controller_components.png)
 
@@ -82,7 +87,9 @@ The [ISM330](https://www.st.com/resource/en/datasheet/ism330dhcx.pdf) Adafruit Q
 
 ![](/assets/images/farmersDashboard/endStops.gif)
 
-To detect collisions [OMRON D3V-013-1C23](https://www.components.omron.com/product-detail?partNumber=D3V) miniature switches are used as end stops on both sides of the cablebot. A 3d printed cover protects the electronic parts and trigers the switch when an obstacle is found. Cabling is routed through the structure to avoid any damage on the lines.
+To detect collisions [OMRON D3V-013-1C23](https://www.components.omron.com/product-detail?partNumber=D3V) miniature switches are used as end stops on both sides of the cablebot.
+A 3d printed cover protects the electronic parts and triggers the switch when an obstacle is found.
+Cabling is routed through the structure to avoid any damage on the lines.
 
 ![](/assets/images/farmersDashboard/endstop-cable.png)
 
@@ -90,7 +97,9 @@ To detect collisions [OMRON D3V-013-1C23](https://www.components.omron.com/produ
 
 
 ## Remote Control
-Any radio frequency remote control with at least one channel can be used with the CARM. We use one PWM channel to control the speed along the cable. A second PWM channel is already wired to be used in the future, for example to control camera orientation.
+Any radio frequency remote control with at least one channel can be used with the CARM.
+We use one PWM channel to control the speed along the cable.
+A second PWM channel is already wired to be used in the future, for example to control camera orientation.
 
 We have used [HK-GT2B](https://hobbyking.com/en_us/hobbykingr-tmhk-gt2b-3ch-2-4ghz-transmitter-and-receiver-w-rechargable-li-ion-battery-1.html) model with good results.
 
@@ -105,7 +114,7 @@ We have used [HK-GT2B](https://hobbyking.com/en_us/hobbykingr-tmhk-gt2b-3ch-2-4g
 
 Depending on the RF hardware sometimes adjusting the signal top/down limits with the remote potentiometers is not enough, this values can be adjusted on firmware changing the `RC_CALIBRATION` constant values for Min, Middle and Max values [here](https://github.com/romi/romi-cablebot/blob/main/motor-controller/src/motor-controller.ino#L88).
 
-To find out the values of your remote print to the console the value of the `rcSpeed` variable, some where in your `loop()` function and check the serial output while the trigger is at rest, top and bottom positions.
+To find out the values of your remote print to the console the value of the `rcSpeed` variable, somewhere in your `loop()` function and check the serial output while the trigger is at rest, top and bottom positions.
 
 To minimize vibrations of the carrier module while operated with the RF remote control, the noise on the signal is cleaned, applying exponential smoothing to it.
 

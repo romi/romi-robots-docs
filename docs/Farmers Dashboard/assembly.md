@@ -2,9 +2,10 @@
 
 ![](/assets/images/farmersDashboard/desk.jpg)
 
-
 The cablebot assembly requires simple tools: Pliers, screwdrivers, allen keys and a plastic or wooden tool to apply pressure without damaging the pieces. 
 For electronics assembly some extra tools are needed: solder station, cutting pliers, shrink tube and hot air gun. 
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//IVo6hM8GWWQ' frameborder='0' allowfullscreen></iframe></div>
 
 ## Carrier module (CARM)
 
@@ -20,7 +21,10 @@ The carrier module is the most complex component and it has a lot of different p
 
 ### Hands (left and right)
 
-There are two _hands_ on the CARM module, left and right. The assembly process for both is the same so we only show it once. This pieces hold the pulleys that are in direct contact with the cable on both extremes. They also hold the two end stops switches that detect obstacles along the path.
+There are two _hands_ on the CARM module, left and right.
+The assembly process for both is the same, so we only show it once.
+These pieces hold the pulleys that are in direct contact with the cable on both extremes.
+They also hold the two end stops switches that detect obstacles along the path.
 
 ![](/assets/images/farmersDashboard/assembly/hands/despiece_hand.png)
 
@@ -106,10 +110,10 @@ Align the two holes on both pieces.
 ![](/assets/images/farmersDashboard/assembly/hands/hands-06.jpg)
 
 ![](/assets/images/farmersDashboard/assembly/hands/hands-07.jpg)
-Pass the cable back to the front throungh the hole and align it with the pocket on the alucobond piece.
+Pass the cable back to the front through the hole and align it with the pocket on the alucobond piece.
 
 ![](/assets/images/farmersDashboard/assembly/hands/hands-08.jpg)
-Align and put toghether the two aluminum parts making sure not to pinch the cables.
+Align and put together the two aluminum parts making sure not to pinch the cables.
 After joining them check if the cable can move freely.
 
 ![](/assets/images/farmersDashboard/assembly/hands/hands-09.jpg)
@@ -119,7 +123,8 @@ Insert the M8 screw.
 Place the 5 washers on the screw.
 
 ![](/assets/images/farmersDashboard/assembly/hands/hands-11.jpg)
-Before this step you need to pressure fit the 608zz bearing in to the 3d printed pulley, it can be done easily on a bench press, be sure to slide it until the end. We recomend applying a couple of cyanoacrylate glue drops between the two pieces.
+Before this step you need to pressure fit the 608zz bearing in to the 3d printed pulley, it can be done easily on a bench press, be sure to slide it until the end.
+We recommend applying a couple of cyanoacrylate glue drops between the two pieces.
 
 Insert the bearing and the printed pulley on the M8 screw and fix it with the nut, be sure to apply enough pressure.
 
@@ -142,10 +147,10 @@ While keeping aligned the printed piece insert the other screw.
 Tighten both nuts.
 
 ![](/assets/images/farmersDashboard/assembly/hands/hands-18.jpg)
-Your done with the right hand assembly!
+You're done with the right hand assembly!
 
 ![](/assets/images/farmersDashboard/assembly/hands/hands-19.jpg)
-Follow the same procedure with the left hand so you can start with the arms.
+Follow the same procedure with the left hand, so you can start with the arms.
 
 
 ### Left Arm
@@ -196,7 +201,8 @@ Follow the same procedure with the left hand so you can start with the arms.
 
 ### Head
 
-The _head_ part of the module holds the brushless motor and the needed electronics to control it. This part slides depending on thee cable tension.
+The _head_ part of the module holds the brushless motor and the needed electronics to control it.
+This part slides depending on the cable tension.
 
 ![](/assets/images/farmersDashboard/assembly/head/despiece_head_front.png)
 
