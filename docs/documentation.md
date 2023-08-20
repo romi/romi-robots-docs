@@ -23,6 +23,7 @@ The goal is to develop an open-source, affordable, multipurpose platform adapted
 | Hardware     | [Plant Imager :material-robot-excited-outline:](https://github.com/romi/plant-imager){ .md-button } [Cable Bot :material-camera-wireless-outline:](https://github.com/romi/romi-cablebot){ .md-button } [Rover :material-robot-mower-outline:](https://github.com/romi/romi-rover-build-and-test){ .md-button } |
 | Storage      | [PlantDB :material-database-outline:](https://github.com/romi/plantdb){ .md-button } |
 | Viewers      | [Plant 3D Explorer :material-file-tree-outline:](https://github.com/romi/plant-3d-explorer){ .md-button } [Farmers Dashboard :material-monitor-dashboard:](https://github.com/romi/farmers-dashboard){ .md-button } |
-| Algorithms   | [Virtual Plant Imager :material-camera-iris:](https://github.com/romi/virtual_plant_imager){ .md-button } [Plant 3D Vision :material-pine-tree-box:](https://github.com/romi/plant-3d-vision){ .md-button } [romiseg :material-graph-outline:](https://github.com/romi/romiseg){ .md-button } [DTW :material-chart-timeline-variant-shimmer:](https://github.com/romi){ .md-button } |
+| Algorithms   | [Plant 3D Vision :material-pine-tree-box:](https://github.com/romi/plant-3d-vision){ .md-button } [romiseg :material-graph-outline:](https://github.com/romi/romiseg){ .md-button } [DTW :material-chart-timeline-variant-shimmer:](https://github.com/romi/dtw){ .md-button } |
 | Third-party & wrapping | [romicgal :material-graphql:](https://github.com/romi/romicgal){ .md-button } |
+
 
