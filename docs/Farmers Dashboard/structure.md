@@ -23,7 +23,7 @@ Integrated in the same housing are the 3d printed lateral pulleys held by a 608z
 ![](/assets/images/farmersDashboard/endstop.png)
 
 
-![](/assets/images/farmersDhboard/endstop-cable.png)
+![](/assets/images/farmersDashboard/endstop-cable.png)
 
 ## Dynamic tension
 
