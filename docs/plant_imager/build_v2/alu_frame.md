@@ -7,7 +7,7 @@
 
 ## BOM
 
-<img src="../../assets/images/alu_frame_wood_corners_3D.PNG" alt="Aluminium frame with wood corners overview" width="300" style="float:right">
+<img src="../../../assets/images/alu_frame_wood_corners_3D.PNG" alt="Aluminium frame with wood corners overview" width="300" style="float:right">
 
 To assemble the aluminium frame you will need:
 
@@ -32,7 +32,7 @@ To ease the build, lay them flat on the floor.
 1. Prepare all **A** parts with their brackets at the right position:
 
     <figure>
-        <img src="../../assets/images/montant_mesures.PNG" alt="Aluminium frame A with brackets" width="1200" />
+        <img src="../../../assets/images/montant_mesures.PNG" alt="Aluminium frame A with brackets" width="1200" />
       <figcaption>Positioning the 30x60 brackets on the 1800mm 3030 profiles (A).</figcaption>
     </figure>
 
@@ -41,7 +41,7 @@ To ease the build, lay them flat on the floor.
 3. Then add the two lower **B** parts & finally the two upper **B** parts.
 
     <figure>
-        <img src="../../assets/images/alu_frame.PNG" alt="Aluminium frame overview" width="1200" />
+        <img src="../../../assets/images/alu_frame.PNG" alt="Aluminium frame overview" width="1200" />
       <figcaption>Assembled aluminium frame schematic & isometric view.</figcaption>
     </figure>
 
@@ -51,12 +51,12 @@ To ease the build, lay them flat on the floor.
 Add wood corner brackets to rigidify the structure.
 
 <figure>
-    <img src="../../assets/images/alu_frame_wood_corners.PNG" alt="Aluminium frame with wood corners overview" width="1200" />
+    <img src="../../../assets/images/alu_frame_wood_corners.PNG" alt="Aluminium frame with wood corners overview" width="1200" />
   <figcaption>Assembled aluminium frame with wood corners schematic.</figcaption>
 </figure>
 
 <figure>
-    <img src="../../assets/images/alu_frame_wood_corners_3D.PNG" alt="Aluminium frame with wood corners overview" width="1200" />
+    <img src="../../../assets/images/alu_frame_wood_corners_3D.PNG" alt="Aluminium frame with wood corners overview" width="1200" />
   <figcaption>Isometric view of assembled aluminium frame with wood corners.</figcaption>
 </figure>
 

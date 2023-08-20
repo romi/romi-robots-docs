@@ -29,7 +29,7 @@ of the original CNC with a [new arm](#the-z-axis) adapted for the
 weeding task.
 
 You can find the discussion of the software in a [dedicated
-page](../software/md) of the rover documentation.
+page](software.md) of the rover documentation.
 
 
 # The rover
