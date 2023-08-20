@@ -8,7 +8,7 @@ Instructions and main specifications for the virtual plant imager
 The `Virtual Plant Imager` functions as a digital twin of the real romi robot `Plant imager`: it takes RGB images of one to several virtual 3D plant models and generate all data and metadata necessary to proceed downstream with a training of a neural network or with an analysis pipeline of the `plant-3d-vision` tool suite.
 
 * As **input**, it takes a 3D model (`.obj`) file
-* As **output**, it provides one to several datasets in a [romi database format](/docs/plant_imager/install/plantdb_setup.md#Initialize-a-ROMI-database), ready for downstream use (training or analysis)
+* As **output**, it provides one to several datasets in a [romi database format](/plant_imager/install/plantdb_setup/#Initialize-a-ROMI-database), ready for downstream use (training or analysis)
 
 ```
 db/

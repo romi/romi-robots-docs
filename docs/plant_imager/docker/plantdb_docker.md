@@ -3,7 +3,7 @@ Docker container for ROMI database
 
 !!! important
     An **existing local database directory is required**, it will be mounted at container startup.
-    To see how to create a local database directory, look [here](../install/plantdb_setup.md#initialize-a-romi-database).
+    To see how to create a local database directory, look [here](/plant_imager/install/plantdb_setup/#initialize-a-romi-database).
 
 
 ## Use pre-built docker image
@@ -66,7 +66,7 @@ This requires a valid account & token on dockerhub!
 
 ### Requirements
 
-To run it, you need to have a valid local ROMI database, look [here](../install/plantdb_setup.md/#initialize-a-romi-database) for instructions and [here](https://db.romi-project.eu/models/test_db.tar.gz) for an example database.
+To run it, you need to have a valid local ROMI database, look [here](/plant_imager/install/plantdb_setup/#initialize-a-romi-database) for instructions and [here](https://db.romi-project.eu/models/test_db.tar.gz) for an example database.
 
 ### Starting the `plantdb` docker image
 

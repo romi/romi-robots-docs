@@ -13,7 +13,7 @@ Wiring of `23HS18-2004H`:
 | red | red/white | green/white | green |
 
 The original motor was `KL23H251-28-4AP` from Automation Technology.
-Full specifications can be accessed [here](KL23H251-28-4AP).
+Full specifications can be accessed [here](https://www.automationtechnologiesinc.com/products-page/tinyg-kit/kl23h251-28-4ap).
 
 Wiring of `KL23H251-28-4AP`:
 
