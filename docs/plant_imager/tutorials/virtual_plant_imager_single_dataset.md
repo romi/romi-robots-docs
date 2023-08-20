@@ -28,7 +28,7 @@ The idea is to generate images of a virtual 3D plant and provide these picture a
 
 The virtual plant 3D model (with some of its ground truth references) can be imported and given as an input. However, we provide an integrated procedure to generate a virtual 3D plant directly "on the fly" with [Lpy](https://lpy.readthedocs.io/en/latest/), using a Lpy model and customizable parameters. Some ground truth references will also be automatically generated.
 
-Once this virtual plant has been virtually imaged, there are all data and metadata required to run an analysis with the tested pipeline. The results of this analysis will be compared to the virtual ground truth. Four type of [evaluations](/docs/plant_imager/specifications/tasks/evaluation_tasks.md) are currently implemented :
+Once this virtual plant has been virtually imaged, there are all data and metadata required to run an analysis with the tested pipeline. The results of this analysis will be compared to the virtual ground truth. Four type of [evaluations](../specifications/tasks/evaluation_tasks.md) are currently implemented :
 
   *   evaluation of a 2D segmentation
   *   evaluation of a 3D segmentation of the point cloud
@@ -39,7 +39,7 @@ Once this virtual plant has been virtually imaged, there are all data and metada
 First, create a working directory on your host machine, let's say `home/host/path/my_virtual_db`.
 You can find an example of such a directory [here](https://github.com/romi/plant-imager/tree/master/database_example).
 
-This working directory is a proper ["romi" database](/docs/plant_imager/install/plantdb_setup.md#Initialize-a-ROMI-database) which contains additional data for the virtual plant generation and/or imaging grouped in a so-called ``vscan_data` folder:
+This working directory is a proper ["romi" database](../install/plantdb_setup.md#Initialize-a-ROMI-database) which contains additional data for the virtual plant generation and/or imaging grouped in a so-called ``vscan_data` folder:
 
 **Legend**: 
 
@@ -206,12 +206,12 @@ This run should process all dependencies and generates notably a segmented point
 
 !!! Note
     any available romi Tasks for image analysis can be runned here.
-    Please refer to the [list of Tasks](/docs/plant_imager/specifications/tasks/index.md) implemented in our romi software suite.
+    Please refer to the [list of Tasks](../specifications/tasks/index.md) implemented in our romi software suite.
 
 !!! Note
     The command line can be executed in docker container or in a terminal if you have activated the correct virtual environments and proceeded to local installation of the software.
 
-    Please refer to this [tutorial](/docs/plant_imager/tutorials/reconstruct_scan.md) if you encounter problems to run pipeline from our `plant-3d-vision` tool suite.
+    Please refer to this [tutorial](../tutorials/reconstruct_scan.md) if you encounter problems to run pipeline from our `plant-3d-vision` tool suite.
 
 
 
@@ -269,7 +269,7 @@ my_virtual_db
 
 Once the analysis results are generated, you can now compare this results to the expected ground truth reference of the virtual plant.
 
-Several Evaluation Tasks have been developed by romi: check the [list](/docs/plant_imager/specifications/tasks/evaluation_tasks.md) to know which results are evaluating each of them.
+Several Evaluation Tasks have been developed by romi: check the [list](../specifications/tasks/evaluation_tasks.md) to know which results are evaluating each of them.
 
 In the below example, we would like to evaluate the point-cloud reconstruction, so we run:
 

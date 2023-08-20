@@ -14,7 +14,7 @@ In this tutorial, you will learn how to calibrate an image acquisition for downs
 ## Prerequisite
 *   Make sure that you installed all the ROMI software to run image acquisitions with the ROMI `Plant Imager` (explanation [here](../install/plant_imager_setup.md))
 
-* install also [`plant-3d-vision`](/docs/plant_imager/modules/plant_3d_vision.md) to perform the calibration.
+* install also [`plant3dvision`](../install/index.md) to perform the calibration.
   
 <div class="icon">
   <img src="/assets/images/ext/docker_logo2.png" alt="docker_logo">
@@ -33,7 +33,7 @@ You have now your file-based romi database *plantdb*
 ## Principles of the extrinsic calibration performed here
 The motor positions moving the camera along the acquisition path give a first indication of the scale of the picture, but this motor information is as accurate as the encoder allows them to be.
 
-To have the closest scaling from reality, we use *[Colmap](https://colmap.github.io/)* (a structure-from-motion algorithm) at the very beginning of the 3d reconstructions (see [here](/docs/plant_imager/specifications/pipelines.md)): this technique allows to refine the positions of the camera given by the robot motors.
+To have the closest scaling from reality, we use *[Colmap](https://colmap.github.io/)* (a structure-from-motion algorithm) at the very beginning of the 3d reconstructions (see [here](../specifications/pipelines.md)): this technique allows to refine the positions of the camera given by the robot motors.
 However, those computed positions are determined up to a scaling and roto-translation of the world and as a result, present a problem for measuring real world unit quantities. In addition, each camera pose is aligned with the corresponding CNC arm position. This can lead to a bias in scaling induced by the offset between the camera optical center and the CNC arm as represented in the following picture:    
 ![Offset between camera and robotic arm](../../assets/images/calibration_camera_offset.png){width=600 loading=lazy} 
 
