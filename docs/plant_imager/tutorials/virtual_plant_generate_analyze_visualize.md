@@ -41,7 +41,7 @@ docker run --rm -it --gpus all -v /path/to/your_db:/myapp/db roboticsmicrofarms/
 Inside docker container, run `VirtualScan` task to generate a dataset named `virtual_ds_example`
 
 ```shell
-romi_run_task --config plant-imager/config/vscan_lpy_blender.toml VirtualScan /myapp/db/virtual_ds_example
+romi_run_task --config plant-imager/configs/vscan_lpy_blender.toml VirtualScan /myapp/db/virtual_ds_example
 ```
 
 Wait for the generation time, after complete, make sure that `virtual_ds_example` has been generated correctly.
@@ -75,7 +75,7 @@ source /venv/bin/activate
 Inside docker container, run `AnglesAndInternodes` task
 
 ```shell
-romi_run_task --config config/geom_pipe_virtual.toml AnglesAndInternodes /myapp/db/virtual_ds_example/
+romi_run_task --config configs/geom_pipe_virtual.toml AnglesAndInternodes /myapp/db/virtual_ds_example/
 ```
 
 Make sure that the folder `AnglesAndInternodes` has been generated
@@ -83,7 +83,7 @@ Make sure that the folder `AnglesAndInternodes` has been generated
 Run the `Visualization` task
 
 ```shell
-romi_run_task --config config/geom_pipe_virtual.toml Visualization /myapp/db/virtual_ds_example/
+romi_run_task --config configs/geom_pipe_virtual.toml Visualization /myapp/db/virtual_ds_example/
 ```
 
 Make sure the `Visualization` folder has been generated

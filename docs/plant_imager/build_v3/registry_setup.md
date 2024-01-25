@@ -29,5 +29,5 @@ cd ~romi-rover-build-and-test/
 firefox applications/romi-monitor/camera.html & #check the camera topic name and the registry IP
 cd ~plant-imager/
 python3 /preview/preview.py --registry IP-of-the-registry
-romi_run_task --config config/hardware_scan_v3.toml Scan ~/romi_db/dir-name/
+romi_run_task --config configs/hardware_scan_v3.toml Scan ~/romi_db/dir-name/
 ```

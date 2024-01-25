@@ -8,21 +8,21 @@ Hereafter we list the GET/POST requests that can be made and give some examples.
 There are many ways to do this, but the simplest & fastest option is to use the Docker image ``roboticsmicrofarms/virtualplantimager``.
 
 !!! note
-    We make use of the `$DB_LOCATION` environment variable.
-    If not done yet, you may want to set it with `export DB_LOCATION=/path/to/database`.
+    We make use of the `$ROMI_DB` environment variable.
+    If not done yet, you may want to set it with `export ROMI_DB=/path/to/database`.
     Or replace it with the path to use.
 
 ### Start a container
 === "Docker CLI"
     Start a container and open a bash shell:
     ```shell
-    docker run -it --gpus all roboticsmicrofarms/virtualplantimager:latest -v $DB_LOCATION:/myapp/db bash
+    docker run -it --gpus all roboticsmicrofarms/virtualplantimager:latest -v $ROMI_DB:/myapp/db bash
     ```
 
 === "`run.sh` script"
     Start a container and open a bash shell:
     ```shell
-    ./docker/virtualplantimager/run.sh -db $DB_LOCATION
+    ./docker/virtualplantimager/run.sh -db $ROMI_DB
     ```
 
 ### Start the Blender Flask server

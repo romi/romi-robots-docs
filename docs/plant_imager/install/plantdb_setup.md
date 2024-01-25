@@ -41,16 +41,16 @@ mkdir /data/romi_db
 touch /data/romi_db/plantdb
 ```
 
-Then define its location in an environment variable `DB_LOCATION`:
+Then define its location in an environment variable `ROMI_DB`:
 
 ```shell
-export DB_LOCATION='/data/ROMI/DB'
+export ROMI_DB='/data/ROMI/DB'
 ```
 
 !!! note
     To permanently set this directory as the location of the DB, add it to your `~/.bashrc` file.
     ```shell
-    echo 'export DB_LOCATION=/data/ROMI/DB' >> ~/.bashrc
+    echo 'export ROMI_DB=/data/ROMI/DB' >> ~/.bashrc
     ```
 
 ## Serve the REST API

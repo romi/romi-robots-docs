@@ -58,7 +58,7 @@ dataset_list=('plant1','plant2','plant3')
 
 for ds in "${dataset_list[@]}"
 do 
-    romi_run_task Visualization path_to/my_experiment/"$ds"/ --config ~/config/ml_pipe_real.toml
+    romi_run_task Visualization path_to/my_experiment/"$ds"/ --config ~/configs/ml_pipe_real.toml
 done
 ```
 
@@ -77,11 +77,11 @@ done
 ### 2. Connect your database to a local server
 
 - Continue in the same shell terminal (if you open a new terminal, do not forget to activate appropriate python environment)
-- set the DB location using the `DB_LOCATION` environment variable
+- set the DB location using the `ROMI_DB` environment variable
 - Type the following commands to launch the server:
 
 ```shell
-export DB_LOCATION=/path/to/your/db
+export ROMI_DB=/path/to/your/db
 romi_scanner_rest_api #command that starts the server
 ```
 

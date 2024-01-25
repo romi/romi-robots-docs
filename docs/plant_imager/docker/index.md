@@ -10,8 +10,7 @@ We hereafter list the docker containers, their availability and provides link to
 - [x] **plantdb** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plantdb) and explanations [there](plantdb_docker.md)
 - [ ] **plantimager** is not available yet and explanations [there](plantimager_docker.md)
 - [x] **plant-3d-vision** is available [there](plant-3d-vision_docker.md)
-- [x] **plant-3d-explorer** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plant-3d-explorer) and
-  explanations [there](plant3dexplorer_docker.md)
+- [x] **plant-3d-explorer** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plant-3d-explorer) and explanations [there](plant3dexplorer_docker.md)
 
 
 ## Use cases with docker-compose

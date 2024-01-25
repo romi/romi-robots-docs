@@ -83,7 +83,7 @@ The metrics used are the same as the ones for an evaluation against a ground-tru
 ### 1. Test a single task
 Example with the task `TriangleMesh` task, whose goal is to compute a mesh from a point-cloud:
 ```shell
-robustness_evaluation /path/db/my_scan TriangleMesh plant-3d-vision/config/pipeline.toml -n 10
+robustness_evaluation /path/db/my_scan TriangleMesh plant-3d-vision/configs/pipeline.toml -n 10
 ```
 To summarize, the `pipeline.toml` configuration indicate the following order of tasks:
 ```
@@ -119,7 +119,7 @@ Quantitative results, using the appropriate metric(s), are in the `TriangleMesh_
 ### 2. Independent tests
 If the goal is to evaluate the impact of stochasticity through the whole pipeline in the output of the `TriangleMesh` task, you should perform independent tests (run the whole pipeline each time) using the `-f` parameter:
 ```shell
-robustness_evaluation /path/db/my_scan TriangleMesh plant-3d-vision/config/pipeline.toml -n 10 -f
+robustness_evaluation /path/db/my_scan TriangleMesh plant-3d-vision/configs/pipeline.toml -n 10 -f
 ```
 
 This will yield a similar folder structure:

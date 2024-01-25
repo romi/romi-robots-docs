@@ -43,7 +43,7 @@ romi_run_task [-h]
 * `MODULE` is an optional parameter for running task from external modules (see TODO).
 * `LOG_LEVEL` is the level of logging. Defaults to `INFO`, but can be set to `DEBUG` to increase verbosity.
 * `task` is the name of the class to run, see [here]() for a list of task or have a look at the output of `romi_run_task -h` for a more up-to-date list
-* `dataset_path` is the location of the target `Scan` on which to process the task. It is of the form `$DB_LOCATION/SCAN_ID`, where `$DB_LOCATION` is a path containing the `plantdb` marker.
+* `dataset_path` is the location of the target `Scan` on which to process the task. It is of the form `$ROMI_DB/SCAN_ID`, where `$ROMI_DB` is a path containing the `plantdb` marker.
 
 
 ## Defining the dataset path
@@ -52,11 +52,11 @@ To defines the `dataset_path` you can specify a dataset name like `my_scan_007`.
 You may also use Unix pattern matching with "`*`" and "`?`" to select a list of scan dataset.
 For example, in a DB with the following scan dataset: `test_1` `my_scan_test`, `my_scan_002`, `my_scan_007`, `my_scan_011`
 
-- `$DB_LOCATION/*` will match ALL scan dataset
-- `$DB_LOCATION/my_scan_*` will match `my_scan_test`, `my_scan_002`, `my_scan_007` & `my_scan_011`
-- `$DB_LOCATION/my_scan_???` will match `my_scan_002`, `my_scan_007` & `my_scan_011`
-- `$DB_LOCATION/my_scan_00?` will match `my_scan_002` & `my_scan_007`
-- `$DB_LOCATION/my_scan_00*` will match `my_scan_002` & `my_scan_007`
+- `$ROMI_DB/*` will match ALL scan dataset
+- `$ROMI_DB/my_scan_*` will match `my_scan_test`, `my_scan_002`, `my_scan_007` & `my_scan_011`
+- `$ROMI_DB/my_scan_???` will match `my_scan_002`, `my_scan_007` & `my_scan_011`
+- `$ROMI_DB/my_scan_00?` will match `my_scan_002` & `my_scan_007`
+- `$ROMI_DB/my_scan_00*` will match `my_scan_002` & `my_scan_007`
 
 
 ## Configuration files

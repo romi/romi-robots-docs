@@ -130,5 +130,5 @@ romi_import_folder ~/db/vscan_data/data/ ~/db/vscan_007/ --metadata ~/db/vscan_d
 
 ```shell
 cd plantimager/bin
-romi_run_task VirtualScan ~/db/vscan_007 --config ~/plantimager/config/vscan_obj.toml
+romi_run_task VirtualScan ~/db/vscan_007 --config ~/plantimager/configs/vscan_obj.toml
 ```

@@ -99,7 +99,7 @@ cd plant-imager/docker
 Then, in this docker container, generate the virtual dataset by running the following command:
 
 ```shell
-(lpyEnv) user@5c9e389f223d  romi_run_task --config plant-imager/config/vscan_lpy_blender.toml VirtualScan db/my_virtual_plant # Run VirtualScan by specifying the output folder 'my_virtual_plant'
+(lpyEnv) user@5c9e389f223d  romi_run_task --config plant-imager/configs/vscan_lpy_blender.toml VirtualScan db/my_virtual_plant # Run VirtualScan by specifying the output folder 'my_virtual_plant'
 ```
 
 The computation can take a few minutes, depending on your system capacities. if it works, the terminal should display something like that:
@@ -137,7 +137,7 @@ With the default parameters provided with this example (Lpy model and configurat
 *   It has only a main stem and no lateral branches (simplified architecture)
 *   It is a mature plant, that has grown an elongated inflorescence stem bearing several mature fruit (called a 'silique', the typical pod of the *Brassicaceae* family) and still has some flowers at the very tip.
 
-In the next two sections, we point to simple paramaters of the configuration [file](https://github.com/romi/plant-imager/blob/master/config/vscan_lpy_blender.toml) used for this task to modify either the virtual plant or 
+In the next two sections, we point to simple paramaters of the configuration [file](https://github.com/romi/plant-imager/blob/master/configs/vscan_lpy_blender.toml) used for this task to modify either the virtual plant or 
 the virtual imaging.
 
 #### 2.1 (optional) how to modify the virtual plant with LPy parameters

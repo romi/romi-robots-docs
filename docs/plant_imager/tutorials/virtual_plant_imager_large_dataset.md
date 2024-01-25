@@ -49,7 +49,7 @@ cd plant-imager/docker
 To generate a large dataset, you have to run the script `generate_dataset.py` by passing the config file and the output folder.
 
 ```shell
-(lpyEnv) user@5c9e389f223d  python generate_dataset.py plant-imager/config/vscan_lpy_blender.toml db/learning_set
+(lpyEnv) user@5c9e389f223d  python generate_dataset.py plant-imager/configs/vscan_lpy_blender.toml db/learning_set
 ```
 
 After a while, and if the generation succeeded the `learning_set` folder will be populated by virtual plants.
