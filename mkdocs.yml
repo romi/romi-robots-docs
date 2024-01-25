@@ -20,7 +20,7 @@ nav:
       - 'How to build the cablebot':
           - 'Get the pieces': 'Farmers Dashboard/building.md'
           - 'Assembly instructions': 'Farmers Dashboard/assembly.md'
-          - 'Install the software': 'Farmers Dashboard/install.md'  
+          - 'Install the software': 'Farmers Dashboard/install.md'
       - 'How to use the cablebot': 'Farmers Dashboard/use.md'
       - 'Crops Insights Pipeline': 'Farmers Dashboard/pipeline.md'
       - 'Farmers Dashboard App': 'Farmers Dashboard/app.md'
@@ -201,7 +201,7 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.keys
