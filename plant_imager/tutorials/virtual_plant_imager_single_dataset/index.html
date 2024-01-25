@@ -4450,7 +4450,7 @@ For all these options, please refer to the <a href="../../specifications/virtual
 ./run.sh<span class="w"> </span>-db<span class="w"> </span>/home/host/path/my_virtual_db<span class="w">  </span><span class="c1"># This will map your working databse to the `db` directory located in the docker&#39;s user home</span>
 </code></pre></div>
 Then, in this docker container, generate the virtual dataset by running the following command:</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>lpyEnv<span class="o">)</span><span class="w"> </span>user@5c9e389f223d<span class="w">  </span>romi_run_task<span class="w"> </span>--config<span class="w"> </span>plant-imager/config/vscan_lpy_blender.toml<span class="w"> </span>VirtualScan<span class="w"> </span>db/my_virtual_plant<span class="w"> </span><span class="c1"># Run VirtualScan by specifying the output folder &#39;my_virtual_plant&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="o">(</span>lpyEnv<span class="o">)</span><span class="w"> </span>user@5c9e389f223d<span class="w">  </span>romi_run_task<span class="w"> </span>--config<span class="w"> </span>plant-imager/configs/vscan_lpy_blender.toml<span class="w"> </span>VirtualScan<span class="w"> </span>db/my_virtual_plant<span class="w"> </span><span class="c1"># Run VirtualScan by specifying the output folder &#39;my_virtual_plant&#39;</span>
 </code></pre></div>
 <p>The computation can take a few minutes, depending on your system capacities. if it works, the terminal should display something like that:
 <div class="highlight"><pre><span></span><code><span class="o">=====</span><span class="w"> </span>Luigi<span class="w"> </span>Execution<span class="w"> </span><span class="nv">Summary</span><span class="w"> </span><span class="o">=====</span>
@@ -4483,7 +4483,7 @@ This<span class="w"> </span>progress<span class="w"> </span>looks<span class="w"
 <li>It has only a main stem and no lateral branches (simplified architecture)</li>
 <li>It is a mature plant, that has grown an elongated inflorescence stem bearing several mature fruit (called a 'silique', the typical pod of the <em>Brassicaceae</em> family) and still has some flowers at the very tip.</li>
 </ul>
-<p>In the next two sections, we point to simple paramaters of the configuration <a href="https://github.com/romi/plant-imager/blob/master/config/vscan_lpy_blender.toml">file</a> used for this task to modify either the virtual plant or 
+<p>In the next two sections, we point to simple paramaters of the configuration <a href="https://github.com/romi/plant-imager/blob/master/configs/vscan_lpy_blender.toml">file</a> used for this task to modify either the virtual plant or 
 the virtual imaging.</p>
 <h4 id="21-optional-how-to-modify-the-virtual-plant-with-lpy-parameters">2.1 (optional) how to modify the virtual plant with LPy parameters<a class="headerlink" href="#21-optional-how-to-modify-the-virtual-plant-with-lpy-parameters" title="Permanent link">Link</a></h4>
 <div class="admonition note">

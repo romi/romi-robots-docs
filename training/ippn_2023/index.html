@@ -4443,15 +4443,15 @@ To exit the running container, press <kbd>ctrl</kbd> + <kbd>d</kbd> to log out a
 <p>Once you followed the <a href="#access-a-running-container">access a running container</a> or <a href="#launch-an-interactive-container">launch an interactive container</a> instruction, you can launch a reconstruction job on a dataset.</p>
 <p>For example, to obtain a <em>point cloud</em> using the <em>geometric based reconstruction pipeline</em> for the <em>Ler_20220803_2_1</em> dataset, simply run:
 <div class="highlight"><pre><span></span><code><span class="c1"># Start by cleaning the dataset:</span>
-romi_run_task<span class="w"> </span>Clean<span class="w"> </span><span class="nv">$DB_LOCATION</span>/Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/geom_pipe_real.toml
+romi_run_task<span class="w"> </span>Clean<span class="w"> </span><span class="nv">$ROMI_DB</span>/Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/configs/geom_pipe_real.toml
 <span class="c1"># Reconstruct the point cloud:</span>
-romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span><span class="nv">$DB_LOCATION</span>/Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/geom_pipe_real.toml
+romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span><span class="nv">$ROMI_DB</span>/Ler_20220803_2_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/configs/geom_pipe_real.toml
 </code></pre></div></p>
 <h3 id="access-a-host-directory-from-the-container">Access a host directory from the container<a class="headerlink" href="#access-a-host-directory-from-the-container" title="Permanent link">Link</a></h3>
 <p>As we did not bind a local directory to the container, everything you do in that container will stay inside it (hence the name...).
 This also mean that upon exit (and destruction with the <code>--rm</code> option), all of your work and modification will be gone!</p>
 <p>To prevent this, you may use the <code>-v</code> option to bind mount a local folder as a volume in the container.
-For example, to mount another database from your host, registered under <code>$DB_LOCATION</code>, use: <code>-v $DB_LOCATION:/myapp/db</code>.</p>
+For example, to mount another database from your host, registered under <code>$ROMI_DB</code>, use: <code>-v $ROMI_DB:/myapp/db</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This will 'overwrite' the demonstration database (for this container only).</p>
@@ -4460,7 +4460,7 @@ For example, to mount another database from your host, registered under <code>$D
 <p>Here are a few facts about this Docker image:</p>
 <ul>
 <li>The <code>plant-3d-vision</code> sources can be found under <code>$HOME/plant-3d-vision</code>.</li>
-<li>The database can be found under <code>/myapp/db</code>, this path is saved to the <code>DB_LOCATION</code> environment variable.</li>
+<li>The database can be found under <code>/myapp/db</code>, this path is saved to the <code>ROMI_DB</code> environment variable.</li>
 <li>The shared database has been acquired using our <em>Plant Imager v2</em> with a Sony RX-0 camera (more
   info <a href="../../plant_imager/build_v2/">here</a>).</li>
 <li>If you perform a reconstruction using the task <code>Colmap</code> it will use another Docker image

@@ -4353,7 +4353,7 @@ Camera intrinsics can be compared for a given camera model using simple statisti
 <h3 id="command-line">Command line<a class="headerlink" href="#command-line" title="Permanent link">Link</a></h3>
 <p>To evaluate the robustness of the Structure from Motion algorithms defined in the <code>Colmap</code> task proceed as follows:
 <div class="highlight"><pre><span></span><code>robustness_evaluation<span class="w"> </span>Colmap<span class="w"> </span>/Data/ROMI/eval_dataset_*<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--config<span class="w"> </span>config/geom_pipe_real.toml<span class="w"> </span>--clean<span class="w"> </span>--suffix<span class="w"> </span>exhaustive_matcher<span class="w"> </span>-n<span class="w"> </span><span class="m">50</span>
+<span class="w">  </span>--config<span class="w"> </span>configs/geom_pipe_real.toml<span class="w"> </span>--clean<span class="w"> </span>--suffix<span class="w"> </span>exhaustive_matcher<span class="w"> </span>-n<span class="w"> </span><span class="m">50</span>
 </code></pre></div></p>
 <h3 id="explanations">Explanations<a class="headerlink" href="#explanations" title="Permanent link">Link</a></h3>
 <p>Let's break it down:</p>
@@ -4378,7 +4378,7 @@ The distance between point clouds can be evaluated using a <code>chamfer distanc
 <h3 id="command-line_1">Command line<a class="headerlink" href="#command-line_1" title="Permanent link">Link</a></h3>
 <p>To evaluate the robustness of the geometry-based reconstruction pipeline, defined by using the <code>geom_pipe_real.toml</code> configuration up to the <code>PointCloud</code> task, proceed as follows:
 <div class="highlight"><pre><span></span><code>robustness_evaluation<span class="w"> </span>PointCloud<span class="w"> </span>/Data/ROMI/eval_dataset/<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--config<span class="w"> </span>config/geom_pipe_real.toml<span class="w"> </span>--full-pipe<span class="w"> </span>--clean<span class="w"> </span>--suffix<span class="w"> </span>independent_reconstruction<span class="w"> </span>-n<span class="w"> </span><span class="m">50</span>
+<span class="w"> </span>--config<span class="w"> </span>configs/geom_pipe_real.toml<span class="w"> </span>--full-pipe<span class="w"> </span>--clean<span class="w"> </span>--suffix<span class="w"> </span>independent_reconstruction<span class="w"> </span>-n<span class="w"> </span><span class="m">50</span>
 </code></pre></div></p>
 <h3 id="explanations_1">Explanations<a class="headerlink" href="#explanations_1" title="Permanent link">Link</a></h3>
 <p>Let's break it down:</p>

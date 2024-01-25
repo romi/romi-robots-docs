@@ -4466,7 +4466,7 @@ You can also download an example database <a href="https://db.romi-project.eu/mo
 
 <span class="k">for</span><span class="w"> </span>ds<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">dataset_list</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">do</span><span class="w"> </span>
-<span class="w">    </span>romi_run_task<span class="w"> </span>Visualization<span class="w"> </span>path_to/my_experiment/<span class="s2">&quot;</span><span class="nv">$ds</span><span class="s2">&quot;</span>/<span class="w"> </span>--config<span class="w"> </span>~/config/ml_pipe_real.toml
+<span class="w">    </span>romi_run_task<span class="w"> </span>Visualization<span class="w"> </span>path_to/my_experiment/<span class="s2">&quot;</span><span class="nv">$ds</span><span class="s2">&quot;</span>/<span class="w"> </span>--config<span class="w"> </span>~/configs/ml_pipe_real.toml
 <span class="k">done</span>
 </code></pre></div>
 <div class="admonition note">
@@ -4488,10 +4488,10 @@ You can also download an example database <a href="https://db.romi-project.eu/mo
 <h3 id="2-connect-your-database-to-a-local-server">2. Connect your database to a local server<a class="headerlink" href="#2-connect-your-database-to-a-local-server" title="Permanent link">Link</a></h3>
 <ul>
 <li>Continue in the same shell terminal (if you open a new terminal, do not forget to activate appropriate python environment)</li>
-<li>set the DB location using the <code>DB_LOCATION</code> environment variable</li>
+<li>set the DB location using the <code>ROMI_DB</code> environment variable</li>
 <li>Type the following commands to launch the server:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">DB_LOCATION</span><span class="o">=</span>/path/to/your/db
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROMI_DB</span><span class="o">=</span>/path/to/your/db
 romi_scanner_rest_api<span class="w"> </span><span class="c1">#command that starts the server</span>
 </code></pre></div>
 <p><strong>check result</strong>: the terminal prints various information given by the server (e.g. number of datasets in the database).

@@ -4250,7 +4250,7 @@ Download <code>.hdr</code> files and put them in the <code>hdri</code> folder.</
 ./run.sh<span class="w"> </span>-db<span class="w"> </span>/home/host/path/database_example<span class="w">  </span><span class="c1"># This will map to `db` directory located in the the docker&#39;s user home</span>
 </code></pre></div>
 <p>To generate a large dataset, you have to run the script <code>generate_dataset.py</code> by passing the config file and the output folder.</p>
-<div class="highlight"><pre><span></span><code><span class="o">(</span>lpyEnv<span class="o">)</span><span class="w"> </span>user@5c9e389f223d<span class="w">  </span>python<span class="w"> </span>generate_dataset.py<span class="w"> </span>plant-imager/config/vscan_lpy_blender.toml<span class="w"> </span>db/learning_set
+<div class="highlight"><pre><span></span><code><span class="o">(</span>lpyEnv<span class="o">)</span><span class="w"> </span>user@5c9e389f223d<span class="w">  </span>python<span class="w"> </span>generate_dataset.py<span class="w"> </span>plant-imager/configs/vscan_lpy_blender.toml<span class="w"> </span>db/learning_set
 </code></pre></div>
 <p>After a while, and if the generation succeeded the <code>learning_set</code> folder will be populated by virtual plants.</p>
 

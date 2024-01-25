@@ -4201,13 +4201,13 @@ For example:</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/data/romi_db
 touch<span class="w"> </span>/data/romi_db/plantdb
 </code></pre></div>
-<p>Then define its location in an environment variable <code>DB_LOCATION</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">DB_LOCATION</span><span class="o">=</span><span class="s1">&#39;/data/ROMI/DB&#39;</span>
+<p>Then define its location in an environment variable <code>ROMI_DB</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROMI_DB</span><span class="o">=</span><span class="s1">&#39;/data/ROMI/DB&#39;</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>To permanently set this directory as the location of the DB, add it to your <code>~/.bashrc</code> file.
-<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export DB_LOCATION=/data/ROMI/DB&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export ROMI_DB=/data/ROMI/DB&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 </code></pre></div></p>
 </div>
 <h2 id="serve-the-rest-api">Serve the REST API<a class="headerlink" href="#serve-the-rest-api" title="Permanent link">Link</a></h2>

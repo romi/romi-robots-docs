@@ -4425,7 +4425,7 @@ Different segmentation methods are described <a href="../../../explanations/task
 touch<span class="w"> </span>path/to/db/romidb
 </code></pre></div></li>
 <li>Run an acquisition with the <code>Scan</code> task, and a <code>hardware.toml</code> configuration file in the newly created DB<br />
-<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>Scan<span class="w"> </span>/path/to/db/imageset_id/<span class="w"> </span>--config<span class="w"> </span>plant-imager/config/hardware.toml
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>Scan<span class="w"> </span>/path/to/db/imageset_id/<span class="w"> </span>--config<span class="w"> </span>plant-imager/configs/hardware.toml
 </code></pre></div></li>
 <li>The <code>imageset_id</code> fileset is now filled :<br />
 <div class="highlight"><pre><span></span><code>db/
@@ -4447,7 +4447,7 @@ touch<span class="w"> </span>path/to/db/romidb
 <h4 id="2-point-cloud-reconstruction">2. Point cloud reconstruction<a class="headerlink" href="#2-point-cloud-reconstruction" title="Permanent link">Link</a></h4>
 <p>The next step is to compute a point cloud from the acquired data.
 As before, the full explanation of the operations concerning the reconstruction pipeline can be found in <a href="../../../tutorials/reconstruct_scan/">this tutorial</a> but mainly are:
-<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span>/path/to/db/imageset_id/<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/pipeline.toml
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span>/path/to/db/imageset_id/<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/configs/pipeline.toml
 </code></pre></div></p>
 <p>Resulting an equivalent of this tree structure (depending on the used configuration file):
 <div class="highlight"><pre><span></span><code>db/
@@ -4487,7 +4487,7 @@ Parameters in the <code>pipeline.toml</code> associated to the task must be defi
 <p>By default the <code>upstream_task</code> parameter of <code>CylinderRadiusEstimation</code> is <code>CylinderRadiusGroundTruth</code></p>
 </div>
 <p>With the following command line:
-<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>CylinderRadiusEstimation<span class="w"> </span>/path/to/db/imageset_id/<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/pipeline.toml<span class="w"> </span>--module<span class="w"> </span>plant3dvision.tasks.evaluation
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>CylinderRadiusEstimation<span class="w"> </span>/path/to/db/imageset_id/<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/configs/pipeline.toml<span class="w"> </span>--module<span class="w"> </span>plant3dvision.tasks.evaluation
 </code></pre></div></p>
 <p>The <code>CylinderRadiusEstimation.json</code> can be found in the <code>CylinderRadiusEstimation__</code> fileset with the output results:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
@@ -4520,7 +4520,7 @@ By default, random dimensions (height and radius) are assumed.</p>
     <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROMI_DB</span><span class="o">=</span><span class="nv">$USER</span><span class="s2">&quot;/romi_db/&quot;</span>
 </code></pre></div>
 1. Then, run the <code>CylinderRadiusEstimation</code> task with:
-    <div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>CylinderRadiusEstimation<span class="w"> </span><span class="nv">$ROMI_DB</span>/virtual_cylinder/<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/virtual_cylinder.toml<span class="w">  </span>--module<span class="w"> </span>plant3dvision.tasks.evaluation
+    <div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>CylinderRadiusEstimation<span class="w"> </span><span class="nv">$ROMI_DB</span>/virtual_cylinder/<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/configs/virtual_cylinder.toml<span class="w">  </span>--module<span class="w"> </span>plant3dvision.tasks.evaluation
 </code></pre></div></p>
 
 

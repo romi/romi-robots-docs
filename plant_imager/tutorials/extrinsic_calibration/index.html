@@ -4304,7 +4304,7 @@ To correct that, a procedure has been developed to perform an extrinsic calibrat
 <p><img alt="Calibration scan diagram" loading="lazy" src="../../../assets/images/calibration_scan_figure.png" width="600" /></p>
 <p>To do so, run the task 'CalibrationScan' the same way as for a regular acquisition with the <code>romi_run_task</code> command, including your regular configuration file adapted to your plant imager (hereafter: <code>hardware.toml</code>).</p>
 <p>In the command, define a folder inside your romi database (called above <code>plantdb</code>) that will store the data of this calibration acquisition:</p>
-<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>--config<span class="w"> </span>config/hardware.toml<span class="w"> </span><span class="se">\ </span><span class="c1">#command and config</span>
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>--config<span class="w"> </span>configs/hardware.toml<span class="w"> </span><span class="se">\ </span><span class="c1">#command and config</span>
 CalibrationScan<span class="w"> </span><span class="se">\ </span><span class="c1"># romi task</span>
 /path/to/plantdb/calibration_scan_id/<span class="w"> </span><span class="c1">#data destination of this calibration scan </span>
 </code></pre></div>
@@ -4316,7 +4316,7 @@ CalibrationScan<span class="w"> </span><span class="se">\ </span><span class="c1
 <h3 id="2-compute-circular-poses-from-path-lines-with-colmap">2. Compute circular poses from path lines with Colmap<a class="headerlink" href="#2-compute-circular-poses-from-path-lines-with-colmap" title="Permanent link">Link</a></h3>
 <p>Thanks to the linear path added to the circular one, Colmap can now retrieve accurate poses with a proper scaling. Colmap can be easily run with romi software <code>plant-3d-vision</code>.</p>
 <p>For such a run, a proper configuration file (.toml) is required. A <a href="https://github.com/romi/plant-3d-vision/tree/dev/config">default one</a> is provided with <code>plant-3d-vision</code>, and accessible from your local git-cloned repository or in the repository included inside the docker container.</p>
-<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>--config<span class="w"> </span>path/toconfig/geom_pipe_full.toml<span class="w"> </span><span class="se">\ </span><span class="c1">#command and path to config file</span>
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>--config<span class="w"> </span>path/to/configs/geom_pipe_full.toml<span class="w"> </span><span class="se">\ </span><span class="c1">#command and path to config file</span>
 Colmap<span class="w"> </span><span class="se">\ </span><span class="c1">#the task Colmap</span>
 /path/to/plantdb/calibration_scan_id/<span class="w"> </span><span class="c1">#data destination folder</span>
 </code></pre></div>

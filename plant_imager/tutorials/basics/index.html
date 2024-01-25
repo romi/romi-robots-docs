@@ -4242,18 +4242,18 @@ It is a wrapper for <code>luigi</code>, with preloaded tasks from the <code>romi
 <li><code>MODULE</code> is an optional parameter for running task from external modules (see TODO).</li>
 <li><code>LOG_LEVEL</code> is the level of logging. Defaults to <code>INFO</code>, but can be set to <code>DEBUG</code> to increase verbosity.</li>
 <li><code>task</code> is the name of the class to run, see <a href="">here</a> for a list of task or have a look at the output of <code>romi_run_task -h</code> for a more up-to-date list</li>
-<li><code>dataset_path</code> is the location of the target <code>Scan</code> on which to process the task. It is of the form <code>$DB_LOCATION/SCAN_ID</code>, where <code>$DB_LOCATION</code> is a path containing the <code>plantdb</code> marker.</li>
+<li><code>dataset_path</code> is the location of the target <code>Scan</code> on which to process the task. It is of the form <code>$ROMI_DB/SCAN_ID</code>, where <code>$ROMI_DB</code> is a path containing the <code>plantdb</code> marker.</li>
 </ul>
 <h2 id="defining-the-dataset-path">Defining the dataset path<a class="headerlink" href="#defining-the-dataset-path" title="Permanent link">Link</a></h2>
 <p>To defines the <code>dataset_path</code> you can specify a dataset name like <code>my_scan_007</code>.</p>
 <p>You may also use Unix pattern matching with "<code>*</code>" and "<code>?</code>" to select a list of scan dataset.
 For example, in a DB with the following scan dataset: <code>test_1</code> <code>my_scan_test</code>, <code>my_scan_002</code>, <code>my_scan_007</code>, <code>my_scan_011</code></p>
 <ul>
-<li><code>$DB_LOCATION/*</code> will match ALL scan dataset</li>
-<li><code>$DB_LOCATION/my_scan_*</code> will match <code>my_scan_test</code>, <code>my_scan_002</code>, <code>my_scan_007</code> &amp; <code>my_scan_011</code></li>
-<li><code>$DB_LOCATION/my_scan_???</code> will match <code>my_scan_002</code>, <code>my_scan_007</code> &amp; <code>my_scan_011</code></li>
-<li><code>$DB_LOCATION/my_scan_00?</code> will match <code>my_scan_002</code> &amp; <code>my_scan_007</code></li>
-<li><code>$DB_LOCATION/my_scan_00*</code> will match <code>my_scan_002</code> &amp; <code>my_scan_007</code></li>
+<li><code>$ROMI_DB/*</code> will match ALL scan dataset</li>
+<li><code>$ROMI_DB/my_scan_*</code> will match <code>my_scan_test</code>, <code>my_scan_002</code>, <code>my_scan_007</code> &amp; <code>my_scan_011</code></li>
+<li><code>$ROMI_DB/my_scan_???</code> will match <code>my_scan_002</code>, <code>my_scan_007</code> &amp; <code>my_scan_011</code></li>
+<li><code>$ROMI_DB/my_scan_00?</code> will match <code>my_scan_002</code> &amp; <code>my_scan_007</code></li>
+<li><code>$ROMI_DB/my_scan_00*</code> will match <code>my_scan_002</code> &amp; <code>my_scan_007</code></li>
 </ul>
 <h2 id="configuration-files">Configuration files<a class="headerlink" href="#configuration-files" title="Permanent link">Link</a></h2>
 <p>The configuration is in the form of a dictionary, in which each key is the ID of a given task.</p>

@@ -4332,7 +4332,7 @@ touch<span class="w"> </span>path/to/db/romidb
 <h3 id="2-get-the-right-configuration">2. Get the right configuration<a class="headerlink" href="#2-get-the-right-configuration" title="Permanent link">Link</a></h3>
 <p><code>Scan</code> is the basic task for running an acquisition with the robot.
 To run this task properly with <code>romi_run_task</code>, a configuration file is needed.
-A <strong>default</strong> one for the plant imager can be found under <code>plantimager/config/hardware.toml</code>.<br />
+A <strong>default</strong> one for the plant imager can be found under <code>plantimager/configs/hardware.toml</code>.<br />
 It regroups specifications on:</p>
 <ul>
 <li>the acquisition path (ScanPath)</li>
@@ -4415,7 +4415,7 @@ Check the configuration documentation for the <a href="../../metadata/hardware_m
 </div>
 <h3 id="3-run-an-acquisition-with-the-scan-task">3. Run an acquisition with the <code>Scan</code> task<a class="headerlink" href="#3-run-an-acquisition-with-the-scan-task" title="Permanent link">Link</a></h3>
 <p>Assuming you have an active database, you can now run the <code>Scan</code> task using <code>romi_run_task</code>:</p>
-<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>--config<span class="w"> </span>config/hardware.toml<span class="w"> </span>Scan<span class="w"> </span>/path/to/db/imageset_id/
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>--config<span class="w"> </span>configs/hardware.toml<span class="w"> </span>Scan<span class="w"> </span>/path/to/db/imageset_id/
 </code></pre></div>
 <p>where:</p>
 <ul>

@@ -4311,7 +4311,7 @@ The metrics used are the same as the ones for an evaluation against a ground-tru
 <h2 id="step-by-step-tutorial">Step-by-step tutorial<a class="headerlink" href="#step-by-step-tutorial" title="Permanent link">Link</a></h2>
 <h3 id="1-test-a-single-task">1. Test a single task<a class="headerlink" href="#1-test-a-single-task" title="Permanent link">Link</a></h3>
 <p>Example with the task <code>TriangleMesh</code> task, whose goal is to compute a mesh from a point-cloud:
-<div class="highlight"><pre><span></span><code>robustness_evaluation<span class="w"> </span>/path/db/my_scan<span class="w"> </span>TriangleMesh<span class="w"> </span>plant-3d-vision/config/pipeline.toml<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span>
+<div class="highlight"><pre><span></span><code>robustness_evaluation<span class="w"> </span>/path/db/my_scan<span class="w"> </span>TriangleMesh<span class="w"> </span>plant-3d-vision/configs/pipeline.toml<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span>
 </code></pre></div>
 To summarize, the <code>pipeline.toml</code> configuration indicate the following order of tasks:
 <div class="highlight"><pre><span></span><code>ImagesFilesetExists -&gt; Colmap -&gt; Undistorted -&gt; Masks -&gt; Voxels -&gt; PointCloud -&gt; TriangleMesh
@@ -4341,7 +4341,7 @@ Then the <code>TriangleMesh</code> task is run separately on each one.
 Quantitative results, using the appropriate metric(s), are in the <code>TriangleMesh_comparison.json</code> file.</p>
 <h3 id="2-independent-tests">2. Independent tests<a class="headerlink" href="#2-independent-tests" title="Permanent link">Link</a></h3>
 <p>If the goal is to evaluate the impact of stochasticity through the whole pipeline in the output of the <code>TriangleMesh</code> task, you should perform independent tests (run the whole pipeline each time) using the <code>-f</code> parameter:
-<div class="highlight"><pre><span></span><code>robustness_evaluation<span class="w"> </span>/path/db/my_scan<span class="w"> </span>TriangleMesh<span class="w"> </span>plant-3d-vision/config/pipeline.toml<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>-f
+<div class="highlight"><pre><span></span><code>robustness_evaluation<span class="w"> </span>/path/db/my_scan<span class="w"> </span>TriangleMesh<span class="w"> </span>plant-3d-vision/configs/pipeline.toml<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>-f
 </code></pre></div></p>
 <p>This will yield a similar folder structure:
 <div class="highlight"><pre><span></span><code>path/

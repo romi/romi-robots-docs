@@ -4262,9 +4262,9 @@ The two major kinds of distortion are <strong>radial distortion</strong> and <st
 </li>
 <li>
 <p>Set up a ROMI <code>plantdb</code> local <a href="../../specifications/data/">database</a> or quickly create it (under <code>/data/ROMI/DB</code>) with the following commands:
-    <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">DB_LOCATION</span><span class="o">=</span>/data/ROMI/DB
-mkdir<span class="w"> </span><span class="nv">$DB_LOCATION</span>
-touch<span class="w"> </span><span class="nv">$DB_LOCATION</span>/romidb
+    <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROMI_DB</span><span class="o">=</span>/data/ROMI/DB
+mkdir<span class="w"> </span><span class="nv">$ROMI_DB</span>
+touch<span class="w"> </span><span class="nv">$ROMI_DB</span>/romidb
 </code></pre></div></p>
 </li>
 </ul>
@@ -4283,7 +4283,7 @@ touch<span class="w"> </span><span class="nv">$DB_LOCATION</span>/romidb
 
 <p>The previous figure shows the default board that we will use in this tutorial.</p>
 <p>To create it, you have to run the <code>create_charuco_board</code> CLI as follows:
-<div class="highlight"><pre><span></span><code>create_charuco_board<span class="w"> </span>plant-3d-vision/config/intrinsic_calibration.toml
+<div class="highlight"><pre><span></span><code>create_charuco_board<span class="w"> </span>plant-3d-vision/configs/intrinsic_calibration.toml
 </code></pre></div>
 This will create a file named <code>charuco_board.png</code> in the current working directory.</p>
 <p>We strongly advise to <strong>use the same</strong> TOML configuration file with <code>create_charuco_board</code> &amp; <code>romi_run_task</code> commands to avoid inadvertently changing parameter values.
@@ -4315,7 +4315,7 @@ With the previous configuration it should be:</p>
 <p>Finally, <strong>tape it flat onto something solid</strong> in order to avoid deformation of the printed pattern!</p>
 <h3 id="2-scan-the-charuco-board">2. Scan the ChArUco board<a class="headerlink" href="#2-scan-the-charuco-board" title="Permanent link">Link</a></h3>
 <p>To scan your newly printed ChArUco board, use the <code>IntrinsicCalibrationScan</code> task from <code>plant_imager</code>:
-<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>IntrinsicCalibrationScan<span class="w"> </span><span class="nv">$DB_LOCATION</span>/intrinsic_calib_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/scan.toml
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>IntrinsicCalibrationScan<span class="w"> </span><span class="nv">$ROMI_DB</span>/intrinsic_calib_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/configs/scan.toml
 </code></pre></div></p>
 <p>The camera should move to the center front of the <em>plant imager</em> where you will hold your pattern and take <code>20</code> pictures (according to the previous configuration).
 Try to take pictures of the board in different positions.</p>
@@ -4431,9 +4431,9 @@ Try to take pictures of the board in different positions.</p>
 </code></pre></div></p>
 <h3 id="3-performs-the-camera-parameters-estimation">3. Performs the camera parameters estimation<a class="headerlink" href="#3-performs-the-camera-parameters-estimation" title="Permanent link">Link</a></h3>
 <p>You may now <strong>estimate the camera parameters</strong>, for a given <em>camera model</em> with:
-<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>IntrinsicCalibration<span class="w"> </span><span class="nv">$DB_LOCATION</span>/intrinsic_calib_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/config/intrinsic_calibration.toml
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>IntrinsicCalibration<span class="w"> </span><span class="nv">$ROMI_DB</span>/intrinsic_calib_1<span class="w"> </span>--config<span class="w"> </span>plant-3d-vision/configs/intrinsic_calibration.toml
 </code></pre></div>
-This should generate a <code>camera_model.json</code> inside the <code>$DB_LOCATION/intrinsic_calib_1/camera_model</code> folder.</p>
+This should generate a <code>camera_model.json</code> inside the <code>$ROMI_DB/intrinsic_calib_1/camera_model</code> folder.</p>
 <p>An example of a <code>camera_model.json</code> file is:
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OPENCV&quot;</span><span class="p">,</span>

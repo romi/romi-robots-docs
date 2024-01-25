@@ -4466,8 +4466,8 @@
 <p>There are many ways to do this, but the simplest &amp; fastest option is to use the Docker image <code>roboticsmicrofarms/virtualplantimager</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We make use of the <code>$DB_LOCATION</code> environment variable.
-If not done yet, you may want to set it with <code>export DB_LOCATION=/path/to/database</code>.
+<p>We make use of the <code>$ROMI_DB</code> environment variable.
+If not done yet, you may want to set it with <code>export ROMI_DB=/path/to/database</code>.
 Or replace it with the path to use.</p>
 </div>
 <h3 id="start-a-container">Start a container<a class="headerlink" href="#start-a-container" title="Permanent link">Link</a></h3>
@@ -4475,12 +4475,12 @@ Or replace it with the path to use.</p>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Start a container and open a bash shell:
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>roboticsmicrofarms/virtualplantimager:latest<span class="w"> </span>-v<span class="w"> </span><span class="nv">$DB_LOCATION</span>:/myapp/db<span class="w"> </span>bash
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>roboticsmicrofarms/virtualplantimager:latest<span class="w"> </span>-v<span class="w"> </span><span class="nv">$ROMI_DB</span>:/myapp/db<span class="w"> </span>bash
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Start a container and open a bash shell:
-<div class="highlight"><pre><span></span><code>./docker/virtualplantimager/run.sh<span class="w"> </span>-db<span class="w"> </span><span class="nv">$DB_LOCATION</span>
+<div class="highlight"><pre><span></span><code>./docker/virtualplantimager/run.sh<span class="w"> </span>-db<span class="w"> </span><span class="nv">$ROMI_DB</span>
 </code></pre></div></p>
 </div>
 </div>
