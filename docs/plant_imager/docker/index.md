@@ -23,13 +23,13 @@ See [here](docker_compose.md#database--plantviewer) for more details.
 
 
 ## Getting started with docker
-In order to be able to use the ROMI docker images you have to install `docker-ce` and `nvidia-docker2`.
+In order to be able to use the ROMI docker images you have to install `docker-ce` and `nvidia-container-toolkit`.
 
-### Installing docker
+### Install `docker-ce`
 To install `docker-ce`, please refer to the [official documentation](https://docs.docker.com/get-docker/).
 
-### Install nvidia-docker
-To install `nvidia-docker2`, please refer to the [official documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker).
+### Install `nvidia-container-toolkit`
+To install the `nvidia-container-toolkit`, please refer to the [official documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker).
 
 
 ## DockerHub

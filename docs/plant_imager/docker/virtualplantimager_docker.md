@@ -1,66 +1,142 @@
-Docker container for ROMI virtual plant imager
-=============================================
-
-## Objective
-The following sections aim to show you how to build the docker image and run the corresponding container of the [Virtual Plant Imager](https://github.com/romi/plant-imager)
+# Docker for VirtualPlantImager
 
 ## Prerequisites
 
-In addition to having docker installed in your system, you must also install the nvidia gpu drivers, nvidia-docker (v2.0) and nvidia-container-toolkit.
+Follow the [getting started with docker](index.md#getting-started-with-docker) instructions to install the required software.
 
-This docker image has been tested successfully on:
-`docker --version=19.03.6 | nvidia driver version=450.102.04 | CUDA version=11.0`
+!!! important
+    We advise to assign an **existing local database directory** to `$ROMI_DB`, it will be mounted at container startup.
+    To see how to create a local database directory, look [here](/plant_imager/install/plantdb_setup/#initialize-a-romi-database).
 
-### Building the Docker image
 
-In this repository, you will find a script `build.sh` in the `docker` directory.
+## Start a container
+
+Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can easily download and start the
+pre-built `roboticsmicrofarms/plantimager` docker image with one of the following command:
+
+=== "run.sh & `ROMI_DB`"
+    From the root directory of the repository, use the convenience `run.sh` script:
+    ```shell
+    export ROMI_DB=/data/ROMI/DB
+    ./docker/run.sh
+    ```
+=== "run.sh & `-db`"
+    From the root directory of the repository, use the convenience `run.sh` script:
+    ```shell
+    ./docker/run.sh -db /data/ROMI/DB
+    ```
+=== "docker run"
+    From any directory, use the `docker run` command as follows:
+    ```shell
+    export ROMI_DB=/data/ROMI/DB
+    docker run --runtime=nvidia --gpus all \
+    --env PYOPENCL_CTX='0' \
+    -v $ROMI_DB:/myapp/db \
+    -it roboticsmicrofarms/plantimager:latest
+    ```
+
+This should start the latest pre-built `roboticsmicrofarms/plantimager` docker image in interactive mode.
+The database location inside the docker container is `/myapp/db`.
+
+!!! note
+    - `-v $ROMI_DB:/myapp/db` performs a **bind mount** to enable access to the local database by the docker image.
+    See the official [documentation](https://docs.docker.com/storage/bind-mounts/).
+    - Use `./docker/run.sh -h` to get all details about how to use it.
+
+## Build a docker image
+
+If you do not wish to use one of the `roboticsmicrofarms/plantimager` pre-built image, you may build an image using
+the `docker/Dockerfile` recipe accessible in the repository of `plantimager`.
+
+We provide a convenience bash script to ease the build of `roboticsmicrofarms/plantimager` docker image.
+You can choose to use this script OR to "manually" call the `docker build` command.
+
+=== "build.sh"
+    From the root directory of the repository, use the convenience `build.sh` script:
+    ```shell
+    ./docker/build.sh
+    ```
+
+=== "docker build"
+    From the root directory of the repository, use the `docker build` command as follows:
+    ```shell
+    export VTAG="latest"
+    docker build -t roboticsmicrofarms/plantimager:$VTAG .
+    ```
+
+!!! tips
+    - By default, the image tag is 'latest', you can change it, _e.g._ to 'dev' with `-t dev`.
+    - Use `./docker/build.sh -h` to get all details about how to use it.
+
+You may want to **clean the build cache**, at least from time to time, with:
+```shell
+docker builder prune -a
+```
+
+
+## Publish docker image
+
+To push a newly built image on docker hub:
 
 ```shell
-    git clone https://github.com/romi/plant-imager.git
-    cd plant-imager/
-    cd docker/
-    ./build.sh
+export VTAG="latest"
+docker push roboticsmicrofarms/plantdb:$VTAG
 ```
-This will create by default a docker image `plantimager:latest`.
-Inside the docker image, a user is created and named as the one currently used by your system.
-If you want more build options (specific branches, tags...etc), type `./build.sh --help`.
 
-### Running the docker container
+This requires a valid account & token on dockerhub!
 
-In the docker directory, you will find also a script named `run.sh`.
+## Example usage
 
-To show more options, type `./run.sh --help`
+### Test
 
-## Pre-requisites
-
-For clarity let us defines some variables here:
-
-* `ROMI_DB`: the ROMI database root directory (should contain a `plantdb` file);
-* `ROMI_CFG`: the directory containing the ROMI configurations (TOML files);
-
-To defines these variable, in a terminal:
+You can test the creation of a virtual plant and its acquisition by the virtual scanner as follows:
 
 ```shell
-export ROMI_DB=/data/ROMI/DB
-export ROMI_CFG=/data/ROMI/configs
+./docker/run.sh --test
 ```
 
-### Get an example archive with arabidopsis model
+### Executing a ROMI task
 
-Download & extract the example archive at the root directory of the romi database:
+To call a ROMI task, as defined in the `romitask` library, you should use the `romi_run_task` CLI.
 
+For example to create a virtual plant and acquire it with the `VirtualScanner`, as `<my_vscan>`, using the **Blender server** , you may use the following command:
 ```shell
-wget --progress=bar -P $ROMI_DB https://media.romi-project.eu/data/vscan_data.tar.xz
-tar -C $ROMI_DB/ -xvJf $ROMI_DB/vscan_data.tar.xz
+romi_run_task VirtualScan \
+  /myapp/db/<my_scan>/ \
+  --config plant-imager/configs/vscan_lpy_blender.toml
 ```
 
+!!! important
+    The previous command rely on the presence of a `vscan_data` directory, as it contains the LPY model, background and textures to use (as defined by the TOML configuration file). 
+    It is accessible in the repository under `plant-imager/database_example/vscan_data`.
+    
 ### TOML config
 
-Use the following configuration, replacing `<my_vscan>` with the name of the virtual scan dataset to create, *e.g.* `vscan_007`.
+!!! todo
+    The following subsections need to be reviewed!
 
+#### VirtualPlant
+
+To generate a virtual plant using LPY, the default configuration is as follows:
 ```toml
-[ObjFileset]
-scan_id = "<my_vscan>"
+[VirtualPlant]
+lpy_file_id = "arabidopsis_notex"
+
+[VirtualPlant.lpy_globals]
+BRANCHON = false
+MEAN_NB_DAYS = 40
+STDEV_NB_DAYS = 5
+BETA = 51
+INTERNODE_LENGTH = 1.3
+STEM_DIAMETER = 0.25
+```
+
+#### VirtualScan
+
+To perform a scan of a virtual plant, the default configuration is as follows:
+```toml
+[PaletteFileset]
+scan_id = "vscan_data"
 
 [HdriFileset]
 scan_id = "vscan_data"
@@ -68,67 +144,34 @@ scan_id = "vscan_data"
 [LpyFileset]
 scan_id = "vscan_data"
 
-[PaletteFileset]
-scan_id = "vscan_data"
+[ScanPath.kwargs]
+center_x = 0
+center_y = 0
+z = 32
+tilt = 3
+radius = 40
+n_points = 36
 
 [ScanPath]
 class_name = "Circle"
 
-[ScanPath.kwargs]
-center_x = -2
-center_y = 3
-z = 34.17519302880196
-tilt = 8
-radius = 30
-n_points = 72
-
 [VirtualScan]
-obj_fileset = "ObjFileset"
+load_scene = false
+scene_file_id = ""
 use_palette = true
 use_hdri = true
-load_scene = false
-scene_file_id = "pot"
+obj_fileset = "VirtualPlant"
+hdri_fileset = "HdriFileset"
+scene_fileset = "SceneFileset"
+palette_fileset = "PaletteFileset"
 render_ground_truth = true
+colorize = true
 
 [VirtualScan.scanner]
-width = 896
-height = 896
-focal = 24
-flash = true
+width = 1440
+height = 1080
+focal = 16
+flash = false
+port = 9001
 add_leaf_displacement = true
-
-[Voxels]
-type = "averaging"
-voxel_size = 0.05
-```
-
-## Virtual scan of a model plant
-
-### Start the docker container
-
-Use the `roboticsmicrofarms/plantimager` docker image:
-
-```shell
-export ROMI_DB=/data/ROMI/DB
-export ROMI_CFG=/data/ROMI/configs
-
-docker run --runtime=nvidia --gpus all \
-    -v $ROMI_DB:/myapp/db \
-    -v $ROMI_CFG:/myapp/configs \
-    -it roboticsmicrofarms/plantimager:latest bash
-```
-
-### Initialize a scan dataset
-
-Use the `romi_import_folder` tool to import the required `data` into a new scan dataset, *e.g.* `vscan_007`:
-
-```shell 
-romi_import_folder ~/db/vscan_data/data/ ~/db/vscan_007/ --metadata ~/db/vscan_data/files.json
-```
-
-### Start a `VirtualScan` romi task
-
-```shell
-cd plantimager/bin
-romi_run_task VirtualScan ~/db/vscan_007 --config ~/plantimager/configs/vscan_obj.toml
 ```
