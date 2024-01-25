@@ -2174,6 +2174,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#set-database-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set database permissions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#serve-the-rest-api" class="md-nav__link">
     <span class="md-ellipsis">
       Serve the REST API
@@ -4148,6 +4157,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#set-database-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set database permissions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#serve-the-rest-api" class="md-nav__link">
     <span class="md-ellipsis">
       Serve the REST API
@@ -4210,6 +4228,20 @@ touch<span class="w"> </span>/data/romi_db/plantdb
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export ROMI_DB=/data/ROMI/DB&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
 </code></pre></div></p>
 </div>
+<h2 id="set-database-permissions">Set database permissions<a class="headerlink" href="#set-database-permissions" title="Permanent link">Link</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The following lines might be deprecated by the use of the <code>--user</code> option for <code>docker run</code> in the convenience <code>run.sh</code> scripts.</p>
+</div>
+<p>Assuming the path to the database is <code>/data/ROMI/DB</code>, you should create a <code>romi</code> group with GID <code>2020</code> and set the
+permissions as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROMI_DB</span><span class="o">=</span>/data/ROMI/DB
+sudo<span class="w"> </span>addgroup<span class="w"> </span>--gid<span class="w"> </span><span class="m">2020</span><span class="w"> </span>romi<span class="w">  </span><span class="c1"># Add a `romi` group with GID `2020`</span>
+sudo<span class="w"> </span>adduser<span class="w"> </span><span class="si">${</span><span class="nv">USER</span><span class="si">}</span><span class="w"> </span>romi<span class="w">  </span><span class="c1"># Add the current user to the `romi` group</span>
+sudo<span class="w"> </span>chown<span class="w"> </span>:2020<span class="w"> </span>-R<span class="w"> </span><span class="si">${</span><span class="nv">ROMI_DB</span><span class="si">}</span><span class="w">  </span><span class="c1"># Set group ownership of the database directory to `romi`</span>
+sudo<span class="w"> </span>chmod<span class="w"> </span>g+s<span class="w"> </span><span class="si">${</span><span class="nv">ROMI_DB</span><span class="si">}</span><span class="w">  </span><span class="c1"># Ensure all future content in the folder will inherit group ownership</span>
+</code></pre></div>
+<p>This was inspired by this Medium <a href="https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca">blog post</a>.</p>
 <h2 id="serve-the-rest-api">Serve the REST API<a class="headerlink" href="#serve-the-rest-api" title="Permanent link">Link</a></h2>
 <p>Then you can start the REST API with <code>romi_scanner_rest_api</code>:</p>
 <div class="highlight"><pre><span></span><code>romi_scanner_rest_api

@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#colmap-docker-image" class="md-skip">
+        <a href="#docker-for-colmap" class="md-skip">
           Skip to content
         </a>
       
@@ -4341,7 +4341,12 @@
                   
 
 
-<h1 id="colmap-docker-image">Colmap docker image<a class="headerlink" href="#colmap-docker-image" title="Permanent link">Link</a></h1>
+<h1 id="docker-for-colmap">Docker for colmap<a class="headerlink" href="#docker-for-colmap" title="Permanent link">Link</a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This documentation talk about a docker image with the tag 3.7 when the actual colmap version in <code>roboticsmicrofarms/colmap:3.7</code> is colmap3.8.
+Clarification is required!!!</p>
+</div>
 <p>As we want the possibility to choose the Python version we use, for example 3.8, and the provided docker image are based on <strong>Ubuntu 18.04</strong> that ship Python 3.6 &amp; 3.7, we need to create our own <code>Dockerfile</code>.</p>
 <p>This has been done in <code>docker/colmap/Dockerfile</code> with:</p>
 <ul>
@@ -4399,6 +4404,10 @@ tar<span class="w"> </span>-xf<span class="w"> </span>test_db.tar.gz
 </code></pre></div></p>
 <h3 id="test-colmap-tools">Test colmap tools<a class="headerlink" href="#test-colmap-tools" title="Permanent link">Link</a></h3>
 <p>You can test that the colmap tools are working properly by calling them as follows:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Colmap3.8</label><label for="__tabbed_1_2">Colmap3.9</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>With docker image <code>roboticsmicrofarms/colmap:3.7</code> (COLMAP 3.8 -- Commit 31df46c on 2022-03-05 with CUDA):
 <div class="highlight"><pre><span></span><code><span class="nv">DATASET_PATH</span><span class="o">=</span>/tmp
 
 colmap<span class="w"> </span>feature_extractor<span class="w"> </span><span class="se">\</span>
@@ -4446,7 +4455,61 @@ colmap<span class="w"> </span>stereo_fusion<span class="w"> </span><span class="
 <span class="w">    </span>--workspace_format<span class="w"> </span>COLMAP<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--input_type<span class="w"> </span>geometric<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--output_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/dense/fused.ply
-</code></pre></div>
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<p>With docker image <code>colmap/colmap:20231022.10</code> (COLMAP 3.9 -- Commit a7b50e4d on 2023-10-22 with CUDA):
+<div class="highlight"><pre><span></span><code><span class="nv">DATASET_PATH</span><span class="o">=</span>/tmp
+
+colmap<span class="w"> </span>feature_extractor<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--database_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/database.db<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/images
+
+colmap<span class="w"> </span>exhaustive_matcher<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--database_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/database.db
+
+mkdir<span class="w"> </span><span class="nv">$DATASET_PATH</span>/sparse
+
+colmap<span class="w"> </span>mapper<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--database_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/database.db<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/images<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/sparse
+
+colmap<span class="w"> </span>model_aligner<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ref_images_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/poses.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/sparse/0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/sparse/0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--ref_is_gps<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--robust_alignment_max_error<span class="w"> </span><span class="m">10</span>
+
+colmap<span class="w"> </span>model_converter<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/sparse/0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/sparse/0/sparse.ply<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output_type<span class="w"> </span>PLY
+
+mkdir<span class="w"> </span><span class="nv">$DATASET_PATH</span>/dense
+
+colmap<span class="w"> </span>image_undistorter<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--image_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/images<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/sparse/0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/dense<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output_type<span class="w"> </span>COLMAP<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--max_image_size<span class="w"> </span><span class="m">2000</span>
+
+colmap<span class="w"> </span>patch_match_stereo<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--workspace_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/dense<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--workspace_format<span class="w"> </span>COLMAP<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--PatchMatchStereo.geom_consistency<span class="w"> </span><span class="nb">true</span>
+
+colmap<span class="w"> </span>stereo_fusion<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--workspace_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/dense<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--workspace_format<span class="w"> </span>COLMAP<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--input_type<span class="w"> </span>geometric<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--output_path<span class="w"> </span><span class="nv">$DATASET_PATH</span>/dense/fused.ply
+</code></pre></div></p>
+</div>
+</div>
+</div>
 <h3 id="test-geometric-pipeline">Test geometric pipeline<a class="headerlink" href="#test-geometric-pipeline" title="Permanent link">Link</a></h3>
 <p>If you have <code>plant-3d-vision</code> installed on your machine, you can further test the colmap image with the reconstruction pipelines using our test scripts and datasets.</p>
 <h4 id="test-it-on-real-data">Test it on real data<a class="headerlink" href="#test-it-on-real-data" title="Permanent link">Link</a></h4>
