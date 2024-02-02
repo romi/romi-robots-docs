@@ -165,7 +165,7 @@ You can test that the colmap tools are working properly by calling them as follo
         --input_path $DATASET_PATH/sparse/0 \
         --output_path $DATASET_PATH/sparse/0 \
         --ref_is_gps 0 \
-        --robust_alignment_max_error 10
+        --alignment_max_error 10
     
     colmap model_converter \
         --input_path $DATASET_PATH/sparse/0 \
