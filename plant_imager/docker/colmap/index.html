@@ -4342,24 +4342,28 @@
 
 
 <h1 id="docker-for-colmap">Docker for colmap<a class="headerlink" href="#docker-for-colmap" title="Permanent link">Link</a></h1>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This documentation talk about a docker image with the tag 3.7 when the actual colmap version in <code>roboticsmicrofarms/colmap:3.7</code> is colmap3.8.
-Clarification is required!!!</p>
-</div>
-<p>As we want the possibility to choose the Python version we use, for example 3.8, and the provided docker image are based on <strong>Ubuntu 18.04</strong> that ship Python 3.6 &amp; 3.7, we need to create our own <code>Dockerfile</code>.</p>
-<p>This has been done in <code>docker/colmap/Dockerfile</code> with:</p>
+<p>The current <strong>recommended</strong> version of Colmap is 3.8!</p>
+<p>It is available in the <code>roboticsmicrofarms/colmap:3.8</code> docker image, built using the <code>docker/colmap3.8/Dockerfile</code> recipe.</p>
+<p>You can get it with:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>roboticsmicrofarms/colmap:3.8
+</code></pre></div></p>
+<p>The notable versions are:</p>
 <ul>
-<li>Python 3.8</li>
-<li>Colmap 3.7</li>
+<li>Ubuntu 22.04</li>
+<li>Python 3.10</li>
+<li>Colmap 3.8</li>
+<li>CUDA 11.7.1</li>
+<li>Ceres2</li>
 </ul>
 <h2 id="build-the-docker-image">Build the docker image<a class="headerlink" href="#build-the-docker-image" title="Permanent link">Link</a></h2>
-<p>To build the docker image, use the <code>Dockerfile</code> in <code>docker/colmap/</code>:</p>
+<p>To build the docker image, use the <code>Dockerfile</code> in <code>docker/colmap3.8/</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nv">image_name</span><span class="o">=</span><span class="s2">&quot;roboticsmicrofarms/colmap&quot;</span>
-<span class="nv">image_version</span><span class="o">=</span><span class="s2">&quot;3.7&quot;</span>
-docker<span class="w"> </span>build<span class="w"> </span>-t<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$image_name</span><span class="s2">:</span><span class="nv">$image_version</span><span class="s2">&quot;</span><span class="w"> </span>docker/colmap/.
-docker<span class="w"> </span>tag<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$image_name</span><span class="s2">:</span><span class="nv">$image_version</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$image_name</span><span class="s2">:latest&quot;</span>
+<span class="nv">image_version</span><span class="o">=</span><span class="s2">&quot;3.8&quot;</span>
+docker<span class="w"> </span>build<span class="w"> </span>-t<span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">image_name</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">image_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>docker/colmap<span class="si">${</span><span class="nv">image_version</span><span class="si">}</span>/.
 </code></pre></div>
+<p>If you want to state that this is the 'latest' version, use:
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>tag<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">image_name</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">image_version</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">image_name</span><span class="si">}</span><span class="s2">:latest&quot;</span>
+</code></pre></div></p>
 <h2 id="test-the-container">Test the container<a class="headerlink" href="#test-the-container" title="Permanent link">Link</a></h2>
 <p>Let's test the image we just created!</p>
 <h3 id="start-a-container">Start a container<a class="headerlink" href="#start-a-container" title="Permanent link">Link</a></h3>
@@ -4371,11 +4375,11 @@ docker<span class="w"> </span>tag<span class="w"> </span><span class="s2">&quot;
 <p>Try to call the colmap executable to get the version number with:</p>
 <div class="highlight"><pre><span></span><code>colmap<span class="w"> </span>-v
 </code></pre></div>
-<p>As we also installed Python, try to call it after activating the <code>venv</code> with:
-<div class="highlight"><pre><span></span><code>.<span class="w"> </span>/venv/bin/activate
-python<span class="w"> </span>-V
-</code></pre></div></p>
 <h3 id="get-a-test-dataset">Get a test dataset<a class="headerlink" href="#get-a-test-dataset" title="Permanent link">Link</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This section is <strong>DEPRECATED</strong>!</p>
+</div>
 <p>To further test the built image, let's try to use colmap on a typical set of data.
 If you do not have your own dataset, we provide a test dataset that you can download (to the temporary folder) as follows:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/tmp
@@ -4513,15 +4517,15 @@ colmap<span class="w"> </span>stereo_fusion<span class="w"> </span><span class="
 <h3 id="test-geometric-pipeline">Test geometric pipeline<a class="headerlink" href="#test-geometric-pipeline" title="Permanent link">Link</a></h3>
 <p>If you have <code>plant-3d-vision</code> installed on your machine, you can further test the colmap image with the reconstruction pipelines using our test scripts and datasets.</p>
 <h4 id="test-it-on-real-data">Test it on real data<a class="headerlink" href="#test-it-on-real-data" title="Permanent link">Link</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">COLMAP_EXE</span><span class="o">=</span><span class="s2">&quot;roboticsmicrofarms/colmap&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">COLMAP_EXE</span><span class="o">=</span><span class="s2">&quot;roboticsmicrofarms/colmap:3.8&quot;</span>
 ./tests/check_geom_pipe.sh<span class="w"> </span>--tmp
 </code></pre></div>
 <h4 id="test-it-on-virtual-data">Test it on virtual data<a class="headerlink" href="#test-it-on-virtual-data" title="Permanent link">Link</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">COLMAP_EXE</span><span class="o">=</span><span class="s2">&quot;roboticsmicrofarms/colmap&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">COLMAP_EXE</span><span class="o">=</span><span class="s2">&quot;roboticsmicrofarms/colmap:3.8&quot;</span>
 ./tests/check_geom_pipe.sh<span class="w"> </span>--tmp<span class="w"> </span>--virtual
 </code></pre></div>
 <h4 id="test-it-on-your-real-data">Test it on your (real) data<a class="headerlink" href="#test-it-on-your-real-data" title="Permanent link">Link</a></h4>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">COLMAP_EXE</span><span class="o">=</span><span class="s2">&quot;roboticsmicrofarms/colmap&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">COLMAP_EXE</span><span class="o">=</span><span class="s2">&quot;roboticsmicrofarms/colmap:3.8&quot;</span>
 ./tests/check_geom_pipe.sh<span class="w"> </span>--tmp<span class="w"> </span>--database<span class="w"> </span>/path/to/my/dataset
 </code></pre></div>
 <h2 id="upload-the-built-image">Upload the built image<a class="headerlink" href="#upload-the-built-image" title="Permanent link">Link</a></h2>
@@ -4530,7 +4534,7 @@ colmap<span class="w"> </span>stereo_fusion<span class="w"> </span><span class="
 <div class="highlight"><pre><span></span><code>docker<span class="w"> </span>login
 </code></pre></div></p>
 <p>Then you can upload with:
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>push<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$image_name</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>push<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">image_name</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">image_version</span><span class="si">}</span><span class="s2">&quot;</span>
 </code></pre></div></p>
 
 
