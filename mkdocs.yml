@@ -169,8 +169,8 @@ theme:
   font:
     text: Nunito Sans
     code: Ubuntu Mono
-  logo: 'assets/images/logo.svg'
-  favicon: 'assets/images/favicon.ico'
+  logo: 'assets/images/ROMI_logo_white.svg'
+  favicon: 'assets/images/ROMI_ICON_green.png'
   features:
     - navigation.tabs
     - content.code.copy
