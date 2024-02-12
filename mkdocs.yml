@@ -43,6 +43,7 @@ nav:
         - 'Mask': 'plant_imager/explanations/task_masks.md'
         - 'Image segmentation': 'plant_imager/explanations/task_segmentation2d.md'
       - 'Modules':
+        - 'PlantDB': https://romi.github.io/plantdb/
         - 'Plant 3D Explorer':
           - 'Home': 'plant-3d-explorer/index.md'
           - 'Guide': 'plant-3d-explorer/guide.md'
