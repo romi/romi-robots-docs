@@ -2,7 +2,7 @@ site_name: ROMI Documentation
 site_description: Technical documentation of the Robotics for Micro-farms project
 site_author: ROMI Team
 site_url: https://docs.romi-project.eu/
-copyright: 'CC Attribution-NonCommercial-ShareAlike 4.0 International'
+copyright: 'The ROMI project has received funding from the European Community’s H2020 Programme under Grant Agreement No. 773875.'
 
 
 # https://www.mkdocs.org/user-guide/writing-your-docs/#configure-pages-and-navigation
@@ -178,17 +178,16 @@ theme:
 extra:
   homepage: https://romi-project.eu/
   social:
-    - icon: fontawesome/brands/twitter
+    - icon: fontawesome/brands/x-twitter
       link: 'https://twitter.com/ROMI_EU_PROJECT'
     - icon: fontawesome/brands/facebook
       link: 'https://www.facebook.com/ROMIEUProject'
     - icon: fontawesome/brands/github
-      link: 'https://github.com/romi/'
-  project: 'The ROMI project has received funding from the European Community’s H2020 Programme under Grant Agreement No. 773875.'
-  footer_logo: '/assets/images/eu-flag.png'
+      link: 'https://github.com/romi/plantdb'
+    - icon: fontawesome/brands/docker
+      link: 'https://hub.docker.com/repositories/roboticsmicrofarms'
   repo_name: romi-robots-docs
   repo_url: https://github.com/romi/romi-robots-docs
-  disqus: romi
 
 markdown_extensions:
   - admonition
@@ -226,7 +225,6 @@ markdown_extensions:
 plugins:
   - search
   - gitsnippet
-#  - markdown-exec
   - mermaid2:
       version: 10.2.3
 
