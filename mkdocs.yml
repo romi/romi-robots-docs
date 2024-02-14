@@ -42,8 +42,9 @@ nav:
         - 'Machine-learning workflow': 'plant_imager/explanations/ml_workflow.md'
         - 'Mask': 'plant_imager/explanations/task_masks.md'
         - 'Image segmentation': 'plant_imager/explanations/task_segmentation2d.md'
-      - 'Modules':
+      - 'Modules API':
         - 'PlantDB': https://romi.github.io/plantdb/
+        - 'PlantImager': https://romi.github.io/plant-imager/
         - 'Plant 3D Explorer':
           - 'Home': 'plant-3d-explorer/index.md'
           - 'Guide': 'plant-3d-explorer/guide.md'
