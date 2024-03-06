@@ -184,7 +184,7 @@ extra:
     - icon: fontawesome/brands/facebook
       link: 'https://www.facebook.com/ROMIEUProject'
     - icon: fontawesome/brands/github
-      link: 'https://github.com/romi/plantdb'
+      link: 'https://github.com/romi'
     - icon: fontawesome/brands/docker
       link: 'https://hub.docker.com/repositories/roboticsmicrofarms'
   repo_name: romi-robots-docs
