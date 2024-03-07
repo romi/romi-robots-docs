@@ -45,6 +45,7 @@ nav:
       - 'Modules API':
         - 'PlantDB': https://romi.github.io/plantdb/
         - 'PlantImager': https://romi.github.io/plant-imager/
+        - 'Skeleton Refinement': https://romi.github.io/skeleton_refinement/
         - 'Plant 3D Explorer':
           - 'Home': 'plant-3d-explorer/index.md'
           - 'Guide': 'plant-3d-explorer/guide.md'
