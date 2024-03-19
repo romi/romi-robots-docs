@@ -7,6 +7,7 @@ copyright: 'The ROMI project has received funding from the European Community’
 
 # https://www.mkdocs.org/user-guide/writing-your-docs/#configure-pages-and-navigation
 nav:
+  - 'Home': 'index.html'
   - 'Farmers Dashboard':
       - 'Introduction': 'Farmers Dashboard/index.md'
       - 'Carrier Module':

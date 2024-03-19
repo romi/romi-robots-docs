@@ -1,4 +1,5 @@
 mkdocs
+pymdown-extensions
 mkdocs-material
 mkdocs-material-extensions
 markdown-inline-graphviz-extension
