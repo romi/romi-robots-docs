@@ -1,155 +1,136 @@
-Docker container for ROMI plantinterpreter
-==========================================
+# Docker for plant-3d-vision
+
+## Prerequisites
+
+Follow the [getting started with docker](index.md#getting-started-with-docker) instructions to install the required software.
 
 !!! important
-    An **existing local database directory is required**, it will be mounted at container startup.
+    We advise to assign an **existing local database directory** to `$ROMI_DB`, it will be mounted at container startup.
     To see how to create a local database directory, look [here](/plant_imager/install/plantdb_setup/#initialize-a-romi-database).
 
-## Use pre-built docker image
+## Start a container
 
-Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can easily download and start the pre-built `roboticsmicrofarms/plant-3d-vision` docker image with:
+Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can easily download and start the
+pre-built `roboticsmicrofarms/plant-3d-vision` docker image with one of the following command:
 
-```shell
-export ROMI_DB=/data/ROMI/DB
-docker run --runtime=nvidia --gpus all \
-  --env PYOPENCL_CTX='0' \
-  -v $ROMI_DB:/myapp/db \
-  -it roboticsmicrofarms/plant-3d-vision:latest
-```
+=== "run.sh & `ROMI_DB`"
+    From the root directory of the repository, use the convenience `run.sh` script:
+    ```shell
+    export ROMI_DB=/data/ROMI/DB
+    ./docker/run.sh
+    ```
+=== "run.sh & `-db`"
+    From the root directory of the repository, use the convenience `run.sh` script:
+    ```shell
+    ./docker/run.sh -db /data/ROMI/DB
+    ```
+=== "docker run"
+    From any directory, use the `docker run` command as follows:
+    ```shell
+    export ROMI_DB=/data/ROMI/DB
+    docker run --runtime=nvidia --gpus all \
+    --env PYOPENCL_CTX='0' \
+    -v $ROMI_DB:/myapp/db \
+    -it roboticsmicrofarms/plant-3d-vision:latest
+    ```
 
 This should start the latest pre-built `roboticsmicrofarms/plant-3d-vision` docker image in interactive mode.
 The database location inside the docker container is `/myapp/db`.
 
 !!! note
-    `-v $ROMI_DB:/myapp/db` performs a **bind mount** to enable access to the local database by the docker image.
+    - `-v $ROMI_DB:/myapp/db` performs a **bind mount** to enable access to the local database by the docker image.
     See the official [documentation](https://docs.docker.com/storage/bind-mounts/).
+    - Use `./docker/run.sh -h` to get all details about how to use it.
 
-## Build docker image
+## Build a docker image
+
+If you do not wish to use one of the `roboticsmicrofarms/plant-3d-vision` pre-built image, you may build an image using
+the `docker/Dockerfile` recipe accessible in the repository of `plant-3d-vision`.
 
 We provide a convenience bash script to ease the build of `roboticsmicrofarms/plant-3d-vision` docker image.
 You can choose to use this script OR to "manually" call the `docker build` command.
 
-### Provided convenience `build.sh` script
+=== "build.sh"
+    From the root directory of the repository, use the convenience `build.sh` script:
+    ```shell
+    ./docker/build.sh
+    ```
 
-To build the image with the provided build script, from the root directory:
+=== "docker build"
+    From the root directory of the repository, use the `docker build` command as follows:
+    ```shell
+    export VTAG="latest"
+    docker build -t roboticsmicrofarms/plant-3d-vision:$VTAG .
+    ```
 
+!!! tips
+    - By default, the image tag is 'latest', you can change it, _e.g._ to 'dev' with `-t dev`.
+    - Use `./docker/build.sh -h` to get all details about how to use it.
+
+You may want to **clean the build cache**, at least from time to time, with:
 ```shell
-./docker/build.sh
+docker builder prune -a
 ```
 
-You can also pass some options, use `./docker/build.sh -h` to get more details about usage, options and default values.
-
-!!! tips 
-    To be sure to always pull the latest parent image, you may add the `--pull` option!
-
-### Manually call the `docker build` command
-
-To build the image, from the root directory:
-
-```shell
-export VTAG="latest"
-docker build -t roboticsmicrofarms/plant-3d-vision:$VTAG .
-```
 
 ## Publish docker image
 
-Push it on docker hub:
+To push a newly built image on docker hub:
 
 ```shell
+export VTAG="latest"
 docker push roboticsmicrofarms/plantdb:$VTAG
 ```
 
 This requires a valid account & token on dockerhub!
 
-## Usage
+## Example usage
 
-### Requirements
+### NVIDIA GPU test
 
-To run it, you need to have a valid local ROMI database, look [here](/plant_imager/install/plantdb_setup/#initialize-a-romi-database) for instructions and [here](https://db.romi-project.eu/models/test_db.tar.gz) for an example database.
-
-### Starting the `plant-3d-vision` docker image
-
-#### Provided `run.sh` script
-
-To start the container, in interactive mode, with the provided run script in `plant3dvision/docker`, use:
+To make sure the host GPU will be accessible from the container, use:
 
 ```shell
-./run.sh
+./docker/run.sh  --gpu_test
 ```
 
-You can also pass some options, use `./run.sh -h` to get more details about usage and options, notably to mount a local romi database.
-
-##### NVIDIA GPU test
-
-To make sure the started container will be able to access the host GPU, use:
-
-```shell
-./run.sh  --gpu_test
-```
-
-##### Pipelines tests
+### Pipelines tests
 
 To performs test reconstructions, you have several possibilities:
 
-* test the geometric pipeline:
-    ```shell
-    ./run.sh  --geom_pipeline_test
-    ```
-* test the machine learning pipeline:
-    ```shell
-    ./run.sh  --ml_pipeline_test
-    ```
-* test both pipelines:
-    ```shell
-    ./run.sh  --pipeline_test
-    ```
+- test the **geometric pipeline**, with:
+  ```shell
+  ./docker/run.sh  --geom_pipeline_test
+  ```
+- test the **machine learning pipeline**, with:
+  ```shell
+  ./docker/run.sh  --ml_pipeline_test
+  ```
+- test **both pipelines**, with:
+  ```shell
+  ./docker/run.sh  --pipeline_test
+  ```
 
 !!! note
     This use test data & test models (for ML) provided with `plant3dvision` in `plant3dvision/tests/testdata`.
 
-#### Manually
-
-Assuming you have a valid ROMI database directory under `/data/ROMI/DB`, you can start the `roboticsmicrofarms/plant-3d-vision` docker image with:
-
-```shell
-export ROMI_DB=/data/ROMI/DB
-docker run --runtime=nvidia --gpus all \
-  --env PYOPENCL_CTX='0' \
-  -v $ROMI_DB:/myapp/db \
-  -it roboticsmicrofarms/plant-3d-vision:$VTAG bash
-```
-
-This should start the built `roboticsmicrofarms/plant-3d-vision` docker image in interactive mode.
-The database location inside the docker container is `~/db`.
-
-Note that:
-
-- you are using the docker image `roboticsmicrofarms/plant-3d-vision:$VTAG`
-- you mount the host directory `$ROMI_DB` "inside" the running container in the `~/db` directory
-- you activate all GPUs within the container with `--gpus all`
-- declaring the environment variable `PYOPENCL_CTX='0'` select the first CUDA GPU capable
-- `-it` & `bash` returns an interactive bash shell
-
-You may want to name the running container (with `--name <my_name>`) if you "demonize" it (with `-d`).
-
 ### Executing a ROMI task
 
-Once you are inside the running docker container, you may call the ROMI tasks.
+To call a ROMI task, as defined in the `romitask` library, you should use the `romi_run_task` CLI.
 
+For example to reconstruct a plant, named `<my_scan>`, using the **geometric pipeline** and to estimate the angles and internodes, you may use the following command:
 ```shell
-romi_run_task AnglesAndInternodes db/<my_scan_000>/ --config plant3dvision/configs/original_pipe_0.toml
+romi_run_task AnglesAndInternodes \
+  /myapp/db/<my_scan>/ \
+  --config plant-3d-vision/configs/geom_pipe_real.toml
 ```
+
+You can use it two ways:
+1. start a container using the `roboticsmicrofarms/plant-3d-vision` image, then call the ROMI tasks.
+2. use it with the `-c` option of the `run.sh` script or with `docker run`.
 
 !!! note
     You may have to source the `.profile` file before calling `romi_run_task`.
-
-You can give a command to execute at container start-up using the `-c, --cmd` option.
-For example:
-
-```shell
-export ROMI_DB=/data/ROMI/DB
-./run.sh -p $ROMI_DB -u scanner -c "source .profile && romi_run_task AnglesAndInternodes db/<my_scan_000>/ --config plant3dvision/configs/original_pipe_0.toml"
-```
 
 !!! important
     `source .profile` is important to add `.local/bin/` to the `$PATH` environment variable.

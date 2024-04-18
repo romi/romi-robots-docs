@@ -10,8 +10,7 @@ We hereafter list the docker containers, their availability and provides link to
 - [x] **plantdb** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plantdb) and explanations [there](plantdb_docker.md)
 - [ ] **plantimager** is not available yet and explanations [there](plantimager_docker.md)
 - [x] **plant-3d-vision** is available [there](plant-3d-vision_docker.md)
-- [x] **plant-3d-explorer** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plant-3d-explorer) and
-  explanations [there](plant3dexplorer_docker.md)
+- [x] **plant-3d-explorer** is available [here](https://hub.docker.com/repository/docker/roboticsmicrofarms/plant-3d-explorer) and explanations [there](plant3dexplorer_docker.md)
 
 
 ## Use cases with docker-compose
@@ -24,13 +23,13 @@ See [here](docker_compose.md#database--plantviewer) for more details.
 
 
 ## Getting started with docker
-In order to be able to use the ROMI docker images you have to install `docker-ce` and `nvidia-docker2`.
+In order to be able to use the ROMI docker images you have to install `docker-ce` and `nvidia-container-toolkit`.
 
-### Installing docker
+### Install `docker-ce`
 To install `docker-ce`, please refer to the [official documentation](https://docs.docker.com/get-docker/).
 
-### Install nvidia-docker
-To install `nvidia-docker2`, please refer to the [official documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker).
+### Install `nvidia-container-toolkit`
+To install the `nvidia-container-toolkit`, please refer to the [official documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker).
 
 
 ## DockerHub

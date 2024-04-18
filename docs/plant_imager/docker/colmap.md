@@ -1,22 +1,37 @@
-# Colmap docker image
+# Docker for colmap
 
-As we want the possibility to choose the Python version we use, for example 3.8, and the provided docker image are based on **Ubuntu 18.04** that ship Python 3.6 & 3.7, we need to create our own `Dockerfile`.
+The current **recommended** version of Colmap is 3.8!
 
-This has been done in `docker/colmap/Dockerfile` with:
+It is available in the `roboticsmicrofarms/colmap:3.8` docker image, built using the `docker/colmap3.8/Dockerfile` recipe.
 
-  - Python 3.8
-  - Colmap 3.7
+You can get it with:
+```shell
+docker pull roboticsmicrofarms/colmap:3.8
+```
+
+The notable versions are:
+
+  - Ubuntu 22.04
+  - Python 3.10
+  - Colmap 3.8
+  - CUDA 11.7.1
+  - Ceres2
 
 ## Build the docker image
 
-To build the docker image, use the `Dockerfile` in `docker/colmap/`:
+To build the docker image, use the `Dockerfile` in `docker/colmap3.8/`:
 
 ```shell
 image_name="roboticsmicrofarms/colmap"
-image_version="3.7"
-docker build -t="$image_name:$image_version" docker/colmap/.
-docker tag "$image_name:$image_version" "$image_name:latest"
+image_version="3.8"
+docker build -t="${image_name}:${image_version}" docker/colmap${image_version}/.
 ```
+
+If you want to state that this is the 'latest' version, use:
+```shell
+docker tag "${image_name}:${image_version}" "${image_name}:latest"
+```
+
 
 ## Test the container
 
@@ -38,13 +53,11 @@ Try to call the colmap executable to get the version number with:
 colmap -v
 ```
 
-As we also installed Python, try to call it after activating the `venv` with:
-```shell
-. /venv/bin/activate
-python -V
-```
 
 ### Get a test dataset
+
+!!! warning
+    This section is **DEPRECATED**!
 
 To further test the built image, let's try to use colmap on a typical set of data.
 If you do not have your own dataset, we provide a test dataset that you can download (to the temporary folder) as follows:
@@ -82,55 +95,113 @@ posefile.close()
 
 You can test that the colmap tools are working properly by calling them as follows:
 
-```shell
-DATASET_PATH=/tmp
 
-colmap feature_extractor \
-    --database_path $DATASET_PATH/database.db \
-    --image_path $DATASET_PATH/images
+=== "Colmap3.8"
 
-colmap exhaustive_matcher \
-    --database_path $DATASET_PATH/database.db
+    With docker image `roboticsmicrofarms/colmap:3.7` (COLMAP 3.8 -- Commit 31df46c on 2022-03-05 with CUDA):
+    ```shell
+    DATASET_PATH=/tmp
+    
+    colmap feature_extractor \
+        --database_path $DATASET_PATH/database.db \
+        --image_path $DATASET_PATH/images
+    
+    colmap exhaustive_matcher \
+        --database_path $DATASET_PATH/database.db
+    
+    mkdir $DATASET_PATH/sparse
+    
+    colmap mapper \
+        --database_path $DATASET_PATH/database.db \
+        --image_path $DATASET_PATH/images \
+        --output_path $DATASET_PATH/sparse
+    
+    colmap model_aligner \
+        --ref_images_path $DATASET_PATH/poses.txt \
+        --input_path $DATASET_PATH/sparse/0 \
+        --output_path $DATASET_PATH/sparse/0 \
+        --ref_is_gps 0 \
+        --robust_alignment_max_error 10
+    
+    colmap model_converter \
+        --input_path $DATASET_PATH/sparse/0 \
+        --output_path $DATASET_PATH/sparse/0/sparse.ply \
+        --output_type PLY
+    
+    mkdir $DATASET_PATH/dense
+    
+    colmap image_undistorter \
+        --image_path $DATASET_PATH/images \
+        --input_path $DATASET_PATH/sparse/0 \
+        --output_path $DATASET_PATH/dense \
+        --output_type COLMAP \
+        --max_image_size 2000
+    
+    colmap patch_match_stereo \
+        --workspace_path $DATASET_PATH/dense \
+        --workspace_format COLMAP \
+        --PatchMatchStereo.geom_consistency true
+    
+    colmap stereo_fusion \
+        --workspace_path $DATASET_PATH/dense \
+        --workspace_format COLMAP \
+        --input_type geometric \
+        --output_path $DATASET_PATH/dense/fused.ply
+    ```
 
-mkdir $DATASET_PATH/sparse
+=== "Colmap3.9"
 
-colmap mapper \
-    --database_path $DATASET_PATH/database.db \
-    --image_path $DATASET_PATH/images \
-    --output_path $DATASET_PATH/sparse
+    With docker image `colmap/colmap:20231022.10` (COLMAP 3.9 -- Commit a7b50e4d on 2023-10-22 with CUDA):
+    ```shell
+    DATASET_PATH=/tmp
+    
+    colmap feature_extractor \
+        --database_path $DATASET_PATH/database.db \
+        --image_path $DATASET_PATH/images
+    
+    colmap exhaustive_matcher \
+        --database_path $DATASET_PATH/database.db
+    
+    mkdir $DATASET_PATH/sparse
+    
+    colmap mapper \
+        --database_path $DATASET_PATH/database.db \
+        --image_path $DATASET_PATH/images \
+        --output_path $DATASET_PATH/sparse
+    
+    colmap model_aligner \
+        --ref_images_path $DATASET_PATH/poses.txt \
+        --input_path $DATASET_PATH/sparse/0 \
+        --output_path $DATASET_PATH/sparse/0 \
+        --ref_is_gps 0 \
+        --alignment_max_error 10
+    
+    colmap model_converter \
+        --input_path $DATASET_PATH/sparse/0 \
+        --output_path $DATASET_PATH/sparse/0/sparse.ply \
+        --output_type PLY
+    
+    mkdir $DATASET_PATH/dense
+    
+    colmap image_undistorter \
+        --image_path $DATASET_PATH/images \
+        --input_path $DATASET_PATH/sparse/0 \
+        --output_path $DATASET_PATH/dense \
+        --output_type COLMAP \
+        --max_image_size 2000
+    
+    colmap patch_match_stereo \
+        --workspace_path $DATASET_PATH/dense \
+        --workspace_format COLMAP \
+        --PatchMatchStereo.geom_consistency true
+    
+    colmap stereo_fusion \
+        --workspace_path $DATASET_PATH/dense \
+        --workspace_format COLMAP \
+        --input_type geometric \
+        --output_path $DATASET_PATH/dense/fused.ply
+    ```
 
-colmap model_aligner \
-    --ref_images_path $DATASET_PATH/poses.txt \
-    --input_path $DATASET_PATH/sparse/0 \
-    --output_path $DATASET_PATH/sparse/0 \
-    --ref_is_gps 0 \
-    --robust_alignment_max_error 10
-
-colmap model_converter \
-    --input_path $DATASET_PATH/sparse/0 \
-    --output_path $DATASET_PATH/sparse/0/sparse.ply \
-    --output_type PLY
-
-mkdir $DATASET_PATH/dense
-
-colmap image_undistorter \
-    --image_path $DATASET_PATH/images \
-    --input_path $DATASET_PATH/sparse/0 \
-    --output_path $DATASET_PATH/dense \
-    --output_type COLMAP \
-    --max_image_size 2000
-
-colmap patch_match_stereo \
-    --workspace_path $DATASET_PATH/dense \
-    --workspace_format COLMAP \
-    --PatchMatchStereo.geom_consistency true
-
-colmap stereo_fusion \
-    --workspace_path $DATASET_PATH/dense \
-    --workspace_format COLMAP \
-    --input_type geometric \
-    --output_path $DATASET_PATH/dense/fused.ply
-```
 
 ### Test geometric pipeline
 
@@ -139,21 +210,21 @@ If you have `plant-3d-vision` installed on your machine, you can further test th
 #### Test it on real data
 
 ```shell
-export COLMAP_EXE="roboticsmicrofarms/colmap"
+export COLMAP_EXE="roboticsmicrofarms/colmap:3.8"
 ./tests/check_geom_pipe.sh --tmp
 ```
 
 #### Test it on virtual data
 
 ```shell
-export COLMAP_EXE="roboticsmicrofarms/colmap"
+export COLMAP_EXE="roboticsmicrofarms/colmap:3.8"
 ./tests/check_geom_pipe.sh --tmp --virtual
 ```
 
 #### Test it on your (real) data
 
 ```shell
-export COLMAP_EXE="roboticsmicrofarms/colmap"
+export COLMAP_EXE="roboticsmicrofarms/colmap:3.8"
 ./tests/check_geom_pipe.sh --tmp --database /path/to/my/dataset
 ```
 
@@ -168,5 +239,5 @@ docker login
 
 Then you can upload with:
 ```shell
-docker push "$image_name"
+docker push "${image_name}:${image_version}"
 ```

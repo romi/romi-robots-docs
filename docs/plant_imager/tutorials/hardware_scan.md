@@ -35,7 +35,7 @@ You have now your file based database *plantdb*
 
 `Scan` is the basic task for running an acquisition with the robot.
 To run this task properly with `romi_run_task`, a configuration file is needed.
-A **default** one for the plant imager can be found under `plantimager/config/hardware.toml`.  
+A **default** one for the plant imager can be found under `plantimager/configs/hardware.toml`.  
 It regroups specifications on:
 
 - the acquisition path (ScanPath)
@@ -124,7 +124,7 @@ z = [ -100, 300,]
 Assuming you have an active database, you can now run the `Scan` task using `romi_run_task`:
 
 ```shell
-romi_run_task --config config/hardware.toml Scan /path/to/db/imageset_id/
+romi_run_task --config configs/hardware.toml Scan /path/to/db/imageset_id/
 ```
 
 where:

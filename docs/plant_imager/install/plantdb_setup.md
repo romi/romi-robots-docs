@@ -41,17 +41,35 @@ mkdir /data/romi_db
 touch /data/romi_db/plantdb
 ```
 
-Then define its location in an environment variable `DB_LOCATION`:
+Then define its location in an environment variable `ROMI_DB`:
 
 ```shell
-export DB_LOCATION='/data/ROMI/DB'
+export ROMI_DB='/data/ROMI/DB'
 ```
 
 !!! note
     To permanently set this directory as the location of the DB, add it to your `~/.bashrc` file.
     ```shell
-    echo 'export DB_LOCATION=/data/ROMI/DB' >> ~/.bashrc
+    echo 'export ROMI_DB=/data/ROMI/DB' >> ~/.bashrc
     ```
+
+## Set database permissions
+
+!!! warning
+    The following lines might be deprecated by the use of the `--user` option for `docker run` in the convenience `run.sh` scripts.
+
+Assuming the path to the database is `/data/ROMI/DB`, you should create a `romi` group with GID `2020` and set the
+permissions as follows:
+
+```shell
+export ROMI_DB=/data/ROMI/DB
+sudo addgroup --gid 2020 romi  # Add a `romi` group with GID `2020`
+sudo adduser ${USER} romi  # Add the current user to the `romi` group
+sudo chown :2020 -R ${ROMI_DB}  # Set group ownership of the database directory to `romi`
+sudo chmod g+s ${ROMI_DB}  # Ensure all future content in the folder will inherit group ownership
+```
+
+This was inspired by this Medium [blog post](https://medium.com/@nielssj/docker-volumes-and-file-system-permissions-772c1aee23ca).
 
 ## Serve the REST API
 

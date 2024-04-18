@@ -28,9 +28,9 @@ In this tutorial, you will learn how to **estimate the intrinsic camera paramete
 
 * Set up a ROMI `plantdb` local [database](../specifications/data.md) or quickly create it (under `/data/ROMI/DB`) with the following commands:
     ```shell
-    export DB_LOCATION=/data/ROMI/DB
-    mkdir $DB_LOCATION
-    touch $DB_LOCATION/romidb
+    export ROMI_DB=/data/ROMI/DB
+    mkdir $ROMI_DB
+    touch $ROMI_DB/romidb
     ```
 
 <div class="icon">
@@ -53,7 +53,7 @@ The previous figure shows the default board that we will use in this tutorial.
 
 To create it, you have to run the `create_charuco_board` CLI as follows:
 ```shell
-create_charuco_board plant-3d-vision/config/intrinsic_calibration.toml
+create_charuco_board plant-3d-vision/configs/intrinsic_calibration.toml
 ```
 This will create a file named `charuco_board.png` in the current working directory.
 
@@ -92,7 +92,7 @@ Finally, **tape it flat onto something solid** in order to avoid deformation of 
 ### 2. Scan the ChArUco board
 To scan your newly printed ChArUco board, use the `IntrinsicCalibrationScan` task from `plant_imager`:
 ```shell
-romi_run_task IntrinsicCalibrationScan $DB_LOCATION/intrinsic_calib_1 --config plant-3d-vision/config/scan.toml
+romi_run_task IntrinsicCalibrationScan $ROMI_DB/intrinsic_calib_1 --config plant-3d-vision/configs/scan.toml
 ```
 
 The camera should move to the center front of the _plant imager_ where you will hold your pattern and take `20` pictures (according to the previous configuration).
@@ -215,9 +215,9 @@ homing = true
 ### 3. Performs the camera parameters estimation
 You may now **estimate the camera parameters**, for a given _camera model_ with:
 ```shell
-romi_run_task IntrinsicCalibration $DB_LOCATION/intrinsic_calib_1 --config plant-3d-vision/config/intrinsic_calibration.toml
+romi_run_task IntrinsicCalibration $ROMI_DB/intrinsic_calib_1 --config plant-3d-vision/configs/intrinsic_calibration.toml
 ```
-This should generate a `camera_model.json` inside the `$DB_LOCATION/intrinsic_calib_1/camera_model` folder.
+This should generate a `camera_model.json` inside the `$ROMI_DB/intrinsic_calib_1/camera_model` folder.
 
 An example of a `camera_model.json` file is:
 ```json

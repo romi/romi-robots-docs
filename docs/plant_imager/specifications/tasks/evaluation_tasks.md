@@ -62,7 +62,7 @@ touch path/to/db/romidb
 ```
 * Run an acquisition with the `Scan` task, and a `hardware.toml` configuration file in the newly created DB  
 ```shell
-romi_run_task Scan /path/to/db/imageset_id/ --config plant-imager/config/hardware.toml
+romi_run_task Scan /path/to/db/imageset_id/ --config plant-imager/configs/hardware.toml
 ```
 * The `imageset_id` fileset is now filled :  
 ```
@@ -88,7 +88,7 @@ As for the `AnglesAndInternodes` measurement, in order for the `CylinderRadiusEs
 The next step is to compute a point cloud from the acquired data.
 As before, the full explanation of the operations concerning the reconstruction pipeline can be found in [this tutorial](../../tutorials/reconstruct_scan.md) but mainly are:
 ```shell
-romi_run_task PointCloud /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml
+romi_run_task PointCloud /path/to/db/imageset_id/ --config plant-3d-vision/configs/pipeline.toml
 ```
 
 Resulting an equivalent of this tree structure (depending on the used configuration file):
@@ -133,7 +133,7 @@ upstream_task = "PointCloud"
 
 With the following command line:
 ```shell
-romi_run_task CylinderRadiusEstimation /path/to/db/imageset_id/ --config plant-3d-vision/config/pipeline.toml --module plant3dvision.tasks.evaluation
+romi_run_task CylinderRadiusEstimation /path/to/db/imageset_id/ --config plant-3d-vision/configs/pipeline.toml --module plant3dvision.tasks.evaluation
 ```
 
 The `CylinderRadiusEstimation.json` can be found in the `CylinderRadiusEstimation__` fileset with the output results:
@@ -179,5 +179,5 @@ To evaluate of the `CylinderRadiusEstimation` task thanks to the virtual cylinde
     ```
 1. Then, run the `CylinderRadiusEstimation` task with:
     ```shell
-    romi_run_task CylinderRadiusEstimation $ROMI_DB/virtual_cylinder/ --config plant-3d-vision/config/virtual_cylinder.toml  --module plant3dvision.tasks.evaluation
+    romi_run_task CylinderRadiusEstimation $ROMI_DB/virtual_cylinder/ --config plant-3d-vision/configs/virtual_cylinder.toml  --module plant3dvision.tasks.evaluation
     ```

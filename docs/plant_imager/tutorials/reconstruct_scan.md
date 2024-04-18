@@ -19,7 +19,7 @@ If you made a mess, had a failure or just want to start fresh with your dataset,
 
 ```shell
 romi_run_task Clean integration_tests/2019-02-01_10-56-33 \
-    --config plant3dvision/config/original_pipe_0.toml --local-scheduler
+    --config plant3dvision/configs/original_pipe_0.toml --local-scheduler
 ``` 
 
 Here the config may use the `[Clean]` section where you can define the `force` option:
@@ -39,7 +39,7 @@ The full *geometric pipeline*, _ie._ all the way to angles and internodes measur
 
 ```shell
 romi_run_task AnglesAndInternodes integration_tests/2019-02-01_10-56-33 \
-    --config plant3dvision/config/original_pipe_0.toml --local-scheduler
+    --config plant3dvision/configs/original_pipe_0.toml --local-scheduler
 ```
 
 !!! note
@@ -51,7 +51,7 @@ The full *geometric pipeline*, _ie._ all the way to angles and internodes measur
 
 ```shell
 romi_run_task AnglesAndInternodes integration_tests/arabidopsis_26 \
-    --config plant3dvision/config/original_pipe_0.toml --local-scheduler
+    --config plant3dvision/configs/original_pipe_0.toml --local-scheduler
 ```
 
 !!! note
@@ -80,7 +80,7 @@ The full *geometric pipeline*, _ie._ all the way to angles and internodes measur
 
 ```shell
 romi_run_task PointCloud integration_tests/2019-02-01_10-56-33 
-    --config plant3dvision/config/ml_pipe_vplants_3.toml --local-scheduler
+    --config plant3dvision/configs/ml_pipe_vplants_3.toml --local-scheduler
 ```
 
 !!! note
@@ -92,7 +92,7 @@ The full *geometric pipeline*, _ie._ all the way to angles and internodes measur
 
 ```shell
 romi_run_task PointCloud integration_tests/arabidopsis_26 \
-    --config plant3dvision/config/ml_pipe_vplants_3.toml --local-scheduler
+    --config plant3dvision/configs/ml_pipe_vplants_3.toml --local-scheduler
 ```
 
 !!! note

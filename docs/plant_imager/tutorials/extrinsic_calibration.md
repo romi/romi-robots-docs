@@ -53,7 +53,7 @@ To do so, run the task 'CalibrationScan' the same way as for a regular acquisiti
 In the command, define a folder inside your romi database (called above `plantdb`) that will store the data of this calibration acquisition:
 
 ```shell
-romi_run_task --config config/hardware.toml \ #command and config
+romi_run_task --config configs/hardware.toml \ #command and config
 CalibrationScan \ # romi task
 /path/to/plantdb/calibration_scan_id/ #data destination of this calibration scan 
 ```
@@ -72,7 +72,7 @@ For such a run, a proper configuration file (.toml) is required. A [default one]
 
 
 ```shell
-romi_run_task --config path/toconfig/geom_pipe_full.toml \ #command and path to config file
+romi_run_task --config path/to/configs/geom_pipe_full.toml \ #command and path to config file
 Colmap \ #the task Colmap
 /path/to/plantdb/calibration_scan_id/ #data destination folder
 ```

@@ -39,7 +39,7 @@ Camera intrinsics can be compared for a given camera model using simple statisti
 To evaluate the robustness of the Structure from Motion algorithms defined in the `Colmap` task proceed as follows:
 ```shell
 robustness_evaluation Colmap /Data/ROMI/eval_dataset_* \
-  --config config/geom_pipe_real.toml --clean --suffix exhaustive_matcher -n 50
+  --config configs/geom_pipe_real.toml --clean --suffix exhaustive_matcher -n 50
 ```
 
 ### Explanations
@@ -70,7 +70,7 @@ The distance between point clouds can be evaluated using a `chamfer distance`.
 To evaluate the robustness of the geometry-based reconstruction pipeline, defined by using the `geom_pipe_real.toml` configuration up to the `PointCloud` task, proceed as follows:
 ```shell
 robustness_evaluation PointCloud /Data/ROMI/eval_dataset/ \
- --config config/geom_pipe_real.toml --full-pipe --clean --suffix independent_reconstruction -n 50
+ --config configs/geom_pipe_real.toml --full-pipe --clean --suffix independent_reconstruction -n 50
 ```
 
 ### Explanations
