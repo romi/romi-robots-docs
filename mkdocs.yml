@@ -25,6 +25,7 @@ nav:
       - 'Crops Insights Pipeline': 'Farmers Dashboard/pipeline.md'
       - 'Farmers Dashboard App': 'Farmers Dashboard/app.md'
       - 'Farmers Dashboard/legacy.md'
+      - 'Version 2 (WIP)': 'Farmers Dashboard/v2.md'
   - 'Rover':
       - 'Overview': 'Rover/index.md'
       - 'User Manual': 'Rover/manual.md'
