@@ -982,6 +982,63 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#python-script-versus-cablebot-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python script versus Cablebot app
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python script versus Cablebot app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cablebot-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cablebot app
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cablebot app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-http-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure HTTP server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4538,6 +4595,63 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#python-script-versus-cablebot-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python script versus Cablebot app
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python script versus Cablebot app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python script
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cablebot-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cablebot app
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cablebot app">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-http-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure HTTP server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Web interface
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -4566,9 +4680,10 @@ consists of four separate applications that communicate with each
 other over websockets:</p>
 <ul>
 <li>rcom-registry: A directory service that keeps track of the addresses of the applications</li>
+<li>romi-config: A shared configuration service for the ROMI services </li>
 <li>romi-camera: The interface to the camera</li>
 <li>romi-cnc: The interface to any CNC device for the motion </li>
-<li>romi-config: A shared configuration service for the ROMI services </li>
+<li>romi-cablebot: To program the execution of scans at defined times </li>
 </ul>
 <h3 id="base-station">Base station<a class="headerlink" href="#base-station" title="Permanent link">Link</a></h3>
 <p>The following steps have to be taken on the Raspberry Pi that runs the base station:</p>
@@ -4591,7 +4706,7 @@ $<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span
 $<span class="w"> </span>mkdir<span class="w"> </span>build
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
 $<span class="w"> </span>cmake<span class="w"> </span>..
-$<span class="w"> </span>make<span class="w"> </span>rcom-registry<span class="w"> </span>romi-cnc<span class="w"> </span>romi-config
+$<span class="w"> </span>make<span class="w"> </span>rcom-registry<span class="w"> </span>romi-config<span class="w"> </span>romi-cnc<span class="w"> </span>romi-cablebot
 </code></pre></div>
 <h4 id="install-the-python-library">Install the Python library<a class="headerlink" href="#install-the-python-library" title="Permanent link">Link</a></h4>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/home/romi/romi-rover-build-and-test/librcom/python
@@ -4620,6 +4735,10 @@ $<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </sp
 Changing<span class="w"> </span>log<span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;/tmp/romi/log.txt&#39;</span>
 ...
 </code></pre></div></p>
+<p>Finally, in a fourth terminal and start the Cablebot app:
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>/home/romi/romi-rover-build-and-test/build/bin/romi-cablebot<span class="w"> </span>
+</code></pre></div></p>
+<p>The Cablebot app is optional, actually. You'll find more info below. </p>
 <h4 id="run-the-tests">Run the tests<a class="headerlink" href="#run-the-tests" title="Permanent link">Link</a></h4>
 <p>In the Python directory, you'll find example code that you can use to test the services.</p>
 <p>You can test the config interface, run:
@@ -4712,7 +4831,76 @@ CNC in the config file. Change the "controller-classname" parameter to
 $<span class="w"> </span><span class="nv">$HOME_ROMI</span>/romi-rover-build-and-test/build/bin/romi-config<span class="w"> </span>--config<span class="w"> </span><span class="nv">$HOME_ROMI</span>/romi-rover-build-and-test/config/cablebot-v2-dev.json<span class="w"> </span><span class="p">&amp;</span>
 $<span class="w"> </span><span class="nv">$HOME_ROMI</span>/romi-rover-build-and-test/build/bin/romi-cnc<span class="w"> </span><span class="p">&amp;</span>
 $<span class="w"> </span><span class="nv">$HOME_ROMI</span>/romi-rover-build-and-test/build/bin/romi-camera<span class="w"> </span><span class="p">&amp;</span>
+$<span class="w"> </span><span class="nv">$HOME_ROMI</span>/romi-rover-build-and-test/build/bin/romi-cablebot<span class="w"> </span><span class="p">&amp;</span>
 </code></pre></div>
+<h2 id="python-script-versus-cablebot-app">Python script versus Cablebot app<a class="headerlink" href="#python-script-versus-cablebot-app" title="Permanent link">Link</a></h2>
+<p>There are two ways to work with the cablebot:</p>
+<ol>
+<li>Write you're own Python script</li>
+<li>Use the Cablebot app</li>
+</ol>
+<h3 id="python-script">Python script<a class="headerlink" href="#python-script" title="Permanent link">Link</a></h3>
+<p>You can use the Python API for the camera and the cnc to write your
+own scanning script. Below is an example that may be helpful.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">romi.cnc</span> <span class="kn">import</span> <span class="n">CNC</span>
+<span class="kn">from</span> <span class="nn">romi.camera</span> <span class="kn">import</span> <span class="n">Camera</span>
+
+
+<span class="k">def</span> <span class="nf">startup_cnc</span><span class="p">(</span><span class="n">cnc</span><span class="p">):</span>
+    <span class="c1"># Turn off the battery charger</span>
+    <span class="n">cnc</span><span class="o">.</span><span class="n">set_relay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># Power-up the motor</span>
+    <span class="n">cnc</span><span class="o">.</span><span class="n">power_up</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">scan</span><span class="p">(</span><span class="n">cnc</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x0</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">dx</span>
+        <span class="n">cnc</span><span class="o">.</span><span class="n">moveto</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">grab</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">image</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;cablebot-</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="mi">1000</span><span class="o">*</span><span class="n">x</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">.jpg&quot;</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saving </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">image</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">shutdown_cnc</span><span class="p">(</span><span class="n">cnc</span><span class="p">,</span> <span class="n">no_homing</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">no_homing</span><span class="p">:</span>
+        <span class="n">cnc</span><span class="o">.</span><span class="n">moveto</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Return to 4 cm before the homing</span>
+        <span class="n">cnc</span><span class="o">.</span><span class="n">moveto</span><span class="p">(</span><span class="mf">0.04</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
+        <span class="n">cnc</span><span class="o">.</span><span class="n">homing</span><span class="p">()</span>
+
+    <span class="n">cnc</span><span class="o">.</span><span class="n">power_down</span><span class="p">()</span>
+    <span class="c1"># Recharge the battery</span>
+    <span class="n">cnc</span><span class="o">.</span><span class="n">set_relay</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--start&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The start position&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--interval&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The distance between camera positions&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--count&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;?&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                    <span class="n">help</span><span class="o">=</span><span class="s1">&#39;The number of images&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--no-homing&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">BooleanOptionalAction</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Go back to zero without the homing procedure&#39;</span><span class="p">)</span>
+
+    <span class="n">cnc</span> <span class="o">=</span> <span class="n">CNC</span><span class="p">(</span><span class="s2">&quot;cnc&quot;</span><span class="p">,</span> <span class="s2">&quot;cnc&quot;</span><span class="p">)</span>
+    <span class="n">camera</span> <span class="o">=</span> <span class="n">Camera</span><span class="p">(</span><span class="s2">&quot;camera&quot;</span><span class="p">,</span> <span class="s2">&quot;camera&quot;</span><span class="p">)</span>
+
+    <span class="n">startup_cnc</span><span class="p">(</span><span class="n">cnc</span><span class="p">)</span>
+    <span class="n">scan</span><span class="p">(</span><span class="n">cnc</span><span class="p">,</span> <span class="n">camera</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">interval</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
+    <span class="n">shutdown_cnc</span><span class="p">(</span><span class="n">cnc</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">no_homing</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="cablebot-app">Cablebot app<a class="headerlink" href="#cablebot-app" title="Permanent link">Link</a></h3>
+<h4 id="configure-http-server">Configure HTTP server<a class="headerlink" href="#configure-http-server" title="Permanent link">Link</a></h4>
+<h4 id="web-interface">Web interface<a class="headerlink" href="#web-interface" title="Permanent link">Link</a></h4>
 
 
 
