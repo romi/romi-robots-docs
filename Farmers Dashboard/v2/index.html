@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../assets/images/ROMI_ICON_green.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
     
     
       
@@ -857,6 +857,15 @@
   
     <nav class="md-nav" aria-label="Base station">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-required-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the required libraries
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#get-the-source-code" class="md-nav__link">
@@ -4472,6 +4481,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#install-the-required-libraries" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the required libraries
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#get-the-source-code" class="md-nav__link">
     <span class="md-ellipsis">
       Get the source code
@@ -4688,13 +4706,20 @@ other over websockets:</p>
 <h3 id="base-station">Base station<a class="headerlink" href="#base-station" title="Permanent link">Link</a></h3>
 <p>The following steps have to be taken on the Raspberry Pi that runs the base station:</p>
 <ul>
+<li>Install the required libraries</li>
 <li>Get the source code</li>
+<li>Compile the apps</li>
 <li>Compile the apps</li>
 <li>Install the Python library</li>
 <li>Copy the config file</li>
 <li>Start the apps</li>
 <li>Run the tests</li>
 </ul>
+<h4 id="install-the-required-libraries">Install the required libraries<a class="headerlink" href="#install-the-required-libraries" title="Permanent link">Link</a></h4>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libi2c-dev<span class="w"> </span>libjpeg-dev
+</code></pre></div>
+<p>For libjpeg, one of the alternatives, such as libjpeg-turbo, should work also.</p>
 <h4 id="get-the-source-code">Get the source code<a class="headerlink" href="#get-the-source-code" title="Permanent link">Link</a></h4>
 <p>To clone the romi-rover-build-and-test repo, do:</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/home/romi
@@ -4792,6 +4817,10 @@ $<span class="w"> </span>python3<span class="w"> </span>camera.py
 <p>It should store 10 images on the disk, named camera-xxxx.jpg.</p>
 <h2 id="installation-on-an-intel-linux-pc">Installation on an Intel Linux PC<a class="headerlink" href="#installation-on-an-intel-linux-pc" title="Permanent link">Link</a></h2>
 <p>The software can also be compiled and tested on a regular PC running Linux. </p>
+<p>First, install the dependencies:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+$<span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>libi2c-dev<span class="w"> </span>libjpeg-dev<span class="w"> </span>vgrabbj
+</code></pre></div>
 <p>We'll suppose that the repository will be cloned in the directory HOME_ROMI. Then do the following.</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$HOME_ROMI</span>
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>romi-rover-build-and-test
@@ -5003,7 +5032,7 @@ own scanning script. Below is an example that may be helpful.</p>
     <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.3220b9d7.min.js"></script>
+      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
