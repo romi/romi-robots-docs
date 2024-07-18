@@ -37,7 +37,7 @@ picocom /dev/ttyUSB0 -b 115200 --omap crcrlf --echo
 
 !!! note
     `-b 115200` is the baud rate of the connection, read the [picocom man page](https://linux.die.net/man/8/picocom) for more info.
-    ` --omap crcrlf` is mapping the serial output from `CR` to `CR+LF`.
+    `--omap crcrlf` is mapping the serial output from `CR` to `CR+LF`.
     `--echo` allows you to see what you are typing.
 
 Once connected you should see something like:

@@ -203,8 +203,9 @@ make romi-camera
 ### Test the `romi-camera` app
 Assuming:
 
-* everything went well in the previous step
+* everything went well in the previous steps
 * you are connected to the `Plant Imager` network
+* the `rcom-registry` app is running on the `plant-imager` controller see [here](https://docs.romi-project.eu/plant_imager/build_v3/plantimager_controller/#configure-rcom)
 * you want to register a camera named `camera-top`
 * it has an HQ (v2) camera lens
 

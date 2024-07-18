@@ -19,8 +19,13 @@ To do so, you can use ``dmesg``:
 
 Then you can use [picocom](https://github.com/npat-efault/picocom) to connect to the Feather M0:
 ```shell
-picocom /dev/ttyACM1 -b 115200
+picocom /dev/ttyACM1 -b 115200 --omap crcrlf --echo
 ```
+
+!!! note
+    `-b 115200` is the baud rate of the connection, read the [picocom man page](https://linux.die.net/man/8/picocom) for more info.
+    `--omap crcrlf` is mapping the serial output from `CR` to `CR+LF`.
+    `--echo` allows you to see what you are typing.
 
 
 ## Usage

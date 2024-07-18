@@ -79,7 +79,7 @@ nav:
           - 'Communication overview': 'plant_imager/build_v3/comm_overview.md'
           - 'Flashing RPi OS': 'plant_imager/build_v3/flash_rpi_os.md'
           - 'PiCamera OS': 'plant_imager/build_v3/picamera_soft.md'
-          - 'Main controller': 'plant_imager/build_v3/plantimager_controller.md'
+          - 'Main controller': 'plant_imager/build_v3/plantimager_raspi_controller.md'
           - 'Registry setup': 'plant_imager/build_v3/registry_setup.md'
           - 'Complete BOMs': 'plant_imager/build_v3/boms.md'
           - 'Resources': 'plant_imager/build_v3/resources.md'

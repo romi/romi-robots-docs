@@ -1,115 +1,17 @@
 # Plant Imager controller
 
-## BOM
-The bill of material is quite simple:
+This section use a regular computer with Ubuntu 24.04 as the main controller.
 
-- Raspberry Pi 4B [4GB](https://secure.reichelt.com/fr/en/raspberry-pi-4-b-4x-1-5-ghz-4-gb-ram-wlan-bt-rasp-pi-4-b-4gb-p259920.html) or [8GB](https://secure.reichelt.com/fr/en/raspberry-pi-4-b-4x-1-5-ghz-8-gb-ram-wlan-bt-rasp-pi-4-b-8gb-p276923.html)
-- Power supply, 5.1 V, 3.0 A, USB Type-C [like this](https://secure.reichelt.com/fr/en/raspberry-pi-power-supply-5-1-v-3-0-a-usb-type-c-eu-plug--rpi-ps-15w-wt-eu-p260026.html)
-- 7" TFT LCD TouchScreen 800x480 [like this](https://www.reichelt.com/fr/en/7-tft-lcd-touch-display-800-x-480-pixel-raspberry-pi-7td-p159859.html)
-- 7" TouchScreen case [like this](https://www.reichelt.com/fr/en/housing-for-raspberry-pi-4-amp-7-touch-display-rpi4-case-lcd7bk-p268976.html)
-- a microSD card, with a minimum of 8Go
+## Getting started
 
-## Flash Raspberry Pi OS
-The procedure to install and configure is as follows:
-
-1. Open the `Imager` app
-2. Choose the OS, we use the `Raspberry Pi OS (64bit)` as we have an RPi4
-3. Select the storage device (microSD)
-4. Click the "Advanced options" icon (bottom right)
-   1. "Set hostname" to `plant-imager`, add a number or another indication if you plan to have more than one 
-   2. Do NOT "Enable SSH", except if you know what you are doing!
-   3. "Set username and password" to `romi` and `my_raspberry!`
-   4. Do NOT "Configure wireless LAN", except the "Wireless LAN country", as we will later create an Access Point!
-   5. Change the "locale settings" to match yours
-5. Finally, hit the "Write" button to flash the OS to the microSD.
-
-!!! important
-    We use the **64bit** version with the **Raspberry Pi Desktop** NOT "Lite" as we want to use it to display a user interface.
-
-!!! important
-    Do NOT forget to replace the (not so) secret password by the one you used!
-
-You should end up with something like this:
-
-![](../../assets/images/plant_imager_v3/rpi_imager_advanced_options-plantimager.png)
-
-## Manually setting the advanced options
-Hereafter we show how to manually define the _advanced options_ after flashing the OS without defining any.
-This requires to boot the RPi with a screen and keyboard.
-
-!!! warning
-    There is **NO NEED** to do this if you have followed the previous instructions on how to configure the advanced options prior to flashing the microSD card!
-
-The first time you boot your RPi with your new image, you can follow the steps of the "Welcome" screen:
-
-* Select a country, language, keyboard layout, timezone.
-* Do NOT connect to a Wi-Fi network!
-* Change the default user `pi` and password `raspberry` to:
-  * user: `romi` 
-  * password: `my_raspberry!`.
-* (Optional) Update packages to their newest version, this OBVIOUSLY requires an internet connexion.
-
-!!! important
-    Do NOT forget to replace the (not so) secret password by the one you used!
-
-
-### 1. Set the `hostname`
-We strongly advise to give a specific `hostname` to each device to avoid having the all named `raspberrypi`.
-
-!!! Important
-    RFCs mandate that a hostname's labels may contain only the ASCII letters 'a' through 'z' (case-insensitive), the digits '0' through '9', and the hyphen.
-    Hostname labels cannot begin or end with a hyphen.
-    No other symbols, punctuation characters, or blank spaces are permitted.
-
-Choose an option, then reboot the RPi!
-
-=== "raspi-config"
-    It is possible to set the `hostname` with the `raspi-config` tool, in a terminal:
-    ```shell
-    sudo raspi-config
-    ```
-    Then move to `1 System Options > S4 Hostname`.
-    Enter the desired hostname, _e.g._ `plant-imager`, and hit `<OK>`.
-
-=== "command-line"
-    It is possible to set the `hostname` manually by changing `/etc/hostname` & `/etc/hosts` with:
-    ```shell
-    export NEW_HNAME="plant-imager"
-    sudo sed "s/raspberrypi/$NEW_HNAME/" /etc/hostname
-    sudo sed "s/raspberrypi/$NEW_HNAME/" /etc/hosts
-    ```
-
-### 2. Enable SSH
+### Enable SSH
 Enabling SSH allows to connect to the `plant-imager` device from any machine connected to the `Plant Imager` Access Point.
 
-!!! warning
-    This represents a security risk if you do not change the default user `pi` and password `raspberry` or use a weak password!
-
-=== "raspi-config"
-    It is possible to enable SSH with the `raspi-config` tool, in a terminal:
-    ```shell
-    sudo raspi-config
-    ```
-    Then move to `5 Interfacing Options > P2 SSH`, and select `<Yes>`.
-
-=== "command-line"
-    It is possible to enable SSH with `systemctl`, in a terminal:
-    ```shell
-    sudo systemctl enable ssh    
-    sudo systemctl start ssh    
-    ```
-
-Once the `plant-imager` device will reboot, you can SSH to this device using a machine connected to the same network.
-You will need the IP address of the `plant-imager` device.
-It is accessible in a terminal with:
-```shell
-hostname -l
+```bash
+sudo apt install openssh-server -y
 ```
-It should be `10.10.10.1`.
 
-
-### 3. Set username and password
-If at the first boot you did NOT change the default `pi` user & `raspberry` password you can still do it as follows:
+### Set username and password
 
 1. Create the user `romi` with:
     ```shell
@@ -122,25 +24,6 @@ If at the first boot you did NOT change the default `pi` user & `raspberry` pass
     sudo adduser romi video
     sudo adduser romi sudo
     ```
-3. Remove the default `pi` user with:
-    ```shell
-    sudo deluser --remove-home pi
-    ```
-
-
-### Rotate the 7" touchscreen
-To wire the 7" touchscreen you can follow these [instructions](https://www.instructables.com/Raspberry-Pi-Touchscreen-Setup/).
-Some people says that there is no need to wire SCL & SDA... Do what you want!
-
-If you are using the 7" touchscreen with the case we described in the BOM, you may notice it is rotated by 180°.
-To rotate the 7" touchscreen, with an RPi 4 and the latest Raspberry OS:
-
-1. Hit the raspberry main menu
-2. Got to `Preference` > `Screen Configuration`
-3. On the `Screen Layout Editor` menu bar, hit `Configure`, select `Screens` > `DSI-1` > `Orientation` and select `inverted`.
-4. Hit the "Green check" icon :material-check-outline: to validate!
-5. It should ask you to reboot to apply changes.
-
 
 ## ROMI software
 
@@ -236,6 +119,12 @@ If the PiCamera is ON, you should now see something!
 
 It's now time to adjust the lens! GOOD LUCK!
 
+### Install the `romi` library
+
+```shell
+cd ~/romi-rover-build-and-test/python
+python -m pip install -e .
+```
 
 ### Install the `plant-imager` library
 
@@ -279,7 +168,6 @@ cd plant-imager
 python -m pip install -r ./plantdb/requirements.txt
 python -m pip install -e ./plantdb/
 # Install `romitask` sources from submodules:
-python -m pip install -r ./romitask/requirements.txt
 python -m pip install -e ./romitask/
 # Install `plant-imager`:
 python -m pip install -e .
