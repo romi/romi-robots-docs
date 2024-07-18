@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../../assets/images/ROMI_ICON_green.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.19">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.29">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.66ac8b77.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.76a95c52.min.css">
       
       
 
@@ -140,7 +140,7 @@
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -2188,7 +2188,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/plantimager_controller/" class="md-nav__link">
+      <a href="../../build_v3/plantimager_raspi_controller/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4423,11 +4423,14 @@
 <p>Except if you are familiar with Grbl, if you want to know more, have a look at the official Grbl <a href="https://github.com/gnea/grbl/wiki">wiki</a>.</p>
 <h3 id="connect-to-the-arduino">Connect to the Arduino<a class="headerlink" href="#connect-to-the-arduino" title="Permanent link">Link</a></h3>
 <p>Then you can use <a href="https://github.com/npat-efault/picocom">picocom</a> to connect to the arduino:</p>
-<div class="highlight"><pre><span></span><code>picocom<span class="w"> </span>/dev/ttyACM0<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span>
+<div class="highlight"><pre><span></span><code>picocom<span class="w"> </span>/dev/ttyACM0<span class="w"> </span>-b<span class="w"> </span><span class="m">115200</span><span class="w"> </span>--omap<span class="w"> </span>crcrlf<span class="w"> </span>--echo
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>See <a href="../cnc_communication/">here</a> how to find the right USB port.</p>
+<p>See <a href="../cnc_communication/">here</a> how to find the right USB port.
+<code>-b 115200</code> is the baud rate of the connection, read the <a href="https://linux.die.net/man/8/picocom">picocom man page</a> for more info.
+<code>--omap crcrlf</code> is mapping the serial output from <code>CR</code> to <code>CR+LF</code>.
+<code>--echo</code> allows you to see what you are typing.</p>
 </div>
 <h3 id="getting-help">Getting help<a class="headerlink" href="#getting-help" title="Permanent link">Link</a></h3>
 <p>You can type <code>$</code> (and press enter) to get help. You should not see any local echo of the <code>$</code> and enter.
@@ -4696,7 +4699,7 @@ Sometimes the loading on your machine is different when moving in all axes toget
     <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

@@ -12,13 +12,13 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/plant_imager/tutorials/multi_scan/">
+        <link rel="canonical" href="https://docs.romi-project.eu/plant_imager/build_v3/plantimager_raspi_controller/">
       
       
-        <link rel="prev" href="../extrinsic_calibration/">
+        <link rel="prev" href="../picamera_soft/">
       
       
-        <link rel="next" href="../virtual_plant_imager_single_dataset/">
+        <link rel="next" href="../registry_setup/">
       
       
       <link rel="icon" href="../../../assets/images/ROMI_ICON_green.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>Multiple scans - ROMI Documentation</title>
+        <title>Main controller - ROMI Documentation</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#performs-multiples-scans-of-the-same-object-while-changing-an-acquisition-parameter" class="md-skip">
+        <a href="#plant-imager-controller" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Multiple scans
+              Main controller
             
           </span>
         </div>
@@ -1685,6 +1685,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1694,11 +1696,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" checked>
         
           
           <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
@@ -1712,7 +1714,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_5">
             <span class="md-nav__icon md-icon"></span>
             Plant Imager v3
@@ -1726,7 +1728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1747,7 +1749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/alu_frame/" class="md-nav__link">
+      <a href="../alu_frame/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1768,7 +1770,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/cnc_frame/" class="md-nav__link">
+      <a href="../cnc_frame/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1789,7 +1791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/frame_cnc/" class="md-nav__link">
+      <a href="../frame_cnc/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1810,7 +1812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/enclosure/" class="md-nav__link">
+      <a href="../enclosure/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1831,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/cnc_electronics/" class="md-nav__link">
+      <a href="../cnc_electronics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1852,7 +1854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/flashing_oquam/" class="md-nav__link">
+      <a href="../flashing_oquam/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1873,7 +1875,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/cnc_communication/" class="md-nav__link">
+      <a href="../cnc_communication/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1894,7 +1896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/pan_arm/" class="md-nav__link">
+      <a href="../pan_arm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1915,7 +1917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/cnc_arm/" class="md-nav__link">
+      <a href="../cnc_arm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1936,7 +1938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/manual_gimbal/" class="md-nav__link">
+      <a href="../manual_gimbal/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1957,7 +1959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/pan_electronics/" class="md-nav__link">
+      <a href="../pan_electronics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1978,7 +1980,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/picamera/" class="md-nav__link">
+      <a href="../picamera/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1999,7 +2001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/comm_overview/" class="md-nav__link">
+      <a href="../comm_overview/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2020,7 +2022,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/flash_rpi_os/" class="md-nav__link">
+      <a href="../flash_rpi_os/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2041,7 +2043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/picamera_soft/" class="md-nav__link">
+      <a href="../picamera_soft/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2059,10 +2061,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../build_v3/plantimager_raspi_controller/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Main controller
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -2071,6 +2093,311 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#bom" class="md-nav__link">
+    <span class="md-ellipsis">
+      BOM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flash-raspberry-pi-os" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flash Raspberry Pi OS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manually-setting-the-advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manually setting the advanced options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manually setting the advanced options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-the-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Set the hostname
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-enable-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Enable SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-set-username-and-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Set username and password
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotate-the-7-touchscreen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotate the 7" touchscreen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oquam-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oquam requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oquam requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the system requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install system requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-users-private-bin-to-the-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the user's private bin to the $PATH
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#romi-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROMI software
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ROMI software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-oquam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Oquam
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Oquam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-system-requirements_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the system requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-the-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone the sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-the-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compile the sources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-controller-to-act-as-a-hotspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure the controller to act as a hotspot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-rcom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure rcom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-live-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure live-preview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-rcom-python-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the rcom Python library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-romi-python-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the romi Python library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-plant-imager-python-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the plant-imager Python library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install the plant-imager Python library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-the-sources_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone the sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2083,7 +2410,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/registry_setup/" class="md-nav__link">
+      <a href="../registry_setup/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2104,7 +2431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/boms/" class="md-nav__link">
+      <a href="../boms/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2125,7 +2452,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../build_v3/resources/" class="md-nav__link">
+      <a href="../resources/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2344,8 +2671,6 @@
                 
   
   
-    
-  
   
   
     
@@ -2355,11 +2680,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_7" >
         
           
           <label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
@@ -2373,7 +2698,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_7">
             <span class="md-nav__icon md-icon"></span>
             Tutorials
@@ -2387,7 +2712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
+      <a href="../../tutorials/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2408,7 +2733,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../basics/" class="md-nav__link">
+      <a href="../../tutorials/basics/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2429,7 +2754,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../hardware_scan/" class="md-nav__link">
+      <a href="../../tutorials/hardware_scan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2450,7 +2775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../intrinsic_calibration/" class="md-nav__link">
+      <a href="../../tutorials/intrinsic_calibration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2471,7 +2796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../extrinsic_calibration/" class="md-nav__link">
+      <a href="../../tutorials/extrinsic_calibration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2489,30 +2814,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Multiple scans
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tutorials/multi_scan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2521,44 +2826,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#cli-overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      CLI overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test-the-effect-of-the-number-of-images-on-reconstruction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Test the effect of the number of images on reconstruction
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2571,7 +2838,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual_plant_imager_single_dataset/" class="md-nav__link">
+      <a href="../../tutorials/virtual_plant_imager_single_dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2592,7 +2859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual_plant_generate_analyze_visualize/" class="md-nav__link">
+      <a href="../../tutorials/virtual_plant_generate_analyze_visualize/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2613,7 +2880,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../virtual_plant_imager_large_dataset/" class="md-nav__link">
+      <a href="../../tutorials/virtual_plant_imager_large_dataset/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2634,7 +2901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../reconstruct_scan/" class="md-nav__link">
+      <a href="../../tutorials/reconstruct_scan/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2655,7 +2922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../plant-3d-explorer/" class="md-nav__link">
+      <a href="../../tutorials/plant-3d-explorer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2676,7 +2943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tutorial_sm-dtw_simulatephyllotaxis/" class="md-nav__link">
+      <a href="../../tutorials/tutorial_sm-dtw_simulatephyllotaxis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -2697,7 +2964,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../robustness_evaluation/" class="md-nav__link">
+      <a href="../../tutorials/robustness_evaluation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -4253,20 +4520,287 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#cli-overview" class="md-nav__link">
+  <a href="#bom" class="md-nav__link">
     <span class="md-ellipsis">
-      CLI overview
+      BOM
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#test-the-effect-of-the-number-of-images-on-reconstruction" class="md-nav__link">
+  <a href="#flash-raspberry-pi-os" class="md-nav__link">
     <span class="md-ellipsis">
-      Test the effect of the number of images on reconstruction
+      Flash Raspberry Pi OS
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manually-setting-the-advanced-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manually setting the advanced options
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manually setting the advanced options">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-set-the-hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Set the hostname
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-enable-ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Enable SSH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-set-username-and-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Set username and password
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotate-the-7-touchscreen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotate the 7" touchscreen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oquam-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Oquam requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oquam requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the system requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Python requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install system requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-users-private-bin-to-the-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the user's private bin to the $PATH
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#romi-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROMI software
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ROMI software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-oquam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Oquam
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Oquam">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-the-system-requirements_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the system requirements
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone-the-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone the sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-the-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compile the sources
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-controller-to-act-as-a-hotspot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure the controller to act as a hotspot
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-rcom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure rcom
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-live-preview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configure live-preview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-rcom-python-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the rcom Python library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-romi-python-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the romi Python library
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-plant-imager-python-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the plant-imager Python library
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install the plant-imager Python library">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-the-sources_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone the sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install the sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-the-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test the installation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4285,93 +4819,279 @@
                   
 
 
-<h1 id="performs-multiples-scans-of-the-same-object-while-changing-an-acquisition-parameter">Performs multiples scans of the same object while changing an acquisition parameter<a class="headerlink" href="#performs-multiples-scans-of-the-same-object-while-changing-an-acquisition-parameter" title="Permanent link">Link</a></h1>
-<p>When performing tests and evaluations, you would like to acquire the same object multiple times with while changing one parameter to assess its importance of find the optimal one.
-Normally this would require multiple calls to the <code>romi_run_task</code> CLI with a specific configuration file and a specific dataset name.</p>
-<p>In our experience, this is prone to errors!</p>
-<p>So we developed a CLI for this case named <code>multi_scan</code>. Hereafter we will provide a usage example.</p>
-<h2 id="cli-overview">CLI overview<a class="headerlink" href="#cli-overview" title="Permanent link">Link</a></h2>
-<div class="highlight"><pre><span></span><code>usage: multi_scan [-h] [--type {int,str,float}] [--task TASK] [--config CONFIG] [--module MODULE]
-                  [--log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
-                  database_path dataset_fmt param value [value ...]
-
-Performs multiple calls to a ROMI task changing the value of a single parameter.
-
-positional arguments:
-  database_path         Path to the database (directory) to populate with the acquisitions.
-  dataset_fmt           Generic name to give to the datasets, should contain a `{}` to indicate the
-                        parameter position.
-  param                 Name of the parameter to change from the loaded `config`.
-  value                 Value(s) of the parameter to use.
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --type {int,str,float}
-                        To specify the type of the parameter value(s), defaults to &#39;int&#39;.
-
-ROMI arguments:
-  --task TASK           Name of the task to perform, `Scan` by default.
-  --config CONFIG       Pipeline configuration file or directory (JSON or TOML). If a file, read the
-                        configuration from it. If a directory, read &amp; concatenate all configuration
-                        files in it
-  --module MODULE       Library and module of the task. Use it if not available or different than
-                        defined in `romitask.modules.MODULES`.
-  --log-level {DEBUG,INFO,WARNING,ERROR,CRITICAL}
-                        Level of message logging, defaults to &#39;INFO&#39;.
-</code></pre></div>
-<h2 id="test-the-effect-of-the-number-of-images-on-reconstruction">Test the effect of the number of images on reconstruction<a class="headerlink" href="#test-the-effect-of-the-number-of-images-on-reconstruction" title="Permanent link">Link</a></h2>
-<p>To test the effect of the number of images on the quality of the reconstructed 3D point-cloud, you want to acquire the same object multiple times while changing the number of views.</p>
-<p>You can do that simply with:
-<div class="highlight"><pre><span></span><code>multi_scan<span class="w"> </span><span class="s1">&#39;/data/romi_db/test_nb_views/&#39;</span><span class="w"> </span><span class="s1">&#39;my_plant_A_{}&#39;</span><span class="w"> </span>ScanPath.kwargs.n_points<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">30</span><span class="w"> </span><span class="m">36</span><span class="w"> </span><span class="m">40</span><span class="w"> </span><span class="m">60</span><span class="w"> </span><span class="m">72</span><span class="w"> </span>--config<span class="w"> </span><span class="s1">&#39;/data/configs/scan.toml&#39;</span>
-</code></pre></div></p>
-<p>This assumes:</p>
+<h1 id="plant-imager-controller">Plant Imager controller<a class="headerlink" href="#plant-imager-controller" title="Permanent link">Link</a></h1>
+<p>This section use a RaspberryPi 4 with RaspbianOS as the main controller.</p>
+<h2 id="bom">BOM<a class="headerlink" href="#bom" title="Permanent link">Link</a></h2>
+<p>The bill of material is quite simple:</p>
 <ul>
-<li><code>/data/romi_db/test_nb_views/</code> to be the location of your database</li>
-<li><code>my_plant_A_{}</code> to be the name of the dataset to create, the <code>{}</code> indicate where to add the number of views as character</li>
-<li><code>ScanPath.kwargs.n_points</code> is the <code>section.parameter</code> to modify</li>
-<li><code>10 20 30 36 40 60 72</code> to be the list of number of view to acquire</li>
-<li><code>/data/configs/scan.toml</code> to be the default scanning config to use</li>
+<li>Raspberry Pi 4B <a href="https://secure.reichelt.com/fr/en/raspberry-pi-4-b-4x-1-5-ghz-4-gb-ram-wlan-bt-rasp-pi-4-b-4gb-p259920.html">4GB</a> or <a href="https://secure.reichelt.com/fr/en/raspberry-pi-4-b-4x-1-5-ghz-8-gb-ram-wlan-bt-rasp-pi-4-b-8gb-p276923.html">8GB</a></li>
+<li>Power supply, 5.1 V, 3.0 A, USB Type-C <a href="https://secure.reichelt.com/fr/en/raspberry-pi-power-supply-5-1-v-3-0-a-usb-type-c-eu-plug--rpi-ps-15w-wt-eu-p260026.html">like this</a></li>
+<li>7" TFT LCD TouchScreen 800x480 <a href="https://www.reichelt.com/fr/en/7-tft-lcd-touch-display-800-x-480-pixel-raspberry-pi-7td-p159859.html">like this</a></li>
+<li>7" TouchScreen case <a href="https://www.reichelt.com/fr/en/housing-for-raspberry-pi-4-amp-7-touch-display-rpi4-case-lcd7bk-p268976.html">like this</a></li>
+<li>a microSD card, with a minimum of 8Go</li>
 </ul>
-<p>This will call the <code>romi_run_task</code> command with the appropriate arguments.</p>
-<p>This should generate the following file structure:
-<div class="highlight"><pre><span></span><code>/data/romi_db/test_nb_views/
-├── my_plant_A_10/
-│         ├── files.json
-│         ├── images/
-│         ├── metadata/
-│         └── scan.toml
-├── my_plant_A_20/
-│         ├── files.json
-│         ├── images/
-│         ├── metadata/
-│         └── scan.toml
-├── my_plant_A_30/
-│         ├── files.json
-│         ├── images/
-│         ├── metadata/
-│         └── scan.toml
-├── my_plant_A_36/
-│         ├── files.json
-│         ├── images/
-│         ├── metadata/
-│         └── scan.toml
-├── my_plant_A_40/
-│         ├── files.json
-│         ├── images/
-│         ├── metadata/
-│         └── scan.toml
-├── my_plant_A_60/
-│         ├── files.json
-│         ├── images/
-│         ├── metadata/
-│         └── scan.toml
-├── my_plant_A_72/
-│         ├── files.json
-│         ├── images/
-│         ├── metadata/
-│         └── scan.toml
-└── romidb
+<h2 id="flash-raspberry-pi-os">Flash Raspberry Pi OS<a class="headerlink" href="#flash-raspberry-pi-os" title="Permanent link">Link</a></h2>
+<p>The procedure to install and configure is as follows:</p>
+<ol>
+<li>Open the <code>Imager</code> app</li>
+<li>Choose the OS, we use the <code>Raspberry Pi OS (64bit)</code> as we have an RPi4</li>
+<li>Select the storage device (microSD)</li>
+<li>Click the "Advanced options" icon (bottom right)</li>
+<li>"Set hostname" to <code>plant-imager</code>, add a number or another indication if you plan to have more than one </li>
+<li>Do NOT "Enable SSH", except if you know what you are doing!</li>
+<li>"Set username and password" to <code>romi</code> and <code>my_raspberry!</code></li>
+<li>Do NOT "Configure wireless LAN", except the "Wireless LAN country", as we will later create an Access Point!</li>
+<li>Change the "locale settings" to match yours</li>
+<li>Finally, hit the "Write" button to flash the OS to the microSD.</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>We use the <strong>64bit</strong> version with the <strong>Raspberry Pi Desktop</strong> NOT "Lite" as we want to use it to display a user interface.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do NOT forget to replace the (not so) secret password by the one you used!</p>
+</div>
+<p>You should end up with something like this:</p>
+<p><img alt="" src="../../../assets/images/plant_imager_v3/rpi_imager_advanced_options-plantimager.png" /></p>
+<h2 id="manually-setting-the-advanced-options">Manually setting the advanced options<a class="headerlink" href="#manually-setting-the-advanced-options" title="Permanent link">Link</a></h2>
+<p>Hereafter we show how to manually define the <em>advanced options</em> after flashing the OS without defining any.
+This requires to boot the RPi with a screen and keyboard.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>There is <strong>NO NEED</strong> to do this if you have followed the previous instructions on how to configure the advanced options prior to flashing the microSD card!</p>
+</div>
+<p>The first time you boot your RPi with your new image, you can follow the steps of the "Welcome" screen:</p>
+<ul>
+<li>Select a country, language, keyboard layout, timezone.</li>
+<li>Do NOT connect to a Wi-Fi network!</li>
+<li>Change the default user <code>pi</code> and password <code>raspberry</code> to:</li>
+<li>user: <code>romi</code> </li>
+<li>password: <code>my_raspberry!</code>.</li>
+<li>(Optional) Update packages to their newest version, this OBVIOUSLY requires an internet connexion.</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Do NOT forget to replace the (not so) secret password by the one you used!</p>
+</div>
+<h3 id="1-set-the-hostname">1. Set the <code>hostname</code><a class="headerlink" href="#1-set-the-hostname" title="Permanent link">Link</a></h3>
+<p>We strongly advise to give a specific <code>hostname</code> to each device to avoid having the all named <code>raspberrypi</code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>RFCs mandate that a hostname's labels may contain only the ASCII letters 'a' through 'z' (case-insensitive), the digits '0' through '9', and the hyphen.
+Hostname labels cannot begin or end with a hyphen.
+No other symbols, punctuation characters, or blank spaces are permitted.</p>
+</div>
+<p>Choose an option, then reboot the RPi!</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">raspi-config</label><label for="__tabbed_1_2">command-line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>It is possible to set the <code>hostname</code> with the <code>raspi-config</code> tool, in a terminal:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>raspi-config
+</code></pre></div>
+Then move to <code>1 System Options &gt; S4 Hostname</code>.
+Enter the desired hostname, <em>e.g.</em> <code>plant-imager</code>, and hit <code>&lt;OK&gt;</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>It is possible to set the <code>hostname</code> manually by changing <code>/etc/hostname</code> &amp; <code>/etc/hosts</code> with:
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">NEW_HNAME</span><span class="o">=</span><span class="s2">&quot;plant-imager&quot;</span>
+sudo<span class="w"> </span>sed<span class="w"> </span><span class="s2">&quot;s/raspberrypi/</span><span class="nv">$NEW_HNAME</span><span class="s2">/&quot;</span><span class="w"> </span>/etc/hostname
+sudo<span class="w"> </span>sed<span class="w"> </span><span class="s2">&quot;s/raspberrypi/</span><span class="nv">$NEW_HNAME</span><span class="s2">/&quot;</span><span class="w"> </span>/etc/hosts
 </code></pre></div></p>
+</div>
+</div>
+</div>
+<h3 id="2-enable-ssh">2. Enable SSH<a class="headerlink" href="#2-enable-ssh" title="Permanent link">Link</a></h3>
+<p>Enabling SSH allows to connect to the <code>plant-imager</code> device from any machine connected to the <code>Plant Imager</code> Access Point.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This represents a security risk if you do not change the default user <code>pi</code> and password <code>raspberry</code> or use a weak password!</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">raspi-config</label><label for="__tabbed_2_2">command-line</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>It is possible to enable SSH with the <code>raspi-config</code> tool, in a terminal:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>raspi-config
+</code></pre></div>
+Then move to <code>5 Interfacing Options &gt; P2 SSH</code>, and select <code>&lt;Yes&gt;</code>.</p>
+</div>
+<div class="tabbed-block">
+<p>It is possible to enable SSH with <code>systemctl</code>, in a terminal:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>ssh<span class="w">    </span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>ssh<span class="w">    </span>
+</code></pre></div></p>
+</div>
+</div>
+</div>
+<p>Once the <code>plant-imager</code> device will reboot, you can SSH to this device using a machine connected to the same network.
+You will need the IP address of the <code>plant-imager</code> device.
+It is accessible in a terminal with:
+<div class="highlight"><pre><span></span><code>hostname<span class="w"> </span>-l
+</code></pre></div>
+It should be <code>10.10.10.1</code>.</p>
+<h3 id="3-set-username-and-password">3. Set username and password<a class="headerlink" href="#3-set-username-and-password" title="Permanent link">Link</a></h3>
+<p>If at the first boot you did NOT change the default <code>pi</code> user &amp; <code>raspberry</code> password you can still do it as follows:</p>
+<ol>
+<li>Create the user <code>romi</code> with:
+    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>adduser<span class="w"> </span>romi
+</code></pre></div>
+    This will also create the home directory for this user and ask for a password.</li>
+<li>Add this user to <code>dialout</code>, <code>video</code> &amp; <code>sudo</code> groups with:
+    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>adduser<span class="w"> </span>romi<span class="w"> </span>dialout
+sudo<span class="w"> </span>adduser<span class="w"> </span>romi<span class="w"> </span>video
+sudo<span class="w"> </span>adduser<span class="w"> </span>romi<span class="w"> </span>sudo
+</code></pre></div></li>
+<li>Remove the default <code>pi</code> user with:
+    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>deluser<span class="w"> </span>--remove-home<span class="w"> </span>pi
+</code></pre></div></li>
+</ol>
+<h3 id="rotate-the-7-touchscreen">Rotate the 7" touchscreen<a class="headerlink" href="#rotate-the-7-touchscreen" title="Permanent link">Link</a></h3>
+<p>To wire the 7" touchscreen you can follow these <a href="https://www.instructables.com/Raspberry-Pi-Touchscreen-Setup/">instructions</a>.
+Some people says that there is no need to wire SCL &amp; SDA... Do what you want!</p>
+<p>If you are using the 7" touchscreen with the case we described in the BOM, you may notice it is rotated by 180°.
+To rotate the 7" touchscreen, with an RPi 4 and the latest Raspberry OS:</p>
+<ol>
+<li>Hit the raspberry main menu</li>
+<li>Got to <code>Preference</code> &gt; <code>Screen Configuration</code></li>
+<li>On the <code>Screen Layout Editor</code> menu bar, hit <code>Configure</code>, select <code>Screens</code> &gt; <code>DSI-1</code> &gt; <code>Orientation</code> and select <code>inverted</code>.</li>
+<li>Hit the "Green check" icon <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.78 2.2 24 6.42 8.44 22 0 13.55l4.22-4.22 4.22 4.22L19.78 2.2m0 2.8L8.44 16.36l-4.22-4.17-1.41 1.36 5.63 5.62L21.19 6.42 19.78 5Z"/></svg></span> to validate!</li>
+<li>It should ask you to reboot to apply changes.</li>
+</ol>
+<h2 id="install-requirements">Install requirements<a class="headerlink" href="#install-requirements" title="Permanent link">Link</a></h2>
+<h3 id="oquam-requirements">Oquam requirements<a class="headerlink" href="#oquam-requirements" title="Permanent link">Link</a></h3>
+<h4 id="install-the-system-requirements">Install the system requirements<a class="headerlink" href="#install-the-system-requirements" title="Permanent link">Link</a></h4>
+<p>To install the system requirements, simply run:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>libpng-dev<span class="w"> </span>libjpeg-dev
+</code></pre></div></p>
+<h3 id="python-requirements">Python requirements<a class="headerlink" href="#python-requirements" title="Permanent link">Link</a></h3>
+<h4 id="install-system-requirements">Install system requirements<a class="headerlink" href="#install-system-requirements" title="Permanent link">Link</a></h4>
+<p>You will need <code>python3</code> and <code>pip</code>, that can be easily installed as follows:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>ipython3
+</code></pre></div></p>
+<h4 id="add-the-users-private-bin-to-the-path">Add the user's private <code>bin</code> to the <code>$PATH</code><a class="headerlink" href="#add-the-users-private-bin-to-the-path" title="Permanent link">Link</a></h4>
+<p>We have to add a few lines to the <code>.bashrc</code> file so the locally installed Python library are available.</p>
+<p>To do so, simply copy/paste the following lines in the terminal:
+<div class="highlight"><pre><span></span><code>cat<span class="s">&lt;&lt;EOF &gt;&gt; ~/.bashrc</span>
+
+<span class="s"># set PATH so it includes user&#39;s private bin if it exists</span>
+<span class="s">if [ -d &quot;$HOME/.local/bin&quot; ] ; then</span>
+<span class="s">    PATH=&quot;$HOME/.local/bin:$PATH&quot;</span>
+<span class="s">fi</span>
+<span class="s">EOF</span>
+</code></pre></div></p>
+<h2 id="romi-software">ROMI software<a class="headerlink" href="#romi-software" title="Permanent link">Link</a></h2>
+<h3 id="install-oquam">Install <code>Oquam</code><a class="headerlink" href="#install-oquam" title="Permanent link">Link</a></h3>
+<h4 id="install-the-system-requirements_1">Install the system requirements<a class="headerlink" href="#install-the-system-requirements_1" title="Permanent link">Link</a></h4>
+<p>To install the system requirements, simply run:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>libpng-dev<span class="w"> </span>libjpeg-dev
+</code></pre></div></p>
+<h4 id="clone-the-sources">Clone the sources<a class="headerlink" href="#clone-the-sources" title="Permanent link">Link</a></h4>
+<p>To clone the sources from the ROMI GitHub repository, simply run:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--branch<span class="w"> </span>ci_dev<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/romi/romi-rover-build-and-test.git
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>--recurse-submodules</code> option will automatically initialize and update each submodule in the repository.</p>
+</div>
+<h4 id="compile-the-sources">Compile the sources<a class="headerlink" href="#compile-the-sources" title="Permanent link">Link</a></h4>
+<p>Then move to the cloned directory and compile the <code>oquam</code> app with:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>romi-rover-build-and-test
+mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>..
+make<span class="w"> </span>oquam
+</code></pre></div></p>
+<h3 id="configure-the-controller-to-act-as-a-hotspot">Configure the controller to act as a hotspot<a class="headerlink" href="#configure-the-controller-to-act-as-a-hotspot" title="Permanent link">Link</a></h3>
+<p>To configure the RPi4 to act as a hotspot you may use the <code>network-hotspot-setup.sh</code> CLI, as root:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>bash<span class="w"> </span>tests-hardware/network-hotspot-setup.sh<span class="w"> </span>--wlan<span class="w"> </span>wlan0<span class="w"> </span>--ssid<span class="w"> </span><span class="s2">&quot;Plant Imager&quot;</span><span class="w"> </span>--pwd<span class="w"> </span><span class="s2">&quot;my_secret_password!&quot;</span>
+</code></pre></div></p>
+<p>This will:</p>
+<ul>
+<li>install the required dependencies</li>
+<li>configure the routing tables</li>
+<li>set the name of the SSID</li>
+<li>set the password to use to connect to the hotspot</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Change the password as it is not so secret anymore!</p>
+</div>
+<h3 id="configure-rcom">Configure <code>rcom</code><a class="headerlink" href="#configure-rcom" title="Permanent link">Link</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>romi-rover-build-and-test
+git<span class="w"> </span>submodule<span class="w"> </span>init<span class="w">  </span><span class="c1"># if not done yet (empty &#39;rcom&#39; directory)</span>
+git<span class="w"> </span>submodule<span class="w"> </span>update
+<span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>..
+make<span class="w"> </span>rcom-registry
+</code></pre></div>
+<p>Start <code>rcom-registry</code>:
+<div class="highlight"><pre><span></span><code>./bin/rcom-registry
+</code></pre></div></p>
+<p>Power the Picamera, you should see a message when it connects to the AP!</p>
+<h3 id="configure-live-preview">Configure live-preview<a class="headerlink" href="#configure-live-preview" title="Permanent link">Link</a></h3>
+<p>You have to install and configure <code>apache2</code>.</p>
+<p>Let's start by installing the requirements:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>apache2
+</code></pre></div></p>
+<p>Change <code>DocumentRoot</code> in <code>/etc/apache2/sites-enabled/000-default.conf</code> to <code>/home/romi/romi-rover-build-and-test/applications/romi-monitor/</code></p>
+<p>Also add:
+<div class="highlight"><pre><span></span><code><span class="w">        </span>&lt;Directory<span class="w"> </span>/home/romi/romi-rover-build-and-test/applications/romi-monitor/&gt;
+<span class="w">                   </span>Options<span class="w"> </span>Indexes
+<span class="w">                   </span>AllowOverride<span class="w"> </span>None
+<span class="w">                   </span>Require<span class="w"> </span>all<span class="w"> </span>granted
+<span class="w">        </span>&lt;/Directory&gt;
+</code></pre></div>
+Then restart the <code>apache2.service</code> with <code>systemctl</code>:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>apache2.service
+</code></pre></div></p>
+<p>Finally, on the controller, open a web browser (Chromium on the RPi) at <code>10.10.10.1/camera.html</code>.
+Then scroll down to hit the "connect" icon.
+If the PiCamera is ON, you should now see something!</p>
+<p>It's now time to adjust the lens! GOOD LUCK!</p>
+<h3 id="install-the-rcom-python-library">Install the <code>rcom</code> Python library<a class="headerlink" href="#install-the-rcom-python-library" title="Permanent link">Link</a></h3>
+<p>The <code>librcom</code> library offer a Python library.</p>
+<p>Install it as follows:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/romi-rover-build-and-test/librcom/python
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</code></pre></div></p>
+<h3 id="install-the-romi-python-library">Install the <code>romi</code> Python library<a class="headerlink" href="#install-the-romi-python-library" title="Permanent link">Link</a></h3>
+<p>The <code>romi-rover-build-and-test</code> library offer a Python library to communicate with Oquam.</p>
+<p>Install it as follows:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/romi-rover-build-and-test/python
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</code></pre></div></p>
+<h3 id="install-the-plant-imager-python-library">Install the <code>plant-imager</code> Python library<a class="headerlink" href="#install-the-plant-imager-python-library" title="Permanent link">Link</a></h3>
+<h4 id="clone-the-sources_1">Clone the sources<a class="headerlink" href="#clone-the-sources_1" title="Permanent link">Link</a></h4>
+<p>To clone the <code>plant-imager</code> sources from the ROMI GitHub repository, simply run:
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w">  </span><span class="c1"># Move back to the user home directory</span>
+git<span class="w"> </span>clone<span class="w"> </span>--branch<span class="w"> </span>dev_lyon<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/romi/plant-imager.git
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code>--recurse-submodules</code> option will automatically initialize and update each submodule in the repository.</p>
+</div>
+<h4 id="install-the-sources">Install the sources<a class="headerlink" href="#install-the-sources" title="Permanent link">Link</a></h4>
+<p>Then move to the cloned directory and install the <code>plant-imager</code> Python library and its submodules (<code>plantdb</code> &amp; <code>romitask</code>) with:
+<div class="highlight"><pre><span></span><code><span class="c1"># Don&#39;t forget to activate the environment!</span>
+<span class="nb">cd</span><span class="w"> </span>plant-imager
+<span class="c1"># Install `plantdb` requirements &amp; sources from submodules:</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>./plantdb/requirements.txt
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>./plantdb/
+<span class="c1"># Install `romitask` sources from submodules:</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>./romitask/requirements.txt
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>./romitask/
+<span class="c1"># Install `plant-imager`:</span>
+python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</code></pre></div></p>
+<h4 id="test-the-installation">Test the installation<a class="headerlink" href="#test-the-installation" title="Permanent link">Link</a></h4>
+<p>To test the installation of the Python libraries you can run:
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import plantdb&quot;</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import romitask&quot;</span>
+python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import plantimager&quot;</span>
+</code></pre></div></p>
+<p>If no error message is returned, you are all set with this part, well done!</p>
 
 
 
