@@ -94,6 +94,8 @@ Hereafter we list the Python module used in the _Plant Imager_ project:
 
 [dtw :material-chart-timeline-variant-shimmer:](https://github.com/romi/dtw){ .md-button } to align sequences, notably angles and internodes obtained from phylotaxis measurements. 
 
+[spectral-clustering :material-grass:](https://github.com/romi/spectral-clustering){ .md-button } perform both semantic and instance segmentation of 3D plant point clouds. 
+
 
 ## Usage
 
