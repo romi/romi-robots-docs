@@ -2,12 +2,11 @@
 
 ## Introduction
 
-The Romi system provides an abstraction layer to work with various
-hardware components, mostly cameras and CNC-like devices. The cameras
-we use mostly is the Pi Camera. The CNCs we use are generally devices
-with 1 to 3 degrees of freedom that use stepper motors. This include
-devices that use the same hardware as 3D printers, but also devices
-that can come in other shapes, such as camera gimbals.
+Romi allows you to combine cameras and CNC-like devices into a single
+hardware platform. The camera we use mostly is the Pi Camera. The CNCs
+generally have 1 to 3 degrees of freedom using stepper motors. This
+include devices that use the same hardware as 3D printers, but also
+devices that can come in other shapes, such as camera gimbals.
 
 There are several ways to talk to these devices. Probably the easiest
 way is to write a Python script, such as the one below.
@@ -21,16 +20,15 @@ image = camera.grab()
 image.save("test.jpg")
 ```
 
-The exposure `Camera.create("camera")` returns a new camera object. It
-will look for the camera called "camera". You may have a set-up where
-you want to use several cameras and then you should give them
-different names, like "left-camera" and "right-camera", for example.
-
-Behind the scenes, `Camera.create` will figure out where the camera is
-located on your local network, create a connection to it, and
-send/receive commands, such as the "grab" command.
-
-The method `grab` returns an image using the PIL package.
+The expression `Camera.create("camera")` returns a new camera
+object. It will look on the network for an available camera called
+"camera". If you have a set-up where that uses several cameras and
+then you should give them different names, like "left-camera" and
+"right-camera", for example. Behind the scenes, `Camera.create` will
+figure out where the camera is located on your local network, create a
+connection to it, and send/receive commands, such as the "grab"
+command above that captures and downloads an image. The method `grab`
+returns an image using the [PIL package](https://pillow.readthedocs.io/en/stable/index.html).
 
 Similarly, to interact with a CNC, you can do the following:
 
@@ -44,24 +42,25 @@ cnc.moveto(0.1, 0.1, 0)
 cnc.power_down()
 ```
 
-Similar to the camera example, CNC.create will find the device called
-"cnc" on the local network and connect to it. You can then send
+Similar to the camera example, `CNC.create` will find the device
+called "cnc" on the local network and connect to it. You can then send
 commands. In general, it's a good idea to power up the CNC when you
 start, and power it down again when you are finished, to reduce energy
 use and avoid overheating.
 
 The homing command will position the CNC in the (0,0,0) position. Not
-all CNC devices support homing, though.
+all CNC devices support homing, though. (This is configurable, see
+TODO.)
 
 By default, a CNC has three linear axes, X, Y and Z. Distances are
-measured in meters. So moveto(0.1, 0.1, 0) will position the CNC in
+measured in meters. So `moveto(0.1, 0.1, 0)` will position the CNC
 0.1 meter on the X-axis, 0.1 meter on the Y-axis, and zero on the
 Z-axis.
 
 Not all CNCs have three degrees of freedom, for example, a camera on a
-rail. Also not all CNCs have linear axes. For example, a gimbal may
-have two degrees of freedom, the pan and tilt angles measured in
-degrees. More on this later in the section on CNCs.
+rail only has one. Also not all CNCs have linear axes. For example, a
+gimbal may have two degrees of freedom, the pan and tilt angles
+measured in degrees. More on this later in the section on CNCs (TODO).
 
 The Romi system generally consists of several several computing
 devices that are connected to the same network, over wifi or
@@ -74,25 +73,24 @@ interaction (although other design patterns are possible, too).
 The underlying networking capabilities are provided by the library
 Rcom, which stands for Romi communication. You normally don't have to
 know the details of Rcom, but you should be aware of the following. To
-find the available devices, Rcom uses a registry. 
-
-A Romi "app" is the software that controls a hardware device. We also
+find the available devices, Rcom uses a registry. Let me explain. A
+Romi "app" is the software that controls a hardware device. We also
 may use the term Romi "node" to highlight the network aspect of the
-Romi system. When a Romi app starts up, it connects on the one side to
-the hardware, and on the other side to the network (opening a
-websocket server). It also connects to a network application called
-rcom-registry to announce it is available and provide its topic, type
-and address.
+Romi system. When a Romi app starts up, it connects to the hardware
+and also to the network (opening a websocket server). It also
+registers itself to a network application called rcom-registry to
+announce its availability and provide its topic, type and address.
 
-Whenever you execute `Camera.create("camera")`, the python code will
-also connect to the rcom-registry, ask at what address "camera" is
-available, and then connect to the Romi app using a websocket.
+Whenever you execute `Camera.create("camera")`, the Python code will
+query the rcom-registry to ask at what address "camera" is
+available. It then then connect to the Romi app using a client
+websocket.
 
 So the Romi system consists of: the rcom-registry service, of which
 there must be one and only one active on the local network, one or
 more Romi apps to control cameras and CNCs, all with a distinct name,
 and then your Python script (or C++ or Javascript application) that
-ties everything together to do what you want to do.
+ties everything together so you can get your stuff done.
 
 For example, the following script will take 11 x 2 pictures at 10 cm
 interval using a linear rail system that transports two cameras:
@@ -118,53 +116,133 @@ cnc.power_down()
 
 ## Web interface
 
+Romi includes a web-based interface that allows you to view the available apps. The root of the web interface is the directory romi-apps/apps/romi-interface. Below, we exmplain how to set up a web server. 
+
+![](screenshot-interface.png)
 
 
+## Installation Romi Camera
 
-## Installation
+Before we go into the details of setting up a camera, let me explain some basics. There are three main components: 
+1. the hardware: the Raspberry Pi Camera Module connected to a Raspberry Pi, 
+2. the Romi software that will take the images, the Romi Camera app or `romi-camera`, and then 
+3. your Python script that requests and processes the images. 
 
-Let's start with setting up a camera. You need three elemnts:
+The hardware is not limited to Raspberry Pi's or Raspberry Pi Camera modules. An alternative is to use any Linux machine combined with a USB camera (any camera with a Video-for-Linux interface, v4l2, actually). Also, if you are developing a C++ application, it is possible to integrate the camera code directly into your application. This usage is explained much later in this documentation.
 
-1. The hardware. Let's assume you're using a Raspberry Pi Zero 2 W and Pi Camera v3.
-2. The Rcom Registry
-3. The Romi Camera app
-4. The startup scripts to run the registry and app automatically upon booting
-5. Your code. We will use Python as an example.
-6. The web interface
+In this documentation we'll assume you're using a [Raspberry Pi Zero 2 W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) and [Pi Camera Module v3](https://www.raspberrypi.com/products/camera-module-3/). The set-up for using an USB camera is actually not that much different.
 
 
-### 1. Hardware
+In addition to the three elements you may need:
 
-In this example, we assume that you are using a [Raspberry Pi](https://www.raspberrypi.com/documentation/computers/getting-started.html#setting-up-your-raspberry-pi) and the [Pi Camera](https://www.raspberrypi.com/documentation/accessories/camera.html)
+1. The Rcom Registry
+2. Optionally, the web interface to view the cameras.
+3. Optionally, a startup scripts to run the registry and app automatically upon booting.
 
-Install the [Raspberry Pi OS](https://www.raspberrypi.com/software/). Personally, I like to install the  "Raspberry Pi OS Lite" version because I don't need the desktop environment. But YMMV.
+### Hardware
 
-I also like to enable SSH. And then, of course, make sure your Pi is connected to the local network.
+In this example, we assume that you are using a [Raspberry Pi](https://www.raspberrypi.com/documentation/computers/getting-started.html#setting-up-your-raspberry-pi) and the [Pi Camera Module](https://www.raspberrypi.com/documentation/accessories/camera.html). You will need an SD card. The size of the SD card depends on your usage. After installation of the ROMI software following the set-up below on a 32 GB SD card, there is still 25 GB of free space available, which is plenty for most use cases.
 
+Install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/). 
+
+![](rpi-imager-01.png)
+
+After installation, on Linux, you can run it as follows:
+
+```sh
+$ rpi-imager
+```
+
+Choose the device.
+
+![](rpi-imager-02.png)
+
+![](rpi-imager-03.png)
+
+Then choose the OS flavor.
+
+![](rpi-imager-04.png)
+
+Personally, I like to install the  "Raspberry Pi OS Lite" version that you can find in the "Raspberry Pi OS (other)" because I don't need the desktop environment. But YMMV. 
+
+![](rpi-imager-05.png)
+
+Select the SD card:
+
+![](rpi-imager-06.png)
+
+
+The next step is a very handy one: You can edit the settings of the newly installed OS. Notably, you can set the initial user name, the WiFi configuration, and request SSH to be installed. I will use the name "romi" for the default user in this documentation. It may be useful to choose a distinctive hostname. Afterwards, it may be possible to find the Raspberry Pi on the network using the hostname without setting up a DNS server.
+
+![](rpi-imager-07.png)
+
+![](rpi-imager-08.png)
+
+![](rpi-imager-09.png)
+
+If all is configuted, go ahead with the installation.
+
+![](rpi-imager-10.png)
+
+![](rpi-imager-11.png)
+
+![](rpi-imager-12.png)
+
+It's probably safest to reboot the Raspberry Pi with a keyboard and screen attached. If there are no mistakes in the configuration, it should be possible to boot the RPi without screen and keyboard and connect to it directly using ssh (using the "scanner-camera" as the hostname of the RPi):
+
+
+```sh
+$ ssh romi@scanner-camera.local
+```
+
+You can also find its IP number on the local network as follows:
+
+```sh
+$ ip a
+# Should return the local IP addresses of your machine
+$ nmap -sP 192.168.0.*
+# Where 192.168.0.* is the network address of your local network 
+```
+
+If you want to avoid having to enter the password every time you connect to the Raspberry Pi, you can set up SSH with a public/private key pair. If you haven't generated a public/private key-pair on your machine, yet, you can do so as follows:
+
+
+```sh
+$ ssh-keygen -t rsa
+```
+
+```sh
+$ scp ~/.ssh/id_rsa.pub romi@172.20.10.2:
+s ssh romi@172.20.10.2
+# Now connected to the Raspberri Pi:
+$ mkdir --mode=0700 .ssh
+$ cat id_rsa.pub >> .ssh/authorized_keys
+```
+The next time you connect, you should get a terminal directly, without entereing a password.
+
+To install the software, first we update the existing software:
+
+
+```sh
+sudo apt update
+sudo apt upgrade
+
+```
 
 ### Rcom Registry and Romi Camera app
 
-To install the software, you have two options: 
+To install the software, you currently still have to compile the source code.
 
-1. Install the pre-compiled Debian package (TODO).
-2. Compile the source code.
-
-#### Install the Debian package
-
-TODO
-
-#### Compile from source
 
 First, make sure you have the required dependencies. In a terminal run the following command to install the required tools and libraries:
 
 ```sh
-$ sudo apt install build-essential git cmake libjpeg-dev
+$ sudo apt install build-essential git cmake libcamera-dev libjpeg-dev libpng-dev
 ```
 
-Then, in your home directory, run:
+Then, in the terminal, in your home directory, run the following commands:
 
 ```sh
-$ cd
 $ git clone --recurse-submodules https://github.com/romi/romi-apps.git
 $ cd romi-apps
 $ mkdir build
@@ -173,15 +251,180 @@ $ cmake ..
 $ make
 ```
 
-When all is done and well, you should have the rcom-registry and romi-camera binaries in the romi-apps/build/bin directory.
+When all is done and well, you should have the `rcom-registry` and `romi-camera` binaries in the `romi-apps/build/bin` directory.
 
+
+In a first terminal, type:
+```sh
+$ cd ~/romi-apps/build
+$ ./bin/rcom-registry
+```
+
+It should print out the IP address that it is listening on.
+
+In a second terminal, type:
+```sh
+$ cd ~/romi-apps/build
+$ ./bin/romi-camera --config ../config/config-pi-camera-v3.json
+```
+
+In case you are using another camera module than the v3 module, you may want to change the configuration file. 
+
+```sh
+$ cd ~/romi-apps/build
+$ cp ../config/config-pi-camera-v3.json ../config/config-my-pi-camera.json
+```
+
+In particular, you may want to adjust the size of the images taken:
+
+```sh
+$ nano ../config/config-my-pi-camera.json
+```
+and change the section:
+
+```json
+        "libcamera": {
+            "width": 2304,
+            "height": 1296
+        }
+```
+
+Then start romi-camera with your config file as an argument:
+
+```sh
+$ ./bin/romi-camera --config ../config/config-my-pi-camera.json
+```
+
+
+### Using several cameras
+
+If you are running several cameras on the same device, or on seperate devices, you must give them a different topic name. Let's assume you want to refer to them as camera1 and camera2. You can make two separate config files but you can also group their specs in one config file. You have to dedicate a section to each of them using their topic name:  
+
+
+```json
+{
+    // ...
+    "camera1": {
+        // ...
+        "libcamera": {
+            "width": 2304,
+            "height": 1296
+        }
+        // ...
+    },
+    "camera2": {
+        // ...
+        "libcamera": {
+            "width": 2304,
+            "height": 1296
+        }
+        // ...
+    },
+    // ...
+}
+```
+
+You can then start two instances of `romi-camera` with the same configuration file but with different topics:
+
+```sh
+$ ./bin/romi-camera --config ../config/config-my-pi-camera.json --topic camera1 &
+$ ./bin/romi-camera --config ../config/config-my-pi-camera.json --topic camera2
+```
+
+### Web interface
+
+The use the web interface, you must install an HTTP server. We will explain the set-up for the Apache server. In case you prefer to use another server, you should check the tutorials for those servers. Since it requirements are very simple, the information below should give you all you need.
+
+NOTE: the web interface should run on the same device and IP as the rcom-registry. This is because the web interface cannot find the IP address of the registry on its own.
+
+
+```sh
+$ sudo apt install apache2-bin
+```
+
+After the installation, you should edit the Apache configuration as follows.
+
+```sh
+$ sudo nano /etc/apache2/sites-enabled/000-default.conf
+```
+
+The following configuration should be sufficient:
+
+```
+<VirtualHost *:80>
+	ServerAdmin webmaster@localhost
+
+	DocumentRoot /home/romi/romi-apps/apps/romi-interface
+	<Directory /home/romi/romi-apps/apps/romi-interface/>
+	        Options Indexes FollowSymLinks
+        	AllowOverride All
+        	Require all granted
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+Once the file is saved, you should ask Apache to reload the config:
+
+```sh
+$ sudo systemctl reload apache2.service
+```
+
+Now open a web browser and type the IP address of the device in the address bar. In the example given above (the screenshot), the IP address of the machine was 10.1.4.136. Just type in this address in the browser and press enter.
+
+The registry should also print out its IP address on startup. If you're still unsure about the address of the device, type the following command in the terminal:
+
+```sh
+$ ip a
+```
 
 ### Startup scripts
 
+Edit `/etc/rc.local` using your favorite text editor. For example:
+
+```sh
+$ sudo nano /etc/rc.local
+```
+
+The default rc.local file contains something like this:
+
+```sh
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+
+exit 0
+```
+
+Just before the `exit 0` line, you must insert the following two lines:
+
+```sh
+sudo -u romi /home/romi/romi-apps/build/bin/rcom-registry >> /home/romi/rcom-registry.log 2>&1  &
+sudo -u romi /home/romi/romi-apps/build/bin/rcom-camera --config /home/romi/romi-apps/config/config-pi-camera-v3.json >> /home/romi/romi-camera.log 2>&1  &
+```
+
+Replace 'romi' with the your chosen username for the install.
 
 
+## Installation Romi CNC
 
-CNC
 
 
 
@@ -190,11 +433,15 @@ CNC
 
 ### CNC
 
+Raspberry Pi + X-Carve
+
 Raspberry Pi + Arduino Uno Rev3 + [gShield](https://synthetos.myshopify.com/products/gshield-v5)
 
 Raspberry Pi + Arduino Uno Rev3 + STEP/DIR stepper motor drivers ([Polulu](https://www.pololu.com/category/120/stepper-motor-drivers), [DM542](https://kitaez-cnc.com/f/dm542.pdf), ...)
 
 Raspberry Pi + Motor XY stage, or Z autofocus
+
+
 
 
 ### Camera:
