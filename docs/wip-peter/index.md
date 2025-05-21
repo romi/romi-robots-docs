@@ -78,12 +78,12 @@ Romi "app" is the software that controls a hardware device. We also
 may use the term Romi "node" to highlight the network aspect of the
 Romi system. When a Romi app starts up, it connects to the hardware
 and also to the network (opening a websocket server). It also
-registers itself to a network application called rcom-registry to
+registers itself to a network application called `rcom-registry` to
 announce its availability and provide its topic, type and address.
 
 Whenever you execute `Camera.create("camera")`, the Python code will
-query the rcom-registry to ask at what address "camera" is
-available. It then then connect to the Romi app using a client
+query rcom-registry to ask at what address the app called "camera" is
+available. It then connect to the Romi app using a client
 websocket.
 
 So the Romi system consists of: the rcom-registry service, of which
@@ -226,7 +226,6 @@ To install the software, first we update the existing software:
 ```sh
 sudo apt update
 sudo apt upgrade
-
 ```
 
 ### Rcom Registry and Romi Camera app
@@ -247,9 +246,23 @@ $ git clone --recurse-submodules https://github.com/romi/romi-apps.git
 $ cd romi-apps
 $ mkdir build
 $ cd build
-$ cmake ..
+$ cmake .. -DADDRESS_SANITISER_BUILD=OFF
 $ make
 ```
+
+
+```sh
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y build-essential git cmake libcamera-dev libjpeg-dev libpng-dev
+git clone --recurse-submodules https://github.com/romi/romi-apps.git
+cd romi-apps
+mkdir build
+cd build
+cmake .. -DADDRESS_SANITISER_BUILD=OFF
+make
+```
+
 
 When all is done and well, you should have the `rcom-registry` and `romi-camera` binaries in the `romi-apps/build/bin` directory.
 
@@ -331,6 +344,26 @@ $ ./bin/romi-camera --config ../config/config-my-pi-camera.json --topic camera1 
 $ ./bin/romi-camera --config ../config/config-my-pi-camera.json --topic camera2
 ```
 
+
+#### Issues
+
+```
+[95:22:25.449730574] [8008]  WARN V4L2 v4l2_videodevice.cpp:2150 /dev/video0[13:cap]: Dequeue timer of 1000000.00us has expired!
+[95:22:25.476612022] [8008] ERROR RPI pipeline_base.cpp:1367 Camera frontend has timed out!
+[95:22:25.479557379] [8008] ERROR RPI pipeline_base.cpp:1368 Please check that your camera sensor connector is attached securely.
+[95:22:25.484842940] [8008] ERROR RPI pipeline_base.cpp:1369 Alternatively, try another cable and/or sensor.
+```
+
+
+```sh
+$ sudo nano /usr/share/libcamera/pipeline/rpi/vc4/rpi_apps.yaml
+```
+
+Replace vc4 by pisp for a Pi 5.
+
+
+Add the line `"camera_timeout_value_ms":    5000000,`
+
 ### Web interface
 
 The use the web interface, you must install an HTTP server. We will explain the set-up for the Apache server. In case you prefer to use another server, you should check the tutorials for those servers. Since it requirements are very simple, the information below should give you all you need.
@@ -382,11 +415,15 @@ $ ip a
 
 ### Startup scripts
 
+For now, we will use the old startup script `rc.local` until we have a proper systemd files.
+
 Edit `/etc/rc.local` using your favorite text editor. For example:
 
 ```sh
 $ sudo nano /etc/rc.local
 ```
+
+
 
 The default rc.local file contains something like this:
 
@@ -422,9 +459,23 @@ sudo -u romi /home/romi/romi-apps/build/bin/rcom-camera --config /home/romi/romi
 
 Replace 'romi' with the your chosen username for the install.
 
+Also, make sure that the rc.local file is executable:
+
+```sh
+sudo chmod 755 /etc/rc.local
+```
+
 
 ## Installation Romi CNC
 
+
+
+```sh
+sudo -u romi /home/romi/romi-apps/build/bin/rcom-registry >> /home/romi/rcom-registry.log 2>&1 &
+sleep 3
+sudo -u romi mkdir -p /home/romi/cnc
+sudo -u romi /home/romi/romi-apps/build/bin/romi-cnc --directory /home/romi/cnc --config /home/romi/config.json >> /home/romi/cnc/temp.log 2>&1 &
+```
 
 
 
