@@ -492,6 +492,10 @@ In a similar vein, the cablebot is a camera system that uses a closed-loop cable
 
 <img src="cablebot.png" width="480"/>
 
+<img src="cablebot-2.png" width="480"/>
+
+<sub><sup>(Credits: D. Colliaux)</sub></sup>
+
 
 Still in the category of one-dimensional system, we used the CNC for the auto-focus of the open-microscope.
 
