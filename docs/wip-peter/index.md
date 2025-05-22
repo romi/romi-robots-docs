@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Romi allows you to combine cameras and CNC-like devices into a single
-hardware platform. The camera we use mostly is the Pi Camera. The CNCs
-generally have 1 to 3 degrees of freedom using stepper motors. This
+Romi allows you to combine cameras, CNC-like devices and brushed DC motors into a single
+hardware platform. The camera we use mostly is the Pi Camera. The CNC
+interface is designed for devices with up to 3 degrees of freedom using stepper motors. This
 include devices that use the same hardware as 3D printers, but also
 devices that can come in other shapes, such as camera gimbals.
 
@@ -22,13 +22,12 @@ image.save("test.jpg")
 
 The expression `Camera.create("camera")` returns a new camera
 object. It will look on the network for an available camera called
-"camera". If you have a set-up where that uses several cameras and
-then you should give them different names, like "left-camera" and
-"right-camera", for example. Behind the scenes, `Camera.create` will
+"camera". If you want to use several cameras then you should give them different names, for example, "left-camera" and
+"right-camera". Behind the scenes, `Camera.create` will
 figure out where the camera is located on your local network, create a
-connection to it, and send/receive commands, such as the "grab"
-command above that captures and downloads an image. The method `grab`
-returns an image using the [PIL package](https://pillow.readthedocs.io/en/stable/index.html).
+connection to it, and send/receive commands, such as the `grab`
+command above that captures and downloads a JPEG image. In the Python interface, `grab`
+will return an image using the [PIL](https://pillow.readthedocs.io/en/stable/index.html) library.
 
 Similarly, to interact with a CNC, you can do the following:
 
@@ -50,7 +49,7 @@ use and avoid overheating.
 
 The homing command will position the CNC in the (0,0,0) position. Not
 all CNC devices support homing, though. (This is configurable, see
-TODO.)
+later.)
 
 By default, a CNC has three linear axes, X, Y and Z. Distances are
 measured in meters. So `moveto(0.1, 0.1, 0)` will position the CNC
@@ -484,6 +483,48 @@ sudo -u romi /home/romi/romi-apps/build/bin/romi-cnc --directory /home/romi/cnc 
 
 ### CNC
 
+Below you can see some examples of the CNC in action. The first is an aluminium rail to carry a camera using a belt and pulleys.
+
+<img src="camera-rail.jpg" width="480"/>
+
+
+In a similar vein, the cablebot is a camera system that uses a closed-loop cable, which is moved by a large stationary wheel positioned at one end.
+
+<img src="cablebot.png" width="480"/>
+
+
+Still in the category of one-dimensional system, we used the CNC for the auto-focus of the open-microscope.
+
+<img src="Z_focus_UC2.jpg" width="480"/>
+
+<sub><sup>(Credits: A. Lahlou)</sub></sup>
+
+
+We converted a manual microscope stage to displace the sample automatically. 
+
+<img src="before_after.png" width="480"/> 
+
+<sub><sup>(Credits: A. Lahlou and A. Ruyer-Thompson)</sub></sup>
+
+The third iteration of the Romi Plant Scanner uses the X-Carve for XY displacement of the cameras. The third stepper motor is used to pan the vertical arm that carries one or more cameras.
+
+<img src="plant-scanner-v3.jpg" width="480"/> 
+
+<sub><sup>(Credits: ENS Lyon)</sub></sup>
+
+The Romi Rover uses the X-Carve to carry a precision rotary weeding tool to prevent weeds from growing in market farm.
+
+<img src="weeder.png" width="480"/>
+
+
+The Plant Carrier uses two instances of CNC, one for the gripper to pick up a plant, and one to drive the two wheels. Although it's common to use DC or brushless motors for traction, for low speeds on flat surfaces, the stepper motors are a great option, too.
+
+<img src="plant-carrier.png" width="480"/> 
+
+<sub><sup>(Credits: N. Branas, P. Chambroux, A. Leu, H. Pasquier, students Polytech Sorbonne)</sub></sup>
+
+
+
 Raspberry Pi + X-Carve
 
 Raspberry Pi + Arduino Uno Rev3 + [gShield](https://synthetos.myshopify.com/products/gshield-v5)
@@ -491,7 +532,6 @@ Raspberry Pi + Arduino Uno Rev3 + [gShield](https://synthetos.myshopify.com/prod
 Raspberry Pi + Arduino Uno Rev3 + STEP/DIR stepper motor drivers ([Polulu](https://www.pololu.com/category/120/stepper-motor-drivers), [DM542](https://kitaez-cnc.com/f/dm542.pdf), ...)
 
 Raspberry Pi + Motor XY stage, or Z autofocus
-
 
 
 
