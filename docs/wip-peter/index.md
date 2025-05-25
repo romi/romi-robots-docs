@@ -61,7 +61,7 @@ rail only has one. Also not all CNCs have linear axes. For example, a
 gimbal may have two degrees of freedom, the pan and tilt angles
 measured in degrees. More on this later in the section on CNCs (TODO).
 
-The Romi system generally consists of several several computing
+The Romi system generally consists of several computing
 devices that are connected to the same network, over wifi or
 ethernet. Each of these devices runs a Romi app that listens to the
 network for connections (we are using websockets) and that executes
@@ -69,16 +69,16 @@ commands, using a
 [RPC-like](https://en.wikipedia.org/wiki/Remote_procedure_call)
 interaction (although other design patterns are possible, too).
 
-The underlying networking capabilities are provided by the library
-Rcom, which stands for Romi communication. You normally don't have to
+The underlying networking capabilities are provided by the Rcom library, 
+which stands for Romi communication. You normally don't have to
 know the details of Rcom, but you should be aware of the following. To
 find the available devices, Rcom uses a registry. Let me explain. A
 Romi "app" is the software that controls a hardware device. We also
 may use the term Romi "node" to highlight the network aspect of the
 Romi system. When a Romi app starts up, it connects to the hardware
 and also to the network (opening a websocket server). It also
-registers itself to a network application called `rcom-registry` to
-announce its availability and provide its topic, type and address.
+registers itself to another application on the network called `rcom-registry` to
+announce its availability and provide its topic (or name), type (`cnc`, `camera`, `motors`...) and address (IP address and port).
 
 Whenever you execute `Camera.create("camera")`, the Python code will
 query rcom-registry to ask at what address the app called "camera" is
@@ -87,7 +87,7 @@ websocket.
 
 So the Romi system consists of: the rcom-registry service, of which
 there must be one and only one active on the local network, one or
-more Romi apps to control cameras and CNCs, all with a distinct name,
+more Romi apps to control cameras and CNCs, all with distinct names,
 and then your Python script (or C++ or Javascript application) that
 ties everything together so you can get your stuff done.
 
@@ -115,7 +115,7 @@ cnc.power_down()
 
 ## Web interface
 
-Romi includes a web-based interface that allows you to view the available apps. The root of the web interface is the directory romi-apps/apps/romi-interface. Below, we exmplain how to set up a web server. 
+Romi includes a web-based interface that allows you to view the available apps. The root of the web interface is the directory `romi-apps/apps/romi-interface`. Later in the documentation, we will explain how to set up a web server to access the interface. 
 
 ![](screenshot-interface.png)
 
@@ -123,11 +123,11 @@ Romi includes a web-based interface that allows you to view the available apps. 
 ## Installation Romi Camera
 
 Before we go into the details of setting up a camera, let me explain some basics. There are three main components: 
-1. the hardware: the Raspberry Pi Camera Module connected to a Raspberry Pi, 
-2. the Romi software that will take the images, the Romi Camera app or `romi-camera`, and then 
-3. your Python script that requests and processes the images. 
+1. The hardware: by default, a Raspberry Pi Camera Module connected to a Raspberry Pi, 
+2. The software: the Romi Camera app (or `romi-camera`) will take the images, and then 
+3. Your Python script that requests and processes the images. 
 
-The hardware is not limited to Raspberry Pi's or Raspberry Pi Camera modules. An alternative is to use any Linux machine combined with a USB camera (any camera with a Video-for-Linux interface, v4l2, actually). Also, if you are developing a C++ application, it is possible to integrate the camera code directly into your application. This usage is explained much later in this documentation.
+The hardware is not limited to Raspberry Pi's or Raspberry Pi Camera modules. An alternative is to use any Linux machine combined with a USB camera (any camera with a Video4Linux interface, or V4L2 in short). Also, if you are developing a C++ application, it is possible to integrate the camera code directly into your application. This usage is explained much later in this documentation.
 
 In this documentation we'll assume you're using a [Raspberry Pi Zero 2 W](https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/) and [Pi Camera Module v3](https://www.raspberrypi.com/products/camera-module-3/). The set-up for using an USB camera is actually not that much different.
 
@@ -142,7 +142,7 @@ In addition to the three elements you may need:
 
 In this example, we assume that you are using a [Raspberry Pi](https://www.raspberrypi.com/documentation/computers/getting-started.html#setting-up-your-raspberry-pi) and the [Pi Camera Module](https://www.raspberrypi.com/documentation/accessories/camera.html). You will need an SD card. The size of the SD card depends on your usage. After installation of the ROMI software following the set-up below on a 32 GB SD card, there is still 25 GB of free space available, which is plenty for most use cases.
 
-Install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/). 
+Install the [Raspberry Pi Imager](https://www.raspberrypi.com/software/) on your PC. This application is used to prepare an SD Card for the Pi.
 
 ![](rpi-imager-01.png)
 
@@ -152,7 +152,7 @@ After installation, on Linux, you can run it as follows:
 $ rpi-imager
 ```
 
-Choose the device.
+Choose the device, i.e. what model of the Raspberry Pi.
 
 ![](rpi-imager-02.png)
 
@@ -162,7 +162,7 @@ Then choose the OS flavor.
 
 ![](rpi-imager-04.png)
 
-Personally, I like to install the  "Raspberry Pi OS Lite" version that you can find in the "Raspberry Pi OS (other)" because I don't need the desktop environment. But YMMV. 
+Personally, I like to install the  "Raspberry Pi OS Lite" version that you can find in the "Raspberry Pi OS (other)" because I don't need the desktop environment. But YMMV. Select the 64-bit versions.
 
 ![](rpi-imager-05.png)
 
@@ -171,7 +171,7 @@ Select the SD card:
 ![](rpi-imager-06.png)
 
 
-The next step is a very handy one: You can edit the settings of the newly installed OS. Notably, you can set the initial user name, the WiFi configuration, and request SSH to be installed. I will use the name "romi" for the default user in this documentation. It may be useful to choose a distinctive hostname. Afterwards, it may be possible to find the Raspberry Pi on the network using the hostname without setting up a DNS server.
+The next step is a very handy one: You can edit the settings of the newly installed OS. Notably, you can set the initial user name, the WiFi configuration, and request SSH to be installed. I will use the name "romi" for the default user in this documentation. It may be useful to choose a distinctive hostname. Afterwards, it may be possible to find the Raspberry Pi on the network using this hostname without setting up a DNS server.
 
 ![](rpi-imager-07.png)
 
@@ -179,7 +179,7 @@ The next step is a very handy one: You can edit the settings of the newly instal
 
 ![](rpi-imager-09.png)
 
-If all is configuted, go ahead with the installation.
+If all is configured, go ahead with the installation.
 
 ![](rpi-imager-10.png)
 
@@ -187,7 +187,7 @@ If all is configuted, go ahead with the installation.
 
 ![](rpi-imager-12.png)
 
-It's probably safest to reboot the Raspberry Pi with a keyboard and screen attached. If there are no mistakes in the configuration, it should be possible to boot the RPi without screen and keyboard and connect to it directly using ssh (using the "scanner-camera" as the hostname of the RPi):
+It's probably safest to reboot the Raspberry Pi with a keyboard and screen attached. If there are no mistakes in the configuration, it should be possible to boot the RPi without screen and keyboard and connect to it directly using ssh (using the "scanner-camera.local" as the hostname of the RPi):
 
 
 ```sh
@@ -210,16 +210,23 @@ If you want to avoid having to enter the password every time you connect to the 
 $ ssh-keygen -t rsa
 ```
 
+Then copy the key from your PC to the Pi:
+
 ```sh
-$ scp ~/.ssh/id_rsa.pub romi@172.20.10.2:
-s ssh romi@172.20.10.2
+$ scp ~/.ssh/id_rsa.pub romi@scanner-camera.local:
+s ssh romi@scanner-camera.local
+```
+
+And finally, on the Pi, copy the key into the authorized_keys file:
+
+```sh
 # Now connected to the Raspberri Pi:
 $ mkdir --mode=0700 .ssh
 $ cat id_rsa.pub >> .ssh/authorized_keys
 ```
 The next time you connect, you should get a terminal directly, without entereing a password.
 
-To install the software, first we update the existing software:
+Before installing any software, it is best to update the existing software:
 
 
 ```sh
@@ -229,8 +236,7 @@ sudo apt upgrade
 
 ### Rcom Registry and Romi Camera app
 
-To install the software, you currently still have to compile the source code.
-
+To install the Romi software, you currently still have to compile the source code. We will try to build Debian packages in the future (any volonteers?).
 
 First, make sure you have the required dependencies. In a terminal run the following command to install the required tools and libraries:
 
@@ -249,22 +255,9 @@ $ cmake .. -DADDRESS_SANITISER_BUILD=OFF
 $ make
 ```
 
-
-```sh
-sudo apt update
-sudo apt upgrade -y
-sudo apt install -y build-essential git cmake libcamera-dev libjpeg-dev libpng-dev
-git clone --recurse-submodules https://github.com/romi/romi-apps.git
-cd romi-apps
-mkdir build
-cd build
-cmake .. -DADDRESS_SANITISER_BUILD=OFF
-make
-```
-
-
 When all is done and well, you should have the `rcom-registry` and `romi-camera` binaries in the `romi-apps/build/bin` directory.
 
+#### First trial of the software
 
 In a first terminal, type:
 ```sh
@@ -310,29 +303,29 @@ $ ./bin/romi-camera --config ../config/config-my-pi-camera.json
 
 ### Using several cameras
 
-If you are running several cameras on the same device, or on seperate devices, you must give them a different topic name. Let's assume you want to refer to them as camera1 and camera2. You can make two separate config files but you can also group their specs in one config file. You have to dedicate a section to each of them using their topic name:  
+If you are running several cameras on the same device, or on seperate devices, you must give them a different topic name. Let's assume you want to refer to them as `camera1` and `camera2`. You can make two separate config files but you can also group their specs in one config file. You have to dedicate a section to each of them using their topic name:  
 
 
 ```json
 {
-    // ...
+    ...
     "camera1": {
-        // ...
+        ...
         "libcamera": {
             "width": 2304,
             "height": 1296
         }
-        // ...
+        ...
     },
     "camera2": {
-        // ...
+        ...
         "libcamera": {
             "width": 2304,
             "height": 1296
         }
-        // ...
+        ...
     },
-    // ...
+    ...
 }
 ```
 
@@ -343,31 +336,11 @@ $ ./bin/romi-camera --config ../config/config-my-pi-camera.json --topic camera1 
 $ ./bin/romi-camera --config ../config/config-my-pi-camera.json --topic camera2
 ```
 
-
-#### Issues
-
-```
-[95:22:25.449730574] [8008]  WARN V4L2 v4l2_videodevice.cpp:2150 /dev/video0[13:cap]: Dequeue timer of 1000000.00us has expired!
-[95:22:25.476612022] [8008] ERROR RPI pipeline_base.cpp:1367 Camera frontend has timed out!
-[95:22:25.479557379] [8008] ERROR RPI pipeline_base.cpp:1368 Please check that your camera sensor connector is attached securely.
-[95:22:25.484842940] [8008] ERROR RPI pipeline_base.cpp:1369 Alternatively, try another cable and/or sensor.
-```
-
-
-```sh
-$ sudo nano /usr/share/libcamera/pipeline/rpi/vc4/rpi_apps.yaml
-```
-
-Replace vc4 by pisp for a Pi 5.
-
-
-Add the line `"camera_timeout_value_ms":    5000000,`
-
 ### Web interface
 
 The use the web interface, you must install an HTTP server. We will explain the set-up for the Apache server. In case you prefer to use another server, you should check the tutorials for those servers. Since it requirements are very simple, the information below should give you all you need.
 
-NOTE: the web interface should run on the same device and IP as the rcom-registry. This is because the web interface cannot find the IP address of the registry on its own.
+NOTE: the web interface should run on the same device and IP as the `rcom-registry`. This is because the web interface cannot find the IP address of the registry on its own.
 
 
 ```sh
@@ -478,10 +451,7 @@ sudo -u romi /home/romi/romi-apps/build/bin/romi-cnc --directory /home/romi/cnc 
 
 
 
-## Supported hardware
-
-
-### CNC
+### Supported hardware
 
 Below you can see some examples of the CNC in action. The first is an aluminium rail to carry a camera using a belt and pulleys.
 
@@ -510,7 +480,7 @@ We converted a manual microscope stage to displace the sample automatically.
 
 <sub><sup>(Credits: A. Lahlou and A. Ruyer-Thompson)</sub></sup>
 
-The third iteration of the Romi Plant Scanner uses the X-Carve for XY displacement of the cameras. The third stepper motor is used to pan the vertical arm that carries one or more cameras.
+The third iteration of the Romi Plant Scanner uses the X-Carve for XY displacement of the cameras. The third stepper motor is used to rotate the vertical arm that carries one or more cameras.
 
 <img src="plant-scanner-v3.jpg" width="480"/> 
 
@@ -521,29 +491,277 @@ The Romi Rover uses the X-Carve to carry a precision rotary weeding tool to prev
 <img src="weeder.png" width="480"/>
 
 
-The Plant Carrier uses two instances of CNC, one for the gripper to pick up a plant, and one to drive the two wheels. Although it's common to use DC or brushless motors for traction, for low speeds on flat surfaces, the stepper motors are a great option, too.
+The Plant Carrier uses two instances of CNC. The first one controls the gripper that picks up small plant pots. The second one drives the stepper motors of two larger front wheels of the robot. Although it's common to use DC or brushless motors for traction, for low speeds on flat surfaces, the stepper motors are actually a great option, too.
 
 <img src="plant-carrier.png" width="480"/> 
 
 <sub><sup>(Credits: N. Branas, P. Chambroux, A. Leu, H. Pasquier, students Polytech Sorbonne)</sub></sup>
 
+#### Microcontroller
+
+The firware currently runs on the Arduino Uno Rev3 only, although porting it to another microcontroller should not be hard.
+
+The Uno sends the control signals (`step` and `dir`) to a stepper controller. Any controller with a STEP and DIR input should work. The controllers we have worked with are:
+
+* The [gShield](https://synthetos.myshopify.com/products/gshield-v5), 
+* The stepper drivers by [Polulu](https://www.pololu.com/category/120/stepper-motor-drivers), including the popular [A4988](https://www.pololu.com/product/1182), 
+* but also larger controllers such as the [DM542](https://kitaez-cnc.com/f/dm542.pdf).
+
+The following schema shows how the stepper controller (in this case a Polulu A4988) is wired. 
+
+<img src="cnc-wiring-1.png" width="800"/>
 
 
-Raspberry Pi + X-Carve
+| Arduino Uno pins | Function |
+| ------------------------ | --------------------------- |
+| 2, 3, 4 | The STEP signals for the X, Y, and Z steppers  |
+| 5, 6, 7 | The DIR signals for the X, Y, and Z steppers |
+| 8 | Enable/disable the motors |
+| 9, 10, 11 | The limit switches for homing the X, Y, Z axes |
+| 12 | To actuate a relay |
+| 11-12 | **NOTE**: on some boards (X-Carve?) pins 11 and 12 have been swapped: 12=limit switch Z, 11=relay  |
 
-Raspberry Pi + Arduino Uno Rev3 + [gShield](https://synthetos.myshopify.com/products/gshield-v5)
 
-Raspberry Pi + Arduino Uno Rev3 + STEP/DIR stepper motor drivers ([Polulu](https://www.pololu.com/category/120/stepper-motor-drivers), [DM542](https://kitaez-cnc.com/f/dm542.pdf), ...)
+#### Connecting the PC to the Arduino
 
-Raspberry Pi + Motor XY stage, or Z autofocus
+The firmware that runs on the Arduino Uno waits from commands from your application. There are two ways that you can interact with the Arduino: 
+
+1. Using RomiSerial, to send commands directly over the serial connection, or
+2. Using the `romi-cnc` app, that adds an additional layer up top of RomiSerial and allows you to send commands remotely over the network (it uses Rcom underneath).
+
+In both cases, you will have to connect the Arduino to your PC using a USB cable and you will have to install the RomiSerial library for Arduino.
+
+In the following section I will detail the installation process. After that, you will find some examples of both RomiSerial and Rcom.
+
+### Installation
+
+#### Install RomiSerial
+
+Go to the [RomiSerial page at github](https://github.com/romi/RomiSerial) and download the ZIP:
+
+<img src="romiserial-zip-2.png" width="480"/>
+
+
+Then import the library in the Arduino IDE:
+
+<img src="arduino-ide.png" width="480"/>
+
+
+#### Upload the RomiMotorController firmware
+
+Clone or download the [RomiMotorController code at github](https://github.com/romi/romi-motor-controller).
+
+Then open the `romi-motor-controller/RomiMotorController/RomiMotorController.ino` file in the Arduino IDE, and compile and upload the code to the Arduino Uno. Make sure you have the Uno board selected.
+
+<img src="upload-motor-controller-2.png" width="480"/>
+
+If you are unfamiliar with the Arduino IDE and uploading code, please check the tutorials at [https://www.arduino.cc/en/Tutorial/HomePage/](https://www.arduino.cc/en/Tutorial/HomePage/).
+
+#### Edit configuration file
+
+A configuration file is needed to define the type and tange of the axes of CNC, the maximum speed and acceleration of the motors and so on.
+
+I'll use the below example of the XCarve to explain the fields. The full configuration look like this:
+
+```json
+{
+    "device": {
+        "hardware-id": "xcarve",
+        "type": "cnc"
+    },
+    "cnc": {
+        "axes": [
+            {
+                "type": "linear",
+                "range": [0, 0.76],
+                "homing": {
+                    "order": 0,
+                    "mode": "contact-and-backup",
+                    "speed": 0.1
+                }
+            },
+            {
+                "type": "linear",
+                "range": [0, 0.72],
+                "homing": {
+                    "order": 1,
+                    "mode": "contact-and-backup",
+                    "speed": 0.1
+                }
+            },
+            {
+                "type": "linear",
+                "range": [0, 0.35],
+                "homing": {
+                    "order": 2,
+                    "mode": "contact-and-backup",
+                    "speed": 0.1
+                }
+            }
+        ],
+        "controller-classname": "stepper-controller",
+        "path-maximum-deviation": 0.0,
+        "path-slice-duration": 0.020000,
+        "stepper-settings": {
+            "displacement-per-revolution": [0.040000, 0.040000, 0.008000],
+            "gears-ratio": [1, 1, 1],
+            "maximum-acceleration": [0.300000, 0.300000, 0.030000],
+            "maximum-rpm": [300, 300, 300],
+            "microsteps": [16, 16, 16],
+            "steps-per-revolution": [200, 200, 200]
+        }
+    },
+    "ports": {
+        "cnc": {
+            "port": "/dev/ttyUSB0",
+            "type": "serial"
+        }
+    }
+}
+```
+
+There are three main sections, `device`, `cnc`, and `ports`. The device section has the following fields:
+
+| Field           | Description |
+| -------         | ----------- |
+| name            | You are free to give your device any name you please |
+| type            | Should be `cnc` in this case |
+
+The `cnc` section. This section should reflect the topic name of the Romi App. In case you want your app to be known as `gimbal` or `wheels` on the network and in the `rcom-registry`, then you should similarly call the section `gimbal` or `wheels`. This allows to specify several CNC interfaces in the same configuration file.
+
+
+The `axes` section is an array with the 1 to 3 elements describing each of the active CNC axes. For each axis, the following fields are available:
+
+| Name               |           | Description  |
+| -------------------| --        | --------------------------- |
+| type               | Required  | `linear` or `angular`  |
+| range              | Optional  | Should spicify an array of the min and max position, in meter. In case this field is absent, this means that there is no limit. An example is when the CNC is used to drive wheels, or a 360° angle. |
+| homing             | Optional | The details of the homing configuration of the axis. If this section is missing, no homing will be done on this axis. |
+
+For the homing, the following fields are recognized:
+
+| Name               |          | Description  |
+| -------------------| --       | --------------------------- |
+| order              | Required | The order in which this axis should homed |
+| mode               | Required | `contact-and-backup`: move until the limit switch detects a contact, then backup until the limit switch is released, or `contact`: move until the limit switch detects a contact, then stay there |
+| speed              | Required | The speed of the homing, as a fraction of the maximum speed |
 
 
 
-### Camera:
+| Name               |          | Description  |
+| -------------------| --       | --------------------------- |
+| controller-classname | Required | The low-level stepper interface to be instanciated. `stepper-controller`: the default controller, `fake-cnc-controller`: used for testing and debugging |
 
-Raspberry Pi + Pi Camera
 
-Any Linux + USB camera
+
+The following two parameters affect the path generation algorithm. (See TODO)
+
+
+| Name                     | Description  |
+| ------------------------ | --------------------------- |
+| path-maximum-deviation   | This value, in meters, sets the maximum allowed deviation from the ideal path when the CNC is requested to trace a polygonal path. By allowing a small deviation, the CNC can maintain a given speed while assuring that the maximum accelerations (and thus forces) are respected. It allows for smoother path travelings. |
+| path-slice-duration      | A long path is sliced into small segments of constant speed. This variable sets the default duration of these segments. |
+
+
+The `stepper-settings` provide the information on the stepper motors that are used. The following six pieces of information are required:
+
+| Name                        | Description  |
+| --------------------------- | --------------------------- |
+| steps-per-revolution        | The number os steps per revolution of the stepper motors, for the x, y, and z axis.  |
+| microsteps                  | If micro-stepping was enabled, the number of micro-steps for the x, y, and z axis (a value of 1 indicates no micro-stepping).  |
+| gears-ratio                 | If the stepper motors use gears, provide the gear ratio. 1 means no gearbox is used. A value of N means that N revolutions of the stepper motor are required for 1 revolution of the output axis, or that the driver has to send N times more steps to the stepper motor for the output axis to complete a revolution. |
+| displacement-per-revolution | This value specifies by how much the CNC moves, in meter, for one revolution of the output axis of the motor + gearbox combination. This value is related to the size of the pulley that pulls on the belt. |
+| maximum-rpm                 | The maximum speed of the stepper motors. The datasheets of the stepper motor generaly indicate this value in revolutions per minute (rpm). |
+| maximum-acceleration        | The maximum allowed acceleration, in m/s², for each of the axes. |
+
+
+
+## Starting the Romi CNC app
+
+Assuming that the `rcom-registry` is already running:
+
+```sh
+$ ./build/bin/romi-cnc --config ../config/config-xcarve.json
+```
+
+## Examples using Rcom
+
+```python
+from romi.cnc import CNC
+
+cnc = CNC.create('cnc')
+cnc.enable()
+cnc.power_up()
+cnc.homing()
+# ...
+cnc.power_down()
+cnc.disable()
+```
+
+## Examples using RomiSerial
+
+It is possible (although not necessaily recommended) to communicate with the Arduino firmware directly over a serial connection. We use RomiSerial, which add error detection of the serial communication. The example below uses the Python classes. A more detailed discussion of RomiSerial and interfacing it manually from a terminal or using the C++ API is given later (TODO). You will find the reference of all commands below.
+
+```python
+from romiserial.device import RomiDevice
+
+cnc = RomiDevice('/dev/ttyUSB0')
+cnc.execute('h', 0, 1, 2)
+cnc.execute('o', 0)
+cnc.execute('s', 100, 100, 100)
+cnc.execute('E', 1)
+cnc.execute('M', 1000, 500, 500, 0)
+```
+
+## Examples using a serial terminal
+
+The serial connection uses a baudrate of 115200. Also, all end of lines are expected to be terminated with both a carriage return and newline character.
+
+More detailed documentation on how to use the RomiSerial interface is given in the dedicated section. (TODO) 
+
+Below you see a quick example of how to send the command '?' to the CNC controller. This command return the name, version, and compilation date of the firmware. Then the 'E', or enable, command is shown.
+
+
+```sh
+$ picocom -b 115200 -c --omap crcrlf /dev/ttyUSB0
+...
+
+#?:xxxx
+#?[0,"RomiCNCController","0.1","May 23 2025 13-14-40"]:00df
+
+#E[1]:xxxx
+#E[0]:00e3
+```
+
+The full reference of all CNC commands can be found below.
+
+
+## Reference Serial Commands
+
+All RomiSerial commands return an array that can be parsed using, for examples, a JSON parser.
+
+The first value in the array is always an integer that indicates the success or, in case of failure, the error that has occured. A value of zero indicates success. In case of error, the second value in the array is a string with a succinct, human-readable message, for example `[101, "Bad state"]`.
+
+
+| Command           | Opcode | Arguments | Return | Description |
+| -------           | ------ | --------- | ------ | ----- |
+| info              | ? | -           | name, version, and compilation date of the firmware | |
+| set-homing-axes   | h | a0, a1, a2  | - | Set the order of the axes for homing. Three values are expected: the first, second and third axis to be homed. The following values are recognized for *a0*, *a1*, *a2*: -1=skip homing, 0,1,2=home x,y,z. Examples: [2, -1, -1]=home z, skip the remaining axes. And [2, 1, 0]=home z, then y, then x.
+| set-homing-speeds | s | v0, v1, v2  | - | The homing speeds as an integer in steps/s for the homing axes 0, 1, and 2, as defined by the set-homing-axes command |
+| set-homing-mode   | o | 0 or 1      | - | 0=move until contact then pull back, 1=move until contact and maintain contact |
+| enable            | E | 0 or 1      | - | Power up (1) or power down (0) the motors |
+| is-enabled        | e | -           | 0 or 1 | 1=enabled, 0=disabled |
+| homing            | H | -           | - | Perform the homing sequence |
+| moveto            | m | dt, x, y, z | Returns error 1 if the buffer is full (→ try again later) | The first parameter, *dt*, indicates the duration of the move in milliseconds (int). The remaining parameters are integers determining the absolute target positions of the CNC in steps (measured from the origin) on the x, y, and z axis. |
+| move              | M | dt,dx,dy,dy | Returns error 1 if the buffer is full (→ try again later) | The first parameter, *dt*, indicates the duration of the move in milliseconds (int). The remaining parameters are are integers defining the relative displacement of the CNC in steps (measured from the current position) on the x, y, and z axis. |
+| moveat            | V | vx, vy, vz  | Returns error 1 if the buffer is full (→ try again later) | The speeds of the x, y, and z axis in steps/s (integers). |
+| get-position      | P | -           | x, y, z position in steps | Returns the current position of the CNC |
+| is-idle           | I | -           | idle and status | first value (idle): 0=idle=no move commands active or in the queue, 1=busy executing move commands. second value (state): 'r'=running, 'p'=paused, 'h'=homing, 'e'=error |
+| pause             | p | -           | - | Pause the execution of the move commands |
+| continue          | c | -           | - | Continue the execution of the move commands |
+| reset             | r | -           | - | Stop the CNC and removes all active and scheduled move commands |
+| zero              | z | -           | - | Sets the currrent position as the orginin (0,0,0). This is also done automatically after a homing |
+| relay             | S | 0 or 1      | - | 0=deactivate relay, 1=activate relay | 
 
 
 
@@ -629,26 +847,6 @@ degrees instead of radians.
     }
 }
 ```
-
-
-| Name                     | Description  |
-| ------------------------ | --------------------------- |
-| cnc-range                | The dimensions of the three axes of the CNC. The values must be provided as an array of three couples, for the x, y, and z axis. Each couple specifies the minimum and maximum position in meters.  |
-| path-maximum-deviation   | This value, in meters, sets the maximum allowed deviation from the ideal path when the CNC is requested to trace a polygonal path. By allowing a small deviation, the CNC can maintain a given speed while assuring that the maximum accelerations (and thus forces) are respected. It allows for smoother path travelings. |
-| path-slice-duration      | A long path is sliced into small segments of constant speed. This variable sets the default duration of these segments. |
-
-The `stepper-settings` provide the information on the stepper motors
-that are used. The following six pieces of information are required:
-
-| Name                        | Description  |
-| --------------------------- | --------------------------- |
-| steps-per-revolution        | The number os steps per revolution of the stepper motors, for the x, y, and z axis.  |
-| microsteps                  | If micro-stepping was enabled, the number of micro-steps for the x, y, and z axis (a value of 1 indicates no micro-stepping).  |
-| gears-ratio                 | If the stepper motors use gears, provide the gear ratio. 1 means no gearbox is used. A value of N means that N revolutions of the stepper motor are required for 1 revolution of the output axis, or that the driver has to send N times more steps to the stepper motor for the output axis to complete a revolution. |
-| displacement-per-revolution | This value specifies by how much the CNC moves, in meter, for one revolution of the output axis of the motor + gearbox combination. This value is related to the size of the pulley that pulls on the belt. |
-| maximum-rpm                 | The maximum speed of the stepper motors. The datasheets of the stepper motor generaly indicate this value in revolutions per minute (rpm). |
-| maximum-acceleration        | The maximum allowed acceleration, in m/s², for each of the axes. |
-
 
 #### The ports section
 
