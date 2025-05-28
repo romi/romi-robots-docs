@@ -545,7 +545,7 @@ There are two main sections, `device` and `camera`. The device section has the f
 
 The `camera` section: This section should reflect the topic name of the Romi App. In case you want your app to be known as `top-camera` on the network and in the `rcom-registry`, then you should similarly call the section `top-camera`. This allows to specify several cameras in the same configuration file.
 
-The `camera` section is still work in progress. Most of the fields are optional and for information only (i.e. they are not used by `romi-camera`). The data can be requested and stored as meta-data with the images. In Python, the data can be obtained using the `camera.get_camera_info()` method.
+The `camera` section is still work in progress. Most of the fields are optional and for information only (i.e. they are not used internally by the `romi-camera` app). The data can be requested and stored as meta-data with the images. In Python, the data can be obtained using the `camera.get_camera_info()` method.
 
 
 
@@ -558,7 +558,7 @@ The `camera` section is still work in progress. Most of the fields are optional 
 | intrinsics      | Optional | Sets the focal and center points of the camera |
 | lens            | Optional | A string describing the used lens. |
 | calibration     | Optional | Information about the calibration method used, the date, and the person who did the calibration |
-| distortion      | Optional | Information about the distorsion coéfficients. Currently, only `simple-radial` distorsion parameters are recognized   |
+| distortion      | Optional | Information about the distorsion coéfficients. Currently, only `simple-radial` distorsion parameters are recognized. The k1 and k2 values should be in an array. |
 
 For each camera type, there is supposed to be a section of the same name (except for fake-camera). So if your camera type is `file-camera`, you should add a section `"file-camera": {...}` in the config file to define the parameters of your instance of the camera.
 
@@ -583,17 +583,6 @@ The following options are recognized by `romi-camera`:
 
 
 ## Installation Romi CNC
-
-
-
-```sh
-sudo -u romi /home/romi/romi-apps/build/bin/rcom-registry >> /home/romi/rcom-registry.log 2>&1 &
-sleep 3
-sudo -u romi mkdir -p /home/romi/cnc
-sudo -u romi /home/romi/romi-apps/build/bin/romi-cnc --directory /home/romi/cnc --config /home/romi/config.json >> /home/romi/cnc/temp.log 2>&1 &
-```
-
-
 
 ### Supported hardware
 
@@ -849,7 +838,7 @@ $ ./bin/rcdiscover path/to/config.json
 ```
 
 
-## Starting the Romi CNC app
+### Starting the Romi CNC app
 
 Assuming that the `rcom-registry` is already running:
 
@@ -857,7 +846,21 @@ Assuming that the `rcom-registry` is already running:
 $ ./build/bin/romi-cnc --config ../config/config-xcarve.json
 ```
 
-## Examples using Rcom
+
+### Startup script (rc.local)
+
+TODO
+
+
+```sh
+sudo -u romi /home/romi/romi-apps/build/bin/rcom-registry >> /home/romi/rcom-registry.log 2>&1 &
+sleep 3
+sudo -u romi mkdir -p /home/romi/cnc
+sudo -u romi /home/romi/romi-apps/build/bin/romi-cnc --directory /home/romi/cnc --config /home/romi/config.json >> /home/romi/cnc/temp.log 2>&1 &
+```
+
+
+### Examples using Rcom
 
 ```python
 from romi.cnc import CNC
@@ -871,7 +874,7 @@ cnc.power_down()
 cnc.disable()
 ```
 
-## Examples using RomiSerial
+### Examples using RomiSerial
 
 It is possible (although not necessaily recommended) to communicate with the Arduino firmware directly over a serial connection. We use RomiSerial, which add error detection of the serial communication. The example below uses the Python classes. A more detailed discussion of RomiSerial and interfacing it manually from a terminal or using the C++ API is given later (TODO). You will find the reference of all commands below.
 
@@ -886,7 +889,7 @@ cnc.execute('E', 1)
 cnc.execute('M', 1000, 500, 500, 0)
 ```
 
-## Examples using a serial terminal
+### Examples using a serial terminal
 
 The serial connection uses a baudrate of 115200. Also, all end of lines are expected to be terminated with both a carriage return and newline character.
 
@@ -909,7 +912,7 @@ $ picocom -b 115200 -c --omap crcrlf /dev/ttyUSB0
 The full reference of all CNC commands can be found below.
 
 
-## Reference Serial Commands
+### Reference Serial Commands
 
 All RomiSerial commands return an array that can be parsed using, for examples, a JSON parser.
 
@@ -938,23 +941,9 @@ The first value in the array is always an integer that indicates the success or,
 
 
 
-## Configuration
-
-The Romi Rover control software uses the following input files (see
-also the  [Software](../software) documentation:
-
-* The configuration file: Most of the settings of the rover can be modified in this file.
-
-* The script file: This file lists all the commands of the rover that
-  are actionnable by the user, and what these commands should do.
 
 
-The configuration and script files are discussed in detail below.
-
-
-
-
-### Sharing a single configuration file with all Romi apps
+## Sharing a single configuration file with all Romi apps
 
 
 
