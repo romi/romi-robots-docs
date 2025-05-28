@@ -234,7 +234,7 @@ sudo apt update
 sudo apt upgrade
 ```
 
-### Rcom Registry and Romi Camera app
+### Installing the Rcom Registry and Romi Camera app
 
 To install the Romi software, you currently still have to compile the source code. We will try to build Debian packages in the future (any volonteers?).
 
@@ -301,6 +301,53 @@ $ ./bin/romi-camera --config ../config/config-my-pi-camera.json
 ```
 
 
+### Installing the Python interface
+
+In line with the recommendations, we will use a virtual environment. In our case, I will use the `venv` module:
+
+```sh
+$ python3 -m venv ~/romi-env
+$ source ~/romi-env/bin/activate
+```
+
+In case you get the below error message, you'll have to install the venv module as follows: `sudo apt install python3.10-venv` (your version of Python may vary).
+
+```
+The virtual environment was not created successfully because ensurepip is not
+available.  On Debian/Ubuntu systems, you need to install the python3-venv
+package using the following command.
+
+    apt install python3.10-venv
+
+You may need to use sudo with that command.  After installing the python3-venv
+package, recreate your virtual environment.
+```
+
+Once the virtual environment is active, you can install the required Python packages:
+
+```sh
+(romi-env) $ pip install romiserial rcom romi_apps
+
+Collecting romiserial
+  Downloading romiserial-0.1.2-py3-none-any.whl (14 kB)
+Collecting rcom
+  Downloading rcom-0.1.11-py3-none-any.whl (14 kB)
+Collecting romi_apps
+  Downloading romi_apps-0.2.0-py3-none-any.whl (16 kB)
+Collecting pyserial
+  Using cached pyserial-3.5-py2.py3-none-any.whl (90 kB)
+Collecting crc8
+  Downloading crc8-0.2.1-py3-none-any.whl (5.6 kB)
+Collecting websockets
+  Downloading websockets-15.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (181 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.6/181.6 KB 6.0 MB/s eta 0:00:00
+Collecting websocket-client
+  Downloading websocket_client-1.8.0-py3-none-any.whl (58 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.8/58.8 KB 5.7 MB/s eta 0:00:00
+Installing collected packages: pyserial, crc8, websockets, websocket-client, romiserial, rcom, romi_apps
+Successfully installed crc8-0.2.1 pyserial-3.5 rcom-0.1.11 romi_apps-0.2.0 romiserial-0.1.2 websocket-client-1.8.0 websockets-15.0.1
+```
+
 ### Using several cameras
 
 If you are running several cameras on the same device, or on seperate devices, you must give them a different topic name. Let's assume you want to refer to them as `camera1` and `camera2`. You can make two separate config files but you can also group their specs in one config file. You have to dedicate a section to each of them using their topic name:  
@@ -336,7 +383,7 @@ $ ./bin/romi-camera --config ../config/config-my-pi-camera.json --topic camera1 
 $ ./bin/romi-camera --config ../config/config-my-pi-camera.json --topic camera2
 ```
 
-### Web interface
+### Setting up the Web interface
 
 The use the web interface, you must install an HTTP server. We will explain the set-up for the Apache server. In case you prefer to use another server, you should check the tutorials for those servers. Since it requirements are very simple, the information below should give you all you need.
 
@@ -436,6 +483,103 @@ Also, make sure that the rc.local file is executable:
 ```sh
 sudo chmod 755 /etc/rc.local
 ```
+
+
+### Reference for the configuration file
+
+A full configuration file may look like this:
+
+```sh
+{
+    "device": {
+        "hardware-id": "001",
+        "type": "camera"
+    },
+    "camera": {
+        "calibration": {
+            "date": "2023-08-05",
+            "method": "charuco",
+            "person": "hanappe"
+        },
+        "distortion": {
+            "type": "simple-radial",
+            "values": [
+                -0.4928269684314728,
+                -0.4928269684314728
+            ]
+        },
+        "id": "0",
+        "intrinsics": {
+            "cx": 1014.0,
+            "cy": 760.0,
+            "fx": 2200.0,
+            "fy": 2200.0
+        },
+        "lens": "Default",
+        "name": "Pi Camera v3",
+        "sensor": {
+            "dimensions": [
+                0.0050232,
+                0.0037536
+            ],
+            "resolution": [
+                1456,
+                1088
+            ]
+        },
+        "type": "libcamera",
+        "libcamera": {
+            "width": 2304,
+            "height": 1296
+        }
+    }
+}
+```
+
+There are two main sections, `device` and `camera`. The device section has the following fields:
+
+| Field           | Description |
+| -------         | ----------- |
+| name            | You are free to give your device any name you please |
+| type            | Should be `camera` in this case |
+
+The `camera` section: This section should reflect the topic name of the Romi App. In case you want your app to be known as `top-camera` on the network and in the `rcom-registry`, then you should similarly call the section `top-camera`. This allows to specify several cameras in the same configuration file.
+
+The `camera` section is still work in progress. Most of the fields are optional and for information only (i.e. they are not used by `romi-camera`). The data can be requested and stored as meta-data with the images. In Python, the data can be obtained using the `camera.get_camera_info()` method.
+
+
+
+| Field           |    | Description |
+| -------         | -- |  ----------- |
+| type            | Required | The class name of the camera to be instatiated. Possible values are: `libcamera`, `v4l-camera`, `file-camera`, or `fake-camera`. |
+| id              | Optional | The ID of the camera to be instanciated, for systems with multiple attached cameras. |
+| name            | Optional | A free-form, human-readable string to identify the camera. |
+| sensor          | Optional | Information about the image sensor: `resolution` in pixels, and `dimensions` in meter |
+| intrinsics      | Optional | Sets the focal and center points of the camera |
+| lens            | Optional | A string describing the used lens. |
+| calibration     | Optional | Information about the calibration method used, the date, and the person who did the calibration |
+| distortion      | Optional | Information about the distorsion coéfficients. Currently, only `simple-radial` distorsion parameters are recognized   |
+
+For each camera type, there is supposed to be a section of the same name (except for fake-camera). So if your camera type is `file-camera`, you should add a section `"file-camera": {...}` in the config file to define the parameters of your instance of the camera.
+
+* `libcamera` uses the libcamera library. This library is mostly used on Raspberry Pis in combination sith the Pi Camera module. However, it is also able to connect to Video4Linux devices.
+* `v4l-camera` uses the classical Video4Linux interface and can be used with most USB cameras.
+* `file-camera`: Loads a JPEG image from a file and returns the image. Usefull for debugging.
+* `fake-camera`: Returns an image filed with noise. Used for debugging.
+
+### Command line options
+
+The following options are recognized by `romi-camera`:
+
+
+| Option           | Description |
+| -------          | ----------- |
+| --config path    | The path to the config file to be read. Default: `config.json` |
+| --topic string   | The topic of the app. Default: `camera` |
+| --directory path |  |
+| --registry ip    | Use the given IP address for the registry. Default: IP is detected automatically on local network. |
+| --help           | Print out a help message and the list of options |
+
 
 
 ## Installation Romi CNC
@@ -675,6 +819,35 @@ The `stepper-settings` provide the information on the stepper motors that are us
 | maximum-acceleration        | The maximum allowed acceleration, in m/s², for each of the axes. |
 
 
+Finally, the `ports` section lists which firmware drivers are available on what
+system ports. 
+
+
+The list has entries as follows:
+
+```json
+{
+    "ports": {
+        "oquam": {
+            "port": "/dev/ttyACM5",
+            "type": "serial"
+        }
+    }
+}
+```
+
+First comes the name of the firmware that is accessible through this
+port. It tells the type of the port ('serial' or 'input-device'), and
+the device's path in the 'port' field).
+
+
+TODO: not 
+The `rcdiscover` utility can be used to generate this list:
+
+```bash
+$ ./bin/rcdiscover path/to/config.json
+```
+
 
 ## Starting the Romi CNC app
 
@@ -778,103 +951,7 @@ also the  [Software](../software) documentation:
 
 The configuration and script files are discussed in detail below.
 
-### Configuration file
 
-The rover control software is starting using the `romi-rover`
-command. This command takes the path to the main configuration as an
-argument. Example configutation files can be found in the
-`romi-rover/config` directory.
-
-The configuration data is formated in JSON and is a dictionnary of
-top-level section names and the values for that section. It's overall structure is:
-
-```json
-{
-    "imager": "...",
-    "navigation": {
-    },
-    "oquam": {
-    },
-    "ports": {
-    },
-    "user-interface": {
-    },
-    "weeder": {
-    }
-}
-```
-
-The `navigation` section contains the parameters related to the
-navigation, from the low-level settings of the motor drivers to the
-settings for the autonomous navigation. The `oquam` section contains
-all the parameters related to the CNC. The `ports` section lists all
-of the serial ports and their usage. The `user-interface` is used to
-configure such things as the controller to rover speed
-mapping. Finally, in the `weeder` section you can change the settings
-related to the weeding algorithm. We will discuss each of these
-sections below.
-
-#### Dimensions
-
-As much as possible, the configuration and script files uses meter for
-distances, seconds for time, m/s for speeds, m/s² for acceleration.
-
-We deviate from the scientific standard for angles, for which we use
-degrees instead of radians.
-
-
-#### The Camera section
-
-
-
-
-#### The CNC section
-
-```json
-{
-    "oquam": {
-        "cnc-range": [[0, 1.0], [0, 0.75], [-0.4, 0]],
-        "path-maximum-deviation": 0.01,
-        "path-slice-duration": 0.02,
-        "stepper-settings": {
-            "steps-per-revolution": [200, 200, 200],
-            "microsteps": [8, 8, 1],
-            "gears-ratio": [1, 1, 1],
-            "displacement-per-revolution": [0.04, 0.04, -0.0015],
-            "maximum-rpm": [300, 300, 300],
-            "maximum-acceleration": [0.3, 0.3, 0.03]
-        }
-    }
-}
-```
-
-#### The ports section
-
-This dictionnary lists which firmware drivers are available on what
-system ports. The rover uses mostly serial connections. The joystick
-uses a different device, however. The `rcdiscover` utility can be used
-to generate this list:
-
-```bash
-$ ./bin/rcdiscover path/to/config.json
-```
-
-The list has entries as follows:
-
-```json
-{
-    "ports": {
-        "oquam": {
-            "port": "/dev/ttyACM5",
-            "type": "serial"
-        }
-    }
-}
-```
-
-First comes the name of the firmware that is accessible through this
-port. It tells the type of the port ('serial' or 'input-device'), and
-the device's path in the 'port' field).
 
 
 ### Sharing a single configuration file with all Romi apps
