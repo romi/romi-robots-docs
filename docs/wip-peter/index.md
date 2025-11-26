@@ -16,8 +16,10 @@ way is to write a Python script, such as the one below.
 from romi.camera import Camera
 
 camera = Camera.create("camera")
+camera.power_up()
 image = camera.grab()
 image.save("test.jpg")
+camera.power_down()
 ```
 
 The expression `Camera.create("camera")` returns a new camera
