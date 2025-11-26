@@ -101,7 +101,9 @@ from romi.camera import Camera
 from romi.cnc import CNC
 
 camera1 = Camera.create("camera1")
+camera1.power_up()
 camera2 = Camera.create("camera2")
+camera2.power_up()
 cnc = CNC.create("rail")
 cnc.power_up()
 cnc.homing()
@@ -113,6 +115,8 @@ for i in range(11):
 cnc.moveto(0.01, 0, 0)
 cnc.homing()
 cnc.power_down()
+camera2.power_down()
+camera1.power_down()
 ```
 
 ## Web interface
