@@ -7,7 +7,7 @@ copyright: 'The ROMI project has received funding from the European Community’
 
 # https://www.mkdocs.org/user-guide/writing-your-docs/#configure-pages-and-navigation
 nav:
-  - 'Home': 'index.html'
+  - 'Home': 'index.md'
   - 'Farmers Dashboard':
       - 'Introduction': 'Farmers Dashboard/index.md'
       - 'Carrier Module':
@@ -106,16 +106,21 @@ nav:
           - 'SM-DTW with simulated data': 'plant_imager/tutorials/tutorial_sm-dtw_simulatephyllotaxis.md'
           - 'Robustness evaluation': 'plant_imager/tutorials/robustness_evaluation.md'
       - 'How-to':
-          - 'Home': 'plant_imager/how_to/index.md'
-          - 'Colmap': 'assets/notebooks/HowTo -Colmap- From RGB images to camera poses.ipynb'
-          - 'Undistorted': 'assets/notebooks/HowTo -Undistorted- Undistort RGB images using camera model.ipynb'
-          - 'Masks': 'assets/notebooks/HowTo -Masks- From RGB images to masks.ipynb'
-          - 'Voxels': 'assets/notebooks/HowTo -Voxels- From mask images and camera coordinates to volume.ipynb'
-          - 'PointCloud': 'assets/notebooks/HowTo -PointCloud- From carved volume to point cloud.ipynb'
-          - 'TriangleMesh': 'assets/notebooks/HowTo -TriangleMesh- From point cloud to triangular mesh.ipynb'
-          - 'CurveSkeleton': 'assets/notebooks/HowTo -CurveSkeleton- From triangular mesh to curved skeleton.ipynb'
-          - 'TreeGraph': 'assets/notebooks/HowTo -TreeGraph- From curved skeleton to tree graph.ipynb'
-          - 'AnglesAndInternodes': 'assets/notebooks/HowTo -AnglesAndInternodes- Extract fruits angles and internodes distance from a tree graph.ipynb'
+          - plant_imager/how_to/index.md
+          - 'Plant Scan':
+              - plant_imager/how_to/scan_plant_imager_2.1.md
+              - plant_imager/how_to/scan_plant_imager_3.md
+          - Tasks:
+            - 'Home': 'plant_imager/how_to/index.md'
+            - 'Colmap': 'assets/notebooks/HowTo -Colmap- From RGB images to camera poses.ipynb'
+            - 'Undistorted': 'assets/notebooks/HowTo -Undistorted- Undistort RGB images using camera model.ipynb'
+            - 'Masks': 'assets/notebooks/HowTo -Masks- From RGB images to masks.ipynb'
+            - 'Voxels': 'assets/notebooks/HowTo -Voxels- From mask images and camera coordinates to volume.ipynb'
+            - 'PointCloud': 'assets/notebooks/HowTo -PointCloud- From carved volume to point cloud.ipynb'
+            - 'TriangleMesh': 'assets/notebooks/HowTo -TriangleMesh- From point cloud to triangular mesh.ipynb'
+            - 'CurveSkeleton': 'assets/notebooks/HowTo -CurveSkeleton- From triangular mesh to curved skeleton.ipynb'
+            - 'TreeGraph': 'assets/notebooks/HowTo -TreeGraph- From curved skeleton to tree graph.ipynb'
+            - 'AnglesAndInternodes': 'assets/notebooks/HowTo -AnglesAndInternodes- Extract fruits angles and internodes distance from a tree graph.ipynb'
       - 'Specifications':
           - 'Home': 'plant_imager/specifications/index.md'
           - 'Data': 'plant_imager/specifications/data.md'
@@ -167,6 +172,8 @@ nav:
       - 'LPy': training/lpy.md
       - 'IPPN Angers 2023': training/ippn_2023.md
   - glossary.md
+  - about.md
+  - research.md
 
 theme:
   name: 'material'
@@ -206,7 +213,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.magiclink
