@@ -110,6 +110,11 @@ nav:
           - 'Plant Scan':
               - plant_imager/how_to/scan_plant_imager_2.1.md
               - plant_imager/how_to/scan_plant_imager_3.md
+          - 'Plant Reconstruction':
+              - plant_imager/how_to/reconstruct_plant_geom.md
+              - plant_imager/how_to/reconstruct_plant_ml.md
+          - 'Exploratory Analysis':
+              - plant_imager/how_to/explore_plant_quantif.md
           - Tasks:
             - 'Home': 'plant_imager/how_to/index.md'
             - 'Colmap': 'assets/notebooks/HowTo -Colmap- From RGB images to camera poses.ipynb'

@@ -12,11 +12,12 @@ To get detailed instructions on how to perform tasks like data _acquisition_, _r
 
 ## Reconstructions & Quantification
 
-- [How to Reconstruct Plants with the **Geometric Pipeline**]()
-- [How to Reconstruct Plants with the **ML Pipeline**]()
+- [How to Reconstruct Plants with the **Geometric Pipeline**](reconstruct_plant_geom.md)
+- [How to Reconstruct Plants with the **ML Pipeline**](reconstruct_plant_ml.md)
 
 ## Exploratory Analysis
 
+- [How to Explore Reconstruction and Quantification with the **Plant 3D Explorer**]()
 
 ## Tasks details
 
