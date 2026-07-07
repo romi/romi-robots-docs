@@ -1929,8 +1929,12 @@ path, you should take the following steps:
 
 The following code shows a simple example to get started:  
 
-```c++
+```cpp
 #include <oquam/oquam.hpp>
+
+struct Point {
+    double x, y, z;
+};
 
 const char *device_name = "/dev/ttyUSB0";
 double xmax[3] = { 0.7, 0.7, 0.5 };   // in meter
@@ -1940,27 +1944,27 @@ double scale[3] = { 40000, 40000, -100000 }; // steps/m
 double period = 0.014; // in seconds
 
 // The points of the polygone
-double p[][3] = {{0, 0, 0}, ... };
+Point p[] = { {0,0,0}, /* ... */ };
 
 // The travel speed of each segment in m/s
-double v[] = { 0.1, ... };
+double v[] = {0.1, /* ... */ };
 
 // The number of points
 int n = sizeof(p) / (3 * sizeof(double));
 
 int main(int argc, char **argv)
 {
-        Controller *controller = new OquamStepperController(device_name,
-                                                    xmax, vmax, amax, deviation,
-                                                    scale, period);
-        script_t *script = new_script();
-
-        for (int i = 0; i < n; i++)
-                script_moveto(script,  p[i].x, p[i].y, p[i].y, v[i], i);
-
-        controller->run(script);                
-        delete_script(script);
-        delete controller;
+    Controller *controller = new OquamStepperController(device_name,
+                                               xmax, vmax, amax, deviation,
+                                               scale, period);
+    script_t *script = new_script();
+    
+    for (int i = 0; i < n; i++)
+       script_moveto(script,  p[i].x, p[i].y, p[i].y, v[i], i);
+    
+    controller->run(script);
+    delete_script(script);
+    delete controller;
 }
 ```
 
@@ -2070,8 +2074,8 @@ Consider the code below. We have a list of points that we want the
 path to go through in the array p[]. For each segment going from
 p[i-1] to p[i] the travel speed should be v[i].
 
-```c
-double p[][3] = {{0, 0, 0}, ... };
+```cpp
+Point p[] = { {0,0,0}, /* ... */ };
 double v[] = { 0.1, ... };
 int n = sizeof(p) / (3 * sizeof(double));
 Controller *controller = new OquamStepperController("...",
@@ -2082,7 +2086,7 @@ script_t *script = new_script();
 for (int i = 0; i < n; i++)
         script_moveto(script,  p[i].x, p[i].y, p[i].y, v[i], i);
 
-controller->run(script);                
+controller->run(script);
 delete_script(script);
 delete controller;
 ```
