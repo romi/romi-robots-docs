@@ -1,8 +1,7 @@
 # How to Scan Plants with _Plant Imager 2.1_
 
 !!! info
-The _Plant Imager 2.1_ refers to the v2 with fixed issues with the world reference frame.
-!!!
+    The _Plant Imager 2.1_ refers to the version fixed issues with the world reference frame.
 
 ---
 
@@ -47,7 +46,6 @@ You must know where the _center_ defined in your configuration is in the real wo
 
 4. When the arm stops, place your plant directly under it.
 
-
 ---
 
 ## Run a Quick Test Scan
@@ -64,8 +62,8 @@ A short scan confirms that the plant is correctly positioned and fully visible.
    n_points = 4  # number of images to take around the plant
    ```
 
-!!! notr
-Do not modify `radius` unless you have a specific reason.
+!!! note
+   Do not modify `radius` unless you have a specific reason.
 
 2. **Navigate to your acquisition folder** and launch the test scan:
 
@@ -80,7 +78,7 @@ Do not modify `radius` unless you have a specific reason.
 4. **If the view is unsatisfactory**, reposition the plant and repeat steps 2‑3 until you are happy with the results.
 
 !!! information
-The system has been tested up to center_x = 384, center_y = 384, and radius = 382
+   The system has been tested up to center_x = 384, center_y = 384, and radius = 382
 
 ---
 
