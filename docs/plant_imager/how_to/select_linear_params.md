@@ -1,13 +1,13 @@
-## How to Choose Linear Coefficients and Threshold Parameters for Plant‑Mask Generation
+# How to Choose Linear Coefficients and Threshold Parameters for Plant‑Mask Generation
 
-**Goal**: Find a set of channel‑mix coefficients (`C₁, C₂, C₃`) and a
+**Goal**: Find a set of channel‑mix coefficients (`C₁`, `C₂`, `C₃`) and a
 `min_threshold` that isolate the plant in a binary mask for your specific imaging setup.
 
 ![linear_filter_mask_GUI.png](../../assets/images/mask/linear_filter_mask_GUI.png)
 
 ---
 
-### 1. Launch the GUI
+## 1. Launch the GUI
 
 ```shell
 conda activate plant3dvision
@@ -22,7 +22,7 @@ linear_filter path/to/image.jpg
 
 ---
 
-### 2. Load an Image
+## 2. Load an Image
 
 1. Click **Load Image**.
 2. In the file‑dialog, navigate to the folder that contains one of the images from your dataset and select it.
@@ -31,7 +31,7 @@ The original picture appears on the left panel of the display area.
 
 ---
 
-### 3. Pick a Color Space (optional)
+## 3. Pick a Color Space (optional)
 
 The dropdown **Color Space** lets you work in **RGB** (default), **HSV**, or **YCbCr**.
 
@@ -40,7 +40,7 @@ The dropdown **Color Space** lets you work in **RGB** (default), **HSV**, or **Y
 
 ---
 
-### 4. Tune the Channel Coefficients
+## 4. Tune the Channel Coefficients
 
 Three horizontal sliders control the contribution of each color channel (values = 0 – 1).
 
@@ -58,7 +58,7 @@ Three horizontal sliders control the contribution of each color channel (values 
 
 ---
 
-### 5. Set the Threshold Range
+## 5. Set the Threshold Range
 
 Two spin boxes control the binary mask:
 
@@ -72,7 +72,7 @@ The **Mask** panel on the right shows the resulting binary image in real time.
 
 ---
 
-### 6. Iterate Until Satisfied
+## 6. Iterate Until Satisfied
 
 1. Adjust the three coefficients **and** the `min_threshold` as described above.
 2. Observe the three panels (Original | Filtered | Mask).
@@ -86,14 +86,14 @@ The **Mask** panel on the right shows the resulting binary image in real time.
 
 ---
 
-### 7. Record the Final Parameters
+## 7. Record the Final Parameters
 
 Write down the three channel coefficients and the chosen `min_threshold` (and `max_threshold` if you changed it).
 Use these values in your reconstruction TOML configuration file.
 
 ---
 
-### Quick Reference (cheat‑sheet)
+## Quick Reference (cheat‑sheet)
 
 | Control              | How to adjust                 | When to change                                                     |
 |----------------------|-------------------------------|--------------------------------------------------------------------|
