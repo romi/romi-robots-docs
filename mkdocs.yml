@@ -111,6 +111,7 @@ nav:
               - plant_imager/how_to/scan_plant_imager_2.1.md
               - plant_imager/how_to/scan_plant_imager_3.md
           - 'Plant Reconstruction':
+              - plant_imager/how_to/select_linear_params.md
               - plant_imager/how_to/reconstruct_plant_geom.md
               - plant_imager/how_to/reconstruct_plant_ml.md
           - 'Exploratory Analysis':
@@ -190,6 +191,7 @@ theme:
   features:
     - navigation.tabs
     - content.code.copy
+    - content.tabs.link
 
 extra:
   homepage: https://romi-project.eu/
