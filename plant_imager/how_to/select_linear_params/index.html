@@ -12,28 +12,28 @@
         <meta name="author" content="ROMI Team">
       
       
-        <link rel="canonical" href="https://docs.romi-project.eu/Rover/manual/">
+        <link rel="canonical" href="https://docs.romi-project.eu/plant_imager/how_to/select_linear_params/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../scan_plant_imager_3/">
       
       
-        <link rel="next" href="../configuration/">
+        <link rel="next" href="../reconstruct_plant_geom/">
       
       
         
       
       
-      <link rel="icon" href="../../assets/images/ROMI_ICON_green.png">
+      <link rel="icon" href="../../../assets/images/ROMI_ICON_green.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>User Manual - ROMI Documentation</title>
+        <title>Select linear params - ROMI Documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -52,9 +52,9 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/css/extra.css">
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#romi-rover-user-manual" class="md-skip">
+        <a href="#how-to-choose-linear-coefficients-and-threshold-parameters-for-plantmask-generation" class="md-skip">
           Skip to content
         </a>
       
@@ -88,7 +88,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://romi-project.eu/" title="ROMI Documentation" class="md-header__button md-logo" aria-label="ROMI Documentation" data-md-component="logo">
       
-  <img src="../../assets/images/ROMI_logo_white.svg" alt="logo">
+  <img src="../../../assets/images/ROMI_logo_white.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -105,7 +105,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              User Manual
+              Select linear params
             
           </span>
         </div>
@@ -178,7 +178,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
   
@@ -199,11 +199,31 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../Farmers%20Dashboard/" class="md-tabs__link">
+        <a href="../../../Farmers%20Dashboard/" class="md-tabs__link">
           
   
   
   Farmers Dashboard
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Rover/" class="md-tabs__link">
+          
+  
+  
+  Rover
 
         </a>
       </li>
@@ -221,27 +241,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../" class="md-tabs__link">
-          
-  
-  
-  Rover
-
-        </a>
-      </li>
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../../plant_imager/" class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
@@ -261,7 +261,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../training/" class="md-tabs__link">
+        <a href="../../../training/" class="md-tabs__link">
           
   
   
@@ -279,7 +279,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../glossary/" class="md-tabs__link">
+      <a href="../../../glossary/" class="md-tabs__link">
         
   
   
@@ -298,7 +298,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../about/" class="md-tabs__link">
+      <a href="../../../about/" class="md-tabs__link">
         
   
   
@@ -317,7 +317,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../research/" class="md-tabs__link">
+      <a href="../../../research/" class="md-tabs__link">
         
   
   
@@ -354,7 +354,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://romi-project.eu/" title="ROMI Documentation" class="md-nav__button md-logo" aria-label="ROMI Documentation" data-md-component="logo">
       
-  <img src="../../assets/images/ROMI_logo_white.svg" alt="logo">
+  <img src="../../../assets/images/ROMI_logo_white.svg" alt="logo">
 
     </a>
     ROMI Documentation
@@ -369,7 +369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   
@@ -446,7 +446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/" class="md-nav__link">
         
   
   
@@ -524,7 +524,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/bot/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/bot/" class="md-nav__link">
         
   
   
@@ -552,7 +552,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/structure/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/structure/" class="md-nav__link">
         
   
   
@@ -580,7 +580,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/motion/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/motion/" class="md-nav__link">
         
   
   
@@ -608,7 +608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/electronics/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/electronics/" class="md-nav__link">
         
   
   
@@ -636,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/power/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/power/" class="md-nav__link">
         
   
   
@@ -672,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/station/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/station/" class="md-nav__link">
         
   
   
@@ -700,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/camera/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/camera/" class="md-nav__link">
         
   
   
@@ -778,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/building/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/building/" class="md-nav__link">
         
   
   
@@ -806,7 +806,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/assembly/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/assembly/" class="md-nav__link">
         
   
   
@@ -834,7 +834,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/install/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/install/" class="md-nav__link">
         
   
   
@@ -870,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/use/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/use/" class="md-nav__link">
         
   
   
@@ -898,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/pipeline/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/pipeline/" class="md-nav__link">
         
   
   
@@ -926,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/app/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/app/" class="md-nav__link">
         
   
   
@@ -954,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/legacy/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/legacy/" class="md-nav__link">
         
   
   
@@ -982,7 +982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Farmers%20Dashboard/v2/" class="md-nav__link">
+      <a href="../../../Farmers%20Dashboard/v2/" class="md-nav__link">
         
   
   
@@ -990,6 +990,231 @@
     
   
     Version 2 (WIP)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rover
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Rover
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rover/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rover/manual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Manual
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rover/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rover/hardware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rover/software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Rover/librcom/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    rcom
   
 
     
@@ -1033,591 +1258,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Rover
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Rover
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    User Manual
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    User Manual
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#acknowledgements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Acknowledgements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#short-description" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Short description
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#technical-specifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technical specifications
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functional-specifications-and-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Functional specifications and requirements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overview-of-the-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview of the components
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operation-instructions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Operation instructions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Operation instructions">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overview-of-the-rovers-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview of the rover’s usage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setting-up-the-vegetable-beds" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setting up the vegetable beds
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setting-up-the-wi-fi-access-point" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setting up the Wi-Fi access point
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#charging-the-rover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Charging the rover
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#protection-cover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Protection cover
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#attendance-todo-regulations" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Attendance (TODO: regulations?)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#emergency-button" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Emergency button
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adjusting-the-width-of-the-rover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adjusting the width of the rover
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#engagingdisengaging-the-motor-lock-levers-freewheeling-mode-and-drive-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Engaging/disengaging the motor lock levers (freewheeling mode and drive mode)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#control-panel-state-message" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Control panel state message
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-up-procedure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Start-up procedure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shut-down-procedure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shut-down procedure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#switching-from-drive-to-freewheeling-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Switching from drive to freewheeling mode
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#switching-from-freewheeling-to-drive-mode-todo-this-is-not-safe-yet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Switching from freewheeling to drive mode (TODO: this is not safe, yet)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#accessing-the-web-interface-of-the-rover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Accessing the web interface of the rover
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-the-controller" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using the controller
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#controlling-the-rover-through-the-control-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Controlling the rover through the control panel
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Controlling the rover through the control panel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#send-a-command-to-start-an-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Send a command to start an action
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#switching-to-navigation-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Switching to navigation mode
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#changing-the-list-of-rover-actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changing the list of rover actions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../configuration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../hardware/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Hardware
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../software/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Software
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../librcom/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    rcom
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
@@ -1635,7 +1279,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1653,7 +1297,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -1731,7 +1375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/explanations/" class="md-nav__link">
+      <a href="../../explanations/" class="md-nav__link">
         
   
   
@@ -1759,7 +1403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/explanations/general_design/" class="md-nav__link">
+      <a href="../../explanations/general_design/" class="md-nav__link">
         
   
   
@@ -1787,7 +1431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/explanations/strengths_limits/" class="md-nav__link">
+      <a href="../../explanations/strengths_limits/" class="md-nav__link">
         
   
   
@@ -1815,7 +1459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/explanations/geometric_workflow/" class="md-nav__link">
+      <a href="../../explanations/geometric_workflow/" class="md-nav__link">
         
   
   
@@ -1843,7 +1487,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/explanations/ml_workflow/" class="md-nav__link">
+      <a href="../../explanations/ml_workflow/" class="md-nav__link">
         
   
   
@@ -1871,7 +1515,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/explanations/task_masks/" class="md-nav__link">
+      <a href="../../explanations/task_masks/" class="md-nav__link">
         
   
   
@@ -1899,7 +1543,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/explanations/task_segmentation2d/" class="md-nav__link">
+      <a href="../../explanations/task_segmentation2d/" class="md-nav__link">
         
   
   
@@ -2119,7 +1763,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant-3d-explorer/" class="md-nav__link">
+      <a href="../../../plant-3d-explorer/" class="md-nav__link">
         
   
   
@@ -2147,7 +1791,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant-3d-explorer/guide/" class="md-nav__link">
+      <a href="../../../plant-3d-explorer/guide/" class="md-nav__link">
         
   
   
@@ -2241,7 +1885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/" class="md-nav__link">
+      <a href="../../build_v2/" class="md-nav__link">
         
   
   
@@ -2269,7 +1913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/alu_frame/" class="md-nav__link">
+      <a href="../../build_v2/alu_frame/" class="md-nav__link">
         
   
   
@@ -2297,7 +1941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/cnc_frame/" class="md-nav__link">
+      <a href="../../build_v2/cnc_frame/" class="md-nav__link">
         
   
   
@@ -2325,7 +1969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/cnc_electronics/" class="md-nav__link">
+      <a href="../../build_v2/cnc_electronics/" class="md-nav__link">
         
   
   
@@ -2353,7 +1997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/cnc_communication/" class="md-nav__link">
+      <a href="../../build_v2/cnc_communication/" class="md-nav__link">
         
   
   
@@ -2381,7 +2025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/cnc_calibration/" class="md-nav__link">
+      <a href="../../build_v2/cnc_calibration/" class="md-nav__link">
         
   
   
@@ -2409,7 +2053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/gimbal_setup/" class="md-nav__link">
+      <a href="../../build_v2/gimbal_setup/" class="md-nav__link">
         
   
   
@@ -2437,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/gimbal_communication/" class="md-nav__link">
+      <a href="../../build_v2/gimbal_communication/" class="md-nav__link">
         
   
   
@@ -2465,7 +2109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/picamera_setup/" class="md-nav__link">
+      <a href="../../build_v2/picamera_setup/" class="md-nav__link">
         
   
   
@@ -2493,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v2/troubleshooting/" class="md-nav__link">
+      <a href="../../build_v2/troubleshooting/" class="md-nav__link">
         
   
   
@@ -2579,7 +2223,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/" class="md-nav__link">
+      <a href="../../build_v3/" class="md-nav__link">
         
   
   
@@ -2607,7 +2251,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/alu_frame/" class="md-nav__link">
+      <a href="../../build_v3/alu_frame/" class="md-nav__link">
         
   
   
@@ -2635,7 +2279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/cnc_frame/" class="md-nav__link">
+      <a href="../../build_v3/cnc_frame/" class="md-nav__link">
         
   
   
@@ -2663,7 +2307,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/frame_cnc/" class="md-nav__link">
+      <a href="../../build_v3/frame_cnc/" class="md-nav__link">
         
   
   
@@ -2691,7 +2335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/enclosure/" class="md-nav__link">
+      <a href="../../build_v3/enclosure/" class="md-nav__link">
         
   
   
@@ -2719,7 +2363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/cnc_electronics/" class="md-nav__link">
+      <a href="../../build_v3/cnc_electronics/" class="md-nav__link">
         
   
   
@@ -2747,7 +2391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/flashing_oquam/" class="md-nav__link">
+      <a href="../../build_v3/flashing_oquam/" class="md-nav__link">
         
   
   
@@ -2775,7 +2419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/cnc_communication/" class="md-nav__link">
+      <a href="../../build_v3/cnc_communication/" class="md-nav__link">
         
   
   
@@ -2803,7 +2447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/pan_arm/" class="md-nav__link">
+      <a href="../../build_v3/pan_arm/" class="md-nav__link">
         
   
   
@@ -2831,7 +2475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/cnc_arm/" class="md-nav__link">
+      <a href="../../build_v3/cnc_arm/" class="md-nav__link">
         
   
   
@@ -2859,7 +2503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/manual_gimbal/" class="md-nav__link">
+      <a href="../../build_v3/manual_gimbal/" class="md-nav__link">
         
   
   
@@ -2887,7 +2531,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/pan_electronics/" class="md-nav__link">
+      <a href="../../build_v3/pan_electronics/" class="md-nav__link">
         
   
   
@@ -2915,7 +2559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/picamera/" class="md-nav__link">
+      <a href="../../build_v3/picamera/" class="md-nav__link">
         
   
   
@@ -2943,7 +2587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/comm_overview/" class="md-nav__link">
+      <a href="../../build_v3/comm_overview/" class="md-nav__link">
         
   
   
@@ -2971,7 +2615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/flash_rpi_os/" class="md-nav__link">
+      <a href="../../build_v3/flash_rpi_os/" class="md-nav__link">
         
   
   
@@ -2999,7 +2643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/picamera_soft/" class="md-nav__link">
+      <a href="../../build_v3/picamera_soft/" class="md-nav__link">
         
   
   
@@ -3027,7 +2671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/plantimager_raspi_controller/" class="md-nav__link">
+      <a href="../../build_v3/plantimager_raspi_controller/" class="md-nav__link">
         
   
   
@@ -3055,7 +2699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/registry_setup/" class="md-nav__link">
+      <a href="../../build_v3/registry_setup/" class="md-nav__link">
         
   
   
@@ -3083,7 +2727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/boms/" class="md-nav__link">
+      <a href="../../build_v3/boms/" class="md-nav__link">
         
   
   
@@ -3111,7 +2755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/build_v3/resources/" class="md-nav__link">
+      <a href="../../build_v3/resources/" class="md-nav__link">
         
   
   
@@ -3197,7 +2841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/" class="md-nav__link">
+      <a href="../../install/" class="md-nav__link">
         
   
   
@@ -3225,7 +2869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/create_env/" class="md-nav__link">
+      <a href="../../install/create_env/" class="md-nav__link">
         
   
   
@@ -3253,7 +2897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/plantdb_setup/" class="md-nav__link">
+      <a href="../../install/plantdb_setup/" class="md-nav__link">
         
   
   
@@ -3281,7 +2925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/plant_imager_setup/" class="md-nav__link">
+      <a href="../../install/plant_imager_setup/" class="md-nav__link">
         
   
   
@@ -3309,7 +2953,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/virtual_plant_setup/" class="md-nav__link">
+      <a href="../../install/virtual_plant_setup/" class="md-nav__link">
         
   
   
@@ -3337,7 +2981,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/plant_reconstruction_setup/" class="md-nav__link">
+      <a href="../../install/plant_reconstruction_setup/" class="md-nav__link">
         
   
   
@@ -3365,7 +3009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/install/plant3dexplorer_setup/" class="md-nav__link">
+      <a href="../../install/plant3dexplorer_setup/" class="md-nav__link">
         
   
   
@@ -3451,7 +3095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/" class="md-nav__link">
+      <a href="../../tutorials/" class="md-nav__link">
         
   
   
@@ -3479,7 +3123,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/basics/" class="md-nav__link">
+      <a href="../../tutorials/basics/" class="md-nav__link">
         
   
   
@@ -3507,7 +3151,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/hardware_scan/" class="md-nav__link">
+      <a href="../../tutorials/hardware_scan/" class="md-nav__link">
         
   
   
@@ -3535,7 +3179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/intrinsic_calibration/" class="md-nav__link">
+      <a href="../../tutorials/intrinsic_calibration/" class="md-nav__link">
         
   
   
@@ -3563,7 +3207,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/extrinsic_calibration/" class="md-nav__link">
+      <a href="../../tutorials/extrinsic_calibration/" class="md-nav__link">
         
   
   
@@ -3591,7 +3235,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/multi_scan/" class="md-nav__link">
+      <a href="../../tutorials/multi_scan/" class="md-nav__link">
         
   
   
@@ -3619,7 +3263,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/virtual_plant_imager_single_dataset/" class="md-nav__link">
+      <a href="../../tutorials/virtual_plant_imager_single_dataset/" class="md-nav__link">
         
   
   
@@ -3647,7 +3291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/virtual_plant_generate_analyze_visualize/" class="md-nav__link">
+      <a href="../../tutorials/virtual_plant_generate_analyze_visualize/" class="md-nav__link">
         
   
   
@@ -3675,7 +3319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/virtual_plant_imager_large_dataset/" class="md-nav__link">
+      <a href="../../tutorials/virtual_plant_imager_large_dataset/" class="md-nav__link">
         
   
   
@@ -3703,7 +3347,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/reconstruct_scan/" class="md-nav__link">
+      <a href="../../tutorials/reconstruct_scan/" class="md-nav__link">
         
   
   
@@ -3731,7 +3375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/plant-3d-explorer/" class="md-nav__link">
+      <a href="../../tutorials/plant-3d-explorer/" class="md-nav__link">
         
   
   
@@ -3759,7 +3403,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/tutorial_sm-dtw_simulatephyllotaxis/" class="md-nav__link">
+      <a href="../../tutorials/tutorial_sm-dtw_simulatephyllotaxis/" class="md-nav__link">
         
   
   
@@ -3787,7 +3431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/tutorials/robustness_evaluation/" class="md-nav__link">
+      <a href="../../tutorials/robustness_evaluation/" class="md-nav__link">
         
   
   
@@ -3820,6 +3464,8 @@
                 
   
   
+    
+  
   
   
     
@@ -3830,11 +3476,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8" checked>
         
           
           <label class="md-nav__link" for="__nav_4_8" id="__nav_4_8_label" tabindex="0">
@@ -3855,7 +3501,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3873,7 +3519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -3951,7 +3597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/scan_plant_imager_2.1/" class="md-nav__link">
+      <a href="../scan_plant_imager_2.1/" class="md-nav__link">
         
   
   
@@ -3979,7 +3625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/scan_plant_imager_3/" class="md-nav__link">
+      <a href="../scan_plant_imager_3/" class="md-nav__link">
         
   
   
@@ -4012,6 +3658,8 @@
                 
   
   
+    
+  
   
   
     
@@ -4022,11 +3670,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_8_3" checked>
         
           
           <label class="md-nav__link" for="__nav_4_8_3" id="__nav_4_8_3_label" tabindex="0">
@@ -4047,7 +3695,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_8_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_8_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -4062,10 +3710,35 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/select_linear_params/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Select linear params
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -4081,6 +3754,129 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-choose-linear-coefficients-and-threshold-parameters-for-plantmask-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to Choose Linear Coefficients and Threshold Parameters for Plant‑Mask Generation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How to Choose Linear Coefficients and Threshold Parameters for Plant‑Mask Generation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-launch-the-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Launch the GUI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-load-an-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Load an Image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-pick-a-color-space-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Pick a Color Space (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-tune-the-channel-coefficients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Tune the Channel Coefficients
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-set-the-threshold-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Set the Threshold Range
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-iterate-until-satisfied" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Iterate Until Satisfied
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-record-the-final-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Record the Final Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quick-reference-cheatsheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference (cheat‑sheet)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -4093,7 +3889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/reconstruct_plant_geom/" class="md-nav__link">
+      <a href="../reconstruct_plant_geom/" class="md-nav__link">
         
   
   
@@ -4121,7 +3917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/reconstruct_plant_ml/" class="md-nav__link">
+      <a href="../reconstruct_plant_ml/" class="md-nav__link">
         
   
   
@@ -4207,7 +4003,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/explore_plant_quantif/" class="md-nav__link">
+      <a href="../explore_plant_quantif/" class="md-nav__link">
         
   
   
@@ -4293,7 +4089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/how_to/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         
   
   
@@ -4321,7 +4117,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/notebooks/HowTo%20-Colmap-%20From%20RGB%20images%20to%20camera%20poses.ipynb" class="md-nav__link">
+      <a href="../../../assets/notebooks/HowTo%20-Colmap-%20From%20RGB%20images%20to%20camera%20poses.ipynb" class="md-nav__link">
         
   
   
@@ -4349,7 +4145,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/notebooks/HowTo%20-Undistorted-%20Undistort%20RGB%20images%20using%20camera%20model.ipynb" class="md-nav__link">
+      <a href="../../../assets/notebooks/HowTo%20-Undistorted-%20Undistort%20RGB%20images%20using%20camera%20model.ipynb" class="md-nav__link">
         
   
   
@@ -4377,7 +4173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/notebooks/HowTo%20-Masks-%20From%20RGB%20images%20to%20masks.ipynb" class="md-nav__link">
+      <a href="../../../assets/notebooks/HowTo%20-Masks-%20From%20RGB%20images%20to%20masks.ipynb" class="md-nav__link">
         
   
   
@@ -4405,7 +4201,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/notebooks/HowTo%20-Voxels-%20From%20mask%20images%20and%20camera%20coordinates%20to%20volume.ipynb" class="md-nav__link">
+      <a href="../../../assets/notebooks/HowTo%20-Voxels-%20From%20mask%20images%20and%20camera%20coordinates%20to%20volume.ipynb" class="md-nav__link">
         
   
   
@@ -4433,7 +4229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/notebooks/HowTo%20-PointCloud-%20From%20carved%20volume%20to%20point%20cloud.ipynb" class="md-nav__link">
+      <a href="../../../assets/notebooks/HowTo%20-PointCloud-%20From%20carved%20volume%20to%20point%20cloud.ipynb" class="md-nav__link">
         
   
   
@@ -4461,7 +4257,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/notebooks/HowTo%20-TriangleMesh-%20From%20point%20cloud%20to%20triangular%20mesh.ipynb" class="md-nav__link">
+      <a href="../../../assets/notebooks/HowTo%20-TriangleMesh-%20From%20point%20cloud%20to%20triangular%20mesh.ipynb" class="md-nav__link">
         
   
   
@@ -4489,7 +4285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/notebooks/HowTo%20-CurveSkeleton-%20From%20triangular%20mesh%20to%20curved%20skeleton.ipynb" class="md-nav__link">
+      <a href="../../../assets/notebooks/HowTo%20-CurveSkeleton-%20From%20triangular%20mesh%20to%20curved%20skeleton.ipynb" class="md-nav__link">
         
   
   
@@ -4517,7 +4313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/notebooks/HowTo%20-TreeGraph-%20From%20curved%20skeleton%20to%20tree%20graph.ipynb" class="md-nav__link">
+      <a href="../../../assets/notebooks/HowTo%20-TreeGraph-%20From%20curved%20skeleton%20to%20tree%20graph.ipynb" class="md-nav__link">
         
   
   
@@ -4545,7 +4341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../assets/notebooks/HowTo%20-AnglesAndInternodes-%20Extract%20fruits%20angles%20and%20internodes%20distance%20from%20a%20tree%20graph.ipynb" class="md-nav__link">
+      <a href="../../../assets/notebooks/HowTo%20-AnglesAndInternodes-%20Extract%20fruits%20angles%20and%20internodes%20distance%20from%20a%20tree%20graph.ipynb" class="md-nav__link">
         
   
   
@@ -4639,7 +4435,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/" class="md-nav__link">
+      <a href="../../specifications/" class="md-nav__link">
         
   
   
@@ -4667,7 +4463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/data/" class="md-nav__link">
+      <a href="../../specifications/data/" class="md-nav__link">
         
   
   
@@ -4695,7 +4491,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/hardware/" class="md-nav__link">
+      <a href="../../specifications/hardware/" class="md-nav__link">
         
   
   
@@ -4723,7 +4519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/virtual-plant-imager/" class="md-nav__link">
+      <a href="../../specifications/virtual-plant-imager/" class="md-nav__link">
         
   
   
@@ -4801,7 +4597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/metadata/" class="md-nav__link">
+      <a href="../../metadata/" class="md-nav__link">
         
   
   
@@ -4829,7 +4625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/metadata/biological_metadata/" class="md-nav__link">
+      <a href="../../metadata/biological_metadata/" class="md-nav__link">
         
   
   
@@ -4857,7 +4653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/metadata/hardware_metadata/" class="md-nav__link">
+      <a href="../../metadata/hardware_metadata/" class="md-nav__link">
         
   
   
@@ -4885,7 +4681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/metadata/software_metadata/" class="md-nav__link">
+      <a href="../../metadata/software_metadata/" class="md-nav__link">
         
   
   
@@ -4913,7 +4709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/metadata/tasks_metadata/" class="md-nav__link">
+      <a href="../../metadata/tasks_metadata/" class="md-nav__link">
         
   
   
@@ -4949,7 +4745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/luigi/" class="md-nav__link">
+      <a href="../../specifications/luigi/" class="md-nav__link">
         
   
   
@@ -5027,7 +4823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/" class="md-nav__link">
         
   
   
@@ -5055,7 +4851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/file_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/file_tasks/" class="md-nav__link">
         
   
   
@@ -5083,7 +4879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/acquisition_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/acquisition_tasks/" class="md-nav__link">
         
   
   
@@ -5111,7 +4907,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/reconstruction_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/reconstruction_tasks/" class="md-nav__link">
         
   
   
@@ -5139,7 +4935,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/ground_truth_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/ground_truth_tasks/" class="md-nav__link">
         
   
   
@@ -5167,7 +4963,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/tasks/evaluation_tasks/" class="md-nav__link">
+      <a href="../../specifications/tasks/evaluation_tasks/" class="md-nav__link">
         
   
   
@@ -5203,7 +4999,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/pipelines/" class="md-nav__link">
+      <a href="../../specifications/pipelines/" class="md-nav__link">
         
   
   
@@ -5231,7 +5027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/specifications/configuration_files/" class="md-nav__link">
+      <a href="../../specifications/configuration_files/" class="md-nav__link">
         
   
   
@@ -5317,7 +5113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/" class="md-nav__link">
+      <a href="../../developer/" class="md-nav__link">
         
   
   
@@ -5345,7 +5141,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/pipeline_repeatability/" class="md-nav__link">
+      <a href="../../developer/pipeline_repeatability/" class="md-nav__link">
         
   
   
@@ -5373,7 +5169,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/user_case_scenarios/" class="md-nav__link">
+      <a href="../../developer/user_case_scenarios/" class="md-nav__link">
         
   
   
@@ -5401,7 +5197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/git_workflow/" class="md-nav__link">
+      <a href="../../developer/git_workflow/" class="md-nav__link">
         
   
   
@@ -5429,7 +5225,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/git_submodules_workflow/" class="md-nav__link">
+      <a href="../../developer/git_submodules_workflow/" class="md-nav__link">
         
   
   
@@ -5457,7 +5253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/git_docReview/" class="md-nav__link">
+      <a href="../../developer/git_docReview/" class="md-nav__link">
         
   
   
@@ -5485,7 +5281,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/tutorial_template/" class="md-nav__link">
+      <a href="../../developer/tutorial_template/" class="md-nav__link">
         
   
   
@@ -5513,7 +5309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/conda/" class="md-nav__link">
+      <a href="../../developer/conda/" class="md-nav__link">
         
   
   
@@ -5541,7 +5337,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/colmap_cli/" class="md-nav__link">
+      <a href="../../developer/colmap_cli/" class="md-nav__link">
         
   
   
@@ -5569,7 +5365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/vpi_reference_api/" class="md-nav__link">
+      <a href="../../developer/vpi_reference_api/" class="md-nav__link">
         
   
   
@@ -5647,7 +5443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/how_to/" class="md-nav__link">
+      <a href="../../developer/how_to/" class="md-nav__link">
         
   
   
@@ -5675,7 +5471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/how_to/import_files/" class="md-nav__link">
+      <a href="../../developer/how_to/import_files/" class="md-nav__link">
         
   
   
@@ -5703,7 +5499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/how_to/create_new_task/" class="md-nav__link">
+      <a href="../../developer/how_to/create_new_task/" class="md-nav__link">
         
   
   
@@ -5731,7 +5527,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/developer/how_to/create_new_evaluation_task/" class="md-nav__link">
+      <a href="../../developer/how_to/create_new_evaluation_task/" class="md-nav__link">
         
   
   
@@ -5817,7 +5613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/" class="md-nav__link">
+      <a href="../../docker/" class="md-nav__link">
         
   
   
@@ -5845,7 +5641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/plantdb_docker/" class="md-nav__link">
+      <a href="../../docker/plantdb_docker/" class="md-nav__link">
         
   
   
@@ -5873,7 +5669,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/plantimager_docker/" class="md-nav__link">
+      <a href="../../docker/plantimager_docker/" class="md-nav__link">
         
   
   
@@ -5901,7 +5697,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/virtualplantimager_docker/" class="md-nav__link">
+      <a href="../../docker/virtualplantimager_docker/" class="md-nav__link">
         
   
   
@@ -5929,7 +5725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/colmap/" class="md-nav__link">
+      <a href="../../docker/colmap/" class="md-nav__link">
         
   
   
@@ -5957,7 +5753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/plant-3d-vision_docker/" class="md-nav__link">
+      <a href="../../docker/plant-3d-vision_docker/" class="md-nav__link">
         
   
   
@@ -5985,7 +5781,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/plant3dexplorer_docker/" class="md-nav__link">
+      <a href="../../docker/plant3dexplorer_docker/" class="md-nav__link">
         
   
   
@@ -6013,7 +5809,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../plant_imager/docker/docker_compose/" class="md-nav__link">
+      <a href="../../docker/docker_compose/" class="md-nav__link">
         
   
   
@@ -6114,7 +5910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../training/" class="md-nav__link">
+      <a href="../../../training/" class="md-nav__link">
         
   
   
@@ -6142,7 +5938,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../training/lpy/" class="md-nav__link">
+      <a href="../../../training/lpy/" class="md-nav__link">
         
   
   
@@ -6170,7 +5966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../training/ippn_2023/" class="md-nav__link">
+      <a href="../../../training/ippn_2023/" class="md-nav__link">
         
   
   
@@ -6205,7 +6001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../glossary/" class="md-nav__link">
+      <a href="../../../glossary/" class="md-nav__link">
         
   
   
@@ -6232,7 +6028,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   
@@ -6259,7 +6055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../research/" class="md-nav__link">
+      <a href="../../../research/" class="md-nav__link">
         
   
   
@@ -6296,8 +6092,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -6306,77 +6100,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#acknowledgements" class="md-nav__link">
+  <a href="#how-to-choose-linear-coefficients-and-threshold-parameters-for-plantmask-generation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Acknowledgements
+        How to Choose Linear Coefficients and Threshold Parameters for Plant‑Mask Generation
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#short-description" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Short description
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#technical-specifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Technical specifications
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#functional-specifications-and-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Functional specifications and requirements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#overview-of-the-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview of the components
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#operation-instructions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Operation instructions
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Operation instructions">
+    <nav class="md-nav" aria-label="How to Choose Linear Coefficients and Threshold Parameters for Plant‑Mask Generation">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#overview-of-the-rovers-usage" class="md-nav__link">
+  <a href="#1-launch-the-gui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview of the rover’s usage
+        1. Launch the GUI
       
     </span>
   </a>
@@ -6384,10 +6123,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#setting-up-the-vegetable-beds" class="md-nav__link">
+  <a href="#2-load-an-image" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting up the vegetable beds
+        2. Load an Image
       
     </span>
   </a>
@@ -6395,10 +6134,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#setting-up-the-wi-fi-access-point" class="md-nav__link">
+  <a href="#3-pick-a-color-space-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setting up the Wi-Fi access point
+        3. Pick a Color Space (optional)
       
     </span>
   </a>
@@ -6406,10 +6145,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#charging-the-rover" class="md-nav__link">
+  <a href="#4-tune-the-channel-coefficients" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Charging the rover
+        4. Tune the Channel Coefficients
       
     </span>
   </a>
@@ -6417,10 +6156,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#protection-cover" class="md-nav__link">
+  <a href="#5-set-the-threshold-range" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Protection cover
+        5. Set the Threshold Range
       
     </span>
   </a>
@@ -6428,10 +6167,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#attendance-todo-regulations" class="md-nav__link">
+  <a href="#6-iterate-until-satisfied" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Attendance (TODO: regulations?)
+        6. Iterate Until Satisfied
       
     </span>
   </a>
@@ -6439,10 +6178,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
+  <a href="#7-record-the-final-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Storage
+        7. Record the Final Parameters
       
     </span>
   </a>
@@ -6450,159 +6189,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#emergency-button" class="md-nav__link">
+  <a href="#quick-reference-cheatsheet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Emergency button
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adjusting-the-width-of-the-rover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adjusting the width of the rover
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#engagingdisengaging-the-motor-lock-levers-freewheeling-mode-and-drive-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Engaging/disengaging the motor lock levers (freewheeling mode and drive mode)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#control-panel-state-message" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Control panel state message
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#start-up-procedure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Start-up procedure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#shut-down-procedure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Shut-down procedure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#switching-from-drive-to-freewheeling-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Switching from drive to freewheeling mode
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#switching-from-freewheeling-to-drive-mode-todo-this-is-not-safe-yet" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Switching from freewheeling to drive mode (TODO: this is not safe, yet)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#accessing-the-web-interface-of-the-rover" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Accessing the web interface of the rover
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#using-the-controller" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Using the controller
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#controlling-the-rover-through-the-control-panel" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Controlling the rover through the control panel
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Controlling the rover through the control panel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#send-a-command-to-start-an-action" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Send a command to start an action
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#switching-to-navigation-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Switching to navigation mode
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#changing-the-list-of-rover-actions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Changing the list of rover actions
+        Quick Reference (cheat‑sheet)
       
     </span>
   </a>
@@ -6631,409 +6221,147 @@
 
 
 
-<h1 id="romi-rover-user-manual">ROMI Rover User Manual<a class="headerlink" href="#romi-rover-user-manual" title="Permanent link">Link</a></h1>
-<p><img alt="The ROMI Rover" src="/assets/images/rover/manual/rover.png" /></p>
-<p>Draft v2 - Rover V3 - Summer 2022 </p>
-<p>This manual describes the usage of a fully assembled and ready-to-use
-rover.</p>
-<p>The information on how to build your own rover can be found in a
-separate document. Visit the ROMI web site at
-<a href="https://docs.romi-project.eu">https://docs.romi-project.eu</a> for more information.</p>
-<p>© Sony Computer Science Laboratories - CC BY-SA 4.0 Licence</p>
-<h2 id="acknowledgements">Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permanent link">Link</a></h2>
-<p>ROMI has received funding from the European Union's Horizon 2020
-research and innovation programme under grant agreement No 773875.</p>
-<h2 id="short-description">Short description<a class="headerlink" href="#short-description" title="Permanent link">Link</a></h2>
-<p>The ROMI Rover is a farming tool that assists vegetable farmers in
-maintaining vegetable beds free of weeds. It does this by regularly
-hoeing the surface of the soil and thus preventing small weeds from
-taking root. It can do this task mostly autonomously and requires only
-minor changes to the organisation of the farm. It is designed for
-vegetable beds between 70 cm and 110 cm wide (not including the
-passage ways) and for crops up to 50 cm high. It currently handles two
-types of crops, lettuce and carrots. The lettuce can be planted out in
-any layout, most likely in a quincunx pattern. In this configuration
-the rover uses a precision rotary hoe to clean the soil both between
-the rows and the plants. For carrots, the rover uses classical
-mechanical tools, such as stirrup hoe, to regularly clean the soil in
-between the rows. In this configuration, the carrots should be sown in
-line.</p>
-<p>A weekly passage of the robot should be sufficient to keep the
-population of weeds under control.</p>
-<p>In addition to weeding, the embedded camera can be used to collect
-images of the vegetable beds.</p>
-<p>The ROMI Rover is targeted at farms that grow small crops, such as
-lettuce and carrots, on a relatively small surface, between 200 m² and
-5 ha (Utilised Agricultural Area).</p>
-<h2 id="technical-specifications">Technical specifications<a class="headerlink" href="#technical-specifications" title="Permanent link">Link</a></h2>
-<p>This section details the technical specifications, operating
-instructions and configuration of the current version of the Romi
-rover: V3.</p>
-<table>
-<thead>
-<tr>
-<th>Characteristic</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Dimensions</strong></td>
-<td>Width: Adjustable between 1.42 m and 2 m<br>Length: 1.8 m<br>Height: 1.44 m<br>With tool carrier: add 1 m to length</td>
-</tr>
-<tr>
-<td><strong>Weight</strong></td>
-<td>140 kg</td>
-</tr>
-<tr>
-<td><strong>Battery life</strong></td>
-<td>8 h (approx. dependent on use case)</td>
-</tr>
-<tr>
-<td><strong>Charging time</strong></td>
-<td>TODO</td>
-</tr>
-<tr>
-<td><strong>Weeding speed</strong></td>
-<td>Precision weeding: 235 m²/day<br>Classical weeding: 6400 m²/day</td>
-</tr>
-<tr>
-<td><strong>Width vegetable beds</strong></td>
-<td>Between 0.7 and 1.1  m</td>
-</tr>
-<tr>
-<td><strong>Handled crops</strong></td>
-<td>Precision weeding: Lettuce<br>Classical weeding: Carrots</td>
-</tr>
-<tr>
-<td><strong>Turning space at end of bed</strong></td>
-<td>2.8 m (3.5 m with tool carrier)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="functional-specifications-and-requirements">Functional specifications and requirements<a class="headerlink" href="#functional-specifications-and-requirements" title="Permanent link">Link</a></h2>
-<p>The following configuration is required for the use of the ROMI rover.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Image</th>
-<th>Price</th>
-<th>Features/Function</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ROMI rover with a remote control, a battery charger, and a protective cover</td>
-<td><img src="/assets/images/rover/manual/rover-colored.png" width="200px"><br><img src="/assets/images/rover/manual/controller.png" width="200px"><br><img src="/assets/images/rover/manual/charger.png" width="200px"></td>
-<td>5000 € (estimate)</td>
-<td>- Prevents weed development<br>- Takes image scans of the beds</td>
-</tr>
-</tbody>
-</table>
-<h2 id="overview-of-the-components">Overview of the components<a class="headerlink" href="#overview-of-the-components" title="Permanent link">Link</a></h2>
-<p><img src="/assets/images/rover/manual/rover-overview.png"></p>
-<ul>
-<li><strong>The control panel</strong>: The control panel provides a means to view status
-messages, and request the rover to perform a preconfigured action.</li>
-<li><strong>The on/off switch</strong>: The on/off switch can be found on the electronics
-  housing.</li>
-</ul>
-<h2 id="operation-instructions">Operation instructions<a class="headerlink" href="#operation-instructions" title="Permanent link">Link</a></h2>
-<h3 id="overview-of-the-rovers-usage">Overview of the rover’s usage<a class="headerlink" href="#overview-of-the-rovers-usage" title="Permanent link">Link</a></h3>
-<p>The basic usage of the rover is to position it on a vegetable bed and
-let the machine clean the top-soil with a rotating precision hoe. The
-rover must be taken to the field using the remote control. The robot
-currently expects the vegetables to be grown in "beds" of 0.7 m to 1.1
-m wide.  The robot is designed for smaller market farms of less than 5
-ha but the size of the farm depends on the number of rovers that you
-will use, and the amount of crop you want to cover. The rover can
-navigate autonomously along a bed if there is a clear line of crops
-that it can follow.</p>
-<p>Once the rover is positioned at the beginning of a bed, it hoes the
-surface of the soil so that small weeds cannot take root. It can
-perform this action along the entire length of the bed. Note that the
-rover cannot remove mature weeds that have already established
-themselves. It is therefore necessary to start with a vegetable bed
-that has been cleaned from all weeds. This can be done with various
-classical techniques to prepare the vegetable beds. Once the beds are
-clean, the rover can be used to maintain them as such.</p>
-<p>Two weeding methods are available. First, a precision weeding method
-in which the top-soil is turned over in between the rows (also called
-"inter-row") and between the plants (or "intra-row"). Second, a
-classical weeding method in which standard weeding tools are dragged
-behind the rover between rows of vegetables.</p>
-<p>For the precision weeding method, the rover uses a camera to detect
-the plants that are underneath the rover. It then moves the precision
-weeding tool over the surface whilst passing closely around the
-detected vegetables.</p>
-<p>Although the rover is autonomous for weeding a single bed, it is
-important to stay in proximity to the rover. A U-turn must also be
-manually performed at the end of the bed and the rover repositioned in
-line with the rails of the next bed.</p>
-<h3 id="setting-up-the-vegetable-beds">Setting up the vegetable beds<a class="headerlink" href="#setting-up-the-vegetable-beds" title="Permanent link">Link</a></h3>
-<p>The use of the rover requires relatively flat beds. Precision weeding
-works best if the surface of the culture beds is planar. Ideally, the
-alleys between the beds should also be flat, to facilitate navigation
-of the rover. Otherwise, there is a risk that the tool will detach
-from the soil or that it will dig into the soil. There is no precise
-measure of how flat the beds should be but small holes in the ground
-should be avoided. The presence of stones should also be
-avoided. Small stones (approx. 1 cm) should not perturb the rover very
-much.</p>
-<p>NOTE: It is more convenient if the width of the vegetable beds are
-constant so that the width of the rover doesn't have to be adapted
-beds.</p>
-<h3 id="setting-up-the-wi-fi-access-point">Setting up the Wi-Fi access point<a class="headerlink" href="#setting-up-the-wi-fi-access-point" title="Permanent link">Link</a></h3>
-<p>The use of a Wi-Fi access point is optional but strongly
-recommended. The rover must be connected to a Wi-Fi access point with
-Internet access for the following functionality:</p>
-<ul>
-<li>To automatically upload the images taken by the rover to the
-  Farmer’s Dashboard web application.</li>
-<li>For remote maintenance.</li>
-</ul>
-<p>Both features are optional and can be left out when the rover is used
-for weeding only.</p>
-<p>However, if you decide to use an access point, it is important that
-the Wi-Fi signal is strong enough in all the zones where the rover
-will be used. If not, it may be impossible to connect to the rover’s
-web interface with a phone or tablet to send instructions to the
-rover. It will still be possible to send instructions to the rover
-using the control panel (see "Controlling the rover through the
-control panel").</p>
-<p>The set-up of the Wi-Fi network is not part of the ROMI Rover
-package. In case of doubt, you should seek advice from a professional
-about the best solution for your premises. However, below, we briefly
-discuss several options.  Use an existing Wi-Fi router: If the zone
-where you wish to use the rover is adjacent to existing infrastructure
-(home, barn) and you have the possibility to install an Internet
-connection at the premises (ADSL modem over a phone line or any other
-solution), the Wi-Fi capabilities of the modem can be used to offer
-Internet access to the rover.</p>
-<p><strong>Expand the reach of an existing Wi-Fi network</strong>: An existing Wi-Fi
-  can be extended to increase its reach using Wi-Fi range
-  extenders. They pick up and retransmit an existing Wi-Fi
-  signal. Most extenders require a standard power supply although some
-  can be powered using an USB battery. Using an Ethernet cable of up
-  to 100 metres long, it is possible to position a secondary access
-  point. Some of the Wi-Fi access points can be powered directly over
-  the Ethernet cable (PoE, Power over Ethernet) removing the need for
-  a power socket. It is also possible to send the network signal over
-  existing electricity cables using a technology called power-line
-  communication (PLC). Finally, there exist also long-range wireless
-  outdoor WiFi extenders that transmit the network between two
-  antennas designed for transmission over distances from a 100 metres
-  to over a kilometre.</p>
-<p><strong>Install a GSM Wi-Fi router</strong>: If there is a good mobile phone signal
-  strength in the field, a GSM Wi-Fi router is a viable option. A GSM
-  Wi-Fi router connects to the Internet over a mobile data link (4G,
-  3G, HSDPA…) and provides access to other devices over
-  Wi-Fi. Separate routers with good antennas can be purchased at
-  reasonable prices but generally require a power plug. Smaller,
-  USB-powered routers are available also and can be plugged directly
-  into a USB port inside the rover. A mobile phone configured as a
-  hotspot is an alternative solution (although with a smaller range
-  than a dedicated router with good antennas). The downside of this
-  option is that it requires a SIM card and a subscription with a
-  mobile network operator.</p>
-<p><strong>Using a USB GSM modem</strong>: In contrast to the solution above, a USB
-  GSM modem is not a stand-alone router but, when plugged in, the
-  Raspberry Pi will see the modem as an additional network
-  interface. In this set-up, the rover remains the hotspot for the
-  Wi-Fi network but will route any Internet traffic through the GSM
-  modem. This solution may require additional changes to the network
-  configuration of the Raspberry Pi.</p>
-<h3 id="charging-the-rover">Charging the rover<a class="headerlink" href="#charging-the-rover" title="Permanent link">Link</a></h3>
-<p>The rover uses two 12 V Lithium batteries (the internal working
-voltage is 24 V). Use the supplied Victron Energy Blue Smart IP67 24V
-5A Charger to reload the batteries. Plug 230 V side of the charger in
-a regular power plug. The 24 V side must be plugged into the POWER
-CHARGER plug on the battery box. The charger has LED indicators to
-show the status of the charging cycle. It is also possible to follow
-the status using a mobile phone using a Bluetooth connection. Check
-the official manual provided by Victron Energy charger for details.</p>
-<h3 id="protection-cover">Protection cover<a class="headerlink" href="#protection-cover" title="Permanent link">Link</a></h3>
-<p>The rover comes with a PVC protection cover. The cover must always be
-placed on the rover when the precision weeding is used. If the
-precision weeding is not used, it can be removed if there is no risk
-of the CNC becoming wet. The CNC, on its own, is not waterproof. If
-the CNC is removed, it is possible to use the rover without cover in
-light rain conditions (TODO: IP level?...)</p>
-<h3 id="attendance-todo-regulations">Attendance (TODO: regulations?)<a class="headerlink" href="#attendance-todo-regulations" title="Permanent link">Link</a></h3>
-<p>IMPORTANT: The rover must be used only in the presence of an
-operator. The operator must be within a distance of XXX metres of the
-rover and must be able to reach the rover quickly in case of an
-emergency. The operator should carry the remote control with them at
-all times whilst the rover is on. This is in order to be able to
-recover the navigation control of the rover in all circumstances
-(TODO: add emergency button on the remote control or use certified
-controller for industrial use). The rover should not be used in
-proximity to people who have not been instructed to use the rover
-(TODO).  IMPORTANT: The rover must be used only during the day in good
-light conditions.</p>
-<h3 id="storage">Storage<a class="headerlink" href="#storage" title="Permanent link">Link</a></h3>
-<p>The rover should be kept in a covered and dry space when not in use.</p>
-<h3 id="emergency-button">Emergency button<a class="headerlink" href="#emergency-button" title="Permanent link">Link</a></h3>
-<p>The emergency button on the back of the rover can be used to cut the
-power to the motors and CNC at any time. To cut the power, push the
-red button. To power up the motors, the button must be
-reactivated. This can be done by pulling the button out again.</p>
-<p>CAUTION: Before reactivating the button, make sure that the CNC and
-wheel motors are not moving.</p>
-<h3 id="adjusting-the-width-of-the-rover">Adjusting the width of the rover<a class="headerlink" href="#adjusting-the-width-of-the-rover" title="Permanent link">Link</a></h3>
-<p>The wheel-base of the rover can be adjusted to fit the variable width
-of the rails and beds. To adjust the width of the rover, loosen the
-four U-brackets that fix the wheel modules to the main frame and slide
-the wheel modules to the desired position. Ensure that the position of
-the modules is symmetric relative to the main frame.</p>
-<p>After a change to the width of the wheel-base, the CNC may have to be
-recalibrated if the weeding tool should work on a larger or smaller
-bed size (see "Calibrating the CNC")</p>
-<h3 id="engagingdisengaging-the-motor-lock-levers-freewheeling-mode-and-drive-mode">Engaging/disengaging the motor lock levers (freewheeling mode and drive mode)<a class="headerlink" href="#engagingdisengaging-the-motor-lock-levers-freewheeling-mode-and-drive-mode" title="Permanent link">Link</a></h3>
-<p>The two wheel motors each have a lock lever that allows them to switch
-between freewheeling mode or motor drive mode. When the lock lever is
-in the horizontal position the wheels are freewheeling. In
-freewheeling mode, the robot can be moved simply by pushing it. Turn
-the lever 90° into the vertical position - pointing to the ground - to
-switch the drive mode. In the drive mode, the wheels are powered by
-the motors and to move the rover you must use the remote control or
-the command interface.</p>
-<p>Mnemonic tip: When the handle points to the ground, the traction goes
-to the soil. When the handle is parallel to the axis, the traction
-"stays" in the axis.  CAUTION: Only switch to the drive mode when the
-rover is "off" to assure that the motors are powered off.</p>
-<p>Lock lever vertical: Motor drive mode<br>
-<img src="/assets/images/rover/manual/lock-lever-down.png" width="200px"></p>
-<p>Lock lever horizontal: Freewheeling mode<br>
-<img src="/assets/images/rover/manual/lock-lever-up.png" width="200px"></p>
-<h3 id="control-panel-state-message">Control panel state message<a class="headerlink" href="#control-panel-state-message" title="Permanent link">Link</a></h3>
-<p>The display of the control panel is divided in two lines. The upper
-line shows current status of the rover:</p>
-<ul>
-<li>
-<p><strong>Ready</strong>: The rover is ready for use. The on-board computer is
-    running and the motors can be powered up.</p>
-</li>
-<li>
-<p><strong>Navigating</strong>: The rover is in navigation mode. Use the controller
-    to steer the rover.</p>
-</li>
-<li>
-<p><strong>System Failure</strong>: The rover encountered an error from which it
-    cannot recover. Please restart the rover.</p>
-</li>
-</ul>
-<h3 id="start-up-procedure">Start-up procedure<a class="headerlink" href="#start-up-procedure" title="Permanent link">Link</a></h3>
-<p>If it is the first usage of the rover, you should go to the section
-"First time configuration".</p>
-<p>Before starting up, the rover should be in the following state:</p>
-<ul>
-<li>Verify that the emergency button is deactivated (pushed in).</li>
-<li>Verify that the on/off switch on the electronics housing is off.</li>
-</ul>
-<p>The start-up can now proceed:</p>
-<ol>
-<li>Engage the lock levers on the motor to put the motors into drive mode.</li>
-<li>Turn the on/off button on the electronic housing on. </li>
-<li>Activate the emergency by pulling it out.</li>
-<li>The rover should begin the start-up sequence.</li>
-<li>When the start-up is completed, the display will show "Ready". </li>
-<li>The motors of the wheels and the CNC are now powered up. </li>
-</ol>
-<p>You can now use the controller of the web interface to navigate the
-rover or send commands to the rover.</p>
-<h3 id="shut-down-procedure">Shut-down procedure<a class="headerlink" href="#shut-down-procedure" title="Permanent link">Link</a></h3>
-<p>To turn off the rover, take the following steps:</p>
-<ol>
-<li>Deactivate the emergency button by pushing it in. This removes the
-power supply to the motor and CNC.</li>
-<li>Turn off the on/off button on the electronics housing</li>
-</ol>
-<h3 id="switching-from-drive-to-freewheeling-mode">Switching from drive to freewheeling mode<a class="headerlink" href="#switching-from-drive-to-freewheeling-mode" title="Permanent link">Link</a></h3>
-<p>When the rover is in drive mode (motors powered on, the lock levers on
-the motor engaged/vertical), it is possible to go to freewheeling mode
-as follows:</p>
-<ol>
-<li>Turn off the power of the motors by pressing the red emergency button.</li>
-<li>Turn the motor lock levers in the horizontal position (disengaged).</li>
-</ol>
-<p>Once these steps are completed, you can move the rover by pushing it.</p>
-<h3 id="switching-from-freewheeling-to-drive-mode-todo-this-is-not-safe-yet">Switching from freewheeling to drive mode (TODO: this is not safe, yet)<a class="headerlink" href="#switching-from-freewheeling-to-drive-mode-todo-this-is-not-safe-yet" title="Permanent link">Link</a></h3>
-<p>To switch from freewheeling to drive mode, the rover’s state should be
-”On”, the user may then perform the following operations:</p>
-<ol>
-<li>Turn the motor lock levers in the vertical position (engaged).</li>
-<li>Pull the red security button to power the motors.</li>
-</ol>
-<p>CAUTION: Make sure that the speed and direction controllers of the
-remote control are in the neutral position.</p>
-<h3 id="accessing-the-web-interface-of-the-rover">Accessing the web interface of the rover<a class="headerlink" href="#accessing-the-web-interface-of-the-rover" title="Permanent link">Link</a></h3>
-<p>Adapt the Wi-Fi settings of the phone, tablet, or computer such that
-it connects to the same Wi-Fi network as the rover. The interface of
-the rover is accessible through a web browser. On the mobile device,
-open up your preferred web browser (see "Supported web browsers") and
-in the address field enter the following URL:
-<a href="http://romi-rover.local">http://romi-rover.local</a>.</p>
-<p>To facilitate access to the interface in future uses, you can add the
-address to your bookmarks.</p>
-<h3 id="using-the-controller">Using the controller<a class="headerlink" href="#using-the-controller" title="Permanent link">Link</a></h3>
-<p>The rover comes with the Sony DUALSHOCK®4 Wireless Controller. </p>
-<p><img src="/assets/images/rover/manual/Dualshock-4.png"/></p>
-<p>The remote controller must be recharged using a micro USB cable that
-is plugged into the front of the controller. The controller is
-sensitive to the recharger. Make sure to use a quality recharger.</p>
-<h3 id="controlling-the-rover-through-the-control-panel">Controlling the rover through the control panel<a class="headerlink" href="#controlling-the-rover-through-the-control-panel" title="Permanent link">Link</a></h3>
-<p>You can send commands to the rover or activate the navigation mode
-using the controller as follows.</p>
-<h4 id="send-a-command-to-start-an-action">Send a command to start an action<a class="headerlink" href="#send-a-command-to-start-an-action" title="Permanent link">Link</a></h4>
-<p>The rover must be in the Ready state. Then press the Show Menu button.</p>
-<p>The name of the first task will appear on the bottom line of the
-display. Use the Next Menu and Previous Menu buttons to navigate in
-the list of possible tasks. To cancel and return to the main screen,
-press Cancel Button.</p>
-<p>Press the Select Button a second time to confirm the action, or press
-cancel to return to the menu screen.</p>
-<h4 id="switching-to-navigation-mode">Switching to navigation mode<a class="headerlink" href="#switching-to-navigation-mode" title="Permanent link">Link</a></h4>
-<p>XXX</p>
-<h3 id="changing-the-list-of-rover-actions">Changing the list of rover actions<a class="headerlink" href="#changing-the-list-of-rover-actions" title="Permanent link">Link</a></h3>
-<p>The file uses the JSON format to describe the list of scripts and the
-associated sequences of actions. The general structure is as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;move-forward&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;display_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Forward&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;script&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;move&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;distance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.60</span><span class="w"> </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;move-backward&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;display_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Backward&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;script&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;move&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;distance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.60</span><span class="w"> </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scan&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;display_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Scan&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;script&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;start_recording&quot;</span><span class="w"> </span><span class="p">},</span>
-<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;move&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;distance&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">3.6</span><span class="w"> </span><span class="p">},</span>
-<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stop_recording&quot;</span><span class="w"> </span><span class="p">}</span>
-<span class="w">        </span><span class="p">]</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">]</span>
+  <h1>Select linear params</h1>
+
+<h2 id="how-to-choose-linear-coefficients-and-threshold-parameters-for-plantmask-generation">How to Choose Linear Coefficients and Threshold Parameters for Plant‑Mask Generation<a class="headerlink" href="#how-to-choose-linear-coefficients-and-threshold-parameters-for-plantmask-generation" title="Permanent link">Link</a></h2>
+<p><strong>Goal</strong>: Find a set of channel‑mix coefficients (<code>C₁, C₂, C₃</code>) and a
+<code>min_threshold</code> that isolate the plant in a binary mask for your specific imaging setup.</p>
+<p><img alt="linear_filter_mask_GUI.png" src="../../assets/images/mask/linear_filter_mask_GUI.png" /></p>
+<hr />
+<h3 id="1-launch-the-gui">1. Launch the GUI<a class="headerlink" href="#1-launch-the-gui" title="Permanent link">Link</a></h3>
+<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>plant3dvision
+linear_filter<span class="w">            </span><span class="c1"># starts the app</span>
 </code></pre></div>
-<p>The file contains a list of scripts. Each script has a name that is
-used to identify the script, a display_name that is shown in the user
-interface, and a script field that consists of a list of actions. The
-list of available actions and their parameters is out of the scope of
-this manual. Please refer to the online documentation at
-<a href="https://docs.romi-project.eu/Rover/configuration/">https://docs.romi-project.eu/Rover/configuration/</a> for details.</p>
-<p>If you make modifications to the file, it is very important that the
-new content is a valid JSON file. If not, the rover will fail to load
-the file and no buttons will be shown in the user interface.</p>
+<p>If you already have an image you want to test, you can also start the app with the path:</p>
+<div class="highlight"><pre><span></span><code>linear_filter<span class="w"> </span>path/to/image.jpg
+</code></pre></div>
+<hr />
+<h3 id="2-load-an-image">2. Load an Image<a class="headerlink" href="#2-load-an-image" title="Permanent link">Link</a></h3>
+<ol>
+<li>Click <strong>Load Image</strong>.</li>
+<li>In the file‑dialog, navigate to the folder that contains one of the images from your dataset and select it.</li>
+</ol>
+<p>The original picture appears on the left panel of the display area.</p>
+<hr />
+<h3 id="3-pick-a-color-space-optional">3. Pick a Color Space (optional)<a class="headerlink" href="#3-pick-a-color-space-optional" title="Permanent link">Link</a></h3>
+<p>The dropdown <strong>Color Space</strong> lets you work in <strong>RGB</strong> (default), <strong>HSV</strong>, or <strong>YCbCr</strong>.</p>
+<ul>
+<li>Use <strong>RGB</strong> for most plant‑imaging cases.</li>
+<li>Switch to <strong>HSV</strong> or <strong>YCbCr</strong> only if the plant colors are not well separated in RGB (e.g., strong hue shifts).</li>
+</ul>
+<hr />
+<h3 id="4-tune-the-channel-coefficients">4. Tune the Channel Coefficients<a class="headerlink" href="#4-tune-the-channel-coefficients" title="Permanent link">Link</a></h3>
+<p>Three horizontal sliders control the contribution of each color channel (values = 0 – 1).</p>
+<table>
+<thead>
+<tr>
+<th>Slider</th>
+<th>Default label</th>
+<th>Typical plant‑specific advice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>C₁</strong></td>
+<td>Red / Hue / Luminance</td>
+<td>Increase if the plant appears reddish or yellowish.</td>
+</tr>
+<tr>
+<td><strong>C₂</strong></td>
+<td><strong>Green</strong> / Saturation / Blue‑diff</td>
+<td><strong>Keep at 1.0</strong> for healthy green foliage.</td>
+</tr>
+<tr>
+<td><strong>C₃</strong></td>
+<td>Blue / Value / Red‑diff</td>
+<td>Reduce to suppress background sky or water reflections.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tips">
+<p class="admonition-title">Tips</p>
+<p>As you move a slider, the <strong>Filtered</strong> image (centre panel) updates instantly, letting you see how the grayscale intensity changes.</p>
+</div>
+<div class="admonition remember">
+<p class="admonition-title">Remember</p>
+<p>This is an additive RGB color model, see <a href="https://en.wikipedia.org/wiki/RGB_color_model#Additive_colors">Wikipedia</a> for detailed explanations.</p>
+</div>
+<hr />
+<h3 id="5-set-the-threshold-range">5. Set the Threshold Range<a class="headerlink" href="#5-set-the-threshold-range" title="Permanent link">Link</a></h3>
+<p>Two spin boxes control the binary mask:</p>
+<ul>
+<li><strong>Min Threshold</strong>: lower bound (default 0.30).</li>
+<li><strong>Max Threshold</strong>: upper bound (default 1.00).</li>
+</ul>
+<p>Start by leaving <strong>Max Threshold</strong> at 1.00 and move <strong>Min Threshold</strong> downward until the plant silhouette is fully visible but background noise is minimized.
+Inversely, if the mask becomes too sparse, lower the value slightly.</p>
+<p>The <strong>Mask</strong> panel on the right shows the resulting binary image in real time.</p>
+<hr />
+<h3 id="6-iterate-until-satisfied">6. Iterate Until Satisfied<a class="headerlink" href="#6-iterate-until-satisfied" title="Permanent link">Link</a></h3>
+<ol>
+<li>Adjust the three coefficients <strong>and</strong> the <code>min_threshold</code> as described above.</li>
+<li>Observe the three panels (Original | Filtered | Mask).</li>
+<li>
+<p>Confirm that:</p>
+<ul>
+<li>The whole plant (including stems) appears white in the mask.</li>
+<li>Unwanted bright artifacts (e.g., specular highlights) are either removed or acceptable for downstream analysis.</li>
+</ul>
+</li>
+<li>
+<p>When the result looks good on the first image, repeat the same parameter set on a second image from the same dataset to verify robustness.
+   Small illumination changes may require a modest tweak of the**Min Threshold**.</p>
+</li>
+</ol>
+<hr />
+<h3 id="7-record-the-final-parameters">7. Record the Final Parameters<a class="headerlink" href="#7-record-the-final-parameters" title="Permanent link">Link</a></h3>
+<p>Write down the three channel coefficients and the chosen <code>min_threshold</code> (and <code>max_threshold</code> if you changed it).
+Use these values in your reconstruction TOML configuration file.</p>
+<hr />
+<h3 id="quick-reference-cheatsheet">Quick Reference (cheat‑sheet)<a class="headerlink" href="#quick-reference-cheatsheet" title="Permanent link">Link</a></h3>
+<table>
+<thead>
+<tr>
+<th>Control</th>
+<th>How to adjust</th>
+<th>When to change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Color Space</strong></td>
+<td>Drop‑down menu</td>
+<td>Plant  color not well separated in RGB</td>
+</tr>
+<tr>
+<td><strong>Red / Hue / Y</strong></td>
+<td>Slider (0–1)</td>
+<td>Plant has significant red/yellow component</td>
+</tr>
+<tr>
+<td><strong>Green / Sat / Cb</strong></td>
+<td>Slider (0–1)</td>
+<td>Keep at <strong>1.0</strong> for typical green foliage</td>
+</tr>
+<tr>
+<td><strong>Blue / Val / Cr</strong></td>
+<td>Slider (0–1)</td>
+<td>Reduce to suppress background blues</td>
+</tr>
+<tr>
+<td><strong>Min Threshold</strong></td>
+<td>Spin box (0.0–1.0, step 0.01)</td>
+<td>Increase to cut background, decrease to fill gaps</td>
+</tr>
+<tr>
+<td><strong>Max Threshold</strong></td>
+<td>Spin box (0.0–1.0, step 0.01)</td>
+<td>Rarely needed; keep at 1.0 unless you want to clip bright outliers</td>
+</tr>
+</tbody>
+</table>
+<p>By following these focused steps, you’ll quickly arrive at a reliable linear‑mix and threshold configuration that isolates your plant for downstream analysis.
+Happy masking!</p>
 
 
 
@@ -7138,10 +6466,10 @@ the file and no buttons will be shown in the user interface.</p>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "content.code.copy", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
