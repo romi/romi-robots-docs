@@ -67,11 +67,19 @@ If you need to tweak a value, edit the file and save it **before** launching the
 !!! Reference
     Full list of configurable options [here](https://github.com/romi/plant-3d-vision/blob/dev/configs/geom_pipe_full.toml).
 
+The high‑level flow is:
+
+1. `Colmap`: Sparse (and optionally dense) 3‑D reconstruction from raw images.
+2. `Undistort`: Optional image undistortion using the chosen camera model or calibration data.
+3. `Masks`: 2‑D binary mask generation from undistorted images.
+4. `Voxels`: Back-projection of the masked images.
+5. `PointCloud`: Generation of a point cloud from the voxels.
+
 ```toml
 [Colmap]
-# The upstream task that provides the input files
+# Upstream task that provides the input files
 upstream_task = "ImagesFilesetExists"  # Default: "ImagesFilesetExists"
-# The colmap "executable" to use
+# Colmap "executable" to use
 colmap_exe = "roboticsmicrofarms/colmap:3.8"
 # Type of matcher to use with COLMAP
 # Options: "exhaustive" (matches every image against every other) or "sequential" (matches successive images)
@@ -86,7 +94,7 @@ align_pcd = true  # Default: true
 qc_check = true  # Default: true
 # Median absolute deviation factor to detect outlier camera pose
 mad_factor = 3.0  # Default: 3.
-# The list of metrics to use to detect the outliers using the MAD method.
+# List of metrics to use to detect the outliers using the MAD method.
 metrics = '["xy", "z", "pan", "roll"]'
 # Maximum distance to CNC pose to validate COLMAP pose estimation
 distance_threshold = 3.0  # Default: 3.0mm
@@ -102,21 +110,21 @@ max_blind_angle = 20.0  # Default: 20.0 (degrees)
 retry_count = 10  # Default: 10
 
 [Undistort]
-# The upstream task that provides the input files
+# Upstream task that provides the input files
 upstream_task = "ImagesFilesetExists"  # Default: "ImagesFilesetExists"
 # Query to filter files from upstream task by metadata
 query = "{\"channel\":\"rgb\", \"pose_estimation\":\"correct\"}"  # RGB images with a valid COLMAP pose
 
 [Masks]
-# The upstream task that provides input images
+# Upstream task that provides input images
 # Options: "Undistort", "ImagesFilesetExists"
 upstream_task = "Undistort"  # Default: "Undistort"
 # Query to filter files from upstream task by metadata
 query = "{\"channel\":\"rgb\"}"  # Default: "{\"channel\":\"rgb\"}"  (only RGB images)
-# The type of image transformation algorithm to use prior to masking
+# Type of image transformation algorithm to use prior to masking
 # Options: "linear" (linear combination of the channels (RGB, HSV, YCbCr), "excess_green" (excess green index)
 method = "linear"  # Default: "linear"
-# The colorspace to use for the filtering
+# Colorspace to use for the filtering
 # Options: "RGB", "HSV", "YCbCr"
 colorspace = "RGB"  # Default: "RGB"
 # Linear coefficients to apply to each channel of the original image in the selected colorspace
@@ -141,7 +149,6 @@ method = "averaging"  # Default: "averaging"
 [Voxels.bounding_box]
 # 3D bounding box defining the region of interest for reconstruction
 # Default: None (uses the entire volume)
-# The values works with the 'real_plant' test data
 x = [270, 465, ]
 y = [270, 465, ]
 z = [-320, 50, ]
@@ -149,7 +156,7 @@ z = [-320, 50, ]
 [PointCloud]
 # Task that provides the voxel array as input
 upstream_task = "Voxels"  # Default: "Voxels"
-# The algorithm to use to compute the pointcloud
+# Algorithm to use to compute the pointcloud
 algorithm = "marching-cubes"  # Default: "marching-cubes"
 # Distance of the level set on which the points are sampled
 level_set_value = 1.0  # Default: 1.0
