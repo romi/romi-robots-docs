@@ -6209,10 +6209,18 @@ bash<span class="w"> </span><span class="si">${</span><span class="nv">HOME</spa
 <p class="admonition-title">Reference</p>
 <p>Full list of configurable options <a href="https://github.com/romi/plant-3d-vision/blob/dev/configs/geom_pipe_full.toml">here</a>.</p>
 </div>
+<p>The high‑level flow is:</p>
+<ol>
+<li><code>Colmap</code>: Sparse (and optionally dense) 3‑D reconstruction from raw images.</li>
+<li><code>Undistort</code>: Optional image undistortion using the chosen camera model or calibration data.</li>
+<li><code>Masks</code>: 2‑D binary mask generation from undistorted images.</li>
+<li><code>Voxels</code>: Back-projection of the masked images.</li>
+<li><code>PointCloud</code>: Generation of a point cloud from the voxels.</li>
+</ol>
 <div class="highlight"><pre><span></span><code><span class="k">[Colmap]</span>
-<span class="c1"># The upstream task that provides the input files</span>
+<span class="c1"># Upstream task that provides the input files</span>
 <span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ImagesFilesetExists&quot;</span><span class="w">  </span><span class="c1"># Default: &quot;ImagesFilesetExists&quot;</span>
-<span class="c1"># The colmap &quot;executable&quot; to use</span>
+<span class="c1"># Colmap &quot;executable&quot; to use</span>
 <span class="n">colmap_exe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;roboticsmicrofarms/colmap:3.8&quot;</span>
 <span class="c1"># Type of matcher to use with COLMAP</span>
 <span class="c1"># Options: &quot;exhaustive&quot; (matches every image against every other) or &quot;sequential&quot; (matches successive images)</span>
@@ -6227,7 +6235,7 @@ bash<span class="w"> </span><span class="si">${</span><span class="nv">HOME</spa
 <span class="n">qc_check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="w">  </span><span class="c1"># Default: true</span>
 <span class="c1"># Median absolute deviation factor to detect outlier camera pose</span>
 <span class="n">mad_factor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c1"># Default: 3.</span>
-<span class="c1"># The list of metrics to use to detect the outliers using the MAD method.</span>
+<span class="c1"># List of metrics to use to detect the outliers using the MAD method.</span>
 <span class="n">metrics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;[&quot;xy&quot;, &quot;z&quot;, &quot;pan&quot;, &quot;roll&quot;]&#39;</span>
 <span class="c1"># Maximum distance to CNC pose to validate COLMAP pose estimation</span>
 <span class="n">distance_threshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.0</span><span class="w">  </span><span class="c1"># Default: 3.0mm</span>
@@ -6243,21 +6251,21 @@ bash<span class="w"> </span><span class="si">${</span><span class="nv">HOME</spa
 <span class="n">retry_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w">  </span><span class="c1"># Default: 10</span>
 
 <span class="k">[Undistort]</span>
-<span class="c1"># The upstream task that provides the input files</span>
+<span class="c1"># Upstream task that provides the input files</span>
 <span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;ImagesFilesetExists&quot;</span><span class="w">  </span><span class="c1"># Default: &quot;ImagesFilesetExists&quot;</span>
 <span class="c1"># Query to filter files from upstream task by metadata</span>
 <span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">channel</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">rgb</span><span class="se">\&quot;</span><span class="s2">, </span><span class="se">\&quot;</span><span class="s2">pose_estimation</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">correct</span><span class="se">\&quot;</span><span class="s2">}&quot;</span><span class="w">  </span><span class="c1"># RGB images with a valid COLMAP pose</span>
 
 <span class="k">[Masks]</span>
-<span class="c1"># The upstream task that provides input images</span>
+<span class="c1"># Upstream task that provides input images</span>
 <span class="c1"># Options: &quot;Undistort&quot;, &quot;ImagesFilesetExists&quot;</span>
 <span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Undistort&quot;</span><span class="w">  </span><span class="c1"># Default: &quot;Undistort&quot;</span>
 <span class="c1"># Query to filter files from upstream task by metadata</span>
 <span class="n">query</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">channel</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">rgb</span><span class="se">\&quot;</span><span class="s2">}&quot;</span><span class="w">  </span><span class="c1"># Default: &quot;{\&quot;channel\&quot;:\&quot;rgb\&quot;}&quot;  (only RGB images)</span>
-<span class="c1"># The type of image transformation algorithm to use prior to masking</span>
+<span class="c1"># Type of image transformation algorithm to use prior to masking</span>
 <span class="c1"># Options: &quot;linear&quot; (linear combination of the channels (RGB, HSV, YCbCr), &quot;excess_green&quot; (excess green index)</span>
 <span class="n">method</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;linear&quot;</span><span class="w">  </span><span class="c1"># Default: &quot;linear&quot;</span>
-<span class="c1"># The colorspace to use for the filtering</span>
+<span class="c1"># Colorspace to use for the filtering</span>
 <span class="c1"># Options: &quot;RGB&quot;, &quot;HSV&quot;, &quot;YCbCr&quot;</span>
 <span class="n">colorspace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;RGB&quot;</span><span class="w">  </span><span class="c1"># Default: &quot;RGB&quot;</span>
 <span class="c1"># Linear coefficients to apply to each channel of the original image in the selected colorspace</span>
@@ -6282,7 +6290,6 @@ bash<span class="w"> </span><span class="si">${</span><span class="nv">HOME</spa
 <span class="k">[Voxels.bounding_box]</span>
 <span class="c1"># 3D bounding box defining the region of interest for reconstruction</span>
 <span class="c1"># Default: None (uses the entire volume)</span>
-<span class="c1"># The values works with the &#39;real_plant&#39; test data</span>
 <span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="mi">465</span><span class="p">,</span><span class="w"> </span><span class="p">]</span>
 <span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="mi">465</span><span class="p">,</span><span class="w"> </span><span class="p">]</span>
 <span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">-320</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="p">]</span>
@@ -6290,7 +6297,7 @@ bash<span class="w"> </span><span class="si">${</span><span class="nv">HOME</spa
 <span class="k">[PointCloud]</span>
 <span class="c1"># Task that provides the voxel array as input</span>
 <span class="n">upstream_task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;Voxels&quot;</span><span class="w">  </span><span class="c1"># Default: &quot;Voxels&quot;</span>
-<span class="c1"># The algorithm to use to compute the pointcloud</span>
+<span class="c1"># Algorithm to use to compute the pointcloud</span>
 <span class="n">algorithm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;marching-cubes&quot;</span><span class="w">  </span><span class="c1"># Default: &quot;marching-cubes&quot;</span>
 <span class="c1"># Distance of the level set on which the points are sampled</span>
 <span class="n">level_set_value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="w">  </span><span class="c1"># Default: 1.0</span>
