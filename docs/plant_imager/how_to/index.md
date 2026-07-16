@@ -22,7 +22,7 @@ To get detailed instructions on how to perform tasks like data _acquisition_, _r
 
 ## Exploratory Analysis
 
-- [How to Explore Reconstruction and Quantification with the **Plant 3D Explorer**]()
+- [How to Explore Reconstruction and Quantification with the _Plant 3D Explorer_](explore_plant_quantif.md)
 
 ## Tasks details
 
