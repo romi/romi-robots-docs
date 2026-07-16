@@ -4,7 +4,7 @@
 
 To get detailed instructions on how to perform tasks like data _acquisition_, _reconstruction_ and _quantification_, follows these instructions:
 
-### Acquisitions
+## Acquisitions
 
 - [How to Scan Plants with _Plant Imager 2.1_](scan_plant_imager_2.1.md)
 - [How to Scan Plants with _Plant Imager 3_](scan_plant_imager_3.md)
