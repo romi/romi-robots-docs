@@ -17,6 +17,7 @@ To get detailed instructions on how to perform tasks like data _acquisition_, _r
 - [How to Choose Linear Coefficients and Threshold Parameters for Plant‑Mask Generation](select_linear_params.md)
 - [How to Reconstruct Plants with the _Geometric Pipeline_](reconstruct_plant_geom.md)
 - [How to Reconstruct Plants with the _ML Pipeline_](reconstruct_plant_ml.md)
+- [How to Reconstruct Virtual Plants with the _Geometric Pipeline_](reconstruct_vplant_geom.md)
 
 ## Exploratory Analysis
 
