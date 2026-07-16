@@ -6136,17 +6136,18 @@ The guide assumes basic familiarity with a terminal and with the ROMI folder lay
 <ol>
 <li>
 <p><strong>Copy the raw acquisition folder</strong> to a separate analysis location so the original files stay untouched.</p>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/data/ROMI/Romi_Fabfab/acquisitions/experiment_X<span class="w"> </span><span class="se">\</span>
-<span class="w">      </span>/data/ROMI/Romi_Fabfab/analysis/experiment_X
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>/data/ROMI/2026_scans/acquisitions/experiment_X<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>/data/ROMI/2026_scans/analysis/experiment_X
 </code></pre></div>
 </li>
 <li>
-<p>Verify that the copy contains the expected image sub‑folders (e.g., <code>rgb/</code>, <code>metadata/</code>).</p>
+<p>Verify that the copy contains the expected image sub‑folders (e.g., <code>images/</code>, <code>metadata/</code>).</p>
 </li>
 </ol>
 <hr />
 <h2 id="2-start-the-execution-environment">2. Start the execution environment<a class="headerlink" href="#2-start-the-execution-environment" title="Permanent link">Link</a></h2>
-<p>You may work either in the conda environment <strong>or</strong> in a Docker container. Choose the option that matches your workflow.</p>
+<p>You may work either in the <code>plant3dvision</code> conda environment <strong>or</strong> in a <strong>Docker</strong> container provided by ROMI.
+Choose the option that matches your workflow.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Conda</label><label for="__tabbed_1_2">Docker</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -6156,8 +6157,8 @@ The guide assumes basic familiarity with a terminal and with the ROMI folder lay
 </div>
 <div class="tabbed-block">
 <p>Set the <code>ROMI_DB</code> &amp; <code>ROMI_CFG</code> environment variable, defining the location of the database and configuration folders, then start the container:
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROMI_DB</span><span class="o">=</span>/data/ROMI/Romi_Fabfab/analysis/experiment_X
-<span class="nb">export</span><span class="w"> </span><span class="nv">ROMI_CFG</span><span class="o">=</span>/data/ROMI/Romi_Fabfab/configs
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROMI_DB</span><span class="o">=</span>/data/ROMI/2026_scans/analysis/experiment_X
+<span class="nb">export</span><span class="w"> </span><span class="nv">ROMI_CFG</span><span class="o">=</span>/data/ROMI/configs
 bash<span class="w"> </span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/Projects/plant-3d-vision/docker/run.sh<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span><span class="si">${</span><span class="nv">ROMI_CFG</span><span class="si">}</span>:/myapp/configs<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-t<span class="w"> </span>latest<span class="w"> </span><span class="se">\</span>
@@ -6172,8 +6173,8 @@ bash<span class="w"> </span><span class="si">${</span><span class="nv">HOME</spa
 </div>
 <hr />
 <h2 id="3-confirm-the-pipeline-configuration">3. Confirm the pipeline configuration<a class="headerlink" href="#3-confirm-the-pipeline-configuration" title="Permanent link">Link</a></h2>
-<p>The reconstruction pipeline reads a TOML file, for example <code>/data/ROMI/Romi_Fabfab/configs/pipeline.toml</code>.</p>
-<p>Open it and make sure the sections that affect your data are set correctly:</p>
+<p>The reconstruction pipeline reads a TOML file (for example <code>/data/ROMI/configs/pipeline.toml</code>).<br />
+Open it and verify that the sections below match the characteristics of your dataset.</p>
 <table>
 <thead>
 <tr>
@@ -6317,11 +6318,15 @@ bash<span class="w"> </span><span class="si">${</span><span class="nv">HOME</spa
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Conda</label><label for="__tabbed_2_2">Docker</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span>/data/ROMI/Romi_Fabfab/analysis/my_awesome_plant_007<span class="w"> </span>--config<span class="w"> </span>/data/ROMI/configs/pipeline.toml
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/data/ROMI/2026_scans/analysis/my_awesome_plant_007<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--config<span class="w"> </span>/data/ROMI/configs/pipeline.toml
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span>/myapp/db/my_awesome_plant_007<span class="w"> </span>--config<span class="w"> </span>/myapp/configs/pipeline.toml
+<div class="highlight"><pre><span></span><code>romi_run_task<span class="w"> </span>PointCloud<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/myapp/db/my_awesome_plant_007<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--config<span class="w"> </span>/myapp/configs/pipeline.toml
 </code></pre></div>
 </div>
 </div>
