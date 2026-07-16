@@ -6,9 +6,8 @@ To get detailed instructions on how to perform tasks like data _acquisition_, _r
 
 ### Acquisitions
 
-- [How to **Scan Plants** with _Plant Imager 2.1_](scan_plant_imager_2.1.md)
-- [How to **Scan Plants** with _Plant Imager 3_](scan_plant_imager_3.md)
-- [How to Scan VirtualPlants with th **Plant Imager 3**](scan_plant_imager_3.md)
+- [How to Scan Plants with _Plant Imager 2.1_](scan_plant_imager_2.1.md)
+- [How to Scan Plants with _Plant Imager 3_](scan_plant_imager_3.md)
 - [How to Scan Virtual Plants with the _Virtual Plant Imager_](scan_virtual_plant.md)
 
 ## Reconstructions & Quantification
@@ -18,6 +17,8 @@ To get detailed instructions on how to perform tasks like data _acquisition_, _r
 - [How to Choose Linear Coefficients and Threshold Parameters for Plant‑Mask Generation](select_linear_params.md)
 - [How to Reconstruct Plants with the **Geometric Pipeline**](reconstruct_plant_geom.md)
 - [How to Reconstruct Plants with the **ML Pipeline**](reconstruct_plant_ml.md)
+- [How to Reconstruct Plants with the _Geometric Pipeline_](reconstruct_plant_geom.md)
+- [How to Reconstruct Plants with the _ML Pipeline_](reconstruct_plant_ml.md)
 
 ## Exploratory Analysis
 
