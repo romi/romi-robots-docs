@@ -12,17 +12,18 @@ The guide assumes basic familiarity with a terminal and with the ROMI folder lay
 1. **Copy the raw acquisition folder** to a separate analysis location so the original files stay untouched.
 
     ```shell
-    cp /data/ROMI/Romi_Fabfab/acquisitions/experiment_X \
-          /data/ROMI/Romi_Fabfab/analysis/experiment_X
+    cp /data/ROMI/2026_scans/acquisitions/experiment_X \
+          /data/ROMI/2026_scans/analysis/experiment_X
     ```
 
-2. Verify that the copy contains the expected image sub‑folders (e.g., `rgb/`, `metadata/`).
+2. Verify that the copy contains the expected image sub‑folders (e.g., `images/`, `metadata/`).
 
 ---
 
 ## 2. Start the execution environment
 
-You may work either in the conda environment **or** in a Docker container. Choose the option that matches your workflow.
+You may work either in the `plant3dvision` conda environment **or** in a **Docker** container provided by ROMI.
+Choose the option that matches your workflow.
 
 === "Conda"
 
@@ -35,8 +36,8 @@ You may work either in the conda environment **or** in a Docker container. Choos
 
     Set the `ROMI_DB` & `ROMI_CFG` environment variable, defining the location of the database and configuration folders, then start the container:
     ```bash
-    export ROMI_DB=/data/ROMI/Romi_Fabfab/analysis/experiment_X
-    export ROMI_CFG=/data/ROMI/Romi_Fabfab/configs
+    export ROMI_DB=/data/ROMI/2026_scans/analysis/experiment_X
+    export ROMI_CFG=/data/ROMI/configs
     bash ${HOME}/Projects/plant-3d-vision/docker/run.sh \
         -v ${ROMI_CFG}:/myapp/configs \
         -t latest \
@@ -50,9 +51,8 @@ You may work either in the conda environment **or** in a Docker container. Choos
 
 ## 3. Confirm the pipeline configuration
 
-The reconstruction pipeline reads a TOML file, for example `/data/ROMI/Romi_Fabfab/configs/pipeline.toml`.
-
-Open it and make sure the sections that affect your data are set correctly:
+The reconstruction pipeline reads a TOML file (for example `/data/ROMI/configs/pipeline.toml`).  
+Open it and verify that the sections below match the characteristics of your dataset.
 
 | Section        | Typical things to check                                                        |
 |----------------|--------------------------------------------------------------------------------|
@@ -180,13 +180,17 @@ Replace `my_awesome_plant_007` with the identifier you want for the output plant
 === "Conda"
 
     ```bash
-    romi_run_task PointCloud /data/ROMI/Romi_Fabfab/analysis/my_awesome_plant_007 --config /data/ROMI/configs/pipeline.toml
+    romi_run_task PointCloud \
+        /data/ROMI/2026_scans/analysis/my_awesome_plant_007 \
+        --config /data/ROMI/configs/pipeline.toml
     ```
 
 === "Docker"
 
     ```bash
-    romi_run_task PointCloud /myapp/db/my_awesome_plant_007 --config /myapp/configs/pipeline.toml
+    romi_run_task PointCloud \
+        /myapp/db/my_awesome_plant_007 \
+        --config /myapp/configs/pipeline.toml
     ```
 
 - **If the command finishes without error**, a point‑cloud file will appear in the analysis folder (`pointcloud.ply` by default).
