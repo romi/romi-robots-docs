@@ -6038,8 +6038,11 @@
 <div class="highlight"><pre><span></span><code>/data/ROMI/vscans/analysis/experiment_01/
 ├── images/                # RGB renders produced by the Virtual Plant Imager
 ├── metadata/
-│   └── images.json        # per‑image camera pose &amp; acquisition info
-├── VirtualPlant.obj       # ground‑truth OBJ (used for evaluation)
+│   ├── images/            # per‑image camera pose &amp; acquisition info
+│   └── images.json
+├── VirtualPlant_XXX/
+│   └── VirtualPlant.obj   # ground‑truth OBJ (used for evaluation)
+├── measures.json          # ground-truth angles and internodes distance measures (used for evaluation)
 └── scan.toml              # configuration used to generate the virtual scan
 </code></pre></div></p>
 </li>
@@ -6085,7 +6088,11 @@ Open it and verify that the sections below match the characteristics of your dat
 <tbody>
 <tr>
 <td><code>[Voxels]</code></td>
-<td><code>voxel_size</code> (keep ≈ 0.06 mm for synthetic data) and <code>invert = true</code> (because masks are background‑inverted)</td>
+<td><code>voxel_size</code> (keep ≈ 0.06 mm for synthetic data)</td>
+</tr>
+<tr>
+<td><code>[Voxels]</code></td>
+<td><code>invert = true</code> (because masks are background‑inverted)</td>
 </tr>
 <tr>
 <td><code>[PointCloud]</code></td>
