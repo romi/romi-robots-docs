@@ -12,6 +12,7 @@ To get detailed instructions on how to perform tasks like data _acquisition_, _r
 
 ## Reconstructions & Quantification
 
+- [How to Fix World Frame for Older Scan Datasets](fix_world_frame.md)
 - [How to Choose Linear Coefficients and Threshold Parameters for Plant‑Mask Generation](select_linear_params.md)
 - [How to Reconstruct Plants with the **Geometric Pipeline**](reconstruct_plant_geom.md)
 - [How to Reconstruct Plants with the **ML Pipeline**](reconstruct_plant_ml.md)
