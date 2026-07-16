@@ -20,8 +20,11 @@
     /data/ROMI/vscans/analysis/experiment_01/
     ├── images/                # RGB renders produced by the Virtual Plant Imager
     ├── metadata/
-    │   └── images.json        # per‑image camera pose & acquisition info
-    ├── VirtualPlant.obj       # ground‑truth OBJ (used for evaluation)
+    │   ├── images/            # per‑image camera pose & acquisition info
+    │   └── images.json
+    ├── VirtualPlant_XXX/
+    │   └── VirtualPlant.obj   # ground‑truth OBJ (used for evaluation)
+    ├── measures.json          # ground-truth angles and internodes distance measures (used for evaluation)
     └── scan.toml              # configuration used to generate the virtual scan
     ```
 
@@ -61,10 +64,11 @@ Choose the option that matches your workflow.
 The reconstruction pipeline reads a TOML file (for example `/data/ROMI/configs/pipeline_vplant.toml`).  
 Open it and verify that the sections below match the characteristics of your dataset.
 
-| Section                   | What to check (virtual‑plant specific)                                                                       |
-|---------------------------|--------------------------------------------------------------------------------------------------------------|
-| `[Voxels]`                | `voxel_size` (keep ≈ 0.06 mm for synthetic data) and `invert = true` (because masks are background‑inverted) |
-| `[PointCloud]`            | `missing_images_threshold = 0` (all images are expected)                          |
+| Section        | What to check (virtual‑plant specific)                                                                       |
+|----------------|--------------------------------------------------------------------------------------------------------------|
+| `[Voxels]`     | `voxel_size` (keep ≈ 0.06 mm for synthetic data) |
+| `[Voxels]`     | `invert = true` (because masks are background‑inverted) |
+| `[PointCloud]` | `missing_images_threshold = 0` (all images are expected)                                                     |
 
 If you need to tweak a value, edit the file and save it **before** launching the task.
 
