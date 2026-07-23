@@ -22,6 +22,7 @@ To get detailed instructions on how to perform tasks like data _acquisition_, _r
 ## Exploratory Analysis
 
 - [How to Explore Reconstruction and Quantification with the _Plant 3D Explorer_](explore_plant_quantif.md)
+- [How to extract phyllotactic angle and internode measurements from a PlantDB database](collect_angles_and_internodes.md)
 
 ## Tasks details
 
