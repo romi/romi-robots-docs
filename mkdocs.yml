@@ -110,7 +110,11 @@ nav:
           - 'Plant Scan':
               - plant_imager/how_to/scan_plant_imager_2.1.md
               - plant_imager/how_to/scan_plant_imager_3.md
+              - plant_imager/how_to/scan_virtual_plant.md
           - 'Plant Reconstruction':
+              - plant_imager/how_to/fix_reconstruction_pipeline.md
+              - plant_imager/how_to/fix_world_frame.md
+              - plant_imager/how_to/select_linear_params.md
               - plant_imager/how_to/select_linear_params.md
               - plant_imager/how_to/reconstruct_plant_geom.md
               - plant_imager/how_to/reconstruct_plant_ml.md
