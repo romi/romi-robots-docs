@@ -6368,7 +6368,8 @@
 
 
 <h1 id="how-to-extract-phyllotactic-angle-and-internode-measurements-from-a-plantdb-database">How to extract phyllotactic angle and internode measurements from a PlantDB database<a class="headerlink" href="#how-to-extract-phyllotactic-angle-and-internode-measurements-from-a-plantdb-database" title="Permanent link">Link</a></h1>
-<p><em>Goal</em>: Obtain a single CSV file that lists, for each plant scan, the genotype, plant ID, internode order, angle (in radians or degrees), and internode length.
+<p><strong>Goal</strong>:
+Obtain a single CSV file that lists, for each plant scan, the genotype, plant ID, internode order, angle (in radians or degrees), and internode length.
 This file can be imported into downstream statistical or visualization tools.</p>
 <hr />
 <h2 id="stepbystep-workflow">Step‑by‑step workflow<a class="headerlink" href="#stepbystep-workflow" title="Permanent link">Link</a></h2>
@@ -6380,30 +6381,26 @@ This file can be imported into downstream statistical or visualization tools.</p
 <ol>
 <li>Run the CLI on the whole database, converting radian angles to degrees</li>
 </ol>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span>/path/to/your/database
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/path/to/your/database
 </code></pre></div>
-<div class="admonition what happens">
-<p class="admonition-title">What</p>
-</div>
-<p>The script scans every scan in the database, keeps only those that contain the <code>AnglesAndInternodes.json</code> file, concatenates the measurements, and writes <code>your_database_name_measures.csv</code> inside the database folder.</p>
+<p><strong>What happens</strong>: 
+The script scans every scan in the database, keeps only those that contain the <code>AnglesAndInternodes.json</code> file, concatenates the measurements, and writes <code>your_database_name_measures.csv</code> inside the database folder.</p>
 <div class="admonition tips">
 <p class="admonition-title">Tips</p>
 </div>
 <p><code>-r</code> / <code>--to_degrees</code> tells the CLI to apply <code>math.degrees()</code> to each angle before writing the CSV.</p>
 <h2 id="cli-options">CLI Options<a class="headerlink" href="#cli-options" title="Permanent link">Link</a></h2>
 <h3 id="extract-only-a-subset-of-scans-eg-all-col0-plants">Extract only a subset of scans (e.g., all <em>Col‑0</em> plants)<a class="headerlink" href="#extract-only-a-subset-of-scans-eg-all-col0-plants" title="Permanent link">Link</a></h3>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span>/path/to/your/database<span class="w"> </span>-r<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;^Col-0&quot;</span>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/path/to/your/database<span class="w"> </span>-r<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;Col-0*&quot;</span>
 </code></pre></div>
-<ul>
-<li>How the filter works<ul>
-<li><code>-f</code> / <code>--filter</code> expects a <strong>regular‑expression</strong> that is matched against the full scan ID.</li>
-<li><code>"^Col-0"</code> selects any scan whose ID starts with <code>Col-0</code>.</li>
-<li>Adjust the pattern to fit your naming scheme (e.g., <code>"E2_.*_2023"</code>).</li>
-</ul>
-</li>
-</ul>
+<p>How the filter works:
+    - <code>-f</code> / <code>--filter</code> expects a <strong>regular‑expression</strong> that is matched against the full scan ID.
+    - <code>"Col-0*"</code> selects any scan whose ID starts with <code>Col-0</code>.</p>
 <h3 id="preview-which-scans-would-be-processed-without-writing-a-file">Preview which scans would be processed without writing a file<a class="headerlink" href="#preview-which-scans-would-be-processed-without-writing-a-file" title="Permanent link">Link</a></h3>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span>/path/to/your/database<span class="w"> </span>-c
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/path/to/your/database<span class="w"> </span>-c
 </code></pre></div>
 <p><em><code>-c</code> / <code>--check_only</code></em> prints two lists:</p>
 <ol>
@@ -6412,8 +6409,9 @@ This file can be imported into downstream statistical or visualization tools.</p
 </ol>
 <p>Use this step to verify your filter expression before running a full extraction.</p>
 <h3 id="choose-a-custom-output-filename-andor-destination-folder">Choose a custom output filename and/or destination folder<a class="headerlink" href="#choose-a-custom-output-filename-andor-destination-folder" title="Permanent link">Link</a></h3>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span>/path/to/your/database<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-r<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;^Col-0&quot;</span><span class="w"> </span>-o<span class="w"> </span>col0_measures.tsv<span class="w"> </span>-p<span class="w"> </span>/path/to/results/
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/path/to/your/database<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-r<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;Col-0*&quot;</span><span class="w"> </span>-o<span class="w"> </span>col0_measures.tsv<span class="w"> </span>-p<span class="w"> </span>/path/to/results/
 </code></pre></div>
 <table>
 <thead>
