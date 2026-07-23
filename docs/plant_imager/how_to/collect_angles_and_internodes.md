@@ -1,6 +1,7 @@
 # How to extract phyllotactic angle and internode measurements from a PlantDB database
 
-*Goal*: Obtain a single CSV file that lists, for each plant scan, the genotype, plant ID, internode order, angle (in radians or degrees), and internode length.
+**Goal**:
+Obtain a single CSV file that lists, for each plant scan, the genotype, plant ID, internode order, angle (in radians or degrees), and internode length.
 This file can be imported into downstream statistical or visualization tools.
 
 ---
@@ -16,10 +17,11 @@ This file can be imported into downstream statistical or visualization tools.
 2. Run the CLI on the whole database, converting radian angles to degrees
 
   ```shell
-  python plant3dvision/cli/collect_angles_and_internodes.py /path/to/your/database
+  python plant3dvision/cli/collect_angles_and_internodes.py \
+      /path/to/your/database
   ```
 
-!!! What happens
+**What happens**: 
 The script scans every scan in the database, keeps only those that contain the `AnglesAndInternodes.json` file, concatenates the measurements, and writes `your_database_name_measures.csv` inside the database folder.
 
 !!! Tips
@@ -30,18 +32,19 @@ The script scans every scan in the database, keeps only those that contain the `
 ### Extract only a subset of scans (e.g., all *Col‑0* plants)
 
 ```shell
-python plant3dvision/cli/collect_angles_and_internodes.py /path/to/your/database -r -f "^Col-0"
+python plant3dvision/cli/collect_angles_and_internodes.py \
+    /path/to/your/database -r -f "Col-0*"
 ```
 
-* How the filter works
+How the filter works:
     - `-f` / `--filter` expects a **regular‑expression** that is matched against the full scan ID.
-    - `"^Col-0"` selects any scan whose ID starts with `Col-0`.
-    - Adjust the pattern to fit your naming scheme (e.g., `"E2_.*_2023"`).
+    - `"Col-0*"` selects any scan whose ID starts with `Col-0`.
 
 ### Preview which scans would be processed without writing a file
 
 ```shell
-python plant3dvision/cli/collect_angles_and_internodes.py /path/to/your/database -c
+python plant3dvision/cli/collect_angles_and_internodes.py \
+    /path/to/your/database -c
 ```
 
 *`-c` / `--check_only`* prints two lists:
@@ -54,8 +57,9 @@ Use this step to verify your filter expression before running a full extraction.
 ### Choose a custom output filename and/or destination folder
 
 ```shell
-python plant3dvision/cli/collect_angles_and_internodes.py /path/to/your/database \
-    -r -f "^Col-0" -o col0_measures.tsv -p /path/to/results/
+python plant3dvision/cli/collect_angles_and_internodes.py \
+    /path/to/your/database \
+    -r -f "Col-0*" -o col0_measures.tsv -p /path/to/results/
 ```
 
 | Option            | Meaning                                                                               |
