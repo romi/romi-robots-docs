@@ -9,36 +9,37 @@ This file can be imported into downstream statistical or visualization tools.
 ## Step‑by‑step workflow
 
 1. Open a terminal and activate your conda environment
-
   ```shell
   conda activate plant3dvision
   ```
-
 2. Run the CLI on the whole database, converting radian angles to degrees
-
   ```shell
   python plant3dvision/cli/collect_angles_and_internodes.py \
       /path/to/your/database
   ```
 
-**What happens**: 
-The script scans every scan in the database, keeps only those that contain the `AnglesAndInternodes.json` file, concatenates the measurements, and writes `your_database_name_measures.csv` inside the database folder.
+Using the option `-r` / `--to_degrees` tells the CLI to apply `math.degrees()` to each angle before writing the CSV.
 
-!!! Tips
-`-r` / `--to_degrees` tells the CLI to apply `math.degrees()` to each angle before writing the CSV.
+**What happens**:
+
+- the script iterates over every scan in the database,
+- it keeps only those that contain the `AnglesAndInternodes.json` file,
+- it concatenates the measurements,
+- it writes a CSV table inside the specified folder.
 
 ## CLI Options
 
-### Extract only a subset of scans (e.g., all *Col‑0* plants)
+### Extract only a subset of scans (_e.g._, all *Col‑0* plants)
 
 ```shell
 python plant3dvision/cli/collect_angles_and_internodes.py \
     /path/to/your/database -r -f "Col-0*"
 ```
 
-How the filter works:
-    - `-f` / `--filter` expects a **regular‑expression** that is matched against the full scan ID.
-    - `"Col-0*"` selects any scan whose ID starts with `Col-0`.
+**How the filter works**:
+
+- the option `-f` / `--filter` expects a **regular‑expression** that is matched against the full scan ID.
+- `"Col-0*"` selects any scan whose ID starts with `Col-0`.
 
 ### Preview which scans would be processed without writing a file
 
@@ -47,10 +48,10 @@ python plant3dvision/cli/collect_angles_and_internodes.py \
     /path/to/your/database -c
 ```
 
-*`-c` / `--check_only`* prints two lists:
+Using the option `-c` / `--check_only` prints two lists:
 
-1. **Valid datasets** – scans that contain a well‑formed `AnglesAndInternodes.json`.
-2. **Discarded datasets** – scans that were filtered out or lacked the required file, together with a brief reason.
+1. **Valid datasets**: scans that contain a well‑formed `AnglesAndInternodes.json`.
+2. **Discarded datasets**: scans that were filtered out or lacked the required file, together with a brief reason.
 
 Use this step to verify your filter expression before running a full extraction.
 
@@ -74,22 +75,22 @@ Open it with LibreOffice Calc, R, Python `pandas.read_csv(..., sep="\t")`, or an
 
 Typical columns:
 
-| Column           | Description                                                    |
-|------------------|----------------------------------------------------------------|
-| `Genotype`       | Genotype label taken from the scan’s metadata (e.g., `Col-0`). |
-| `Plant`          | Scan identifier (the folder name).                             |
-| `Order_Interval` | Internode/angle index (1, 2, 3, ...).                          |
-| `Angles`         | Angle value (radians *or* degrees, depending on `-r`).         |
-| `Internodes`     | Internode length (as recorded by ROMI).                        |
+| Column           | Description                                                  |
+|------------------|--------------------------------------------------------------|
+| `Genotype`       | Genotype label taken from the scan’s metadata (_e.g._, `Col-0`). |
+| `Plant`          | Scan identifier (the folder name).                           |
+| `Order_Interval` | Internode/angle index (1, 2, 3, ...).                        |
+| `Angles`         | Angle value (radians *or* degrees, depending on `-r`).       |
+| `Internodes`     | Internode length.                                            |
 
 ## Handling warnings (if any)
 
 The CLI may print two kinds of warnings:
 
 1. **Empty measure
-   files** – the JSON existed but contained no data. The corresponding rows are omitted from the final CSV.
+   files**: the JSON existed but contained no data. The corresponding rows are omitted from the final CSV.
 2. **Very low angle
-   values** – if the mean angle is `< 10`, the script suspects you may have unintentionally left angles in radians when your downstream analysis expects degrees. Re‑run with `-r` if needed.
+   values**: if the mean angle is `< 10`, the script suspects you may have unintentionally left angles in radians when your downstream analysis expects degrees. Re‑run with `-r` if needed.
 
 ---
 
@@ -111,12 +112,12 @@ The CLI may print two kinds of warnings:
 python plant3dvision/cli/collect_angles_and_internodes.py /path/to/db
 
 # Degrees + filter to Col‑0 only
-python plant3dvision/cli/collect_angles_and_internodes.py /path/to/db -r -f "^Col-0"
+python plant3dvision/cli/collect_angles_and_internodes.py /path/to/db -r -f "Col-0*"
 
 # Dry‑run – list what would be processed
 python plant3dvision/cli/collect_angles_and_internodes.py /path/to/db -c
 
 # Custom output location
 python plant3dvision/cli/collect_angles_and_internodes.py /path/to/db \
-    -r -f "^Col-0" -o col0_measures.tsv -p /my/results/
+    -r -f "Col-0*" -o col0_measures.tsv -p /my/results/
 ```
