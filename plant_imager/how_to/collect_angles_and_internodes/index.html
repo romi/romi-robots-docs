@@ -6374,38 +6374,40 @@ This file can be imported into downstream statistical or visualization tools.</p
 <hr />
 <h2 id="stepbystep-workflow">Step‑by‑step workflow<a class="headerlink" href="#stepbystep-workflow" title="Permanent link">Link</a></h2>
 <ol>
-<li>Open a terminal and activate your conda environment</li>
-</ol>
-<div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>plant3dvision
-</code></pre></div>
-<ol>
-<li>Run the CLI on the whole database, converting radian angles to degrees</li>
-</ol>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span><span class="se">\</span>
+<li>Open a terminal and activate your conda environment
+  <div class="highlight"><pre><span></span><code>conda<span class="w"> </span>activate<span class="w"> </span>plant3dvision
+</code></pre></div></li>
+<li>Run the CLI on the whole database, converting radian angles to degrees
+  <div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>/path/to/your/database
-</code></pre></div>
-<p><strong>What happens</strong>: 
-The script scans every scan in the database, keeps only those that contain the <code>AnglesAndInternodes.json</code> file, concatenates the measurements, and writes <code>your_database_name_measures.csv</code> inside the database folder.</p>
-<div class="admonition tips">
-<p class="admonition-title">Tips</p>
-</div>
-<p><code>-r</code> / <code>--to_degrees</code> tells the CLI to apply <code>math.degrees()</code> to each angle before writing the CSV.</p>
+</code></pre></div></li>
+</ol>
+<p>Using the option <code>-r</code> / <code>--to_degrees</code> tells the CLI to apply <code>math.degrees()</code> to each angle before writing the CSV.</p>
+<p><strong>What happens</strong>:</p>
+<ul>
+<li>the script iterates over every scan in the database,</li>
+<li>it keeps only those that contain the <code>AnglesAndInternodes.json</code> file,</li>
+<li>it concatenates the measurements,</li>
+<li>it writes a CSV table inside the specified folder.</li>
+</ul>
 <h2 id="cli-options">CLI Options<a class="headerlink" href="#cli-options" title="Permanent link">Link</a></h2>
-<h3 id="extract-only-a-subset-of-scans-eg-all-col0-plants">Extract only a subset of scans (e.g., all <em>Col‑0</em> plants)<a class="headerlink" href="#extract-only-a-subset-of-scans-eg-all-col0-plants" title="Permanent link">Link</a></h3>
+<h3 id="extract-only-a-subset-of-scans-eg-all-col0-plants">Extract only a subset of scans (<em>e.g.</em>, all <em>Col‑0</em> plants)<a class="headerlink" href="#extract-only-a-subset-of-scans-eg-all-col0-plants" title="Permanent link">Link</a></h3>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>/path/to/your/database<span class="w"> </span>-r<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;Col-0*&quot;</span>
 </code></pre></div>
-<p>How the filter works:
-    - <code>-f</code> / <code>--filter</code> expects a <strong>regular‑expression</strong> that is matched against the full scan ID.
-    - <code>"Col-0*"</code> selects any scan whose ID starts with <code>Col-0</code>.</p>
+<p><strong>How the filter works</strong>:</p>
+<ul>
+<li>the option <code>-f</code> / <code>--filter</code> expects a <strong>regular‑expression</strong> that is matched against the full scan ID.</li>
+<li><code>"Col-0*"</code> selects any scan whose ID starts with <code>Col-0</code>.</li>
+</ul>
 <h3 id="preview-which-scans-would-be-processed-without-writing-a-file">Preview which scans would be processed without writing a file<a class="headerlink" href="#preview-which-scans-would-be-processed-without-writing-a-file" title="Permanent link">Link</a></h3>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>/path/to/your/database<span class="w"> </span>-c
 </code></pre></div>
-<p><em><code>-c</code> / <code>--check_only</code></em> prints two lists:</p>
+<p>Using the option <code>-c</code> / <code>--check_only</code> prints two lists:</p>
 <ol>
-<li><strong>Valid datasets</strong> – scans that contain a well‑formed <code>AnglesAndInternodes.json</code>.</li>
-<li><strong>Discarded datasets</strong> – scans that were filtered out or lacked the required file, together with a brief reason.</li>
+<li><strong>Valid datasets</strong>: scans that contain a well‑formed <code>AnglesAndInternodes.json</code>.</li>
+<li><strong>Discarded datasets</strong>: scans that were filtered out or lacked the required file, together with a brief reason.</li>
 </ol>
 <p>Use this step to verify your filter expression before running a full extraction.</p>
 <h3 id="choose-a-custom-output-filename-andor-destination-folder">Choose a custom output filename and/or destination folder<a class="headerlink" href="#choose-a-custom-output-filename-andor-destination-folder" title="Permanent link">Link</a></h3>
@@ -6445,7 +6447,7 @@ Open it with LibreOffice Calc, R, Python <code>pandas.read_csv(..., sep="\t")</c
 <tbody>
 <tr>
 <td><code>Genotype</code></td>
-<td>Genotype label taken from the scan’s metadata (e.g., <code>Col-0</code>).</td>
+<td>Genotype label taken from the scan’s metadata (<em>e.g.</em>, <code>Col-0</code>).</td>
 </tr>
 <tr>
 <td><code>Plant</code></td>
@@ -6461,7 +6463,7 @@ Open it with LibreOffice Calc, R, Python <code>pandas.read_csv(..., sep="\t")</c
 </tr>
 <tr>
 <td><code>Internodes</code></td>
-<td>Internode length (as recorded by ROMI).</td>
+<td>Internode length.</td>
 </tr>
 </tbody>
 </table>
@@ -6469,9 +6471,9 @@ Open it with LibreOffice Calc, R, Python <code>pandas.read_csv(..., sep="\t")</c
 <p>The CLI may print two kinds of warnings:</p>
 <ol>
 <li><strong>Empty measure
-   files</strong> – the JSON existed but contained no data. The corresponding rows are omitted from the final CSV.</li>
+   files</strong>: the JSON existed but contained no data. The corresponding rows are omitted from the final CSV.</li>
 <li><strong>Very low angle
-   values</strong> – if the mean angle is <code>&lt; 10</code>, the script suspects you may have unintentionally left angles in radians when your downstream analysis expects degrees. Re‑run with <code>-r</code> if needed.</li>
+   values</strong>: if the mean angle is <code>&lt; 10</code>, the script suspects you may have unintentionally left angles in radians when your downstream analysis expects degrees. Re‑run with <code>-r</code> if needed.</li>
 </ol>
 <hr />
 <h2 id="common-troubleshooting-scenarios">Common troubleshooting scenarios<a class="headerlink" href="#common-troubleshooting-scenarios" title="Permanent link">Link</a></h2>
@@ -6512,14 +6514,14 @@ Open it with LibreOffice Calc, R, Python <code>pandas.read_csv(..., sep="\t")</c
 python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span>/path/to/db
 
 <span class="c1"># Degrees + filter to Col‑0 only</span>
-python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span>/path/to/db<span class="w"> </span>-r<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;^Col-0&quot;</span>
+python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span>/path/to/db<span class="w"> </span>-r<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;Col-0*&quot;</span>
 
 <span class="c1"># Dry‑run – list what would be processed</span>
 python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span>/path/to/db<span class="w"> </span>-c
 
 <span class="c1"># Custom output location</span>
 python<span class="w"> </span>plant3dvision/cli/collect_angles_and_internodes.py<span class="w"> </span>/path/to/db<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-r<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;^Col-0&quot;</span><span class="w"> </span>-o<span class="w"> </span>col0_measures.tsv<span class="w"> </span>-p<span class="w"> </span>/my/results/
+<span class="w">    </span>-r<span class="w"> </span>-f<span class="w"> </span><span class="s2">&quot;Col-0*&quot;</span><span class="w"> </span>-o<span class="w"> </span>col0_measures.tsv<span class="w"> </span>-p<span class="w"> </span>/my/results/
 </code></pre></div>
 
 
